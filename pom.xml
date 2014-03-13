@@ -1,0 +1,490 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>javax.measure</groupId>
+	<artifactId>unit-api</artifactId>
+	<version>0.5-SNAPSHOT</version>
+	<name>Units of Measurement API</name>
+	<packaging>pom</packaging>
+	<organization>
+		<name>Units of Measurement project</name>
+		<url>http://www.unitsofmeasurement.org</url>
+	</organization>
+	<inceptionYear>2014</inceptionYear>
+	<licenses>
+		<license>
+			<name>Specification License</name>
+			<url>LICENSE.txt</url>
+		</license>
+	</licenses>
+
+    <!-- Issue managements and mailing lists. -->
+	<issueManagement>
+		<system>Google Code</system>
+		<url>http://code.google.com/p/unitsofmeasure/issues/list</url>
+	</issueManagement>
+	<ciManagement>
+		<system>Jenkins</system>
+		<url>http://jenkins.geotoolkit.org/job/Unit-API/</url>
+	</ciManagement>
+
+	<mailingLists>
+		<mailingList>
+			<name>Units-Dev</name>
+			<subscribe>http://groups.google.com/group/units-dev/subscribe</subscribe>
+			<post>units-dev@googlegroups.com</post>
+		</mailingList>
+		<mailingList>
+			<name>Units-Users</name>
+			<subscribe>http://groups.google.com/group/units-users/subscribe</subscribe>
+			<post>units-users@googlegroups.com</post>
+		</mailingList>
+	</mailingLists>
+	
+	<scm>
+        <url>https://github.com/unitsofmeasurement/unit-api.git</url>
+    </scm>
+	
+
+	<!-- ======================================================= -->
+	<!-- Build Settings -->
+	<!-- ======================================================= -->
+	<properties>
+		<basedir>.</basedir>
+		<sourceEncoding>UTF-8</sourceEncoding> <!-- in Maven 3. -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${sourceEncoding}</project.reporting.outputEncoding>
+		<project.build.javaVersion>1.7</project.build.javaVersion>
+		<jsr.version>0.5-SNAPSHOT</jsr.version>
+		<jdkVersion>1.7</jdkVersion>
+		<maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
+		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
+	</properties>
+
+	<!-- ======================================================= -->
+	<!-- Modules -->
+	<!-- ======================================================= -->
+	<modules>
+		<module>core</module>
+		<module>format</module>
+		<module>quantity</module>
+		<module>service</module>
+		<module>util</module>
+	</modules>
+
+	<!-- Developers and Contributors -->
+	<developers>
+		<developer>
+			<id>dautelle</id>
+			<name>Jean-Marie Dautelle</name>
+			<email>jean-marie@dautelle.com</email>
+			<organization>Airbus</organization>
+			<organizationUrl>http://www.airbus.com</organizationUrl>
+			<timezone>+1</timezone>
+			<roles>
+				<role>Architect</role>
+				<role>Java Developer</role>
+				<role>Spec Lead (proposed)</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>werner.keil</id>
+			<name>Werner Keil</name>
+			<email>werner@catmedia.us</email>
+			<organization>Creative Arts &amp; Technologies</organization>
+			<organizationUrl>http://www.catmedia.us</organizationUrl>
+			<timezone>+1</timezone>
+			<roles>
+				<role>Architect</role>
+				<role>Java Developer</role>
+				<role>Spec Lead (proposed)</role>
+			</roles>
+		</developer>
+		<developer>
+            <name>Leonardo de Moura Rocha Lima</name>
+            <email>llima@v2com.mobi</email>
+            <organization>V2COM</organization>
+            <organizationUrl>http://www.v2com.mobi/</organizationUrl>
+            <timezone>-5</timezone>
+            <roles>
+                <role>Architect</role>
+                <role>Java Developer</role>
+                <role>Spec Lead (proposed)</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>desruisseaux</id>
+            <name>Martin Desruisseaux</name>
+            <email>desruisseaux@users.sourceforge.net</email>
+            <organization>Geomatys</organization>
+            <organizationUrl>http://www.geomatys.com</organizationUrl>
+            <timezone>+1</timezone>
+            <roles>
+                <role>Expert</role>
+                <role>Java Developer</role>
+                <role>Jenkins Admin</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>karen_legrand</id>
+            <name>Karen Legrand</name>
+            <email>karen.legrand@iem.com</email>
+            <organization>Innovation Emergency Management (IEM)</organization>
+            <organizationUrl>http://www.iem.com</organizationUrl>
+            <timezone>-5</timezone>
+            <roles>
+                 <role>Expert</role>
+                <role>Java Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>dan.leuck</id>
+            <name>Daniel Leuck</name>
+            <email>dan@ikayzo.com</email>
+            <organization>Ikayzo</organization>
+            <timezone>-9</timezone>
+            <roles>
+                <role>Expert</role>
+                <role>Globalization Support</role>
+            </roles>
+        </developer>
+		<developer>
+			<id>christopher.senior</id>
+			<name>Chris Senior</name>
+			<email>christopher.senior@gmail.com</email>
+			<organization>Snap-on Inc.</organization>
+			<roles>
+			    <role>Expert</role>
+				<role>Java Developer</role>
+			</roles>
+		</developer>
+	</developers>
+	<contributors>
+	   <contributor>
+            <!-- id>eric-r</id -->
+            <name>Eric Russell</name>
+            <email>eric-r@northwestern.edu</email>
+            <timezone>-5</timezone>
+            <roles>
+                <role>Supporter</role>
+            </roles>
+        </contributor>
+	    <contributor>
+	        <!--  id>paul.morrison</id -->
+            <name>John Paul Morrison</name>
+            <organization>J.P. Morrison Enterprises, Ltd.</organization>
+            <timezone>-5</timezone>
+            <roles>
+                <role>Supporter</role>
+                <role>Test Analyst</role>
+            </roles>
+	   </contributor>
+	   <contributor>
+			<name>Scott Murphy</name>
+			<email>scott@ikayzo.com</email>
+			<organization>Ikayzo</organization>
+			<timezone>-9</timezone>
+			<roles>
+				<role>Japanese Translator</role>
+			</roles>
+	   </contributor>
+	   <contributor>
+			<name>Mika Terada</name>
+			<email>mika@ikayzo.com</email>
+			<organization>Ikayzo</organization>
+			<timezone>-9</timezone>
+			<roles>
+				<role>Japanese Translator</role>
+			</roles>
+		</contributor>
+		<contributor>
+			<name>Anatol Filin</name>
+			<email>anatol@gramant.ru</email>
+			<organization>Gramant</organization>
+			<timezone>+4</timezone>
+			<roles>
+				<role>Russian Translator</role>
+			</roles>
+		</contributor>
+		<contributor>
+             <!--   id>mgruebsch</id -->
+            <name>Michael Gruebsch</name>
+            <email>michael@mkm-rabis.de</email>
+            <roles>
+                <role>Supporter</role>
+            </roles>
+             <timezone>+1</timezone>
+        </contributor>
+	</contributors>
+
+	<build>
+		<plugins>
+			<!-- ======================================================= -->
+			<!-- Compilation -->
+			<!-- ======================================================= -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${project.build.javaVersion}</source>
+					<target>${project.build.javaVersion}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<!-- ======================================================= -->
+			<!-- Resources -->
+			<!-- ======================================================= -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<!-- ======================================================= -->
+			<!-- JAR packaging -->
+			<!-- ======================================================= -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<Specification-Title>${project.name}</Specification-Title>
+							<Specification-Version>${project.version}</Specification-Version>
+							<Specification-Vendor>${project.organization.name}</Specification-Vendor>
+							<Implementation-Vendor>Unit-API contributors</Implementation-Vendor>
+							<Implementation-URL>http://www.unitsofmeasurement.org</Implementation-URL>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<!-- ======================================================= -->
+			<!-- Custom Javadoc plugin -->
+			<!-- ======================================================= -->
+			<!-- plugin> <groupId>javolution</groupId> <artifactId>colapi</artifactId> 
+				<version>1.0.0</version> <executions> <execution> <goals> <goal>colorize</goal> 
+				</goals> </execution> </executions> </plugin -->
+
+			<!-- ======================================================= -->
+			<!-- Maven web site -->
+			<!-- ======================================================= -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<locales>en</locales>
+					<inputEncoding>${project.build.sourceEncoding}</inputEncoding>
+					<outputEncoding>UTF-8</outputEncoding>
+					<reportPlugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-project-info-reports-plugin</artifactId>
+							<version>2.7</version>
+							<reportSets>
+								<reportSet>
+									<reports>
+										<report>index</report>
+										<report>summary</report>
+										<report>license</report>
+										<report>scm</report>
+										<report>cim</report>
+										<report>project-team</report>
+										<report>mailing-list</report>
+										<report>issue-tracking</report>
+									</reports>
+								</reportSet>
+							</reportSets>
+						</plugin>
+
+						<!-- ======================================================= -->
+						<!-- Javadoc generation -->
+						<!-- -->
+						<!-- Do not set <docfilessubdirs> to true, since this -->
+						<!-- cause the unwanted copy of .svn sub-directories. -->
+						<!-- ======================================================= -->
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-javadoc-plugin</artifactId>
+							<version>2.9.1</version>
+							<configuration>
+								<source>${project.build.javaVersion}</source>             <!-- Enables javadoc to handle assertions present in J2SE 1.4. -->
+								<encoding>${project.build.sourceEncoding}</encoding>       <!-- The encoding of the source files. -->
+								<docencoding>${project.build.sourceEncoding}</docencoding> <!-- The encoding of the generated HTML files. -->
+								<charset>${sourceEncoding}</charset>         <!-- Specifies the HTML character set for this document. -->
+								<locale>en</locale>              <!-- Locale that javadoc uses when generating documentation. -->
+								<noqualifier>all</noqualifier>   <!-- Omit qualifying package name before class names in output. -->
+								<quiet>true</quiet>              <!-- Shuts off non-error and non-warning messages. -->
+								<keywords>true</keywords>        <!-- Adds HTML meta keyword tags to the generated files. -->
+								<!-- Creates links to existing javadoc-generated documentation of 
+									external referenced classes. -->
+								<links>
+									<link>http://docs.oracle.com/javase/7/docs/api/</link>
+								</links>
+							</configuration>
+						</plugin>
+
+						<!-- ======================================================= -->
+						<!-- Code analysis -->
+						<!-- ======================================================= -->
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-pmd-plugin</artifactId>
+							<version>3.0.1</version>
+							<configuration>
+								<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+								<targetJdk>${project.build.javaVersion}</targetJdk>
+							</configuration>
+						</plugin>
+
+						<!-- ======================================================= -->
+						<!-- Report on test results -->
+						<!-- ======================================================= -->
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-report-plugin</artifactId>
+							<version>2.16</version>
+						</plugin>
+
+						<!-- ======================================================= -->
+						<!-- Report on test coverage -->
+						<!-- ======================================================= -->
+						<plugin>
+							<groupId>org.codehaus.mojo</groupId>
+							<artifactId>emma-maven-plugin</artifactId>
+							<version>1.0-alpha-3</version>
+							<reportSets>
+								<reportSet></reportSet>
+								<reportSet></reportSet>
+							</reportSets>
+						</plugin>
+
+						<!-- ======================================================= -->
+						<!-- Static analysis for occurences of bug patterns -->
+						<!-- ======================================================= -->
+						<plugin>
+							<groupId>org.codehaus.mojo</groupId>
+							<artifactId>findbugs-maven-plugin</artifactId>
+							<version>2.5.2</version>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-checkstyle-plugin</artifactId>
+							<version>2.11</version>
+							<configuration>
+								<configLocation>src/etc/checkstyle.xml</configLocation>
+							</configuration>
+						</plugin>
+					</reportPlugins>
+				</configuration>
+			</plugin>
+		</plugins>
+
+		<!-- ======================================================= -->
+		<!-- For deployment on dev.java.net subversion -->
+		<!-- See https://wagon-svn.dev.java.net/ -->
+		<!-- ======================================================= -->
+		<extensions>
+			<extension>
+				<groupId>org.jvnet.wagon-svn</groupId>
+				<artifactId>wagon-svn</artifactId>
+				<version>1.9</version>
+			</extension>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav-jackrabbit</artifactId>
+				<version>2.0</version>
+			</extension>
+		</extensions>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.11</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<distributionManagement>
+		<site>
+			<id>www.unitsofmeasurement.org</id>
+			<url>scp://www.unitsofmeasurement.org/www/docs/project/</url>
+		</site>
+	</distributionManagement>
+	
+	   <profiles>
+        <profile>
+            <id>license</id>
+            <activation>
+                <property>
+                    <name>license</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <!-- ======================================================= -->
+                        <!-- License -->
+                        <!-- ======================================================= -->
+                        <!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>license-maven-plugin</artifactId> 
+                            <version>1.4</version> </plugin> -->
+                        <plugin>
+                            <groupId>com.google.code.maven-license-plugin</groupId>
+                            <artifactId>maven-license-plugin</artifactId>
+                            <version>1.4.0</version>
+                            <configuration>
+                                <basedir>${basedir}</basedir>
+                                <header>src/etc/header.txt</header>
+                                <quiet>false</quiet>
+                                <failIfMissing>true</failIfMissing>
+                                <aggregate>false</aggregate>
+                                <encoding>UTF-8</encoding>
+                                <excludes>
+                                    <exclude>target/**</exclude>
+                                    <exclude>nbproject/**</exclude>
+                                    <exclude>LICENSE*.txt</exclude>
+                                    <exclude>README.*</exclude>
+                                    <exclude>checkstyle*.*</exclude>
+                                    <exclude>*.css</exclude>
+                                </excludes>
+                            </configuration>
+                        </plugin>
+                        <!-- TODO enable this only for major upgrades (ensure to copy LICENSE.txt 
+                            to LICENSE.bak first) -->
+                    </plugins>
+                </pluginManagement>
+                <plugins>
+                    <plugin>
+                        <groupId>com.google.code.maven-license-plugin</groupId>
+                        <artifactId>maven-license-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>format</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+	
+	   <url>https://jcp.org/en/jsr/detail?id=363</url>
+	   <description>Units of Measurement Standard - This JSR specifies Java packages for modeling and working with measurement values, quantities and their corresponding units. </description>
+</project>
