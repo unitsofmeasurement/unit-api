@@ -37,8 +37,7 @@ import javax.measure.format.UnitFormat;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @author Eric Russell
- * @version 1.1
+ * @version 1.2
  *
  * @see <a href="http://org.unitsofmeasure">Unified Code of Measure (UCUM)</a>
  */
