@@ -33,7 +33,7 @@ import javax.measure.format.UnitFormat;
  * </code>
  *
  * <p>OSGi bundles should use {@link javax.measure.format.UnitFormat} to
- * parse/format {@linkplain #getStandard() standard} (UCUM) units.</p>
+ * parse/format {@linkplain #getInstance() standard} (UCUM) units.</p>
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
