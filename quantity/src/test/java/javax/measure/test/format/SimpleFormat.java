@@ -33,38 +33,25 @@ import javax.measure.test.unit.TestUnit;
  * the error in the standard is corrected, it may be necessary to modify the
  * productions in the {@code UCUMParser.jj} file to conform to the standard.</p>
  *
- * @author <a href="mailto:eric-r@northwestern.edu">Eric Russell</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2.2
+ * @version 1.2.3
  */
-public class SimpleFormat extends BaseFormat {
+public class SimpleFormat extends TestFormat {
     private static final long serialVersionUID = -7753687108842507677L;
 
     private final Map<String, String> symbolMap = new HashMap<String, String>();
 
-    private static final BaseFormat DEFAULT = new SimpleFormat();
+    private static final TestFormat DEFAULT = new SimpleFormat();
 
     // /////////////////
     // Class methods //
     // /////////////////
-    /** Returns the instance for formatting using "print" symbols */
-    public static UnitFormat getPrintInstance() {
-        return DEFAULT;
-    }
-
-    // /**
-    // * Returns the instance for formatting and parsing using case sensitive
-    // * symbols
-    // */
-    // public static SimpleFormat getCaseSensitiveInstance() {
-    // return Parsing.DEFAULT_CS;
-    // }
 
     /**
      * Returns the instance for formatting and parsing using case insensitive
      * symbols
      */
-    public static UnitFormat getStandardInstance() {
+    public static UnitFormat geInstance() {
         return DEFAULT;
     }
 

@@ -22,15 +22,15 @@ import javax.measure.format.UnitFormat;
 /**
  * Provides the interface for formatting and parsing {@linkplain Unit units}.
  *
- * <p>The {@linkplain #getStandard standard} instance (UCUM) recognizes all metric units
- * and the 20 SI prefixes used to form decimal multiples and some customary units
- * (see <a href="http://org.unitsofmeasure">UCUM</a> specification). For example:</p>
+ * <p>The {@linkplain #getInstance standard} instance recognizes all metric units
+ * and the 20 SI prefixes used to form decimal multiples and some customary units. 
+ * For example:</p>
  *
- * [code]
- *     UnitFormat.getStandard().valueOf("kW").equals(KILO(WATT))
- *     UnitFormat.getStandard().valueOf("[ft_i]").equals(METRE.multiply(3048).divide(10000))
- *     UnitFormat.getInstance(Locale.USA).valueOf("ft").equals(METRE.multiply(3048).divide(10000))
- * [/code]
+ * <code>
+ *     TestFormat.getInstance().parse("kW").equals(KILO(WATT))<br>
+ *     TestFormat.getInstance().parse("[ft_i]").equals(METRE.multiply(3048).divide(10000))<br>
+ *     TestFormat.getInstance(Locale.USA).parse("ft").equals(METRE.multiply(3048).divide(10000))
+ * </code>
  *
  * <p>OSGi bundles should use {@link javax.measure.format.UnitFormat} to
  * parse/format {@linkplain #getStandard() standard} (UCUM) units.</p>
@@ -38,25 +38,14 @@ import javax.measure.format.UnitFormat;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @author Eric Russell
- * @version 1.0
+ * @version 1.1
  *
  * @see <a href="http://org.unitsofmeasure">Unified Code of Measure (UCUM)</a>
  */
-abstract class BaseFormat extends Format implements UnitFormat {
+abstract class TestFormat extends Format implements UnitFormat {
 
     /** The serialVersionUID */
     private static final long serialVersionUID = 7765623276257908888L;
-
-    /**
-     * Returns the standard unit format (UCUM). OSGi bundles should use
-     * {@link javax.measure.format.UnitFormat} to parse/format standard
-     * (UCUM) units.
-     *
-     * @return the standard format.
-     */
-    public static UnitFormat getStandard() {
-        return SimpleFormat.getStandardInstance();
-    }
 
     /**
      * Returns the unit format for the default locale.
@@ -64,7 +53,7 @@ abstract class BaseFormat extends Format implements UnitFormat {
      * @return the locale format.
      */
     public static UnitFormat getInstance() {
-        return SimpleFormat.getStandardInstance();
+        return SimpleFormat.geInstance();
     }
 
     /**
@@ -75,13 +64,13 @@ abstract class BaseFormat extends Format implements UnitFormat {
      * @return the format for the specified locale.
      */
     public static UnitFormat getInstance(Locale locale) {
-        return SimpleFormat.getStandardInstance();
+        return SimpleFormat.geInstance();
     }
 
     /**
      * Base constructor.
      */
-    protected BaseFormat() {
+    protected TestFormat() {
     }
 
     /**
