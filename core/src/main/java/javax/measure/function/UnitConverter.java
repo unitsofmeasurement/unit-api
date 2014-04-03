@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.3, $Date: 2014-01-27 23:16:02 +0100 (Mo, 27 Jän 2014) $
+ * @version 1.4, $Date: 2014-04-03 $
  *
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units"> Wikipedia:
  *      Conversion of units</a>
