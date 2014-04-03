@@ -27,15 +27,14 @@ import javax.measure.function.ValueSupplier;
  * </p>
  * 
  * @param <Q>
- *            The type of the quantity measured.
+ *            The type of the measurement.
  * @param <V>
- *            The value of the quantity measured.
+ *            The measured value.
  * 
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement"> Wikipedia:
  *      Units of measurement</a>
- * @version 1.10 ($Revision: 395 $), $Date: 2013-12-30 17:14:35 +0100 (Mo, 30
- *          Dez 2013) $
+ * @version 1.11, $Date: 2014-04-03 $
  */
 public interface Measurement<Q extends Quantity<Q>, V> extends UnitSupplier<Q>,
         ValueSupplier<V>, MeasurementConverter<Q, V> {

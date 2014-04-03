@@ -21,14 +21,7 @@ import java.util.List;
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units"> Wikipedia:
  *      Conversion of units</a>
  */
-public interface UnitConverter {
-    /**
-     * Indicates if this converter is the identity converter.
-     * The identity converter does nothing ({@code convert(x) == x}).
-     *
-     * @return {@code true} if this converter is an identity converter.
-     */
-    boolean isIdentity();
+public interface UnitConverter extends Converter<Number> {
 
     /**
      * Indicates if this converter is linear. A converter is linear if:
@@ -66,26 +59,6 @@ public interface UnitConverter {
      * @return the {@code double} value after conversion.
      */
     double convert(double value);
-
-    /**
-     * Converts a {@code Number} value.
-     *
-     * @param  value the numeric value to convert.
-     * @return the {@code Number} value after conversion.
-     */
-    Number convert(Number value);
-
-    /**
-     * Converts a {@code BigDecimal} number according to the specified math context.
-     *
-     * @param  value the decimal number to convert.
-     * @param  ctx the math context being used for conversion.
-     * @return the decimal number after conversion.
-     * @throws ArithmeticException if the result is inexact but the context is {@link MathContext#UNLIMITED},
-     *         or the {@linkplain MathContext#getPrecision() precision} is 0 and the quotient has a
-     *         non-terminating decimal expansion.
-     */
-    //BigDecimal convert(BigDecimal value, MathContext ctx) throws ArithmeticException;
 
     /**
      * Concatenates this converter with another converter. The resulting
