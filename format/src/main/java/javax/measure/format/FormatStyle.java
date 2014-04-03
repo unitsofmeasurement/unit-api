@@ -9,7 +9,7 @@ package javax.measure.format;
 
 
 /**
- * Defines the different ways of formatting.
+ * Defines different ways of formatting.
  * 
  * @author Werner Keil
  */
