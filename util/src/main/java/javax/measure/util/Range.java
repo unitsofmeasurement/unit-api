@@ -15,7 +15,7 @@ package javax.measure.util;
  *            The value of the range.
  * 
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.8.2 ($Revision: 441 $)
+ * @version 0.8.3 ($Revision: 441 $)
  * @see <a href="http://www.botts-inc.com/SensorML_1.0.1/schemaBrowser/SensorML_QuantityRange.html"> SensorML:
  *      QuantityRange</a>
  */
@@ -109,7 +109,7 @@ public class Range<T> implements MinimumSupplier<T>, MaximumSupplier<T> {
 	 * @return {@code true} if {@link #getMinimum()} is not {@code null}
 	 *         .
 	 */
-	public boolean hasLowerBound() {
+	public boolean hasMinimum() {
 		return min != null;
 	}
 
@@ -119,7 +119,7 @@ public class Range<T> implements MinimumSupplier<T>, MaximumSupplier<T> {
 	 * 
 	 * @return {@code true} if {@link #getMaximum()} is not {@code null}.
 	 */
-	public boolean hasUpperBound() {
+	public boolean hasMaximum() {
 		return max != null;
 	}
     

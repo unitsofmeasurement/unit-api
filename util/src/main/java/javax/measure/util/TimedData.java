@@ -7,7 +7,7 @@
  */
 package javax.measure.util;
 
-import java.util.function.Supplier;
+//import java.util.function.Supplier;
 
 import javax.measure.function.Nameable;
 
@@ -18,11 +18,11 @@ import javax.measure.function.Nameable;
  *            The data value.
  * 
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.2 ($Revision: 427 $)
+ * @version 0.3 ($Revision: 428 $)
  * @see <a href="http://en.wikipedia.org/wiki/Time_series"> Wikipedia:
  *      Time Series</a>
  */
-public class TimedData<T> implements Nameable, Supplier<T> {
+public class TimedData<T> implements Nameable { //, Supplier<T> {
 	// TODO we could use ValueSupplier instead?
     private final T value;
     private long timestamp;
@@ -65,7 +65,7 @@ public class TimedData<T> implements Nameable, Supplier<T> {
 		return name;
 	}
 
-	@Override
+//	@Override
 	public T get() {
 		return value;
 	}

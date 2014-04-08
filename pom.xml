@@ -137,17 +137,6 @@
                 <role>Java Developer</role>
             </roles>
         </developer>
-        <developer>
-            <id>dan.leuck</id>
-            <name>Daniel Leuck</name>
-            <email>dan@ikayzo.com</email>
-            <organization>Ikayzo</organization>
-            <timezone>-9</timezone>
-            <roles>
-                <role>Expert</role>
-                <role>Globalization Support</role>
-            </roles>
-        </developer>
 		<developer>
 			<id>christopher.senior</id>
 			<name>Chris Senior</name>
@@ -160,6 +149,16 @@
 		</developer>
 	</developers>
 	<contributors>
+	    <contributor>
+            <!-- >id>dan.leuck</id -->
+            <name>Daniel Leuck</name>
+            <email>dan@ikayzo.com</email>
+            <organization>Ikayzo</organization>
+            <timezone>-9</timezone>
+            <roles>
+                <role>Globalization Support</role>
+            </roles>
+        </contributor>
 	   <contributor>
             <!-- id>eric-r</id -->
             <name>Eric Russell</name>
