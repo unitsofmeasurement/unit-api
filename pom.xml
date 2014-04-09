@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>javax.measure</groupId>
 	<artifactId>unit-api</artifactId>
-	<version>0.4</version>
+	<version>0.5-SNAPSHOT</version>
 	<name>Units of Measurement API</name>
 	<packaging>pom</packaging>
 	<organization>
@@ -55,7 +55,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${sourceEncoding}</project.reporting.outputEncoding>
 		<project.build.javaVersion>1.7</project.build.javaVersion>
-		<jsr.version>0.4</jsr.version>
+		<jsr.version>0.5-SNAPSHOT</jsr.version>
 		<jdkVersion>1.7</jdkVersion>
 		<maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
