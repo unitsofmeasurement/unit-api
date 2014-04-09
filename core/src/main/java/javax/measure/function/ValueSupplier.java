@@ -17,7 +17,7 @@ package javax.measure.function;
  * whose functional method is {@link #getValue()}.
  * 
  * @author Werner Keil
- * @version 0.1 ($Revision: 395 $), $Date: 2014-01-27 23:16:02 +0100 (Mo, 27 Jän 2014) $
+ * @version 0.2, $Date: 2014-04-09 $
  * @param <T> the type of values supplied by this supplier
  */
 // equivalent to @FunctionalInterface
