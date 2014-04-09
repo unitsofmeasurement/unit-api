@@ -14,7 +14,10 @@ import javax.measure.Quantity;
  * The metric system unit for this quantity is "mol" (mole).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @version 1.0
+ * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @version 1.1
+ * 
+ * @see <a href=" http://en.wikipedia.org/wiki/Amount_of_substance">Wikipedia: Amount of Substance</a>
  */
 public interface AmountOfSubstance extends Quantity<AmountOfSubstance> {
 }
