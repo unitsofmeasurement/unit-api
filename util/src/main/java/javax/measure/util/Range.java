@@ -8,14 +8,14 @@
 package javax.measure.util;
 
 /**
- * A Measurement Range is a pair of <code>T</code> values that represent a range of values.<p>
+ * A Measurement Range is a pair of <code>T</code> items that represent a range of values.<p>
  * Range limits MUST be presented in the same scale and have the same unit as measured data values.<br/>The Range MUST be immutable.
  * 
  * @param <T>
  *            The value of the range.
  * 
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.8.3 ($Revision: 441 $)
+ * @version 0.8.4, April 15, 2014
  * @see <a href="http://www.botts-inc.com/SensorML_1.0.1/schemaBrowser/SensorML_QuantityRange.html"> SensorML:
  *      QuantityRange</a>
  */

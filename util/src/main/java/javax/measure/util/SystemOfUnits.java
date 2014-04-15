@@ -18,11 +18,11 @@ import javax.measure.function.Nameable;
 /**
  * A system of units grouped together for historical or cultural reasons.
  * Nothing prevents a unit from belonging to several systems of units at the same time (for example
- * an {@code Imperial} system would have many of the units held by {@code USCustomary}).
+ * an {@code Imperial} system would have many of the units held by {@code US} customary system).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.3 ($Revision: 422 $), $Date: 2014-02-08 18:16:51 +0100 (Sa, 08 Feb 2014) $
+ * @version 1.4, $Date: 2014-04-15 $
  * @see <a href="http://en.wikipedia.org/wiki/International_System_of_Units"> Wikipedia:
  *      International System of Units</a>
  * @see <a href="http://en.wikipedia.org/wiki/Systems_of_measurement"> Wikipedia:
