@@ -20,7 +20,7 @@
 
     <!-- Issue managements and mailing lists. -->
 	<issueManagement>
-		<system>Google Code</system>
+		<system>JIRA</system>
 		<url>http://code.google.com/p/unitsofmeasure/issues/list</url>
 	</issueManagement>
 	<ciManagement>
@@ -84,7 +84,7 @@
 			<roles>
 				<role>Architect</role>
 				<role>Java Developer</role>
-				<role>Spec Lead (proposed)</role>
+				<role>Spec Lead</role>
 			</roles>
 		</developer>
 		<developer>
@@ -97,7 +97,7 @@
 			<roles>
 				<role>Architect</role>
 				<role>Java Developer</role>
-				<role>Spec Lead (proposed)</role>
+				<role>Spec Lead</role>
 			</roles>
 		</developer>
 		<developer>
@@ -109,7 +109,7 @@
             <roles>
                 <role>Architect</role>
                 <role>Java Developer</role>
-                <role>Spec Lead (proposed)</role>
+                <role>Spec Lead</role>
             </roles>
         </developer>
         <developer>
