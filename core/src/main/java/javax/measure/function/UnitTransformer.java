@@ -17,22 +17,22 @@ import javax.measure.Unit;
  * whose functional method is {@link #transform()}.
  * 
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.4 ($Revision: 395 $), $Date: 2014-01-27 23:16:02 +0100 (Mo, 27 Jän 2014) $
+ * @version 0.5, $Date: 2014-04-16 $
  * @param <Q>
  *            The type of the quantity.
  * @see Unit
+ * @see UnitConverter
  */
 //equivalent to @FunctionalInterface
 public interface UnitTransformer<Q extends Quantity<Q>> {
     /**
      * Returns the unit derived from this unit using the specified converter.
-     * The converter does not need to be linear. For example:
-     *
-     * [code]
+     * The converter does not need to be linear. For example:<br>
+     * <code>
      *     Unit<Dimensionless> DECIBEL = Unit.ONE.transform(
      *         new LogConverter(10).inverse().concatenate(
      *             new RationalConverter(1, 10)));
-     * [/code]
+     * </code>
      *
      * @param  operation the converter from the transformed unit to this unit.
      * @return the unit after the specified transformation.
