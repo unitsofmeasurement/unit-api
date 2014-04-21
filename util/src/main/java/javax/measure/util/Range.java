@@ -15,7 +15,7 @@ package javax.measure.util;
  *            The value of the range.
  * 
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.8.4, April 15, 2014
+ * @version 0.8.5, April 21, 2014
  * @see <a href="http://www.botts-inc.com/SensorML_1.0.1/schemaBrowser/SensorML_QuantityRange.html"> SensorML:
  *      QuantityRange</a>
  */
@@ -50,9 +50,8 @@ public class Range<T> implements MinimumSupplier<T>, MaximumSupplier<T> {
         this.max = max;
     }
     
-    
     /**
-     * Returns an {@code MeasurementRange} with the specified values.
+     * Returns an {@code Range} with the specified values.
      *
      * @param <T> the class of the value
      * @param minimum The minimum value for the measurement range.
@@ -65,7 +64,7 @@ public class Range<T> implements MinimumSupplier<T>, MaximumSupplier<T> {
     }
     
     /**
-     * Returns an {@code MeasurementRange} with the specified values.
+     * Returns an {@code Range} with the specified values.
      *
      * @param <T> the class of the value
      * @param minimum The minimum value for the measurement range.
@@ -80,7 +79,8 @@ public class Range<T> implements MinimumSupplier<T>, MaximumSupplier<T> {
      * Returns the smallest value of the range. The value is the same as that given as the constructor parameter for the smallest value.
      * @return the minimum value
      */
-    public T getMinimum() { // XXX could be getLower() ?
+    @Override
+    public T getMinimum() {
         return min;
     }
 
@@ -89,7 +89,8 @@ public class Range<T> implements MinimumSupplier<T>, MaximumSupplier<T> {
      * 
      * @return the maximum value
      */
-    public T getMaximum() { // XXX could be getUpper() ?
+    @Override
+    public T getMaximum() {
         return max;
     }
     
@@ -103,30 +104,30 @@ public class Range<T> implements MinimumSupplier<T>, MaximumSupplier<T> {
     }
 
     /**
-	 * Method to easily check if {@link #getMinimum()} is not
-	 * {@code null}.
-	 * 
-	 * @return {@code true} if {@link #getMinimum()} is not {@code null}
-	 *         .
-	 */
-	public boolean hasMinimum() {
-		return min != null;
-	}
+    * Method to easily check if {@link #getMinimum()} is not
+    * {@code null}.
+    * 
+    * @return {@code true} if {@link #getMinimum()} is not {@code null}
+    *         .
+    */
+   public boolean hasMinimum() {
+        return min != null;
+   }
 
-	/**
-	 * Method to easily check if {@link #getMaximum()} is not
-	 * {@code null}.
-	 * 
-	 * @return {@code true} if {@link #getMaximum()} is not {@code null}.
-	 */
-	public boolean hasMaximum() {
-		return max != null;
-	}
-    
-	/*
-	 * (non-Javadoc)
-	 * @see java.lang.Object#equals()
-	 */
+   /**
+    * Method to easily check if {@link #getMaximum()} is not
+    * {@code null}.
+    * 
+    * @return {@code true} if {@link #getMaximum()} is not {@code null}.
+    */
+   public boolean hasMaximum() {
+        return max != null;
+   }
+
+   /*
+    * (non-Javadoc)
+    * @see java.lang.Object#equals()
+    */
     @Override
     public boolean equals(Object object) {
         if(object instanceof Range<?>)  {
@@ -140,19 +141,19 @@ public class Range<T> implements MinimumSupplier<T>, MaximumSupplier<T> {
         return false;
     }
 
-	/*
-	 * (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
     @Override
     public int hashCode() {
         return min.hashCode() + max.hashCode() + (res!=null ? res.hashCode() : 0);
     }
 
-	/*
-	 * (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder()
