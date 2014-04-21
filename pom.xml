@@ -18,7 +18,7 @@
 		</license>
 	</licenses>
 
-    <!-- Issue managements and mailing lists. -->
+	<!-- Issue managements and mailing lists. -->
 	<issueManagement>
 		<system>JIRA</system>
 		<url>http://code.google.com/p/unitsofmeasure/issues/list</url>
@@ -40,11 +40,11 @@
 			<post>units-users@googlegroups.com</post>
 		</mailingList>
 	</mailingLists>
-	
+
 	<scm>
-        <url>https://github.com/unitsofmeasurement/unit-api.git</url>
-    </scm>
-	
+		<url>https://github.com/unitsofmeasurement/unit-api.git</url>
+	</scm>
+
 
 	<!-- ======================================================= -->
 	<!-- Build Settings -->
@@ -101,84 +101,84 @@
 			</roles>
 		</developer>
 		<developer>
-            <name>Leonardo de Moura Rocha Lima</name>
-            <email>llima@v2com.mobi</email>
-            <organization>V2COM</organization>
-            <organizationUrl>http://www.v2com.mobi/</organizationUrl>
-            <timezone>-5</timezone>
-            <roles>
-                <role>Architect</role>
-                <role>Java Developer</role>
-                <role>Spec Lead</role>
-            </roles>
-        </developer>
-        <developer>
-            <id>desruisseaux</id>
-            <name>Martin Desruisseaux</name>
-            <email>desruisseaux@users.sourceforge.net</email>
-            <organization>Geomatys</organization>
-            <organizationUrl>http://www.geomatys.com</organizationUrl>
-            <timezone>+1</timezone>
-            <roles>
-                <role>Expert</role>
-                <role>Java Developer</role>
-                <role>Jenkins Admin</role>
-            </roles>
-        </developer>
-        <developer>
-            <id>karen_legrand</id>
-            <name>Karen Legrand</name>
-            <email>karen.legrand@iem.com</email>
-            <organization>Innovation Emergency Management (IEM)</organization>
-            <organizationUrl>http://www.iem.com</organizationUrl>
-            <timezone>-5</timezone>
-            <roles>
-                 <role>Expert</role>
-                <role>Java Developer</role>
-            </roles>
-        </developer>
+			<name>Leonardo de Moura Rocha Lima</name>
+			<email>llima@v2com.mobi</email>
+			<organization>V2COM</organization>
+			<organizationUrl>http://www.v2com.mobi/</organizationUrl>
+			<timezone>-5</timezone>
+			<roles>
+				<role>Architect</role>
+				<role>Java Developer</role>
+				<role>Spec Lead</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>desruisseaux</id>
+			<name>Martin Desruisseaux</name>
+			<email>desruisseaux@users.sourceforge.net</email>
+			<organization>Geomatys</organization>
+			<organizationUrl>http://www.geomatys.com</organizationUrl>
+			<timezone>+1</timezone>
+			<roles>
+				<role>Expert</role>
+				<role>Java Developer</role>
+				<role>Jenkins Admin</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>karen_legrand</id>
+			<name>Karen Legrand</name>
+			<email>karen.legrand@iem.com</email>
+			<organization>Innovation Emergency Management (IEM)</organization>
+			<organizationUrl>http://www.iem.com</organizationUrl>
+			<timezone>-5</timezone>
+			<roles>
+				<role>Expert</role>
+				<role>Java Developer</role>
+			</roles>
+		</developer>
 		<developer>
 			<id>christopher.senior</id>
 			<name>Chris Senior</name>
 			<email>christopher.senior@gmail.com</email>
 			<organization>Snap-on Inc.</organization>
 			<roles>
-			    <role>Expert</role>
+				<role>Expert</role>
 				<role>Java Developer</role>
 			</roles>
 		</developer>
 	</developers>
 	<contributors>
-	    <contributor>
-            <!-- >id>dan.leuck</id -->
-            <name>Daniel Leuck</name>
-            <email>dan@ikayzo.com</email>
-            <organization>Ikayzo</organization>
-            <timezone>-9</timezone>
-            <roles>
-                <role>Globalization Support</role>
-            </roles>
-        </contributor>
-	   <contributor>
-            <!-- id>eric-r</id -->
-            <name>Eric Russell</name>
-            <email>eric-r@northwestern.edu</email>
-            <timezone>-5</timezone>
-            <roles>
-                <role>Supporter</role>
-            </roles>
-        </contributor>
-	    <contributor>
-	        <!--  id>paul.morrison</id -->
-            <name>John Paul Morrison</name>
-            <organization>J.P. Morrison Enterprises, Ltd.</organization>
-            <timezone>-5</timezone>
-            <roles>
-                <role>Supporter</role>
-                <role>Test Analyst</role>
-            </roles>
-	   </contributor>
-	   <contributor>
+		<contributor>
+			<!-- >id>dan.leuck</id -->
+			<name>Daniel Leuck</name>
+			<email>dan@ikayzo.com</email>
+			<organization>Ikayzo</organization>
+			<timezone>-9</timezone>
+			<roles>
+				<role>Globalization Support</role>
+			</roles>
+		</contributor>
+		<contributor>
+			<!-- id>eric-r</id -->
+			<name>Eric Russell</name>
+			<email>eric-r@northwestern.edu</email>
+			<timezone>-5</timezone>
+			<roles>
+				<role>Supporter</role>
+			</roles>
+		</contributor>
+		<contributor>
+			<!-- id>paul.morrison</id -->
+			<name>John Paul Morrison</name>
+			<organization>J.P. Morrison Enterprises, Ltd.</organization>
+			<timezone>-5</timezone>
+			<roles>
+				<role>Supporter</role>
+				<role>Test Analyst</role>
+			</roles>
+		</contributor>
+		<contributor>
 			<name>Scott Murphy</name>
 			<email>scott@ikayzo.com</email>
 			<organization>Ikayzo</organization>
@@ -186,8 +186,8 @@
 			<roles>
 				<role>Japanese Translator</role>
 			</roles>
-	   </contributor>
-	   <contributor>
+		</contributor>
+		<contributor>
 			<name>Mika Terada</name>
 			<email>mika@ikayzo.com</email>
 			<organization>Ikayzo</organization>
@@ -206,17 +206,30 @@
 			</roles>
 		</contributor>
 		<contributor>
-             <!--   id>mgruebsch</id -->
-            <name>Michael Gruebsch</name>
-            <email>michael@mkm-rabis.de</email>
-            <roles>
-                <role>Supporter</role>
-            </roles>
-             <timezone>+1</timezone>
-        </contributor>
+			<!-- id>mgruebsch</id -->
+			<name>Michael Gruebsch</name>
+			<email>michael@mkm-rabis.de</email>
+			<roles>
+				<role>Supporter</role>
+			</roles>
+			<timezone>+1</timezone>
+		</contributor>
 	</contributors>
 
 	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- ======================================================= -->
+				<!-- Packaging (OSGi bundle) -->
+				<!-- ======================================================= -->
+				<plugin>
+					<groupId>org.apache.felix</groupId>
+					<artifactId>maven-bundle-plugin</artifactId>
+					<version>2.3.5</version>
+					<extensions>true</extensions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<!-- ======================================================= -->
 			<!-- Compilation -->
@@ -423,67 +436,67 @@
 			<url>scp://www.unitsofmeasurement.org/www/docs/project/</url>
 		</site>
 	</distributionManagement>
-	
-	   <profiles>
-        <profile>
-            <id>license</id>
-            <activation>
-                <property>
-                    <name>license</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <build>
-                <pluginManagement>
-                    <plugins>
-                        <!-- ======================================================= -->
-                        <!-- License -->
-                        <!-- ======================================================= -->
-                        <!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>license-maven-plugin</artifactId> 
-                            <version>1.4</version> </plugin> -->
-                        <plugin>
-                            <groupId>com.google.code.maven-license-plugin</groupId>
-                            <artifactId>maven-license-plugin</artifactId>
-                            <version>1.4.0</version>
-                            <configuration>
-                                <basedir>${basedir}</basedir>
-                                <header>src/etc/header.txt</header>
-                                <quiet>false</quiet>
-                                <failIfMissing>true</failIfMissing>
-                                <aggregate>false</aggregate>
-                                <encoding>UTF-8</encoding>
-                                <excludes>
-                                    <exclude>target/**</exclude>
-                                    <exclude>nbproject/**</exclude>
-                                    <exclude>LICENSE*.txt</exclude>
-                                    <exclude>README.*</exclude>
-                                    <exclude>checkstyle*.*</exclude>
-                                    <exclude>*.css</exclude>
-                                </excludes>
-                            </configuration>
-                        </plugin>
-                        <!-- TODO enable this only for major upgrades (ensure to copy LICENSE.txt 
-                            to LICENSE.bak first) -->
-                    </plugins>
-                </pluginManagement>
-                <plugins>
-                    <plugin>
-                        <groupId>com.google.code.maven-license-plugin</groupId>
-                        <artifactId>maven-license-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <phase>compile</phase>
-                                <goals>
-                                    <goal>format</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-	
-	   <url>https://jcp.org/en/jsr/detail?id=363</url>
-	   <description>Units of Measurement Standard - This JSR specifies Java packages for modeling and working with measurement values, quantities and their corresponding units. </description>
+
+	<profiles>
+		<profile>
+			<id>license</id>
+			<activation>
+				<property>
+					<name>license</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<!-- ======================================================= -->
+						<!-- License -->
+						<!-- ======================================================= -->
+						<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>license-maven-plugin</artifactId> 
+							<version>1.4</version> </plugin> -->
+						<plugin>
+							<groupId>com.google.code.maven-license-plugin</groupId>
+							<artifactId>maven-license-plugin</artifactId>
+							<version>1.4.0</version>
+							<configuration>
+								<basedir>${basedir}</basedir>
+								<header>src/etc/header.txt</header>
+								<quiet>false</quiet>
+								<failIfMissing>true</failIfMissing>
+								<aggregate>false</aggregate>
+								<encoding>UTF-8</encoding>
+								<excludes>
+									<exclude>target/**</exclude>
+									<exclude>nbproject/**</exclude>
+									<exclude>LICENSE*.txt</exclude>
+									<exclude>README.*</exclude>
+									<exclude>checkstyle*.*</exclude>
+									<exclude>*.css</exclude>
+								</excludes>
+							</configuration>
+						</plugin>
+						<!-- TODO enable this only for major upgrades (ensure to copy LICENSE.txt 
+							to LICENSE.bak first) -->
+					</plugins>
+				</pluginManagement>
+				<plugins>
+					<plugin>
+						<groupId>com.google.code.maven-license-plugin</groupId>
+						<artifactId>maven-license-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>compile</phase>
+								<goals>
+									<goal>format</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<url>https://jcp.org/en/jsr/detail?id=363</url>
+	<description>Units of Measurement Standard - This JSR specifies Java packages for modeling and working with measurement values, quantities and their corresponding units. </description>
 </project>
