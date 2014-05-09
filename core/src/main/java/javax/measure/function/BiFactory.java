@@ -18,8 +18,8 @@ package javax.measure.function;
  * @param <R> the type of the result of the factory
  *
  * @see Function
+ * @deprecated this is only used by QuantityFactory, consider moving to RI or SE-specific module
  */
 public interface BiFactory<T, U, R> {
-	// TODO this is only used by QuantityFactory, consider moving to RI or SE-specific module
 	R create(T t, U u);
 }
