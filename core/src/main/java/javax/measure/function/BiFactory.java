@@ -20,5 +20,6 @@ package javax.measure.function;
  * @see Function
  */
 public interface BiFactory<T, U, R> {
+	// TODO this is only used by QuantityFactory, consider moving to RI or SE-specific module
 	R create(T t, U u);
 }
