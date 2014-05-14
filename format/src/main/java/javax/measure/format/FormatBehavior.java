@@ -13,7 +13,7 @@ package javax.measure.format;
  * 
  * @author Werner Keil
  */
-public enum FormatStyle {
+public enum FormatBehavior {
 
 	/**
 	 * Formatting occurs in a locale-neutral way.
