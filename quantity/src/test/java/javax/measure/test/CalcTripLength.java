@@ -22,7 +22,7 @@ public class CalcTripLength {
 
         final DistanceUnit klik = new DistanceUnit("kilometre", DistanceUnit.km, 1.0);
 
-        LinkedList<TripLeg> trip = new LinkedList<TripLeg>();
+        LinkedList<TripLeg> trip = new LinkedList<>();
         trip.add(new TripLeg("YKK", "NYC", new DistanceQuantity(1200.0, klik)));
         trip.add(new TripLeg("NYC", "LAX", new DistanceQuantity(5000.0, DistanceUnit.km)));
 
