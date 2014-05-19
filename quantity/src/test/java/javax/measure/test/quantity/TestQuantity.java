@@ -102,7 +102,7 @@ abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q> {
     }
 
     public Number getValue() {
-        return Double.valueOf(units);
+        return units;
     }
 
     public Unit<Q> getUnit() {

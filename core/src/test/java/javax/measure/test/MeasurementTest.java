@@ -26,7 +26,7 @@ public class MeasurementTest {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Before
 	public void init() {
-		sut = new TestMeasurement(Double.valueOf(20d), TEST);
+		sut = new TestMeasurement(20d, TEST);
 	}
 
 	@Test
