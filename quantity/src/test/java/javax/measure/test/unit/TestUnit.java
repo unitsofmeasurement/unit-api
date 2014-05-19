@@ -23,7 +23,7 @@ import javax.measure.quantity.Dimensionless;
  */
 public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
 
-    public static final Unit<Dimensionless> ONE = new BaseUnit<Dimensionless>("one");
+    public static final Unit<Dimensionless> ONE = new BaseUnit<>("one");
 
     // public static final Unit<Mass> METRIC_MASS = QuantityFactory.getInstance(Mass.class).getMetricUnit();
 
