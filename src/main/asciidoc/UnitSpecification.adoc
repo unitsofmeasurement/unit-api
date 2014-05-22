@@ -27,7 +27,7 @@ toc::[]
 <<<
 :numbered!:
 
-image::tiger.png[alt="test",align="center"]
+image:images/tiger.png[alt="test",align="center"]
 
 
 *EVALUATION LICENCE*
