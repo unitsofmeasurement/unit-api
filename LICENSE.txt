@@ -7,7 +7,7 @@ Specification:  JSR-363  Units of Measurement API ("Specification")
 
 Version:  <____>
 
-Status:  Spec Lead Draft
+Status:  Early Draft
 
 Jean-Marie Dautelle, Werner Keil, V2COM:  <insert full corporate name> ("Jean-Marie Dautelle, Werner Keil, V2COM")
 

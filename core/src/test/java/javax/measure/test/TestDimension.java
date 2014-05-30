@@ -47,7 +47,7 @@ final class TestDimension implements Dimension {
 
     @Override
     public Map<? extends Dimension, Integer> getProductDimensions() {
-        Map<Dimension, Integer> products = new HashMap<Dimension, Integer>();
+        Map<Dimension, Integer> products = new HashMap<>();
         products.put(this, 1);
         return products;
     }

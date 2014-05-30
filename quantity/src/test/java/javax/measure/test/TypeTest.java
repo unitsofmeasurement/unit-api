@@ -21,14 +21,14 @@ import org.junit.Test;
 
 /**
  * @author Werner Keil
- * @version 1.0, $Date$
+ * @version 0.5, May 31, 2014
  * 
  */
 public class TypeTest {
 
 	@Test
 	public void testStringMeasurement() {
-		Measurement<Length, String> length = new StringMeasurement<Length, String>(
+		Measurement<Length, String> length = new StringMeasurement<>(
 				"Ten", DistanceUnit.m);
 		assertEquals("Ten", length.getValue());
 	}
