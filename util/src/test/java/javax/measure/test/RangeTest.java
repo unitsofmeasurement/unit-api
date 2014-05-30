@@ -27,9 +27,9 @@ public class RangeTest {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Before
 	public void init() {
-		min = new TestMeasurement(Double.valueOf(1d), TEST);
-		max = new TestMeasurement(Double.valueOf(10d), TEST);
-		res = new TestMeasurement(Double.valueOf(2d), TEST);
+		min = new TestMeasurement(1d, TEST);
+		max = new TestMeasurement(10d, TEST);
+		res = new TestMeasurement(2d, TEST);
 		
 		range = Range.of(min, max, res);
 	}
