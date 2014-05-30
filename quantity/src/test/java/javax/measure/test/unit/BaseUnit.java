@@ -7,6 +7,8 @@
  */
 package javax.measure.test.unit;
 
+import java.util.Objects;
+
 import javax.measure.Quantity;
 import javax.measure.Unit;
 
@@ -57,18 +59,20 @@ public class BaseUnit<Q extends Quantity<Q>> extends TestUnit<Q> {
     }
 
     @Override
-    public boolean equals(Object that) {
-        if (this == that)
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
-        if (!(that instanceof BaseUnit<?>))
-            return false;
-        BaseUnit<?> thatUnit = (BaseUnit<?>) that;
-        return this.symbol.equals(thatUnit.symbol);
+        }
+        if (obj instanceof BaseUnit<?>) {
+        	BaseUnit<?> Other = (BaseUnit<?>) obj;
+        	return Objects.equals(symbol, Other.symbol);
+        }
+        return false;
     }
 
     @Override
     public int hashCode() {
-        return symbol.hashCode();
+        return Objects.hashCode(symbol);
     }
 
     @Override
