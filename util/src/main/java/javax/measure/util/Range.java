@@ -7,6 +7,8 @@
  */
 package javax.measure.util;
 
+import java.util.Objects;
+
 /**
  * A Measurement Range is a pair of <code>T</code> items that represent a range
  * of values.
@@ -150,14 +152,16 @@ public class Range<T> implements MinimumSupplier<T>, MaximumSupplier<T> {
 	 * @see java.lang.Object#equals()
 	 */
 	@Override
-	public boolean equals(Object object) {
-		if (object instanceof Range<?>) {
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj instanceof Range<?>) {
 			@SuppressWarnings("unchecked")
-			final Range<T> that = (Range<T>) object;
-			return this == that
-					|| (that.getMinimum() == getMinimum()
-							&& that.getMaximum() == getMaximum() && that
-							.getResolution() == getResolution());
+			final Range<T> other = (Range<T>) obj;
+			return Objects.equals(getMinimum(), other.getMinimum()) &&
+					Objects.equals(getMaximum(), other.getMaximum()) &&
+					Objects.equals(getResolution(), other.getResolution());
 		}
 		return false;
 	}
@@ -169,8 +173,7 @@ public class Range<T> implements MinimumSupplier<T>, MaximumSupplier<T> {
 	 */
 	@Override
 	public int hashCode() {
-		return min.hashCode() + max.hashCode()
-				+ (res != null ? res.hashCode() : 0);
+		return Objects.hash(min, max, res);
 	}
 
 	/*

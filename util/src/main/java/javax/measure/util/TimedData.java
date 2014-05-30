@@ -9,6 +9,8 @@ package javax.measure.util;
 
 //import java.util.function.Supplier;
 
+import java.util.Objects;
+
 import javax.measure.function.Nameable;
 
 /**
@@ -74,14 +76,17 @@ public class TimedData<T> implements Nameable { //, Supplier<T> {
 	 * @see java.lang.Object#equals()
 	 */
     @Override
-    public boolean equals(Object object) {
-        if(object instanceof TimedData<?>)  {
+    public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+        if(obj instanceof TimedData<?>)  {
             @SuppressWarnings("unchecked")
-            final TimedData<T> that = (TimedData<T>) object;
-            return this == that || (
-                    that.get() == get() &&
-                    that.getTimestamp() == getTimestamp() &&
-                    that.getName() == getName());
+            final TimedData<T> other = (TimedData<T>) obj;
+			return Objects.equals(get(), other.get())
+					&& Objects.equals(getTimestamp(), other.getTimestamp())
+					&& Objects.equals(getName(), other.getName());
+
         }
         return false;
     }
@@ -92,7 +97,7 @@ public class TimedData<T> implements Nameable { //, Supplier<T> {
 	 */
     @Override
     public int hashCode() {
-        return value.hashCode() + (name!=null ? name.hashCode() : 0);
+        return Objects.hash(value, name);
     }
 
 	/*
