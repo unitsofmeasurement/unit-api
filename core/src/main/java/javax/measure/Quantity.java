@@ -8,7 +8,6 @@
 package javax.measure;
 
 
-
 /**
  * <p>
  * Represents a quantitative properties or attributes of thing. Mass, time,
