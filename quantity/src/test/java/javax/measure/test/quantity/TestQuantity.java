@@ -78,13 +78,13 @@ abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q> {
 
     @Override
     public String toString() {
-        return (new Double(units)).toString() + ' ' + unit.getName();
+        return (Double.valueOf(units)).toString() + ' ' + unit.getName();
     }
 
     String showInUnits(TestUnit<?> u, int precision) {
         double result = scalar / u.getMultFactor();
 
-        String str = (new Double(result)).toString();
+        String str = (Double.valueOf(result)).toString();
         char cs[] = str.toCharArray();
         int i = 0;
         while (i < cs.length && (cs[i] >= '0' && cs[i] <= '9' || cs[i] == '.')) {
