@@ -7,7 +7,6 @@
  */
 package javax.measure;
 
-import javax.measure.function.Castable;
 
 
 /**
@@ -36,5 +35,5 @@ import javax.measure.function.Castable;
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @version 1.8 ($Revision: 236 $), Date: 2013-12-29
  */
-public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number>, Castable {
+public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number> {
 }
