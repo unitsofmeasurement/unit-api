@@ -39,7 +39,7 @@ import javax.measure.test.unit.TestUnit;
 public class SimpleFormat extends TestFormat {
     private static final long serialVersionUID = -7753687108842507677L;
 
-    private final Map<String, String> symbolMap = new HashMap<String, String>();
+    private final Map<String, String> symbolMap = new HashMap<>();
 
     private static final TestFormat DEFAULT = new SimpleFormat();
 
