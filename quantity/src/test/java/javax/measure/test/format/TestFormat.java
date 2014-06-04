@@ -129,7 +129,7 @@ abstract class TestFormat extends Format implements UnitFormat {
         if ((toAppendTo == null) || (pos == null))
             throw new NullPointerException(); // Format contract.
         try {
-            return (StringBuffer) format((Unit<?>) obj, (Appendable) toAppendTo);
+            return (StringBuffer) format((Unit<?>) obj, toAppendTo);
         } catch (IOException ex) {
             throw new AssertionError(ex); // Cannot happen.
         }
