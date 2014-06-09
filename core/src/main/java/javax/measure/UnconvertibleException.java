@@ -18,7 +18,7 @@ package javax.measure;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.4, $Date$
+ * @version 0.4, 2014-06-10
  *
  */
 public class UnconvertibleException extends MeasurementException {
