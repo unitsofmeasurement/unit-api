@@ -156,4 +156,10 @@ public class DistanceQuantity extends TestQuantity<Length> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Measurement<?, Number> multiply(Measurement<?, Number> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

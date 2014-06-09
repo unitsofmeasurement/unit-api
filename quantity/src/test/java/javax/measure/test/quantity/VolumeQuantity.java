@@ -146,4 +146,10 @@ public class VolumeQuantity extends TestQuantity<Volume> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Measurement<?, Number> multiply(Measurement<?, Number> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

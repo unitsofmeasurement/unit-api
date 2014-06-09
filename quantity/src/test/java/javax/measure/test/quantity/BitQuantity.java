@@ -17,7 +17,7 @@ import javax.measure.test.unit.BitUnit;
 
 /**
  * @author Werner Keil
- * @version 0.2
+ * @version 0.3
  */
 public class BitQuantity extends TestQuantity<Information> {
 
@@ -152,13 +152,19 @@ public class BitQuantity extends TestQuantity<Information> {
 	}
 
 	@Override
-	public Measurement<Information, Number> multiply(Number that) {
+	public BitQuantity multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Measurement<Information, Number> divide(Number that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BitQuantity multiply(Measurement<?, Number> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

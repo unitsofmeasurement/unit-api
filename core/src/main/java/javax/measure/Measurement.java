@@ -34,7 +34,7 @@ import javax.measure.function.ValueSupplier;
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement"> Wikipedia:
  *      Units of measurement</a>
- * @version 1.11, $Date: 2014-04-03 $
+ * @version 0.12, $Date: 2014-06-10 $
  */
 public interface Measurement<Q extends Quantity<Q>, V> extends UnitSupplier<Q>,
         ValueSupplier<V>, MeasurementConverter<Q, V> {
@@ -64,7 +64,7 @@ public interface Measurement<Q extends Quantity<Q>, V> extends UnitSupplier<Q>,
      *            the {@code Measurement} multiplier.
      * @return <code>this · that</code>.
      */
-//    Measurement<?, V> multiply(Measurement<?, V> that);
+    Measurement<?, V> multiply(Measurement<?, V> that);
 
     /**
      * Returns the product of this {@code Measurement} with the {@code V} value specified.

@@ -14,7 +14,7 @@ import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 1.2, $Date: 2014-01-27 23:16:02 +0100 (Mo, 27 Jän 2014) $
+ * @version 0.2, $Date: 2014-01-27 23:16:02 +0100 (Mo, 27 Jän 2014) $
  */
 @SuppressWarnings("hiding")
 final class TestMeasurement<Q extends Quantity<Q>, Number> implements
@@ -76,6 +76,13 @@ final class TestMeasurement<Q extends Quantity<Q>, Number> implements
 
 	@Override
 	public Measurement<Q, Double> divide(Double that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public TestMeasurement multiply(Measurement<?, Double> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
