@@ -35,4 +35,5 @@ package javax.measure;
  * @version 1.8 ($Revision: 236 $), Date: 2013-12-29
  */
 public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number> {
+ 	Quantity<?> divide(Quantity<?> that);
 }

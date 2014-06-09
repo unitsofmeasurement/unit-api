@@ -52,24 +52,6 @@ final class TestMeasurement<Q extends Quantity<Q>, Number> implements
 	}
 
 	@Override
-	public Measurement<?, Double> multiply(Measurement<?, Double> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Measurement<?, Double> multiply(Double that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Measurement<?, Double> divide(Measurement<?, Double> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Measurement<Q, Double> to(Unit<Q> unit) {
 		// TODO Auto-generated method stub
 		return null;
@@ -87,7 +69,13 @@ final class TestMeasurement<Q extends Quantity<Q>, Number> implements
 	}
 
 	@Override
-	public Measurement<?, Double> divide(Double that) {
+	public Measurement<Q, Double> multiply(Double that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Measurement<Q, Double> divide(Double that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

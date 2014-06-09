@@ -9,6 +9,7 @@ package javax.measure.test.quantity;
 
 
 import javax.measure.Measurement;
+import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Information;
 import javax.measure.test.unit.BitRateUnit;
@@ -16,7 +17,7 @@ import javax.measure.test.unit.BitUnit;
 
 /**
  * @author Werner Keil
- * @version 1.1
+ * @version 0.2
  */
 public class BitQuantity extends TestQuantity<Information> {
 
@@ -131,23 +132,6 @@ public class BitQuantity extends TestQuantity<Information> {
 		return null;
 	}
 
-	@Override
-	public Measurement<?, Number> multiply(Measurement<?, Number> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Measurement<?, Number> multiply(Number that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Measurement<?, Number> divide(Measurement<?, Number> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public Measurement<Information, Number> to(Unit<Information> unit) {
@@ -162,10 +146,23 @@ public class BitQuantity extends TestQuantity<Information> {
 	}
 
 	@Override
-	public Measurement<?, Number> divide(Number that) {
+	public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Measurement<Information, Number> multiply(Number that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Measurement<Information, Number> divide(Number that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 //	@Override
 //	public double doubleValue(Unit<Information> unit) {

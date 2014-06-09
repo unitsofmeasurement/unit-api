@@ -9,6 +9,7 @@ package javax.measure.test.quantity;
 
 
 import javax.measure.Measurement;
+import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Volume;
 import javax.measure.test.unit.AreaUnit;
@@ -117,24 +118,6 @@ public class VolumeQuantity extends TestQuantity<Volume> {
 	}
 
 	@Override
-	public Measurement<?, Number> multiply(Measurement<?, Number> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Measurement<?, Number> multiply(Number that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Measurement<?, Number> divide(Measurement<?, Number> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Measurement<Volume, Number> to(Unit<Volume> unit) {
 		// TODO Auto-generated method stub
 		return null;
@@ -147,20 +130,20 @@ public class VolumeQuantity extends TestQuantity<Volume> {
 	}
 
 	@Override
-	public Measurement<?, Number> divide(Number that) {
+	public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-//	@Override
-//	public double doubleValue(Unit<Volume> unit) {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
-//
-//	@Override
-//	public long longValue(Unit<Volume> unit) {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
+	@Override
+	public Measurement<Volume, Number> multiply(Number that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Measurement<Volume, Number> divide(Number that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

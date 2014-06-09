@@ -64,7 +64,7 @@ public interface Measurement<Q extends Quantity<Q>, V> extends UnitSupplier<Q>,
      *            the {@code Measurement} multiplier.
      * @return <code>this · that</code>.
      */
-    Measurement<?, V> multiply(Measurement<?, V> that);
+//    Measurement<?, V> multiply(Measurement<?, V> that);
 
     /**
      * Returns the product of this {@code Measurement} with the {@code V} value specified.
@@ -73,7 +73,7 @@ public interface Measurement<Q extends Quantity<Q>, V> extends UnitSupplier<Q>,
      *            the {@code V} multiplier.
      * @return <code>this · that</code>.
      */
-    Measurement<?, V> multiply(V that);
+    Measurement<Q, V> multiply(V that);
 
     /**
      * Returns this {@code Measurement} divided by the one specified.
@@ -82,16 +82,17 @@ public interface Measurement<Q extends Quantity<Q>, V> extends UnitSupplier<Q>,
      *            the {@code Measurement} divisor.
      * @return <code>this / that</code>.
      */
-    Measurement<?, V> divide(Measurement<?, V> that);
+//    Measurement<?, V> divide(Measurement<?, V> that);
     
     /**
      * Returns the product of this {@code Measurement} divided by the {@code V} value specified.
+     * @param <R>
      * 
      * @param that
      *            the {@code V} divisor.
      * @return <code>this / that</code>.
      */
-    Measurement<?, V> divide(V that);
+    Measurement<Q, V> divide(V that);
 
     /**
      * Returns a {@code Measurement} whose unit is {@code unit.inverse()}.

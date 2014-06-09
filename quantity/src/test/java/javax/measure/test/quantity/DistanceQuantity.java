@@ -8,6 +8,7 @@
 package javax.measure.test.quantity;
 
 import javax.measure.Measurement;
+import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Length;
 import javax.measure.test.unit.AreaUnit;
@@ -127,25 +128,19 @@ public class DistanceQuantity extends TestQuantity<Length> {
 	}
 
 	@Override
-	public Measurement<?, Number> multiply(Measurement<?, Number> that) {
+	public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Measurement<?, Number> multiply(Number that) {
+	public Measurement<Length, Number> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Measurement<?, Number> divide(Measurement<?, Number> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Measurement<Length, Number> to(Unit<Length> unit) {
+	public Measurement<Length, Number> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -157,20 +152,8 @@ public class DistanceQuantity extends TestQuantity<Length> {
 	}
 
 	@Override
-	public Measurement<?, Number> divide(Number that) {
+	public Measurement<Length, Number> to(Unit<Length> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-//	@Override
-//	public double doubleValue(Unit<Length> unit) {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
-//
-//	@Override
-//	public long longValue(Unit<Length> unit) {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
 }

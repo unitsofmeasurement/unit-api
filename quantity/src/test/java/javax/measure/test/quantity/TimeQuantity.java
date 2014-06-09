@@ -8,6 +8,7 @@
 package javax.measure.test.quantity;
 
 import javax.measure.Measurement;
+import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Time;
 import javax.measure.test.unit.DistanceUnit;
@@ -15,7 +16,7 @@ import javax.measure.test.unit.TimeUnit;
 
 /**
  * @author Werner Keil
- * @version 1.1
+ * @version 0.2
  */
 public class TimeQuantity extends TestQuantity<Time> {
 
@@ -79,28 +80,6 @@ public class TimeQuantity extends TestQuantity<Time> {
         return new TimeQuantity(units / v, (TimeUnit) unit);
     }
 
-
-
-    // mixed type operations
-	// public AreaQuantity multiply(TimeQuantity d1) {
-	// TimeQuantity dq0 = convert(DistanceUnit.m);
-	// TimeQuantity dq1 = d1.convert(DistanceUnit.m);
-	// return new AreaQuantity(dq0.units * dq1.units, AreaUnit.sqmetre);
-	// }
-
-	// public VolumeQuantity multiply(AreaQuantity a1) {
-	// TimeQuantity dq = convert(DistanceUnit.m);
-	// AreaQuantity aq = a1.convert(AreaUnit.sqmetre);
-	// return new VolumeQuantity(dq.units * aq.units, VolumeUnit.cumetre);
-	// }
-    // public Speed divide(TimeInterval t1) {
-    // return new Speed(scalar /
-    // t1.scalar, Speed.refUnit);
-    // }
-    // public TimeInterval divide(Speed s1) {
-    // return new TimeInterval(scalar /
-    // s1.scalar, TimeInterval.refUnit);
-    // }
     public TimeQuantity convert(TimeUnit newUnit) {
         return new TimeQuantity(scalar / newUnit.getMultFactor(), newUnit);
     }
@@ -122,25 +101,19 @@ public class TimeQuantity extends TestQuantity<Time> {
 	}
 
 	@Override
-	public Measurement<?, Number> multiply(Measurement<?, Number> that) {
+	public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Measurement<?, Number> multiply(Number that) {
+	public Measurement<Time, Number> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Measurement<?, Number> divide(Measurement<?, Number> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Measurement<Time, Number> to(Unit<Time> unit) {
+	public Measurement<Time, Number> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -152,20 +125,8 @@ public class TimeQuantity extends TestQuantity<Time> {
 	}
 
 	@Override
-	public Measurement<?, Number> divide(Number that) {
+	public Measurement<Time, Number> to(Unit<Time> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-//	@Override
-//	public double doubleValue(Unit<Time> unit) {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
-//
-//	@Override
-//	public long longValue(Unit<Time> unit) {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
 }

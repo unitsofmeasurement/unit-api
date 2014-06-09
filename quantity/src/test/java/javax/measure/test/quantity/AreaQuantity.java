@@ -8,6 +8,7 @@
 package javax.measure.test.quantity;
 
 import javax.measure.Measurement;
+import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Area;
 import javax.measure.test.unit.AreaUnit;
@@ -104,19 +105,13 @@ public class AreaQuantity extends TestQuantity<Area> {
 	}
 
 	@Override
-	public Measurement<?, Number> multiply(Measurement<?, Number> that) {
+	public Quantity<Area> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Measurement<?, Number> multiply(Number that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Measurement<?, Number> divide(Measurement<?, Number> that) {
+	public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -135,7 +130,7 @@ public class AreaQuantity extends TestQuantity<Area> {
 	}
 
 	@Override
-	public Measurement<?, Number> divide(Number that) {
+	public Measurement<Area, Number> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

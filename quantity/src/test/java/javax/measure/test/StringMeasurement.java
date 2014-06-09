@@ -17,7 +17,7 @@ import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 1.1
+ * @version 0.2
  */
 @SuppressWarnings("hiding")
 public final class StringMeasurement<Q extends Quantity<Q>, String> implements
@@ -43,12 +43,6 @@ public final class StringMeasurement<Q extends Quantity<Q>, String> implements
 
 
 	public Measurement<?, String> multiply(Measurement<?, String> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public Measurement<?, String> multiply(String that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -93,7 +87,13 @@ public final class StringMeasurement<Q extends Quantity<Q>, String> implements
 	}
 
 	@Override
-	public Measurement<?, String> divide(String that) {
+	public Measurement<Q, String> multiply(String that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Measurement<Q, String> divide(String that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
