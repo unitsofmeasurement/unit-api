@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>javax.measure</groupId>
-	<artifactId>unit-api</artifactId>
+	<artifactId>unit-api-parent</artifactId>
 	<version>0.5-SNAPSHOT</version>
-	<name>Units of Measurement API</name>
+	<name>Units of Measurement API Parent</name>
 	<packaging>pom</packaging>
 	<organization>
 		<name>Units of Measurement project</name>

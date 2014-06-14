@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>javax.measure</groupId>
-		<artifactId>unit-api</artifactId>
+		<artifactId>unit-api-parent</artifactId>
 		<version>0.5-SNAPSHOT</version>
 	</parent>
 	<artifactId>unit-api-format</artifactId>
