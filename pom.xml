@@ -17,15 +17,15 @@
 			<url>LICENSE.txt</url>
 		</license>
 	</licenses>
-    <parent> 
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId> 
-        <version>7</version>
-    <!-- Disable behavior of looking at ../pom.xml and instead resolve the parent 
-        POM from the repositories -->
-    <!-- See http://maven.apache.org/ref/3.1.1/maven-model/maven.html#class_parent -->
-    <!-- relativePath /--> 
-    </parent>
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+		<!-- Disable behavior of looking at ../pom.xml and instead resolve the 
+			parent POM from the repositories -->
+		<!-- See http://maven.apache.org/ref/3.1.1/maven-model/maven.html#class_parent -->
+		<!-- relativePath / -->
+	</parent>
 
 	<!-- Issue managements and mailing lists. -->
 	<issueManagement>
@@ -78,6 +78,7 @@
 		<module>quantity</module>
 		<module>service</module>
 		<module>util</module>
+		<module>shaded</module>
 	</modules>
 
 	<!-- Developers and Contributors -->
@@ -146,10 +147,22 @@
 			</roles>
 		</developer>
 		<developer>
-			<id>christopher.senior</id>
-			<name>Chris Senior</name>
-			<email>christopher.senior@gmail.com</email>
-			<organization>Snap-on Inc.</organization>
+			<id>mohamed-taman</id>
+			<name>Mohamed Mahmoud Taman</name>
+			<email>mohamed.taman@gmail.com</email>
+			<organization>Individual / Morocco JUG</organization>
+			<timezone>+2</timezone>
+			<roles>
+				<role>Expert</role>
+				<role>Java Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>otaviojava</id>
+			<name>Otávio Gonçalves de Santana</name>
+			<email>otaviopolianasantana@gmail.com</email>
+			<organization>Individual / SouJava</organization>
+			<timezone>-5</timezone>
 			<roles>
 				<role>Expert</role>
 				<role>Java Developer</role>
@@ -157,6 +170,16 @@
 		</developer>
 	</developers>
 	<contributors>
+		<contributor>
+			<!-- >id>christopher.senior</id -->
+			<name>Chris Senior</name>
+			<email>christopher.senior@gmail.com</email>
+			<organization>Snap-on Inc.</organization>
+			<roles>
+				<role>Proposed Expert</role>
+				<role>Java Developer</role>
+			</roles>
+		</contributor>
 		<contributor>
 			<!-- >id>dan.leuck</id -->
 			<name>Daniel Leuck</name>
@@ -236,9 +259,17 @@
 					<version>2.3.5</version>
 					<extensions>true</extensions>
 				</plugin>
+				<!-- ======================================================= -->
+				<!-- Assembly (Single JAR) -->
+				<!-- ======================================================= -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
-		
+
 		<plugins>
 			<!-- ======================================================= -->
 			<!-- Compilation -->
@@ -289,6 +320,16 @@
 				</configuration>
 			</plugin>
 
+			<!-- ======================================================= -->
+			<!-- Assembly (Single JAR) -->
+			<!-- ======================================================= -->
+			<!-- <plugin> <artifactId>maven-assembly-plugin</artifactId> <configuration> 
+				<descriptorRefs> <descriptorRef>jar-with-dependencies</descriptorRef> </descriptorRefs> 
+				</configuration> </plugin> -->
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId> 
+				<version>2.3</version> <executions> <execution> <phase>package</phase> <goals> 
+				<goal>shade</goal> </goals> <configuration> <minimizeJar>true</minimizeJar> 
+				</configuration> </execution> </executions> </plugin> -->
 			<!-- ======================================================= -->
 			<!-- Custom Javadoc plugin -->
 			<!-- ======================================================= -->
@@ -437,6 +478,32 @@
 				<version>4.11</version>
 				<scope>test</scope>
 			</dependency>
+
+			<dependency>
+				<groupId>javax.measure</groupId>
+				<artifactId>unit-api-core</artifactId>
+				<version>${jsr.version}</version>
+			</dependency>
+			<dependency>
+                <groupId>javax.measure</groupId>
+                <artifactId>unit-api-quantity</artifactId>
+                <version>${jsr.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.measure</groupId>
+                <artifactId>unit-api-format</artifactId>
+                <version>${jsr.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.measure</groupId>
+                <artifactId>unit-api-util</artifactId>
+                <version>${jsr.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.measure</groupId>
+                <artifactId>unit-api-service</artifactId>
+                <version>${jsr.version}</version>
+            </dependency>
 		</dependencies>
 	</dependencyManagement>
 	<distributionManagement>
