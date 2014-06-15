@@ -9,7 +9,7 @@
 	<artifactId>unit-api-util</artifactId>
 	<name>Unit-API Utilities</name>
 	<packaging>bundle</packaging>
-	<description>Provides common utilities such as range, data aging and unit systems.</description>
+	<description>[OPTIONAL] Provides common utilities such as range, data aging and unit systems.</description>
 	<dependencies>
 		<dependency>
 			<groupId>javax.measure</groupId>

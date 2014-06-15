@@ -47,4 +47,5 @@
   	</plugins>
   </build>
    <name>Unit API Service</name>
+   <description>[OPTIONAL] Service / SPI</description>
 </project>

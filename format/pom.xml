@@ -8,7 +8,7 @@
 	</parent>
 	<artifactId>unit-api-format</artifactId>
 	<name>Unit-API Format</name>
-	<description>Formatting and Parsing</description>
+	<description>[OPTIONAL] Formatting and Parsing</description>
 	<packaging>bundle</packaging>
 	<dependencies>
 		<dependency>

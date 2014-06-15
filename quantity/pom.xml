@@ -7,7 +7,7 @@
   </parent>
   <artifactId>unit-api-quantity</artifactId>
   <packaging>bundle</packaging>
-  <name>Unit API Quantities</name>
+  <name>Unit-API Quantities</name>
   <dependencies>
   	<dependency>
   		<groupId>javax.measure</groupId>
@@ -43,4 +43,5 @@
             </plugin>
   	</plugins>
   </build>
+   <description>[OPTIONAL] Quantity Subsystem, defines default quantites in the SI System</description>
 </project>

@@ -30,7 +30,7 @@
 	<!-- Issue managements and mailing lists. -->
 	<issueManagement>
 		<system>JIRA</system>
-		<url>http://code.google.com/p/unitsofmeasure/issues/list</url>
+		<url>https://java.net/jira/browse/UNITSOFMEASUREMENT</url>
 	</issueManagement>
 	<ciManagement>
 		<system>Jenkins</system>
@@ -573,6 +573,6 @@
 		</profile>
 	</profiles>
 
-	<url>https://jcp.org/en/jsr/detail?id=363</url>
+	<url>http://unitsofmeasurement.github.io/</url>
 	<description>Units of Measurement Standard - This JSR specifies Java packages for modeling and working with measurement values, quantities and their corresponding units. </description>
 </project>

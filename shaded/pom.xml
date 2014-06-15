@@ -16,12 +16,12 @@
 		</dependency>
 		<dependency>
 			<groupId>javax.measure</groupId>
-			<artifactId>unit-api-quantity</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.measure</groupId>
 			<artifactId>unit-api-format</artifactId>
 		</dependency>
+		<dependency>
+            <groupId>javax.measure</groupId>
+            <artifactId>unit-api-quantity</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>javax.measure</groupId>
 			<artifactId>unit-api-util</artifactId>
@@ -49,4 +49,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	<description>This is a single JAR distribution of Unit-API</description>
 </project>
