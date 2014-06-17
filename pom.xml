@@ -4,7 +4,7 @@
 	<groupId>javax.measure</groupId>
 	<artifactId>unit-api-parent</artifactId>
 	<version>0.5-SNAPSHOT</version>
-	<name>Units of Measurement API Parent</name>
+	<name>Units of Measurement API</name>
 	<packaging>pom</packaging>
 	<organization>
 		<name>Units of Measurement project</name>
@@ -51,7 +51,8 @@
 	</mailingLists>
 
 	<scm>
-		<url>https://github.com/unitsofmeasurement/unit-api.git</url>
+	   <connection>Git</connection>
+	   <url>https://github.com/unitsofmeasurement/unit-api.git</url>
 	</scm>
 
 	<!-- ======================================================= -->

@@ -7,7 +7,6 @@
 		<version>0.5-SNAPSHOT</version>
 	</parent>
 	<artifactId>unit-api</artifactId>
-	<name>Units of Measurement API</name>
 
 	<dependencies>
 		<dependency>
@@ -49,5 +48,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	<description>This is a single JAR distribution of Unit-API</description>
+	<description>This is a single JAR distribution of the Units of Measurement API</description>
+	<name>Unit-API</name>
 </project>
