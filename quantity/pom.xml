@@ -12,12 +12,10 @@
   	<dependency>
   		<groupId>javax.measure</groupId>
   		<artifactId>unit-api-core</artifactId>
-  		<version>${jsr.version}</version>
   	</dependency>
   	<dependency>
   		<groupId>javax.measure</groupId>
   		<artifactId>unit-api-format</artifactId>
-  		<version>${jsr.version}</version>
   		<scope>test</scope>
   	</dependency>
   	<dependency>
