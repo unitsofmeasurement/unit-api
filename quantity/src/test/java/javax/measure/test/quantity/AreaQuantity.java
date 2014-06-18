@@ -118,7 +118,7 @@ public class AreaQuantity extends TestQuantity<Area> {
 
 
 	@Override
-	public Measurement<Area, Number> to(Unit<Area> unit) {
+	public Area to(Unit<Area> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}

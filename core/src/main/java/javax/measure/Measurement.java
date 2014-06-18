@@ -7,7 +7,7 @@
  */
 package javax.measure;
 
-import javax.measure.function.MeasurementConverter;
+import javax.measure.function.ConversionOperator;
 import javax.measure.function.UnitSupplier;
 import javax.measure.function.ValueSupplier;
 
@@ -32,12 +32,14 @@ import javax.measure.function.ValueSupplier;
  *            The measured value.
  * 
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement"> Wikipedia:
+ * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia:
  *      Units of measurement</a>
- * @version 0.12, $Date: 2014-06-10 $
+ * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia:
+ *      Conversion of units</a>
+ * @version 0.13, $Date: 2014-06-18 $
  */
 public interface Measurement<Q extends Quantity<Q>, V> extends UnitSupplier<Q>,
-        ValueSupplier<V>, MeasurementConverter<Q, V> {
+        ValueSupplier<V>, ConversionOperator<Measurement<Q, V>, Unit<Q>> {
 
     /**
      * Returns the sum of this {@code Measurement} with the one specified.

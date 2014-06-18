@@ -32,7 +32,8 @@ package javax.measure;
  *         Desruisseaux</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
- * @version 1.8 ($Revision: 236 $), Date: 2013-12-29
+ * @see <a href="http://martinfowler.com/eaaDev/quantity.html"> Martin Fowler - Quantity</a>
+ * @version 0.8 ($Revision: 236 $), Date: 2014-06-18
  */
 public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number> {
  	Quantity<?> divide(Quantity<?> that);
