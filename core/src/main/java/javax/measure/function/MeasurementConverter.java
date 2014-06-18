@@ -41,5 +41,5 @@ public interface MeasurementConverter<Q extends Quantity<Q>, V> {
      * @param unit
      * @return the converted result.
      */
-    Measurement<Q, V> to(Unit<Q> unit);
+    Q to(Unit<Q> unit);
 }
