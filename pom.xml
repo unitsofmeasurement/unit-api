@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>javax.measure</groupId>
 	<artifactId>unit-api-parent</artifactId>
-	<version>0.5-SNAPSHOT</version>
+	<version>0.5</version>
 	<name>Units of Measurement API</name>
 	<packaging>pom</packaging>
 	<organization>
@@ -51,7 +51,6 @@
 	</mailingLists>
 
 	<scm>
-	   <connection>Git</connection>
 	   <url>https://github.com/unitsofmeasurement/unit-api.git</url>
 	</scm>
 
