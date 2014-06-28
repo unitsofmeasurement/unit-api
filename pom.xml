@@ -2,10 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>javax.measure</groupId>
-	<artifactId>unit-api-parent</artifactId>
-	<version>0.5</version>
+	<artifactId>unit-api</artifactId>
+	<version>0.6-SNAPSHOT</version>
 	<name>Units of Measurement API</name>
-	<packaging>pom</packaging>
+	<packaging>bundle</packaging>
+	<url>http://unitsofmeasurement.github.io/</url>
+	<description>Units of Measurement Standard - This JSR specifies Java packages for modeling and working with measurement values, quantities and their corresponding units.</description>
 	<organization>
 		<name>Units of Measurement project</name>
 		<url>http://www.unitsofmeasurement.org</url>
@@ -51,6 +53,7 @@
 	</mailingLists>
 
 	<scm>
+	   <connection>scm:git:https://github.com/unitsofmeasurement/unit-api.git</connection> 
 	   <url>https://github.com/unitsofmeasurement/unit-api.git</url>
 	</scm>
 
@@ -72,14 +75,9 @@
 	<!-- ======================================================= -->
 	<!-- Modules -->
 	<!-- ======================================================= -->
-	<modules>
-		<module>core</module>
-		<module>format</module>
-		<module>quantity</module>
-		<module>service</module>
-		<module>util</module>
-		<module>shaded</module>
-	</modules>
+	<!-- Currently unused <modules> <module>core</module> <module>format</module> 
+		<module>quantity</module> <module>service</module> <module>util</module> 
+		<module>shaded</module> </modules> -->
 
 	<!-- Developers and Contributors -->
 	<developers>
@@ -271,6 +269,20 @@
 		</pluginManagement>
 
 		<plugins>
+			<!-- ======================================================= -->
+			<!-- Packaging (OSGi bundle) -->
+			<!-- ======================================================= -->
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<configuration>
+					<instructions>
+						<Export-Package>javax.measure.*</Export-Package>
+						<Private-Package>!*</Private-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+
 			<!-- ======================================================= -->
 			<!-- Compilation -->
 			<!-- ======================================================= -->
@@ -485,33 +497,42 @@
 				<version>${jsr.version}</version>
 			</dependency>
 			<dependency>
-                <groupId>javax.measure</groupId>
-                <artifactId>unit-api-quantity</artifactId>
-                <version>${jsr.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.measure</groupId>
-                <artifactId>unit-api-format</artifactId>
-                <version>${jsr.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.measure</groupId>
-                <artifactId>unit-api-util</artifactId>
-                <version>${jsr.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.measure</groupId>
-                <artifactId>unit-api-service</artifactId>
-                <version>${jsr.version}</version>
-            </dependency>
+				<groupId>javax.measure</groupId>
+				<artifactId>unit-api-quantity</artifactId>
+				<version>${jsr.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.measure</groupId>
+				<artifactId>unit-api-format</artifactId>
+				<version>${jsr.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.measure</groupId>
+				<artifactId>unit-api-util</artifactId>
+				<version>${jsr.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.measure</groupId>
+				<artifactId>unit-api-service</artifactId>
+				<version>${jsr.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	
 	<distributionManagement>
 		<site>
 			<id>www.unitsofmeasurement.org</id>
 			<url>scp://www.unitsofmeasurement.org/www/docs/project/</url>
 		</site>
 	</distributionManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 	<profiles>
 		<profile>
@@ -572,7 +593,4 @@
 			</build>
 		</profile>
 	</profiles>
-
-	<url>http://unitsofmeasurement.github.io/</url>
-	<description>Units of Measurement Standard - This JSR specifies Java packages for modeling and working with measurement values, quantities and their corresponding units. </description>
 </project>
