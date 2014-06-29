@@ -15,13 +15,13 @@ import java.util.Objects;
  * <p>
  * Range limits MUST be presented in the same scale and have the same unit as
  * measured data values.<br/>
- * The Range MUST be immutable.
+ * Subclasses of Range should be immutable.
  * 
  * @param <T>
  *            The value of the range.
  * 
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.8.6, May 28, 2014
+ * @version 0.8.7, June 29, 2014
  * @see <a
  *      href="http://www.botts-inc.com/SensorML_1.0.1/schemaBrowser/SensorML_QuantityRange.html">
  *      SensorML: QuantityRange</a>
