@@ -16,7 +16,7 @@ import javax.measure.Dimension;
 /**
  * 
  * @author Werner Keil
- * @version 0.2, Date: 2013-12-22
+ * @version 0.3, Date: 2014-07-01
  */
 final class TestDimension implements Dimension {
     private static final Dimension INSTANCE = new TestDimension();
@@ -25,27 +25,22 @@ final class TestDimension implements Dimension {
     	return INSTANCE;
     }
 
-    @Override
     public Dimension multiply(Dimension dimension) {
         return this;
     }
 
-    @Override
     public Dimension divide(Dimension dimension) {
         return this;
     }
 
-    @Override
     public Dimension pow(int i) {
         return this;
     }
-
-    @Override
+    
     public Dimension root(int i) {
         return this;
     }
 
-    @Override
     public Map<? extends Dimension, Integer> getProductDimensions() {
         final Map<Dimension, Integer> products = new HashMap<Dimension, Integer>();
         products.put(this, 1);

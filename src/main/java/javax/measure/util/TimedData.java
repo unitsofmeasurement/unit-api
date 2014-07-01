@@ -62,7 +62,6 @@ public class TimedData<T> implements Nameable { //, Supplier<T> {
         return timestamp;
     }
     
-	@Override
 	public String getName() {
 		return name;
 	}

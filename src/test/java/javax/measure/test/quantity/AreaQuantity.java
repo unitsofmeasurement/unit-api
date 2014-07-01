@@ -92,62 +92,52 @@ public class AreaQuantity extends TestQuantity<Area> {
         return super.showInUnits(u, precision);
     }
 
-	@Override
 	public Measurement<Area, Number> add(Measurement<Area, Number> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Measurement<Area, Number> substract(Measurement<Area, Number> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Quantity<Area> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	@Override
 	public Area to(Unit<Area> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Measurement<Area, Number> inverse() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Measurement<Area, Number> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public AreaQuantity multiply(Measurement<?, Number> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-//	@Override
 //	public double doubleValue(Unit<Area> unit) {
 //		// TODO Auto-generated method stub
 //		return 0;
 //	}
 //
-//	@Override
 //	public long longValue(Unit<Area> unit) {
 //		// TODO Auto-generated method stub
 //		return 0;

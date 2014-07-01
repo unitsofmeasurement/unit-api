@@ -101,7 +101,6 @@ public class Range<T> implements MinimumSupplier<T>, MaximumSupplier<T> {
 	 * 
 	 * @return the minimum value
 	 */
-	@Override
 	public T getMinimum() {
 		return min;
 	}
@@ -112,7 +111,6 @@ public class Range<T> implements MinimumSupplier<T>, MaximumSupplier<T> {
 	 * 
 	 * @return the maximum value
 	 */
-	@Override
 	public T getMaximum() {
 		return max;
 	}

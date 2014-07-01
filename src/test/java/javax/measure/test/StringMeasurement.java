@@ -63,35 +63,29 @@ public final class StringMeasurement<Q extends Quantity<Q>> implements
 //		return 0;
 //	}
 //
-//	@Override
 //	public long longValue(Unit<Q> unit) {
 //		// TODO Auto-generated method stub
 //		return 0;
 //	}
 
-	@Override
 	public Unit<Q> getUnit() {
 		return u;
 	}
 
-	@Override
 	public String getValue() {
 		return v;
 	}
 
-	@Override
 	public Measurement<Q, String> inverse() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Measurement<Q, String> multiply(String that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Measurement<Q, String> divide(String that) {
 		// TODO Auto-generated method stub
 		return null;

@@ -32,74 +32,61 @@ enum EnumUnit implements Unit {
     	this.factor  = factor;
     }
     
-	@Override
 	public String getSymbol() {
 		return symbol;
 	}
 
-	@Override
 	public Dimension getDimension() {
 		return TestDimension.getInstance();
 	}
 
-	@Override
 	public Unit getSystemUnit() {
 		return this;
 	}
 
-	@Override
 	public Map getProductUnits() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public boolean isCompatible(Unit that) {
 		return (this.equals(that));
 	}
 
-	@Override
 	public Unit asType(Class type) throws ClassCastException {
 		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 
-	@Override
 	public UnitConverter getConverterTo(Unit that)
 			throws UnconvertibleException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public UnitConverter getConverterToAny(Unit that)
 			throws IncommensurableException, UnconvertibleException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Unit alternate(String symbol) {
 		return this;
 	}
 
-	@Override
 	public Unit transform(UnitConverter operation) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Unit shift(double offset) {
 		return this;
 	}
 
-	@Override
 	public Unit multiply(double factor) {
 		return this;
 	}
 
-	@Override
 	public Unit multiply(Unit that) {
     	if (!(that instanceof EnumUnit)) {
     		throw new UnconvertibleException("Incompatible unit");
@@ -107,17 +94,14 @@ enum EnumUnit implements Unit {
     	return this;
 	}
 
-	@Override
 	public Unit inverse() {
 		return this;
 	}
 
-	@Override
 	public Unit divide(double divisor) {
 		return this;
 	}
 
-	@Override
 	public Unit divide(Unit that) {
     	if (!(that instanceof EnumUnit)) {
     		throw new UnconvertibleException("Incompatible unit");
@@ -125,17 +109,14 @@ enum EnumUnit implements Unit {
     	return this;
 	}
 
-	@Override
 	public Unit root(int n) {
 		return this;
 	}
 
-	@Override
 	public Unit pow(int n) {
 		return this;
 	}
 
-	@Override
 	public String getName() {
 		return name();
 	}

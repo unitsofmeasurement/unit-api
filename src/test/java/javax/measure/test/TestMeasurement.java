@@ -14,10 +14,10 @@ import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 0.2, $Date: 2014-01-27 23:16:02 +0100 (Mo, 27 Jän 2014) $
+ * @version 0.3, $Date: 2014-07-01 $
  */
 @SuppressWarnings("hiding")
-final class TestMeasurement<Q extends Quantity<Q>, Number> implements
+final class TestMeasurement<Q extends Quantity<Q>> implements
 		Measurement<Q, Double> {
 
 	private final Double val;
@@ -28,36 +28,30 @@ final class TestMeasurement<Q extends Quantity<Q>, Number> implements
 		this.unit = unit;
 	}
 	
-	@Override
 	public Unit<Q> getUnit() {
 		return unit;
 	}
 
-	@Override
 	public Double getValue() {
 		return val;
 	}
 
-	@Override
 	public Measurement<Q, Double> add(Measurement<Q, Double> that) {
 		
 		//TODO use shift on units?
-		return new TestMeasurement<Q, Double>(this.val + that.getValue(), this.unit);
+		return new TestMeasurement<Q>(this.val + that.getValue(), this.unit);
 	}
 
-	@Override
 	public Measurement<Q, Double> substract(Measurement<Q, Double> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Measurement<Q, Double> to(Unit<Q> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Measurement<Q, Double> inverse() {
 		// TODO Auto-generated method stub
 		return null;
@@ -68,21 +62,18 @@ final class TestMeasurement<Q extends Quantity<Q>, Number> implements
 		return val + " " + unit;
 	}
 
-	@Override
 	public Measurement<Q, Double> multiply(Double that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Measurement<Q, Double> divide(Double that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@SuppressWarnings("unchecked")
-	@Override
-	public TestMeasurement multiply(Measurement<?, Double> that) {
+	public TestMeasurement<?> multiply(Measurement<?, Double> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
