@@ -16,7 +16,7 @@ import javax.measure.Unit;
 import javax.measure.format.ParserException;
 import javax.measure.format.UnitFormat;
 import javax.measure.function.UnitConverter;
-import javax.measure.test.unit.TestUnit;
+import javax.measure.test.TestUnit;
 
 
 /**
@@ -34,12 +34,12 @@ import javax.measure.test.unit.TestUnit;
  * productions in the {@code UCUMParser.jj} file to conform to the standard.</p>
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2.3
+ * @version 0.3
  */
 public class SimpleFormat extends TestFormat {
     private static final long serialVersionUID = -7753687108842507677L;
 
-    private final Map<String, String> symbolMap = new HashMap<>();
+    private final Map<String, String> symbolMap = new HashMap<String, String>();
 
     private static final TestFormat DEFAULT = new SimpleFormat();
 

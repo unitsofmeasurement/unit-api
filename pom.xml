@@ -65,9 +65,9 @@
 		<sourceEncoding>UTF-8</sourceEncoding> <!-- in Maven 3. -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${sourceEncoding}</project.reporting.outputEncoding>
-		<project.build.javaVersion>1.7</project.build.javaVersion>
-		<jdkVersion>1.7</jdkVersion>
-		<maven.compile.targetLevel>1.5</maven.compile.targetLevel>
+		<project.build.javaVersion>1.6</project.build.javaVersion>
+		<jdkVersion>1.6</jdkVersion>
+		<maven.compile.targetLevel>1.6</maven.compile.targetLevel>
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
 	</properties>
 
@@ -184,7 +184,7 @@
 			<organization>Ikayzo</organization>
 			<timezone>-9</timezone>
 			<roles>
-				<role>Globalization Support</role>
+				<role>Supporter</role>
 			</roles>
 		</contributor>
 		<contributor>
@@ -203,34 +203,6 @@
 			<timezone>-5</timezone>
 			<roles>
 				<role>Supporter</role>
-				<role>Test Analyst</role>
-			</roles>
-		</contributor>
-		<contributor>
-			<name>Scott Murphy</name>
-			<email>scott@ikayzo.com</email>
-			<organization>Ikayzo</organization>
-			<timezone>-9</timezone>
-			<roles>
-				<role>Japanese Translator</role>
-			</roles>
-		</contributor>
-		<contributor>
-			<name>Mika Terada</name>
-			<email>mika@ikayzo.com</email>
-			<organization>Ikayzo</organization>
-			<timezone>-9</timezone>
-			<roles>
-				<role>Japanese Translator</role>
-			</roles>
-		</contributor>
-		<contributor>
-			<name>Anatol Filin</name>
-			<email>anatol@gramant.ru</email>
-			<organization>Gramant</organization>
-			<timezone>+4</timezone>
-			<roles>
-				<role>Russian Translator</role>
 			</roles>
 		</contributor>
 		<contributor>
@@ -290,8 +262,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>${project.build.javaVersion}</source>
-					<target>${project.build.javaVersion}</target>
+					<source>${maven.compile.sourceLevel}</source>
+					<target>${maven.compile.targetLevel}</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>

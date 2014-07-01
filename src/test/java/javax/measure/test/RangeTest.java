@@ -7,7 +7,7 @@
  */
 package javax.measure.test;
 
-import static javax.measure.test.TestUnit.TEST;
+import static javax.measure.test.EnumUnit.TEST;
 import static org.junit.Assert.*;
 
 import javax.measure.Measurement;

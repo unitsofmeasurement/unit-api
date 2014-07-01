@@ -9,6 +9,7 @@ package javax.measure.test.unit;
 
 import javax.measure.Unit;
 import javax.measure.quantity.InformationRate;
+import javax.measure.test.TestUnit;
 
 
 /**

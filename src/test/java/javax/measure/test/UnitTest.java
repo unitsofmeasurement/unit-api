@@ -8,7 +8,7 @@
 package javax.measure.test;
 
 import static org.junit.Assert.*;
-import static javax.measure.test.TestUnit.TEST;
+import static javax.measure.test.EnumUnit.TEST;
 
 import javax.measure.Dimension;
 import javax.measure.Unit;
@@ -30,7 +30,7 @@ public class UnitTest {
 	}
 
 	/**
-	 * Test method for {@link javax.measure.test.TestUnit#getSymbol()}.
+	 * Test method for {@link javax.measure.test.EnumUnit#getSymbol()}.
 	 */
 	@Test
 	public void testGetSymbol() {
@@ -39,7 +39,7 @@ public class UnitTest {
 	}
 
 	/**
-	 * Test method for {@link javax.measure.test.TestUnit#getDimension()}.
+	 * Test method for {@link javax.measure.test.EnumUnit#getDimension()}.
 	 */
 	@Test
 	public void testGetDimension() {
@@ -48,7 +48,7 @@ public class UnitTest {
 	}
 
 	/**
-	 * Test method for {@link javax.measure.test.TestUnit#isCompatible(javax.measure.Unit)}.
+	 * Test method for {@link javax.measure.test.EnumUnit#isCompatible(javax.measure.Unit)}.
 	 */
 	@SuppressWarnings("unchecked")
 	@Test

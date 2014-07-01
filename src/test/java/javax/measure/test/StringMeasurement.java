@@ -17,10 +17,9 @@ import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 0.2
+ * @version 0.3
  */
-@SuppressWarnings("hiding")
-public final class StringMeasurement<Q extends Quantity<Q>, String> implements
+public final class StringMeasurement<Q extends Quantity<Q>> implements
 		Measurement<Q, String> {
 	private String v;
 	private Unit<Q> u;

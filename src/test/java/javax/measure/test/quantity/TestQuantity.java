@@ -12,7 +12,7 @@ import java.math.RoundingMode;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
-import javax.measure.test.unit.TestUnit;
+import javax.measure.test.TestUnit;
 
 
 

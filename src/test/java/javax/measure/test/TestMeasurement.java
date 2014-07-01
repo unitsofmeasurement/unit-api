@@ -42,7 +42,7 @@ final class TestMeasurement<Q extends Quantity<Q>, Number> implements
 	public Measurement<Q, Double> add(Measurement<Q, Double> that) {
 		
 		//TODO use shift on units?
-		return new TestMeasurement<>(this.val + that.getValue(), this.unit);
+		return new TestMeasurement<Q, Double>(this.val + that.getValue(), this.unit);
 	}
 
 	@Override

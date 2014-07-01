@@ -77,7 +77,7 @@ public class Range<T> implements MinimumSupplier<T>, MaximumSupplier<T> {
 	 * @return an {@code MeasurementRange} with the given values
 	 */
 	public static <T> Range<T> of(T minimum, T maximum, T resolution) {
-		return new Range<>(minimum, maximum, resolution);
+		return new Range<T>(minimum, maximum, resolution);
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class Range<T> implements MinimumSupplier<T>, MaximumSupplier<T> {
 	 * @return an {@code MeasurementRange} with the given values
 	 */
 	public static <T> Range<T> of(T minimum, T maximum) {
-		return new Range<>(minimum, maximum);
+		return new Range<T>(minimum, maximum);
 	}
 
 	/**

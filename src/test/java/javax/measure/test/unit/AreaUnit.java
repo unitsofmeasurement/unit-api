@@ -9,11 +9,12 @@ package javax.measure.test.unit;
 
 import javax.measure.Unit;
 import javax.measure.quantity.Area;
+import javax.measure.test.TestUnit;
 
 
 
 /**
- * @author paul.morrison
+ * @author Werner Keil
  */
 public class AreaUnit extends TestUnit<Area> {
 

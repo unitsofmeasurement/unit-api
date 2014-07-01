@@ -9,9 +9,10 @@ package javax.measure.test.unit;
 
 import javax.measure.Unit;
 import javax.measure.quantity.Volume;
+import javax.measure.test.TestUnit;
 
 /**
- * @author paul.morisson
+ * @author Werner Keil
  */
 public class VolumeUnit extends TestUnit<Volume> {
     public static final VolumeUnit cumetre = new VolumeUnit("cumetre", 1.0); // reference Unit

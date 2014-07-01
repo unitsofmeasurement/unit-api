@@ -50,7 +50,7 @@ public class TimedData<T> implements Nameable { //, Supplier<T> {
      * @return an {@code MeasurementRange} with the given values
      */
     public static <T> TimedData<T> of(T val, long time) {
-        return new TimedData<>(val, time);
+        return new TimedData<T>(val, time);
     }
     
     /**

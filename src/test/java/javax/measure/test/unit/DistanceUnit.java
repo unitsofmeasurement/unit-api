@@ -11,7 +11,7 @@ import javax.measure.Unit;
 import javax.measure.quantity.Length;
 
 /**
- * @author werner.keil
+ * @author Werner Keil
  */
 public class DistanceUnit extends BaseUnit<Length> {
 

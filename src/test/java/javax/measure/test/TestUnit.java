@@ -10,134 +10,138 @@ package javax.measure.test;
 import java.util.Map;
 
 import javax.measure.Dimension;
+import javax.measure.Quantity;
+import javax.measure.Unit;
 import javax.measure.IncommensurableException;
 import javax.measure.UnconvertibleException;
-import javax.measure.Unit;
 import javax.measure.function.UnitConverter;
+import javax.measure.quantity.Dimensionless;
+import javax.measure.test.unit.BaseUnit;
+
 
 /**
  * @author Werner Keil
- *
  */
-@SuppressWarnings("rawtypes")
-enum TestUnit implements Unit {
-	TEST("t", 1);
+public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
 
-    private final String symbol;
-    @SuppressWarnings("unused")
-	private final double factor;
+    public static final Unit<Dimensionless> ONE = new BaseUnit<Dimensionless>("one");
 
-    private TestUnit(String symbol, double factor) {
-    	this.symbol  = symbol;
-    	this.factor  = factor;
+    // public static final Unit<Mass> METRIC_MASS = QuantityFactory.getInstance(Mass.class).getMetricUnit();
+
+    protected String symbol; // e.g. "A"
+    protected String name; // e.g. "Angstrom"
+    protected double multFactor; // e.g. 1E-10
+    double addFactor = 0.0; // used for temperatures
+    final Dimension dimension = TestDimension.getInstance();
+    		
+    protected TestUnit() {
     }
-    
-	@Override
-	public String getSymbol() {
-		return symbol;
-	}
 
-	@Override
-	public Dimension getDimension() {
-		return TestDimension.getInstance();
-	}
+    public TestUnit(String name, double factor) {
+        this.name = name;
+        this.multFactor = factor;
+    }
 
-	@Override
-	public Unit getSystemUnit() {
-		return this;
-	}
+    protected TestUnit(String name) {
+        this(name, 0);
+    }
 
-	@Override
-	public Map getProductUnits() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Unit<Q> shift(double offset) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public boolean isCompatible(Unit that) {
-		return (this.equals(that));
-	}
+    public Unit<Q> alternate(String symbol) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public Unit asType(Class type) throws ClassCastException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public <T extends Quantity<T>> Unit<T> asType(Class<T> type) throws ClassCastException {
+//      Unit<T> metricUnit = QuantityFactory.getInstance(type).getMetricUnit();
+//      if ((metricUnit == null) || metricUnit.isCompatible(this))
+//          return (Unit<T>) this;
+//      throw new ClassCastException("The unit: " + this //$NON-NLS-1$
+//              + " is not of parameterized type " + type); //$NON-NLS-1$
+        return null;
+    }
 
-	@Override
-	public UnitConverter getConverterTo(Unit that)
-			throws UnconvertibleException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Unit<Q> divide(double divisor) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public UnitConverter getConverterToAny(Unit that)
-			throws IncommensurableException, UnconvertibleException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public Unit<?> divide(Unit<?> that) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public Unit alternate(String symbol) {
-		return this;
-	}
+    public UnitConverter getConverterTo(Unit<Q> that) throws UnconvertibleException {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public Unit transform(UnitConverter operation) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public UnitConverter getConverterToAny(Unit<?> that)
+            throws IncommensurableException, UnconvertibleException
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public Unit shift(double offset) {
-		return this;
-	}
+    public Dimension getDimension() {
+        return dimension;
+    }
 
-	@Override
-	public Unit multiply(double factor) {
-		return this;
-	}
+    public String getName() {
+        return name;
+    }
 
-	@Override
-	public Unit multiply(Unit that) {
-    	if (!(that instanceof TestUnit)) {
-    		throw new UnconvertibleException("Incompatible unit");
-    	}
-    	return this;
-	}
+    public Map<Unit<?>, Integer> getProductUnits() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public Unit inverse() {
-		return this;
-	}
+    public String getSymbol() {
+        return symbol;
+    }
 
-	@Override
-	public Unit divide(double divisor) {
-		return this;
-	}
+    public Unit<?> inverse() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public Unit divide(Unit that) {
-    	if (!(that instanceof TestUnit)) {
-    		throw new UnconvertibleException("Incompatible unit");
-    	}
-    	return this;
-	}
+    public boolean isCompatible(Unit<?> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	public Unit root(int n) {
-		return this;
-	}
+    public Unit<Q> multiply(double factor) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public Unit pow(int n) {
-		return this;
-	}
+    public Unit<?> multiply(Unit<?> that) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public String getName() {
-		return name();
-	}
+    public Unit<?> pow(int n) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
+    public Unit<?> root(int n) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public abstract Unit<Q> getSystemUnit();
+
+    public Unit<Q> transform(UnitConverter operation) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public double getMultFactor() {
+        return multFactor;
+    }
 }
