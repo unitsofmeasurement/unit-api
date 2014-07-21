@@ -20,7 +20,7 @@ import javax.measure.format.UnitFormat;
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @see <a href="http://aurora.regenstrief.org/~ucum/ucum.html">UCUM Full
  *      Specification</a>
- * @version 1.3, $Date: 2013-09-20 01:04:46 +0200 (Fr, 20 Sep 2013) $
+ * @version 0.4, $Date: 2014-07-22 $
  */
 public interface UnitFormatService {
 
