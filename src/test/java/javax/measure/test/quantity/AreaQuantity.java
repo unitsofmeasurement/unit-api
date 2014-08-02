@@ -15,7 +15,10 @@ import javax.measure.test.unit.AreaUnit;
 import javax.measure.test.unit.DistanceUnit;
 import javax.measure.test.unit.VolumeUnit;
 
-
+/**
+ * @author Werner Keil
+ * @version 0.2
+ */
 public class AreaQuantity extends TestQuantity<Area> {
     public AreaQuantity() {
     }
@@ -97,7 +100,7 @@ public class AreaQuantity extends TestQuantity<Area> {
 		return null;
 	}
 
-	public Measurement<Area, Number> substract(Measurement<Area, Number> that) {
+	public Measurement<Area, Number> subtract(Measurement<Area, Number> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -118,17 +121,33 @@ public class AreaQuantity extends TestQuantity<Area> {
 		return null;
 	}
 
-	public Measurement<Area, Number> inverse() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Measurement<Area, Number> divide(Number that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public AreaQuantity multiply(Measurement<?, Number> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Area> subtract(Quantity<Area> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Area> add(Quantity<Area> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Area> divide(Number that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Area> inverse() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<?> multiply(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

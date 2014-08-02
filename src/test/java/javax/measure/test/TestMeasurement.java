@@ -42,7 +42,7 @@ final class TestMeasurement<Q extends Quantity<Q>> implements
 		return new TestMeasurement<Q>(this.val + that.getValue(), this.unit);
 	}
 
-	public Measurement<Q, Double> substract(Measurement<Q, Double> that) {
+	public Measurement<Q, Double> subtract(Measurement<Q, Double> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -74,6 +74,11 @@ final class TestMeasurement<Q extends Quantity<Q>> implements
 
 	@SuppressWarnings("unchecked")
 	public TestMeasurement<?> multiply(Measurement<?, Double> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Measurement<Q, Double> substract(Measurement<Q, Double> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

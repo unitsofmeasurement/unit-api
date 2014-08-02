@@ -88,32 +88,37 @@ public class TimeQuantity extends TestQuantity<Time> {
 		return super.showInUnits(u, precision);
 	}
 
-	public Measurement<Time, Number> add(Measurement<Time, Number> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Measurement<Time, Number> substract(Measurement<Time, Number> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Measurement<Time, Number> multiply(Number that) {
+	public Quantity<Time> subtract(Quantity<Time> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Measurement<Time, Number> divide(Number that) {
+	public Quantity<Time> add(Quantity<Time> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Measurement<Time, Number> inverse() {
+	public Quantity<Time> divide(Number that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Time> inverse() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<?> multiply(Quantity<?> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Time> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -123,8 +128,4 @@ public class TimeQuantity extends TestQuantity<Time> {
 		return null;
 	}
 
-	public Measurement<?, Number> multiply(Measurement<?, Number> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

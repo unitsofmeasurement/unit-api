@@ -34,70 +34,8 @@ import javax.measure.function.ValueSupplier;
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia:
  *      Units of measurement</a>
- * @version 0.15, $Date: 2014-06-28 $
+ * @version 0.16, $Date: 2014-08-03 $
  */
 public interface Measurement<Q extends Quantity<Q>, V> extends UnitSupplier<Q>,
         ValueSupplier<V>, ConversionOperator<Measurement<Q, V>, Unit<Q>> {
-
-    /**
-     * Returns the sum of this {@code Measurement} with the one specified.
-     * 
-     * @param that
-     *            the {@code Measurement} to be added.
-     * @return <code>this + that</code>.
-     */
-    Measurement<Q, V> add(Measurement<Q, V> that);
-
-    /**
-     * Returns the difference between this {@code Measurement} and the one specified.
-     * 
-     * @param that
-     *            the {@code Measurement} to be subtracted.
-     * @return <code>this - that</code>.
-     */
-    Measurement<Q, V> substract(Measurement<Q, V> that);
-
-    /**
-     * Returns the product of this {@code Measurement} with the one specified.
-     * 
-     * @param that
-     *            the {@code Measurement} multiplier.
-     * @return <code>this · that</code>.
-     */
-    Measurement<?, V> multiply(Measurement<?, V> that);
-
-    /**
-     * Returns the product of this {@code Measurement} with the {@code V} value specified.
-     * 
-     * @param that
-     *            the {@code V} multiplier.
-     * @return <code>this · that</code>.
-     */
-    Measurement<Q, V> multiply(V that);
-
-    /**
-     * Returns this {@code Measurement} divided by the one specified.
-     * 
-     * @param that
-     *            the {@code Measurement} divisor.
-     * @return <code>this / that</code>.
-     */
-//    Measurement<?, V> divide(Measurement<?, V> that);
-    
-    /**
-     * Returns the product of this {@code Measurement} divided by the {@code V} value specified.
-     * @param <R>
-     * 
-     * @param that
-     *            the {@code V} divisor.
-     * @return <code>this / that</code>.
-     */
-    Measurement<Q, V> divide(V that);
-
-    /**
-     * Returns a {@code Measurement} whose unit is {@code unit.inverse()}.
-     * 
-     * @return {@code Measurement with this.getUnit().inverse()}.
-     */
-    Measurement<Q, V> inverse();
 }

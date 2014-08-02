@@ -35,7 +35,7 @@ public final class StringMeasurement<Q extends Quantity<Q>> implements
 	}
 
 
-	public Measurement<Q, String> substract(Measurement<Q, String> that) {
+	public Measurement<Q, String> subtract(Measurement<Q, String> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -87,6 +87,11 @@ public final class StringMeasurement<Q extends Quantity<Q>> implements
 	}
 
 	public Measurement<Q, String> divide(String that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Measurement<Q, String> substract(Measurement<Q, String> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

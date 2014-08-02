@@ -16,7 +16,7 @@ import javax.measure.test.unit.BitUnit;
 
 /**
  * @author Werner Keil
- * @version 0.4
+ * @version 0.5
  */
 public class BitQuantity extends TestQuantity<Information> {
 
@@ -119,18 +119,13 @@ public class BitQuantity extends TestQuantity<Information> {
 		return null;
 	}
 
-	public Measurement<Information, Number> substract(
+	public Measurement<Information, Number> subtract(
 			Measurement<Information, Number> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public Measurement<Information, Number> to(Unit<Information> unit) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Measurement<Information, Number> inverse() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -145,12 +140,32 @@ public class BitQuantity extends TestQuantity<Information> {
 		return null;
 	}
 
-	public Measurement<Information, Number> divide(Number that) {
+	public BitQuantity multiply(Measurement<?, Number> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public BitQuantity multiply(Measurement<?, Number> that) {
+	public Quantity<Information> subtract(Quantity<Information> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Information> add(Quantity<Information> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Information> divide(Number that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Information> inverse() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<?> multiply(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

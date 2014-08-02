@@ -17,6 +17,7 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
+ * @version 0.3
  */
 public class DistanceQuantity extends TestQuantity<Length> {
 
@@ -115,7 +116,7 @@ public class DistanceQuantity extends TestQuantity<Length> {
 		return null;
 	}
 
-	public Measurement<Length, Number> substract(
+	public Measurement<Length, Number> subtract(
 			Measurement<Length, Number> that) {
 		// TODO Auto-generated method stub
 		return null;
@@ -126,27 +127,42 @@ public class DistanceQuantity extends TestQuantity<Length> {
 		return null;
 	}
 
-	public Measurement<Length, Number> multiply(Number that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Measurement<Length, Number> divide(Number that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Measurement<Length, Number> inverse() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public Measurement<Length, Number> to(Unit<Length> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public Measurement<?, Number> multiply(Measurement<?, Number> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Length> subtract(Quantity<Length> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Length> add(Quantity<Length> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Length> divide(Number that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Length> inverse() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<?> multiply(Quantity<?> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Length> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

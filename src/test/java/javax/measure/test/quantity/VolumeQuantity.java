@@ -17,6 +17,7 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
+ * @version 0.3
  */
 public class VolumeQuantity extends TestQuantity<Volume> {
 	public VolumeQuantity() {
@@ -101,13 +102,37 @@ public class VolumeQuantity extends TestQuantity<Volume> {
 		return super.showInUnits(u, precision);
 	}
 
-	public Measurement<Volume, Number> add(Measurement<Volume, Number> that) {
+	public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Measurement<Volume, Number> substract(
-			Measurement<Volume, Number> that) {
+	public Quantity<Volume> subtract(Quantity<Volume> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Volume> add(Quantity<Volume> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Volume> divide(Number that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Volume> inverse() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<?> multiply(Quantity<?> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Quantity<Volume> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -115,30 +140,5 @@ public class VolumeQuantity extends TestQuantity<Volume> {
 	public Measurement<Volume, Number> to(Unit<Volume> unit) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	public Measurement<Volume, Number> inverse() {
-		// TODO Auto-generated method stub
-		return this;
-	}
-
-	public Quantity<?> divide(Quantity<?> that) {
-		// TODO Auto-generated method stub
-		return this;
-	}
-
-	public Measurement<Volume, Number> multiply(Number that) {
-		// TODO Auto-generated method stub
-		return this;
-	}
-
-	public Measurement<Volume, Number> divide(Number that) {
-		// TODO Auto-generated method stub
-		return this;
-	}
-
-	public Measurement<?, Number> multiply(Measurement<?, Number> that) {
-		// TODO Auto-generated method stub
-		return this;
 	}
 }
