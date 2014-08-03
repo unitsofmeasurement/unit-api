@@ -27,7 +27,7 @@ public class DistanceUnit extends BaseUnit<Length> {
     public static final DistanceUnit parsec = new DistanceUnit("parsec", 3.08e+16);
 
     public DistanceUnit(String name2, double convF) {
-        super("", name2);
+        super(name2, name2);
         name = name2;
         multFactor = convF;
     }

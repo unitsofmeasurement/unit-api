@@ -7,6 +7,8 @@
  */
 package javax.measure;
 
+import javax.measure.function.ValueSupplier;
+
 /**
  * <p>
  * Represents a quantitative properties or attributes of thing. Mass, time,
@@ -37,7 +39,7 @@ package javax.measure;
  *      Conversion of units</a>
  * @version 0.10, Date: 2014-08-02
  */
-public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number> {
+public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number>, ValueSupplier<Number> {
 	Quantity<?> divide(Quantity<?> that);
 
 	/**

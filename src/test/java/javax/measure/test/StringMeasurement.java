@@ -17,56 +17,22 @@ import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 0.3
+ * @version 0.4
  */
 public final class StringMeasurement<Q extends Quantity<Q>> implements
 		Measurement<Q, String> {
-	private String v;
-	private Unit<Q> u;
+	private final String v;
+	private final Unit<Q> u;
 
 	public StringMeasurement(String value, Unit<Q> unit) {
 		this.v = value;
 		this.u = unit;
 	}
 
-	public Measurement<Q, String> add(Measurement<Q, String> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public Measurement<Q, String> subtract(Measurement<Q, String> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public Measurement<?, String> multiply(Measurement<?, String> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public Measurement<?, String> divide(Measurement<?, String> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public Measurement<Q, String> to(Unit<Q> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-//	@Override
-//	public double doubleValue(Unit<Q> unit) {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
-//
-//	public long longValue(Unit<Q> unit) {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
 
 	public Unit<Q> getUnit() {
 		return u;
@@ -76,24 +42,9 @@ public final class StringMeasurement<Q extends Quantity<Q>> implements
 		return v;
 	}
 
-	public Measurement<Q, String> inverse() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Measurement<Q, String> multiply(String that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Measurement<Q, String> divide(String that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Measurement<Q, String> substract(Measurement<Q, String> that) {
-		// TODO Auto-generated method stub
-		return null;
+	@Override
+	public String toString() {
+		return v + " " + u.getSymbol();
 	}
 
 }

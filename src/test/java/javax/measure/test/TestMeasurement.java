@@ -14,9 +14,8 @@ import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 0.3, $Date: 2014-07-01 $
+ * @version 0.4, $Date: 2014-08-03 $
  */
-@SuppressWarnings("hiding")
 final class TestMeasurement<Q extends Quantity<Q>> implements
 		Measurement<Q, Double> {
 
@@ -36,23 +35,7 @@ final class TestMeasurement<Q extends Quantity<Q>> implements
 		return val;
 	}
 
-	public Measurement<Q, Double> add(Measurement<Q, Double> that) {
-		
-		//TODO use shift on units?
-		return new TestMeasurement<Q>(this.val + that.getValue(), this.unit);
-	}
-
-	public Measurement<Q, Double> subtract(Measurement<Q, Double> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public Measurement<Q, Double> to(Unit<Q> unit) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Measurement<Q, Double> inverse() {
 		// TODO Auto-generated method stub
 		return null;
 	}

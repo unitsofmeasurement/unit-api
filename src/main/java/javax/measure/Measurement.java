@@ -9,19 +9,24 @@ package javax.measure;
 
 import javax.measure.function.ConversionOperator;
 import javax.measure.function.UnitSupplier;
-import javax.measure.function.ValueSupplier;
 
 /**
- * Represents a value with a unit.
- * 
- * A Measurement object is used for maintaining the tuple of value and unit.
- * </br> Arithmetic methods (were applicable) are provided. At least a runtime error (for some
- * operations already at compile time) will occur when two measurements are used
- * in an incompatible way. E.g., when a speed (m/s) is added to a distance (m).
- * The measurement class will correctly track changes in unit during
- * multiplication and division, always coercing the result to the most simple
- * form. See <type>Unit</type> for more information on the supported units.
- * 
+ * Measurement is the assignment of values to objects or events.
+ * <p>
+ * Any measurement can be judged by the following meta-measurement criteria
+ * values:
+ * <ul>
+ * <li>level of measurement (which includes magnitude)</li>
+ * <li>dimensions (units)</li>
+ * <li>uncertainty.</li>
+ * </ul>
+ * They enable comparisons to be done between different measurements and reduce
+ * confusion. Even in cases of clear qualitative similarity or difference,
+ * increased precision through quantitative measurement is often preferred in
+ * order to aid in replication. For example, different colors may be based
+ * either on wavelengths of light or (qualitative) terms such as "green" and
+ * "blue" which are often interpreted differently by different people
+ * </p>
  * <p>
  * Measurement instances should be immutable.
  * </p>
@@ -32,10 +37,11 @@ import javax.measure.function.ValueSupplier;
  *            The measured value.
  * 
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia:
- *      Units of measurement</a>
- * @version 0.16, $Date: 2014-08-03 $
+ * @see <a href="http://en.wikipedia.org/wiki/Measurement">Wikipedia:
+ *      Measurement</a>
+ * @see Unit
+ * @version 0.17, $Date: 2014-08-03 $
  */
 public interface Measurement<Q extends Quantity<Q>, V> extends UnitSupplier<Q>,
-        ValueSupplier<V>, ConversionOperator<Measurement<Q, V>, Unit<Q>> {
+		ConversionOperator<Measurement<Q, V>, Unit<Q>> {
 }

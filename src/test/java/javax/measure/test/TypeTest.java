@@ -30,7 +30,7 @@ public class TypeTest {
 	public void testStringMeasurement() {
 		Measurement<Length, String> length = new StringMeasurement<Length>(
 				"Ten", DistanceUnit.m);
-		assertEquals("Ten", length.getValue());
+		assertEquals("Ten m", length.toString());
 	}
 
 }

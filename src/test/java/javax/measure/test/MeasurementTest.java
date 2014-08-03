@@ -34,10 +34,10 @@ public class MeasurementTest {
 		assertEquals(TEST, sut.getUnit());
 	}
 
-	@Test
-	public void testGetValue() {
-		assertEquals(Double.valueOf(20d), sut.getValue());
-	}
+//	@Test
+//	public void testGetValue() {
+//		assertEquals(Double.valueOf(20d), sut.getValue());
+//	}
 
 //	@Test
 //	public void testAdd() {
