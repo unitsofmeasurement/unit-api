@@ -25,7 +25,7 @@ import javax.measure.function.UnitSupplier;
  * increased precision through quantitative measurement is often preferred in
  * order to aid in replication. For example, different colors may be based
  * either on wavelengths of light or (qualitative) terms such as "green" and
- * "blue" which are often interpreted differently by different people
+ * "blue" which are often interpreted differently by different people.
  * </p>
  * <p>
  * Measurement instances should be immutable.
