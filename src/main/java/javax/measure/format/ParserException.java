@@ -13,7 +13,7 @@ import javax.measure.MeasurementException;
  * Signals that an error has been reached unexpectedly while parsing.
  * 
  * @author Werner Keil
- * @version 0.3.1, $Date: 2014-01-08 22:42:36 +0100 (Mi, 08 Jän 2014) $
+ * @version 0.4, $Date: 2014-08-04 $
  */
 public class ParserException extends MeasurementException {
 
