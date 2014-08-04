@@ -22,11 +22,7 @@
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
-		<version>7</version>
-		<!-- Disable behavior of looking at ../pom.xml and instead resolve the 
-			parent POM from the repositories -->
-		<!-- See http://maven.apache.org/ref/3.1.1/maven-model/maven.html#class_parent -->
-		<!-- relativePath / -->
+		<version>9</version>
 	</parent>
 
 	<!-- Issue managements and mailing lists. -->
@@ -36,7 +32,7 @@
 	</issueManagement>
 	<ciManagement>
 		<system>Jenkins</system>
-		<url>http://jenkins.geotoolkit.org/job/Unit-API/</url>
+		<url>http://jenkins.geotoolkit.org/job/JSR-363/</url>
 	</ciManagement>
 
 	<mailingLists>
@@ -54,12 +50,11 @@
 
 	<scm>
 		<connection>scm:git:https://github.com/unitsofmeasurement/unit-api.git</connection>
+		<developerConnection>scm:git:https://github.com/unitsofmeasurement/unit-api.git</developerConnection>
 		<url>https://github.com/unitsofmeasurement/unit-api.git</url>
 	</scm>
 
-	<!-- ======================================================= -->
 	<!-- Build Settings -->
-	<!-- ======================================================= -->
 	<properties>
 		<basedir>.</basedir>
 		<sourceEncoding>UTF-8</sourceEncoding> <!-- in Maven 3. -->
@@ -70,13 +65,6 @@
 		<maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
 	</properties>
-
-	<!-- ======================================================= -->
-	<!-- Modules -->
-	<!-- ======================================================= -->
-	<!-- Currently unused <modules> <module>core</module> <module>format</module> 
-		<module>quantity</module> <module>service</module> <module>util</module> 
-		<module>shaded</module> </modules> -->
 
 	<!-- Developers and Contributors -->
 	<developers>
@@ -168,7 +156,7 @@
 	</developers>
 	<contributors>
 		<contributor>
-			<!-- >id>christopher.senior</id -->
+			<!-- id>christopher.senior</id -->
 			<name>Chris Senior</name>
 			<email>christopher.senior@gmail.com</email>
 			<organization>Snap-on Inc.</organization>
@@ -178,7 +166,7 @@
 			</roles>
 		</contributor>
 		<contributor>
-			<!-- >id>dan.leuck</id -->
+			<!-- id>dan.leuck</id -->
 			<name>Daniel Leuck</name>
 			<email>dan@ikayzo.com</email>
 			<organization>Ikayzo</organization>
@@ -217,35 +205,13 @@
 	</contributors>
 
 	<build>
-		<pluginManagement>
-			<plugins>
-				<!-- ======================================================= -->
-				<!-- Packaging (OSGi bundle) -->
-				<!-- ======================================================= -->
-				<plugin>
-					<groupId>org.apache.felix</groupId>
-					<artifactId>maven-bundle-plugin</artifactId>
-					<version>2.3.5</version>
-					<extensions>true</extensions>
-				</plugin>
-				<!-- ======================================================= -->
-				<!-- Assembly (Single JAR) -->
-				<!-- ======================================================= -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-assembly-plugin</artifactId>
-					<version>2.4</version>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-
 		<plugins>
-			<!-- ======================================================= -->
 			<!-- Packaging (OSGi bundle) -->
-			<!-- ======================================================= -->
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.3.5</version>
+				<extensions>true</extensions>
 				<configuration>
 					<instructions>
 						<Export-Package>javax.measure.*</Export-Package>
@@ -254,13 +220,11 @@
 				</configuration>
 			</plugin>
 
-			<!-- ======================================================= -->
 			<!-- Compilation -->
-			<!-- ======================================================= -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
+				<version>3.1</version>
 				<configuration>
 					<source>${maven.compile.sourceLevel}</source>
 					<target>${maven.compile.targetLevel}</target>
@@ -268,25 +232,21 @@
 				</configuration>
 			</plugin>
 
-			<!-- ======================================================= -->
 			<!-- Resources -->
-			<!-- ======================================================= -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.5</version>
+				<version>2.6</version>
 				<configuration>
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
 
-			<!-- ======================================================= -->
 			<!-- JAR packaging -->
-			<!-- ======================================================= -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.3.2</version>
+				<version>2.5</version>
 				<configuration>
 					<archive>
 						<manifest>
@@ -303,30 +263,11 @@
 				</configuration>
 			</plugin>
 
-			<!-- ======================================================= -->
-			<!-- Assembly (Single JAR) -->
-			<!-- ======================================================= -->
-			<!-- <plugin> <artifactId>maven-assembly-plugin</artifactId> <configuration> 
-				<descriptorRefs> <descriptorRef>jar-with-dependencies</descriptorRef> </descriptorRefs> 
-				</configuration> </plugin> -->
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId> 
-				<version>2.3</version> <executions> <execution> <phase>package</phase> <goals> 
-				<goal>shade</goal> </goals> <configuration> <minimizeJar>true</minimizeJar> 
-				</configuration> </execution> </executions> </plugin> -->
-			<!-- ======================================================= -->
-			<!-- Custom Javadoc plugin -->
-			<!-- ======================================================= -->
-			<!-- plugin> <groupId>javolution</groupId> <artifactId>colapi</artifactId> 
-				<version>1.0.0</version> <executions> <execution> <goals> <goal>colorize</goal> 
-				</goals> </execution> </executions> </plugin -->
-
-			<!-- ======================================================= -->
 			<!-- Maven web site -->
-			<!-- ======================================================= -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
-				<version>3.2</version>
+				<version>3.4</version>
 				<configuration>
 					<locales>en</locales>
 					<inputEncoding>${project.build.sourceEncoding}</inputEncoding>
@@ -352,80 +293,54 @@
 							</reportSets>
 						</plugin>
 
-						<!-- ======================================================= -->
 						<!-- Javadoc generation -->
-						<!-- -->
-						<!-- Do not set <docfilessubdirs> to true, since this -->
-						<!-- cause the unwanted copy of .svn sub-directories. -->
-						<!-- ======================================================= -->
 						<plugin>
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-javadoc-plugin</artifactId>
 							<version>2.9.1</version>
 							<configuration>
-								<source>${project.build.javaVersion}</source>             <!-- Enables javadoc to handle assertions present in J2SE 1.4. -->
-								<encoding>${project.build.sourceEncoding}</encoding>       <!-- The encoding of the source files. -->
-								<docencoding>${project.build.sourceEncoding}</docencoding> <!-- The encoding of the generated HTML files. -->
-								<charset>${sourceEncoding}</charset>         <!-- Specifies the HTML character set for this document. -->
-								<locale>en</locale>              <!-- Locale that javadoc uses when generating documentation. -->
-								<noqualifier>all</noqualifier>   <!-- Omit qualifying package name before class names in output. -->
-								<quiet>true</quiet>              <!-- Shuts off non-error and non-warning messages. -->
-								<keywords>true</keywords>        <!-- Adds HTML meta keyword tags to the generated files. -->
-								<!-- Creates links to existing javadoc-generated documentation of 
-									external referenced classes. -->
+								<source>${maven.compile.sourceLevel}</source>
+								<encoding>${project.build.sourceEncoding}</encoding>
+								<docencoding>${project.reporting.outputEncoding}</docencoding>
+								<charset>${project.reporting.outputEncoding}</charset>
+								<locale>en</locale>
+								<noqualifier>all</noqualifier>
+								<quiet>true</quiet>
+								<keywords>true</keywords>
 								<links>
-									<link>http://docs.oracle.com/javase/7/docs/api/</link>
+									<link>http://docs.oracle.com/javase/8/docs/api/</link>
 								</links>
 							</configuration>
 						</plugin>
 
-						<!-- ======================================================= -->
 						<!-- Code analysis -->
-						<!-- ======================================================= -->
 						<plugin>
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-pmd-plugin</artifactId>
-							<version>3.0.1</version>
+							<version>3.2</version>
 							<configuration>
 								<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
 								<targetJdk>${project.build.javaVersion}</targetJdk>
 							</configuration>
 						</plugin>
 
-						<!-- ======================================================= -->
 						<!-- Report on test results -->
-						<!-- ======================================================= -->
 						<plugin>
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-surefire-report-plugin</artifactId>
-							<version>2.16</version>
+							<version>2.17</version>
 						</plugin>
 
-						<!-- ======================================================= -->
-						<!-- Report on test coverage -->
-						<!-- ======================================================= -->
-						<plugin>
-							<groupId>org.codehaus.mojo</groupId>
-							<artifactId>emma-maven-plugin</artifactId>
-							<version>1.0-alpha-3</version>
-							<reportSets>
-								<reportSet></reportSet>
-								<reportSet></reportSet>
-							</reportSets>
-						</plugin>
-
-						<!-- ======================================================= -->
-						<!-- Static analysis for occurences of bug patterns -->
-						<!-- ======================================================= -->
+						<!-- Static analysis for occurrences of bug patterns -->
 						<plugin>
 							<groupId>org.codehaus.mojo</groupId>
 							<artifactId>findbugs-maven-plugin</artifactId>
-							<version>2.5.2</version>
+							<version>2.5.5</version>
 						</plugin>
 						<plugin>
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-checkstyle-plugin</artifactId>
-							<version>2.11</version>
+							<version>2.12.1</version>
 							<configuration>
 								<configLocation>src/etc/checkstyle.xml</configLocation>
 							</configuration>
@@ -435,65 +350,19 @@
 			</plugin>
 		</plugins>
 
-		<!-- ======================================================= -->
-		<!-- For deployment on dev.java.net subversion -->
-		<!-- See https://wagon-svn.dev.java.net/ -->
-		<!-- ======================================================= -->
-		<extensions>
-			<extension>
-				<groupId>org.jvnet.wagon-svn</groupId>
-				<artifactId>wagon-svn</artifactId>
-				<version>1.9</version>
-			</extension>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-webdav-jackrabbit</artifactId>
-				<version>2.0</version>
-			</extension>
-		</extensions>
 	</build>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>4.11</version>
-				<scope>test</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>javax.measure</groupId>
-				<artifactId>unit-api-core</artifactId>
-				<version>${jsr.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>javax.measure</groupId>
-				<artifactId>unit-api-quantity</artifactId>
-				<version>${jsr.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>javax.measure</groupId>
-				<artifactId>unit-api-format</artifactId>
-				<version>${jsr.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>javax.measure</groupId>
-				<artifactId>unit-api-util</artifactId>
-				<version>${jsr.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>javax.measure</groupId>
-				<artifactId>unit-api-service</artifactId>
-				<version>${jsr.version}</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
+	<!-- Deployment to public servers -->
 	<distributionManagement>
+		<repository>
+			<id>geotoolkit</id>
+			<name>Maven repository for snapshots only</name>
+			<url>file:///var/www/maven.geotoolkit.org</url>
+		</repository>
 		<site>
-			<id>www.unitsofmeasurement.org</id>
-			<url>scp://www.unitsofmeasurement.org/www/docs/project/</url>
+			<id>JSR-363</id>
+			<name>JSR-363 Maven reports</name>
+			<url>file:///var/www/www.unitsofmeasurement.org/jsr-363</url>
 		</site>
 	</distributionManagement>
 
@@ -501,6 +370,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -515,42 +385,13 @@
 				</property>
 			</activation>
 			<build>
-				<pluginManagement>
-					<plugins>
-						<!-- ======================================================= -->
-						<!-- License -->
-						<!-- ======================================================= -->
-						<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>license-maven-plugin</artifactId> 
-							<version>1.4</version> </plugin> -->
-						<plugin>
-							<groupId>com.google.code.maven-license-plugin</groupId>
-							<artifactId>maven-license-plugin</artifactId>
-							<version>1.4.0</version>
-							<configuration>
-								<basedir>${basedir}</basedir>
-								<header>src/etc/header.txt</header>
-								<quiet>false</quiet>
-								<failIfMissing>true</failIfMissing>
-								<aggregate>false</aggregate>
-								<encoding>UTF-8</encoding>
-								<excludes>
-									<exclude>target/**</exclude>
-									<exclude>nbproject/**</exclude>
-									<exclude>LICENSE*.txt</exclude>
-									<exclude>README.*</exclude>
-									<exclude>checkstyle*.*</exclude>
-									<exclude>*.css</exclude>
-								</excludes>
-							</configuration>
-						</plugin>
-						<!-- TODO enable this only for major upgrades (ensure to copy LICENSE.txt 
-							to LICENSE.bak first) -->
-					</plugins>
-				</pluginManagement>
 				<plugins>
+					<!-- License. Enable this only for major upgrades
+					(ensure to copy LICENSE.txt to LICENSE.bak first) -->
 					<plugin>
 						<groupId>com.google.code.maven-license-plugin</groupId>
 						<artifactId>maven-license-plugin</artifactId>
+						<version>1.4.0</version>
 						<executions>
 							<execution>
 								<phase>compile</phase>
@@ -559,6 +400,22 @@
 								</goals>
 							</execution>
 						</executions>
+						<configuration>
+							<basedir>${basedir}</basedir>
+							<header>src/etc/header.txt</header>
+							<quiet>false</quiet>
+							<failIfMissing>true</failIfMissing>
+							<aggregate>false</aggregate>
+							<encoding>UTF-8</encoding>
+							<excludes>
+								<exclude>target/**</exclude>
+								<exclude>nbproject/**</exclude>
+								<exclude>LICENSE*.txt</exclude>
+								<exclude>README.*</exclude>
+								<exclude>checkstyle*.*</exclude>
+								<exclude>*.css</exclude>
+							</excludes>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>
@@ -586,9 +443,9 @@
                                     <imagesDir>arc/main/asciidoc/images</imagesDir>
                                 </configuration>
                             </execution>
-                            <!-- execution> <id>output-pdf</id> <phase>generate-resources</phase> 
-                                <goals> <goal>process-asciidoc</goal> </goals> <configuration> <outputDirectory>target/docs</outputDirectory> 
-                                <sourceHighlighter>highlightjs</sourceHighlighter> <backend>pdf</backend> 
+                            <!-- execution> <id>output-pdf</id> <phase>generate-resources</phase>
+                                <goals> <goal>process-asciidoc</goal> </goals> <configuration> <outputDirectory>target/docs</outputDirectory>
+                                <sourceHighlighter>highlightjs</sourceHighlighter> <backend>pdf</backend>
                                 </configuration> </execution -->
                         </executions>
                     </plugin>
