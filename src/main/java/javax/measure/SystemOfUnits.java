@@ -5,13 +5,10 @@
  *
  * See LICENSE.txt for details.
  */
-package javax.measure.util;
+package javax.measure;
 
 import java.util.Set;
 
-import javax.measure.Dimension;
-import javax.measure.Quantity;
-import javax.measure.Unit;
 import javax.measure.function.Nameable;
 
 
@@ -22,7 +19,7 @@ import javax.measure.function.Nameable;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.5, $Date: 2014-06-28 $
+ * @version 0.6, $Date: 2014-08-08 $
  * @see <a href="http://en.wikipedia.org/wiki/International_System_of_Units"> Wikipedia:
  *      International System of Units</a>
  * @see <a href="http://en.wikipedia.org/wiki/Systems_of_measurement"> Wikipedia:

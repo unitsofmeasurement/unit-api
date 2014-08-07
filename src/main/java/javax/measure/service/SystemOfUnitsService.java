@@ -7,7 +7,7 @@
  */
 package javax.measure.service;
 
-import javax.measure.util.SystemOfUnits;
+import javax.measure.SystemOfUnits;
 
 /**
  * <p>
