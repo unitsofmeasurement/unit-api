@@ -7,7 +7,6 @@
  */
 package javax.measure.format;
 
-
 /**
  * Represents a function that parses an input value and produces an output.
  * 
@@ -17,7 +16,7 @@ package javax.measure.format;
  * >functional interface</a> whose functional method is {@link #parse()}.
  * 
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.4, $Date: 2014-01-27 23:16:02 +0100 (Mo, 27 Jän 2014) $
+ * @version 0.5, 2014-08-11
  * @param <I>
  *            the input
  * @param <O>
@@ -28,6 +27,8 @@ package javax.measure.format;
 public interface Parser<I, O> {
 	/**
 	 * Parses the specified {@code I} to produce a {@code O}.
+	 * @throws ParserException if any problem occurs while parsing the
+     *         specified input (e.g. illegal syntax).
 	 */
 	O parse(I input) throws ParserException;
 }
