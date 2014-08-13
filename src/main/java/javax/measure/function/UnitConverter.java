@@ -10,19 +10,27 @@ package javax.measure.function;
 import java.util.List;
 
 /**
- * A converter of numeric values.
+ * A converter of numeric values between different units.
  *
  * <p>Instances of this class are obtained through the {@link Unit#getConverterTo(Unit)} method.</p>
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.5, $Date: 2014-06-28 $
+ * @version 0.6, $Date: 2014-08-13 $
  *
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units"> Wikipedia:
  *      Conversion of units</a>
  */
-public interface UnitConverter extends Converter<Number> {
-
+public interface UnitConverter {
+	
+    /**
+     * Indicates if this converter is an identity converter.
+     * The identity converter returns its input argument ({@code convert(x) == x}).
+     *
+     * @return {@code true} if this converter is an identity converter.
+     */
+    boolean isIdentity();
+    
     /**
      * Indicates if this converter is linear. A converter is linear if:
      *
@@ -51,6 +59,14 @@ public interface UnitConverter extends Converter<Number> {
      * @return the inverse of this converter.
      */
     UnitConverter inverse();
+    
+    /**
+     * Converts a {@code Number} value.
+     *
+     * @param  value the {@code Number} value to convert.
+     * @return the {@code Number} value after conversion.
+     */
+    Number convert(Number value);
 
     /**
      * Converts a {@code double} value.
