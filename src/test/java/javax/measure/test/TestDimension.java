@@ -21,7 +21,7 @@ import javax.measure.Dimension;
 final class TestDimension implements Dimension {
     private static final Dimension INSTANCE = new TestDimension();
     
-    public static final Dimension getInstance() {
+    public static Dimension getInstance() {
     	return INSTANCE;
     }
 
