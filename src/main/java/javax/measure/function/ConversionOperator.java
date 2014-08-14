@@ -16,23 +16,23 @@ package javax.measure.function;
  * >functional interface</a> whose functional method is {@link #to()}.
  * 
  * @author Werner Keil
- * @version 0.2, $Date: 2014-06-28 $
- * @param <T>
+ * @version 0.3, $Date: 2014-08-14 $
+ * @param <R>
  *            The value to return.
- * @param <U>
+ * @param <T>
  *            The type to convert to.
  *            
  * @see <a href="http://en.wikipedia.org/wiki/Data_conversion">Wikipedia: Data Conversion</a>
  * 
  */
 // equivalent to @FunctionalInterface
-public interface ConversionOperator<T, U> {
+public interface ConversionOperator<R, T> {
 
     /**
      * Returns a T converted into another U.
      * 
-     * @param unit
+     * @param type
      * @return the converted result.
      */
-    T to(U unit);
+    R to(T type);
 }
