@@ -1,0 +1,20 @@
+-----------------------------------------------------
+Units of Measurement API
+-----------------------------------------------------
+
+
+Units of Measurement API
+
+  Units of Measurement Standard - This JSR specifies Java packages for modeling and working with measurement values,
+  quantities and their corresponding units.
+
+
+** Links
+
+    * {{{https://jcp.org/en/jsr/detail?id=363}JSR-363 Units of Measurement Proposal}}
+
+    * {{{./apidocs/index.html}Browse javadoc}}
+
+    * {{{https://java.net/projects/unitsofmeasurement/downloads}Presentation material}} (e.g. slides, draft specification)
+
+    * {{{http://jenkins.geotoolkit.org/job/JSR-363/}Nightly builds}}
