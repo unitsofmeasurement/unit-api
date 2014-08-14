@@ -354,11 +354,11 @@
 
 	<!-- Deployment to public servers -->
 	<distributionManagement>
-		<repository>
+		<snapshotRepository>
 			<id>geotoolkit</id>
 			<name>Maven repository for snapshots only</name>
 			<url>file:///var/www/maven.geotoolkit.org</url>
-		</repository>
+		</snapshotRepository>
 		<site>
 			<id>JSR-363</id>
 			<name>JSR-363 Maven reports</name>
