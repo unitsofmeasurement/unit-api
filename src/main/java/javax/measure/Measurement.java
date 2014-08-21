@@ -40,8 +40,8 @@ import javax.measure.function.UnitSupplier;
  * @see <a href="http://en.wikipedia.org/wiki/Measurement">Wikipedia:
  *      Measurement</a>
  * @see Unit
- * @version 0.17, $Date: 2014-08-03 $
+ * @version 0.18, 2014-08-22
  */
 public interface Measurement<Q extends Quantity<Q>, V> extends UnitSupplier<Q>,
-		ConversionOperator<Measurement<Q, V>, Unit<Q>> {
+		ConversionOperator<Unit<Q>, Measurement<Q, V>> {
 }
