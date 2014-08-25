@@ -7,7 +7,6 @@
  */
 package javax.measure.test.quantity;
 
-import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Time;
@@ -16,7 +15,7 @@ import javax.measure.test.unit.TimeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.3
+ * @version 0.3.1
  */
 public class TimeQuantity extends TestQuantity<Time> {
 
@@ -123,7 +122,7 @@ public class TimeQuantity extends TestQuantity<Time> {
 		return null;
 	}
 
-	public Measurement<Time, Number> to(Unit<Time> unit) {
+	public Quantity<Time> to(Unit<Time> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}

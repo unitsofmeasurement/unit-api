@@ -15,7 +15,7 @@ import javax.measure.test.unit.BitRateUnit;
 
 /**
  * @author Werner Keil
- * @version 0.5
+ * @version 0.5.1
  */
 public class BitRateQuantity extends TestQuantity<InformationRate> {
 	public BitRateQuantity() {
@@ -133,7 +133,7 @@ public class BitRateQuantity extends TestQuantity<InformationRate> {
 		return null;
 	}
 
-	public Measurement<InformationRate, Number> to(Unit<InformationRate> unit) {
+	public Quantity<InformationRate> to(Unit<InformationRate> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}

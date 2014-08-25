@@ -31,13 +31,13 @@ import javax.measure.function.ValueSupplier;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:desruisseaux@users.sourceforge.net">Martin
  *         Desruisseaux</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @see <a href="http://martinfowler.com/eaaDev/quantity.html"> Martin Fowler -
  *      Quantity</a>
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia:
  *      Conversion of units</a>
- * @version 0.10, Date: 2014-08-02
+ * @version 0.11, Date: 2014-08-26
  */
 public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number>, ValueSupplier<Number> {
 	Quantity<?> divide(Quantity<?> that);
@@ -116,4 +116,12 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number>,
 	 * @return <code>this Â· that</code>.
 	 */
 	Quantity<Q> multiply(Number that);
+	
+    /**
+     * Returns this {@code Quantity} converted into another (compatible) {@code Unit}.
+     * 
+     * @param unit
+     * @return the converted result.
+     */
+	Quantity<Q> to(Unit<Q> unit);
 }
