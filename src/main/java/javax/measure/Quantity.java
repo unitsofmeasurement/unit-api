@@ -37,7 +37,7 @@ import javax.measure.function.ValueSupplier;
  *      Quantity</a>
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia:
  *      Conversion of units</a>
- * @version 0.11, Date: 2014-08-26
+ * @version 0.12, Date: 2014-08-30
  */
 public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number>, ValueSupplier<Number> {
 	Quantity<?> divide(Quantity<?> that);
@@ -62,15 +62,6 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number>,
 	Quantity<Q> add(Quantity<Q> that);
 
 	/**
-	 * Returns this {@code Quantity} divided by the one specified.
-	 * 
-	 * @param that
-	 *            the {@code Quantity} divisor.
-	 * @return <code>this / that</code>.
-	 */
-	// Quantity<?, V> divide(Quantity<?, V> that);
-
-	/**
 	 * Returns the product of this {@code Quantity} divided by the {@code V}
 	 * value specified.
 	 * 
@@ -81,15 +72,6 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number>,
 	 * @return <code>this / that</code>.
 	 */
 	Quantity<Q> divide(Number that);
-
-	/**
-	 * Returns this {@code Quantity} divided by the one specified.
-	 * 
-	 * @param that
-	 *            the {@code Quantity} divisor.
-	 * @return <code>this / that</code>.
-	 */
-	// Quantity<?, V> divide(Quantity<?, V> that);
 
 	/**
 	 * Returns a {@code Quantity} whose unit is {@code unit.inverse()}.
@@ -103,17 +85,17 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number>,
 	 * 
 	 * @param that
 	 *            the {@code Quantity} multiplier.
-	 * @return <code>this Â· that</code>.
+	 * @return <code>this * that</code>.
 	 */
 	Quantity<?> multiply(Quantity<?> that);
 
 	/**
-	 * Returns the product of this {@code Quantity} with the {@code V} value
+	 * Returns the product of this {@code Quantity} with the {@code Number} value
 	 * specified.
 	 * 
 	 * @param that
-	 *            the {@code V} multiplier.
-	 * @return <code>this Â· that</code>.
+	 *            the {@code Number} multiplier.
+	 * @return <code>this * that</code>.
 	 */
 	Quantity<Q> multiply(Number that);
 	
