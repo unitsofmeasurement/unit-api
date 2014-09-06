@@ -13,14 +13,15 @@ package javax.measure.test;
 import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
+import javax.measure.function.ValueSupplier;
 
 
 /**
  * @author Werner Keil
- * @version 0.4
+ * @version 0.5
  */
 public final class StringMeasurement<Q extends Quantity<Q>> implements
-		Measurement<Q, String> {
+		Measurement<Q, String>, ValueSupplier<String> {
 	private final String v;
 	private final Unit<Q> u;
 
@@ -30,8 +31,7 @@ public final class StringMeasurement<Q extends Quantity<Q>> implements
 	}
 
 	public Measurement<Q, String> to(Unit<Q> unit) {
-		// TODO Auto-generated method stub
-		return null;
+		return new StringMeasurement<Q>(v, unit);
 	}
 
 	public Unit<Q> getUnit() {
