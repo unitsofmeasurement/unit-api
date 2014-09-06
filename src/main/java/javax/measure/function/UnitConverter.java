@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.6, $Date: 2014-08-13 $
+ * @version 0.7, $Date: 2014-08-13 $
  *
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units"> Wikipedia:
  *      Conversion of units</a>
@@ -87,11 +87,11 @@ public interface UnitConverter {
     UnitConverter concatenate(UnitConverter converter);
 
     /**
-     * Returns the chain of fundamental converters making up this converter or
+     * Returns the steps of fundamental converters making up this converter or
      * {@code null} if this converter is a fundamental converter. For example,
-     * {@code cvtr1.concatenate(cvtr2).getCompoundConverters()} returns {@code {cvtr1, cvtr2}}.
+     * {@code cvtr1.concatenate(cvtr2).getConversionSteps()} returns {@code {cvtr1, cvtr2}}.
      *
      * @return the list of fundamental converters which concatenated makes up this converter.
      */
-    List<? extends UnitConverter> getCompoundConverters();
+    List<? extends UnitConverter> getConversionSteps();
 }
