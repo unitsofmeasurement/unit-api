@@ -8,7 +8,6 @@
 package javax.measure;
 
 import javax.measure.function.ConversionOperator;
-import javax.measure.function.UnitSupplier;
 
 /**
  * Measurement is the assignment of values to objects or events.
@@ -40,8 +39,14 @@ import javax.measure.function.UnitSupplier;
  * @see <a href="http://en.wikipedia.org/wiki/Measurement">Wikipedia:
  *      Measurement</a>
  * @see Unit
- * @version 0.18, 2014-08-22
+ * @version 0.19, 2014-09-06
  */
-public interface Measurement<Q extends Quantity<Q>, V> extends UnitSupplier<Q>,
+public interface Measurement<Q extends Quantity<Q>, V> extends
 		ConversionOperator<Unit<Q>, Measurement<Q, V>> {
+	/**
+	 * Returns the unit of this {@linkplain Measurement}.
+	 * 
+	 * @return the unit (shall not be {@code null}).
+	 */
+	Unit<Q> getUnit();
 }

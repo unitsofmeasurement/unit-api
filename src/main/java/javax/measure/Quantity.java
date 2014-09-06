@@ -37,10 +37,18 @@ import javax.measure.function.ValueSupplier;
  *      Quantity</a>
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia:
  *      Conversion of units</a>
- * @version 0.12, Date: 2014-08-30
+ * @version 0.13, Date: 2014-09-06
  */
 public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number>, ValueSupplier<Number> {
-	Quantity<?> divide(Quantity<?> that);
+
+	/**
+	 * Returns the sum of this {@code Quantity} with the one specified.
+	 * 
+	 * @param that
+	 *            the {@code Quantity} to be added.
+	 * @return <code>this + that</code>.
+	 */
+	Quantity<Q> add(Quantity<Q> that);
 
 	/**
 	 * Returns the difference between this {@code Quantity} and the one
@@ -53,15 +61,6 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number>,
 	Quantity<Q> subtract(Quantity<Q> that);
 
 	/**
-	 * Returns the sum of this {@code Quantity} with the one specified.
-	 * 
-	 * @param that
-	 *            the {@code Quantity} to be added.
-	 * @return <code>this + that</code>.
-	 */
-	Quantity<Q> add(Quantity<Q> that);
-
-	/**
 	 * Returns the product of this {@code Quantity} divided by the {@code V}
 	 * value specified.
 	 * 
@@ -71,14 +70,17 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number>,
 	 *            the {@code V} divisor.
 	 * @return <code>this / that</code>.
 	 */
-	Quantity<Q> divide(Number that);
-
+	Quantity<?> divide(Quantity<?> divisor);
+	
 	/**
-	 * Returns a {@code Quantity} whose unit is {@code unit.inverse()}.
+	 * Returns the product of this {@code Quantity} divided by the {@code Number}
+	 * specified.
 	 * 
-	 * @return {@code Quantity with this.getUnit().inverse()}.
+	 * @param that
+	 *            the {@code V} divisor.
+	 * @return <code>this / that</code>.
 	 */
-	Quantity<Q> inverse();
+	Quantity<Q> divide(Number that);
 
 	/**
 	 * Returns the product of this {@code Quantity} with the one specified.
@@ -87,7 +89,7 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number>,
 	 *            the {@code Quantity} multiplier.
 	 * @return <code>this * that</code>.
 	 */
-	Quantity<?> multiply(Quantity<?> that);
+	Quantity<?> multiply(Quantity<?> multiplier);
 
 	/**
 	 * Returns the product of this {@code Quantity} with the {@code Number} value
@@ -97,7 +99,14 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q, Number>,
 	 *            the {@code Number} multiplier.
 	 * @return <code>this * that</code>.
 	 */
-	Quantity<Q> multiply(Number that);
+	Quantity<Q> multiply(Number multiplier);
+	
+	/**
+	 * Returns a {@code Quantity} whose unit is {@code unit.inverse()}.
+	 * 
+	 * @return {@code Quantity with this.getUnit().inverse()}.
+	 */
+	Quantity<Q> inverse();
 	
     /**
      * Returns this {@code Quantity} converted into another (compatible) {@code Unit}.
