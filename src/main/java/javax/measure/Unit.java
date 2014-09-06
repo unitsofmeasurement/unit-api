@@ -9,7 +9,6 @@ package javax.measure;
 
 import java.util.Map;
 
-import javax.measure.function.Nameable;
 import javax.measure.function.UnitConverter;
 import javax.measure.function.UnitTransformer;
 
@@ -44,7 +43,7 @@ import javax.measure.function.UnitTransformer;
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
  */
-public interface Unit<Q extends Quantity<Q>> extends UnitTransformer<Q>, Nameable {
+public interface Unit<Q extends Quantity<Q>> extends UnitTransformer<Q> {
 
     /*******************/
     /** Units Queries **/
@@ -61,6 +60,18 @@ public interface Unit<Q extends Quantity<Q>> extends UnitTransformer<Q>, Nameabl
      * @see UnitFormat
      */
     String getSymbol();
+    
+    /**
+     * Returns the name (if any) of this unit.
+     * This method returns {@code null} if this unit has no specific name associated with.
+     *
+     * @return this unit name, or {@code null} if this unit has not
+     *         specific name associated with (e.g. product of units).
+     *
+     * @see #toString()
+     * @see UnitFormat
+     */
+    String getName();
 
     /**
      * Returns the dimension of this unit. Two units {@code u1} and {@code u2}
