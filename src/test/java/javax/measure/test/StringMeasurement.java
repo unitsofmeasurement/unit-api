@@ -5,9 +5,6 @@
  *
  * See LICENSE.txt for details.
  */
-/**
- * 
- */
 package javax.measure.test;
 
 import javax.measure.Measurement;
