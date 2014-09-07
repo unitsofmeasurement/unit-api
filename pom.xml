@@ -9,8 +9,8 @@
 	<url>http://unitsofmeasurement.github.io/</url>
 	<description>Units of Measurement Standard - This JSR specifies Java packages for modeling and working with measurement values, quantities and their corresponding units.</description>
 	<organization>
-		<name>Units of Measurement project</name>
-		<url>http://www.unitsofmeasurement.org</url>
+		<name>Jean-Marie Dautelle, Werner Keil, V2COM</name>
+		<url>http://unitsofmeasurement.java.net</url>
 	</organization>
 	<inceptionYear>2014</inceptionYear>
 	<licenses>

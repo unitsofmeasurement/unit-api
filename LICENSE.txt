@@ -5,7 +5,7 @@ IF YOU ARE NOT WILLING TO BE BOUND BY THEM, SELECT THE "DECLINE" BUTTON AT THE B
 
 Specification:  JSR-363  Units of Measurement API ("Specification")
 
-Version:  <____>
+Version:  0.7
 
 Status:  Early Draft
 
