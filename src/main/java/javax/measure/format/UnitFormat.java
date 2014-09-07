@@ -16,9 +16,10 @@ import javax.measure.Unit;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.3
+ * @version 0.4
  *
  * @see Unit
+ * @see Parser
  */
 public interface UnitFormat extends Parser<CharSequence, Unit<?>> {
     /**
@@ -30,20 +31,6 @@ public interface UnitFormat extends Parser<CharSequence, Unit<?>> {
      * @throws IOException if an error occurs while writing to the destination.
      */
     Appendable format(Unit<?> unit, Appendable appendable) throws IOException;
-
-    /**
-     * Parses a portion of the specified {@code CharSequence} from the
-     * specified position to produce a unit. If there is no unit to parse
-     * the unitary unit (dimensionless) is returned.
-     *
-     * @param  csq the {@code CharSequence} to parse.
-     * @param  cursor the cursor holding the current parsing index, or {@code null}
-     *         to parse the whole character sequence.
-     * @return the unit parsed from the specified character sub-sequence.
-     * @throws UnitParseException if any problem occurs while parsing the
-     *         specified character sequence (e.g. illegal syntax).
-     */
-    //Unit<?> parse(CharSequence csq, ParsePosition cursor) throws ParserException;
     
     /**
      * Parses a portion of the specified {@code CharSequence} from the

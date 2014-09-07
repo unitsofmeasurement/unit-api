@@ -87,11 +87,11 @@ public interface UnitConverter {
     UnitConverter concatenate(UnitConverter converter);
 
     /**
-     * Returns the steps of fundamental converters making up this converter or
-     * {@code null} if this converter is a fundamental converter. For example,
-     * {@code cvtr1.concatenate(cvtr2).getConversionSteps()} returns {@code {cvtr1, cvtr2}}.
-     *
-     * @return the list of fundamental converters which concatenated makes up this converter.
+     * <p>Returns the steps of fundamental converters making up this converter or
+     * {@code this} if the converter is a fundamental converter.</p>
+     * <p>
+     * For example, {@code converter1.getConversionSteps()} returns {@code {converter1} while {@code converter1.concatenate(converter2).getConversionSteps()} returns {@code {converter1, converter2}.</p>
+     * @return the list of fundamental converters which concatenated make up this converter.
      */
     List<? extends UnitConverter> getConversionSteps();
 }
