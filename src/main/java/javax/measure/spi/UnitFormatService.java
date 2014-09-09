@@ -5,7 +5,7 @@
  *
  * See LICENSE.txt for details.
  */
-package javax.measure.service;
+package javax.measure.spi;
 
 import java.util.Locale;
 

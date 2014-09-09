@@ -11,4 +11,4 @@
  * @author  <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.2, $Date: 2014-01-27 23:16:02 +0100 (Mo, 27 Jän 2014) $
  */
-package javax.measure.service;
+package javax.measure.spi;

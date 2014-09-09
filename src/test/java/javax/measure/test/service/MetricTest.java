@@ -9,7 +9,7 @@ package javax.measure.test.service;
 
 import static org.junit.Assert.assertNull;
 
-import javax.measure.service.SystemOfUnitsService;
+import javax.measure.spi.SystemOfUnitsService;
 
 import org.junit.Before;
 import org.junit.Ignore;

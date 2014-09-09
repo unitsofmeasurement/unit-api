@@ -39,7 +39,7 @@
                 <artifactId>maven-bundle-plugin</artifactId>
                 <configuration>
                     <instructions>
-                        <Export-Package>javax.measure.service.*</Export-Package>
+                        <Export-Package>javax.measure.spi.*</Export-Package>
                         <Private-Package>!*</Private-Package>
                     </instructions>
                 </configuration>
