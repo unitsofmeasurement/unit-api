@@ -15,7 +15,7 @@ import javax.measure.function.ConversionOperator;
  * Any measurement can be judged by the following meta-measurement criteria
  * values:
  * <ul>
- * <li>level of measurement (which includes magnitude)</li>
+ * <li>level of measurement (which may include magnitude)</li>
  * <li>dimensions (units)</li>
  * <li>uncertainty.</li>
  * </ul>
@@ -39,7 +39,7 @@ import javax.measure.function.ConversionOperator;
  * @see <a href="http://en.wikipedia.org/wiki/Measurement">Wikipedia:
  *      Measurement</a>
  * @see Unit
- * @version 0.19, 2014-09-06
+ * @version 0.20, 2014-09-09
  */
 public interface Measurement<Q extends Quantity<Q>, V> extends
 		ConversionOperator<Unit<Q>, Measurement<Q, V>> {
