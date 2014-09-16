@@ -158,7 +158,9 @@ public class DistanceQuantity extends TestQuantity<Length> {
 	}
 
 	public Quantity<?> multiply(Quantity<?> that) {
-		// TODO Auto-generated method stub
+		if (that.getClass().isInstance(Length.class)) {
+			return multiply((DistanceQuantity) that);
+		}
 		return null;
 	}
 
