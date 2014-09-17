@@ -147,7 +147,7 @@ public class BitRateQuantity extends TestQuantity<InformationRate> {
 	}
 
     @Override
-    public int compareTo(Measurement<InformationRate> o) {
+    public int compareTo(Quantity<InformationRate> o) {
         // TODO Auto-generated method stub
         return 0;
     }

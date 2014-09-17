@@ -7,7 +7,6 @@
  */
 package javax.measure.test.quantity;
 
-import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Time;
@@ -129,7 +128,7 @@ public class TimeQuantity extends TestQuantity<Time> {
 	}
 
     @Override
-    public int compareTo(Measurement<Time> o) {
+    public int compareTo(Quantity<Time> o) {
         // TODO Auto-generated method stub
         return 0;
     }

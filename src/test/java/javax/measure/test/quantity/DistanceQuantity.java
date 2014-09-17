@@ -176,7 +176,7 @@ public class DistanceQuantity extends TestQuantity<Length> {
 	}
 
     @Override
-    public int compareTo(Measurement<Length> o) {
+    public int compareTo(Quantity<Length> o) {
         // TODO Auto-generated method stub
         return 0;
     }

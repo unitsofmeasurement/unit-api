@@ -179,7 +179,7 @@ public class BitQuantity extends TestQuantity<Information> {
 	}
 
     @Override
-    public int compareTo(Measurement<Information> o) {
+    public int compareTo(Quantity<Information> o) {
         // TODO Auto-generated method stub
         return 0;
     }
