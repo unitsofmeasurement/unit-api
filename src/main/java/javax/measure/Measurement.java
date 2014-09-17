@@ -29,23 +29,23 @@ import javax.measure.function.ConversionOperator;
  * <p>
  * Measurement instances should be immutable.
  * </p>
- * 
+ *
  * @param <Q>
  *            The type of the measurement.
  * @param <V>
  *            The measured value.
- * 
+ *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @see <a href="http://en.wikipedia.org/wiki/Measurement">Wikipedia:
  *      Measurement</a>
  * @see Unit
  * @version 0.20, 2014-09-09
  */
-public interface Measurement<Q extends Quantity<Q>, V> extends
-		ConversionOperator<Unit<Q>, Measurement<Q, V>> {
+public interface Measurement<Q extends Quantity<Q>> extends
+		ConversionOperator<Unit<Q>, Measurement<Q>> {
 	/**
 	 * Returns the unit of this {@linkplain Measurement}.
-	 * 
+	 *
 	 * @return the unit (shall not be {@code null}).
 	 */
 	Unit<Q> getUnit();

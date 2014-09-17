@@ -18,7 +18,7 @@ import javax.measure.function.ValueSupplier;
  * @version 0.5
  */
 public final class StringMeasurement<Q extends Quantity<Q>> implements
-		Measurement<Q, String>, ValueSupplier<String> {
+		Measurement<Q>, ValueSupplier<String> {
 	private final String v;
 	private final Unit<Q> u;
 
@@ -27,15 +27,18 @@ public final class StringMeasurement<Q extends Quantity<Q>> implements
 		this.u = unit;
 	}
 
-	public Measurement<Q, String> to(Unit<Q> unit) {
+	@Override
+    public Measurement<Q> to(Unit<Q> unit) {
 		return new StringMeasurement<Q>(v, unit);
 	}
 
-	public Unit<Q> getUnit() {
+	@Override
+    public Unit<Q> getUnit() {
 		return u;
 	}
 
-	public String getValue() {
+	@Override
+    public String getValue() {
 		return v;
 	}
 

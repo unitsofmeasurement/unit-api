@@ -31,9 +31,9 @@ public class BitQuantity extends TestQuantity<Information> {
 
 	/*
 	 * Distance(double val) {
-	 * 
+	 *
 	 * units = val; unit = m; // reference Unit scalar = val;
-	 * 
+	 *
 	 * }
 	 */
 	public BitQuantity add(BitQuantity d1) {
@@ -113,59 +113,67 @@ public class BitQuantity extends TestQuantity<Information> {
 		return super.showInUnits(u, precision);
 	}
 
-	public Measurement<Information, Number> add(
-			Measurement<Information, Number> that) {
+	public Measurement<Information> add(
+			Measurement<Information> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Measurement<Information, Number> subtract(
-			Measurement<Information, Number> that) {
+	public Measurement<Information> subtract(
+			Measurement<Information> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<Information> to(Unit<Information> unit) {
+	@Override
+    public Quantity<Information> to(Unit<Information> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<?> divide(Quantity<?> that) {
+	@Override
+    public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public BitQuantity multiply(Number that) {
+	@Override
+    public BitQuantity multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public BitQuantity multiply(Measurement<?, Number> that) {
+	public BitQuantity multiply(Measurement<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<Information> subtract(Quantity<Information> that) {
+	@Override
+    public Quantity<Information> subtract(Quantity<Information> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<Information> add(Quantity<Information> that) {
+	@Override
+    public Quantity<Information> add(Quantity<Information> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<Information> divide(Number that) {
+	@Override
+    public Quantity<Information> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<Information> inverse() {
+	@Override
+    public Quantity<Information> inverse() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<?> multiply(Quantity<?> that) {
+	@Override
+    public Quantity<?> multiply(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

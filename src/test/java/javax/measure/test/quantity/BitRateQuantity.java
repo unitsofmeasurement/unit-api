@@ -92,48 +92,56 @@ public class BitRateQuantity extends TestQuantity<InformationRate> {
 		return super.showInUnits(u, precision);
 	}
 
-	public Measurement<InformationRate, Number> add(
-			Measurement<InformationRate, Number> that) {
+	public Measurement<InformationRate> add(
+			Measurement<InformationRate> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<?> divide(Quantity<?> that) {
+	@Override
+    public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<InformationRate> subtract(Quantity<InformationRate> that) {
+	@Override
+    public Quantity<InformationRate> subtract(Quantity<InformationRate> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<InformationRate> add(Quantity<InformationRate> that) {
+	@Override
+    public Quantity<InformationRate> add(Quantity<InformationRate> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<InformationRate> divide(Number that) {
+	@Override
+    public Quantity<InformationRate> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<InformationRate> inverse() {
+	@Override
+    public Quantity<InformationRate> inverse() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<?> multiply(Quantity<?> that) {
+	@Override
+    public Quantity<?> multiply(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<InformationRate> multiply(Number that) {
+	@Override
+    public Quantity<InformationRate> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<InformationRate> to(Unit<InformationRate> unit) {
+	@Override
+    public Quantity<InformationRate> to(Unit<InformationRate> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}

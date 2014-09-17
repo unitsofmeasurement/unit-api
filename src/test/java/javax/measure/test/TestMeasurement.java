@@ -17,17 +17,18 @@ import javax.measure.Unit;
  * @version 0.4, $Date: 2014-08-03 $
  */
 final class TestMeasurement<Q extends Quantity<Q>> implements
-		Measurement<Q, Double> {
+		Measurement<Q> {
 
 	private final Double val;
 	private final Unit<Q> unit;
-	
+
 	public TestMeasurement(Double value, Unit<Q> unit) {
 		this.val = value;
 		this.unit = unit;
 	}
-	
-	public Unit<Q> getUnit() {
+
+	@Override
+    public Unit<Q> getUnit() {
 		return unit;
 	}
 
@@ -35,7 +36,8 @@ final class TestMeasurement<Q extends Quantity<Q>> implements
 		return val;
 	}
 
-	public Measurement<Q, Double> to(Unit<Q> unit) {
+	@Override
+    public Measurement<Q> to(Unit<Q> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -45,23 +47,23 @@ final class TestMeasurement<Q extends Quantity<Q>> implements
 		return val + " " + unit;
 	}
 
-	public Measurement<Q, Double> multiply(Double that) {
+	public Measurement<Q> multiply(Double that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Measurement<Q, Double> divide(Double that) {
+	public Measurement<Q> divide(Double that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@SuppressWarnings("unchecked")
-	public TestMeasurement<?> multiply(Measurement<?, Double> that) {
+	public TestMeasurement<?> multiply(Measurement<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Measurement<Q, Double> substract(Measurement<Q, Double> that) {
+	public Measurement<Q> substract(Measurement<Q> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

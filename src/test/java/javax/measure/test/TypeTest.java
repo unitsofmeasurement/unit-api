@@ -6,7 +6,7 @@
  * See LICENSE.txt for details.
  */
 /**
- * 
+ *
  */
 package javax.measure.test;
 
@@ -22,13 +22,13 @@ import org.junit.Test;
 /**
  * @author Werner Keil
  * @version 0.5, May 31, 2014
- * 
+ *
  */
 public class TypeTest {
 
 	@Test
 	public void testStringMeasurement() {
-		Measurement<Length, String> length = new StringMeasurement<Length>(
+		Measurement<Length> length = new StringMeasurement<Length>(
 				"Ten", DistanceUnit.m);
 		assertEquals("Ten m", length.toString());
 	}

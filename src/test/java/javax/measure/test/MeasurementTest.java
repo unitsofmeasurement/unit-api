@@ -20,9 +20,9 @@ import org.junit.Test;
  *
  */
 public class MeasurementTest {
-	
-	private Measurement<?, Double> sut;
-	
+
+	private Measurement<?> sut;
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Before
 	public void init() {

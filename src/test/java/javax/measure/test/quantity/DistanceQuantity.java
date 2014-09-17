@@ -32,9 +32,9 @@ public class DistanceQuantity extends TestQuantity<Length> {
 
 	/*
 	 * Distance(double val) {
-	 * 
+	 *
 	 * units = val; unit = m; // reference Unit scalar = val;
-	 * 
+	 *
 	 * }
 	 */
 	public DistanceQuantity add(DistanceQuantity d1) {
@@ -111,58 +111,66 @@ public class DistanceQuantity extends TestQuantity<Length> {
 		return super.showInUnits(u, precision);
 	}
 
-	public Measurement<Length, Number> add(Measurement<Length, Number> that) {
+	public Measurement<Length> add(Measurement<Length> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Measurement<Length, Number> subtract(
-			Measurement<Length, Number> that) {
+	public Measurement<Length> subtract(
+			Measurement<Length> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<?> divide(Quantity<?> that) {
+	@Override
+    public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<Length> to(Unit<Length> unit) {
+	@Override
+    public Quantity<Length> to(Unit<Length> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Measurement<?, Number> multiply(Measurement<?, Number> that) {
+	public Measurement<?> multiply(Measurement<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<Length> subtract(Quantity<Length> that) {
+	@Override
+    public Quantity<Length> subtract(Quantity<Length> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<Length> add(Quantity<Length> that) {
+	@Override
+    public Quantity<Length> add(Quantity<Length> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<Length> divide(Number that) {
+	@Override
+    public Quantity<Length> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<Length> inverse() {
+	@Override
+    public Quantity<Length> inverse() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<?> multiply(Quantity<?> that) {
+	@Override
+    public Quantity<?> multiply(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<Length> multiply(Number that) {
+	@Override
+    public Quantity<Length> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
