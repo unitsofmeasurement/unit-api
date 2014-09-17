@@ -7,6 +7,7 @@
  */
 package javax.measure.test.quantity;
 
+import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Volume;
@@ -30,9 +31,9 @@ public class VolumeQuantity extends TestQuantity<Volume> {
 
 	/*
 	 * Volume(double val) {
-	 * 
+	 *
 	 * units = val; unit = cumetre; // reference Unit scalar = val;
-	 * 
+	 *
 	 * }
 	 */
 	public VolumeQuantity add(VolumeQuantity d1) {
@@ -140,4 +141,10 @@ public class VolumeQuantity extends TestQuantity<Volume> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+    @Override
+    public int compareTo(Measurement<Volume> o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 }

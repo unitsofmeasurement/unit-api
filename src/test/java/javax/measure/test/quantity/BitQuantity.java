@@ -125,19 +125,19 @@ public class BitQuantity extends TestQuantity<Information> {
 		return null;
 	}
 
-	
+
     public Quantity<Information> to(Unit<Information> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public BitQuantity multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
@@ -148,35 +148,41 @@ public class BitQuantity extends TestQuantity<Information> {
 		return null;
 	}
 
-	
+
     public Quantity<Information> subtract(Quantity<Information> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<Information> add(Quantity<Information> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<Information> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<Information> inverse() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<?> multiply(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+    @Override
+    public int compareTo(Measurement<Information> o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
 	//
 	// public double doubleValue(Unit<Information> unit) {
