@@ -163,9 +163,16 @@ public class DistanceQuantity extends TestQuantity<Length> {
 		return null;
 	}
 
+<<<<<<< HEAD
 	@Override
     public Quantity<?> multiply(Quantity<?> that) {
 		// TODO Auto-generated method stub
+=======
+	public Quantity<?> multiply(Quantity<?> that) {
+		if (that.getClass().isInstance(Length.class)) {
+			return multiply((DistanceQuantity) that);
+		}
+>>>>>>> bf284962861418412da952acf9cdb282e41c380b
 		return null;
 	}
 

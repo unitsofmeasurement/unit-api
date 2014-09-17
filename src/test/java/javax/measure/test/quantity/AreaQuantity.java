@@ -95,59 +95,67 @@ public class AreaQuantity extends TestQuantity<Area> {
         return super.showInUnits(u, precision);
     }
 
-	public Measurement<Area, Number> add(Measurement<Area, Number> that) {
+	public Measurement<Area> add(Measurement<Area> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Measurement<Area, Number> subtract(Measurement<Area, Number> that) {
+	public Measurement<Area> subtract(Measurement<Area> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<Area> multiply(Number that) {
+	@Override
+    public Quantity<Area> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<?> divide(Quantity<?> that) {
+	@Override
+    public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	public Area to(Unit<Area> unit) {
+	@Override
+    public Area to(Unit<Area> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	public AreaQuantity multiply(Measurement<?, Number> that) {
+	public AreaQuantity multiply(Measurement<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<Area> subtract(Quantity<Area> that) {
+	@Override
+    public Quantity<Area> subtract(Quantity<Area> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<Area> add(Quantity<Area> that) {
+	@Override
+    public Quantity<Area> add(Quantity<Area> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<Area> divide(Number that) {
+	@Override
+    public Quantity<Area> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<Area> inverse() {
+	@Override
+    public Quantity<Area> inverse() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Quantity<?> multiply(Quantity<?> that) {
+	@Override
+    public Quantity<?> multiply(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
