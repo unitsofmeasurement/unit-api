@@ -7,6 +7,7 @@
  */
 package javax.measure.test.quantity;
 
+import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Time;
@@ -30,9 +31,9 @@ public class TimeQuantity extends TestQuantity<Time> {
 
 	/*
 	 * Distance(double val) {
-	 * 
+	 *
 	 * units = val; unit = m; // reference Unit scalar = val;
-	 * 
+	 *
 	 * }
 	 */
 	public TimeQuantity add(TimeQuantity d1) {
@@ -126,5 +127,11 @@ public class TimeQuantity extends TestQuantity<Time> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+    @Override
+    public int compareTo(Measurement<Time> o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
 }

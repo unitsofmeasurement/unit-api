@@ -26,7 +26,7 @@ import javax.measure.function.ConversionOperator;
  * either on wavelengths of light or (qualitative) terms such as "green" and
  * "blue" which are often interpreted differently by different people.<br>
  * Some measurements like <a href="http://en.wikipedia.org/wiki/Clothing_sizes">clothing sizes</a> use a non-numeric magnitude e.g. "<type>XL</type>" rather than an actual number used by other standards or countries in this area.<br>
- * The API therefore offers a {@link ValueSupplier} like it's used by the  {@link Quantity} subtype, but does not mandate it for {@link Measurement}. Leaving implementations a freedom of choice for an appropriate getter of such values. For mentioned examples like "green" or "X-Large" this could simply be a <code>toString()</code> method, too or methods provided by a used type such as {@linkplain Enum}. 
+ * The API therefore offers a {@link ValueSupplier} like it's used by the  {@link Quantity} subtype, but does not mandate it for {@link Measurement}. Leaving implementations a freedom of choice for an appropriate getter of such values. For mentioned examples like "green" or "X-Large" this could simply be a <code>toString()</code> method, too or methods provided by a used type such as {@linkplain Enum}.
  * </p>
  * <p>
  * Measurement instances should be immutable.
@@ -46,7 +46,7 @@ import javax.measure.function.ConversionOperator;
  * @version 0.21, 2014-09-10
  */
 public interface Measurement<Q extends Quantity<Q>> extends
-		ConversionOperator<Unit<Q>, Measurement<Q>> {
+		ConversionOperator<Unit<Q>, Measurement<Q>>, Comparable<Measurement<Q>> {
 	/**
 	 * Returns the unit of this {@linkplain Measurement}.
 	 *

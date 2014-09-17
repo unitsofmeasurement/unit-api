@@ -65,4 +65,10 @@ final class TestMeasurement<Q extends Quantity<Q>> implements
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+    @Override
+    public int compareTo(Measurement<Q> o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 }

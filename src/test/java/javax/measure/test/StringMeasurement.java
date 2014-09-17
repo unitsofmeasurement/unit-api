@@ -44,4 +44,10 @@ public final class StringMeasurement<Q extends Quantity<Q>> implements
 		return v + " " + u.getSymbol();
 	}
 
+    @Override
+    public int compareTo(Measurement<Q> o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
 }

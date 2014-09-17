@@ -98,53 +98,59 @@ public class BitRateQuantity extends TestQuantity<InformationRate> {
 		return null;
 	}
 
-	
+
     public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<InformationRate> subtract(Quantity<InformationRate> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<InformationRate> add(Quantity<InformationRate> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<InformationRate> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<InformationRate> inverse() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<?> multiply(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<InformationRate> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<InformationRate> to(Unit<InformationRate> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+    @Override
+    public int compareTo(Measurement<InformationRate> o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
 	//
 	// public double doubleValue(Unit<InformationRate> unit) {

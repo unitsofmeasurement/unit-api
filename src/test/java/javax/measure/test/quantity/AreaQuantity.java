@@ -105,20 +105,20 @@ public class AreaQuantity extends TestQuantity<Area> {
 		return null;
 	}
 
-	
+
     public Quantity<Area> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	
+
     public Area to(Unit<Area> unit) {
 		// TODO Auto-generated method stub
 		return null;
@@ -130,35 +130,41 @@ public class AreaQuantity extends TestQuantity<Area> {
 		return null;
 	}
 
-	
+
     public Quantity<Area> subtract(Quantity<Area> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<Area> add(Quantity<Area> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<Area> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<Area> inverse() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<?> multiply(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+    @Override
+    public int compareTo(Measurement<Area> o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
 //	public double doubleValue(Unit<Area> unit) {
 //		// TODO Auto-generated method stub

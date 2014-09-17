@@ -122,13 +122,13 @@ public class DistanceQuantity extends TestQuantity<Length> {
 		return null;
 	}
 
-	
+
     public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<Length> to(Unit<Length> unit) {
 		// TODO Auto-generated method stub
 		return null;
@@ -139,39 +139,45 @@ public class DistanceQuantity extends TestQuantity<Length> {
 		return null;
 	}
 
-	
+
     public Quantity<Length> subtract(Quantity<Length> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<Length> add(Quantity<Length> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<Length> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<Length> inverse() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<?> multiply(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+
     public Quantity<Length> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+    @Override
+    public int compareTo(Measurement<Length> o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 }
