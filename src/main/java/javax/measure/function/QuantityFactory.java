@@ -7,6 +7,9 @@
  */
 package javax.measure.function;
 
+import javax.measure.Quantity;
+import javax.measure.Unit;
+
 /**
  * Represents a factory that accepts two arguments and creates a result.
  *
@@ -20,6 +23,6 @@ package javax.measure.function;
  * @author Werner Keil
  * @version 0.3, $Date: 2014-08-24 $
  */
-public interface QuantityFactory<T, U, R> {
+public interface QuantityFactory<T extends Number, U extends Unit<R>, R extends Quantity<R>> {
 	R create(T t, U u);
 }
