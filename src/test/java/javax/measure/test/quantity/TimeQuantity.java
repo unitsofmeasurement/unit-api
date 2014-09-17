@@ -128,10 +128,4 @@ public class TimeQuantity extends TestQuantity<Time> {
 		return null;
 	}
 
-    @Override
-    public int compareTo(Measurement<Time> o) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
 }

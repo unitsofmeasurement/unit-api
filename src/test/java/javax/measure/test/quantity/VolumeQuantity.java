@@ -141,10 +141,4 @@ public class VolumeQuantity extends TestQuantity<Volume> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-    @Override
-    public int compareTo(Measurement<Volume> o) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
 }

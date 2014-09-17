@@ -46,7 +46,7 @@ import javax.measure.function.ConversionOperator;
  * @version 0.21, 2014-09-10
  */
 public interface Measurement<Q extends Quantity<Q>> extends
-		ConversionOperator<Unit<Q>, Measurement<Q>>, Comparable<Measurement<Q>> {
+		ConversionOperator<Unit<Q>, Measurement<Q>> {
 	/**
 	 * Returns the unit of this {@linkplain Measurement}.
 	 *
