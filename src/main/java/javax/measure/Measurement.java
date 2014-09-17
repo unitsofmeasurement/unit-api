@@ -15,7 +15,7 @@ import javax.measure.function.ConversionOperator;
  * Any measurement can be judged by the following meta-measurement criteria
  * values:
  * <ul>
- * <li>level of measurement (which may include magnitude)</li>
+ * <li>level of measurement (which includes magnitude)</li>
  * <li>dimensions (units)</li>
  * <li>uncertainty.</li>
  * </ul>
@@ -24,7 +24,9 @@ import javax.measure.function.ConversionOperator;
  * increased precision through quantitative measurement is often preferred in
  * order to aid in replication. For example, different colors may be based
  * either on wavelengths of light or (qualitative) terms such as "green" and
- * "blue" which are often interpreted differently by different people.
+ * "blue" which are often interpreted differently by different people.<br>
+ * Some measurements like <a href="http://en.wikipedia.org/wiki/Clothing_sizes">clothing sizes</a> use a non-numeric magnitude e.g. "<type>XL</type>" rather than an actual number used by other standards or countries in this area.<br>
+ * The API therefore offers a {@link ValueSupplier} like it's used by the  {@link Quantity} subtype, but does not mandate it for {@link Measurement}. Leaving implementations a freedom of choice for an appropriate getter of such values. For mentioned examples like "green" or "X-Large" this could simply be a <code>toString()</code> method, too or methods provided by a used type such as {@linkplain Enum}. 
  * </p>
  * <p>
  * Measurement instances should be immutable.
@@ -38,8 +40,10 @@ import javax.measure.function.ConversionOperator;
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @see <a href="http://en.wikipedia.org/wiki/Measurement">Wikipedia:
  *      Measurement</a>
+ * @see <a href="http://en.wikipedia.org/wiki/Clothing_sizes">Wikipedia:
+ *      Clothing sizes</a>
  * @see Unit
- * @version 0.20, 2014-09-09
+ * @version 0.21, 2014-09-10
  */
 public interface Measurement<Q extends Quantity<Q>> extends
 		ConversionOperator<Unit<Q>, Measurement<Q>> {
