@@ -7,6 +7,9 @@
  */
 package javax.measure.function;
 
+import javax.measure.Quantity;
+import javax.measure.Unit;
+
 /**
  * Represents a factory that accepts two arguments and creates a result.
  *
@@ -16,11 +19,10 @@ package javax.measure.function;
  * @param <T> the type of the first argument to the factory
  * @param <U> the type of the second argument to the factory
  * @param <R> the type of the result of the factory
- * 
+ *
  * @author Werner Keil
  * @version 0.3, $Date: 2014-08-24 $
  */
-// TODO this is only used by QuantityFactory, consider replacing it with QF (which needed another name then)
-public interface BiFactory<T, U, R> {
+public interface QuantityFactory<T extends Number, U extends Unit<R>, R extends Quantity<R>> {
 	R create(T t, U u);
 }
