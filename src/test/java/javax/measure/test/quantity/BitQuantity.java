@@ -178,12 +178,6 @@ public class BitQuantity extends TestQuantity<Information> {
 		return null;
 	}
 
-    @Override
-    public int compareTo(Measurement<Information> o) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
 	//
 	// public double doubleValue(Unit<Information> unit) {
 	// // TODO Auto-generated method stub
