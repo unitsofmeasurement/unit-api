@@ -115,6 +115,5 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
      * @param unit
      * @return the converted result.
      */
-	@Override
     Quantity<Q> to(Unit<Q> unit);
 }

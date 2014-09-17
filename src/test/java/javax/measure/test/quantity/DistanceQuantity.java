@@ -17,7 +17,7 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.3.1
+ * @version 0.3.2
  */
 public class DistanceQuantity extends TestQuantity<Length> {
 
@@ -122,13 +122,13 @@ public class DistanceQuantity extends TestQuantity<Length> {
 		return null;
 	}
 
-	@Override
+	
     public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
     public Quantity<Length> to(Unit<Length> unit) {
 		// TODO Auto-generated method stub
 		return null;
@@ -139,37 +139,37 @@ public class DistanceQuantity extends TestQuantity<Length> {
 		return null;
 	}
 
-	@Override
+	
     public Quantity<Length> subtract(Quantity<Length> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
     public Quantity<Length> add(Quantity<Length> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
     public Quantity<Length> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
     public Quantity<Length> inverse() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
     public Quantity<?> multiply(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
     public Quantity<Length> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;

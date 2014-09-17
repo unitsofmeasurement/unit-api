@@ -27,7 +27,6 @@ final class TestMeasurement<Q extends Quantity<Q>> implements
 		this.unit = unit;
 	}
 
-	@Override
     public Unit<Q> getUnit() {
 		return unit;
 	}
@@ -36,7 +35,6 @@ final class TestMeasurement<Q extends Quantity<Q>> implements
 		return val;
 	}
 
-	@Override
     public Measurement<Q> to(Unit<Q> unit) {
 		// TODO Auto-generated method stub
 		return null;

@@ -27,17 +27,14 @@ public final class StringMeasurement<Q extends Quantity<Q>> implements
 		this.u = unit;
 	}
 
-	@Override
     public Measurement<Q> to(Unit<Q> unit) {
 		return new StringMeasurement<Q>(v, unit);
 	}
 
-	@Override
     public Unit<Q> getUnit() {
 		return u;
 	}
 
-	@Override
     public String getValue() {
 		return v;
 	}
