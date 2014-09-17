@@ -146,21 +146,8 @@ public class BitRateQuantity extends TestQuantity<InformationRate> {
 		return null;
 	}
 
-    @Override
-    public int compareTo(Measurement<InformationRate> o) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-	//
-	// public double doubleValue(Unit<InformationRate> unit) {
-	// // TODO Auto-generated method stub
-	// return 0;
-	// }
-	//
-	//
-	// public long longValue(Unit<InformationRate> unit) {
-	// // TODO Auto-generated method stub
-	// return 0;
-	// }
+	public int compareTo(Quantity<InformationRate> o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

@@ -14,7 +14,7 @@ import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 0.4, $Date: 2014-08-03 $
+ * @version 0.4.1, $Date: 2014-09-18 $
  */
 final class TestMeasurement<Q extends Quantity<Q>> implements
 		Measurement<Q> {
@@ -40,7 +40,7 @@ final class TestMeasurement<Q extends Quantity<Q>> implements
 		return null;
 	}
 
-	@Override
+	
 	public String toString() {
 		return val + " " + unit;
 	}
@@ -66,9 +66,8 @@ final class TestMeasurement<Q extends Quantity<Q>> implements
 		return null;
 	}
 
-    @Override
-    public int compareTo(Measurement<Q> o) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
+	public int compareTo(Measurement<Q> o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

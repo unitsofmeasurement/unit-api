@@ -7,7 +7,6 @@
  */
 package javax.measure.test.quantity;
 
-import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Volume;
@@ -17,7 +16,7 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.3.1
+ * @version 0.3.2
  */
 public class VolumeQuantity extends TestQuantity<Volume> {
 	public VolumeQuantity() {
@@ -142,9 +141,8 @@ public class VolumeQuantity extends TestQuantity<Volume> {
 		return null;
 	}
 
-    @Override
-    public int compareTo(Measurement<Volume> o) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
+	public int compareTo(Quantity<Volume> o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

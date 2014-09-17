@@ -160,11 +160,10 @@ public class AreaQuantity extends TestQuantity<Area> {
 		return null;
 	}
 
-    @Override
-    public int compareTo(Measurement<Area> o) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
+	public int compareTo(Quantity<Area> o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 //	public double doubleValue(Unit<Area> unit) {
 //		// TODO Auto-generated method stub

@@ -38,9 +38,10 @@ import javax.measure.function.ValueSupplier;
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia:
  *      Conversion of units</a>
  * @see Measurement
- * @version 0.14, Date: 2014-09-16
+ * @version 0.15, Date: 2014-09-18
  */
-public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSupplier<Number> {
+public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSupplier<Number>,
+Comparable<Quantity<Q>>{
 
 	/**
 	 * Returns the sum of this {@code Quantity} with the one specified.

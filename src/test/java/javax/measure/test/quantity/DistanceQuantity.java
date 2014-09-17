@@ -17,7 +17,7 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.3.2
+ * @version 0.3.3
  */
 public class DistanceQuantity extends TestQuantity<Length> {
 
@@ -175,9 +175,8 @@ public class DistanceQuantity extends TestQuantity<Length> {
 		return null;
 	}
 
-    @Override
-    public int compareTo(Measurement<Length> o) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
+	public int compareTo(Quantity<Length> o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

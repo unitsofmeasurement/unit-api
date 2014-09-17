@@ -16,7 +16,7 @@ import javax.measure.test.unit.BitUnit;
 
 /**
  * @author Werner Keil
- * @version 0.5.1
+ * @version 0.5.2
  */
 public class BitQuantity extends TestQuantity<Information> {
 
@@ -178,21 +178,8 @@ public class BitQuantity extends TestQuantity<Information> {
 		return null;
 	}
 
-    @Override
-    public int compareTo(Measurement<Information> o) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-	//
-	// public double doubleValue(Unit<Information> unit) {
-	// // TODO Auto-generated method stub
-	// return 0;
-	// }
-	//
-	//
-	// public long longValue(Unit<Information> unit) {
-	// // TODO Auto-generated method stub
-	// return 0;
-	// }
+	public int compareTo(Quantity<Information> o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

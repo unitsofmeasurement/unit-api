@@ -39,15 +39,13 @@ public final class StringMeasurement<Q extends Quantity<Q>> implements
 		return v;
 	}
 
-	@Override
+	
 	public String toString() {
 		return v + " " + u.getSymbol();
 	}
 
-    @Override
-    public int compareTo(Measurement<Q> o) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
+	public int compareTo(Measurement<Q> o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

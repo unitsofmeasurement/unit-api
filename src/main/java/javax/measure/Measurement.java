@@ -43,10 +43,10 @@ import javax.measure.function.ConversionOperator;
  * @see <a href="http://en.wikipedia.org/wiki/Clothing_sizes">Wikipedia:
  *      Clothing sizes</a>
  * @see Unit
- * @version 0.21, 2014-09-10
+ * @version 0.22, 2014-09-18
  */
 public interface Measurement<Q extends Quantity<Q>> extends
-		ConversionOperator<Unit<Q>, Measurement<Q>>, Comparable<Measurement<Q>> {
+		ConversionOperator<Unit<Q>, Measurement<Q>> {
 	/**
 	 * Returns the unit of this {@linkplain Measurement}.
 	 *
