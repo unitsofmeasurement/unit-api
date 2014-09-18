@@ -177,9 +177,4 @@ public class BitQuantity extends TestQuantity<Information> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	public int compareTo(Quantity<Information> o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }

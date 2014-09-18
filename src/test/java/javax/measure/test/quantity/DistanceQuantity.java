@@ -174,9 +174,4 @@ public class DistanceQuantity extends TestQuantity<Length> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	public int compareTo(Quantity<Length> o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }

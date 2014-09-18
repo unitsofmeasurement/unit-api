@@ -40,7 +40,7 @@ final class TestMeasurement<Q extends Quantity<Q>> implements
 		return null;
 	}
 
-	
+
 	public String toString() {
 		return val + " " + unit;
 	}
@@ -64,10 +64,5 @@ final class TestMeasurement<Q extends Quantity<Q>> implements
 	public Measurement<Q> substract(Measurement<Q> that) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	public int compareTo(Measurement<Q> o) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 }

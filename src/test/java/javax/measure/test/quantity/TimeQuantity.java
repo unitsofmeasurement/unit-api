@@ -126,9 +126,4 @@ public class TimeQuantity extends TestQuantity<Time> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	public int compareTo(Quantity<Time> o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }

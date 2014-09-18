@@ -40,8 +40,7 @@ import javax.measure.function.ValueSupplier;
  * @see Measurement
  * @version 0.15, Date: 2014-09-18
  */
-public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSupplier<Number>,
-Comparable<Quantity<Q>>{
+public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSupplier<Number> {
 
 	/**
 	 * Returns the sum of this {@code Quantity} with the one specified.
