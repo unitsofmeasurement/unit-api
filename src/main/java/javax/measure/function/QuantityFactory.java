@@ -23,6 +23,8 @@ import javax.measure.Unit;
  * @author Werner Keil
  * @version 0.3, $Date: 2014-08-24 $
  */
-public interface QuantityFactory<T extends Number, U extends Unit<R>, R extends Quantity<R>> {
-	R create(T t, U u);
+public interface QuantityFactory <Q extends Quantity<Q>> {
+
+
+    <T extends Number, U extends Unit<Q>> Q create(T number, U unit);
 }
