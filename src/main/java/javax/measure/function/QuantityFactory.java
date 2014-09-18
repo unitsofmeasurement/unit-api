@@ -11,20 +11,25 @@ import javax.measure.Quantity;
 import javax.measure.Unit;
 
 /**
- * Represents a factory that accepts two arguments and creates a result.
+ * Represents a factory that accepts {@linkplain Number} and {@link Unit} arguments to create a {@link Quantity} result.
  *
  * <p>This is a <a href="http://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html#package.description">functional interface</a>
  * whose functional method is {@link #create(T, U)}.
  *
- * @param <T> the type of the first argument to the factory
- * @param <U> the type of the second argument to the factory
- * @param <R> the type of the result of the factory
+ * @param <Q> the type of the {@link Quantity} result
  *
- * @author Werner Keil
- * @version 0.3, $Date: 2014-08-24 $
+ * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @author <a href="mailto:otaviojava@java.net">Otavio Santana</a>
+ * @version 0.5, $Date: 2014-09-18 $
  */
 public interface QuantityFactory <Q extends Quantity<Q>> {
 
-
-    <T extends Number, U extends Unit<Q>> Q create(T number, U unit);
+    /**
+     * Returns the quantity for the specified number stated in the specified unit.
+     *
+     * @param number the numeric value stated in the specified unit
+     * @param unit the unit
+     * @return the corresponding quantity
+     */
+    <N extends Number, U extends Unit<Q>> Q create(N number, U unit);
 }

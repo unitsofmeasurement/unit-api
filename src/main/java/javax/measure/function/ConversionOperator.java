@@ -15,8 +15,8 @@ package javax.measure.function;
  * "http://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html#package.description"
  * >functional interface</a> whose functional method is {@link #to()}.
  * 
- * @author Werner Keil
- * @version 0.4, 2014-08-22
+*  @author <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @version 0.4.1, 2014-09-18
  * @param <T>
  *            The type to convert to.
  * @param <R>
