@@ -145,9 +145,4 @@ public class BitRateQuantity extends TestQuantity<InformationRate> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	public int compareTo(Quantity<InformationRate> o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }

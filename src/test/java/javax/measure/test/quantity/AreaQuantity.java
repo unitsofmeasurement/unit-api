@@ -160,19 +160,5 @@ public class AreaQuantity extends TestQuantity<Area> {
 		return null;
 	}
 
-	public int compareTo(Quantity<Area> o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-//	public double doubleValue(Unit<Area> unit) {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
-//
-//	public long longValue(Unit<Area> unit) {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
 
 }
