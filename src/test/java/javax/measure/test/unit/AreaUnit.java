@@ -25,7 +25,7 @@ public class AreaUnit extends TestUnit<Area> {
     public static final AreaUnit hectare = new AreaUnit("hectare", 1.0e4);
 
     public AreaUnit(String name2, double convF) {
-        name = name2;
+        super(name2);
         multFactor = convF;
     }
 

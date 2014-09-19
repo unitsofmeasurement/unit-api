@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>javax.measure</groupId>
 	<artifactId>unit-api</artifactId>
-	<version>0.7-SNAPSHOT</version>
+	<version>0.7</version>
 	<name>Units of Measurement API</name>
-	<packaging>bundle</packaging>
+	<!--  packaging>bundle</packaging> -->
 	<url>http://unitsofmeasurement.github.io/</url>
 	<description>Units of Measurement Standard - This JSR specifies Java packages for modeling and working with measurement values, quantities and their corresponding units.</description>
 	<organization>

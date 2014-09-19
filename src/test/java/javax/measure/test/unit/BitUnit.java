@@ -22,7 +22,7 @@ public class BitUnit extends TestUnit<Information> {
     public static final BitUnit kb = new BitUnit("kb", 1.0e3);
 
     public BitUnit(String name2, double convF) {
-        name = name2;
+    	super(name2);
         multFactor = convF;
     }
 

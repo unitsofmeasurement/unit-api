@@ -23,7 +23,7 @@ public class BitRateUnit extends TestUnit<InformationRate> {
     public static final BitRateUnit kb = new BitRateUnit("kb", 1.0e3);
 
     public BitRateUnit(String name2, double convF) {
-        name = name2;
+    	super(name2);
         multFactor = convF;
     }
 

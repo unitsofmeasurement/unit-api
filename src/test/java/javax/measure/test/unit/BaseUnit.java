@@ -7,8 +7,6 @@
  */
 package javax.measure.test.unit;
 
-import java.util.Objects;
-
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.test.TestUnit;
@@ -26,7 +24,7 @@ import javax.measure.test.TestUnit;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.8
+ * @version 0.9
  *
  * @see <a href="http://en.wikipedia.org/wiki/SI_base_unit">Wikipedia: SI base unit</a>
  */
@@ -65,15 +63,16 @@ public class BaseUnit<Q extends Quantity<Q>> extends TestUnit<Q> {
             return true;
         }
         if (obj instanceof BaseUnit<?>) {
-        	BaseUnit<?> Other = (BaseUnit<?>) obj;
-        	return Objects.equals(symbol, Other.symbol);
+        	BaseUnit<?> other = (BaseUnit<?>) obj;
+        	return symbol!= null ? symbol.equals(other.symbol) : false;
         }
         return false;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(symbol);
+        //return Objects.hashCode(symbol);
+    	return 0;
     }
 
     @Override

@@ -29,12 +29,13 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
     // public static final Unit<Mass> METRIC_MASS = QuantityFactory.getInstance(Mass.class).getMetricUnit();
 
     protected String symbol; // e.g. "A"
-    protected String name; // e.g. "Angstrom"
+    protected final String name; // e.g. "Angstrom"
     protected double multFactor; // e.g. 1E-10
     double addFactor = 0.0; // used for temperatures
     final Dimension dimension = TestDimension.getInstance();
     		
     protected TestUnit() {
+    	name = "";
     }
 
     public TestUnit(String name, double factor) {

@@ -23,7 +23,7 @@ public class VolumeUnit extends TestUnit<Volume> {
     public static final VolumeUnit cc = new VolumeUnit("cc", 1.0e-6);
 
     public VolumeUnit(String name2, double convF) {
-        name = name2;
+    	super(name2);
         multFactor = convF;
     }
 

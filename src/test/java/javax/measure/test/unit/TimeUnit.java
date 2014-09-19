@@ -22,7 +22,6 @@ public class TimeUnit extends BaseUnit<Time> {
 
     public TimeUnit(String name2, double convF) {
         super(name2, "");
-        name = name2;
         multFactor = convF;
     }
 
