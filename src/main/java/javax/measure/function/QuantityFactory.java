@@ -31,5 +31,5 @@ public interface QuantityFactory <Q extends Quantity<Q>> {
      * @param unit the unit
      * @return the corresponding quantity
      */
-    <N extends Number, U extends Unit<Q>> Q create(N number, U unit);
+    <N extends Number, U extends Unit<Q>> Quantity<Q> create(N number, U unit);
 }
