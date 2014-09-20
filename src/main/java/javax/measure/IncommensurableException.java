@@ -27,7 +27,7 @@ public class IncommensurableException extends Exception {
     /**
      * For cross-version compatibility.
      */
-    private static final long serialVersionUID = -3676414292638136515L;
+    //private static final long serialVersionUID = -3676414292638136515L;
 
     /**
      * Constructs a {@code IncommensurableException} with the given message.
