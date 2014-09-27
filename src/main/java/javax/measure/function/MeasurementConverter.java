@@ -7,6 +7,7 @@
  */
 package javax.measure.function;
 
+import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 
@@ -30,5 +31,5 @@ public interface MeasurementConverter<Q extends Quantity<Q>> {
      * @param type
      * @return the converted result.
      */
-    Quantity<Q> to(Unit<Q> type);
+    Measurement<Q> to(Unit<Q> type);
 }
