@@ -7,7 +7,7 @@
  */
 package javax.measure;
 
-import javax.measure.function.ConversionOperator;
+import javax.measure.function.MeasurementConverter;
 
 /**
  * Measurement is the assignment of values to objects or events.
@@ -46,7 +46,7 @@ import javax.measure.function.ConversionOperator;
  * @version 0.22, 2014-09-18
  */
 public interface Measurement<Q extends Quantity<Q>> extends
-		ConversionOperator<Unit<Q>, Measurement<Q>> {
+		MeasurementConverter<Q> {
 	/**
 	 * Returns the unit of this {@linkplain Measurement}.
 	 *
