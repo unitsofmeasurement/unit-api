@@ -7,31 +7,29 @@
  */
 package javax.measure.function;
 
+import javax.measure.Measurement;
+import javax.measure.Quantity;
+import javax.measure.Unit;
+
 /**
  *  Represents an operation to convert values.
- * 
  * <p>
  * This is a <a href=
  * "http://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html#package.description"
  * >functional interface</a> whose functional method is {@link #to()}.
- * 
+ *
 *  @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 0.4.1, 2014-09-18
- * @param <T>
+ * @param <Q>
  *            The type to convert to.
- * @param <R>
- *            The value to return.            
  * @see <a href="http://en.wikipedia.org/wiki/Data_conversion">Wikipedia: Data Conversion</a>
- * 
  */
-// equivalent to @FunctionalInterface
-public interface ConversionOperator<T, R> {
+public interface MeasurementConverter<Q extends Quantity<Q>> {
 
     /**
-     * Returns a T converted into another U.
-     * 
+     * Returns a quantity converted into another unit.
      * @param type
      * @return the converted result.
      */
-    R to(T type);
+    Measurement<Q> to(Unit<Q> type);
 }
