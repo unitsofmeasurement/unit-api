@@ -17,7 +17,7 @@ import javax.measure.test.TestUnit;
 
 
 /**
- * @author paul.morrison
+ * @author Werner Keil
  */
 abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q> {
     protected double scalar; // value in reference units

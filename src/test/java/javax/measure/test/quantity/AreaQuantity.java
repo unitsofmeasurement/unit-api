@@ -156,8 +156,10 @@ public class AreaQuantity extends TestQuantity<Area> {
 
 
     public Quantity<?> multiply(Quantity<?> that) {
-		// TODO Auto-generated method stub
-		return null;
+    	if (that.getClass().equals(DistanceQuantity.class)) {
+    		return multiply((DistanceQuantity) that);
+    	}
+    	return null;
 	}
 
 
