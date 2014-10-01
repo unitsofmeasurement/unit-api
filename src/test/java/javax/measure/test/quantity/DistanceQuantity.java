@@ -122,19 +122,7 @@ public class DistanceQuantity extends TestQuantity<Length> {
 		return null;
 	}
 
-
-    public Quantity<?> divide(Quantity<?> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
     public Quantity<Length> to(Unit<Length> unit) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Measurement<?> multiply(Measurement<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

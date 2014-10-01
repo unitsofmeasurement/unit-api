@@ -87,10 +87,6 @@ public class TimeQuantity extends TestQuantity<Time> {
 		return super.showInUnits(u, precision);
 	}
 
-	public Quantity<?> divide(Quantity<?> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public Quantity<Time> subtract(Quantity<Time> that) {
 		// TODO Auto-generated method stub
@@ -108,11 +104,6 @@ public class TimeQuantity extends TestQuantity<Time> {
 	}
 
 	public Quantity<Time> inverse() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Quantity<?> multiply(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

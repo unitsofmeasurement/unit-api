@@ -101,11 +101,6 @@ public class VolumeQuantity extends TestQuantity<Volume> {
 		return super.showInUnits(u, precision);
 	}
 
-	public Quantity<?> divide(Quantity<?> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public Quantity<Volume> subtract(Quantity<Volume> that) {
 		// TODO Auto-generated method stub
 		return null;
@@ -122,11 +117,6 @@ public class VolumeQuantity extends TestQuantity<Volume> {
 	}
 
 	public Quantity<Volume> inverse() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Quantity<?> multiply(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

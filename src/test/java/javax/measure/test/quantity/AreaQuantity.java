@@ -112,24 +112,10 @@ public class AreaQuantity extends TestQuantity<Area> {
 	}
 
 
-    public Quantity<?> divide(Quantity<?> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
     public Area to(Unit<Area> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
-	public AreaQuantity multiply(Measurement<?> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
     public Quantity<Area> subtract(Quantity<Area> that) {
 		// TODO Auto-generated method stub
