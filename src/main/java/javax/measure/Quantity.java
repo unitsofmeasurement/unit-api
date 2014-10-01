@@ -62,18 +62,6 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 	Quantity<Q> subtract(Quantity<Q> that);
 
 	/**
-	 * Returns the product of this {@code Quantity} divided by the {@code Quantity}
-	 * specified.
-	 *
-	 * @param <R>
-	 *
-	 * @param that
-	 *            the {@code Quantity} divisor.
-	 * @return <code>this / that</code>.
-	 */
-	Quantity<?> divide(Quantity<?> that);
-
-	/**
 	 * Returns the product of this {@code Quantity} divided by the {@code Number}
 	 * specified.
 	 *
@@ -82,15 +70,6 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 	 * @return <code>this / that</code>.
 	 */
 	Quantity<Q> divide(Number that);
-
-	/**
-	 * Returns the product of this {@code Quantity} with the one specified.
-	 *
-	 * @param that
-	 *            the {@code Quantity} multiplier.
-	 * @return <code>this * that</code>.
-	 */
-	Quantity<?> multiply(Quantity<?> multiplier);
 
 	/**
 	 * Returns the product of this {@code Quantity} with the {@code Number} value

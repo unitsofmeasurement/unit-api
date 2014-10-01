@@ -99,12 +99,6 @@ public class BitRateQuantity extends TestQuantity<InformationRate> {
 	}
 
 
-    public Quantity<?> divide(Quantity<?> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
     public Quantity<InformationRate> subtract(Quantity<InformationRate> that) {
 		// TODO Auto-generated method stub
 		return null;
@@ -124,12 +118,6 @@ public class BitRateQuantity extends TestQuantity<InformationRate> {
 
 
     public Quantity<InformationRate> inverse() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-    public Quantity<?> multiply(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

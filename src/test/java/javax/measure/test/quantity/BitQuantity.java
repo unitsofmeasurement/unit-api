@@ -132,22 +132,10 @@ public class BitQuantity extends TestQuantity<Information> {
 	}
 
 
-    public Quantity<?> divide(Quantity<?> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
     public BitQuantity multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	public BitQuantity multiply(Measurement<?> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
     public Quantity<Information> subtract(Quantity<Information> that) {
 		// TODO Auto-generated method stub
