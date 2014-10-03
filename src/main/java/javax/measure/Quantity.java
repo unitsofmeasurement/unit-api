@@ -38,7 +38,7 @@ import javax.measure.function.ValueSupplier;
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia:
  *      Conversion of units</a>
  * @see Measurement
- * @version 0.15, Date: 2014-09-18
+ * @version 0.16, Date: 2014-10-03
  */
 public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSupplier<Number> {
 
@@ -65,7 +65,10 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 	 * Returns the product of this {@code Quantity} divided by the {@code Quantity}
 	 * specified.
 	 *
-	 * @param <R>
+	 * @throws ClassCastException if the type of an element
+     *         in the specified operation are incompatible with this
+     *         quantity
+     *         (<a href="#optional-restrictions">optional</a>)
 	 *
 	 * @param that
 	 *            the {@code Quantity} divisor.
@@ -85,6 +88,11 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 
 	/**
 	 * Returns the product of this {@code Quantity} with the one specified.
+	 *
+	 * @throws ClassCastException if the type of an element
+     *         in the specified operation are incompatible with this
+     *         quantity
+     *         (<a href="#optional-restrictions">optional</a>)
 	 *
 	 * @param that
 	 *            the {@code Quantity} multiplier.
