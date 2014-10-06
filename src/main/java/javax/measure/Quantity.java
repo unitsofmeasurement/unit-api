@@ -38,7 +38,7 @@ import javax.measure.function.ValueSupplier;
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia:
  *      Conversion of units</a>
  * @see Measurement
- * @version 0.16, Date: 2014-10-03
+ * @version 0.17, Date: 2014-10-06
  */
 public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSupplier<Number> {
 
@@ -66,7 +66,7 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 	 * specified.
 	 *
 	 * @throws ClassCastException if the type of an element
-     *         in the specified operation are incompatible with this
+     *         in the specified operation is incompatible with this
      *         quantity
      *         (<a href="#optional-restrictions">optional</a>)
 	 *
@@ -90,7 +90,7 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 	 * Returns the product of this {@code Quantity} with the one specified.
 	 *
 	 * @throws ClassCastException if the type of an element
-     *         in the specified operation are incompatible with this
+     *         in the specified operation is incompatible with this
      *         quantity
      *         (<a href="#optional-restrictions">optional</a>)
 	 *
