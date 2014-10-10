@@ -55,7 +55,6 @@ final class TestMeasurement<Q extends Quantity<Q>> implements
 		return null;
 	}
 
-	@SuppressWarnings("unchecked")
 	public TestMeasurement<?> multiply(Measurement<?> that) {
 		// TODO Auto-generated method stub
 		return null;
