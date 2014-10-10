@@ -17,7 +17,7 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.2
+ * @version 0.3
  */
 public class AreaQuantity extends TestQuantity<Area> {
     public AreaQuantity() {
@@ -154,10 +154,11 @@ public class AreaQuantity extends TestQuantity<Area> {
 		return null;
 	}
 
-
-    public Quantity<?> multiply(Quantity<?> that) {
+	@SuppressWarnings("unchecked")
+	public <T extends Quantity<T>, E extends Quantity<E>> Quantity<E> multiply(
+			Quantity<T> that) {
     	if (that.getClass().equals(DistanceQuantity.class)) {
-    		return multiply((DistanceQuantity) that);
+    		return (Quantity<E>) multiply((DistanceQuantity) that);
     	}
     	return null;
 	}

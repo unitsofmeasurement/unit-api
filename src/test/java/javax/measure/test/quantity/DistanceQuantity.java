@@ -17,7 +17,7 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.3.3
+ * @version 0.3.4
  */
 public class DistanceQuantity extends TestQuantity<Length> {
 
@@ -162,15 +162,14 @@ public class DistanceQuantity extends TestQuantity<Length> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
-    public Quantity<?> multiply(Quantity<?> that) {
+    
+    public Quantity<Length> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
-    public Quantity<Length> multiply(Number that) {
+	public <T extends Quantity<T>, E extends Quantity<E>> Quantity<E> multiply(
+			Quantity<T> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

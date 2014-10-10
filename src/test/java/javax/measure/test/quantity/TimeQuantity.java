@@ -15,7 +15,7 @@ import javax.measure.test.unit.TimeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.3.2
+ * @version 0.3.3
  */
 public class TimeQuantity extends TestQuantity<Time> {
 
@@ -112,17 +112,18 @@ public class TimeQuantity extends TestQuantity<Time> {
 		return null;
 	}
 
-	public Quantity<?> multiply(Quantity<?> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public Quantity<Time> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public Quantity<Time> to(Unit<Time> unit) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public <T extends Quantity<T>, E extends Quantity<E>> Quantity<E> multiply(
+			Quantity<T> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

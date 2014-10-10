@@ -15,7 +15,7 @@ import javax.measure.test.unit.BitRateUnit;
 
 /**
  * @author Werner Keil
- * @version 0.5.2
+ * @version 0.5.3
  */
 public class BitRateQuantity extends TestQuantity<InformationRate> {
 	public BitRateQuantity() {
@@ -128,13 +128,6 @@ public class BitRateQuantity extends TestQuantity<InformationRate> {
 		return null;
 	}
 
-
-    public Quantity<?> multiply(Quantity<?> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
     public Quantity<InformationRate> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
@@ -142,6 +135,12 @@ public class BitRateQuantity extends TestQuantity<InformationRate> {
 
 
     public Quantity<InformationRate> to(Unit<InformationRate> unit) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public <T extends Quantity<T>, E extends Quantity<E>> Quantity<E> multiply(
+			Quantity<T> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

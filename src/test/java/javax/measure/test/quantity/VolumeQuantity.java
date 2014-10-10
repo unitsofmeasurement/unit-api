@@ -16,7 +16,7 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.3.2
+ * @version 0.3.3
  */
 public class VolumeQuantity extends TestQuantity<Volume> {
 	public VolumeQuantity() {
@@ -126,17 +126,18 @@ public class VolumeQuantity extends TestQuantity<Volume> {
 		return null;
 	}
 
-	public Quantity<?> multiply(Quantity<?> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public Quantity<Volume> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public Quantity<Volume> to(Unit<Volume> unit) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public <T extends Quantity<T>, E extends Quantity<E>> Quantity<E> multiply(
+			Quantity<T> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -98,7 +98,9 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 	 *            the {@code Quantity} multiplier.
 	 * @return <code>this * that</code>.
 	 */
-	Quantity<?> multiply(Quantity<?> multiplier);
+	//Quantity<?> multiply(Quantity<?> multiplier);
+	
+	<T extends Quantity<T>, R extends Quantity<R>> Quantity<R> multiply(Quantity<T> that);
 
 	/**
 	 * Returns the product of this {@code Quantity} with the {@code Number} value
