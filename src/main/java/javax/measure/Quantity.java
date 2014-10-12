@@ -32,13 +32,14 @@ import javax.measure.function.ValueSupplier;
  * @author <a href="mailto:desruisseaux@users.sourceforge.net">Martin
  *         Desruisseaux</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @author <a href="mailto:otaviojava@java.net">Otavio Santana</a>
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @see <a href="http://martinfowler.com/eaaDev/quantity.html"> Martin Fowler -
  *      Quantity</a>
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia:
  *      Conversion of units</a>
  * @see Measurement
- * @version 0.17, Date: 2014-10-06
+ * @version 0.18, Date: 2014-10-12
  */
 public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSupplier<Number> {
 
