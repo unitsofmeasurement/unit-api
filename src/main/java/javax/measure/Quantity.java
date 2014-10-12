@@ -74,7 +74,7 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 	 *            the {@code Quantity} divisor.
 	 * @return <code>this / that</code>.
 	 */
-	Quantity<?> divide(Quantity<?> that);
+	<T extends Quantity<T>, R extends Quantity<R>> Quantity<R> divide(Quantity<T> that);
 
 	/**
 	 * Returns the product of this {@code Quantity} divided by the {@code Number}
