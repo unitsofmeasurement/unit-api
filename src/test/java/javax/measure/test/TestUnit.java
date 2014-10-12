@@ -33,7 +33,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
     protected double multFactor; // e.g. 1E-10
     double addFactor = 0.0; // used for temperatures
     final Dimension dimension = TestDimension.getInstance();
-    		
+
     protected TestUnit() {
     	name = "";
     }
@@ -71,7 +71,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
         return null;
     }
 
-    public Unit<?> divide(Unit<?> that) {
+    public <T extends Quantity<T>, R extends Quantity<R>>  Unit<R> divide(Unit<T> that) {
         // TODO Auto-generated method stub
         return null;
     }
@@ -81,7 +81,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
         return null;
     }
 
-    public UnitConverter getConverterToAny(Unit<?> that)
+    public <T extends Quantity<T>> UnitConverter getConverterToAny(Unit<T> that)
             throws IncommensurableException, UnconvertibleException
     {
         // TODO Auto-generated method stub
@@ -110,7 +110,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
         return null;
     }
 
-    public boolean isCompatible(Unit<?> that) {
+    public <T extends Quantity<T>> boolean isCompatible(Unit<T> that) {
         // TODO Auto-generated method stub
         return false;
     }
@@ -120,7 +120,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
         return null;
     }
 
-    public Unit<?> multiply(Unit<?> that) {
+    public <T extends Quantity<T>, R extends Quantity<R>>  Unit<R> multiply(Unit<T> that) {
         // TODO Auto-generated method stub
         return null;
     }
