@@ -123,7 +123,7 @@ public class DistanceQuantity extends TestQuantity<Length> {
 	}
 
 
-    public Quantity<?> divide(Quantity<?> that) {
+    public <T extends Quantity<T>, R extends Quantity<R>> Quantity<R> divide(Quantity<T> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -162,7 +162,7 @@ public class DistanceQuantity extends TestQuantity<Length> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-    
+
     public Quantity<Length> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
