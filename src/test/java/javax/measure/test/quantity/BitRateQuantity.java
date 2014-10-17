@@ -15,13 +15,15 @@ import javax.measure.test.unit.BitRateUnit;
 
 /**
  * @author Werner Keil
- * @version 0.5.3
+ * @version 0.5.4
  */
 public class BitRateQuantity extends TestQuantity<InformationRate> {
 	public BitRateQuantity() {
+		super(InformationRate.class);
 	}
 
 	public BitRateQuantity(double val, BitRateUnit un) {
+		this();
 		units = val;
 		unit = un;
 		scalar = val * unit.getMultFactor();

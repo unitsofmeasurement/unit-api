@@ -16,26 +16,20 @@ import javax.measure.test.unit.BitUnit;
 
 /**
  * @author Werner Keil
- * @version 0.5.3
+ * @version 0.5.4
  */
 public class BitQuantity extends TestQuantity<Information> {
-
+    public BitQuantity() {
+    	super(Information.class);
+    }
+    
 	public BitQuantity(double val, BitUnit un) {
+		this();
 		units = val;
 		unit = un;
 		scalar = val * unit.getMultFactor();
 	}
 
-	public BitQuantity() {
-	}
-
-	/*
-	 * Distance(double val) {
-	 *
-	 * units = val; unit = m; // reference Unit scalar = val;
-	 *
-	 * }
-	 */
 	public BitQuantity add(BitQuantity d1) {
 		BitQuantity dn = new BitQuantity();
 		Object o = super.add(dn, this, d1, BitUnit.REF_UNIT);

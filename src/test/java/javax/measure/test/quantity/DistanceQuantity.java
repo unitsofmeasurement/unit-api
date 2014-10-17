@@ -17,17 +17,19 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.3.4
+ * @version 0.3.5
  */
 public class DistanceQuantity extends TestQuantity<Length> {
 
 	public DistanceQuantity(double val, DistanceUnit un) {
+		this();
 		units = val;
 		unit = un;
 		scalar = val * unit.getMultFactor();
 	}
 
 	public DistanceQuantity() {
+		super(Length.class);
 	}
 
 	/*

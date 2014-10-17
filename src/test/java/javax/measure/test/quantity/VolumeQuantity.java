@@ -16,13 +16,15 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.3.3
+ * @version 0.3.34
  */
 public class VolumeQuantity extends TestQuantity<Volume> {
 	public VolumeQuantity() {
+		super(Volume.class);
 	}
 
 	public VolumeQuantity(double val, VolumeUnit un) {
+		this();
 		units = val;
 		unit = un;
 		scalar = val * unit.getMultFactor();

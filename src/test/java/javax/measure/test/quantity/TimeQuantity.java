@@ -15,17 +15,19 @@ import javax.measure.test.unit.TimeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.3.3
+ * @version 0.3.4
  */
 public class TimeQuantity extends TestQuantity<Time> {
 
 	public TimeQuantity(double val, TimeUnit un) {
+		this();
 		units = val;
 		unit = un;
 		scalar = val * unit.getMultFactor();
 	}
 
 	public TimeQuantity() {
+		super(Time.class);
 	}
 
 	/*

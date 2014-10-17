@@ -21,9 +21,11 @@ import javax.measure.test.unit.VolumeUnit;
  */
 public class AreaQuantity extends TestQuantity<Area> {
     public AreaQuantity() {
+    	super(Area.class);
     }
 
     public AreaQuantity(double val, AreaUnit un) {
+    	this();
         units = val;
         unit = un;
         scalar = val * unit.getMultFactor();

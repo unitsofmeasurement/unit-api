@@ -14,16 +14,23 @@ import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.test.TestUnit;
 
-
-
 /**
  * @author Werner Keil
  */
 abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q> {
     protected double scalar; // value in reference units
     protected double units; // value in units (Unit unit)
-    protected TestUnit<Q> unit;
+    protected TestUnit<Q> unit; // unit
+    private final Class<Q> type; // quantity type
+    
+    protected TestQuantity(Class<Q> type) {
+        this.type = type;
+   }
 
+   public Class<Q> getType() {
+       return this.type;
+   }
+    
     public TestQuantity<Q> add(TestQuantity<Q> dn, TestQuantity<Q> d1, TestQuantity<Q> d2, TestUnit<Q> au) {
         if (d1.unit == d2.unit){
             dn.unit = d1.unit;

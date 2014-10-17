@@ -11,6 +11,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import javax.measure.quantity.Volume;
 import javax.measure.test.unit.AreaUnit;
 import javax.measure.test.unit.DistanceUnit;
 import javax.measure.test.unit.VolumeUnit;
@@ -110,6 +111,8 @@ public class AreaQuantityTest {
         DistanceQuantity distance = new DistanceQuantity(15, DistanceUnit.m);
         VolumeQuantity result = area.multiply(distance);
         assertEquals(VolumeUnit.class, result.getUnit().getClass());
+        assertEquals(VolumeQuantity.class, result.getClass());
+        assertEquals(Volume.class, result.getType());
         assertEquals(1500d, result.getValue());
     }
 
