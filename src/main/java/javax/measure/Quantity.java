@@ -75,7 +75,7 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 	 *            the {@code Quantity} divisor.
 	 * @return <code>this / that</code>.
 	 */
-	Quantity<?> divide(Quantity<?> that);
+	<T extends Quantity<T>, R extends Quantity<R>> Quantity<R> divide(Quantity<T> that);
 
 	/**
 	 * Returns the product of this {@code Quantity} divided by the {@code Number}
@@ -99,8 +99,6 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 	 *            the {@code Quantity} multiplier.
 	 * @return <code>this * that</code>.
 	 */
-	//Quantity<?> multiply(Quantity<?> multiplier);
-	
 	<T extends Quantity<T>, R extends Quantity<R>> Quantity<R> multiply(Quantity<T> that);
 
 	/**
@@ -118,7 +116,7 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 	 *
 	 * @return {@code Quantity with this.getUnit().inverse()}.
 	 */
-	Quantity<Q> inverse();
+	<T extends Quantity<T>> Quantity<T> inverse();
 
     /**
      * Returns this {@code Quantity} converted into another (compatible) {@code Unit}.

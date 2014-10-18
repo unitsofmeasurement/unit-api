@@ -126,7 +126,7 @@ public class BitQuantity extends TestQuantity<Information> {
 	}
 
 
-    public Quantity<?> divide(Quantity<?> that) {
+    public <T extends Quantity<T>, R extends Quantity<R>> Quantity<R> divide(Quantity<T> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

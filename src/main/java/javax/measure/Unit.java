@@ -60,7 +60,7 @@ public interface Unit<Q extends Quantity<Q>> extends UnitTransformer<Q> {
      * @see UnitFormat
      */
     String getSymbol();
-    
+
     /**
      * Returns the name (if any) of this unit.
      * This method returns {@code null} if this unit has no specific name associated with.
@@ -110,7 +110,7 @@ public interface Unit<Q extends Quantity<Q>> extends UnitTransformer<Q> {
      *
      * @return the base units and their exponent making up this unit.
      */
-    Map<? extends Unit<?>, Integer> getProductUnits();
+    <T extends Quantity<T>> Map<Unit<T>, Integer> getProductUnits();
 
     /**
      * Indicates if this unit is compatible with the unit specified.
@@ -127,7 +127,7 @@ public interface Unit<Q extends Quantity<Q>> extends UnitTransformer<Q> {
      *
      * @see #getDimension()
      */
-    boolean isCompatible(Unit<?> that);
+    <T extends Quantity<T>> boolean isCompatible(Unit<T> that);
 
     /**
      * Casts this unit to a parameterized unit of specified nature or throw a
@@ -177,7 +177,7 @@ public interface Unit<Q extends Quantity<Q>> extends UnitTransformer<Q> {
      * @see #getConverterTo(Unit)
      * @see #isCompatible(Unit)
      */
-    UnitConverter getConverterToAny(Unit<?> that) throws IncommensurableException,
+    <T extends Quantity<T>> UnitConverter getConverterToAny(Unit<T> that) throws IncommensurableException,
             UnconvertibleException;
 
     /**********************/
@@ -244,14 +244,14 @@ public interface Unit<Q extends Quantity<Q>> extends UnitTransformer<Q> {
      * @param  that the unit multiplicand.
      * @return {@code this * that}
      */
-    Unit<?> multiply(Unit<?> that);
+    <T extends Quantity<T>, R extends Quantity<R>>  Unit<R> multiply(Unit<T> that);
 
     /**
      * Returns the inverse of this unit.
      *
      * @return {@code 1 / this}
      */
-    Unit<?> inverse();
+    <T extends Quantity<T>> Unit<T> inverse();
 
     /**
      * Returns the result of dividing this unit by an approximate divisor.
@@ -273,7 +273,7 @@ public interface Unit<Q extends Quantity<Q>> extends UnitTransformer<Q> {
      * @param  that the unit divisor.
      * @return {@code this / that}
      */
-    Unit<?> divide(Unit<?> that);
+    <T extends Quantity<T>, R extends Quantity<R>>  Unit<R> divide(Unit<T> that);
 
     /**
      * Returns a unit equals to the given root of this unit.
@@ -283,7 +283,7 @@ public interface Unit<Q extends Quantity<Q>> extends UnitTransformer<Q> {
      * @throws ArithmeticException if {@code n == 0} or if this operation
      *         would result in an unit with a fractional exponent.
      */
-    Unit<?> root(int n);
+    <T extends Quantity<T>> Unit<T> root(int n);
 
     /**
      * Returns a unit equals to this unit raised to an exponent.
@@ -291,7 +291,7 @@ public interface Unit<Q extends Quantity<Q>> extends UnitTransformer<Q> {
      * @param  n the exponent.
      * @return the result of raising this unit to the exponent.
      */
-    Unit<?> pow(int n);
+    <T extends Quantity<T>> Unit<T> pow(int n);
 
     /**
      * Returns a string representation of this unit. The string representation may

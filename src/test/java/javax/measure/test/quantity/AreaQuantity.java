@@ -114,8 +114,7 @@ public class AreaQuantity extends TestQuantity<Area> {
 	}
 
 
-    public Quantity<?> divide(Quantity<?> that) {
-		// TODO Auto-generated method stub
+    public <T extends Quantity<T>, R extends Quantity<R>> Quantity<R> divide(Quantity<T> that) {
 		return null;
 	}
 
