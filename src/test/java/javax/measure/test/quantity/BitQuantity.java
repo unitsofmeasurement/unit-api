@@ -166,8 +166,7 @@ public class BitQuantity extends TestQuantity<Information> {
 		return null;
 	}
 
-	public <T extends Quantity<T>, E extends Quantity<E>> Quantity<E> multiply(
-			Quantity<T> that) {
+    public Quantity<?> multiply(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}

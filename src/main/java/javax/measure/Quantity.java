@@ -39,7 +39,7 @@ import javax.measure.function.ValueSupplier;
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia:
  *      Conversion of units</a>
  * @see Measurement
- * @version 0.18, Date: 2014-10-12
+ * @version 0.19, Date: 2014-10-20
  */
 public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSupplier<Number> {
 
@@ -99,10 +99,8 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 	 *            the {@code Quantity} multiplier.
 	 * @return <code>this * that</code>.
 	 */
-	//Quantity<?> multiply(Quantity<?> multiplier);
+	Quantity<?> multiply(Quantity<?> multiplier);
 	
-	<T extends Quantity<T>, R extends Quantity<R>> Quantity<R> multiply(Quantity<T> that);
-
 	/**
 	 * Returns the product of this {@code Quantity} with the {@code Number} value
 	 * specified.

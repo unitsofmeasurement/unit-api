@@ -156,11 +156,9 @@ public class AreaQuantity extends TestQuantity<Area> {
 		return null;
 	}
 
-	@SuppressWarnings("unchecked")
-	public <T extends Quantity<T>, E extends Quantity<E>> Quantity<E> multiply(
-			Quantity<T> that) {
+	public Quantity<?> multiply(Quantity<?> that) {
     	if (that.getClass().equals(DistanceQuantity.class)) {
-    		return (Quantity<E>) multiply((DistanceQuantity) that);
+    		return multiply((DistanceQuantity) that);
     	}
     	return null;
 	}
