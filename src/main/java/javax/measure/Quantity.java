@@ -24,6 +24,11 @@ import javax.measure.function.ValueSupplier;
  * <code> Unit<Mass> pound = ... Quantity<Length> size = ... Sensor<Temperature><br>
  * thermometer = ... Vector3D<Speed> aircraftSpeed = ... </code>
  * </p>
+ * 
+ * @implSpec
+ * This interface places no restrictions on the mutability of implementations,
+ * however immutability is strongly recommended.
+ * All implementations must be {@link Comparable}.
  *
  * @param <Q>
  *            The type of the quantity.
@@ -39,7 +44,7 @@ import javax.measure.function.ValueSupplier;
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia:
  *      Conversion of units</a>
  * @see Measurement
- * @version 0.19, Date: 2014-10-20
+ * @version 0.20, Date: 2014-10-21
  */
 public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSupplier<Number> {
 
