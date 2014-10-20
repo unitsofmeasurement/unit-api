@@ -17,7 +17,7 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.3
+ * @version 0.4
  */
 public class AreaQuantity extends TestQuantity<Area> {
     public AreaQuantity() {
@@ -163,5 +163,10 @@ public class AreaQuantity extends TestQuantity<Area> {
     	return null;
 	}
 
-
+	@SuppressWarnings("unchecked")
+	public final <T extends Quantity<T>> Quantity<T> asType(
+			Class<T> type) throws ClassCastException {
+		this.getUnit().asType(type); // Raises ClassCastException is dimension mismatches.
+		return (Quantity<T>) this;
+	}
 }

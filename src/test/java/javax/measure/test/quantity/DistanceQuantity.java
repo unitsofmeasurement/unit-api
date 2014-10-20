@@ -174,4 +174,11 @@ public class DistanceQuantity extends TestQuantity<Length> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+    
+	@SuppressWarnings("unchecked")
+	public final <T extends Quantity<T>> Quantity<T> asType(
+			Class<T> type) throws ClassCastException {
+		this.getUnit().asType(type); // Raises ClassCastException is dimension mismatches.
+		return (Quantity<T>) this;
+	}
 }
