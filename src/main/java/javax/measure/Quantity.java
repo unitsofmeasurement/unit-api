@@ -116,7 +116,7 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 	 *
 	 * @return {@code Quantity with this.getUnit().inverse()}.
 	 */
-	Quantity<Q> inverse();
+	Quantity<?> inverse();
 
     /**
      * Returns this {@code Quantity} converted into another (compatible) {@code Unit}.
