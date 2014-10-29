@@ -11,7 +11,7 @@ import javax.measure.function.ValueSupplier;
 
 /**
  * <p>
- * Represents quantitative properties or attributes of thing. {@link javax.measure.quantity.Mass Mass}, time,
+ * Represents a quantitative property of a phenomenon, body, or substance, that can be quantified by {@link Measurement}. {@link javax.measure.quantity.Mass Mass}, time,
  * distance, heat, and angular separation are among the familiar examples of
  * quantitative properties.
  * </p>
@@ -44,7 +44,7 @@ import javax.measure.function.ValueSupplier;
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia:
  *      Conversion of units</a>
  * @see Measurement
- * @version 0.20, Date: 2014-10-21
+ * @version 0.21, Date: 2014-10-29
  */
 public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSupplier<Number> {
 
@@ -140,7 +140,7 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 	 * </code>
 	 * or
      * <code>
-     *      Quantity<Speed> C = metre.times(299792458).divide(second).asType(Speed.class);
+     *      Quantity<Speed> C = length.multiply(299792458).divide(second).asType(Speed.class);
      * </code>
      *
      * @param  <T> The type of the quantity.
