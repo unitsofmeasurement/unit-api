@@ -22,7 +22,7 @@ public class BitQuantity extends TestQuantity<Information> {
     public BitQuantity() {
     	super(Information.class);
     }
-    
+
 	public BitQuantity(double val, BitUnit un) {
 		this();
 		units = val;
@@ -170,11 +170,41 @@ public class BitQuantity extends TestQuantity<Information> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-    
+
 	@SuppressWarnings("unchecked")
 	public final <T extends Quantity<T>> Quantity<T> asType(
 			Class<T> type) throws ClassCastException {
 		this.getUnit().asType(type); // Raises ClassCastException is dimension mismatches.
 		return (Quantity<T>) this;
 	}
+
+    @Override
+    public boolean isGreaterThan(Quantity<Information> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isGreaterThanOrEqualTo(Quantity<Information> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isLessThan(Quantity<Information> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isLessThanOrEqualTo(Quantity<Information> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isEquivalentTo(Quantity<Information> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
 }

@@ -128,11 +128,41 @@ public class TimeQuantity extends TestQuantity<Time> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public final <T extends Quantity<T>> Quantity<T> asType(
 			Class<T> type) throws ClassCastException {
 		this.getUnit().asType(type); // Raises ClassCastException is dimension mismatches.
 		return (Quantity<T>) this;
 	}
+
+    @Override
+    public boolean isGreaterThan(Quantity<Time> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isGreaterThanOrEqualTo(Quantity<Time> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isLessThan(Quantity<Time> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isLessThanOrEqualTo(Quantity<Time> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isEquivalentTo(Quantity<Time> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
 }

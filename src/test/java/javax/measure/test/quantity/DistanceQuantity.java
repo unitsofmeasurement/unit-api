@@ -165,7 +165,7 @@ public class DistanceQuantity extends TestQuantity<Length> implements Length {
 		// TODO Auto-generated method stub
 		return null;
 	}
-    
+
     public Quantity<Length> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
@@ -175,7 +175,7 @@ public class DistanceQuantity extends TestQuantity<Length> implements Length {
 		// TODO Auto-generated method stub
 		return null;
 	}
-    
+
 	@SuppressWarnings("unchecked")
 	public final <T extends Quantity<T>> Quantity<T> asType(
 			Class<T> type) throws ClassCastException {
@@ -183,8 +183,39 @@ public class DistanceQuantity extends TestQuantity<Length> implements Length {
 		return (Quantity<T>) this;
 	}
 
-	public Area multiply(Length l) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public boolean isGreaterThan(Quantity<Length> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isGreaterThanOrEqualTo(Quantity<Length> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isLessThan(Quantity<Length> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isLessThanOrEqualTo(Quantity<Length> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isEquivalentTo(Quantity<Length> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public Area multiply(Length that) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }
