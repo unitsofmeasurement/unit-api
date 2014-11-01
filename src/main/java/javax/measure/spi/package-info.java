@@ -6,9 +6,9 @@
  * See LICENSE.txt for details.
  */
 /**
- * [OPTIONAL] Provides services for units, quantities, dimensions or their textual representation.
+ * [OPTIONAL] Provides services for units, quantities or their textual representation.
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author  <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2, $Date: 2014-01-27 23:16:02 +0100 (Mo, 27 Jän 2014) $
+ * @version 0.3, $Date: 2014-11-01 $
  */
 package javax.measure.spi;
