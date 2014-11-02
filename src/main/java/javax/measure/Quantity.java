@@ -24,7 +24,7 @@ import javax.measure.function.ValueSupplier;
  * <code> Unit<Mass> pound = ... Quantity<Length> size = ... Sensor<Temperature><br>
  * thermometer = ... Vector3D<Speed> aircraftSpeed = ... </code>
  * </p>
- * 
+ *
  * @implSpec
  * This interface places no restrictions on the mutability of implementations,
  * however immutability is strongly recommended.
@@ -105,7 +105,7 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 	 * @return <code>this * that</code>.
 	 */
 	Quantity<?> multiply(Quantity<?> multiplier);
-	
+
 	/**
 	 * Returns the product of this {@code Quantity} with the {@code Number} value
 	 * specified.
@@ -130,7 +130,7 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
      * @return the converted result.
      */
     Quantity<Q> to(Unit<Q> unit);
-    
+
 	/**
 	 * Casts this quantity to a parameterized unit of specified nature or throw a
 	 * <code>ClassCastException</code> if the dimension of the specified
@@ -155,4 +155,47 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 	 * @see Unit#asType(Class)
      */
     <T extends Quantity<T>> Quantity<T> asType(Class<T> type) throws ClassCastException;
+
+
+    /**
+     * Compares two instances of {@link Quantity<Q>}.
+     * Conversion of unit can happen if necessary
+     * @param that the {@code quantity<Q>} to be compared with this instance.
+     * @return {@code true} if {@code that > this}.
+     * @throws NullPointerException if the that is null
+     */
+    boolean isGreaterThan(Quantity<Q> that);
+    /**
+     * Compares two instances of {@link Quantity<Q>},
+     * doing the conversion of unit if necessary.
+     * @param that the {@code quantity<Q>} to be compared with this instance.
+     * @return {@code true} if {@code that >= this}.
+     * @throws NullPointerException if the that is null
+     */
+    boolean isGreaterThanOrEqualTo(Quantity<Q> that);
+    /**
+     * Compares two instances of {@link Quantity<Q>},
+     * doing the conversion of unit if necessary.
+     * @param that the {@code quantity<Q>} to be compared with this instance.
+     * @return {@code true} if {@code that < this}.
+     * @throws NullPointerException if the quantity is null
+     */
+    boolean isLessThan(Quantity<Q> that);
+    /**
+     * Compares two instances of {@link Quantity<Q>},
+     * doing the conversion of unit if necessary.
+     * @param that the {@code quantity<Q>} to be compared with this instance.
+     * @return {@code true} if {@code that < this}.
+     * @throws NullPointerException if the quantity is null
+     */
+    boolean isLessThanOrEqualTo(Quantity<Q> that);
+    /**
+     * Compares two instances of {@link Quantity<Q>},
+     * doing the conversion of unit if necessary.
+     * @param that the {@code quantity<Q>} to be compared with this instance.
+     * @return {@code true} if {@code that < this}.
+     * @throws NullPointerException if the quantity is null
+     */
+    boolean isEquivalentTo(Quantity<Q> that);
+
 }

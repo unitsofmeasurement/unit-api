@@ -169,4 +169,34 @@ public class AreaQuantity extends TestQuantity<Area> implements Area {
 		this.getUnit().asType(type); // Raises ClassCastException is dimension mismatches.
 		return (Quantity<T>) this;
 	}
+
+    @Override
+    public boolean isGreaterThan(Quantity<Area> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isGreaterThanOrEqualTo(Quantity<Area> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isLessThan(Quantity<Area> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isLessThanOrEqualTo(Quantity<Area> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isEquivalentTo(Quantity<Area> that) {
+        // TODO Auto-generated method stub
+        return false;
+    }
 }
