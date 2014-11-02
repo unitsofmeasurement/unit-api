@@ -7,8 +7,6 @@
  */
 package javax.measure;
 
-import javax.measure.function.MeasurementConverter;
-
 /**
  * Measurement is the assignment of values to objects or events.
  * <p>
@@ -44,8 +42,7 @@ import javax.measure.function.MeasurementConverter;
  * @version 0.24, 2014-09-29
  * @deprecated to be removed from a future version, use {@link Quantity} instead.
  */
-public interface Measurement<Q extends Quantity<Q>> extends
-		MeasurementConverter<Q> {
+public interface Measurement<Q extends Quantity<Q>> {
 	/**
 	 * Returns the unit of this {@linkplain Measurement}.
 	 *
