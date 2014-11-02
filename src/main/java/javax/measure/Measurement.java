@@ -41,7 +41,8 @@ import javax.measure.function.MeasurementConverter;
  * @see <a href="http://en.wikipedia.org/wiki/Clothing_sizes">Wikipedia:
  *      Clothing sizes</a>
  * @see Unit
- * @version 0.23, 2014-09-29
+ * @version 0.24, 2014-09-29
+ * @deprecated to be removed from a future version, use {@link Quantity} instead.
  */
 public interface Measurement<Q extends Quantity<Q>> extends
 		MeasurementConverter<Q> {
