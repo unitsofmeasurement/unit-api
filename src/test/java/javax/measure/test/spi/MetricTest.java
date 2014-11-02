@@ -5,7 +5,7 @@
  *
  * See LICENSE.txt for details.
  */
-package javax.measure.test.service;
+package javax.measure.test.spi;
 
 import static org.junit.Assert.assertNull;
 
