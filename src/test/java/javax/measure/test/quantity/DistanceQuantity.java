@@ -10,6 +10,7 @@ package javax.measure.test.quantity;
 import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
+import javax.measure.quantity.Area;
 import javax.measure.quantity.Length;
 import javax.measure.test.unit.AreaUnit;
 import javax.measure.test.unit.DistanceUnit;
@@ -19,7 +20,7 @@ import javax.measure.test.unit.VolumeUnit;
  * @author Werner Keil
  * @version 0.3.5
  */
-public class DistanceQuantity extends TestQuantity<Length> {
+public class DistanceQuantity extends TestQuantity<Length> implements Length {
 
 	public DistanceQuantity(double val, DistanceUnit un) {
 		this();
@@ -180,5 +181,10 @@ public class DistanceQuantity extends TestQuantity<Length> {
 			Class<T> type) throws ClassCastException {
 		this.getUnit().asType(type); // Raises ClassCastException is dimension mismatches.
 		return (Quantity<T>) this;
+	}
+
+	public Area multiply(Length l) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

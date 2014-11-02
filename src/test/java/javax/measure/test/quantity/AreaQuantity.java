@@ -17,9 +17,9 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.4
+ * @version 0.5
  */
-public class AreaQuantity extends TestQuantity<Area> {
+public class AreaQuantity extends TestQuantity<Area> implements Area {
     public AreaQuantity() {
     	super(Area.class);
     }
