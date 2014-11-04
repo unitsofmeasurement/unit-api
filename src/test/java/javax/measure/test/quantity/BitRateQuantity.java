@@ -1,5 +1,5 @@
 /**
- * Unit-API - Units of Measurement API for Java
+ * Unit-API - Units of Quantity API for Java
  * Copyright (c) 2014 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
  *
@@ -7,7 +7,6 @@
  */
 package javax.measure.test.quantity;
 
-import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.InformationRate;
@@ -93,13 +92,6 @@ public class BitRateQuantity extends TestQuantity<InformationRate> {
 	public String showInUnits(BitRateUnit u, int precision) {
 		return super.showInUnits(u, precision);
 	}
-
-	public Measurement<InformationRate> add(
-			Measurement<InformationRate> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
     public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub

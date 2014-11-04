@@ -44,7 +44,7 @@ package javax.measure;
  * @see Measurement
  * @version 0.22, Date: 2014-11-04
  */
-public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q> {
+public interface Quantity<Q extends Quantity<Q>> {
 
 	/**
 	 * Returns the sum of this {@code Quantity} with the one specified.
@@ -160,4 +160,11 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q> {
 	 * @return a value
 	 */
 	Number getValue();
+
+	/**
+	 * Returns the unit of this {@linkplain Measurement}.
+	 *
+	 * @return the unit (shall not be {@code null}).
+	 */
+	Unit<Q> getUnit();
 }

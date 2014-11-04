@@ -1,5 +1,5 @@
 /**
- * Unit-API - Units of Measurement API for Java
+ * Unit-API - Units of Quantity API for Java
  * Copyright (c) 2014 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
  *
@@ -7,7 +7,6 @@
  */
 package javax.measure.test.quantity;
 
-import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Area;
@@ -97,17 +96,6 @@ public class AreaQuantity extends TestQuantity<Area> implements Area {
         return super.showInUnits(u, precision);
     }
 
-	public Measurement<Area> add(Measurement<Area> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Measurement<Area> subtract(Measurement<Area> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
     public Quantity<Area> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
@@ -125,13 +113,6 @@ public class AreaQuantity extends TestQuantity<Area> implements Area {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
-	public AreaQuantity multiply(Measurement<?> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
     public Quantity<Area> subtract(Quantity<Area> that) {
 		// TODO Auto-generated method stub

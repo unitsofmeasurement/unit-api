@@ -7,7 +7,6 @@
  */
 package javax.measure.test.quantity;
 
-import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Area;
@@ -114,34 +113,15 @@ public class DistanceQuantity extends TestQuantity<Length> implements Length {
 		return super.showInUnits(u, precision);
 	}
 
-	public Measurement<Length> add(Measurement<Length> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Measurement<Length> subtract(
-			Measurement<Length> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
     public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
     public Quantity<Length> to(Unit<Length> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	public Measurement<?> multiply(Measurement<?> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
     public Quantity<Length> subtract(Quantity<Length> that) {
 		// TODO Auto-generated method stub
@@ -153,7 +133,6 @@ public class DistanceQuantity extends TestQuantity<Length> implements Length {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
     public Quantity<Length> divide(Number that) {
 		// TODO Auto-generated method stub

@@ -1,5 +1,5 @@
 /**
- * Unit-API - Units of Measurement API for Java
+ * Unit-API - Units of Quantity API for Java
  * Copyright (c) 2014 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
  *
@@ -7,7 +7,6 @@
  */
 package javax.measure.test.quantity;
 
-import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Information;
@@ -107,14 +106,14 @@ public class BitQuantity extends TestQuantity<Information> {
 		return super.showInUnits(u, precision);
 	}
 
-	public Measurement<Information> add(
-			Measurement<Information> that) {
+	public Quantity<Information> add(
+			Quantity<Information> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Measurement<Information> subtract(
-			Measurement<Information> that) {
+	public Quantity<Information> subtract(
+			Quantity<Information> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -136,24 +135,6 @@ public class BitQuantity extends TestQuantity<Information> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	public BitQuantity multiply(Measurement<?> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-    public Quantity<Information> subtract(Quantity<Information> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-    public Quantity<Information> add(Quantity<Information> that) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
     public Quantity<Information> divide(Number that) {
 		// TODO Auto-generated method stub
