@@ -10,8 +10,6 @@ package javax.measure;
 import java.util.Map;
 
 import javax.measure.function.UnitConverter;
-import javax.measure.function.UnitTransformer;
-
 
 /**
  * Represents a determinate {@linkplain Quantity quantity} (as of
@@ -39,11 +37,11 @@ import javax.measure.function.UnitTransformer;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:desruisseaux@users.sourceforge.net">Martin Desruisseaux</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.14
+ * @version 0.15
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
  */
-public interface Unit<Q extends Quantity<Q>> extends UnitTransformer<Q> {
+public interface Unit<Q extends Quantity<Q>> {
 
     /*******************/
     /** Units Queries **/
@@ -305,4 +303,18 @@ public interface Unit<Q extends Quantity<Q>> extends UnitTransformer<Q> {
      */
     @Override
     String toString();
+
+	/**
+	 * Returns the unit derived from this unit using the specified converter.
+	 * The converter does not need to be linear. For example:<br>
+	 * <code>
+	 *     Unit<Dimensionless> DECIBEL = Unit.ONE.transform(
+	 *         new LogConverter(10).inverse().concatenate(
+	 *             new RationalConverter(1, 10)));
+	 * </code>
+	 *
+	 * @param  operation the converter from the transformed unit to this unit.
+	 * @return the unit after the specified transformation.
+	 */
+	Unit<Q> transform(UnitConverter converter);
 }

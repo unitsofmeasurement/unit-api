@@ -5,9 +5,13 @@
  *
  * See LICENSE.txt for details.
  */
-package javax.measure;
+package javax.measure.spi;
 
 import java.util.Set;
+
+import javax.measure.Dimension;
+import javax.measure.Quantity;
+import javax.measure.Unit;
 
 /**
  * A system of units grouped together for historical or cultural reasons.

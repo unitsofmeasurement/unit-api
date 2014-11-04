@@ -5,7 +5,7 @@
  *
  * See LICENSE.txt for details.
  */
-package javax.measure.function;
+package javax.measure.spi;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;

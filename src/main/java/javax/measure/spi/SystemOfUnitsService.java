@@ -7,7 +7,6 @@
  */
 package javax.measure.spi;
 
-import javax.measure.SystemOfUnits;
 
 /**
  * <p>
