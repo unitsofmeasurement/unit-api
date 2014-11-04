@@ -13,9 +13,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.measure.Unit;
+import javax.measure.UnitConverter;
 import javax.measure.format.ParserException;
 import javax.measure.format.UnitFormat;
-import javax.measure.function.UnitConverter;
 import javax.measure.test.TestUnit;
 
 

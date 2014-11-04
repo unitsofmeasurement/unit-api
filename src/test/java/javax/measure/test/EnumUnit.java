@@ -13,7 +13,7 @@ import javax.measure.Dimension;
 import javax.measure.IncommensurableException;
 import javax.measure.UnconvertibleException;
 import javax.measure.Unit;
-import javax.measure.function.UnitConverter;
+import javax.measure.UnitConverter;
 
 /**
  * @author Werner Keil

@@ -21,7 +21,7 @@ import javax.measure.Unit;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.6.1, $Date: 2014-09-06 $
+ * @version 0.7, $Date: 2014-11-04 $
  * @see <a href="http://en.wikipedia.org/wiki/International_System_of_Units">
  *      Wikipedia: International System of Units</a>
  * @see <a href="http://en.wikipedia.org/wiki/Systems_of_measurement">

@@ -7,8 +7,6 @@
  */
 package javax.measure;
 
-import javax.measure.function.ValueSupplier;
-
 /**
  * <p>
  * Represents a quantitative property of a phenomenon, body, or substance, that can be quantified by {@link Measurement}. {@link javax.measure.quantity.Mass Mass}, time,
@@ -44,9 +42,9 @@ import javax.measure.function.ValueSupplier;
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia:
  *      Conversion of units</a>
  * @see Measurement
- * @version 0.21, Date: 2014-10-29
+ * @version 0.22, Date: 2014-11-04
  */
-public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSupplier<Number> {
+public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q> {
 
 	/**
 	 * Returns the sum of this {@code Quantity} with the one specified.
@@ -155,4 +153,11 @@ public interface Quantity<Q extends Quantity<Q>> extends Measurement<Q>, ValueSu
 	 * @see Unit#asType(Class)
      */
     <T extends Quantity<T>> Quantity<T> asType(Class<T> type) throws ClassCastException;
+
+	/**
+	 * Gets a value.
+	 *
+	 * @return a value
+	 */
+	Number getValue();
 }

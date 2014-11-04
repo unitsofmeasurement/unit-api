@@ -5,7 +5,7 @@
  *
  * See LICENSE.txt for details.
  */
-package javax.measure.function;
+package javax.measure;
 
 import java.util.List;
 

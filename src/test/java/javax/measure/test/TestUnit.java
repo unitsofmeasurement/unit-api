@@ -14,7 +14,7 @@ import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.IncommensurableException;
 import javax.measure.UnconvertibleException;
-import javax.measure.function.UnitConverter;
+import javax.measure.UnitConverter;
 import javax.measure.quantity.Dimensionless;
 import javax.measure.test.unit.BaseUnit;
 
