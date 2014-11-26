@@ -9,16 +9,11 @@ package javax.measure;
 
 /**
  * <p>
- * Represents a quantitative property of a phenomenon, body, or substance, that can be quantified by {@link Measurement}. {@link javax.measure.quantity.Mass Mass}, time,
+ * Represents a quantitative property of a phenomenon, body, or substance, that can be quantified by measurement. {@link javax.measure.quantity.Mass Mass}, time,
  * distance, heat, and angular separation are among the familiar examples of
  * quantitative properties.
  * </p>
  *
- * <p>
- * This interface extends {@link Measurement} to specify the quantitative property associated to a
- * class through class parameterization and to provide some compile time
- * dimension consistency. <br>
- * <br>
  * <code> Unit<Mass> pound = ... Quantity<Length> size = ... Sensor<Temperature><br>
  * thermometer = ... Vector3D<Speed> aircraftSpeed = ... </code>
  * </p>
@@ -42,7 +37,7 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia:
  *      Conversion of units</a>
  * @see Measurement
- * @version 0.22, Date: 2014-11-04
+ * @version 0.23, Date: 2014-11-26
  */
 public interface Quantity<Q extends Quantity<Q>> {
 
@@ -155,14 +150,14 @@ public interface Quantity<Q extends Quantity<Q>> {
     <T extends Quantity<T>> Quantity<T> asType(Class<T> type) throws ClassCastException;
 
 	/**
-	 * Gets a value.
+	 * Returns the value of this {@code Quantity}.
 	 *
-	 * @return a value
+	 * @return a value.
 	 */
 	Number getValue();
 
 	/**
-	 * Returns the unit of this {@linkplain Measurement}.
+	 * Returns the unit of this {@code Quantity}.
 	 *
 	 * @return the unit (shall not be {@code null}).
 	 */
