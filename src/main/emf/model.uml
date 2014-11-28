@@ -1,0 +1,1195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_2m-FwHWbEeSrSaxu8IGQmg" name="model">
+  <packagedElement xmi:type="uml:Model" xmi:id="_CgTrQHWcEeSrSaxu8IGQmg" name="generated">
+    <packagedElement xmi:type="uml:Package" xmi:id="_CgTrQXWcEeSrSaxu8IGQmg" name="javax">
+      <packagedElement xmi:type="uml:Package" xmi:id="_CgTrQnWcEeSrSaxu8IGQmg" name="measure">
+        <packagedElement xmi:type="uml:Interface" xmi:id="_CgTrQ3WcEeSrSaxu8IGQmg" name="Quantity">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_CgTrRHWcEeSrSaxu8IGQmg">
+            <body>
+ * &lt;p>
+ * Represents a quantitative property of a phenomenon, body, or substance, that can be quantified by measurement. {@link javax.measure.quantity.Mass Mass}, time,
+ * distance, heat, and angular separation are among the familiar examples of
+ * quantitative properties.
+ * &lt;/p>
+ *
+ * &lt;code> Unit&lt;Mass> pound = ... Quantity&lt;Length> size = ... Sensor&lt;Temperature>&lt;br>
+ * thermometer = ... Vector3D&lt;Speed> aircraftSpeed = ... &lt;/code>
+ * &lt;/p>
+ * 
+ * @implSpec
+ * This interface places no restrictions on the mutability of implementations,
+ * however immutability is strongly recommended.
+ * All implementations must be {@link Comparable}.
+ *
+ * @param &lt;Q>
+ *            The type of the quantity.
+ *
+ * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;>Jean-Marie Dautelle&lt;/a>
+ * @author &lt;a href=&quot;mailto:desruisseaux@users.sourceforge.net&quot;>Martin
+ *         Desruisseaux&lt;/a>
+ * @author &lt;a href=&quot;mailto:werner@uom.technology&quot;>Werner Keil&lt;/a>
+ * @author &lt;a href=&quot;mailto:otaviojava@java.net&quot;>Otavio Santana&lt;/a>
+ * @see &lt;a href=&quot;http://en.wikipedia.org/wiki/Quantity&quot;>Wikipedia: Quantity&lt;/a>
+ * @see &lt;a href=&quot;http://martinfowler.com/eaaDev/quantity.html&quot;> Martin Fowler -
+ *      Quantity&lt;/a>
+ * @see &lt;a href=&quot;http://en.wikipedia.org/wiki/Conversion_of_units&quot;>Wikipedia:
+ *      Conversion of units&lt;/a>
+ * @see Measurement
+ * @version 0.23, Date: 2014-11-26
+ </body>
+          </ownedComment>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_CgTrRXWcEeSrSaxu8IGQmg" name="add">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_CgTrRnWcEeSrSaxu8IGQmg">
+              <body>
+	 * Returns the sum of this {@code Quantity} with the one specified.
+	 *
+	 * @param that
+	 *            the {@code Quantity} to be added.
+	 * @return &lt;code>this + that&lt;/code>.
+	 </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgTrR3WcEeSrSaxu8IGQmg" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgTrSHWcEeSrSaxu8IGQmg" name="that" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_CgTrSXWcEeSrSaxu8IGQmg" name="subtract">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_CgTrSnWcEeSrSaxu8IGQmg">
+              <body>
+	 * Returns the difference between this {@code Quantity} and the one
+	 * specified.
+	 *
+	 * @param that
+	 *            the {@code Quantity} to be subtracted.
+	 * @return &lt;code>this - that&lt;/code>.
+	 </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx4HWcEeSrSaxu8IGQmg" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx4XWcEeSrSaxu8IGQmg" name="that" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_CgZx4nWcEeSrSaxu8IGQmg" name="divide">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_CgZx43WcEeSrSaxu8IGQmg">
+              <body>
+	 * Returns the product of this {@code Quantity} divided by the {@code Quantity}
+	 * specified.
+	 *
+	 * @throws ClassCastException if the type of an element
+     *         in the specified operation is incompatible with this
+     *         quantity
+     *         (&lt;a href=&quot;#optional-restrictions&quot;>optional&lt;/a>)
+	 *
+	 * @param that
+	 *            the {@code Quantity} divisor.
+	 * @return &lt;code>this / that&lt;/code>.
+	 </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx5HWcEeSrSaxu8IGQmg" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx5XWcEeSrSaxu8IGQmg" name="that" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_CgZx53WcEeSrSaxu8IGQmg" name="divide">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_CgZx6HWcEeSrSaxu8IGQmg">
+              <body>
+	 * Returns the product of this {@code Quantity} divided by the {@code Number}
+	 * specified.
+	 *
+	 * @param that
+	 *            the {@code Number} divisor.
+	 * @return &lt;code>this / that&lt;/code>.
+	 </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx6XWcEeSrSaxu8IGQmg" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx6nWcEeSrSaxu8IGQmg" name="that" type="_CgZx5nWcEeSrSaxu8IGQmg"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_CgZx63WcEeSrSaxu8IGQmg" name="multiply">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_CgZx7HWcEeSrSaxu8IGQmg">
+              <body>
+	 * Returns the product of this {@code Quantity} with the one specified.
+	 *
+	 * @throws ClassCastException if the type of an element
+     *         in the specified operation is incompatible with this
+     *         quantity
+     *         (&lt;a href=&quot;#optional-restrictions&quot;>optional&lt;/a>)
+	 *
+	 * @param that
+	 *            the {@code Quantity} multiplier.
+	 * @return &lt;code>this * that&lt;/code>.
+	 </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx7XWcEeSrSaxu8IGQmg" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx7nWcEeSrSaxu8IGQmg" name="multiplier" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_CgZx73WcEeSrSaxu8IGQmg" name="multiply">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_CgZx8HWcEeSrSaxu8IGQmg">
+              <body>
+	 * Returns the product of this {@code Quantity} with the {@code Number} value
+	 * specified.
+	 *
+	 * @param that
+	 *            the {@code Number} multiplier.
+	 * @return &lt;code>this * that&lt;/code>.
+	 </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx8XWcEeSrSaxu8IGQmg" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx8nWcEeSrSaxu8IGQmg" name="multiplier" type="_CgZx5nWcEeSrSaxu8IGQmg"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_CgZx83WcEeSrSaxu8IGQmg" name="inverse">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_CgZx9HWcEeSrSaxu8IGQmg">
+              <body>
+	 * Returns a {@code Quantity} whose unit is {@code unit.inverse()}.
+	 *
+	 * @return {@code Quantity with this.getUnit().inverse()}.
+	 </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx9XWcEeSrSaxu8IGQmg" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_CgZx93WcEeSrSaxu8IGQmg" name="to">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Cgf4gHWcEeSrSaxu8IGQmg">
+              <body>
+     * Returns this {@code Quantity} converted into another (compatible) {@code Unit}.
+     *
+     * @param unit
+     * @return the converted result.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Cgf4gXWcEeSrSaxu8IGQmg" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Cgf4gnWcEeSrSaxu8IGQmg" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_Cgf4h3WcEeSrSaxu8IGQmg" name="asType">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Cgf4iHWcEeSrSaxu8IGQmg">
+              <body>
+	 * Casts this quantity to a parameterized unit of specified nature or throw a
+	 * &lt;code>ClassCastException&lt;/code> if the dimension of the specified
+	 * quantity and this measure unit's dimension do not match. For example:&lt;br/>
+	 * &lt;code>
+	 *     Quantity&lt;Length> length = BaseQuantity.of(&quot;2 km&quot;).asType(Length.class);
+	 * &lt;/code>
+	 * or
+     * &lt;code>
+     *      Quantity&lt;Speed> C = length.multiply(299792458).divide(second).asType(Speed.class);
+     * &lt;/code>
+     *
+     * @param  &lt;T> The type of the quantity.
+     * @param  type the quantity class identifying the nature of the quantity.
+   	 * @return this quantity parameterized with the specified type.
+	 * @throws ClassCastException
+	 *             if the dimension of this unit is different from the specified
+	 *             quantity dimension.
+	 * @throws UnsupportedOperationException
+	 *             if the specified quantity class does not have a public static
+	 *             field named &quot;UNIT&quot; holding the SI unit for the quantity.
+	 * @see Unit#asType(Class)
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Cgf4iXWcEeSrSaxu8IGQmg" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Cgf4inWcEeSrSaxu8IGQmg" name="type" type="_Cgf4hnWcEeSrSaxu8IGQmg"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_Cgf4i3WcEeSrSaxu8IGQmg" name="getValue">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Cgf4jHWcEeSrSaxu8IGQmg">
+              <body>
+	 * Returns the value of this {@code Quantity}.
+	 *
+	 * @return a value.
+	 </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Cgf4jXWcEeSrSaxu8IGQmg" type="_CgZx5nWcEeSrSaxu8IGQmg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_Cgf4jnWcEeSrSaxu8IGQmg" name="getUnit">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Cgf4j3WcEeSrSaxu8IGQmg">
+              <body>
+	 * Returns the unit of this {@code Quantity}.
+	 *
+	 * @return the unit (shall not be {@code null}).
+	 </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Cgf4kHWcEeSrSaxu8IGQmg" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_f7Zh8HY5EeSqtc-Sb9aJnA" name="Unit">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_f7ir4HY5EeSqtc-Sb9aJnA">
+            <body>
+ * Represents a determinate {@linkplain Quantity quantity} (as of
+ * length, time, heat, or value) adopted as a standard of measurement.
+ *
+ * &lt;p>It is helpful to think of instances of this class as recording the history
+ * by which they are created. Thus, for example, the string {@code &quot;g/kg&quot;} (which
+ * is a dimensionless unit) would result from invoking the method {@link #toString()}
+ * on a unit that was created by dividing a gram unit by a kilogram unit.&lt;/p>
+ *
+ * &lt;p>This interface supports the multiplication of offsets units. The result is
+ * usually a unit not convertible to its {@linkplain #getSystemUnit() system unit}.
+ * Such units may appear in derivative quantities. For example Celsius per meter is
+ * an unit of gradient, which is common in atmospheric and oceanographic research.&lt;/p>
+ *
+ * &lt;p>Units raised at non-integral powers are not supported. For example,
+ * {@code LITRE.root(2)} raises an {@code ArithmeticException}, but
+ * {@code HECTARE.root(2)} returns {@code HECTOMETRE} (100 metres).&lt;/p>
+ *
+ * &lt;p>Unit instances shall be immutable.&lt;/p>
+ *
+ * @param &lt;Q> The type of the quantity measured by this unit.
+ *
+ * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;>Jean-Marie Dautelle&lt;/a>
+ * @author &lt;a href=&quot;mailto:steve@unidata.ucar.edu&quot;>Steve Emmerson&lt;/a>
+ * @author &lt;a href=&quot;mailto:desruisseaux@users.sourceforge.net&quot;>Martin Desruisseaux&lt;/a>
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @version 0.15
+ *
+ * @see &lt;a href=&quot;http://en.wikipedia.org/wiki/Units_of_measurement&quot;>Wikipedia: Units of measurement&lt;/a>
+ </body>
+          </ownedComment>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7ir4XY5EeSqtc-Sb9aJnA" name="getSymbol">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7ir4nY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the symbol (if any) of this unit.
+     * This method returns {@code null} if this unit has no specific symbol associated with.
+     *
+     * @return this unit symbol, or {@code null} if this unit has not
+     *         specific symbol associated with (e.g. product of units).
+     *
+     * @see #toString()
+     * @see UnitFormat
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7ir5HY5EeSqtc-Sb9aJnA" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7ir5XY5EeSqtc-Sb9aJnA" name="getName">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7ir5nY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the name (if any) of this unit.
+     * This method returns {@code null} if this unit has no specific name associated with.
+     *
+     * @return this unit name, or {@code null} if this unit has not
+     *         specific name associated with (e.g. product of units).
+     *
+     * @see #toString()
+     * @see UnitFormat
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7ir53Y5EeSqtc-Sb9aJnA" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7ir6HY5EeSqtc-Sb9aJnA" name="getDimension">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7ir6XY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the dimension of this unit. Two units {@code u1} and {@code u2}
+     * are {@linkplain #isCompatible(Unit) compatible} if and only if
+     * {@code u1.getDimension().equals(u2.getDimension())}.
+     *
+     * @return the dimension of this unit.
+     *
+     * @see #isCompatible(Unit)
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7ir6nY5EeSqtc-Sb9aJnA" type="_f6zFAHY5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7ir63Y5EeSqtc-Sb9aJnA" name="getSystemUnit">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7ir7HY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the unscaled system unit from which this unit is derived.
+     * System units are either base units, {@linkplain #alternate(String)
+     * alternate} units or product of rational powers of system units.
+     *
+     * &lt;p>Because the system unit is unique by quantity type, it can be
+     * be used to identify the quantity given the unit. For example:&lt;/p>
+     *
+     * [code]
+     *     static boolean isAngularSpeed(Unit&lt;?> unit) {
+     *         return unit.getSystemUnit().equals(RADIAN.divide(SECOND));
+     *     }
+     *     assert isAngularSpeed(REVOLUTION.divide(MINUTE)); // Returns true.
+     * [/code]
+     *
+     * @return the system unit this unit is derived from,
+     *         or {@code this} if this unit is a system unit.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7ir7XY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7ir7nY5EeSqtc-Sb9aJnA" name="getProductUnits">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7ir73Y5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the base units and their exponent whose product is this unit,
+     * or {@code null} if this unit is a base unit (not a product of existing units).
+     *
+     * @return the base units and their exponent making up this unit.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7ir8HY5EeSqtc-Sb9aJnA" type="_f682CnY5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7ir8XY5EeSqtc-Sb9aJnA" name="isCompatible">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7ir8nY5EeSqtc-Sb9aJnA">
+              <body>
+     * Indicates if this unit is compatible with the unit specified.
+     * Units don't need to be equals to be compatible. For example
+     * (assuming {@code ONE} is a dimensionless unit):
+     *
+     * [code]
+     *     RADIAN.equals(ONE) == false
+     *     RADIAN.isCompatible(ONE) == true
+     * [/code]
+     *
+     * @param  that the other unit to compare for compatibility.
+     * @return {@code this.getDimension().equals(that.getDimension())}
+     *
+     * @see #getDimension()
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7ir9HY5EeSqtc-Sb9aJnA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7ir9XY5EeSqtc-Sb9aJnA" name="that" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7ir9nY5EeSqtc-Sb9aJnA" name="asType">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7ir93Y5EeSqtc-Sb9aJnA">
+              <body>
+     * Casts this unit to a parameterized unit of specified nature or throw a
+     * {@code ClassCastException} if the dimension of the specified quantity
+     * and this unit's dimension do not match. For example:
+     *
+     * [code]
+     *      Unit&lt;Speed> C = METRE.times(299792458).divide(SECOND).asType(Speed.class);
+     * [/code]
+     *
+     * @param  &lt;T> The type of the quantity measured by the unit.
+     * @param  type the quantity class identifying the nature of the unit.
+     * @return this unit parameterized with the specified type.
+     * @throws ClassCastException if the dimension of this unit is different
+     *         from the specified quantity dimension.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7ir-HY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc4HY5EeSqtc-Sb9aJnA" name="type" type="_Cgf4hnWcEeSrSaxu8IGQmg"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7sc4XY5EeSqtc-Sb9aJnA" name="getConverterTo">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7sc4nY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns a converter of numeric values from this unit to another unit of same type.
+     * This method performs the same work than {@link #getConverterToAny(Unit)} without
+     * raising checked exception.
+     *
+     * @param  that the unit of same type to which to convert the numeric values.
+     * @return the converter from this unit to {@code that} unit.
+     * @throws UnconvertibleException if a converter cannot be constructed.
+     *
+     * @see #getConverterToAny(Unit)
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc5HY5EeSqtc-Sb9aJnA" type="_f8JI0HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc5XY5EeSqtc-Sb9aJnA" name="that" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7sc5nY5EeSqtc-Sb9aJnA" name="getConverterToAny">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7sc53Y5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns a converter from this unit to the specified unit of type unknown.
+     * This method can be used when the quantity type of the specified unit
+     * is unknown at compile-time or when dimensional analysis allows for
+     * conversion between units of different type.
+     *
+     * &lt;p>To convert to a unit having the same parameterized type,
+     * {@link #getConverterTo(Unit)} is preferred (no checked exception raised).&lt;/p>
+     *
+     * @param  that the unit to which to convert the numeric values.
+     * @return the converter from this unit to {@code that} unit.
+     * @throws IncommensurableException if this unit is not
+     *         {@linkplain #isCompatible(Unit) compatible} with {@code that}Â unit.
+     * @throws UnconvertibleException if a converter cannot be constructed.
+     *
+     * @see #getConverterTo(Unit)
+     * @see #isCompatible(Unit)
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc6HY5EeSqtc-Sb9aJnA" type="_f8JI0HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc6XY5EeSqtc-Sb9aJnA" name="that" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7sc6nY5EeSqtc-Sb9aJnA" name="alternate">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7sc63Y5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns a system unit equivalent to this unscaled standard unit but used
+     * in expressions to distinguish between quantities of a different nature
+     * but of the same dimensions.
+     *
+     * &lt;p>Examples of alternate units:&lt;/p>
+     *
+     * [code]
+     *     Unit&lt;Angle> RADIAN = ONE.alternate(&quot;rad&quot;).asType(Angle.class);
+     *     Unit&lt;Force> NEWTON = METRE.times(KILOGRAM).divide(SECOND.pow(2)).alternate(&quot;N&quot;).asType(Force.class);
+     *     Unit&lt;Pressure> PASCAL = NEWTON.divide(METRE.pow(2)).alternate(&quot;Pa&quot;).asType(Pressure.class);
+     * [/code]
+     *
+     * @param  symbol the new symbol for the alternate unit.
+     * @return the alternate unit.
+     * @throws UnsupportedOperationException if this unit is not an unscaled standard unit.
+     * @throws IllegalArgumentException if the specified symbol is already
+     *         associated to a different unit.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc7HY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc7XY5EeSqtc-Sb9aJnA" name="symbol" type="_f7ir43Y5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7sc73Y5EeSqtc-Sb9aJnA" name="shift">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7sc8HY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the result of setting the origin of the scale of measurement to the given value.
+     * The returned unit is convertible with all units that are convertible with this unit.
+     * For example the following code:
+     *
+     * [code]
+     *    CELSIUS = KELVIN.shift(273.15);
+     * [/code]
+     *
+     * creates a new unit where 0Â°C (the origin of the new unit) is equals to 273.15 K.
+     * Converting from the old unit to the new one is equivalent to &lt;em>subtracting&lt;/em>
+     * the offset to the value in the old unit.
+     *
+     * @param  offset the offset added (expressed in this unit).
+     * @return this unit offset by the specified value.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc8XY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc8nY5EeSqtc-Sb9aJnA" name="offset" type="_f7sc7nY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7sc83Y5EeSqtc-Sb9aJnA" name="multiply">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7sc9HY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the result of multiplying this unit by the specified factor.
+     * If the factor is an integer value, the multiplication is exact
+     * (recommended). For example:
+     *
+     * [code]
+     *    FOOT = METRE.multiply(3048).divide(10000); // Exact definition.
+     *    ELECTRON_MASS = KILOGRAM.multiply(9.10938188e-31); // Approximation.
+     * [/code]
+     *
+     * @param  factor the factor
+     * @return this unit scaled by the specified factor.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc9XY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m0HY5EeSqtc-Sb9aJnA" name="factor" type="_f7sc7nY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m0XY5EeSqtc-Sb9aJnA" name="multiply">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f71m0nY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the product of this unit with the one specified.
+     *
+     * @param  that the unit multiplicand.
+     * @return {@code this * that}
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m03Y5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m1HY5EeSqtc-Sb9aJnA" name="that" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m1XY5EeSqtc-Sb9aJnA" name="inverse">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f71m1nY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the inverse of this unit.
+     *
+     * @return {@code 1 / this}
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m13Y5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m2HY5EeSqtc-Sb9aJnA" name="divide">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f71m2XY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the result of dividing this unit by an approximate divisor.
+     * If the factor is an integer value, the division is exact.
+     * For example:
+     *
+     * [code]
+     *    QUART = GALLON_LIQUID_US.divide(4); // Exact definition.
+     * [/code]
+     *
+     * @param  divisor the divisor value.
+     * @return this unit divided by the specified divisor.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m2nY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m23Y5EeSqtc-Sb9aJnA" name="divisor" type="_f7sc7nY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m3HY5EeSqtc-Sb9aJnA" name="divide">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f71m3XY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the quotient of this unit with the one specified.
+     *
+     * @param  that the unit divisor.
+     * @return {@code this / that}
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m3nY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m33Y5EeSqtc-Sb9aJnA" name="that" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m4HY5EeSqtc-Sb9aJnA" name="root">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f71m4XY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns a unit equals to the given root of this unit.
+     *
+     * @param  n the root's order.
+     * @return the result of taking the given root of this unit.
+     * @throws ArithmeticException if {@code n == 0} or if this operation
+     *         would result in an unit with a fractional exponent.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m4nY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m43Y5EeSqtc-Sb9aJnA" name="n" type="_f6zFDHY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m5HY5EeSqtc-Sb9aJnA" name="pow">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f71m5XY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns a unit equals to this unit raised to an exponent.
+     *
+     * @param  n the exponent.
+     * @return the result of raising this unit to the exponent.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7_X0HY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7_X0XY5EeSqtc-Sb9aJnA" name="n" type="_f6zFDHY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7_X0nY5EeSqtc-Sb9aJnA" name="toString">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7_X03Y5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns a string representation of this unit. The string representation may
+     * be the unit {@linkplain #getSymbol() symbol}, or may be some representation
+     * of {@linkplain #getProductUnits() product units}, multiplication factor and
+     * offset if any. The string may be localized at implementation choice.
+     *
+     * @return the (eventually localized) string representation of this unit.
+     *
+     * @see #getSymbol()
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7_X1HY5EeSqtc-Sb9aJnA" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7_X1XY5EeSqtc-Sb9aJnA" name="transform">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7_X1nY5EeSqtc-Sb9aJnA">
+              <body>
+	 * Returns the unit derived from this unit using the specified converter.
+	 * The converter does not need to be linear. For example:&lt;br>
+	 * &lt;code>
+	 *     Unit&lt;Dimensionless> DECIBEL = Unit.ONE.transform(
+	 *         new LogConverter(10).inverse().concatenate(
+	 *             new RationalConverter(1, 10)));
+	 * &lt;/code>
+	 *
+	 * @param  operation the converter from the transformed unit to this unit.
+	 * @return the unit after the specified transformation.
+	 </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7_X13Y5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7_X2HY5EeSqtc-Sb9aJnA" name="converter" type="_f8JI0HY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_f6zFAHY5EeSqtc-Sb9aJnA" name="Dimension">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_f6zFAXY5EeSqtc-Sb9aJnA">
+            <body>
+ * Represents the dimension of a unit.
+ *
+ * &lt;p>Concrete dimensions are obtained through the {@link Unit#getDimension()} method.&lt;/p>
+ *
+ * &lt;p>Two units {@code u1} and {@code u2} are {@linkplain Unit#isCompatible(Unit) compatible}
+ * if and only if {@code u1.getDimension().equals(u2.getDimension())}.&lt;/p>
+ *
+ * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;>Jean-Marie Dautelle&lt;/a>
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @version 0.12
+ *
+ * @see &lt;a href=&quot;http://en.wikipedia.org/wiki/Dimensional_analysis&quot;>Wikipedia: Dimensional Analysis&lt;/a>
+ </body>
+          </ownedComment>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f6zFAnY5EeSqtc-Sb9aJnA" name="multiply">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f6zFA3Y5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the product of this dimension with the one specified.
+     *
+     * @param  that the dimension multiplicand.
+     * @return {@code this * that}
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f6zFBHY5EeSqtc-Sb9aJnA" type="_f6zFAHY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f6zFBXY5EeSqtc-Sb9aJnA" name="that" type="_f6zFAHY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f6zFBnY5EeSqtc-Sb9aJnA" name="divide">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f6zFB3Y5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the quotient of this dimension with the one specified.
+     *
+     * @param  that the dimension divisor.
+     * @return {@code this / that}
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f6zFCHY5EeSqtc-Sb9aJnA" type="_f6zFAHY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f6zFCXY5EeSqtc-Sb9aJnA" name="that" type="_f6zFAHY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f6zFDXY5EeSqtc-Sb9aJnA" name="pow">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f682AHY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns this dimension raised to an exponent.
+     * &lt;tt>(this&lt;sup>n&lt;/sup>)&lt;/tt>
+     *
+     * @param  n power to raise this {@code Dimension} to.
+     * @return &lt;tt>this&lt;sup>n&lt;/sup>&lt;/tt>
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f682AXY5EeSqtc-Sb9aJnA" type="_f6zFAHY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f682AnY5EeSqtc-Sb9aJnA" name="n" type="_f6zFDHY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f682A3Y5EeSqtc-Sb9aJnA" name="root">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f682BHY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the given root of this dimension.
+     *
+     * @param  n the root's order.
+     * @return the result of taking the given root of this dimension.
+     * @throws ArithmeticException if {@code n == 0}.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f682BXY5EeSqtc-Sb9aJnA" type="_f6zFAHY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f682BnY5EeSqtc-Sb9aJnA" name="n" type="_f6zFDHY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f682B3Y5EeSqtc-Sb9aJnA" name="getProductDimensions">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f682CHY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the fundamental dimensions and their exponent whose product is
+     * this dimension, or {@code null} if this dimension is a fundamental dimension.
+     *
+     * @return the mapping between the fundamental dimensions and their exponent.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f682C3Y5EeSqtc-Sb9aJnA" type="_f682CnY5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_f682DHY5EeSqtc-Sb9aJnA" name="IncommensurableException">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_f682DXY5EeSqtc-Sb9aJnA">
+            <body>
+ * Signals that a problem of some sort has occurred due to incommensurable of
+ * some quantities/units. Only commensurable quantity (quantities with the same
+ * dimensions) may be compared, equated, added, or subtracted. Also, one unit
+ * can be converted to another unit only if both units are commensurable.
+ * &lt;p>
+ * This is a &lt;strong>checked&lt;/strong> exception, so it deliberately doesn't
+ * inherit from &lt;code>MeasurementException&lt;/code> like most other exceptions.
+ * &lt;/p>
+ * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;>Jean-Marie Dautelle&lt;/a>
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @version 0.15, $Date: 2014-06-28 $
+ *
+ * @see &lt;a href=&quot;http://en.wikipedia.org/wiki/Unit_commensurability#Commensurability&quot;>Wikipedia: Unit Commensurability&lt;/a>
+ </body>
+          </ownedComment>
+          <generalization xmi:type="uml:Generalization" xmi:id="_f682D3Y5EeSqtc-Sb9aJnA" general="_f682DnY5EeSqtc-Sb9aJnA"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_f7F_8HY5EeSqtc-Sb9aJnA" name="MeasurementException">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_f7F_8XY5EeSqtc-Sb9aJnA">
+            <body>
+ * Exception thrown when errors occur during measurement operations.
+ *
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @version 0.5, $Date: 2014-06-28 $
+ *
+ </body>
+          </ownedComment>
+          <generalization xmi:type="uml:Generalization" xmi:id="_f7F_83Y5EeSqtc-Sb9aJnA" general="_f7F_8nY5EeSqtc-Sb9aJnA"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_f7F_9XY5EeSqtc-Sb9aJnA" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" type="_f7F_9HY5EeSqtc-Sb9aJnA" isUnique="false">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7F_9nY5EeSqtc-Sb9aJnA">
+              <body>
+     * For cross-version compatibility.
+     </body>
+            </ownedComment>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_f7F_8nY5EeSqtc-Sb9aJnA" name="RuntimeException"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_f7Pw8HY5EeSqtc-Sb9aJnA" name="UnconvertibleException">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_f7Pw8XY5EeSqtc-Sb9aJnA">
+            <body>
+ * Signals that a problem of some sort has occurred due to the impossibility of
+ * constructing a converter between two units. For example, the multiplication of
+ * offset units are usually units not convertible to their {@linkplain Unit#getSystemUnit()
+ * system unit}.
+ *
+ * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;>Jean-Marie Dautelle&lt;/a>
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @version 0.4, 2014-06-10
+ *
+ </body>
+          </ownedComment>
+          <generalization xmi:type="uml:Generalization" xmi:id="_f7Pw8nY5EeSqtc-Sb9aJnA" general="_f7F_8HY5EeSqtc-Sb9aJnA"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="_f7Pw83Y5EeSqtc-Sb9aJnA" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" type="_f7F_9HY5EeSqtc-Sb9aJnA" isUnique="false">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7Pw9HY5EeSqtc-Sb9aJnA">
+              <body>
+     * For cross-version compatibility.
+     </body>
+            </ownedComment>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_f8JI0HY5EeSqtc-Sb9aJnA" name="UnitConverter">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_f8JI0XY5EeSqtc-Sb9aJnA">
+            <body>
+ * A converter of numeric values between different units.
+ *
+ * &lt;p>Instances of this class are obtained through the {@link Unit#getConverterTo(Unit)} method.&lt;/p>
+ *
+ * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;>Jean-Marie Dautelle&lt;/a>
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @version 0.7.1, 2014-09-07
+ *
+ * @see &lt;a href=&quot;http://en.wikipedia.org/wiki/Conversion_of_units&quot;> Wikipedia:
+ *      Conversion of units&lt;/a>
+ </body>
+          </ownedComment>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f8JI0nY5EeSqtc-Sb9aJnA" name="isIdentity">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f8JI03Y5EeSqtc-Sb9aJnA">
+              <body>
+     * Indicates if this converter is an identity converter.
+     * The identity converter returns its input argument ({@code convert(x) == x}).
+     *
+     * @return {@code true} if this converter is an identity converter.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f8JI1HY5EeSqtc-Sb9aJnA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f8JI1XY5EeSqtc-Sb9aJnA" name="isLinear">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f8JI1nY5EeSqtc-Sb9aJnA">
+              <body>
+     * Indicates if this converter is linear. A converter is linear if:
+     *
+     * &lt;ul>
+     *   &lt;li>{@code convert(u + v) == convert(u) + convert(v)}&lt;/li>
+     *   &lt;li>{@code convert(r * u) == r * convert(u)}&lt;/li>
+     * &lt;/ul>
+     *
+     * &lt;p>For linear converters the following property always hold:&lt;/p>
+     *
+     * [code]
+     *   y1 = c1.convert(x1);
+     *   y2 = c2.convert(x2);
+     *   assert y1*y2 == c1.concatenate(c2).convert(x1*x2);
+     * [/code]
+     *
+     * @return {@code true} if this converter is linear; {@code false} otherwise.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f8JI13Y5EeSqtc-Sb9aJnA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f8JI2HY5EeSqtc-Sb9aJnA" name="inverse">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f8JI2XY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the inverse of this converter. If {@code x} is a valid value,
+     * then {@code x == inverse().convert(convert(x))} to within the accuracy
+     * of computer arithmetic.
+     *
+     * @return the inverse of this converter.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f8JI2nY5EeSqtc-Sb9aJnA" type="_f8JI0HY5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f8JI23Y5EeSqtc-Sb9aJnA" name="convert">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f8JI3HY5EeSqtc-Sb9aJnA">
+              <body>
+     * Converts a {@code Number} value.
+     *
+     * @param  value the {@code Number} value to convert.
+     * @return the {@code Number} value after conversion.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f8JI3XY5EeSqtc-Sb9aJnA" type="_CgZx5nWcEeSrSaxu8IGQmg" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f8JI3nY5EeSqtc-Sb9aJnA" name="value" type="_CgZx5nWcEeSrSaxu8IGQmg"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f8JI33Y5EeSqtc-Sb9aJnA" name="convert">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f8JI4HY5EeSqtc-Sb9aJnA">
+              <body>
+     * Converts a {@code double} value.
+     *
+     * @param  value the numeric value to convert.
+     * @return the {@code double} value after conversion.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f8JI4XY5EeSqtc-Sb9aJnA" type="_f7sc7nY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f8JI4nY5EeSqtc-Sb9aJnA" name="value" type="_f7sc7nY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f8SSwHY5EeSqtc-Sb9aJnA" name="concatenate">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f8SSwXY5EeSqtc-Sb9aJnA">
+              <body>
+     * Concatenates this converter with another converter. The resulting
+     * converter is equivalent to first converting by the specified converter
+     * (right converter), and then converting by this converter (left converter).
+     *
+     * @param  converter the other converter to concatenate with this converter.
+     * @return the concatenation of this converter with the other converter.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f8SSwnY5EeSqtc-Sb9aJnA" type="_f8JI0HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f8SSw3Y5EeSqtc-Sb9aJnA" name="converter" type="_f8JI0HY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f8SSxHY5EeSqtc-Sb9aJnA" name="getConversionSteps">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f8SSxXY5EeSqtc-Sb9aJnA">
+              <body>
+     * &lt;p>Returns the steps of fundamental converters making up this converter or
+     * {@code this} if the converter is a fundamental converter.&lt;/p>
+     * &lt;p>
+     * For example, {@code converter1.getConversionSteps()} returns {@code {converter1} while {@code converter1.concatenate(converter2).getConversionSteps()} returns {@code {converter1, converter2}.&lt;/p>
+     * @return the list of fundamental converters which concatenated make up this converter.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f8SSx3Y5EeSqtc-Sb9aJnA" type="_f8SSxnY5EeSqtc-Sb9aJnA" direction="return">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_f8SSyHY5EeSqtc-Sb9aJnA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_f8SSyXY5EeSqtc-Sb9aJnA" value="*"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_N70hgHY6EeSqtc-Sb9aJnA" name="format">
+          <packagedElement xmi:type="uml:Interface" xmi:id="_N70hgXY6EeSqtc-Sb9aJnA" name="Parser">
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_N70hg3Y6EeSqtc-Sb9aJnA" name="parse">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_N70hhHY6EeSqtc-Sb9aJnA">
+                <body>
+	 * Parses the specified {@code I} to produce a {@code O}.
+	 * @throws ParserException if any problem occurs while parsing the
+     *         specified input (e.g. illegal syntax).
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_N70hhnY6EeSqtc-Sb9aJnA" type="_N70hhXY6EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_N70hh3Y6EeSqtc-Sb9aJnA" name="input" type="_N70hgnY6EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_N70hgnY6EeSqtc-Sb9aJnA" name="I"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_N70hhXY6EeSqtc-Sb9aJnA" name="O"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_N70hiHY6EeSqtc-Sb9aJnA" name="ParserException">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_N70hiXY6EeSqtc-Sb9aJnA">
+              <body>
+ * Signals that an error has been reached unexpectedly while parsing.
+ * 
+ * @author Werner Keil
+ * @version 0.4, $Date: 2014-08-04 $
+ </body>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_N70hinY6EeSqtc-Sb9aJnA" general="_f7F_8HY5EeSqtc-Sb9aJnA"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_N70hi3Y6EeSqtc-Sb9aJnA" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" type="_f7F_9HY5EeSqtc-Sb9aJnA" isUnique="false">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_N70hjHY6EeSqtc-Sb9aJnA">
+                <body>
+	 * 
+	 </body>
+              </ownedComment>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_N70hjnY6EeSqtc-Sb9aJnA" name="position" visibility="private" type="_N70hjXY6EeSqtc-Sb9aJnA" isUnique="false">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_N79rcHY6EeSqtc-Sb9aJnA">
+                <body>
+	 * The zero-based character position in the string being parsed at which the
+	 * error was found while parsing.
+	 * 
+	 * @serial
+	 </body>
+              </ownedComment>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_N79rcnY6EeSqtc-Sb9aJnA" name="data" visibility="private" type="_N79rcXY6EeSqtc-Sb9aJnA" isUnique="false">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_N79rc3Y6EeSqtc-Sb9aJnA">
+                <body> The original input data. </body>
+              </ownedComment>
+            </ownedAttribute>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_N79rdHY6EeSqtc-Sb9aJnA" name="getPosition" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_N79rdXY6EeSqtc-Sb9aJnA">
+                <body>
+	 * Returns the position where the error was found.
+	 * 
+	 * @return the position of the error
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_N79rdnY6EeSqtc-Sb9aJnA" type="_N70hjXY6EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_N79rd3Y6EeSqtc-Sb9aJnA" name="getParsedString" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_N79reHY6EeSqtc-Sb9aJnA">
+                <body>
+	 * Returns the string that was being parsed.
+	 * 
+	 * @return the parsed string, or {@code null}, if {@code null} was passed as
+	 *         input.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_N79reXY6EeSqtc-Sb9aJnA" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_N79renY6EeSqtc-Sb9aJnA" name="UnitFormat">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_N79re3Y6EeSqtc-Sb9aJnA">
+              <body>
+ * Formatting and parsing of {@code Unit} instances.
+ *
+ * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;>Jean-Marie Dautelle&lt;/a>
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @version 0.4
+ *
+ * @see Unit
+ * @see Parser
+ </body>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_N79rfHY6EeSqtc-Sb9aJnA" general="_N70hgXY6EeSqtc-Sb9aJnA"/>
+            <generalization xmi:type="uml:Generalization" xmi:id="_jPIuIHY6EeSqtc-Sb9aJnA" general="_N70hgXY6EeSqtc-Sb9aJnA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_N79rfnY6EeSqtc-Sb9aJnA" name="format">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_N79rf3Y6EeSqtc-Sb9aJnA">
+                <body>
+     * Formats the specified unit.
+     *
+     * @param  unit the unit to format.
+     * @param  appendable the appendable destination.
+     * @return the appendable destination passed in with formatted text appended.
+     * @throws IOException if an error occurs while writing to the destination.
+     </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_N79rgHY6EeSqtc-Sb9aJnA" type="_N79rfXY6EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_N79rgXY6EeSqtc-Sb9aJnA" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_N79rgnY6EeSqtc-Sb9aJnA" name="appendable" type="_N79rfXY6EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_N79rg3Y6EeSqtc-Sb9aJnA" name="parse">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_N79rhHY6EeSqtc-Sb9aJnA">
+                <body>
+     * Parses a portion of the specified {@code CharSequence} from the
+     * specified position to produce a unit. If there is no unit to parse
+     * the unitary unit (dimensionless) is returned.
+     *
+     * @param  csq the {@code CharSequence} to parse.
+     * @return the unit parsed from the specified character sub-sequence.
+     * @throws ParserException if any problem occurs while parsing the
+     *         specified character sequence (e.g. illegal syntax).
+     </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_N79rhXY6EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_N8HccHY6EeSqtc-Sb9aJnA" name="csq" type="_N79rcXY6EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_VizEgHY7EeSqtc-Sb9aJnA" name="spi">
+          <packagedElement xmi:type="uml:Interface" xmi:id="_Vi8OcHY7EeSqtc-Sb9aJnA" name="QuantityFactory">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Vi8OcXY7EeSqtc-Sb9aJnA">
+              <body>
+ * Represents a factory that accepts {@linkplain Number} and {@link Unit} arguments to create a {@link Quantity} result.
+ *
+ * &lt;p>This is a &lt;a href=&quot;http://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html#package.description&quot;>functional interface&lt;/a>
+ * whose functional method is {@link #create(T, U)}.
+ *
+ * @param &lt;Q> the type of the {@link Quantity} result
+ *
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @author &lt;a href=&quot;mailto:otaviojava@java.net&quot;>Otavio Santana&lt;/a>
+ * @version 0.5, $Date: 2014-09-18 $
+ </body>
+            </ownedComment>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_Vi8OdHY7EeSqtc-Sb9aJnA" name="create">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_Vi8OdXY7EeSqtc-Sb9aJnA">
+                <body>
+     * Returns the quantity for the specified number stated in the specified unit.
+     *
+     * @param number the numeric value stated in the specified unit
+     * @param unit the unit
+     * @return the corresponding quantity
+     </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_Vi8OdnY7EeSqtc-Sb9aJnA" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_Vi8Od3Y7EeSqtc-Sb9aJnA" name="number" type="_Vi8OcnY7EeSqtc-Sb9aJnA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_Vi8OeHY7EeSqtc-Sb9aJnA" name="unit" type="_Vi8Oc3Y7EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_Vi8OcnY7EeSqtc-Sb9aJnA" name="N"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_Vi8Oc3Y7EeSqtc-Sb9aJnA" name="U"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_Vi8OeXY7EeSqtc-Sb9aJnA" name="SystemOfUnits">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Vi8OenY7EeSqtc-Sb9aJnA">
+              <body>
+ * A system of units grouped together for historical or cultural reasons.
+ * Nothing prevents a unit from belonging to several systems of units at the
+ * same time (for example an {@code Imperial} system would have many of the
+ * units held by {@code US} customary system).
+ *
+ * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;>Jean-Marie Dautelle&lt;/a>
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @version 0.7, $Date: 2014-11-04 $
+ * @see &lt;a href=&quot;http://en.wikipedia.org/wiki/International_System_of_Units&quot;>
+ *      Wikipedia: International System of Units&lt;/a>
+ * @see &lt;a href=&quot;http://en.wikipedia.org/wiki/Systems_of_measurement&quot;>
+ *      Wikipedia: System of measurement&lt;/a>
+ *
+ </body>
+            </ownedComment>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_Vi8Oe3Y7EeSqtc-Sb9aJnA" name="getName">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_Vi8OfHY7EeSqtc-Sb9aJnA">
+                <body>
+	 * @return a name
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_Vi8OfXY7EeSqtc-Sb9aJnA" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_Vi8OfnY7EeSqtc-Sb9aJnA" name="getUnit">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_Vi8Of3Y7EeSqtc-Sb9aJnA">
+                <body>
+	 * Returns the default unit for the specified quantity.
+	 *
+	 * @param &lt;Q>
+	 *            the compile-time quantity type.
+	 * @param quantityType
+	 *            the quantity type.
+	 * @return the unit for the specified quantity.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_Vi8OgHY7EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_Vi8OgXY7EeSqtc-Sb9aJnA" name="quantityType" type="_Cgf4hnWcEeSrSaxu8IGQmg"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_Vi8OgnY7EeSqtc-Sb9aJnA" name="getUnits">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_Vi8Og3Y7EeSqtc-Sb9aJnA">
+                <body>
+	 * Returns a read only view over the units defined in this system.
+	 *
+	 * @return the collection of units.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_Vi8OhXY7EeSqtc-Sb9aJnA" type="_Vi8OhHY7EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_Vi8OhnY7EeSqtc-Sb9aJnA" name="getUnits">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_VjF_cHY7EeSqtc-Sb9aJnA">
+                <body>
+	 * Returns the units defined in this system having the specified dimension
+	 * (convenience method).
+	 *
+	 * @param dimension
+	 *            the dimension of the units to be returned.
+	 * @return the collection of units of specified dimension.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_VjF_cXY7EeSqtc-Sb9aJnA" type="_Vi8OhHY7EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_VjF_cnY7EeSqtc-Sb9aJnA" name="dimension" type="_f6zFAHY5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_VjF_c3Y7EeSqtc-Sb9aJnA" name="SystemOfUnitsService">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_VjF_dHY7EeSqtc-Sb9aJnA">
+              <body>
+ * &lt;p>
+ * This interface represents the service to obtain a {@link SystemOfUnits system
+ * of units}.
+ * &lt;/p>
+ * 
+ * &lt;p>
+ * Common system of units are &quot;SI&quot; (System International), &quot;Imperial&quot; (British),
+ * &quot;USCustomary&quot;.
+ * &lt;/p>
+ * 
+ * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;>Jean-Marie Dautelle&lt;/a>
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @version 1.4 ($Revision: 257 $), $Date: 2013-09-20 01:05:19 +0200 (Fr, 20 Sep 2013) $
+ </body>
+            </ownedComment>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_VjF_dXY7EeSqtc-Sb9aJnA" name="getSystemOfUnits">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_VjF_dnY7EeSqtc-Sb9aJnA">
+                <body>
+	 * Returns the default &lt;a
+	 * href=http://en.wikipedia.org/wiki/International_System_of_Units&quot;>
+	 * International System of Units&lt;/a>.
+	 * 
+	 * @return &lt;code>getSystemOfUnits(&quot;SI&quot;)&lt;/code>
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_VjF_d3Y7EeSqtc-Sb9aJnA" type="_Vi8OeXY7EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_VjF_eHY7EeSqtc-Sb9aJnA" name="getSystemOfUnits">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_VjF_eXY7EeSqtc-Sb9aJnA">
+                <body>
+     * Returns the system of units having the specified name or
+     * &lt;code>null&lt;/code> if none.
+     *
+     * @param name the system of unit name.
+     * @return the system of units.
+     </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_VjF_enY7EeSqtc-Sb9aJnA" type="_Vi8OeXY7EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_VjF_e3Y7EeSqtc-Sb9aJnA" name="name" type="_f7ir43Y5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_VjF_fHY7EeSqtc-Sb9aJnA" name="UnitFormatService">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_VjF_fXY7EeSqtc-Sb9aJnA">
+              <body>
+ * &lt;p>
+ * This interface represent the service to obtain {@link UnitFormat} instances.
+ * &lt;/p>
+ * 
+ * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;>Jean-Marie Dautelle&lt;/a>
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @see &lt;a href=&quot;http://aurora.regenstrief.org/~ucum/ucum.html&quot;>UCUM Full
+ *      Specification&lt;/a>
+ * @version 0.4, $Date: 2014-07-22 $
+ </body>
+            </ownedComment>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_VjF_fnY7EeSqtc-Sb9aJnA" name="getUnitFormat">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_VjF_f3Y7EeSqtc-Sb9aJnA">
+                <body>
+     * Returns the default &lt;a href=&quot;http://www.unitsofmeasure.org/&quot;>UCUM&lt;/a>
+     * unit format.
+     *
+     * @return &lt;code>getUnitFormat(&quot;UCUM&quot;)&lt;/code>
+     </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_VjF_gHY7EeSqtc-Sb9aJnA" type="_N79renY6EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_VjF_gXY7EeSqtc-Sb9aJnA" name="getUnitFormat">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_VjF_gnY7EeSqtc-Sb9aJnA">
+                <body>
+     * Returns the unit format having the specified name or
+     * &lt;code>null&lt;/code> if none.
+     *
+     * @param name the name of the format.
+     * @return the corresponding unit format.
+     </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_VjF_g3Y7EeSqtc-Sb9aJnA" type="_N79renY6EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_VjF_hHY7EeSqtc-Sb9aJnA" name="name" type="_f7ir43Y5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_VjPJYHY7EeSqtc-Sb9aJnA" name="getUnitFormat">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_VjPJYXY7EeSqtc-Sb9aJnA">
+                <body>
+     * Returns the unit format for the specified locale or
+     * &lt;code>null&lt;/code> if none.
+     *
+     * @param locale the locale for the format.
+     * @return the corresponding unit format.
+     </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_VjPJYnY7EeSqtc-Sb9aJnA" type="_N79renY6EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_VjPJY3Y7EeSqtc-Sb9aJnA" name="locale" type="_VjF_hXY7EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_DeY8gHY-EeS0S_a4KNH9ow" name="tec">
+      <packagedElement xmi:type="uml:Package" xmi:id="_Fj-I8HY-EeS0S_a4KNH9ow" name="units">
+        <packagedElement xmi:type="uml:Package" xmi:id="_HletsHY-EeS0S_a4KNH9ow" name="ri">
+          <packagedElement xmi:type="uml:Class" xmi:id="_J10YoHY-EeS0S_a4KNH9ow" name="AbstractSystemOfUnits" isAbstract="true">
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_XCU2MHY-EeS0S_a4KNH9ow" client="_J10YoHY-EeS0S_a4KNH9ow" supplier="_Vi8OeXY7EeSqtc-Sb9aJnA" contract="_Vi8OeXY7EeSqtc-Sb9aJnA"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_jQHowHY-EeS0S_a4KNH9ow" name="util">
+            <packagedElement xmi:type="uml:Class" xmi:id="_lPBlcHY-EeS0S_a4KNH9ow" name="SI">
+              <generalization xmi:type="uml:Generalization" xmi:id="_4U1_wHY-EeS0S_a4KNH9ow" general="_J10YoHY-EeS0S_a4KNH9ow"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_m_2C0HY-EeS0S_a4KNH9ow" name="US">
+              <generalization xmi:type="uml:Generalization" xmi:id="_453YYHY-EeS0S_a4KNH9ow" general="_J10YoHY-EeS0S_a4KNH9ow"/>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="_Cgf4g3WcEeSrSaxu8IGQmg" name="java">
+    <packagedElement xmi:type="uml:Package" xmi:id="_Cgf4hHWcEeSrSaxu8IGQmg" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_Cgf4hXWcEeSrSaxu8IGQmg" name="lang">
+        <packagedElement xmi:type="uml:Class" xmi:id="_Cgf4hnWcEeSrSaxu8IGQmg" name="Class"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_f682DnY5EeSqtc-Sb9aJnA" name="Exception"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_f7ir43Y5EeSqtc-Sb9aJnA" name="String"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_CgZx5nWcEeSrSaxu8IGQmg" name="Number"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_N79rcXY6EeSqtc-Sb9aJnA" name="CharSequence"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_N79rfXY6EeSqtc-Sb9aJnA" name="Appendable"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_f682CXY5EeSqtc-Sb9aJnA" name="util">
+        <packagedElement xmi:type="uml:Class" xmi:id="_f682CnY5EeSqtc-Sb9aJnA" name="Map"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_f8SSxnY5EeSqtc-Sb9aJnA" name="List"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Vi8OhHY7EeSqtc-Sb9aJnA" name="Set"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_VjF_hXY7EeSqtc-Sb9aJnA" name="Locale"/>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="_f6zFCnY5EeSqtc-Sb9aJnA" name="datatype">
+    <packagedElement xmi:type="uml:Package" xmi:id="_f6zFC3Y5EeSqtc-Sb9aJnA" name="datatype">
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_f6zFDHY5EeSqtc-Sb9aJnA" name="int"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_f7F_9HY5EeSqtc-Sb9aJnA" name="long"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_f7ir83Y5EeSqtc-Sb9aJnA" name="boolean"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_f7sc7nY5EeSqtc-Sb9aJnA" name="double"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_N70hjXY6EeSqtc-Sb9aJnA" name="Integer"/>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>
