@@ -7,8 +7,6 @@
  */
 package javax.measure.spi;
 
-import java.util.Locale;
-
 import javax.measure.format.UnitFormat;
 
 /**
@@ -18,15 +16,12 @@ import javax.measure.format.UnitFormat;
  * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @see <a href="http://aurora.regenstrief.org/~ucum/ucum.html">UCUM Full
- *      Specification</a>
- * @version 0.4, $Date: 2014-07-22 $
+ * @version 0.5, $Date: 2014-12-01 $
  */
 public interface UnitFormatService {
 
     /**
-     * Returns the default <a href="http://www.unitsofmeasure.org/">UCUM</a>
-     * unit format.
+     * Returns the default unit format.
      *
      * @return <code>getUnitFormat("UCUM")</code>
      */
@@ -35,19 +30,11 @@ public interface UnitFormatService {
     /**
      * Returns the unit format having the specified name or
      * <code>null</code> if none.
+     * 
+     * For example <code>getUnitFormat("UCUM")</code> to return a UCUM specific {@link UnitFormat} implementation. 
      *
      * @param name the name of the format.
      * @return the corresponding unit format.
      */
 	UnitFormat getUnitFormat(String name);
-
-    /**
-     * Returns the unit format for the specified locale or
-     * <code>null</code> if none.
-     *
-     * @param locale the locale for the format.
-     * @return the corresponding unit format.
-     */
-	UnitFormat getUnitFormat(Locale locale);
-
 }

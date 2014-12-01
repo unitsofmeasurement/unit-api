@@ -206,20 +206,6 @@
 
 	<build>
 		<plugins>
-			<!-- Packaging (OSGi bundle) -->
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<version>2.3.5</version>
-				<extensions>true</extensions>
-				<configuration>
-					<instructions>
-						<Export-Package>javax.measure.*</Export-Package>
-						<Private-Package>!*</Private-Package>
-					</instructions>
-				</configuration>
-			</plugin>
-
 			<!-- Compilation -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -232,13 +218,44 @@
 				</configuration>
 			</plugin>
 
-			<!-- Resources -->
+			<!-- Attach Sources -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.6</version>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 				<configuration>
-					<encoding>${project.build.sourceEncoding}</encoding>
+					<detectLinks>true</detectLinks>
+					<!-- excludePackageNames>blabla</excludePackageNames -->
+					<keywords>true</keywords>
+					<linksource>true</linksource>
+					<failOnError>false</failOnError>
+					<!-- overview>${basedir}/overview.html</overview -->
+					<source>${maven.compile.sourceLevel}</source>
+					<!-- stylesheetfile>${basedir}/src/site/css/money-jdoc.css</stylesheetfile -->
+					<verbose>true</verbose>
 				</configuration>
 			</plugin>
 
@@ -262,6 +279,31 @@
 					</archive>
 				</configuration>
 			</plugin>
+
+			<!-- Packaging (OSGi bundle) -->
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.5.3</version>
+				<extensions>true</extensions>
+				<!-- configuration>
+					<instructions>
+						<Export-Package>javax.measure.*</Export-Package>
+						<Private-Package>!*</Private-Package>
+					</instructions>
+				</configuration -->
+			</plugin>
+
+			<!-- Resources -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
 
 			<!-- Maven web site -->
 			<plugin>
@@ -386,8 +428,8 @@
 			</activation>
 			<build>
 				<plugins>
-					<!-- License. Enable this only for major upgrades
-					(ensure to copy LICENSE.txt to LICENSE.bak first) -->
+					<!-- License. Enable this only for major upgrades (ensure to copy LICENSE.txt 
+						to LICENSE.bak first) -->
 					<plugin>
 						<groupId>com.google.code.maven-license-plugin</groupId>
 						<artifactId>maven-license-plugin</artifactId>
@@ -421,37 +463,37 @@
 			</build>
 		</profile>
 
-        <profile>
-            <id>documentation</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.asciidoctor</groupId>
-                        <artifactId>asciidoctor-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>output-html</id>
-                                <phase>generate-resources</phase>
-                                <goals>
-                                    <goal>process-asciidoc</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>target/docs</outputDirectory>
-                                    <sourceHighlighter>highlightjs</sourceHighlighter> <!-- coderay -->
-                                    <backend>html</backend>
-                                    <embedAssets>true</embedAssets>
-                                    <imagesDir>arc/main/asciidoc/images</imagesDir>
-                                </configuration>
-                            </execution>
-                            <!-- execution> <id>output-pdf</id> <phase>generate-resources</phase>
-                                <goals> <goal>process-asciidoc</goal> </goals> <configuration> <outputDirectory>target/docs</outputDirectory>
-                                <sourceHighlighter>highlightjs</sourceHighlighter> <backend>pdf</backend>
-                                </configuration> </execution -->
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+		<profile>
+			<id>documentation</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.asciidoctor</groupId>
+						<artifactId>asciidoctor-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>output-html</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>process-asciidoc</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>target/docs</outputDirectory>
+									<sourceHighlighter>highlightjs</sourceHighlighter> <!-- coderay -->
+									<backend>html</backend>
+									<embedAssets>true</embedAssets>
+									<imagesDir>arc/main/asciidoc/images</imagesDir>
+								</configuration>
+							</execution>
+							<!-- execution> <id>output-pdf</id> <phase>generate-resources</phase> 
+								<goals> <goal>process-asciidoc</goal> </goals> <configuration> <outputDirectory>target/docs</outputDirectory> 
+								<sourceHighlighter>highlightjs</sourceHighlighter> <backend>pdf</backend> 
+								</configuration> </execution -->
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 
 	</profiles>
 </project>
