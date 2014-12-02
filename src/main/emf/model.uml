@@ -1160,10 +1160,1170 @@
             <packagedElement xmi:type="uml:Class" xmi:id="_m_2C0HY-EeS0S_a4KNH9ow" name="US">
               <generalization xmi:type="uml:Generalization" xmi:id="_453YYHY-EeS0S_a4KNH9ow" general="_J10YoHY-EeS0S_a4KNH9ow"/>
             </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_omUc0HotEeSXuJ3Xp8vEhA" name="BinaryPrefix" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_omUc0XotEeSXuJ3Xp8vEhA">
+                <body>
+ * &lt;p> This class provides support for common binary prefixes to be used by
+ *     units.&lt;/p>
+ *
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @version 5.1, December 25, 2013
+ </body>
+              </ownedComment>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_omUc0notEeSXuJ3Xp8vEhA" name="KIBI" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_omUc03otEeSXuJ3Xp8vEhA">
+                  <body>
+	 * Returns the specified unit multiplied by the factor
+	 * &lt;code>2&lt;sup>10&lt;/sup>&lt;/code> (binary prefix).
+	 * 
+	 * @param unit any unit.
+	 * @return &lt;code>unit.times(1024)&lt;/code>.
+	 </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omUc1HotEeSXuJ3Xp8vEhA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omUc1XotEeSXuJ3Xp8vEhA" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_omUc1notEeSXuJ3Xp8vEhA" name="MEBI" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_omUc13otEeSXuJ3Xp8vEhA">
+                  <body>
+	 * Returns the specified unit multiplied by the factor
+	 * &lt;code>2&lt;sup>20&lt;/sup>&lt;/code> (binary prefix).
+	 * 
+	 * @param unit any unit.
+	 * @return &lt;code>unit.times(1048576)&lt;/code>.
+	 </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omUc2HotEeSXuJ3Xp8vEhA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omUc2XotEeSXuJ3Xp8vEhA" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_omUc2notEeSXuJ3Xp8vEhA" name="GIBI" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_omUc23otEeSXuJ3Xp8vEhA">
+                  <body>
+	 * Returns the specified unit multiplied by the factor
+	 * &lt;code>2&lt;sup>30&lt;/sup>&lt;/code> (binary prefix).
+	 * 
+	 * @param unit any unit.
+	 * @return &lt;code>unit.times(1073741824)&lt;/code>.
+	 </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omUc3HotEeSXuJ3Xp8vEhA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omUc3XotEeSXuJ3Xp8vEhA" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_omUc3notEeSXuJ3Xp8vEhA" name="TEBI" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_omUc33otEeSXuJ3Xp8vEhA">
+                  <body>
+	 * Returns the specified unit multiplied by the factor
+	 * &lt;code>2&lt;sup>40&lt;/sup>&lt;/code> (binary prefix).
+	 * 
+	 * @param unit any unit.
+	 * @return &lt;code>unit.times(1099511627776L)&lt;/code>.
+	 </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omajcHotEeSXuJ3Xp8vEhA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omajcXotEeSXuJ3Xp8vEhA" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_omajcnotEeSXuJ3Xp8vEhA" name="PEBI" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_omajc3otEeSXuJ3Xp8vEhA">
+                  <body>
+	 * Returns the specified unit multiplied by the factor
+	 * &lt;code>2&lt;sup>50&lt;/sup>&lt;/code> (binary prefix).
+	 * 
+	 * @param unit any unit.
+	 * @return &lt;code>unit.times(1125899906842624L)&lt;/code>.
+	 </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omajdHotEeSXuJ3Xp8vEhA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omajdXotEeSXuJ3Xp8vEhA" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_omajdnotEeSXuJ3Xp8vEhA" name="EXBI" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_omajd3otEeSXuJ3Xp8vEhA">
+                  <body>
+	 * Returns the specified unit multiplied by the factor
+	 * &lt;code>2&lt;sup>60&lt;/sup>&lt;/code> (binary prefix).
+	 * 
+	 * @param unit any unit.
+	 * @return &lt;code>unit.times(1152921504606846976L)&lt;/code>.
+	 </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omajeHotEeSXuJ3Xp8vEhA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omajeXotEeSXuJ3Xp8vEhA" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_omajenotEeSXuJ3Xp8vEhA" name="QuantityRange">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_omaje3otEeSXuJ3Xp8vEhA">
+                <body>
+ * A Quantity Range is a pair of {@link Quantity} items that represent a range
+ * of values.
+ * &lt;p>
+ * Range limits MUST be presented in the same scale and have the same unit as
+ * measured data values.&lt;br/>
+ * Subclasses of Range should be immutable.
+ * 
+ * @param &lt;T>
+ *            The value of the range.
+ * 
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @version 0.1, November 29, 2014
+ * @see &lt;a
+ *      href=&quot;http://www.botts-inc.com/SensorML_1.0.1/schemaBrowser/SensorML_QuantityRange.html&quot;>
+ *      SensorML: QuantityRange&lt;/a>
+ </body>
+              </ownedComment>
+              <generalization xmi:type="uml:Generalization" xmi:id="_omajfXotEeSXuJ3Xp8vEhA" general="_omajfHotEeSXuJ3Xp8vEhA"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_omajfnotEeSXuJ3Xp8vEhA" name="res" visibility="private" type="_CgTrQ3WcEeSrSaxu8IGQmg" isUnique="false"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_omgqEHotEeSXuJ3Xp8vEhA" name="of" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_omgqEXotEeSXuJ3Xp8vEhA">
+                  <body>
+	 * Returns an {@code Range} with the specified values.
+	 *
+	 * @param &lt;T>
+	 *            the class of the value
+	 * @param minimum
+	 *            The minimum value for the measurement range.
+	 * @param maximum
+	 *            The maximum value for the measurement range.
+	 * @param resolution
+	 *            The resolution of the measurement range.
+	 * @return an {@code MeasurementRange} with the given values
+	 </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omgqEnotEeSXuJ3Xp8vEhA" type="_omajenotEeSXuJ3Xp8vEhA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omgqE3otEeSXuJ3Xp8vEhA" name="minimum" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omgqFHotEeSXuJ3Xp8vEhA" name="maximum" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omgqFXotEeSXuJ3Xp8vEhA" name="resolution" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_omgqFnotEeSXuJ3Xp8vEhA" name="getResolution" visibility="public">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_omgqF3otEeSXuJ3Xp8vEhA">
+                  <body>
+	 * Returns the resolution of the measurement range. The value is the same as
+	 * that given as the constructor parameter for the largest value.
+	 * 
+	 * @return resolution of the range, the value is the same as that given as
+	 *         the constructor parameter for the resolution
+	 </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omgqGHotEeSXuJ3Xp8vEhA" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_omgqGXotEeSXuJ3Xp8vEhA" name="contains" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omgqGnotEeSXuJ3Xp8vEhA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omgqG3otEeSXuJ3Xp8vEhA" name="q" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_omgqHHotEeSXuJ3Xp8vEhA" name="equals" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omgqHXotEeSXuJ3Xp8vEhA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omgqHnotEeSXuJ3Xp8vEhA" name="obj" type="_fJpVxHonEeS9Gr9yPtn_zA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_omgqH3otEeSXuJ3Xp8vEhA" name="toString" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_omgqIHotEeSXuJ3Xp8vEhA" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_omajfHotEeSXuJ3Xp8vEhA" name="Range" isAbstract="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_ommwsHotEeSXuJ3Xp8vEhA">
+                <body>
+ * A Range is a pair of &lt;code>T&lt;/code> items that represent a range
+ * of values.
+ * &lt;p>
+ * Subclasses of Range should be immutable.
+ * 
+ * @param &lt;T>
+ *            The value of the range.
+ * 
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @version 0.8.8, November 29, 2014
+ </body>
+              </ownedComment>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_ommwtnotEeSXuJ3Xp8vEhA" name="min" visibility="private" isLeaf="true" type="_ommwtXotEeSXuJ3Xp8vEhA" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_ommwt3otEeSXuJ3Xp8vEhA" name="max" visibility="private" isLeaf="true" type="_ommwtXotEeSXuJ3Xp8vEhA" isUnique="false"/>
+              <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_ommwsnotEeSXuJ3Xp8vEhA" name="Range implements MinimumSupplier" client="_omajfHotEeSXuJ3Xp8vEhA" supplier="_ommwsXotEeSXuJ3Xp8vEhA" contract="_ommwsXotEeSXuJ3Xp8vEhA"/>
+              <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_ommwtHotEeSXuJ3Xp8vEhA" name="Range implements MaximumSupplier" client="_omajfHotEeSXuJ3Xp8vEhA" supplier="_ommws3otEeSXuJ3Xp8vEhA" contract="_ommws3otEeSXuJ3Xp8vEhA"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_ommwuHotEeSXuJ3Xp8vEhA" name="getMinimum" visibility="public">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_ommwuXotEeSXuJ3Xp8vEhA">
+                  <body>
+	 * Returns the smallest value of the range. The value is the same as that
+	 * given as the constructor parameter for the smallest value.
+	 * 
+	 * @return the minimum value
+	 </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ommwunotEeSXuJ3Xp8vEhA" type="_ommwtXotEeSXuJ3Xp8vEhA" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_ommwu3otEeSXuJ3Xp8vEhA" name="getMaximum" visibility="public">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_ommwvHotEeSXuJ3Xp8vEhA">
+                  <body>
+	 * Returns the largest value of the measurement range. The value is the same
+	 * as that given as the constructor parameter for the largest value.
+	 * 
+	 * @return the maximum value
+	 </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ommwvXotEeSXuJ3Xp8vEhA" type="_ommwtXotEeSXuJ3Xp8vEhA" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_ommwvnotEeSXuJ3Xp8vEhA" name="hasMinimum" visibility="public">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_ommwv3otEeSXuJ3Xp8vEhA">
+                  <body>
+	 * Method to easily check if {@link #getMinimum()} is not {@code null}.
+	 * 
+	 * @return {@code true} if {@link #getMinimum()} is not {@code null} .
+	 </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ommwwHotEeSXuJ3Xp8vEhA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_ommwwXotEeSXuJ3Xp8vEhA" name="hasMaximum" visibility="public">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_ommwwnotEeSXuJ3Xp8vEhA">
+                  <body>
+	 * Method to easily check if {@link #getMaximum()} is not {@code null}.
+	 * 
+	 * @return {@code true} if {@link #getMaximum()} is not {@code null}.
+	 </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_oms3UHotEeSXuJ3Xp8vEhA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_oms3UXotEeSXuJ3Xp8vEhA" name="contains" visibility="public" isAbstract="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_oms3UnotEeSXuJ3Xp8vEhA">
+                  <body>
+	 * Checks whether the given &lt;code>T&lt;/code> is within this range
+	 * @param t
+	 * @return true if the value is within the range
+	 </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_oms3U3otEeSXuJ3Xp8vEhA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_oms3VHotEeSXuJ3Xp8vEhA" name="t" type="_ommwtXotEeSXuJ3Xp8vEhA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_oms3VXotEeSXuJ3Xp8vEhA" name="equals" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_oms3VnotEeSXuJ3Xp8vEhA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_oms3V3otEeSXuJ3Xp8vEhA" name="obj" type="_fJpVxHonEeS9Gr9yPtn_zA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_oms3WHotEeSXuJ3Xp8vEhA" name="hashCode" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_oms3WXotEeSXuJ3Xp8vEhA" type="_N70hjXY6EeSqtc-Sb9aJnA" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_oms3WnotEeSXuJ3Xp8vEhA" name="toString" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_oms3W3otEeSXuJ3Xp8vEhA" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_ommwtXotEeSXuJ3Xp8vEhA" name="T"/>
           </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_fJXB4HonEeS9Gr9yPtn_zA" name="AbstractConverter" isAbstract="true">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_fJXB4XonEeS9Gr9yPtn_zA">
+              <body>
+ * &lt;p> The base class for our {@link UnitConverter} implementations.&lt;/p>
+ *
+ * @author  &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @version 0.7.1, $Date: 2014-09-18 $
+ </body>
+            </ownedComment>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_fJdIgXonEeS9Gr9yPtn_zA" name="PI" visibility="protected" isLeaf="true" isStatic="true" type="_fJdIgHonEeS9Gr9yPtn_zA" isUnique="false">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fJdIgnonEeS9Gr9yPtn_zA">
+                <body>
+     * The ratio of the circumference of a circle to its diameter.
+     *</body>
+              </ownedComment>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_fJdIg3onEeS9Gr9yPtn_zA" name="IDENTITY" visibility="public" isLeaf="true" isStatic="true" type="_fJXB4HonEeS9Gr9yPtn_zA" isUnique="false">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fJdIhHonEeS9Gr9yPtn_zA">
+                <body>
+     * Holds identity converter.
+     </body>
+              </ownedComment>
+            </ownedAttribute>
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_fJXB4nonEeS9Gr9yPtn_zA" name="AbstractConverter implements UnitConverter" client="_fJXB4HonEeS9Gr9yPtn_zA" supplier="_f8JI0HY5EeSqtc-Sb9aJnA" contract="_f8JI0HY5EeSqtc-Sb9aJnA"/>
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_fJXB5XonEeS9Gr9yPtn_zA" name="AbstractConverter implements Converter" client="_fJXB4HonEeS9Gr9yPtn_zA" supplier="_fJXB5HonEeS9Gr9yPtn_zA" contract="_fJXB5HonEeS9Gr9yPtn_zA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fJjPIHonEeS9Gr9yPtn_zA" name="concatenate" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fJjPIXonEeS9Gr9yPtn_zA">
+                <body>
+     * Concatenates this physics converter with another unit converter.
+     * The resulting converter is equivalent to first converting by the
+     * specified converter (right converter), and then converting by
+     * this converter (left converter).
+     *
+     * @param that the other converter.
+     * @return the concatenation of this converter with that converter.
+     </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJpVwHonEeS9Gr9yPtn_zA" type="_fJXB4HonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJpVwXonEeS9Gr9yPtn_zA" name="that" type="_fJXB4HonEeS9Gr9yPtn_zA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fJpVwnonEeS9Gr9yPtn_zA" name="isIdentity" visibility="public">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJpVw3onEeS9Gr9yPtn_zA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fJpVxXonEeS9Gr9yPtn_zA" name="equals" visibility="public" isAbstract="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJpVxnonEeS9Gr9yPtn_zA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJpVx3onEeS9Gr9yPtn_zA" name="cvtr" type="_fJpVxHonEeS9Gr9yPtn_zA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fJpVyHonEeS9Gr9yPtn_zA" name="hashCode" visibility="public" isAbstract="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJpVyXonEeS9Gr9yPtn_zA" type="_N70hjXY6EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fJvcYHonEeS9Gr9yPtn_zA" name="inverse" visibility="public" isAbstract="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJvcYXonEeS9Gr9yPtn_zA" type="_fJXB4HonEeS9Gr9yPtn_zA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fJvcYnonEeS9Gr9yPtn_zA" name="concatenate" visibility="public">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJvcY3onEeS9Gr9yPtn_zA" type="_f8JI0HY5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJvcZHonEeS9Gr9yPtn_zA" name="converter" type="_f8JI0HY5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fJvcZXonEeS9Gr9yPtn_zA" name="getConversionSteps" visibility="public">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJvcZnonEeS9Gr9yPtn_zA" type="_f8SSxnY5EeSqtc-Sb9aJnA" direction="return">
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fJvcZ3onEeS9Gr9yPtn_zA"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fJvcaHonEeS9Gr9yPtn_zA" value="*"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fJvcanonEeS9Gr9yPtn_zA" name="convert" visibility="public">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJvca3onEeS9Gr9yPtn_zA" type="_fJvcaXonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJvcbHonEeS9Gr9yPtn_zA" name="value" type="_fJvcaXonEeS9Gr9yPtn_zA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fJ1jAHonEeS9Gr9yPtn_zA" name="convert" visibility="public" isAbstract="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJ1jAXonEeS9Gr9yPtn_zA" type="_fJdIgHonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJ1jAnonEeS9Gr9yPtn_zA" name="value" type="_fJdIgHonEeS9Gr9yPtn_zA"/>
+            </ownedOperation>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_fJ1jA3onEeS9Gr9yPtn_zA" name="Identity" visibility="private" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fJ1jBHonEeS9Gr9yPtn_zA">
+                <body>
+     * This class represents the identity converter (singleton).
+     </body>
+              </ownedComment>
+              <generalization xmi:type="uml:Generalization" xmi:id="_fJ1jBXonEeS9Gr9yPtn_zA" general="_fJXB4HonEeS9Gr9yPtn_zA"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_fJ1jBnonEeS9Gr9yPtn_zA" name="isIdentity" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJ1jB3onEeS9Gr9yPtn_zA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_fJ1jCHonEeS9Gr9yPtn_zA" name="inverse" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJ1jCXonEeS9Gr9yPtn_zA" type="_fJ1jA3onEeS9Gr9yPtn_zA" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_fJ1jCnonEeS9Gr9yPtn_zA" name="convert" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJ1jC3onEeS9Gr9yPtn_zA" type="_fJdIgHonEeS9Gr9yPtn_zA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJ1jDHonEeS9Gr9yPtn_zA" name="value" type="_fJdIgHonEeS9Gr9yPtn_zA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_fJ7poHonEeS9Gr9yPtn_zA" name="concatenate" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJ7poXonEeS9Gr9yPtn_zA" type="_f8JI0HY5EeSqtc-Sb9aJnA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJ7pononEeS9Gr9yPtn_zA" name="converter" type="_f8JI0HY5EeSqtc-Sb9aJnA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_fJ7po3onEeS9Gr9yPtn_zA" name="equals" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJ7ppHonEeS9Gr9yPtn_zA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJ7ppXonEeS9Gr9yPtn_zA" name="cvtr" type="_fJpVxHonEeS9Gr9yPtn_zA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_fJ7ppnonEeS9Gr9yPtn_zA" name="hashCode" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJ7pp3onEeS9Gr9yPtn_zA" type="_N70hjXY6EeSqtc-Sb9aJnA" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_fJ7pqHonEeS9Gr9yPtn_zA" name="isLinear" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fJ7pqXonEeS9Gr9yPtn_zA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+              </ownedOperation>
+            </nestedClassifier>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_fJ7pqnonEeS9Gr9yPtn_zA" name="Pair" visibility="private" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fJ7pq3onEeS9Gr9yPtn_zA">
+                <body>
+     * This class represents converters made up of two or more separate
+     * converters (in matrix notation &lt;code>[pair] = [left] x [right]&lt;/code>).
+     </body>
+              </ownedComment>
+              <generalization xmi:type="uml:Generalization" xmi:id="_fJ7prHonEeS9Gr9yPtn_zA" general="_fJXB4HonEeS9Gr9yPtn_zA"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_fKBwQHonEeS9Gr9yPtn_zA" name="left" visibility="private" type="_f8JI0HY5EeSqtc-Sb9aJnA" isUnique="false">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_fKBwQXonEeS9Gr9yPtn_zA">
+                  <body>
+         * Holds the first converter.
+         </body>
+                </ownedComment>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_fKBwQnonEeS9Gr9yPtn_zA" name="right" visibility="private" type="_f8JI0HY5EeSqtc-Sb9aJnA" isUnique="false">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_fKBwQ3onEeS9Gr9yPtn_zA">
+                  <body>
+         * Holds the second converter.
+         </body>
+                </ownedComment>
+              </ownedAttribute>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_fKBwRHonEeS9Gr9yPtn_zA" name="isLinear" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKBwRXonEeS9Gr9yPtn_zA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_fKBwRnonEeS9Gr9yPtn_zA" name="isIdentity" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKBwR3onEeS9Gr9yPtn_zA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_fKBwSHonEeS9Gr9yPtn_zA" name="getConversionSteps" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKBwSXonEeS9Gr9yPtn_zA" type="_f8JI0HY5EeSqtc-Sb9aJnA" direction="return">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fKBwSnonEeS9Gr9yPtn_zA"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fKH24HonEeS9Gr9yPtn_zA" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_fKH24XonEeS9Gr9yPtn_zA" name="inverse" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKH24nonEeS9Gr9yPtn_zA" type="_fJ7pqnonEeS9Gr9yPtn_zA" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_fKH243onEeS9Gr9yPtn_zA" name="convert" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKH25HonEeS9Gr9yPtn_zA" type="_fJdIgHonEeS9Gr9yPtn_zA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKH25XonEeS9Gr9yPtn_zA" name="value" type="_fJdIgHonEeS9Gr9yPtn_zA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_fKH25nonEeS9Gr9yPtn_zA" name="equals" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKH253onEeS9Gr9yPtn_zA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKH26HonEeS9Gr9yPtn_zA" name="cvtr" type="_fJpVxHonEeS9Gr9yPtn_zA"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_fKH26XonEeS9Gr9yPtn_zA" name="hashCode" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKH26nonEeS9Gr9yPtn_zA" type="_N70hjXY6EeSqtc-Sb9aJnA" direction="return"/>
+              </ownedOperation>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_fJXB43onEeS9Gr9yPtn_zA" name="function">
+            <packagedElement xmi:type="uml:Interface" xmi:id="_fJXB5HonEeS9Gr9yPtn_zA" name="Converter"/>
+            <packagedElement xmi:type="uml:Interface" xmi:id="_Cr7tEHopEeSXuJ3Xp8vEhA" name="QuantitySupplier">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_Xc2h0HoqEeSXuJ3Xp8vEhA" annotatedElement="_Cr7tEHopEeSXuJ3Xp8vEhA">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_bQCfkHoqEeSXuJ3Xp8vEhA" annotatedElement="_Xc2h0HoqEeSXuJ3Xp8vEhA">
+                  <body>FunctionalInterface</body>
+                </ownedComment>
+                <body>FunctionalInterface</body>
+              </ownedComment>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_CsBzsHopEeSXuJ3Xp8vEhA" name="getQuantity">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_CsBzsXopEeSXuJ3Xp8vEhA">
+                  <body>
+	 * Gets a quantity.
+	 *
+	 * @return a quantity
+	 </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_CsBzsnopEeSXuJ3Xp8vEhA" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Usage" xmi:id="_dqhacHopEeSXuJ3Xp8vEhA" name="quantity" client="_Cr7tEHopEeSXuJ3Xp8vEhA" supplier="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+            <packagedElement xmi:type="uml:Interface" xmi:id="_ommwsXotEeSXuJ3Xp8vEhA" name="MinimumSupplier"/>
+            <packagedElement xmi:type="uml:Interface" xmi:id="_ommws3otEeSXuJ3Xp8vEhA" name="MaximumSupplier"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_fJvcaXonEeS9Gr9yPtn_zA" name="Number"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_fKN9gHonEeS9Gr9yPtn_zA" name="AbstractMeasurement" isAbstract="true">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_fKN9gXonEeS9Gr9yPtn_zA">
+              <body>
+ * &lt;p>
+ * This class represents the immutable result of a measurement stated in a known
+ * quantity.
+ * &lt;/p>
+ * 
+ * &lt;p>
+ * All instances of this class shall be immutable.
+ * &lt;/p>
+ * 
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @version 0.1, $Date: 2014-11-29 $
+ </body>
+            </ownedComment>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_fKN9hHonEeS9Gr9yPtn_zA" name="quantity" visibility="private" isLeaf="true" type="_CgTrQ3WcEeSrSaxu8IGQmg" isUnique="false"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_fKN9hXonEeS9Gr9yPtn_zA" name="timestamp" visibility="private" isLeaf="true" type="_f7F_9HY5EeSqtc-Sb9aJnA" isUnique="false"/>
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_fKN9g3onEeS9Gr9yPtn_zA" name="AbstractMeasurement implements Measurement" client="_fKN9gHonEeS9Gr9yPtn_zA" supplier="_fKN9gnonEeS9Gr9yPtn_zA" contract="_fKN9gnonEeS9Gr9yPtn_zA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fKUEIHonEeS9Gr9yPtn_zA" name="getQuantity" visibility="public" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fKUEIXonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the measurement quantity.
+	 *
+	 * @return the quantity.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKUEInonEeS9Gr9yPtn_zA" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fKUEI3onEeS9Gr9yPtn_zA" name="getTimestamp" visibility="public" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fKUEJHonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the measurement timestamp.
+	 *
+	 * @return the timestamp.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKUEJXonEeS9Gr9yPtn_zA" type="_f7F_9HY5EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fKUEJnonEeS9Gr9yPtn_zA" name="of" isLeaf="true" isStatic="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKUEJ3onEeS9Gr9yPtn_zA" type="_fKN9gnonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKUEKHonEeS9Gr9yPtn_zA" name="q" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fKUEKXonEeS9Gr9yPtn_zA" name="of" isLeaf="true" isStatic="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKUEKnonEeS9Gr9yPtn_zA" type="_fKN9gnonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKUEK3onEeS9Gr9yPtn_zA" name="q" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKaKwHonEeS9Gr9yPtn_zA" name="t" type="_f7F_9HY5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fMICAHonEeS9Gr9yPtn_zA" name="getTimestamp"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_fKaKwXonEeS9Gr9yPtn_zA" name="Default" visibility="private" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fKaKwnonEeS9Gr9yPtn_zA">
+                <body>
+	 * This class represents the default measurement.
+	 </body>
+              </ownedComment>
+              <generalization xmi:type="uml:Generalization" xmi:id="_fKaKw3onEeS9Gr9yPtn_zA" general="_fKN9gHonEeS9Gr9yPtn_zA"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_fKaKxHonEeS9Gr9yPtn_zA" name="compareTo" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKaKxXonEeS9Gr9yPtn_zA" type="_N70hjXY6EeSqtc-Sb9aJnA" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKaKxnonEeS9Gr9yPtn_zA" name="o" type="_fJpVxHonEeS9Gr9yPtn_zA"/>
+              </ownedOperation>
+            </nestedClassifier>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_fKN9gnonEeS9Gr9yPtn_zA" name="Measurement">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_fL70wXonEeS9Gr9yPtn_zA">
+              <body>
+ *
+ * A Measurement contains a {@link Quantity} and a timestamp.
+ * 
+ * &lt;p>
+ * A {@code Measurement} object is used for maintaining the tuple of quantity and timestamp.
+ * The value is represented as {@linkplain Quantity}
+ * and the time as {@linkplain Instant}
+ * &lt;p>
+
+ * 
+ * @see {@link QuantitySupplier}
+ * @author werner
+ * @version 0.3
+ * @param &lt;Q>
+ </body>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_fL70xHonEeS9Gr9yPtn_zA" general="_fKgRY3onEeS9Gr9yPtn_zA"/>
+            <generalization xmi:type="uml:Generalization" xmi:id="_VTs5cHopEeSXuJ3Xp8vEhA" general="_Cr7tEHopEeSXuJ3Xp8vEhA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fL70xXonEeS9Gr9yPtn_zA" name="getTimestamp">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fL70xnonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the timestamp of this {@link Measurement}.
+	 * 
+	 * @return a timestamp.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fMOIoHonEeS9Gr9yPtn_zA" type="_f7F_9HY5EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_fKgRYHonEeS9Gr9yPtn_zA" name="AbstractQuantity" isAbstract="true">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_fKgRYXonEeS9Gr9yPtn_zA">
+              <body>
+ * &lt;p>
+ * This class represents the immutable result of a scalar measurement stated in
+ * a known unit.
+ * &lt;/p>
+ * 
+ * &lt;p>
+ * &lt;code>
+ *         public static final Quantity&lt;Velocity> C = AbstractQuantity.of(&quot;299792458 m/s&quot;).asType(Velocity.class);
+ *         // Speed of Light (exact).
+ *    &lt;/code>
+ * &lt;/p>
+ * 
+ * &lt;p>
+ * Quantities can be converted to different units.&lt;br/>
+ * &lt;code>
+ *         Quantity&lt;Velocity> milesPerHour = C.to(MILES_PER_HOUR); // Use double implementation (fast).
+ *         System.out.println(milesPerHour);
+ * 
+ *         > 670616629.3843951 m/h
+ *     &lt;/code>
+ * &lt;/p>
+ * 
+ * &lt;p>
+ * Applications may sub-class {@link AbstractQuantity} for particular quantity
+ * types.&lt;br/>
+ * &lt;code>
+ *         // Quantity of type Mass based on &lt;code>double&lt;/code> primitive
+ * types.&lt;br>
+ * public class MassAmount extends AbstractQuantity&lt;Mass> {&lt;br>
+ * private final double kilograms; // Internal SI representation.&lt;br>
+ * private Mass(double kg) { kilograms = kg; }&lt;br>
+ * public static Mass of(double value, Unit&lt;Mass> unit) {&lt;br>
+ * return new Mass(unit.getConverterTo(SI.KILOGRAM).convert(value));&lt;br>
+ * }&lt;br>
+ * public Unit&lt;Mass> getUnit() { return SI.KILOGRAM; }&lt;br>
+ * public Double getValue() { return _kilograms; }&lt;br>
+ * ...&lt;br>
+ * }&lt;br>
+ * &lt;/p>
+ * &lt;p>
+ * // Complex numbers measurements.&lt;br>
+ * public class ComplexQuantity
+ * &lt;Q extends Quantity>extends AbstractQuantity
+ * &lt;Q>{&lt;br>
+ * public Complex getValue() { ... } // Assuming Complex is a Number.&lt;br>
+ * ...&lt;br>
+ * }&lt;br>
+ * &lt;br>
+ * // Specializations of complex numbers measurements.&lt;br>
+ * public final class Current extends ComplexQuantity&lt;ElectricCurrent> {...}&lt;br>
+ * public final class Tension extends ComplexQuantity&lt;ElectricPotential> {...}&lt;br>
+ * &lt;/code>
+ * &lt;/p>
+ * 
+ * &lt;p>
+ * All instances of this class shall be immutable.
+ * &lt;/p>
+ * 
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @version 0.6.2, $Date: 2014-11-02 $
+ </body>
+            </ownedComment>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_fKgRZXonEeS9Gr9yPtn_zA" name="unit" visibility="private" isLeaf="true" type="_f7Zh8HY5EeSqtc-Sb9aJnA" isUnique="false"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_fKgRZnonEeS9Gr9yPtn_zA" name="NONE" visibility="public" isLeaf="true" isStatic="true" type="_fKgRYHonEeS9Gr9yPtn_zA" isUnique="false">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fKgRZ3onEeS9Gr9yPtn_zA">
+                <body>
+	 * Holds a dimensionless quantity of none (exact).
+	 </body>
+              </ownedComment>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_fKmYAHonEeS9Gr9yPtn_zA" name="ONE" visibility="public" isLeaf="true" isStatic="true" type="_fKgRYHonEeS9Gr9yPtn_zA" isUnique="false">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fKmYAXonEeS9Gr9yPtn_zA">
+                <body>
+	 * Holds a dimensionless quantity of one (exact).
+	 </body>
+              </ownedComment>
+            </ownedAttribute>
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_fKgRYnonEeS9Gr9yPtn_zA" name="AbstractQuantity implements Quantity" client="_fKgRYHonEeS9Gr9yPtn_zA" supplier="_CgTrQ3WcEeSrSaxu8IGQmg" contract="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_fKgRZHonEeS9Gr9yPtn_zA" name="AbstractQuantity implements Comparable" client="_fKgRYHonEeS9Gr9yPtn_zA" supplier="_fKgRY3onEeS9Gr9yPtn_zA" contract="_fKgRY3onEeS9Gr9yPtn_zA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fKmYAnonEeS9Gr9yPtn_zA" name="getValue" visibility="public" isAbstract="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fKmYA3onEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the measurement numeric value.
+	 *
+	 * @return the measurement value.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKmYBHonEeS9Gr9yPtn_zA" type="_fJvcaXonEeS9Gr9yPtn_zA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fKmYBXonEeS9Gr9yPtn_zA" name="getUnit" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fKmYBnonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the measurement unit.
+	 *
+	 * @return the measurement unit.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKmYB3onEeS9Gr9yPtn_zA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fKmYCHonEeS9Gr9yPtn_zA" name="toSI" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fKmYCXonEeS9Gr9yPtn_zA">
+                <body>
+	 * Convenient method equivalent to {@link #to(javax.measure.unit.Unit)
+	 * to(this.getUnit().toSI())}.
+	 *
+	 * @return this measure or a new measure equivalent to this measure but
+	 *         stated in SI units.
+	 * @throws ArithmeticException
+	 *             if the result is inexact and the quotient has a
+	 *             non-terminating decimal expansion.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKmYCnonEeS9Gr9yPtn_zA" type="_fKgRYHonEeS9Gr9yPtn_zA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fKmYC3onEeS9Gr9yPtn_zA" name="to" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fKmYDHonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns this measure after conversion to specified unit. The default
+	 * implementation returns
+	 * &lt;code>Measure.valueOf(doubleValue(unit), unit)&lt;/code>. If this measure is
+	 * already stated in the specified unit, then this measure is returned and
+	 * no conversion is performed.
+	 *
+	 * @param unit
+	 *            the unit in which the returned measure is stated.
+	 * @return this measure or a new measure equivalent to this measure but
+	 *         stated in the specified unit.
+	 * @throws ArithmeticException
+	 *             if the result is inexact and the quotient has a
+	 *             non-terminating decimal expansion.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKmYDXonEeS9Gr9yPtn_zA" type="_fKgRYHonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKseoHonEeS9Gr9yPtn_zA" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fKseoXonEeS9Gr9yPtn_zA" name="compareTo" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fKseononEeS9Gr9yPtn_zA">
+                <body>
+	 * Compares this measure to the specified Measurement quantity. The default
+	 * implementation compares the {@link AbstractQuantity#doubleValue(Unit)} of both
+	 * this measure and the specified Measurement stated in the same unit (this
+	 * measure's {@link #getUnit() unit}).
+	 *
+	 * @return a negative integer, zero, or a positive integer as this measure
+	 *         is less than, equal to, or greater than the specified Measurement
+	 *         quantity.
+	 * @return &lt;code>Double.compare(this.doubleValue(getUnit()),
+	 *         that.doubleValue(getUnit()))&lt;/code>
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKseo3onEeS9Gr9yPtn_zA" type="_N70hjXY6EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKsepHonEeS9Gr9yPtn_zA" name="that" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fKsepXonEeS9Gr9yPtn_zA" name="equals" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fKsepnonEeS9Gr9yPtn_zA">
+                <body>
+	 * Compares this measure against the specified object for &lt;b>strict&lt;/b>
+	 * equality (same unit and same amount).
+	 *
+	 * &lt;p>
+	 * Similarly to the {@link BigDecimal#equals} method which consider 2.0 and
+	 * 2.00 as different objects because of different internal scales,
+	 * measurements such as &lt;code>Measure.valueOf(3.0, KILOGRAM)&lt;/code>
+	 * &lt;code>Measure.valueOf(3, KILOGRAM)&lt;/code> and
+	 * &lt;code>Quantities.getQuantity(&quot;3 kg&quot;)&lt;/code> might not be considered equals
+	 * because of possible differences in their implementations.
+	 * &lt;/p>
+	 *
+	 * &lt;p>
+	 * To compare measures stated using different units or using different
+	 * amount implementations the {@link #compareTo compareTo} or
+	 * {@link #equals(javax.measure.Measurement, double, javax.measure.unit.Unit)
+	 * equals(Measurement, epsilon, epsilonUnit)} methods should be used.
+	 * &lt;/p>
+	 *
+	 * @param obj
+	 *            the object to compare with.
+	 * @return &lt;code>this.getUnit.equals(obj.getUnit())
+	 *         &amp;&amp; this.getValue().equals(obj.getValue())&lt;/code>
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKsep3onEeS9Gr9yPtn_zA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKseqHonEeS9Gr9yPtn_zA" name="obj" type="_fJpVxHonEeS9Gr9yPtn_zA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fKseqXonEeS9Gr9yPtn_zA" name="equals" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fKseqnonEeS9Gr9yPtn_zA">
+                <body>
+	 * Compares this measure and the specified Measurement to the given
+	 * accuracy. Measurements are considered approximately equals if their
+	 * absolute differences when stated in the same specified unit is less than
+	 * the specified epsilon.
+	 *
+	 * @param that
+	 *            the Measurement to compare with.
+	 * @param epsilon
+	 *            the absolute error stated in epsilonUnit.
+	 * @param epsilonUnit
+	 *            the epsilon unit.
+	 * @return &lt;code>abs(this.doubleValue(epsilonUnit) - that.doubleValue(epsilonUnit)) &amp;lt;= epsilon&lt;/code>
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKseq3onEeS9Gr9yPtn_zA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKserHonEeS9Gr9yPtn_zA" name="that" type="_fKgRYHonEeS9Gr9yPtn_zA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKserXonEeS9Gr9yPtn_zA" name="epsilon" type="_fJdIgHonEeS9Gr9yPtn_zA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKsernonEeS9Gr9yPtn_zA" name="epsilonUnit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fKylQHonEeS9Gr9yPtn_zA" name="hashCode" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fKylQXonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the hash code for this measure.
+	 *
+	 * @return the hash code value.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKylQnonEeS9Gr9yPtn_zA" type="_N70hjXY6EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fKylQ3onEeS9Gr9yPtn_zA" name="isBig" isLeaf="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKylRHonEeS9Gr9yPtn_zA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fKylRXonEeS9Gr9yPtn_zA" name="toString" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fKylRnonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the &lt;code>String&lt;/code> representation of this measure. The
+	 * string produced for a given measure is always the same; it is not
+	 * affected by locale. This means that it can be used as a canonical string
+	 * representation for exchanging measure, or as a key for a Hashtable, etc.
+	 * Locale-sensitive measure formatting and parsing is handled by the
+	 * {@link MeasurementFormat} class and its subclasses.
+	 *
+	 * @return &lt;code>UnitFormat.getInternational().format(this)&lt;/code>
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKylR3onEeS9Gr9yPtn_zA" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fKylSHonEeS9Gr9yPtn_zA" name="doubleValue" visibility="public" isAbstract="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKylSXonEeS9Gr9yPtn_zA" type="_fJdIgHonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKylSnonEeS9Gr9yPtn_zA" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fKylS3onEeS9Gr9yPtn_zA" name="longValue" visibility="protected">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKylTHonEeS9Gr9yPtn_zA" type="_f7F_9HY5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fKylTXonEeS9Gr9yPtn_zA" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fK4r4HonEeS9Gr9yPtn_zA" name="floatValue" visibility="protected">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fK4r4nonEeS9Gr9yPtn_zA" type="_fK4r4XonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fK4r43onEeS9Gr9yPtn_zA" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fK4r5HonEeS9Gr9yPtn_zA" name="asType" visibility="public" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fK4r5XonEeS9Gr9yPtn_zA">
+                <body>
+	 * Casts this quantity to a parameterized unit of specified nature or throw a
+	 * &lt;code>ClassCastException&lt;/code> if the dimension of the specified
+	 * quantity and this measure unit's dimension do not match. For example:&lt;br/>
+	 * &lt;code>
+	 *     Measure&lt;Length> length = Quantities.getQuantity(&quot;2 km&quot;).asType(Length.class);
+	 * &lt;/code>
+	 *
+	 * @param type
+	 *            the quantity class identifying the nature of the quantity.
+	 * @return this quantity parameterized with the specified type.
+	 * @throws ClassCastException
+	 *             if the dimension of this unit is different from the specified
+	 *             quantity dimension.
+	 * @throws UnsupportedOperationException
+	 *             if the specified quantity class does not have a public static
+	 *             field named &quot;UNIT&quot; holding the SI unit for the quantity.
+	 * @see Unit#asType(Class)
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fK4r5nonEeS9Gr9yPtn_zA" type="_fKgRYHonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fK4r53onEeS9Gr9yPtn_zA" name="type" type="_Cgf4hnWcEeSrSaxu8IGQmg"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_fKgRY3onEeS9Gr9yPtn_zA" name="Comparable"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_fLK_wHonEeS9Gr9yPtn_zA" name="AbstractUnit" isAbstract="true">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_fLK_wXonEeS9Gr9yPtn_zA">
+              <body>
+ * &lt;p>
+ * The class represents units founded on the seven
+ * {@link org.org.unitsofmeasurement.impl.system.SI SI} base units for seven
+ * base quantities assumed to be mutually independent.
+ * &lt;/p>
+ *
+ * &lt;p>
+ * For all physics units, units conversions are symmetrical:
+ * &lt;code>u1.getConverterTo(u2).equals(u2.getConverterTo(u1).inverse())&lt;/code>.
+ * Non-physical units (e.g. currency units) for which conversion is not
+ * symmetrical should have their own separate class hierarchy and are considered
+ * distinct (e.g. financial units), although they can always be combined with
+ * physics units (e.g. &quot;â‚¬/Kg&quot;, &quot;$/h&quot;).
+ * &lt;/p>
+ *
+ * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;>Jean-Marie Dautelle&lt;/a>
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
+ * @version 0.8.2, Nov 15, 2014
+ </body>
+            </ownedComment>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_fLK_w3onEeS9Gr9yPtn_zA" name="ONE" visibility="public" isLeaf="true" isStatic="true" type="_fLK_wHonEeS9Gr9yPtn_zA" isUnique="false">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLK_xHonEeS9Gr9yPtn_zA">
+                <body>
+	 * Holds the dimensionless unit &lt;code>ONE&lt;/code>.
+	 </body>
+              </ownedComment>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_fLK_xXonEeS9Gr9yPtn_zA" name="name" visibility="protected" type="_f7ir43Y5EeSqtc-Sb9aJnA" isUnique="false">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLK_xnonEeS9Gr9yPtn_zA">
+                <body>
+	 * Holds the name.
+	 </body>
+              </ownedComment>
+            </ownedAttribute>
+            <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_fLK_wnonEeS9Gr9yPtn_zA" name="AbstractUnit implements Unit" client="_fLK_wHonEeS9Gr9yPtn_zA" supplier="_f7Zh8HY5EeSqtc-Sb9aJnA" contract="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLK_x3onEeS9Gr9yPtn_zA" name="isSystemUnit" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLK_yHonEeS9Gr9yPtn_zA">
+                <body>
+	 * Indicates if this unit belongs to the set of coherent SI units (unscaled
+	 * SI units).
+	 * 
+	 * The base and coherent derived units of the SI form a coherent set,
+	 * designated the set of coherent SI units. The word coherent is used here
+	 * in the following sense: when coherent units are used, equations between
+	 * the numerical values of quantities take exactly the same form as the
+	 * equations between the quantities themselves. Thus if only units from a
+	 * coherent set are used, conversion factors between units are never
+	 * required.
+	 * 
+	 * @return &lt;code>equals(toSystemUnit())&lt;/code>
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLK_yXonEeS9Gr9yPtn_zA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLK_ynonEeS9Gr9yPtn_zA" name="toSystemUnit" visibility="protected" isAbstract="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLRGYHonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the unscaled {@link SI} unit from which this unit is derived.
+	 * 
+	 * They SI unit can be be used to identify a quantity given the unit. For
+	 * example:[code] static boolean isAngularVelocity(AbstractUnit&lt;?> unit) {
+	 * return unit.toSI().equals(RADIAN.divide(SECOND)); }
+	 * assert(REVOLUTION.divide(MINUTE).isAngularVelocity()); // Returns true.
+	 * [/code]
+	 *
+	 * @return the unscaled metric unit from which this unit is derived.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLRGYXonEeS9Gr9yPtn_zA" type="_fLK_wHonEeS9Gr9yPtn_zA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLRGYnonEeS9Gr9yPtn_zA" name="getConverterToSI" visibility="public" isAbstract="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLRGY3onEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the converter from this unit to its unscaled {@link #toSI SI}
+	 * unit.
+	 *
+	 * @return &lt;code>getConverterTo(this.toSI())&lt;/code>
+	 * @see #toSI
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLRGZHonEeS9Gr9yPtn_zA" type="_f8JI0HY5EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLRGZXonEeS9Gr9yPtn_zA" name="annotate" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLRGZnonEeS9Gr9yPtn_zA">
+                <body>
+	 * Annotates the specified unit. Annotation does not change the unit
+	 * semantic. Annotations are often written between curly braces behind
+	 * units. For example: [code] AbstractUnit&lt;Volume> PERCENT_VOL =
+	 * SI.PERCENT.annotate(&quot;vol&quot;); // &quot;%{vol}&quot; AbstractUnit&lt;Mass> KG_TOTAL =
+	 * SI.KILOGRAM.annotate(&quot;total&quot;); // &quot;kg{total}&quot; AbstractUnit&lt;Dimensionless>
+	 * RED_BLOOD_CELLS = ONE.annotate(&quot;RBC&quot;); // &quot;{RBC}&quot; [/code]
+	 *
+	 * Note: Annotation of system units are not considered themselves as system
+	 * units.
+	 *
+	 * @param annotation
+	 *            the unit annotation.
+	 * @return the annotated unit.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLRGaXonEeS9Gr9yPtn_zA" type="_fLRGaHonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLRGanonEeS9Gr9yPtn_zA" name="annotation" type="_f7ir43Y5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLRGbHonEeS9Gr9yPtn_zA" name="parse" visibility="public" isStatic="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLRGbXonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the physics unit represented by the specified characters as per
+	 * standard &lt;a href=&quot;http://www.unitsofmeasure.org/&quot;>UCUM&lt;/a> format.
+	 *
+	 * Locale-sensitive unit parsing may be handled using the OSGi
+	 * {@link javax.measure.spi.UnitFormatService} or for non-OSGi applications
+	 * the {@link LocalUnitFormat} utility class.
+	 *
+	 * &lt;p>
+	 * Note: The standard UCUM format supports dimensionless units.[code]
+	 * AbstractUnit&lt;Dimensionless> PERCENT =
+	 * AbstractUnit.of(&quot;100&quot;).inverse().asType(Dimensionless.class); [/code]
+	 * &lt;/p>
+	 *
+	 * @param charSequence
+	 *            the character sequence to parse.
+	 * @return &lt;code>UCUMFormat.getCaseSensitiveInstance().parse(csq, new ParsePosition(0))&lt;/code>
+	 * @throws ParserException
+	 *             if the specified character sequence cannot be correctly
+	 *             parsed (e.g. not UCUM compliant).
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLRGbnonEeS9Gr9yPtn_zA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLXNAHonEeS9Gr9yPtn_zA" name="charSequence" type="_fLRGa3onEeS9Gr9yPtn_zA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLXNAXonEeS9Gr9yPtn_zA" name="toString" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLXNAnonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the standard &lt;a href=&quot;http://unitsofmeasure.org/&quot;>UCUM&lt;/a>
+	 * representation of this physics unit. The string produced for a given unit
+	 * is always the same; it is not affected by the locale. It can be used as a
+	 * canonical string representation for exchanging units, or as a key for a
+	 * Hashtable, etc.
+	 *
+	 * Locale-sensitive unit parsing should be handled using the OSGi
+	 * {@link org.unitsofmeasurement.service.UnitFormat} service (or the
+	 * {@link LocalUnitFormat} class for non-OSGi applications).
+	 *
+	 * @return &lt;code>UCUMFormat.getCaseSensitiveInstance().format(this)&lt;/code>
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLXNA3onEeS9Gr9yPtn_zA" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLXNBHonEeS9Gr9yPtn_zA" name="getSystemUnit" visibility="public" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLXNBXonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the system unit (unscaled SI unit) from which this unit is
+	 * derived. They can be be used to identify a quantity given the unit. For
+	 * example:[code] static boolean isAngularVelocity(AbstractUnit&lt;?> unit) {
+	 * return unit.getSystemUnit().equals(RADIAN.divide(SECOND)); }
+	 * assert(REVOLUTION.divide(MINUTE).isAngularVelocity()); // Returns true.
+	 * [/code]
+	 *
+	 * @return the unscaled metric unit from which this unit is derived.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLXNBnonEeS9Gr9yPtn_zA" type="_fLK_wHonEeS9Gr9yPtn_zA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLXNB3onEeS9Gr9yPtn_zA" name="isCompatible" visibility="public" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLXNCHonEeS9Gr9yPtn_zA">
+                <body>
+	 * Indicates if this unit is compatible with the unit specified. To be
+	 * compatible both units must be physics units having the same fundamental
+	 * dimension.
+	 *
+	 * @param that
+	 *            the other unit.
+	 * @return &lt;code>true&lt;/code> if this unit and that unit have equals
+	 *         fundamental dimension according to the current physics model;
+	 *         &lt;code>false&lt;/code> otherwise.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLXNCXonEeS9Gr9yPtn_zA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLXNCnonEeS9Gr9yPtn_zA" name="that" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLXNC3onEeS9Gr9yPtn_zA" name="asType" visibility="public" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLXNDHonEeS9Gr9yPtn_zA">
+                <body>
+	 * Casts this unit to a parameterized unit of specified nature or throw a
+	 * ClassCastException if the dimension of the specified quantity and this
+	 * unit's dimension do not match (regardless whether or not the dimensions
+	 * are independent or not).
+	 *
+	 * @param type
+	 *            the quantity class identifying the nature of the unit.
+	 * @throws ClassCastException
+	 *             if the dimension of this unit is different from the
+	 *             {@link SI} dimension of the specified type.
+	 * @see SI#getUnit(Class)
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLXNDXonEeS9Gr9yPtn_zA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLdToHonEeS9Gr9yPtn_zA" name="type" type="_Cgf4hnWcEeSrSaxu8IGQmg"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLdToXonEeS9Gr9yPtn_zA" name="getProductUnits" visibility="public" isAbstract="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLdTononEeS9Gr9yPtn_zA" type="_f682CnY5EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLdTo3onEeS9Gr9yPtn_zA" name="getDimension" visibility="public" isAbstract="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLdTpHonEeS9Gr9yPtn_zA" type="_f6zFAHY5EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLdTpXonEeS9Gr9yPtn_zA" name="setName" visibility="protected">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLdTpnonEeS9Gr9yPtn_zA" name="name" type="_f7ir43Y5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLdTp3onEeS9Gr9yPtn_zA" name="getName" visibility="public">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLdTqHonEeS9Gr9yPtn_zA" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLdTqXonEeS9Gr9yPtn_zA" name="getConverterTo" visibility="public" isLeaf="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLdTqnonEeS9Gr9yPtn_zA" type="_f8JI0HY5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLdTq3onEeS9Gr9yPtn_zA" name="that" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLdTrHonEeS9Gr9yPtn_zA" name="getConverterToAny" visibility="public" isLeaf="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLjaQHonEeS9Gr9yPtn_zA" type="_f8JI0HY5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLjaQXonEeS9Gr9yPtn_zA" name="that" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLjaQnonEeS9Gr9yPtn_zA" name="alternate" visibility="public" isLeaf="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLjaQ3onEeS9Gr9yPtn_zA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLjaRHonEeS9Gr9yPtn_zA" name="symbol" type="_f7ir43Y5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLjaRXonEeS9Gr9yPtn_zA" name="transform" visibility="public" isLeaf="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLjaRnonEeS9Gr9yPtn_zA" type="_fLK_wHonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLjaR3onEeS9Gr9yPtn_zA" name="operation" type="_f8JI0HY5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLjaSHonEeS9Gr9yPtn_zA" name="shift" visibility="public" isLeaf="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLjaSXonEeS9Gr9yPtn_zA" type="_fLK_wHonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLjaSnonEeS9Gr9yPtn_zA" name="offset" type="_fJdIgHonEeS9Gr9yPtn_zA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLjaS3onEeS9Gr9yPtn_zA" name="multiply" visibility="public" isLeaf="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLpg4HonEeS9Gr9yPtn_zA" type="_fLK_wHonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLpg4XonEeS9Gr9yPtn_zA" name="factor" type="_fJdIgHonEeS9Gr9yPtn_zA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLpg4nonEeS9Gr9yPtn_zA" name="isLongValue" visibility="private" isStatic="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLpg43onEeS9Gr9yPtn_zA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLpg5HonEeS9Gr9yPtn_zA" name="value" type="_fJdIgHonEeS9Gr9yPtn_zA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLpg5XonEeS9Gr9yPtn_zA" name="multiply" visibility="public" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLpg5nonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the product of this unit with the one specified.
+	 *
+	 * &lt;p>
+	 * Note: If the specified unit (that) is not a physical unit, then
+	 * &lt;code>that.multiply(this)&lt;/code> is returned.
+	 * &lt;/p>
+	 *
+	 * @param that
+	 *            the unit multiplicand.
+	 * @return &lt;code>this * that&lt;/code>
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLpg53onEeS9Gr9yPtn_zA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLpg6HonEeS9Gr9yPtn_zA" name="that" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLpg6XonEeS9Gr9yPtn_zA" name="multiply" visibility="public" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLpg6nonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the product of this physical unit with the one specified.
+	 *
+	 * @param that
+	 *            the physical unit multiplicand.
+	 * @return &lt;code>this * that&lt;/code>
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLpg63onEeS9Gr9yPtn_zA" type="_fLK_wHonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLpg7HonEeS9Gr9yPtn_zA" name="that" type="_fLK_wHonEeS9Gr9yPtn_zA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLvngHonEeS9Gr9yPtn_zA" name="inverse" visibility="public" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLvngXonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the inverse of this physical unit.
+	 *
+	 * @return &lt;code>1 / this&lt;/code>
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLvngnonEeS9Gr9yPtn_zA" type="_fLK_wHonEeS9Gr9yPtn_zA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLvng3onEeS9Gr9yPtn_zA" name="divide" visibility="public" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLvnhHonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the result of dividing this unit by the specifified divisor. If
+	 * the factor is an integer value, the division is exact. For example:
+	 * 
+	 * &lt;pre>
+	 * &lt;code>
+	 *    QUART = GALLON_LIQUID_US.divide(4); // Exact definition.
+	 * &lt;/code>
+	 * &lt;/pre>
+	 * 
+	 * @param divisor
+	 *            the divisor value.
+	 * @return this unit divided by the specified divisor.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLvnhXonEeS9Gr9yPtn_zA" type="_fLK_wHonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLvnhnonEeS9Gr9yPtn_zA" name="divisor" type="_fJdIgHonEeS9Gr9yPtn_zA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLvnh3onEeS9Gr9yPtn_zA" name="divide" visibility="public" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLvniHonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the quotient of this unit with the one specified.
+	 *
+	 * @param that
+	 *            the unit divisor.
+	 * @return &lt;code>this.multiply(that.inverse())&lt;/code>
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLvniXonEeS9Gr9yPtn_zA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLvninonEeS9Gr9yPtn_zA" name="that" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLvni3onEeS9Gr9yPtn_zA" name="divide" visibility="public" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fLvnjHonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns the quotient of this physical unit with the one specified.
+	 *
+	 * @param that
+	 *            the physical unit divisor.
+	 * @return &lt;code>this.multiply(that.inverse())&lt;/code>
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLvnjXonEeS9Gr9yPtn_zA" type="_fLK_wHonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fL1uIHonEeS9Gr9yPtn_zA" name="that" type="_fLK_wHonEeS9Gr9yPtn_zA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fL1uIXonEeS9Gr9yPtn_zA" name="root" visibility="public" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fL1uInonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns a unit equals to the given root of this unit.
+	 *
+	 * @param n
+	 *            the root's order.
+	 * @return the result of taking the given root of this unit.
+	 * @throws ArithmeticException
+	 *             if &lt;code>n == 0&lt;/code> or if this operation would result in
+	 *             an unit with a fractional exponent.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fL1uI3onEeS9Gr9yPtn_zA" type="_fLK_wHonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fL1uJHonEeS9Gr9yPtn_zA" name="n" type="_N70hjXY6EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fL1uJXonEeS9Gr9yPtn_zA" name="pow" visibility="public" isLeaf="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_fL1uJnonEeS9Gr9yPtn_zA">
+                <body>
+	 * Returns a unit equals to this unit raised to an exponent.
+	 *
+	 * @param n
+	 *            the exponent.
+	 * @return the result of raising this unit to the exponent.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fL1uJ3onEeS9Gr9yPtn_zA" type="_fLK_wHonEeS9Gr9yPtn_zA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fL1uKHonEeS9Gr9yPtn_zA" name="n" type="_N70hjXY6EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fL1uKXonEeS9Gr9yPtn_zA" name="hashCode" visibility="public" isAbstract="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fL1uKnonEeS9Gr9yPtn_zA" type="_N70hjXY6EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fL1uK3onEeS9Gr9yPtn_zA" name="equals" visibility="public" isAbstract="true">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fL1uLHonEeS9Gr9yPtn_zA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_fL70wHonEeS9Gr9yPtn_zA" name="that" type="_fJpVxHonEeS9Gr9yPtn_zA"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_fLRGZ3onEeS9Gr9yPtn_zA" name="unit">
+            <packagedElement xmi:type="uml:Class" xmi:id="_fLRGaHonEeS9Gr9yPtn_zA" name="AnnotatedUnit"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_fLRGa3onEeS9Gr9yPtn_zA" name="CharSequence"/>
         </packagedElement>
       </packagedElement>
     </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_fJdIgHonEeS9Gr9yPtn_zA" name="Double"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_fK4r4XonEeS9Gr9yPtn_zA" name="Float"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Model" xmi:id="_Cgf4g3WcEeSrSaxu8IGQmg" name="java">
     <packagedElement xmi:type="uml:Package" xmi:id="_Cgf4hHWcEeSrSaxu8IGQmg" name="java">
@@ -1174,6 +2334,7 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_CgZx5nWcEeSrSaxu8IGQmg" name="Number"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_N79rcXY6EeSqtc-Sb9aJnA" name="CharSequence"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_N79rfXY6EeSqtc-Sb9aJnA" name="Appendable"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_fJpVxHonEeS9Gr9yPtn_zA" name="Object"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_f682CXY5EeSqtc-Sb9aJnA" name="util">
         <packagedElement xmi:type="uml:Class" xmi:id="_f682CnY5EeSqtc-Sb9aJnA" name="Map"/>
