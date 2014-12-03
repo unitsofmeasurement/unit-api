@@ -16,12 +16,12 @@ package javax.measure.spi;
  * 
  * <p>
  * Common system of units are "SI" (System International), "Imperial" (British),
- * "USCustomary".
+ * "US" (US Customary).
  * </p>
  * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.4 ($Revision: 257 $), $Date: 2013-09-20 01:05:19 +0200 (Fr, 20 Sep 2013) $
+ * @version 0.5 $Date: 2014-12-03 $
  */
 public interface SystemOfUnitsService {
 
