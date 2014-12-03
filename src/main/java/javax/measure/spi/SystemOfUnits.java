@@ -19,7 +19,7 @@ import javax.measure.Unit;
  * "US" (US Customary).
  * Nothing prevents a unit from belonging to several systems of units at the
  * same time (for example an {@code Imperial} system would have many of the
- * units held by {@code US} customary system).
+ * units held by the {@code US} Customary system).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
