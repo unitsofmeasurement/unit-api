@@ -14,14 +14,16 @@ import javax.measure.Quantity;
 import javax.measure.Unit;
 
 /**
- * A system of units grouped together for historical or cultural reasons.
+ * A system of units grouped together for historical or cultural reasons.<br>
+ * Common system of units are "SI" (System International), "Imperial" (British),
+ * "US" (US Customary).
  * Nothing prevents a unit from belonging to several systems of units at the
  * same time (for example an {@code Imperial} system would have many of the
  * units held by {@code US} customary system).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.7, $Date: 2014-11-04 $
+ * @version 0.8, $Date: 2014-12-03 $
  * @see <a href="http://en.wikipedia.org/wiki/International_System_of_Units">
  *      Wikipedia: International System of Units</a>
  * @see <a href="http://en.wikipedia.org/wiki/Systems_of_measurement">
