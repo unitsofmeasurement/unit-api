@@ -12,11 +12,13 @@ import java.io.IOException;
 import javax.measure.Unit;
 
 /**
- * Formatting and parsing of {@code Unit} instances.
+ * <p>
+ * Formats instances of {@link Unit} to a {@link String} or an {@link Appendable} and parses a {@link CharSequence} to a {@link Unit}.
+ * </p>
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.4
+ * @version 0.5, Dec 3, 2014
  *
  * @see Unit
  * @see Parser
