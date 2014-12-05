@@ -36,8 +36,7 @@ package javax.measure;
  *      Quantity</a>
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia:
  *      Conversion of units</a>
- * @see Measurement
- * @version 0.23, Date: 2014-11-26
+ * @version 0.24, Date: 2014-12-05
  */
 public interface Quantity<Q extends Quantity<Q>> {
 
@@ -65,9 +64,9 @@ public interface Quantity<Q extends Quantity<Q>> {
 	 * specified.
 	 *
 	 * @throws ClassCastException if the type of an element
-     *         in the specified operation is incompatible with this
-     *         quantity
-     *         (<a href="#optional-restrictions">optional</a>)
+         *         in the specified operation is incompatible with this
+         *         quantity
+         *         (<a href="#optional-restrictions">optional</a>)
 	 *
 	 * @param that
 	 *            the {@code Quantity} divisor.
@@ -89,9 +88,9 @@ public interface Quantity<Q extends Quantity<Q>> {
 	 * Returns the product of this {@code Quantity} with the one specified.
 	 *
 	 * @throws ClassCastException if the type of an element
-     *         in the specified operation is incompatible with this
-     *         quantity
-     *         (<a href="#optional-restrictions">optional</a>)
+         *         in the specified operation is incompatible with this
+         *         quantity
+         *         (<a href="#optional-restrictions">optional</a>)
 	 *
 	 * @param that
 	 *            the {@code Quantity} multiplier.
@@ -116,38 +115,38 @@ public interface Quantity<Q extends Quantity<Q>> {
 	 */
 	Quantity<?> inverse();
 
-    /**
-     * Returns this {@code Quantity} converted into another (compatible) {@code Unit}.
-     *
-     * @param unit
-     * @return the converted result.
-     */
-    Quantity<Q> to(Unit<Q> unit);
+       /**
+        * Returns this {@code Quantity} converted into another (compatible) {@code Unit}.
+        *
+        * @param unit the {@code Unit} to convert to.
+        * @return the converted result.
+        */
+        Quantity<Q> to(Unit<Q> unit);
     
-	/**
-	 * Casts this quantity to a parameterized unit of specified nature or throw a
-	 * <code>ClassCastException</code> if the dimension of the specified
-	 * quantity and this measure unit's dimension do not match. For example:<br/>
-	 * <code>
-	 *     Quantity<Length> length = BaseQuantity.of("2 km").asType(Length.class);
-	 * </code>
-	 * or
-     * <code>
-     *      Quantity<Speed> C = length.multiply(299792458).divide(second).asType(Speed.class);
-     * </code>
-     *
-     * @param  <T> The type of the quantity.
-     * @param  type the quantity class identifying the nature of the quantity.
-   	 * @return this quantity parameterized with the specified type.
-	 * @throws ClassCastException
-	 *             if the dimension of this unit is different from the specified
-	 *             quantity dimension.
-	 * @throws UnsupportedOperationException
-	 *             if the specified quantity class does not have a public static
-	 *             field named "UNIT" holding the SI unit for the quantity.
-	 * @see Unit#asType(Class)
-     */
-    <T extends Quantity<T>> Quantity<T> asType(Class<T> type) throws ClassCastException;
+       /**
+        * Casts this quantity to a parameterized unit of specified nature or throw a
+        * <code>ClassCastException</code> if the dimension of the specified
+        * quantity and this measure unit's dimension do not match. For example:<br/>
+        * <code>
+        *     Quantity<Length> length = BaseQuantity.of("2 km").asType(Length.class);
+        * </code>
+        * or
+        * <code>
+        *      Quantity<Speed> C = length.multiply(299792458).divide(second).asType(Speed.class);
+        * </code>
+        *
+        * @param  <T> The type of the quantity.
+        * @param  type the quantity class identifying the nature of the quantity.
+        * @return this quantity parameterized with the specified type.
+        * @throws ClassCastException
+        *             if the dimension of this unit is different from the specified
+        *             quantity dimension.
+        * @throws UnsupportedOperationException
+        *             if the specified quantity class does not have a public static
+        *             field named "UNIT" holding the SI unit for the quantity.
+        * @see Unit#asType(Class)
+        */
+        <T extends Quantity<T>> Quantity<T> asType(Class<T> type) throws ClassCastException;
 
 	/**
 	 * Returns the value of this {@code Quantity}.
