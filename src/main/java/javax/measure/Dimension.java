@@ -9,7 +9,6 @@ package javax.measure;
 
 import java.util.Map;
 
-
 /**
  * Represents the dimension of a unit.
  *
@@ -20,7 +19,7 @@ import java.util.Map;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.12
+ * @version 0.13, December 6, 2014
  *
  * @see <a href="http://en.wikipedia.org/wiki/Dimensional_analysis">Wikipedia: Dimensional Analysis</a>
  */
@@ -28,18 +27,18 @@ public interface Dimension {
     /**
      * Returns the product of this dimension with the one specified.
      *
-     * @param  that the dimension multiplicand.
-     * @return {@code this * that}
+     * @param  multiplicand the dimension multiplicand.
+     * @return {@code this * multiplicand}
      */
-    Dimension multiply(Dimension that);
+    Dimension multiply(Dimension multiplicand);
 
     /**
      * Returns the quotient of this dimension with the one specified.
      *
-     * @param  that the dimension divisor.
-     * @return {@code this / that}
+     * @param  divisor the dimension divisor.
+     * @return {@code this / divisor}
      */
-    Dimension divide(Dimension that);
+    Dimension divide(Dimension divisor);
 
     /**
      * Returns this dimension raised to an exponent.
