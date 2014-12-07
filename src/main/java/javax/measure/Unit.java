@@ -229,18 +229,18 @@ public interface Unit<Q extends Quantity<Q>> {
      *    ELECTRON_MASS = KILOGRAM.multiply(9.10938188e-31); // Approximation.
      * [/code]
      *
-     * @param  factor the factor
-     * @return this unit scaled by the specified factor.
+     * @param  multiplier the multiplier
+     * @return this unit scaled by the specified multiplier.
      */
-    Unit<Q> multiply(double factor);
+    Unit<Q> multiply(double multiplier);
 
     /**
      * Returns the product of this unit with the one specified.
      *
-     * @param  that the unit multiplicand.
-     * @return {@code this * that}
+     * @param  multiplier the unit multiplier.
+     * @return {@code this * multiplier}
      */
-    Unit<?> multiply(Unit<?> that);
+    Unit<?> multiply(Unit<?> multiplier);
 
     /**
      * Returns the inverse of this unit.
@@ -266,10 +266,10 @@ public interface Unit<Q extends Quantity<Q>> {
     /**
      * Returns the quotient of this unit with the one specified.
      *
-     * @param  that the unit divisor.
-     * @return {@code this / that}
+     * @param  divisor the unit divisor.
+     * @return {@code this / divisor}
      */
-    Unit<?> divide(Unit<?> that);
+    Unit<?> divide(Unit<?> divisor);
 
     /**
      * Returns a unit equals to the given root of this unit.

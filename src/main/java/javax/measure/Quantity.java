@@ -36,28 +36,28 @@ package javax.measure;
  *      Quantity</a>
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia:
  *      Conversion of units</a>
- * @version 0.24, Date: 2014-12-05
+ * @version 0.25, Date: 2014-12-07
  */
 public interface Quantity<Q extends Quantity<Q>> {
 
 	/**
 	 * Returns the sum of this {@code Quantity} with the one specified.
 	 *
-	 * @param that
+	 * @param augend
 	 *            the {@code Quantity} to be added.
-	 * @return <code>this + that</code>.
+	 * @return {@code this + augend}.
 	 */
-	Quantity<Q> add(Quantity<Q> that);
+	Quantity<Q> add(Quantity<Q> augend);
 
 	/**
 	 * Returns the difference between this {@code Quantity} and the one
 	 * specified.
 	 *
-	 * @param that
+	 * @param subtrahend
 	 *            the {@code Quantity} to be subtracted.
 	 * @return <code>this - that</code>.
 	 */
-	Quantity<Q> subtract(Quantity<Q> that);
+	Quantity<Q> subtract(Quantity<Q> subtrahend);
 
 	/**
 	 * Returns the product of this {@code Quantity} divided by the {@code Quantity}
@@ -68,33 +68,33 @@ public interface Quantity<Q extends Quantity<Q>> {
          *         quantity
          *         (<a href="#optional-restrictions">optional</a>)
 	 *
-	 * @param that
+	 * @param divisor
 	 *            the {@code Quantity} divisor.
 	 * @return <code>this / that</code>.
 	 */
-	Quantity<?> divide(Quantity<?> that);
+	Quantity<?> divide(Quantity<?> divisor);
 
 	/**
 	 * Returns the product of this {@code Quantity} divided by the {@code Number}
 	 * specified.
 	 *
-	 * @param that
+	 * @param divisor
 	 *            the {@code Number} divisor.
 	 * @return <code>this / that</code>.
 	 */
-	Quantity<Q> divide(Number that);
+	Quantity<Q> divide(Number divisor);
 
 	/**
 	 * Returns the product of this {@code Quantity} with the one specified.
 	 *
 	 * @throws ClassCastException if the type of an element
-         *         in the specified operation is incompatible with this
-         *         quantity
-         *         (<a href="#optional-restrictions">optional</a>)
+     *         in the specified operation is incompatible with this
+     *         quantity
+     *         (<a href="#optional-restrictions">optional</a>)
 	 *
 	 * @param that
 	 *            the {@code Quantity} multiplier.
-	 * @return <code>this * that</code>.
+	 * @return <code>this * multiplier</code>.
 	 */
 	Quantity<?> multiply(Quantity<?> multiplier);
 	
@@ -104,7 +104,7 @@ public interface Quantity<Q extends Quantity<Q>> {
 	 *
 	 * @param that
 	 *            the {@code Number} multiplier.
-	 * @return <code>this * that</code>.
+	 * @return <code>this * multiplier</code>.
 	 */
 	Quantity<Q> multiply(Number multiplier);
 
