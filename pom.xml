@@ -153,18 +153,18 @@
 				<role>Java Developer</role>
 			</roles>
 		</developer>
+		<developer>
+            <id>duckasteroid</id>
+            <name>Chris Senior</name>
+            <email>christopher.senior@gmail.com</email>
+            <organization>Snap-on Inc.</organization>
+            <roles>
+                <role>Expert</role>
+                <role>Java Developer</role>
+            </roles>
+        </developer>
 	</developers>
 	<contributors>
-		<contributor>
-			<!-- id>christopher.senior</id -->
-			<name>Chris Senior</name>
-			<email>christopher.senior@gmail.com</email>
-			<organization>Snap-on Inc.</organization>
-			<roles>
-				<role>Proposed Expert</role>
-				<role>Java Developer</role>
-			</roles>
-		</contributor>
 		<contributor>
 			<!-- id>dan.leuck</id -->
 			<name>Daniel Leuck</name>
