@@ -14,13 +14,13 @@ import javax.measure.Unit;
  * Represents a factory that accepts {@linkplain Number} and {@link Unit} arguments to create a {@link Quantity} result.
  *
  * <p>This is a <a href="http://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html#package.description">functional interface</a>
- * whose functional method is {@link #create(T, U)}.
+ * whose functional method is {@link #create(Number, Unit)}.
  *
  * @param <Q> the type of the {@link Quantity} result
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @author <a href="mailto:otaviojava@java.net">Otavio Santana</a>
- * @version 0.5, $Date: 2014-09-18 $
+ * @version 0.6, $Date: 2014-09-18 $
  */
 public interface QuantityFactory <Q extends Quantity<Q>> {
 
@@ -31,5 +31,5 @@ public interface QuantityFactory <Q extends Quantity<Q>> {
      * @param unit the unit
      * @return the corresponding quantity
      */
-    <N extends Number, U extends Unit<Q>> Quantity<Q> create(N number, U unit);
+	Quantity<Q> create(Number value, Unit<Q> unit);
 }

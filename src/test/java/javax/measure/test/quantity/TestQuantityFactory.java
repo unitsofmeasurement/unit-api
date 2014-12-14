@@ -50,7 +50,7 @@ import javax.measure.test.TestUnit;
  * @author  <a href="mailto:desruisseaux@users.sourceforge.net">Martin Desruisseaux</a>
  * @author  <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @author  <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @version 0.5.4, $Date: 2014-10-30 $
+ * @version 0.6, $Date: 2014-10-30 $
  */
 public abstract class TestQuantityFactory<Q extends Quantity<Q>> implements QuantityFactory<Q>  {
 
@@ -135,7 +135,7 @@ public abstract class TestQuantityFactory<Q extends Quantity<Q>> implements Quan
      * @param unit the unit
      * @return the corresponding quantity
      */
-    public abstract <N extends Number, U extends Unit<Q>> Q create(N number, U unit);
+    public abstract Quantity<Q> create(Number value, Unit<Q> unit);
 
     /**
      * Returns the metric unit for quantities produced by this factory
@@ -185,8 +185,7 @@ public abstract class TestQuantityFactory<Q extends Quantity<Q>> implements Quan
 //            CLASS_TO_METRIC_UNIT.put(Volume.class, CUBIC_METRE);
         }
 
-        @SuppressWarnings("unchecked")
-        public <N extends Number, U extends Unit<Q>> Q create(N number, U unit) {
+        public Quantity<Q> create(Number value, Unit<Q> unit) {
             //return (Q) new BaseQuantity<Q>(number, unit);
         	return null; // FIXME here we need to instantiate "SOMETHING" (a concrete class;-)
         }
