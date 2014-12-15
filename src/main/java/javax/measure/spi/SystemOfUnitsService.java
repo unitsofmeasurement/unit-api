@@ -21,7 +21,7 @@ package javax.measure.spi;
  * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.5 $Date: 2014-12-03 $
+ * @version 0.5, $Date: 2014-12-03 $
  */
 public interface SystemOfUnitsService {
 
