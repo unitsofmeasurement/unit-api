@@ -35,7 +35,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:desruisseaux@users.sourceforge.net">Martin Desruisseaux</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.16, December 8, 2014
+ * @version 0.17, December 15, 2014
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
  */
@@ -290,12 +290,13 @@ public interface Unit<Q extends Quantity<Q>> {
     Unit<?> pow(int n);
 
     /**
-     * Returns a string representation of this unit. The string representation may
+     * <p>Returns a string representation of this unit. The string representation may
      * be the unit {@linkplain #getSymbol() symbol}, or may be some representation
      * of {@linkplain #getProductUnits() product units}, multiplication factor and
-     * offset if any. The string may be localized at implementation choice.
-     *
-     * @return the (eventually localized) string representation of this unit.
+     * offset if any.</p>
+     * The string may be localized at implementation choice by the means of a particular device and platform.
+     * <br>
+     * @return the string representation of this unit.
      *
      * @see #getSymbol()
      */
