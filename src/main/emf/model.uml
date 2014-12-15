@@ -49,7 +49,7 @@
 	 </body>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgTrR3WcEeSrSaxu8IGQmg" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgTrSHWcEeSrSaxu8IGQmg" name="that" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgTrSHWcEeSrSaxu8IGQmg" name="augend" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_CgTrSXWcEeSrSaxu8IGQmg" name="subtract">
             <ownedComment xmi:type="uml:Comment" xmi:id="_CgTrSnWcEeSrSaxu8IGQmg">
@@ -63,7 +63,7 @@
 	 </body>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx4HWcEeSrSaxu8IGQmg" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx4XWcEeSrSaxu8IGQmg" name="that" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx4XWcEeSrSaxu8IGQmg" name="subtrahend" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_CgZx4nWcEeSrSaxu8IGQmg" name="divide">
             <ownedComment xmi:type="uml:Comment" xmi:id="_CgZx43WcEeSrSaxu8IGQmg">
@@ -82,7 +82,7 @@
 	 </body>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx5HWcEeSrSaxu8IGQmg" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx5XWcEeSrSaxu8IGQmg" name="that" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx5XWcEeSrSaxu8IGQmg" name="divisor" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_CgZx53WcEeSrSaxu8IGQmg" name="divide">
             <ownedComment xmi:type="uml:Comment" xmi:id="_CgZx6HWcEeSrSaxu8IGQmg">
@@ -96,7 +96,7 @@
 	 </body>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx6XWcEeSrSaxu8IGQmg" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx6nWcEeSrSaxu8IGQmg" name="that" type="_CgZx5nWcEeSrSaxu8IGQmg"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_CgZx6nWcEeSrSaxu8IGQmg" name="divisor" type="_CgZx5nWcEeSrSaxu8IGQmg"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_CgZx63WcEeSrSaxu8IGQmg" name="multiply">
             <ownedComment xmi:type="uml:Comment" xmi:id="_CgZx7HWcEeSrSaxu8IGQmg">
@@ -460,7 +460,7 @@
      </body>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc9XY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m0HY5EeSqtc-Sb9aJnA" name="factor" type="_f7sc7nY5EeSqtc-Sb9aJnA"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m0HY5EeSqtc-Sb9aJnA" name="multiplier" type="_f7sc7nY5EeSqtc-Sb9aJnA"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m0XY5EeSqtc-Sb9aJnA" name="multiply">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f71m0nY5EeSqtc-Sb9aJnA">
@@ -472,7 +472,7 @@
      </body>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m03Y5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m1HY5EeSqtc-Sb9aJnA" name="that" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m1HY5EeSqtc-Sb9aJnA" name="multiplier" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m1XY5EeSqtc-Sb9aJnA" name="inverse">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f71m1nY5EeSqtc-Sb9aJnA">
@@ -512,7 +512,7 @@
      </body>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m3nY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m33Y5EeSqtc-Sb9aJnA" name="that" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m33Y5EeSqtc-Sb9aJnA" name="divisor" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m4HY5EeSqtc-Sb9aJnA" name="root">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f71m4XY5EeSqtc-Sb9aJnA">
@@ -601,7 +601,7 @@
      </body>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f6zFBHY5EeSqtc-Sb9aJnA" type="_f6zFAHY5EeSqtc-Sb9aJnA" direction="return"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f6zFBXY5EeSqtc-Sb9aJnA" name="that" type="_f6zFAHY5EeSqtc-Sb9aJnA"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f6zFBXY5EeSqtc-Sb9aJnA" name="multiplier" type="_f6zFAHY5EeSqtc-Sb9aJnA"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f6zFBnY5EeSqtc-Sb9aJnA" name="divide">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f6zFB3Y5EeSqtc-Sb9aJnA">
@@ -613,7 +613,7 @@
      </body>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f6zFCHY5EeSqtc-Sb9aJnA" type="_f6zFAHY5EeSqtc-Sb9aJnA" direction="return"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f6zFCXY5EeSqtc-Sb9aJnA" name="that" type="_f6zFAHY5EeSqtc-Sb9aJnA"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f6zFCXY5EeSqtc-Sb9aJnA" name="divisor" type="_f6zFAHY5EeSqtc-Sb9aJnA"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f6zFDXY5EeSqtc-Sb9aJnA" name="pow">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f682AHY5EeSqtc-Sb9aJnA">
@@ -1947,6 +1947,16 @@
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_fK4r5nonEeS9Gr9yPtn_zA" type="_fKgRYHonEeS9Gr9yPtn_zA" direction="return"/>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_fK4r53onEeS9Gr9yPtn_zA" name="type" type="_Cgf4hnWcEeSrSaxu8IGQmg"/>
             </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_Q6NP0H7uEeS9_eVxvq6Zqg" name="add">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_Q6NP0X7uEeS9_eVxvq6Zqg" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return">
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Q6NP0n7uEeS9_eVxvq6Zqg" value="1"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Q6TWcH7uEeS9_eVxvq6Zqg" value="1"/>
+              </ownedParameter>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_Q6TWcX7uEeS9_eVxvq6Zqg" name="augend" type="_CgTrQ3WcEeSrSaxu8IGQmg">
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Q6TWcn7uEeS9_eVxvq6Zqg" value="1"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Q6TWc37uEeS9_eVxvq6Zqg" value="1"/>
+              </ownedParameter>
+            </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Interface" xmi:id="_fKgRY3onEeS9Gr9yPtn_zA" name="Comparable"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_fLK_wHonEeS9Gr9yPtn_zA" name="AbstractUnit" isAbstract="true">
@@ -2313,6 +2323,12 @@
             <ownedOperation xmi:type="uml:Operation" xmi:id="_fL1uK3onEeS9Gr9yPtn_zA" name="equals" visibility="public" isAbstract="true">
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_fL1uLHonEeS9Gr9yPtn_zA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_fL70wHonEeS9Gr9yPtn_zA" name="that" type="_fJpVxHonEeS9Gr9yPtn_zA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_-mzJ4H7tEeS9_eVxvq6Zqg" name="getSymbol">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_-m5QgH7tEeS9_eVxvq6Zqg" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return">
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-m5QgX7tEeS9_eVxvq6Zqg" value="1"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-m5Qgn7tEeS9_eVxvq6Zqg" value="1"/>
+              </ownedParameter>
             </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Package" xmi:id="_fLRGZ3onEeS9Gr9yPtn_zA" name="unit">
