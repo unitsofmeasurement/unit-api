@@ -64,7 +64,7 @@ public class BaseUnit<Q extends Quantity<Q>> extends TestUnit<Q> {
         }
         if (obj instanceof BaseUnit<?>) {
         	BaseUnit<?> other = (BaseUnit<?>) obj;
-        	return symbol!= null ? symbol.equals(other.symbol) : false;
+        	return symbol != null && symbol.equals(other.symbol);
         }
         return false;
     }
