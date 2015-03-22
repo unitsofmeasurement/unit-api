@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>javax.measure</groupId>
 	<artifactId>unit-api</artifactId>
-	<version>0.8-SNAPSHOT</version>
+	<version>0.8-RC1</version>
 	<name>Units of Measurement API</name>
 	<packaging>bundle</packaging>
 	<url>http://unitsofmeasurement.github.io/</url>
@@ -154,15 +154,25 @@
 			</roles>
 		</developer>
 		<developer>
-            <id>duckasteroid</id>
-            <name>Chris Senior</name>
-            <email>christopher.senior@gmail.com</email>
-            <organization>Snap-on Inc.</organization>
-            <roles>
-                <role>Expert</role>
-                <role>Java Developer</role>
-            </roles>
-        </developer>
+			<id>rajmahendra</id>
+			<name>Rajmahendra Hegde</name>
+			<email>rajmahendra@gmail.com</email>
+			<organization>JUG Chennai</organization>
+			<roles>
+				<role>Expert</role>
+				<role>Java Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>duckasteroid</id>
+			<name>Chris Senior</name>
+			<email>christopher.senior@gmail.com</email>
+			<organization>Snap-on Inc.</organization>
+			<roles>
+				<role>Expert</role>
+				<role>Java Developer</role>
+			</roles>
+		</developer>
 	</developers>
 	<contributors>
 		<contributor>
@@ -222,7 +232,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>2.2.1</version>
+				<version>2.4</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -237,7 +247,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9</version>
+				<version>2.10.2</version>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -263,7 +273,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.5</version>
+				<version>2.6</version>
 				<configuration>
 					<archive>
 						<manifest>
@@ -286,12 +296,8 @@
 				<artifactId>maven-bundle-plugin</artifactId>
 				<version>2.5.3</version>
 				<extensions>true</extensions>
-				<!-- configuration>
-					<instructions>
-						<Export-Package>javax.measure.*</Export-Package>
-						<Private-Package>!*</Private-Package>
-					</instructions>
-				</configuration -->
+				<!-- configuration> <instructions> <Export-Package>javax.measure.*</Export-Package> 
+					<Private-Package>!*</Private-Package> </instructions> </configuration -->
 			</plugin>
 
 			<!-- Resources -->
@@ -391,7 +397,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-
 	</build>
 
 	<!-- Deployment to public servers -->
@@ -494,6 +499,5 @@
 				</plugins>
 			</build>
 		</profile>
-
 	</profiles>
 </project>
