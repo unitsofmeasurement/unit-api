@@ -20,6 +20,7 @@ import javax.measure.Quantity;
  * @version 1.2.1
  *
  * @see <a href="http://en.wikipedia.org/wiki/Ionizing_radiation">Wikipedia: Ionizing Radiation</a>
+ * @deprecated see https://java.net/jira/browse/UNITSOFMEASUREMENT-100
  */
 public interface IonizingRadiation extends Quantity<IonizingRadiation> {
 }

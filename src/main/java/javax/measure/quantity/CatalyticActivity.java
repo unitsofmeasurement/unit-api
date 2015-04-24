@@ -16,6 +16,7 @@ import javax.measure.Quantity;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @version 1.0
+ * @deprecated see https://java.net/jira/browse/UNITSOFMEASUREMENT-100
  */
 public interface CatalyticActivity extends Quantity<CatalyticActivity> {
 }

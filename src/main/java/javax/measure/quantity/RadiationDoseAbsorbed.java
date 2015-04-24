@@ -18,6 +18,7 @@ import javax.measure.Quantity;
  * @version 1.0
  *
  * @see Mass
+ * @deprecated see https://java.net/jira/browse/UNITSOFMEASUREMENT-100
  */
 public interface RadiationDoseAbsorbed extends Quantity<RadiationDoseAbsorbed> {
 }

@@ -19,6 +19,7 @@ import javax.measure.Quantity;
  * @version 1.1
  *
  * @see <a href="http://en.wikipedia.org/wiki/Action_(physics)">Wikipedia: Action</a>
+ * @deprecated see https://java.net/jira/browse/UNITSOFMEASUREMENT-100
  */
 public interface Action extends Quantity<Action> {
 }

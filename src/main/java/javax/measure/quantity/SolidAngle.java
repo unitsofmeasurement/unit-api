@@ -19,6 +19,7 @@ import javax.measure.Quantity;
  * @version 1.1
  *
  * @see Angle
+ * @deprecated see https://java.net/jira/browse/UNITSOFMEASUREMENT-100
  */
 public interface SolidAngle extends Quantity<SolidAngle> {
 }

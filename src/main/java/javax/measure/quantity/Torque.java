@@ -25,6 +25,7 @@ import javax.measure.Quantity;
  *
  * @see Force
  * @see Length
+ * @deprecated see https://java.net/jira/browse/UNITSOFMEASUREMENT-100
  */
 public interface Torque extends Quantity<Torque> {
 }

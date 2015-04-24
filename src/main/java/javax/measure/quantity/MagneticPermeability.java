@@ -20,6 +20,7 @@ import javax.measure.Quantity;
  * @version 1.8.1
  *
  * @see <a href="http://en.wikipedia.org/wiki/Permeability_(electromagnetism)">Wikipedia: Permeability</a>
+ * @deprecated see https://java.net/jira/browse/UNITSOFMEASUREMENT-100
  */
 public interface MagneticPermeability extends Quantity<MagneticPermeability> {
 }

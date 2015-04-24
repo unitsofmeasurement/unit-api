@@ -18,6 +18,7 @@ import javax.measure.Quantity;
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @author Martin Desruisseaux
  * @version 1.2
+ * @deprecated see https://java.net/jira/browse/UNITSOFMEASUREMENT-100
  */
 public interface Radioactivity extends Quantity<Radioactivity> {
 }

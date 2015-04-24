@@ -20,6 +20,7 @@ import javax.measure.Quantity;
  *
  * @see Mass
  * @see Volume
+ * @deprecated see https://java.net/jira/browse/UNITSOFMEASUREMENT-100
  */
 public interface VolumetricDensity extends Quantity<VolumetricDensity> {
 }
