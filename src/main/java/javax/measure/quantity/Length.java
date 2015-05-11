@@ -1,6 +1,6 @@
 /**
  * Unit-API - Units of Measurement API for Java
- * Copyright (c) 2014 Jean-Marie Dautelle, Werner Keil, V2COM
+ * Copyright (c) 2014-2015 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
  *
  * See LICENSE.txt for details.
@@ -16,22 +16,25 @@ import javax.measure.Quantity;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.1.1
+ * @version 1.2
  *
  * @see Area
  * @see Volume
  * @see Angle
  * @see SolidAngle
  * @see Speed
+ * 
+ * @implSpec 
+ * SI Base Unit
  */
 public interface Length extends Quantity<Length> {
 	/**
 	 * Returns the product of this {@code Length} with the one specified resulting in {@link Area}
 	 *
-	 *
 	 * @param that
 	 *            the {@code Length} multiplier.
 	 * @return <code>this * that</code>.
+	 * @deprecated Subject to removal
 	 */
 	Area multiply(Length that);
 }
