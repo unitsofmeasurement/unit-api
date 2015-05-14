@@ -9,7 +9,6 @@ package javax.measure.quantity;
 
 import javax.measure.Quantity;
 
-
 /**
  * Degree of magnetization of a material that responds linearly
  * to an applied magnetic field.
