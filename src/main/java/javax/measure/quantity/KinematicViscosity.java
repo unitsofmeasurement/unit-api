@@ -9,7 +9,6 @@ package javax.measure.quantity;
 
 import javax.measure.Quantity;
 
-
 /**
  * Diffusion of momentum.
  * The system unit for this quantity is "m²/s".
@@ -20,6 +19,7 @@ import javax.measure.Quantity;
  *
  * @see DynamicViscosity
  * @see <a href="http://en.wikipedia.org/wiki/Viscosity">Wikipedia: Viscosity</a>
+ * @deprecated see https://java.net/jira/browse/UNITSOFMEASUREMENT-100
  */
 public interface KinematicViscosity extends Quantity<KinematicViscosity> {
 }

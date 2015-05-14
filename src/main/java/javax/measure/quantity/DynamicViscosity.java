@@ -1,6 +1,6 @@
 /**
  * Unit-API - Units of Measurement API for Java
- * Copyright (c) 2014 Jean-Marie Dautelle, Werner Keil, V2COM
+ * Copyright (c) 2014-2015 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
  *
  * See LICENSE.txt for details.
@@ -8,7 +8,6 @@
 package javax.measure.quantity;
 
 import javax.measure.Quantity;
-
 
 /**
  * Dynamic viscosity.
@@ -19,6 +18,7 @@ import javax.measure.Quantity;
  *
  * @see KinematicViscosity
  * @see <a href="http://en.wikipedia.org/wiki/Viscosity">Wikipedia: Viscosity</a>
+ * @deprecated see https://java.net/jira/browse/UNITSOFMEASUREMENT-100
  */
 public interface DynamicViscosity extends Quantity<DynamicViscosity> {
 }

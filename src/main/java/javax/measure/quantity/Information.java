@@ -1,6 +1,6 @@
 /**
  * Unit-API - Units of Measurement API for Java
- * Copyright (c) 2014 Jean-Marie Dautelle, Werner Keil, V2COM
+ * Copyright (c) 2014-2015 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
  *
  * See LICENSE.txt for details.
@@ -19,6 +19,7 @@ import javax.measure.Quantity;
  *
  * @see InformationRate
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_information">Wikipedia: Units of Information</a>
+ * @deprecated see https://java.net/jira/browse/UNITSOFMEASUREMENT-100
  */
 public interface Information extends Quantity<Information> {
 }

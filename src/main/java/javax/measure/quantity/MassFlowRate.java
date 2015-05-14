@@ -1,6 +1,6 @@
 /**
  * Unit-API - Units of Measurement API for Java
- * Copyright (c) 2014 Jean-Marie Dautelle, Werner Keil, V2COM
+ * Copyright (c) 2014-2015 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
  *
  * See LICENSE.txt for details.
@@ -8,7 +8,6 @@
 package javax.measure.quantity;
 
 import javax.measure.Quantity;
-
 
 /**
  * Movement of mass per time.
@@ -21,6 +20,7 @@ import javax.measure.Quantity;
  * @see Mass
  * @see Time
  * @see <a href="http://en.wikipedia.org/wiki/Mass_flow_rate">Wikipedia: Mass Flow Rate</a>
+ * @deprecated see https://java.net/jira/browse/UNITSOFMEASUREMENT-100
  */
 public interface MassFlowRate extends Quantity<MassFlowRate> {
 }

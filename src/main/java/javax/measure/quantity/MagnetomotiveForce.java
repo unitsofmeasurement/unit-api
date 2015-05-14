@@ -9,7 +9,6 @@ package javax.measure.quantity;
 
 import javax.measure.Quantity;
 
-
 /**
  * Force that produces magnetic flux.
  * The metric system unit for this quantity is "At" (ampere-turn).
@@ -19,6 +18,7 @@ import javax.measure.Quantity;
  * @version 1.1
  *
  * @see <a href="http://en.wikipedia.org/wiki/Magnetomotive_force">Wikipedia: Magnetomotive Force</a>
+ * @deprecated see https://java.net/jira/browse/UNITSOFMEASUREMENT-100
  */
 public interface MagnetomotiveForce extends Quantity<MagnetomotiveForce> {
 }
