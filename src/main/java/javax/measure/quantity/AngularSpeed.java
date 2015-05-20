@@ -1,6 +1,6 @@
 /**
  * Unit-API - Units of Measurement API for Java
- * Copyright (c) 2014 Jean-Marie Dautelle, Werner Keil, V2COM
+ * Copyright (c) 2014-2015 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
  *
  * See LICENSE.txt for details.
@@ -19,13 +19,15 @@ import javax.measure.Quantity;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2
+ * @version 1.3
  *
  * @see Angle
  * @see Time
- * @see AngularAcceleration
  * @see Speed
  * @see <a href="http://en.wikipedia.org/wiki/Angular_speed">Wikipedia: Angular Speed</a>
+ * @implSpec 
+ * Used by GeoAPI
+ * @see <a href="http://www.opengeospatial.org/standards/geoapi">OGC: GeoAPI Implementation Specification</a>
  */
 public interface AngularSpeed extends Quantity<AngularSpeed> {
 }
