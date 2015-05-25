@@ -21,7 +21,7 @@ import javax.measure.Quantity;
  * @see AngularSpeed
  * @see Time
  * @see Acceleration
- * @deprected see https://java.net/jira/browse/UNITSOFMEASUREMENT-100
+ * @deprecated see https://java.net/jira/browse/UNITSOFMEASUREMENT-100
  */
 public interface AngularAcceleration extends Quantity<AngularAcceleration> {
 }

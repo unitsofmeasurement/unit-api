@@ -9,7 +9,6 @@ package javax.measure.quantity;
 
 import javax.measure.Quantity;
 
-
 /**
  * This interface represents a wave property inversely related to wavelength.
  * The system unit for this quantity is "1/m" (reciprocal meter).
