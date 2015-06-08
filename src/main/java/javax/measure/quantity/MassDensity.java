@@ -15,11 +15,12 @@ import javax.measure.Quantity;
  * The system unit for this quantity is "kg/m³" (kilogram per cubic metre).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @version 1.3
+ * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @version 1.4
  *
+ * @see <a href="http://en.wikipedia.org/wiki/Density">Wikipedia: (Mass) Density</a>
  * @see Mass
  * @see Volume
  */
-public interface VolumetricDensity extends Quantity<VolumetricDensity> { 
-	// TODO, http://physics.nist.gov/cuu/Units/units.html calls it MassDensity, shall we rename it?
+public interface MassDensity extends Quantity<MassDensity> {
 }

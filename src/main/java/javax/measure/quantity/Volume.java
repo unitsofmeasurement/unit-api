@@ -19,7 +19,7 @@ import javax.measure.Quantity;
  *
  * @see Length
  * @see Area
- * @see VolumetricDensity
+ * @see MassDensity
  * @see VolumetricFlowRate
  */
 public interface Volume extends Quantity<Volume> {
