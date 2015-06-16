@@ -25,9 +25,7 @@ import javax.measure.Quantity;
  * @see Time
  * @see Speed
  * @see <a href="http://en.wikipedia.org/wiki/Angular_speed">Wikipedia: Angular Speed</a>
- * @apiNote 
- * Used by GeoAPI
- * @see <a href="http://www.opengeospatial.org/standards/geoapi">OGC: GeoAPI Implementation Specification</a>
- */
+ * 
+ * @deprecated see https://java.net/jira/browse/UNITSOFMEASUREMENT-100 */
 public interface AngularSpeed extends Quantity<AngularSpeed> {
 }
