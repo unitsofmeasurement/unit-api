@@ -21,6 +21,8 @@ import javax.measure.Quantity;
  * @see SolidAngle
  * @see Length
  * @see AngularSpeed
+ * 
+ * @apiNote SI Derived Unit with special name and symbol
  */
 public interface Angle extends Quantity<Angle> {
 }

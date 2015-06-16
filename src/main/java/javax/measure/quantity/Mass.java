@@ -9,7 +9,6 @@ package javax.measure.quantity;
 
 import javax.measure.Quantity;
 
-
 /**
  * Measure of the quantity of matter that a body or an object contains.
  * The mass of the body is not dependent on gravity and therefore is
@@ -22,8 +21,7 @@ import javax.measure.Quantity;
  *
  * @see RadiationDoseAbsorbed
  * 
- * @implSpec 
- * SI Base Unit
+ * @apiNote SI Base Unit
  */
 public interface Mass extends Quantity<Mass> {
 }

@@ -20,8 +20,7 @@ import javax.measure.Quantity;
  * @see ElectricCharge
  * @see Time
  * 
- * @implSpec 
- * SI Base Unit
+ * @apiNote SI Base Unit
  */
 public interface ElectricCurrent extends Quantity<ElectricCurrent> {
 }

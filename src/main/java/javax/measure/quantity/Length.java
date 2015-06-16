@@ -24,8 +24,7 @@ import javax.measure.Quantity;
  * @see SolidAngle
  * @see Speed
  * 
- * @implSpec 
- * SI Base Unit
+ * @apiNote SI Base Unit
  */
 public interface Length extends Quantity<Length> {
 	/**

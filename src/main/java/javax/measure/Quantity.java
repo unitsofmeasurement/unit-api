@@ -18,7 +18,7 @@ package javax.measure;
  * thermometer = ... Vector3D<Speed> aircraftSpeed = ... </code>
  * </p>
  * 
- * @implSpec
+ * @apiNote
  * This interface places no restrictions on the mutability of implementations,
  * however immutability is strongly recommended.
  * All implementations must be {@link Comparable}.

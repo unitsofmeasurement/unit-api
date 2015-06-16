@@ -20,7 +20,7 @@ import javax.measure.Quantity;
  *
  * @see Luminance
  * 
- * @implSpec 
+ * @apiNote 
  * SI Base Unit
  */
 public interface LuminousIntensity extends Quantity<LuminousIntensity> {

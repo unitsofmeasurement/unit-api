@@ -15,21 +15,17 @@ import javax.measure.Quantity;
  * The metric system unit for this quantity is "s" (second).
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.3
+ * @version 1.4
  *
  * @see Frequency
  * @see Speed
  * @see AngularSpeed
  * @see Acceleration
- * @see AngularAcceleration
  * @see ElectricCurrent
- * @see MassFlowRate
  * @see VolumetricFlowRate
- * @see InformationRate
  * @see Power
  * 
- * @implSpec 
- * SI Base Unit
+ * @apiNote SI Base Unit
  */
 public interface Time extends Quantity<Time> {
 }

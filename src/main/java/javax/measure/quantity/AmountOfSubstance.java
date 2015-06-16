@@ -19,7 +19,7 @@ import javax.measure.Quantity;
  * 
  * @see <a href=" http://en.wikipedia.org/wiki/Amount_of_substance">Wikipedia: Amount of Substance</a>
  * 
- * @implSpec 
+ * @apiNote 
  * SI Base Unit
  */
 public interface AmountOfSubstance extends Quantity<AmountOfSubstance> {
