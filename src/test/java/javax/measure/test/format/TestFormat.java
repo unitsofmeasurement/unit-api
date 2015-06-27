@@ -52,7 +52,7 @@ abstract class TestFormat extends Format implements UnitFormat {
      * @return the locale format.
      */
     public static UnitFormat getInstance() {
-        return SimpleFormat.geInstance();
+        return SimpleTestFormat.geInstance();
     }
 
     /**
@@ -63,7 +63,7 @@ abstract class TestFormat extends Format implements UnitFormat {
      * @return the format for the specified locale.
      */
     public static UnitFormat getInstance(Locale locale) {
-        return SimpleFormat.geInstance();
+        return SimpleTestFormat.geInstance();
     }
 
     /**

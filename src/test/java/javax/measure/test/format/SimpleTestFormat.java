@@ -36,12 +36,12 @@ import javax.measure.test.TestUnit;
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 0.3
  */
-public class SimpleFormat extends TestFormat {
+public class SimpleTestFormat extends TestFormat {
     private static final long serialVersionUID = -7753687108842507677L;
 
     private final Map<String, String> symbolMap = new HashMap<String, String>();
 
-    private static final TestFormat DEFAULT = new SimpleFormat();
+    private static final TestFormat DEFAULT = new SimpleTestFormat();
 
     // /////////////////
     // Class methods //
@@ -61,7 +61,7 @@ public class SimpleFormat extends TestFormat {
     /**
      * Base constructor.
      */
-    SimpleFormat() {
+    SimpleTestFormat() {
     }
 
     // //////////////
