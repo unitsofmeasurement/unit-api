@@ -1,6 +1,6 @@
 /**
  * Unit-API - Units of Measurement API for Java
- * Copyright (c) 2014 Jean-Marie Dautelle, Werner Keil, V2COM
+ * Copyright (c) 2014-2015 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
  *
  * See LICENSE.txt for details.
@@ -20,12 +20,11 @@ import javax.measure.Quantity;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.1
+ * @version 1.2
  *
  * @see Length
  * @see Time
  * @see Acceleration
- * @see AngularSpeed
  * @see <a href="http://en.wikipedia.org/wiki/Speed">Wikipedia: Speed</a>
  */
 public interface Speed extends Quantity<Speed> {

@@ -15,12 +15,11 @@ import javax.measure.Quantity;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.1
+ * @version 1.2
  * @see <a href="http://en.wikipedia.org/wiki/Angle">Wikipedia: Angle</a>
  * 
  * @see SolidAngle
  * @see Length
- * @see AngularSpeed
  * 
  * @apiNote SI Derived Unit with special name and symbol
  */
