@@ -425,6 +425,25 @@
 
 	<profiles>
 		<profile>
+			<id>jar-core</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-jar-plugin</artifactId>
+						<configuration>
+							<finalName>${project.artifactId}-core-${project.version}</finalName>
+							<excludes>
+								<exclude>javax/measure/format/**</exclude>
+								<exclude>javax/measure/quantity/**</exclude>
+								<exclude>javax/measure/spi/**</exclude>
+							</excludes>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
+		<profile>
 			<id>license</id>
 			<activation>
 				<property>
