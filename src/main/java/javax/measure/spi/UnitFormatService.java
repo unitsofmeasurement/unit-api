@@ -1,6 +1,6 @@
-/**
+/*
  * Unit-API - Units of Measurement API for Java
- * Copyright (c) 2014 Jean-Marie Dautelle, Werner Keil, V2COM
+ * Copyright (c) 2014-2015 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
  *
  * See LICENSE.txt for details.
@@ -16,7 +16,7 @@ import javax.measure.format.UnitFormat;
  * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.5, $Date: 2014-12-01 $
+ * @version 0.5.1, $Date: 2015-07-24 $
  */
 public interface UnitFormatService {
 
@@ -24,7 +24,7 @@ public interface UnitFormatService {
      * Returns the default unit format.
      * 
      * It is up to implementations what to consider a suitable default.
-     * For some implementations it may be a unit format based on <code>Locale.getDefault()</code> while others may return <code>getUnitFormat("UCUM")</code>
+     * For some implementations it may be a unit format based on <code>Locale.getDefault()</code> while others may return <code>getUnitFormat("SI")</code> or <code>getUnitFormat("ISO")</code>
      *
      * @return the default {@link UnitFormat} implementation.
      */
