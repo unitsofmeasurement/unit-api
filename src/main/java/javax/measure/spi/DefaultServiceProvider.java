@@ -9,9 +9,10 @@ package javax.measure.spi;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ServiceLoader;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,7 +24,7 @@ import java.util.logging.Logger;
  */
 class DefaultServiceProvider implements ServiceProvider {
     /** List of services loaded, per class. */
-    private final ConcurrentHashMap<Class, List<Object>> servicesLoaded = new ConcurrentHashMap<Class, List<Object>>();
+    private final Map<Class, List<Object>> servicesLoaded = new HashMap<Class, List<Object>>();
     // TODO does this work in CLDC8?
 //    @Override
     public int getPriority() {
@@ -68,14 +69,17 @@ class DefaultServiceProvider implements ServiceProvider {
      * @return  the items found, never {@code null}.
      */
     private <T> List<T> loadServices(final Class<T> serviceType) {
-        List<T> services = new ArrayList<T>();
+        final List<T> services = new ArrayList<T>();
         try {
             for (T t : ServiceLoader.load(serviceType)) {
                 services.add(t);
             }
-            @SuppressWarnings("unchecked")
-            final List<T> previousServices = (List<T>) servicesLoaded.putIfAbsent(serviceType, (List<Object>) services);
-            return Collections.unmodifiableList(previousServices != null ? previousServices : services);
+            if (!servicesLoaded.containsKey(serviceType)) {
+            	@SuppressWarnings("unchecked")
+				final List<T> previousServices = (List<T>) servicesLoaded.put(serviceType, (List<Object>) services);
+            	return Collections.unmodifiableList(previousServices != null ? previousServices : services);
+            }
+            return services;
         } catch (Exception e) {
             Logger.getLogger(DefaultServiceProvider.class.getName()).log(Level.WARNING,
                                                                          "Error loading services of type " + serviceType, e);
