@@ -18,7 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * This singleton provides access to the services available in the current runtime environment and context. The
+ * This singleton provides access to the services available in the current runtime environment. The
  * behavior can be adapted, by calling {@link #init(ServiceProvider)} before accessing any measurement
  * services.
  *
