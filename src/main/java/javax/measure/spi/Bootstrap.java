@@ -1,20 +1,21 @@
-/**
+/*
  * Unit-API - Units of Measurement API for Java
- * Copyright (c) 2014 Jean-Marie Dautelle, Werner Keil, V2COM
+ * Copyright (c) 2014-2015 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
  *
  * See LICENSE.txt for details.
  */
 package javax.measure.spi;
 
+import static java.util.logging.Level.INFO;
+import static java.util.logging.Level.WARNING;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 import java.util.ServiceLoader;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -22,7 +23,7 @@ import java.util.logging.Logger;
  * behavior can be adapted, by calling {@link #init(ServiceProvider)} before accessing any measurement
  * services.
  *
- * @author Werner Keil
+ * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  */
 public final class Bootstrap {
     /**
@@ -35,7 +36,7 @@ public final class Bootstrap {
     private static final Object LOCK = new Object();
 
     /**
-     * Private singletons constructor.
+     * Private singleton constructor.
      */
     private Bootstrap() {
     }
@@ -51,7 +52,7 @@ public final class Bootstrap {
                 return sp;
             }
         } catch (Exception e) {
-            Logger.getLogger(Bootstrap.class.getName()).log(Level.INFO,"No ServiceProvider loaded, using default.");
+            Logger.getLogger(Bootstrap.class.getName()).log(INFO, "No ServiceProvider loaded, using default.");
         }
         return new DefaultServiceProvider();
     }
@@ -63,18 +64,20 @@ public final class Bootstrap {
      * @return the removed , or null.
      */
     public static ServiceProvider init(ServiceProvider serviceProvider) {
-        Objects.requireNonNull(serviceProvider);
+        if (serviceProvider == null) {
+        	throw new NullPointerException();
+        }
         synchronized (LOCK) {
             if (Bootstrap.serviceProviderDelegate==null) {
                 Bootstrap.serviceProviderDelegate = serviceProvider;
-                Logger.getLogger(Bootstrap.class.getName())
-                        .log(Level.INFO,"Unit Bootstrap: new ServiceProvider set: " + serviceProvider.getClass().getName());
+                Logger.getLogger(Bootstrap.class.getName()).log(INFO, 
+                		"Measurement Bootstrap: new ServiceProvider set: " + serviceProvider.getClass().getName());
                 return null;
             } else {
                 ServiceProvider prevProvider = Bootstrap.serviceProviderDelegate;
                 Bootstrap.serviceProviderDelegate = serviceProvider;
-                Logger.getLogger(Bootstrap.class.getName())
-                        .log(Level.WARNING, "Unit Bootstrap: ServiceProvider replaced: " + serviceProvider.getClass().getName());
+                Logger.getLogger(Bootstrap.class.getName()).log(WARNING, 
+                		"Measurement Bootstrap: ServiceProvider replaced: " + serviceProvider.getClass().getName());
                 return prevProvider;
             }
         }
@@ -121,12 +124,10 @@ public final class Bootstrap {
         }
         services = new ArrayList<T>(services);
         Collections.sort(services, new Comparator<T>() {
-//            @Override
-            public int compare(T a1, T a2) {
-                return a1.getClass().getSimpleName().compareTo(a2.getClass().getSimpleName());
+            public int compare(T o1, T o2) {
+                return o1.getClass().getSimpleName().compareTo(o2.getClass().getSimpleName());
             }
         });
         return services.get(0);
     }
-
 }
