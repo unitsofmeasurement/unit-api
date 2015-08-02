@@ -5,8 +5,6 @@ import static org.junit.Assert.*;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.Locale;
-
 import javax.measure.spi.Bootstrap;
 import javax.measure.spi.DefaultServiceProvider;
 import javax.measure.spi.ServiceProvider;
@@ -65,7 +63,7 @@ public class BootstrapTest {
 
     @Test
     public void testGetService_BadCase() throws Exception {
-        assertNull(Bootstrap.getService(Locale.class));
+        assertNull(Bootstrap.getService(Collection.class));
     }
 
     public final static class TestServiceProvider extends DefaultServiceProvider

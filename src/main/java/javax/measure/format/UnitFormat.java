@@ -34,6 +34,8 @@ public interface UnitFormat extends Parser<CharSequence, Unit<?>> {
      */
     Appendable format(Unit<?> unit, Appendable appendable) throws IOException;
     
+    String format(Unit<?> unit);
+    
     /**
      * Parses a portion of the specified {@code CharSequence} from the
      * specified position to produce a unit. If there is no unit to parse

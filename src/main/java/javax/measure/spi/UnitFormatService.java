@@ -16,7 +16,7 @@ import javax.measure.format.UnitFormat;
  * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.5.1, $Date: 2015-07-24 $
+ * @version 0.5.2, $Date: 2015-08-02 $
  */
 public interface UnitFormatService {
 
@@ -24,7 +24,7 @@ public interface UnitFormatService {
      * Returns the default unit format.
      * 
      * It is up to implementations what to consider a suitable default.
-     * For some implementations it may be a unit format based on <code>Locale.getDefault()</code> while others may return <code>getUnitFormat("SI")</code> or <code>getUnitFormat("ISO")</code>
+     * For some (locale-sensitive) implementations it may be a unit format based on <code>Locale.getDefault()</code> while others may return <code>getUnitFormat("Simple")</code> or <code>getUnitFormat("ISO")</code>
      *
      * @return the default {@link UnitFormat} implementation.
      */

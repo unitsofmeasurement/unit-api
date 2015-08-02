@@ -4,7 +4,11 @@
 *.jar
 *.war
 *.ear
+
+# Output Folders #
 /target
+
+# Eclipse #
 /.classpath
 /.project
 /.settings

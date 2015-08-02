@@ -8,15 +8,12 @@
 package javax.measure.test.format;
 
 import java.io.IOException;
-import java.text.ParsePosition;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.measure.Unit;
 import javax.measure.UnitConverter;
-import javax.measure.format.ParserException;
 import javax.measure.format.UnitFormat;
-import javax.measure.test.TestUnit;
 
 
 /**
@@ -34,10 +31,10 @@ import javax.measure.test.TestUnit;
  * productions in the {@code UCUMParser.jj} file to conform to the standard.</p>
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.3
+ * @version 0.4
  */
 public class SimpleTestFormat extends TestFormat {
-    private static final long serialVersionUID = -7753687108842507677L;
+//    private static final long serialVersionUID = -7753687108842507677L;
 
     private final Map<String, String> symbolMap = new HashMap<String, String>();
 
@@ -133,9 +130,5 @@ public class SimpleTestFormat extends TestFormat {
                     "Unable to format units (unsupported UnitConverter " //$NON-NLS-1$
                             + converter + ")"); //$NON-NLS-1$
         }
-    }
-
-    public Unit<?> parse(CharSequence csq, ParsePosition cursor) throws ParserException {
-        return TestUnit.ONE;
     }
 }
