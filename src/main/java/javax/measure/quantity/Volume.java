@@ -14,11 +14,11 @@ import javax.measure.Quantity;
  * The metric system unit for this quantity is "m³" (cubic metre).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @version 1.1
+ * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @version 1.2
  *
  * @see Length
  * @see Area
- * @see MassDensity
  */
 public interface Volume extends Quantity<Volume> {
 }
