@@ -89,6 +89,11 @@ public class SimpleTestFormat extends TestFormat {
 //      }
         return appendable;
     }
+    
+	@Override
+	public void label(Unit<?> unit, String label) {
+		
+	}
 
     void appendAnnotation(final Unit<?> unit, final CharSequence symbol,
             final CharSequence annotation, final Appendable appendable) throws IOException
