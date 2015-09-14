@@ -84,7 +84,7 @@ public final class Bootstrap {
     }
 
     /**
-     * Ge {@link ServiceProvider}. If necessary the {@link ServiceProvider} will be lazily loaded.
+     * Returns the current {@link ServiceProvider}. If necessary the {@link ServiceProvider} will be lazily loaded.
      *
      * @return the {@link ServiceProvider} used.
      */
