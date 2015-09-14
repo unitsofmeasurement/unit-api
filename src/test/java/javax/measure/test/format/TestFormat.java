@@ -1,4 +1,4 @@
-/**
+/*
  * Unit-API - Units of Measurement API for Java
  * Copyright (c) 2014-2015 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
@@ -36,9 +36,8 @@ import javax.measure.test.TestUnit;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2.1
+ * @version 1.2.2
  *
- * @see <a href="http://org.unitsofmeasure">Unified Code of Measure (UCUM)</a>
  */
 abstract class TestFormat implements UnitFormat {
 

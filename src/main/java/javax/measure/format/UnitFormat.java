@@ -52,8 +52,8 @@ public interface UnitFormat extends Parser<CharSequence, Unit<?>> {
     String format(Unit<?> unit);
     
 	/**
-	 * Attaches a system-wide label to the specified unit.<p>If
-	 * the specified label is already associated to a unit the previous
+	 * Attaches a system-wide label to the specified unit.<p>
+	 * If the specified label is already associated to a unit the previous
 	 * association can be discarded or ignored. 
 	 * Depending on the {@link UnitFormat} implementation, this call may be ignored if the particular unit already has a label.</p>
 	 * If a {@link UnitFormat} implementation is explicitly <b>immutable</b>, similar to e.g. the result of <tt>Collections.unmodifiableList()</tt>, then an {@linkplain UnsupportedOperationException} may be thrown upon this call.<p>
@@ -70,6 +70,13 @@ public interface UnitFormat extends Parser<CharSequence, Unit<?>> {
 	 */
 	void label(Unit<?> unit, String label);
     
+	/**
+	 * Returns <code>true</code> if this {@link UnitFormat} depends on a <code>Locale</code> to perform its tasks.<p>
+	 * In environments that do not support a <code>Locale</code>, e.g. Java ME, this usually returns <code>false</code>.</p>
+	 * @return Whether this format depends on the locale.
+	 */
+	boolean isLocaleSensitive();
+	
     /**
      * Parses a portion of the specified {@code CharSequence} from the
      * specified position to produce a unit. If there is no unit to parse

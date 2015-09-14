@@ -1,6 +1,6 @@
-/**
+/*
  * Unit-API - Units of Measurement API for Java
- * Copyright (c) 2014 Jean-Marie Dautelle, Werner Keil, V2COM
+ * Copyright (c) 2014-2015 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
  *
  * See LICENSE.txt for details.
@@ -17,21 +17,10 @@ import javax.measure.format.UnitFormat;
 
 
 /**
- * Provides the interface for formatting and parsing {@linkplain Unit units} according to the
- * <a href="http://unitsofmeasure.org/">Uniform Code for Units of Measure</a> (UCUM) syntax.
- *
- * <p>For a technical/historical overview of this format please read
- * <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=61354">Units
- * of Measure in Clinical Information Systems</a>.</p>
- *
- * <p>As of revision 1.16, the BNF in the UCUM standard contains an
- * <a href="http://unitsofmeasure.org/ticket/4">error</a>. I've attempted to work
- * around the problem by modifying the BNF productions for &lt;Term&gt;. Once
- * the error in the standard is corrected, it may be necessary to modify the
- * productions in the {@code UCUMParser.jj} file to conform to the standard.</p>
+ * Provides a simple interface for formatting and parsing {@linkplain Unit units}.
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.4
+ * @version 0.4.1
  */
 public class SimpleTestFormat extends TestFormat {
 //    private static final long serialVersionUID = -7753687108842507677L;
@@ -90,9 +79,11 @@ public class SimpleTestFormat extends TestFormat {
         return appendable;
     }
     
-	@Override
 	public void label(Unit<?> unit, String label) {
-		
+	}
+	
+	public boolean isLocaleSensitive() {
+		return false;
 	}
 
     void appendAnnotation(final Unit<?> unit, final CharSequence symbol,
@@ -106,9 +97,7 @@ public class SimpleTestFormat extends TestFormat {
     /**
      * Formats the given converter to the given StringBuffer. This is similar to
      * what {@link ConverterFormat} does, but there's no need to worry about
-     * operator precedence here, since UCUM only supports multiplication,
-     * division, and exponentiation and expressions are always evaluated left-
-     * to-right.
+     * operator precedence here.
      *
      * @param converter
      *            the converter to be formatted
