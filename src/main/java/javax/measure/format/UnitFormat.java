@@ -15,10 +15,18 @@ import javax.measure.Unit;
  * <p>
  * Formats instances of {@link Unit} to a {@link String} or an {@link Appendable} and parses a {@link CharSequence} to a {@link Unit}.
  * </p>
+ * <h4><a name="synchronization">Synchronization</a></h4>
+ * <p>
+ * <p>
+ * Instances of this class are not required to be thread-safe. It is recommended to of separate
+ * format instances for each thread. If multiple threads access a format concurrently, it must be
+ * synchronized externally.
+ * <p>
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.6, Sep 13, 2015
+ *
+ * @version 0.7, Sep 14, 2015
  *
  * @see Unit
  * @see Parser
@@ -44,18 +52,23 @@ public interface UnitFormat extends Parser<CharSequence, Unit<?>> {
     String format(Unit<?> unit);
     
 	/**
-	 * Attaches a system-wide label to the specified unit.<br>If
-	 * the specified label is already associated to an unit the previous
-	 * association is discarded or ignored.
-	 * 
+	 * Attaches a system-wide label to the specified unit.<p>If
+	 * the specified label is already associated to a unit the previous
+	 * association can be discarded or ignored. 
+	 * Depending on the {@link UnitFormat} implementation, this call may be ignored if the particular unit already has a label.</p>
+	 * If a {@link UnitFormat} implementation is explicitly <b>immutable</b>, similar to e.g. the result of <tt>Collections.unmodifiableList()</tt>, then an {@linkplain UnsupportedOperationException} may be thrown upon this call.<p>
+	 * Since <tt>UnitFormat</tt> implementations are often singletons, <b>system-wide</b> means, the label applies to every instance of <tt>UnitFormatA</tt> implementing <tt>UnitFormat</tt> in this case, but not every instance of <tt>UnitFormatB</tt> or <tt>UnitFormatC</tt> both also implementing <tt>UnitFormat</tt>.  
+	 * </p>
 	 * @param unit
 	 *            the unit being labeled.
 	 * @param label
 	 *            the new label for this unit.
 	 * @throws IllegalArgumentException
 	 *             if the label is not a valid identifier.
+	 * @throws UnsupportedOperationException if the <tt>label</tt> operation
+     *         is not supported by this {@link UnitFormat}
 	 */
-	public abstract void label(Unit<?> unit, String label);
+	void label(Unit<?> unit, String label);
     
     /**
      * Parses a portion of the specified {@code CharSequence} from the
