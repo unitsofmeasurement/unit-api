@@ -1,131 +1,88 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-        <modelVersion>4.0.0</modelVersion>
-        <artifactId>unitsofmeasurement-jbake</artifactId>
-        <parent>
-            <groupId>tec.uom.tools</groupId>
-            <artifactId>uom-tools</artifactId>
-            <version>0.2-SNAPSHOT</version>
-        </parent>
-        <build>
-                <finalName>site</finalName>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>javax.measure</groupId>
+	<artifactId>unit-api-site</artifactId>
+	<version>0.8-SNAPSHOT</version>
+	<name>Units of Measurement API</name>
+	<packaging>pom</packaging>
+	<build>
+		<finalName>site</finalName>
+		<plugins>
+			<plugin>
+				<groupId>br.com.ingenieux</groupId>
+				<artifactId>jbake-maven-plugin</artifactId>
+				<version>0.0.6</version>
+				<executions>
+					<execution>
+						<id>default-generate</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
-                <plugins>
-                        <plugin>
-                                <groupId>org.apache.maven.plugins</groupId>
-                                <artifactId>maven-compiler-plugin</artifactId>
-                                <configuration>
-                                        <source>1.7</source>
-                                        <target>1.7</target>
-                                </configuration>
-                        </plugin>
+			<!-- Run mvn exec:exec to generate site and upload it with single step -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<configuration>
+					<executable>mvn</executable>
+					<arguments>
+						<argument>clean:clean</argument>
+						<argument>jbake:generate</argument>
+						<argument>site:site</argument>
+						<argument>clean:clean</argument>
+					</arguments>
+				</configuration>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											br.com.ingenieux
+										</groupId>
+										<artifactId>
+											jbake-maven-plugin
+										</artifactId>
+										<versionRange>
+											[0.0.6,)
+										</versionRange>
+										<goals>
+											<goal>
+												generate
+											</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 
-                        <plugin>
-                                <groupId>br.com.ingenieux</groupId>
-                                <artifactId>jbake-maven-plugin</artifactId>
-                                <version>0.0.6</version>
-                                <executions>
-                                        <execution>
-                                                <id>default-generate</id>
-                                                <phase>generate-resources</phase>
-                                                <goals>
-                                                        <goal>generate</goal>
-                                                </goals>
-                                        </execution>
-                                </executions>
-                        </plugin>
-
-                        <!-- Commit and push site to github pages, by default to gh-pages branch -->
-                        <!-- https://github.com/github/maven-plugins -->
-                        <plugin>
-                                <groupId>com.github.github</groupId>
-                                <artifactId>site-maven-plugin</artifactId>
-                                <version>0.9</version>
-                                <configuration>
-                                        <message>${commit.message}</message>
-                                        <!-- <message>Creating site for ${project.version}</message> -->
-                                        <outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
-                                        <!-- Provide repo name to upload, $(user,project).github.io -->
-                                        <repositoryName>fisiu.github.io</repositoryName>
-                                        <!-- Provide repo owner -->
-                                        <repositoryOwner>keilw</repositoryOwner>
-                                        <!-- If user repo used, set branch to master -->
-                                        <branch>refs/heads/master</branch>
-                                        <dryRun>false</dryRun>
-                                        <excludes>
-                                                <exclude>**/*.jsp</exclude>
-                                                <exclude>**/web.xml</exclude>
-                                        </excludes>
-                                </configuration>
-                                <executions>
-                                        <execution>
-                                                <goals>
-                                                        <goal>site</goal>
-                                                </goals>
-                                                <phase>site</phase>
-                                        </execution>
-                                </executions>
-                        </plugin>
-
-                        <!-- Run mvn exec:exec to generate site and upload it with single step -->
-                        <plugin>
-                                <groupId>org.codehaus.mojo</groupId>
-                                <artifactId>exec-maven-plugin</artifactId>
-                                <version>1.2.1</version>
-                                <configuration>
-                                        <executable>mvn</executable>
-                                        <arguments>
-                                                <argument>clean:clean</argument>
-                                                <argument>jbake:generate</argument>
-                                                <argument>site:site</argument>
-                                                <argument>clean:clean</argument>
-                                        </arguments>
-                                </configuration>
-                        </plugin>
-                </plugins>
-                <pluginManagement>
-                    <plugins>
-                        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-                        <plugin>
-                            <groupId>org.eclipse.m2e</groupId>
-                            <artifactId>lifecycle-mapping</artifactId>
-                            <version>1.0.0</version>
-                            <configuration>
-                                <lifecycleMappingMetadata>
-                                    <pluginExecutions>
-                                        <pluginExecution>
-                                            <pluginExecutionFilter>
-                                                <groupId>
-                                                    br.com.ingenieux
-                                                </groupId>
-                                                <artifactId>
-                                                    jbake-maven-plugin
-                                                </artifactId>
-                                                <versionRange>
-                                                    [0.0.6,)
-                                                </versionRange>
-                                                <goals>
-                                                    <goal>
-                                                        generate
-                                                    </goal>
-                                                </goals>
-                                            </pluginExecutionFilter>
-                                            <action>
-                                                <ignore></ignore>
-                                            </action>
-                                        </pluginExecution>
-                                    </pluginExecutions>
-                                </lifecycleMappingMetadata>
-                            </configuration>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
-        </build>
-
-        <properties>
-                <github.global.server>github</github.global.server>
-                <commit.message>Site update</commit.message>
-        </properties>
-        <url>https://github.com/unitsofmeasurement/unitsofmeasurement.github.io</url>
-        <description>Units of Measurement Web Site JBake Source</description>
+	<properties>
+		<github.global.server>github</github.global.server>
+		<commit.message>Site update</commit.message>
+	</properties>
+	<url>https://github.com/unitsofmeasurement/unit-api</url>
 </project>
