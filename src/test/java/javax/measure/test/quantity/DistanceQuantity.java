@@ -1,6 +1,6 @@
-/**
+/*
  * Unit-API - Units of Measurement API for Java
- * Copyright (c) 2014 Jean-Marie Dautelle, Werner Keil, V2COM
+ * Copyright (c) 2014-2015 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
  *
  * See LICENSE.txt for details.
@@ -17,7 +17,7 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.3.5
+ * @version 0.4
  */
 public class DistanceQuantity extends TestQuantity<Length> implements Length {
 
@@ -155,11 +155,11 @@ public class DistanceQuantity extends TestQuantity<Length> implements Length {
 		return null;
 	}
     
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public final <T extends Quantity<T>> Quantity<T> asType(
 			Class<T> type) throws ClassCastException {
 		this.getUnit().asType(type); // Raises ClassCastException is dimension mismatches.
-		return (Quantity<T>) this;
+		return (Quantity) this;
 	}
 
 	public Area multiply(Length l) {

@@ -1,6 +1,6 @@
-/**
+/*
  * Unit-API - Units of Quantity API for Java
- * Copyright (c) 2014 Jean-Marie Dautelle, Werner Keil, V2COM
+ * Copyright (c) 2014-2015 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
  *
  * See LICENSE.txt for details.
@@ -16,7 +16,7 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.5
+ * @version 0.6
  */
 public class AreaQuantity extends TestQuantity<Area> implements Area {
     public AreaQuantity() {
@@ -101,13 +101,10 @@ public class AreaQuantity extends TestQuantity<Area> implements Area {
 		return null;
 	}
 
-
     public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 
     public Area to(Unit<Area> unit) {
 		// TODO Auto-generated method stub
@@ -125,12 +122,10 @@ public class AreaQuantity extends TestQuantity<Area> implements Area {
 		return null;
 	}
 
-
     public Quantity<Area> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
     public Quantity<Area> inverse() {
 		// TODO Auto-generated method stub
@@ -144,10 +139,10 @@ public class AreaQuantity extends TestQuantity<Area> implements Area {
     	return null;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public final <T extends Quantity<T>> Quantity<T> asType(
 			Class<T> type) throws ClassCastException {
 		this.getUnit().asType(type); // Raises ClassCastException is dimension mismatches.
-		return (Quantity<T>) this;
+		return (Quantity)this;
 	}
 }
