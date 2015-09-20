@@ -443,6 +443,7 @@
 			<id>JSR-363</id>
 			<name>JSR-363 Maven reports</name>
 			<url>file:///var/www/www.unitsofmeasurement.org/jsr-363</url>
+			<!-- No longer working, just a placeholder! -->
 		</site>
 	</distributionManagement>
 
