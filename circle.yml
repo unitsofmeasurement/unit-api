@@ -9,5 +9,5 @@ machine:
 test:
    override:
      - mvn install
-#   post:
-#     - cp $CIRCLE_TEST_REPORTS/*.* $CIRCLE_ARTIFACTS
+   post:
+     - mvn deploy site:deploy -Dmaven.test.skip -s settings.xml

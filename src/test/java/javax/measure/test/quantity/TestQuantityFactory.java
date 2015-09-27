@@ -138,14 +138,6 @@ public abstract class TestQuantityFactory<Q extends Quantity<Q>> implements Quan
     public abstract Quantity<Q> create(Number value, Unit<Q> unit);
 
     /**
-     * Returns the metric unit for quantities produced by this factory
-     * or <code>null</code> if unknown.
-     *
-     * @return the metric units for this factory quantities.
-     */
-    public abstract Unit<Q> getMetricUnit();
-
-    /**
      * The default factory implementation. This factory provides
      * a default implementation for every {@link AbstractQuantity} sub-types.
      *
@@ -190,7 +182,7 @@ public abstract class TestQuantityFactory<Q extends Quantity<Q>> implements Quan
         	return null; // FIXME here we need to instantiate "SOMETHING" (a concrete class;-)
         }
 
-        public Unit<Q> getMetricUnit() {
+        public Unit<Q> getSystemUnit() {
             return metricUnit;
         }
     }

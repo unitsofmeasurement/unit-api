@@ -1,6 +1,6 @@
-/**
+/*
  * Unit-API - Units of Measurement API for Java
- * Copyright (c) 2014 Jean-Marie Dautelle, Werner Keil, V2COM
+ * Copyright (c) 2014-2015 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
  *
  * See LICENSE.txt for details.
@@ -20,7 +20,7 @@ import javax.measure.Unit;
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @author <a href="mailto:otaviojava@java.net">Otavio Santana</a>
- * @version 0.6, $Date: 2014-12-15 $
+ * @version 0.7, $Date: 2015-09-27 $
  */
 public interface QuantityFactory <Q extends Quantity<Q>> {
 
@@ -32,4 +32,23 @@ public interface QuantityFactory <Q extends Quantity<Q>> {
      * @return the corresponding quantity
      */
 	Quantity<Q> create(Number value, Unit<Q> unit);
+	
+    /**
+     * Returns the system unit for quantities produced by this factory
+     * or <code>null</code> if unknown.
+     *
+     * <p>Because the system unit is unique by quantity type, it can be
+     * be used to identify the quantity given the unit. For example:</p>
+     *
+     * <code>
+     *     static boolean isAngularSpeed(Unit<?> unit) {
+     *         return unit.getSystemUnit().equals(RADIAN.divide(SECOND));
+     *     }
+     *     assert isAngularSpeed(REVOLUTION.divide(MINUTE)); // Returns true.
+     * </code>
+     *
+     * @return the system unit for this factory.
+     * @see Unit#getSystemUnit()
+     */
+    Unit<Q> getSystemUnit();
 }
