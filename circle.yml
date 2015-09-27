@@ -10,4 +10,5 @@ test:
    override:
      - mvn install
    post:
-     - mvn deploy site-deploy -Dmaven.test.skip -s settings.xml
+     - mvn deploy -Dmaven.test.skip -s settings.xml
+#     - mvn site-deploy -Dmaven.test.skip -s settings.xml
