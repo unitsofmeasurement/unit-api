@@ -433,19 +433,24 @@
 	</build>
 
 	<!-- Deployment to public servers -->
-	<distributionManagement>
-		<snapshotRepository>
-			<id>geotoolkit</id>
-			<name>Maven repository for snapshots only</name>
-			<url>file:///var/www/maven.geotoolkit.org</url>
-		</snapshotRepository>
-		<site>
-			<id>JSR-363</id>
-			<name>JSR-363 Maven reports</name>
-			<url>file:///var/www/www.unitsofmeasurement.org/jsr-363</url>
-			<!-- No longer working, just a placeholder! -->
-		</site>
-	</distributionManagement>
+    <distributionManagement>
+        <repository>
+            <id>bintray-release</id>
+            <name>oss-jfrog-artifactory-release</name>
+            <url>https://oss.jfrog.org/artifactory/oss-release-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>bintray-snapshot</id>
+            <name>oss-jfrog-artifactory-snapshot</name>
+            <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+        </snapshotRepository>
+        <site>
+            <id>JSR-363</id>
+            <name>JSR-363 Maven reports</name>
+            <url>file:///var/www/www.unitsofmeasurement.org/jsr-363</url>
+            <!-- No longer working, just a placeholder! -->
+        </site>
+    </distributionManagement>
 
 	<dependencies>
 		<dependency>
@@ -519,6 +524,25 @@
 					</plugin>
 				</plugins>
 			</build>
+		</profile>
+		
+		<profile>
+		    <id>geoapi</id>
+		    <!-- TODO desruisseaux please fill this out according to geotool servers -->
+		    
+			<distributionManagement>
+	        <snapshotRepository>
+	            <id>geotoolkit</id>
+	            <name>Maven repository for snapshots only</name>
+	            <url>file:///var/www/maven.geotoolkit.org</url>
+	        </snapshotRepository>
+	        <site>
+	            <id>JSR-363</id>
+	            <name>JSR-363 Maven reports</name>
+	            <url>file:///var/www/www.unitsofmeasurement.org/jsr-363</url>
+	            <!-- No longer working, just a placeholder! -->
+	        </site>
+	        </distributionManagement>
 		</profile>
 
 		<profile>
