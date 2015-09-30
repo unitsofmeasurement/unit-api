@@ -16,7 +16,7 @@ import javax.measure.Quantity;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2
+ * @version 1.3
  *
  * @see Area
  * @see Volume
@@ -27,13 +27,4 @@ import javax.measure.Quantity;
  * @apiNote SI Base Unit
  */
 public interface Length extends Quantity<Length> {
-	/**
-	 * Returns the product of this {@code Length} with the one specified resulting in {@link Area}
-	 *
-	 * @param that
-	 *            the {@code Length} multiplier.
-	 * @return <code>this * that</code>.
-	 * @deprecated Subject to removal
-	 */
-	Area multiply(Length that);
 }
