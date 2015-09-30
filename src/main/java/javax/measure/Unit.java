@@ -1,6 +1,6 @@
 /**
  * Unit-API - Units of Measurement API for Java
- * Copyright (c) 2014 Jean-Marie Dautelle, Werner Keil, V2COM
+ * Copyright (c) 2014-2015 Jean-Marie Dautelle, Werner Keil, V2COM
  * All rights reserved.
  *
  * See LICENSE.txt for details.
@@ -35,7 +35,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:desruisseaux@users.sourceforge.net">Martin Desruisseaux</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.17, December 15, 2014
+ * @version 0.18, September 30, 2015
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
  */
@@ -289,20 +289,6 @@ public interface Unit<Q extends Quantity<Q>> {
      */
     Unit<?> pow(int n);
 
-    /**
-     * <p>Returns a string representation of this unit. The string representation may
-     * be the unit {@linkplain #getSymbol() symbol}, or may be some representation
-     * of {@linkplain #getProductUnits() product units}, multiplication factor and
-     * offset if any.</p>
-     * The string may be localized at implementation choice by the means of a particular device and platform.
-     * <br>
-     * @return the string representation of this unit.
-     *
-     * @see #getSymbol()
-     */
-    @Override
-    String toString();
-
 	/**
 	 * Returns the unit derived from this unit using the specified converter.
 	 * The converter does not need to be linear. For example:<br>
@@ -316,4 +302,18 @@ public interface Unit<Q extends Quantity<Q>> {
 	 * @return the unit after the specified transformation.
 	 */
 	Unit<Q> transform(UnitConverter converter);
+	
+    /**
+     * <p>Returns a string representation of this unit. The string representation may
+     * be the unit {@linkplain #getSymbol() symbol}, or may be some representation
+     * of {@linkplain #getProductUnits() product units}, multiplication factor and
+     * offset if any.</p>
+     * The string may be localized at implementation choice by the means of a particular device and platform.
+     * <br>
+     * @return the string representation of this unit.
+     *
+     * @see #getSymbol()
+     */
+    @Override
+    String toString();
 }
