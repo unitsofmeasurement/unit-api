@@ -26,12 +26,11 @@ import javax.measure.Unit;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  *
- * @version 0.7.1, Sep 17, 2015
+ * @version 0.7.2, Ocr 2, 2015
  *
  * @see Unit
- * @see Parser
  */
-public interface UnitFormat extends Parser<CharSequence, Unit<?>> {
+public interface UnitFormat {
     /**
      * Formats the specified {@link Unit}.
      *

@@ -11,4 +11,4 @@ test:
      - mvn install
    post:
      - mvn deploy -Dmaven.test.skip -s settings.xml
-#     - mvn site-deploy -Dmaven.test.skip -s settings.xml
+     - mvn site-deploy -Dmaven.test.skip -s settings.xml

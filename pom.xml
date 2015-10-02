@@ -32,8 +32,8 @@
 		<url>https://java.net/jira/browse/UNITSOFMEASUREMENT</url>
 	</issueManagement>
 	<ciManagement>
-		<system>Jenkins</system>
-		<url>http://jenkins.geotoolkit.org/job/JSR-363/</url>
+		<system>CircleCI</system>
+		<url>https://circleci.com/gh/unitsofmeasurement/unit-api</url>
 	</ciManagement>
 
 	<mailingLists>
