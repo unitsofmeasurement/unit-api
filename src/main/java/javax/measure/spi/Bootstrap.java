@@ -10,11 +10,7 @@ package javax.measure.spi;
 import static java.util.logging.Level.INFO;
 import static java.util.logging.Level.WARNING;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 import java.util.ServiceLoader;
 import java.util.logging.Logger;
 
@@ -24,6 +20,7 @@ import java.util.logging.Logger;
  * services.
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @version 0.5, October 4, 2015
  */
 public final class Bootstrap {
     /**
@@ -111,23 +108,13 @@ public final class Bootstrap {
     }
 
     /**
-     * Delegate method for {@link ServiceProvider#getServices(Class)}.
+     * Delegate method for {@link ServiceProvider#getService(Class)}.
      *
      * @param serviceType the service type.
      * @return the service found, or {@code null}.
      * @see ServiceProvider#getServices(Class)
      */
     public static <T> T getService(Class<T> serviceType) {
-        List<T> services = getServiceProvider().getServices(serviceType);
-        if(services.isEmpty()){
-            return null;
-        }
-        services = new ArrayList<T>(services);
-        Collections.sort(services, new Comparator<T>() {
-            public int compare(T o1, T o2) {
-                return o1.getClass().getSimpleName().compareTo(o2.getClass().getSimpleName());
-            }
-        });
-        return services.get(0);
+    	return getServiceProvider().getService(serviceType);
     }
 }
