@@ -25,9 +25,9 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2014 - 2015 Jean-Marie Dautelle, Werner Keil, V2COM</copyright>
     <item>
-      <title>File: 58,
+      <title>File: 57,
              Errors: 0,
-             Warnings: 48,
+             Warnings: 42,
              Infos: 0
       </title>
             <link>http://unitsofmeasurement.github.io//checkstyle.html</link>
@@ -46,27 +46,13 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.format.Parser.java">javax/measure/format/Parser.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.quantity.Length.java">javax/measure/quantity/Length.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  4
+                  1
                 </td>
                 <td>
                   0
@@ -654,7 +640,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  9
+                  7
                 </td>
                 <td>
                   0
@@ -746,7 +732,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.spi.package-info.java">javax/measure/spi/package-info.java</a>
+                  <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.Dimension.java">javax/measure/Dimension.java</a>
                 </td>
                 <td>
                   0
@@ -760,7 +746,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.Dimension.java">javax/measure/Dimension.java</a>
+                  <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.spi.package-info.java">javax/measure/spi/package-info.java</a>
                 </td>
                 <td>
                   0
