@@ -15,7 +15,7 @@
 	<inceptionYear>2014</inceptionYear>
 	<licenses>
 		<license>
-			<name>Specification License</name>
+			<name>BSD</name>
 			<url>https://raw.github.com/unitsofmeasurement/unit-api/master/LICENSE.txt</url>
 			<distribution>manual</distribution>
 		</license>
@@ -65,7 +65,7 @@
 		<project.build.javaVersion>${jdkVersion}</project.build.javaVersion>
 		<maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
-		
+
 		<!-- Plugins -->
 		<felix.version>2.5.3</felix.version>
 		<github.maven.version>0.10</github.maven.version>
@@ -221,6 +221,35 @@
 	</contributors>
 
 	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- License -->
+				<plugin>
+					<groupId>com.mycila</groupId>
+					<artifactId>license-maven-plugin</artifactId>
+					<version>2.11</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>check</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<excludes>
+							<exclude>pom.xml</exclude>
+							<exclude>**/README</exclude>
+							<exclude>**/settings.xml</exclude>
+							<exclude>src/test/resources/**</exclude>
+							<exclude>src/main/resources/**</exclude>
+							<exclude>src/etc/**</exclude>
+							<exclude>*.css</exclude>
+						</excludes>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
 		<plugins>
 			<!-- Compilation -->
 			<plugin>
@@ -316,32 +345,69 @@
 				</configuration>
 			</plugin>
 
-			 <plugin>
-                <groupId>com.github.github</groupId>
-                <artifactId>site-maven-plugin</artifactId>
-                <version>${github.maven.version}</version>
-                <configuration>
-                    <!-- must match the server's id  -->
-                    <server>github</server>
-                
-                    <message>Building site for ${project.version}</message>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>site</goal>
-                        </goals>
-                        <phase>site-deploy</phase>
-                        <configuration>
-                            <path>site</path>
-                            <merge>true</merge>
-                            <!--  <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> -->
-                            <repositoryName>unit-api</repositoryName>
-                            <repositoryOwner>unitsofmeasurement</repositoryOwner>  
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+			<!-- ======================================================= -->
+			<!-- Maven License Plugin -->
+			<!-- ======================================================= -->
+			<plugin>
+				<groupId>com.mycila</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<configuration>
+					<header>src/etc/header.txt</header>
+					<properties>
+						<owner>Jean-Marie Dautelle, Werner Keil, V2COM</owner>
+						<currentYear>2015</currentYear>
+					</properties>
+					<excludes>
+						<exclude>**/pom.xml</exclude>
+						<exclude>**/README</exclude>
+						<exclude>**/settings.xml</exclude>
+						<exclude>src/test/resources/**</exclude>
+						<exclude>src/main/resources/**</exclude>
+						<exclude>src/main/emf/**</exclude>
+						<exclude>src/site/**</exclude>
+						<exclude>src/etc/**</exclude>
+						<exclude>*.css</exclude>
+						<exclude>*.jpg</exclude>
+                        <exclude>*.png</exclude>
+                        <exclude>*.yml</exclude>
+					</excludes>
+					<headerDefinitions>
+						<headerDefinition>src/etc/headers.xml</headerDefinition>
+					</headerDefinitions>
+					<mapping>
+						<java>JAVA_STYLE</java>
+					</mapping>
+				</configuration>
+			</plugin>
+
+			<!-- ======================================================= -->
+			<!-- GitHub Plugin -->
+			<!-- ======================================================= -->
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>${github.maven.version}</version>
+				<configuration>
+					<!-- must match the server's id -->
+					<server>github</server>
+					<message>Building site for ${project.version}</message>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>site-deploy</phase>
+						<configuration>
+							<path>site</path>
+							<merge>true</merge>
+							<!-- <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> -->
+							<repositoryName>unit-api</repositoryName>
+							<repositoryOwner>unitsofmeasurement</repositoryOwner>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
 			<!-- Maven web site -->
 			<plugin>
@@ -433,24 +499,24 @@
 	</build>
 
 	<!-- Deployment to public servers -->
-    <distributionManagement>
-        <repository>
-            <id>bintray-release</id>
-            <name>oss-jfrog-artifactory-release</name>
-            <url>https://oss.jfrog.org/artifactory/oss-release-local</url>
-        </repository>
-        <snapshotRepository>
-            <id>bintray-snapshot</id>
-            <name>oss-jfrog-artifactory-snapshot</name>
-            <url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
-        </snapshotRepository>
-        <site>
-            <id>JSR-363</id>
-            <name>JSR-363 Maven reports</name>
-            <url>file:///var/www/www.unitsofmeasurement.org/jsr-363</url>
-            <!-- No longer working, just a placeholder! -->
-        </site>
-    </distributionManagement>
+	<distributionManagement>
+		<repository>
+			<id>bintray-release</id>
+			<name>oss-jfrog-artifactory-release</name>
+			<url>https://oss.jfrog.org/artifactory/oss-release-local</url>
+		</repository>
+		<snapshotRepository>
+			<id>bintray-snapshot</id>
+			<name>oss-jfrog-artifactory-snapshot</name>
+			<url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
+		</snapshotRepository>
+		<site>
+			<id>JSR-363</id>
+			<name>JSR-363 Maven reports</name>
+			<url>file:///var/www/www.unitsofmeasurement.org/jsr-363</url>
+			<!-- No longer working, just a placeholder! -->
+		</site>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>
@@ -480,71 +546,7 @@
 				</plugins>
 			</build>
 		</profile>
-
-		<profile>
-			<id>license</id>
-			<activation>
-				<property>
-					<name>license</name>
-					<value>true</value>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<!-- License. Enable this only for major upgrades (ensure to copy LICENSE.txt 
-						to LICENSE.bak first) -->
-					<plugin>
-						<groupId>com.google.code.maven-license-plugin</groupId>
-						<artifactId>maven-license-plugin</artifactId>
-						<version>1.4.0</version>
-						<executions>
-							<execution>
-								<phase>compile</phase>
-								<goals>
-									<goal>format</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<basedir>${basedir}</basedir>
-							<header>src/etc/header.txt</header>
-							<quiet>false</quiet>
-							<failIfMissing>true</failIfMissing>
-							<aggregate>false</aggregate>
-							<encoding>UTF-8</encoding>
-							<excludes>
-								<exclude>target/**</exclude>
-								<exclude>nbproject/**</exclude>
-								<exclude>LICENSE*.txt</exclude>
-								<exclude>README.*</exclude>
-								<exclude>checkstyle*.*</exclude>
-								<exclude>*.css</exclude>
-							</excludes>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
 		
-		<profile>
-		    <id>geoapi</id>
-		    <!-- TODO desruisseaux please fill this out according to geotool servers -->
-		    
-			<distributionManagement>
-	        <snapshotRepository>
-	            <id>geotoolkit</id>
-	            <name>Maven repository for snapshots only</name>
-	            <url>file:///var/www/maven.geotoolkit.org</url>
-	        </snapshotRepository>
-	        <site>
-	            <id>JSR-363</id>
-	            <name>JSR-363 Maven reports</name>
-	            <url>file:///var/www/www.unitsofmeasurement.org/jsr-363</url>
-	            <!-- No longer working, just a placeholder! -->
-	        </site>
-	        </distributionManagement>
-		</profile>
-
 		<profile>
 			<id>documentation</id>
 			<build>
