@@ -16,7 +16,7 @@
 	<licenses>
 		<license>
 			<name>BSD</name>
-			<url>https://raw.github.com/unitsofmeasurement/unit-api/master/LICENSE.txt</url>
+			<url>LICENSE.txt</url>
 			<distribution>manual</distribution>
 		</license>
 	</licenses>
@@ -235,17 +235,6 @@
 							</goals>
 						</execution>
 					</executions>
-					<configuration>
-						<excludes>
-							<exclude>pom.xml</exclude>
-							<exclude>**/README</exclude>
-							<exclude>**/settings.xml</exclude>
-							<exclude>src/test/resources/**</exclude>
-							<exclude>src/main/resources/**</exclude>
-							<exclude>src/etc/**</exclude>
-							<exclude>*.css</exclude>
-						</excludes>
-					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
