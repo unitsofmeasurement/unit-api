@@ -48,7 +48,7 @@ import javax.measure.Unit;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  *
- * @version 0.7.2, Ocr 2, 2015
+ * @version 0.7.3, Oct 10, 2015
  *
  * @see Unit
  */
@@ -86,7 +86,7 @@ public interface UnitFormat {
      * @param label
      *            the new label for this unit.
      * @throws IllegalArgumentException
-     *             if the label is not a valid identifier.
+     *             if the label is not a valid identifier. This may include characters not supported by a particular {@link UnitFormat} implementation (e.g. only <b>ASCII</b> characters for certain devices) 
      * @throws UnsupportedOperationException if the <tt>label</tt> operation
      *         is not supported by this {@link UnitFormat}
      */
