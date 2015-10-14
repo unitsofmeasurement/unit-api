@@ -27,23 +27,34 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+//
+// This source code implements specifications defined by the Java
+// Community Process. In order to remain compliant with the specification
+// DO NOT add / change / or delete method signatures!
+//
 package javax.measure;
 
 /**
- * Exception thrown when errors occur during measurement operations.
+ * Exception used to indicate a problem while dealing with units of measurement.
+ * <p>
+ * This exception is used to indicate problems with creating, retrieving
+ * and manipulating units of measurement objects.
+ *
+ * @implSpec
+ * This class is intended for use in a single thread.
+ * Exception thrown when errors occur during Units of Measurement operations.
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.5, $Date: 2014-06-28 $
- *
+ * @version 0.6, Oct 14, 2015
  */
 public class MeasurementException extends RuntimeException {
 
     /**
      * For cross-version compatibility.
      */
-	private static final long serialVersionUID = 8959937033300443361L;
+    private static final long serialVersionUID = 8959937033300443361L;
 
-	/**
+    /**
      * Constructs a {@code MeasurementException} with the given message.
      *
      * @param message the detail message, or {@code null} if none.
@@ -72,7 +83,7 @@ public class MeasurementException extends RuntimeException {
         super(message, cause);
     }
     
-	/**
+    /**
      * Constructs a {@code MeasurementException} with no given message.
      *
      */
