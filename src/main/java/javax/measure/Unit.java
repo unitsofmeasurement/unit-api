@@ -27,6 +27,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+//
+// This source code implements specifications defined by the Java
+// Community Process. In order to remain compliant with the specification
+// DO NOT add / change / or delete method signatures!
+//
 package javax.measure;
 
 import java.util.Map;
@@ -57,7 +62,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:desruisseaux@users.sourceforge.net">Martin Desruisseaux</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.18, September 30, 2015
+ * @version 0.19, October 13, 2015
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
  */
@@ -228,9 +233,9 @@ public interface Unit<Q extends Quantity<Q>> {
      * The returned unit is convertible with all units that are convertible with this unit.
      * For example the following code:
      *
-     * [code]
+     * <code>
      *    CELSIUS = KELVIN.shift(273.15);
-     * [/code]
+     * </code>
      *
      * creates a new unit where 0°C (the origin of the new unit) is equals to 273.15 K.
      * Converting from the old unit to the new one is equivalent to <em>subtracting</em>
@@ -246,10 +251,10 @@ public interface Unit<Q extends Quantity<Q>> {
      * If the factor is an integer value, the multiplication is exact
      * (recommended). For example:
      *
-     * [code]
+     * <code>
      *    FOOT = METRE.multiply(3048).divide(10000); // Exact definition.
      *    ELECTRON_MASS = KILOGRAM.multiply(9.10938188e-31); // Approximation.
-     * [/code]
+     * </code>
      *
      * @param  multiplier the multiplier
      * @return this unit scaled by the specified multiplier.
@@ -276,9 +281,9 @@ public interface Unit<Q extends Quantity<Q>> {
      * If the factor is an integer value, the division is exact.
      * For example:
      *
-     * [code]
-     *    QUART = GALLON_LIQUID_US.divide(4); // Exact definition.
-     * [/code]
+     * <code>
+     *    GRAM = KILOGRAM.divide(1000); // Exact definition.
+     * </code>
      *
      * @param  divisor the divisor value.
      * @return this unit divided by the specified divisor.
@@ -311,19 +316,19 @@ public interface Unit<Q extends Quantity<Q>> {
      */
     Unit<?> pow(int n);
 
-	/**
-	 * Returns the unit derived from this unit using the specified converter.
-	 * The converter does not need to be linear. For example:<br>
-	 * <code>
-	 *     Unit<Dimensionless> DECIBEL = Unit.ONE.transform(
-	 *         new LogConverter(10).inverse().concatenate(
-	 *             new RationalConverter(1, 10)));
-	 * </code>
-	 *
-	 * @param  operation the converter from the transformed unit to this unit.
-	 * @return the unit after the specified transformation.
-	 */
-	Unit<Q> transform(UnitConverter converter);
+    /**
+     * Returns the unit derived from this unit using the specified converter.
+     * The converter does not need to be linear. For example:<br>
+     * <code>
+     *     Unit<Dimensionless> DECIBEL = Unit.ONE.transform(
+     *         new LogConverter(10).inverse().concatenate(
+     *             new RationalConverter(1, 10)));
+     * </code>
+     *
+     * @param  operation the converter from the transformed unit to this unit.
+     * @return the unit after the specified transformation.
+     */
+    Unit<Q> transform(UnitConverter converter);
 	
     /**
      * <p>Returns a string representation of this unit. The string representation may
