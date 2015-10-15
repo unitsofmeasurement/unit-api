@@ -27,13 +27,18 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+//
+// This source code implements specifications defined by the Java
+// Community Process. In order to remain compliant with the specification
+// DO NOT add / change / or delete method signatures!
+//
 /**
  * [OPTIONAL] Provides quantitative properties or attributes of thing such as
  * mass, time, distance, heat, and angular separation.
  * Quantities of different kinds are represented by sub-types of the
  * {@link javax.measure.Quantity} interface.
  *
- * <p>Only quantities defined in the <a href="http://en.wikipedia.org/wiki/International_System_of_Units">International System of Units</a>
+ * <p>Only quantities defined in the <a href="http://www.bipm.org/en/publications/si-brochure/">BIPM - SI Brochure</a>
  * are provided here. Users can create their own quantity types by extending the
  * {@link javax.measure.Quantity Quantity} interface.</p>
  *
@@ -44,7 +49,7 @@
  * (for example {@code double} primitive type with the requirement to provide values in meters)
  * before computation begins.</p>
  *
- * <p>Quantities sub-types are also used as parameterized type to characterize
+ * <p>{@link javax.measure.Quantity Quantity} sub-types are also used as parameterized type to characterize
  * generic classes and provide additional compile time check. This technique is
  * used extensively by the {@link javax.measure.Unit} interface,
  * but users can apply the same approach to their own classes. In the example
@@ -65,7 +70,7 @@
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 2.3
+ * @version 2.5
  *
  */
 package javax.measure.quantity;
