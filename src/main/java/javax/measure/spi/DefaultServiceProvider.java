@@ -30,7 +30,6 @@
 package javax.measure.spi;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -99,7 +98,7 @@ class DefaultServiceProvider implements ServiceProvider {
             if (!servicesLoaded.containsKey(serviceType)) {
             	@SuppressWarnings("unchecked")
 				final List<T> previousServices = (List<T>) servicesLoaded.put(serviceType, (List<Object>) services);
-            	return Collections.unmodifiableList(previousServices != null ? previousServices : services);
+            	return new ArrayList<T>(previousServices != null ? previousServices : services);
             }
             return services;
         } catch (Exception e) {
