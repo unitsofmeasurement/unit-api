@@ -45,7 +45,7 @@ import javax.measure.Unit;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.8, $Date: 2014-12-03 $
+ * @version 0.8.1, 2015-10-26
  * @see <a href="http://en.wikipedia.org/wiki/International_System_of_Units">
  *      Wikipedia: International System of Units</a>
  * @see <a href="http://en.wikipedia.org/wiki/Systems_of_measurement">
@@ -71,9 +71,11 @@ public interface SystemOfUnits {
 	<Q extends Quantity<Q>> Unit<Q> getUnit(Class<Q> quantityType);
 
 	/**
-	 * Returns a read only view over the units defined in this system.
+	 * Returns a read only view over the units explicitly defined by this system. 
+	 * This include the base and derived units which are assigned a special name and symbol. 
+	 * This set does not include new units created by arithmetic or other operations.
 	 *
-	 * @return the collection of units.
+	 * @return the defined collection of units.
 	 */
 	Set<? extends Unit<?>> getUnits();
 
