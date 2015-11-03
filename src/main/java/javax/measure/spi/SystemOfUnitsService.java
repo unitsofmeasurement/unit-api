@@ -29,6 +29,7 @@
  */
 package javax.measure.spi;
 
+import java.util.Collection;
 
 /**
  * <p>
@@ -43,7 +44,7 @@ package javax.measure.spi;
  * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.5, $Date: 2014-12-03 $
+ * @version 0.6, $Date: 2015-11-03 $
  */
 public interface SystemOfUnitsService {
 
@@ -65,4 +66,9 @@ public interface SystemOfUnitsService {
      */
 	SystemOfUnits getSystemOfUnits(String name);
 
+    /**
+     * Gets a list with available systems for this {@link SystemOfUnitsService}.
+     * @return list of available system of units, never null.
+     */
+	Collection<SystemOfUnits> getAvailableSystemsOfUnits();
 }
