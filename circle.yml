@@ -8,7 +8,7 @@ machine:
 #    UOM_VERSION: 0.8-SNAPSHOT
 test:
    override:
-     - mvn install
+     - mvn install -Pjdk6
    post:
      - mvn deploy -Dmaven.test.skip -s settings.xml
  #    - mvn site-deploy -Dmaven.test.skip -s settings.xml
