@@ -29,6 +29,8 @@
  */
 package javax.measure.spi;
 
+import java.util.Set;
+
 import javax.measure.format.UnitFormat;
 
 /**
@@ -38,7 +40,7 @@ import javax.measure.format.UnitFormat;
  * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.5.2, $Date: 2015-08-02 $
+ * @version 0.6, $Date: 2015-11-03 $
  */
 public interface UnitFormatService {
 
@@ -62,4 +64,10 @@ public interface UnitFormatService {
      * @return the corresponding unit format.
      */
 	UnitFormat getUnitFormat(String name);
+	
+    /**
+     * Gets a list with available format names for this format service.
+     * @return list of available formats, never null.
+     */
+    Set<String> getAvailableFormatNames();
 }
