@@ -68,7 +68,7 @@ public interface SystemOfUnitsService {
 
     /**
      * Gets a list with available systems for this {@link SystemOfUnitsService}.
-     * @return list of available system of units, never null.
+     * @return list of available systems of units, never null.
      */
 	Collection<SystemOfUnits> getAvailableSystemsOfUnits();
 }
