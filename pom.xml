@@ -61,7 +61,7 @@
 		<sourceEncoding>UTF-8</sourceEncoding> <!-- in Maven 3. -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${sourceEncoding}</project.reporting.outputEncoding>
-		<jdkVersion>1.6</jdkVersion>
+		<jdkVersion>1.7</jdkVersion>
 		<project.build.javaVersion>${jdkVersion}</project.build.javaVersion>
 		<maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
@@ -357,8 +357,8 @@
 						<exclude>src/etc/**</exclude>
 						<exclude>*.css</exclude>
 						<exclude>*.jpg</exclude>
-                        <exclude>*.png</exclude>
-                        <exclude>*.yml</exclude>
+						<exclude>*.png</exclude>
+						<exclude>*.yml</exclude>
 					</excludes>
 					<headerDefinitions>
 						<headerDefinition>src/etc/headers.xml</headerDefinition>
@@ -517,12 +517,18 @@
 	</dependencies>
 
 	<profiles>
-	    <profile>
-	       <id>jdk8</id>
-	       <properties>
-	           <jdkVersion>1.8</jdkVersion>
-	       </properties>
-	    </profile>
+		<profile>
+			<id>jdk6</id>
+			<properties>
+				<jdkVersion>1.6</jdkVersion>
+			</properties>
+		</profile>
+		<profile>
+			<id>jdk8</id>
+			<properties>
+				<jdkVersion>1.8</jdkVersion>
+			</properties>
+		</profile>
 		<profile>
 			<id>jar-core</id>
 			<build>
@@ -541,7 +547,7 @@
 				</plugins>
 			</build>
 		</profile>
-		
+
 		<profile>
 			<id>documentation</id>
 			<build>
