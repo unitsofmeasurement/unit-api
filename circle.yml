@@ -10,6 +10,6 @@ test:
    override:
      - mvn install -Pjdk6
    post:
-     - mvn deploy -Dmaven.test.skip -s settings.xml
+     - mvn deploy -Pjdk6 -Dmaven.test.skip -s settings.xml
  #    - mvn site-deploy -Dmaven.test.skip -s settings.xml
  # GitHub currently has a bug preventing to publish this automatically (triggers "abuse detection mechanism" ;-|) but it works fairly well if the goal is called manually
