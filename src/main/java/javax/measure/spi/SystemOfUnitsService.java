@@ -44,16 +44,17 @@ import java.util.Collection;
  * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.6, $Date: 2015-11-03 $
+ * @version 0.7, $Date: 2015-11-08 $
  */
 public interface SystemOfUnitsService {
 
 	/**
-	 * Returns the default <a
+	 * Returns the default {@link SystemOfUnits system
+     * of units}. Depending on the implementation this may be the <a
 	 * href=http://en.wikipedia.org/wiki/International_System_of_Units">
-	 * International System of Units</a>.
+	 * International System of Units</a> or another default system.
 	 * 
-	 * @return <code>getSystemOfUnits("SI")</code>
+	 * @return the default system of units.
 	 */
 	SystemOfUnits getSystemOfUnits();
 
@@ -62,7 +63,7 @@ public interface SystemOfUnitsService {
      * <code>null</code> if none.
      *
      * @param name the system of unit name.
-     * @return the system of units.
+     * @return the given system of units.
      */
 	SystemOfUnits getSystemOfUnits(String name);
 
