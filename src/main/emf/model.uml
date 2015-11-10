@@ -832,19 +832,6 @@
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_N70hgHY6EeSqtc-Sb9aJnA" name="format">
-          <packagedElement xmi:type="uml:Interface" xmi:id="_N70hgXY6EeSqtc-Sb9aJnA" name="Parser">
-            <ownedOperation xmi:type="uml:Operation" xmi:id="_N70hg3Y6EeSqtc-Sb9aJnA" name="parse">
-              <ownedComment xmi:type="uml:Comment" xmi:id="_N70hhHY6EeSqtc-Sb9aJnA">
-                <body>
-	 * Parses the specified {@code I} to produce a {@code O}.
-	 * @throws ParserException if any problem occurs while parsing the
-     *         specified input (e.g. illegal syntax).
-	 </body>
-              </ownedComment>
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_N70hhnY6EeSqtc-Sb9aJnA" type="_N70hhXY6EeSqtc-Sb9aJnA" direction="return"/>
-              <ownedParameter xmi:type="uml:Parameter" xmi:id="_N70hh3Y6EeSqtc-Sb9aJnA" name="input" type="_N70hgnY6EeSqtc-Sb9aJnA"/>
-            </ownedOperation>
-          </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_N70hgnY6EeSqtc-Sb9aJnA" name="I"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_N70hhXY6EeSqtc-Sb9aJnA" name="O"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_N70hiHY6EeSqtc-Sb9aJnA" name="ParserException">
@@ -914,8 +901,6 @@
  * @see Parser
  </body>
             </ownedComment>
-            <generalization xmi:type="uml:Generalization" xmi:id="_N79rfHY6EeSqtc-Sb9aJnA" general="_N70hgXY6EeSqtc-Sb9aJnA"/>
-            <generalization xmi:type="uml:Generalization" xmi:id="_jPIuIHY6EeSqtc-Sb9aJnA" general="_N70hgXY6EeSqtc-Sb9aJnA"/>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_N79rfnY6EeSqtc-Sb9aJnA" name="format">
               <ownedComment xmi:type="uml:Comment" xmi:id="_N79rf3Y6EeSqtc-Sb9aJnA">
                 <body>
@@ -930,6 +915,10 @@
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_N79rgHY6EeSqtc-Sb9aJnA" type="_N79rfXY6EeSqtc-Sb9aJnA" direction="return"/>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_N79rgXY6EeSqtc-Sb9aJnA" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_N79rgnY6EeSqtc-Sb9aJnA" name="appendable" type="_N79rfXY6EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_wiRrcIfnEeWIX-YU2rOOwg" name="format">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_QDRXkIfpEeWSAJVqrs5hGQ" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_TAFG8IfpEeWSAJVqrs5hGQ" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
             </ownedOperation>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_N79rg3Y6EeSqtc-Sb9aJnA" name="parse">
               <ownedComment xmi:type="uml:Comment" xmi:id="_N79rhHY6EeSqtc-Sb9aJnA">
@@ -946,6 +935,13 @@
               </ownedComment>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_N79rhXY6EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_N8HccHY6EeSqtc-Sb9aJnA" name="csq" type="_N79rcXY6EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_f-R_kIflEeWIX-YU2rOOwg" name="label">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_wIRFcIfmEeWIX-YU2rOOwg" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_2KYY4IfmEeWIX-YU2rOOwg" name="label" type="_f7ir43Y5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_ALppgIfnEeWIX-YU2rOOwg" name="isLocaleSensitive">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_IzYUUIfnEeWIX-YU2rOOwg" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
             </ownedOperation>
           </packagedElement>
         </packagedElement>
