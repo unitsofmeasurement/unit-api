@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>javax.measure</groupId>
 	<artifactId>unit-api</artifactId>
-	<version>0.8</version>
+	<version>0.9-SNAPSHOT</version>
 	<name>Units of Measurement API</name>
 	<packaging>bundle</packaging>
 	<url>http://unitsofmeasurement.github.io/</url>
@@ -308,7 +308,7 @@
 							<Specification-Version>${project.version}</Specification-Version>
 							<Specification-Vendor>${project.organization.name}</Specification-Vendor>
 							<Implementation-Vendor>Unit-API contributors</Implementation-Vendor>
-							<Implementation-URL>http://www.unitsofmeasurement.org</Implementation-URL>
+							<Implementation-URL>http://unitsofmeasurement.github.io</Implementation-URL>
 						</manifestEntries>
 					</archive>
 				</configuration>
@@ -518,6 +518,12 @@
 
 	<profiles>
 		<profile>
+			<id>jdk5</id>
+			<properties>
+				<jdkVersion>1.5</jdkVersion>
+			</properties>
+		</profile>
+		<profile>
 			<id>jdk6</id>
 			<properties>
 				<jdkVersion>1.6</jdkVersion>
@@ -529,20 +535,61 @@
 				<jdkVersion>1.8</jdkVersion>
 			</properties>
 		</profile>
+
 		<profile>
-			<id>jar-core</id>
+			<id>core-jar</id>
+			<!-- This profile builds only the core (root level) elements into a separate -core.jar file -->
 			<build>
 				<plugins>
 					<plugin>
 						<artifactId>maven-jar-plugin</artifactId>
-						<configuration>
-							<finalName>${project.artifactId}-core-${project.version}</finalName>
-							<excludes>
-								<exclude>javax/measure/format/**</exclude>
-								<exclude>javax/measure/quantity/**</exclude>
-								<exclude>javax/measure/spi/**</exclude>
-							</excludes>
-						</configuration>
+						<version>2.6</version>
+						<executions>
+							<execution>
+								<id>core-jar</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+								<configuration>
+									<classifier>core</classifier>
+									<excludes>
+										<exclude>javax/measure/format/**</exclude>
+										<exclude>javax/measure/quantity/**</exclude>
+										<exclude>javax/measure/spi/**</exclude>
+									</excludes>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>other-jars</id>
+			<!-- This profile builds all other (optional) elements into separate JAR files -->
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-jar-plugin</artifactId>
+						<version>2.6</version>
+						<!-- <configuration> <finalName>${project.artifactId}-core-${project.version}</finalName> 
+							<excludes> <exclude>javax/measure/format/**</exclude> <exclude>javax/measure/quantity/**</exclude> 
+							<exclude>javax/measure/spi/**</exclude> </excludes> </configuration> -->
+						<executions>
+							<execution>
+								<id>format-jar</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+								<configuration>
+									<classifier>format</classifier>
+									<includes>
+										<include>javax/measure/format/**</include>
+									</includes>
+								</configuration>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
