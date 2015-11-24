@@ -61,7 +61,7 @@
 		<sourceEncoding>UTF-8</sourceEncoding> <!-- in Maven 3. -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${sourceEncoding}</project.reporting.outputEncoding>
-		<jdkVersion>1.7</jdkVersion>
+		<jdkVersion>1.6</jdkVersion>
 		<project.build.javaVersion>${jdkVersion}</project.build.javaVersion>
 		<maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
@@ -518,15 +518,15 @@
 
 	<profiles>
 		<profile>
-			<id>jdk5</id>
-			<properties>
-				<jdkVersion>1.5</jdkVersion>
-			</properties>
-		</profile>
-		<profile>
 			<id>jdk6</id>
 			<properties>
 				<jdkVersion>1.6</jdkVersion>
+			</properties>
+		</profile>
+		<profile>
+			<id>jdk7</id>
+			<properties>
+				<jdkVersion>1.7</jdkVersion>
 			</properties>
 		</profile>
 		<profile>
@@ -538,7 +538,8 @@
 
 		<profile>
 			<id>core-jar</id>
-			<!-- This profile builds only the core (root level) elements into a separate -core.jar file -->
+			<!-- This profile builds only the core (root level) elements into a separate 
+				-core.jar file -->
 			<build>
 				<plugins>
 					<plugin>
@@ -567,7 +568,8 @@
 
 		<profile>
 			<id>other-jars</id>
-			<!-- This profile builds all other (optional) elements into separate JAR files -->
+			<!-- This profile builds all other (optional) elements into separate JAR 
+				files -->
 			<build>
 				<plugins>
 					<plugin>
