@@ -48,7 +48,7 @@ import javax.measure.Unit;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  *
- * @version 0.7.3, Oct 10, 2015
+ * @version 0.8, Nov 25, 2015
  *
  * @see Unit
  */
@@ -100,14 +100,18 @@ public interface UnitFormat {
     boolean isLocaleSensitive();
 	
     /**
-     * Parses a portion of the specified {@code CharSequence} from the
-     * specified position to produce a unit. If there is no unit to parse
-     * the unitary unit (dimensionless) is returned.
+     * Parses the text into an instance of {@link Unit}.
+     * <p>
+     * The parse must complete normally and parse the entire text. If the parse completes without
+     * reading the entire length of the text, an exception is thrown. If any other problem occurs
+     * during parsing, an exception is thrown.
+     * <p>
      *
      * @param  csq the {@code CharSequence} to parse.
-     * @return the unit parsed from the specified character sub-sequence.
+     * @return the unit parsed from the specified character sequence.
      * @throws ParserException if any problem occurs while parsing the
      *         specified character sequence (e.g. illegal syntax).
+     * @throws UnsupportedOperationException if the {@link UnitFormat} is unable to parse.
      */
     Unit<?> parse(CharSequence csq) throws ParserException;
 }
