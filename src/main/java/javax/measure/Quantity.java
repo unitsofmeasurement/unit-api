@@ -58,7 +58,7 @@ package javax.measure;
  *      Quantity</a>
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia:
  *      Conversion of units</a>
- * @version 0.25, Date: 2014-12-07
+ * @version 0.26, Date: 2015-12-23
  */
 public interface Quantity<Q extends Quantity<Q>> {
 
@@ -150,7 +150,7 @@ public interface Quantity<Q extends Quantity<Q>> {
         * <code>ClassCastException</code> if the dimension of the specified
         * quantity and this measure unit's dimension do not match. For example:<br/>
         * <code>
-        *     Quantity<Length> length = BaseQuantity.of("2 km").asType(Length.class);
+        *     Quantity<Length> length = Quantities.getQuantity("2 km").asType(Length.class);
         * </code>
         * or
         * <code>
@@ -164,8 +164,7 @@ public interface Quantity<Q extends Quantity<Q>> {
         *             if the dimension of this unit is different from the specified
         *             quantity dimension.
         * @throws UnsupportedOperationException
-        *             if the specified quantity class does not have a public static
-        *             field named "UNIT" holding the SI unit for the quantity.
+        *             if the specified quantity class does not have a SI unit for the quantity.
         * @see Unit#asType(Class)
         */
         <T extends Quantity<T>> Quantity<T> asType(Class<T> type) throws ClassCastException;
