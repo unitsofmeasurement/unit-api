@@ -62,7 +62,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:desruisseaux@users.sourceforge.net">Martin Desruisseaux</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.19, October 13, 2015
+ * @version 0.20, December 30, 2015
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
  */
@@ -114,13 +114,12 @@ public interface Unit<Q extends Quantity<Q>> {
      *
      * <p>Because the system unit is unique by quantity type, it can be
      * be used to identify the quantity given the unit. For example:</p>
-     *
-     * [code]
-     *     static boolean isAngularSpeed(Unit<?> unit) {
-     *         return unit.getSystemUnit().equals(RADIAN.divide(SECOND));
-     *     }
-     *     assert isAngularSpeed(REVOLUTION.divide(MINUTE)); // Returns true.
-     * [/code]
+     * <code>
+     *     static boolean isAngularSpeed(Unit<?> unit) {<br>
+     *     &nbsp;&nbsp;    return unit.getSystemUnit().equals(RADIAN.divide(SECOND));<br>
+     *     }<br>
+     *     assert isAngularSpeed(REVOLUTION.divide(MINUTE)); // Returns true.<br><br>
+     * </code>
      *
      * @return the system unit this unit is derived from,
      *         or {@code this} if this unit is a system unit.
@@ -140,10 +139,10 @@ public interface Unit<Q extends Quantity<Q>> {
      * Units don't need to be equals to be compatible. For example
      * (assuming {@code ONE} is a dimensionless unit):
      *
-     * [code]
-     *     RADIAN.equals(ONE) == false
-     *     RADIAN.isCompatible(ONE) == true
-     * [/code]
+     * <code>
+     *     RADIAN.equals(ONE) == false<br>
+     *     RADIAN.isCompatible(ONE) == true<br>
+     * </code>
      *
      * @param  that the other unit to compare for compatibility.
      * @return {@code this.getDimension().equals(that.getDimension())}
@@ -157,9 +156,9 @@ public interface Unit<Q extends Quantity<Q>> {
      * {@code ClassCastException} if the dimension of the specified quantity
      * and this unit's dimension do not match. For example:
      *
-     * [code]
+     * <code>
      *      Unit<Speed> C = METRE.times(299792458).divide(SECOND).asType(Speed.class);
-     * [/code]
+     * </code>
      *
      * @param  <T> The type of the quantity measured by the unit.
      * @param  type the quantity class identifying the nature of the unit.
@@ -214,11 +213,11 @@ public interface Unit<Q extends Quantity<Q>> {
      *
      * <p>Examples of alternate units:</p>
      *
-     * [code]
-     *     Unit<Angle> RADIAN = ONE.alternate("rad").asType(Angle.class);
-     *     Unit<Force> NEWTON = METRE.times(KILOGRAM).divide(SECOND.pow(2)).alternate("N").asType(Force.class);
-     *     Unit<Pressure> PASCAL = NEWTON.divide(METRE.pow(2)).alternate("Pa").asType(Pressure.class);
-     * [/code]
+     * <code>
+     *     Unit<Angle> RADIAN = ONE.alternate("rad").asType(Angle.class);<br>
+     *     Unit<Force> NEWTON = METRE.times(KILOGRAM).divide(SECOND.pow(2)).alternate("N").asType(Force.class);<br>
+     *     Unit<Pressure> PASCAL = NEWTON.divide(METRE.pow(2)).alternate("Pa").asType(Pressure.class);<br>
+     * </code>
      *
      * @param  symbol the new symbol for the alternate unit.
      * @return the alternate unit.
