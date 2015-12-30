@@ -289,12 +289,12 @@
      * &lt;p>Because the system unit is unique by quantity type, it can be
      * be used to identify the quantity given the unit. For example:&lt;/p>
      *
-     * [code]
+     * <code>
      *     static boolean isAngularSpeed(Unit&lt;?> unit) {
      *         return unit.getSystemUnit().equals(RADIAN.divide(SECOND));
      *     }
      *     assert isAngularSpeed(REVOLUTION.divide(MINUTE)); // Returns true.
-     * [/code]
+     * </code>
      *
      * @return the system unit this unit is derived from,
      *         or {@code this} if this unit is a system unit.
@@ -320,10 +320,10 @@
      * Units don't need to be equals to be compatible. For example
      * (assuming {@code ONE} is a dimensionless unit):
      *
-     * [code]
+     * <code>
      *     RADIAN.equals(ONE) == false
      *     RADIAN.isCompatible(ONE) == true
-     * [/code]
+     * </code>
      *
      * @param  that the other unit to compare for compatibility.
      * @return {@code this.getDimension().equals(that.getDimension())}
@@ -341,9 +341,9 @@
      * {@code ClassCastException} if the dimension of the specified quantity
      * and this unit's dimension do not match. For example:
      *
-     * [code]
+     * <code>
      *      Unit&lt;Speed> C = METRE.times(299792458).divide(SECOND).asType(Speed.class);
-     * [/code]
+     * </code>
      *
      * @param  &lt;T> The type of the quantity measured by the unit.
      * @param  type the quantity class identifying the nature of the unit.
@@ -405,11 +405,11 @@
      *
      * &lt;p>Examples of alternate units:&lt;/p>
      *
-     * [code]
+     * <code>
      *     Unit&lt;Angle> RADIAN = ONE.alternate(&quot;rad&quot;).asType(Angle.class);
      *     Unit&lt;Force> NEWTON = METRE.times(KILOGRAM).divide(SECOND.pow(2)).alternate(&quot;N&quot;).asType(Force.class);
      *     Unit&lt;Pressure> PASCAL = NEWTON.divide(METRE.pow(2)).alternate(&quot;Pa&quot;).asType(Pressure.class);
-     * [/code]
+     * </code>
      *
      * @param  symbol the new symbol for the alternate unit.
      * @return the alternate unit.
@@ -428,9 +428,9 @@
      * The returned unit is convertible with all units that are convertible with this unit.
      * For example the following code:
      *
-     * [code]
+     * <code>
      *    CELSIUS = KELVIN.shift(273.15);
-     * [/code]
+     * </code>
      *
      * creates a new unit where 0Â°C (the origin of the new unit) is equals to 273.15 K.
      * Converting from the old unit to the new one is equivalent to &lt;em>subtracting&lt;/em>
@@ -450,10 +450,10 @@
      * If the factor is an integer value, the multiplication is exact
      * (recommended). For example:
      *
-     * [code]
+     * <code>
      *    FOOT = METRE.multiply(3048).divide(10000); // Exact definition.
      *    ELECTRON_MASS = KILOGRAM.multiply(9.10938188e-31); // Approximation.
-     * [/code]
+     * </code>
      *
      * @param  factor the factor
      * @return this unit scaled by the specified factor.
@@ -491,9 +491,9 @@
      * If the factor is an integer value, the division is exact.
      * For example:
      *
-     * [code]
+     * <code>
      *    QUART = GALLON_LIQUID_US.divide(4); // Exact definition.
-     * [/code]
+     * </code>
      *
      * @param  divisor the divisor value.
      * @return this unit divided by the specified divisor.
@@ -754,11 +754,11 @@
      *
      * &lt;p>For linear converters the following property always hold:&lt;/p>
      *
-     * [code]
+     * <code>
      *   y1 = c1.convert(x1);
      *   y2 = c2.convert(x2);
      *   assert y1*y2 == c1.concatenate(c2).convert(x1*x2);
-     * [/code]
+     * </code>
      *
      * @return {@code true} if this converter is linear; {@code false} otherwise.
      </body>
@@ -2018,10 +2018,10 @@
 	 * Returns the unscaled {@link SI} unit from which this unit is derived.
 	 * 
 	 * They SI unit can be be used to identify a quantity given the unit. For
-	 * example:[code] static boolean isAngularVelocity(AbstractUnit&lt;?> unit) {
+	 * example:<code> static boolean isAngularVelocity(AbstractUnit&lt;?> unit) {
 	 * return unit.toSI().equals(RADIAN.divide(SECOND)); }
 	 * assert(REVOLUTION.divide(MINUTE).isAngularVelocity()); // Returns true.
-	 * [/code]
+	 * </code>
 	 *
 	 * @return the unscaled metric unit from which this unit is derived.
 	 </body>
@@ -2045,10 +2045,10 @@
                 <body>
 	 * Annotates the specified unit. Annotation does not change the unit
 	 * semantic. Annotations are often written between curly braces behind
-	 * units. For example: [code] AbstractUnit&lt;Volume> PERCENT_VOL =
+	 * units. For example: <code> AbstractUnit&lt;Volume> PERCENT_VOL =
 	 * SI.PERCENT.annotate(&quot;vol&quot;); // &quot;%{vol}&quot; AbstractUnit&lt;Mass> KG_TOTAL =
 	 * SI.KILOGRAM.annotate(&quot;total&quot;); // &quot;kg{total}&quot; AbstractUnit&lt;Dimensionless>
-	 * RED_BLOOD_CELLS = ONE.annotate(&quot;RBC&quot;); // &quot;{RBC}&quot; [/code]
+	 * RED_BLOOD_CELLS = ONE.annotate(&quot;RBC&quot;); // &quot;{RBC}&quot; </code>
 	 *
 	 * Note: Annotation of system units are not considered themselves as system
 	 * units.
@@ -2072,9 +2072,9 @@
 	 * the {@link LocalUnitFormat} utility class.
 	 *
 	 * &lt;p>
-	 * Note: The standard UCUM format supports dimensionless units.[code]
+	 * Note: The standard UCUM format supports dimensionless units.<code>
 	 * AbstractUnit&lt;Dimensionless> PERCENT =
-	 * AbstractUnit.of(&quot;100&quot;).inverse().asType(Dimensionless.class); [/code]
+	 * AbstractUnit.of(&quot;100&quot;).inverse().asType(Dimensionless.class); </code>
 	 * &lt;/p>
 	 *
 	 * @param charSequence
@@ -2111,10 +2111,10 @@
                 <body>
 	 * Returns the system unit (unscaled SI unit) from which this unit is
 	 * derived. They can be be used to identify a quantity given the unit. For
-	 * example:[code] static boolean isAngularVelocity(AbstractUnit&lt;?> unit) {
+	 * example:<code> static boolean isAngularVelocity(AbstractUnit&lt;?> unit) {
 	 * return unit.getSystemUnit().equals(RADIAN.divide(SECOND)); }
 	 * assert(REVOLUTION.divide(MINUTE).isAngularVelocity()); // Returns true.
-	 * [/code]
+	 * </code>
 	 *
 	 * @return the unscaled metric unit from which this unit is derived.
 	 </body>
