@@ -38,7 +38,7 @@ import java.util.List;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.7.1, 2014-09-07
+ * @version 0.8, 2015-12-30
  *
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units"> Wikipedia:
  *      Conversion of units</a>
@@ -63,11 +63,11 @@ public interface UnitConverter {
      *
      * <p>For linear converters the following property always hold:</p>
      *
-     * [code]
+     * <code>
      *   y1 = c1.convert(x1);
      *   y2 = c2.convert(x2);
      *   assert y1*y2 == c1.concatenate(c2).convert(x1*x2);
-     * [/code]
+     * </code>
      *
      * @return {@code true} if this converter is linear; {@code false} otherwise.
      */
