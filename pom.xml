@@ -539,6 +539,9 @@
 			<id>core-jar</id>
 			<!-- This profile builds only the core (root level) elements into a separate 
 				-core.jar file -->
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
 			<build>
 				<plugins>
 					<plugin>
