@@ -282,7 +282,6 @@
 				</executions>
 				<configuration>
 					<detectLinks>true</detectLinks>
-					<!-- excludePackageNames>blabla</excludePackageNames -->
 					<keywords>true</keywords>
 					<linksource>true</linksource>
 					<failOnError>false</failOnError>
@@ -344,7 +343,7 @@
 					<header>src/etc/header.txt</header>
 					<properties>
 						<owner>Jean-Marie Dautelle, Werner Keil, V2COM</owner>
-						<currentYear>2015</currentYear>
+						<currentYear>2016</currentYear>
 					</properties>
 					<excludes>
 						<exclude>**/pom.xml</exclude>
@@ -503,7 +502,7 @@
 			<id>JSR-363</id>
 			<name>JSR-363 Maven reports</name>
 			<url>file:///var/www/www.unitsofmeasurement.org/jsr-363</url>
-			<!-- No longer working, just a placeholder! -->
+			<!-- No longer active, just a placeholder! -->
 		</site>
 	</distributionManagement>
 
@@ -511,7 +510,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -575,9 +574,6 @@
 					<plugin>
 						<artifactId>maven-jar-plugin</artifactId>
 						<version>2.6</version>
-						<!-- <configuration> <finalName>${project.artifactId}-core-${project.version}</finalName> 
-							<excludes> <exclude>javax/measure/format/**</exclude> <exclude>javax/measure/quantity/**</exclude> 
-							<exclude>javax/measure/spi/**</exclude> </excludes> </configuration> -->
 						<executions>
 							<execution>
 								<id>format-jar</id>

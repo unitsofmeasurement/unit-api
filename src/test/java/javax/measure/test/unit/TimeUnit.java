@@ -1,6 +1,6 @@
 /*
  * Units of Measurement API
- * Copyright (c) 2014-2015, Jean-Marie Dautelle, Werner Keil, V2COM.
+ * Copyright (c) 2014-2016, Jean-Marie Dautelle, Werner Keil, V2COM.
  *
  * All rights reserved.
  *
