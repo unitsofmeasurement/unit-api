@@ -68,7 +68,7 @@
 
 		<!-- Plugins -->
 		<felix.version>2.5.3</felix.version>
-		<github.maven.version>0.10</github.maven.version>
+		<github.maven.version>0.12</github.maven.version>
 		<github.global.server>github</github.global.server>
 	</properties>
 
