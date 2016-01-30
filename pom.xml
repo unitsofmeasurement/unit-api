@@ -368,35 +368,6 @@
 				</configuration>
 			</plugin>
 
-			<!-- ======================================================= -->
-			<!-- GitHub Plugin -->
-			<!-- ======================================================= -->
-			<plugin>
-				<groupId>com.github.github</groupId>
-				<artifactId>site-maven-plugin</artifactId>
-				<version>${github.maven.version}</version>
-				<configuration>
-					<!-- must match the server's id -->
-					<server>github</server>
-					<message>Building site for ${project.version}</message>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>site</goal>
-						</goals>
-						<phase>site-deploy</phase>
-						<configuration>
-							<path>site</path>
-							<merge>true</merge>
-							<!-- <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> -->
-							<repositoryName>unit-api</repositoryName>
-							<repositoryOwner>unitsofmeasurement</repositoryOwner>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
 			<!-- Maven web site -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -622,6 +593,43 @@
 								<goals> <goal>process-asciidoc</goal> </goals> <configuration> <outputDirectory>target/docs</outputDirectory> 
 								<sourceHighlighter>highlightjs</sourceHighlighter> <backend>pdf</backend> 
 								</configuration> </execution -->
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>brokenGitHubSite</id>
+
+			<build>
+				<plugins>
+					<!-- ======================================================= -->
+					<!-- GitHub Plugin -->
+					<!-- ======================================================= -->
+					<!-- This plugin seems permanently broken, will remove it to profile -->
+					<plugin>
+						<groupId>com.github.github</groupId>
+						<artifactId>site-maven-plugin</artifactId>
+						<version>${github.maven.version}</version>
+						<configuration>
+							<!-- must match the server's id -->
+							<server>github</server>
+							<message>Building site for ${project.version}</message>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>site</goal>
+								</goals>
+								<phase>site-deploy</phase>
+								<configuration>
+									<path>site</path>
+									<merge>true</merge>
+									<!-- <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> -->
+									<repositoryName>unit-api</repositoryName>
+									<repositoryOwner>unitsofmeasurement</repositoryOwner>
+								</configuration>
+							</execution>
 						</executions>
 					</plugin>
 				</plugins>
