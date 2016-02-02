@@ -41,6 +41,7 @@ import javax.measure.Quantity;
  * @version 1.8.1
  *
  * @see <a href="http://en.wikipedia.org/wiki/Electric_permittivity">Wikipedia: Electric Permittivity</a>
+ * @deprecated from http://www.bipm.org/en/publications/si-brochure/table4.html, we don't include that in API, move to uom-systems or si-uom
  */
 public interface ElectricPermittivity extends Quantity<ElectricPermittivity> {
 }
