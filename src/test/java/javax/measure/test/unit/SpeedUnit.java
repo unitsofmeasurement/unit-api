@@ -30,26 +30,26 @@
 package javax.measure.test.unit;
 
 import javax.measure.Unit;
-import javax.measure.quantity.Time;
+import javax.measure.quantity.Speed;
+import javax.measure.test.TestUnit;
+
 
 /**
  * @author Werner Keil
- * @version 0.2
  */
-public class TimeUnit extends BaseUnit<Time> {
+public class SpeedUnit extends TestUnit<Speed> {
 
-    public static final TimeUnit s = new TimeUnit("s", 1.0); // reference Unit
-    public static final TimeUnit REF_UNIT = s; // reference Unit
-    public static final TimeUnit h = new TimeUnit("h", 60 * 60);
-    public static final TimeUnit min = new TimeUnit("min", 60);
+    public static final SpeedUnit kmh = new SpeedUnit("km/h", 1.0); // reference Unit
+    public static final SpeedUnit REF_UNIT = kmh; // reference Unit
+    public static final SpeedUnit mph = new SpeedUnit("sqmile", 1609.0 * 1609.0);
 
-    public TimeUnit(String name2, double convF) {
-        super(name2, "");
+    public SpeedUnit(String name2, double convF) {
+        super(name2);
         multFactor = convF;
     }
 
     @Override
-    public Unit<Time> getSystemUnit() {
+    public Unit<Speed> getSystemUnit() {
         return REF_UNIT;
     }
 }

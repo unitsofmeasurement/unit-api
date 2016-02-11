@@ -167,4 +167,9 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
     public double getMultFactor() {
         return multFactor;
     }
+    
+    @Override
+    public String toString() {
+    	return getName();
+    }
 }

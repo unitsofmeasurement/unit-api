@@ -58,7 +58,7 @@ import javax.measure.test.TestUnit;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2.2
+ * @version 0.3
  *
  */
 abstract class TestFormat implements UnitFormat {
@@ -97,14 +97,14 @@ abstract class TestFormat implements UnitFormat {
 			throws IOException;
 
 	protected Unit<?> parse(CharSequence csq, int index)
-			throws IllegalArgumentException {
+			throws ParserException {
 		// Parsing reads the whole character sequence from the parse position.
 		int start = index; //cursor != null ? cursor.getIndex() : 0;
 		int end = csq.length();
 		if (end <= start) {
 			return TestUnit.ONE;
 		}
-		throw new IllegalArgumentException();
+		throw new ParserException(new IllegalArgumentException());
 	}
 	
 	/**
