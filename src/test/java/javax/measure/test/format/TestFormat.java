@@ -104,7 +104,7 @@ abstract class TestFormat implements UnitFormat {
 		if (end <= start) {
 			return TestUnit.ONE;
 		}
-		throw new ParserException(new IllegalArgumentException());
+		throw new ParserException("Error", csq, index);
 	}
 	
 	/**
