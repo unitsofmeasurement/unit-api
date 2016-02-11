@@ -31,9 +31,9 @@ package javax.measure.test.unit;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
+import javax.measure.UnitConverter;
+import javax.measure.test.TestConverter;
 import javax.measure.test.TestUnit;
-
-
 
 /**
  * Building blocks on top of which all others units are created.

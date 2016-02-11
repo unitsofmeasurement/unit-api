@@ -33,7 +33,13 @@ import static org.junit.Assert.*;
 import static javax.measure.test.EnumUnit.TEST;
 
 import javax.measure.Dimension;
+import javax.measure.UnconvertibleException;
 import javax.measure.Unit;
+import javax.measure.UnitConverter;
+import javax.measure.format.ParserException;
+import javax.measure.test.unit.AreaUnit;
+import javax.measure.test.unit.BaseUnit;
+import javax.measure.test.unit.DistanceUnit;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -77,5 +83,11 @@ public class UnitTest {
 	public void testIsCompatible() {
 		assertTrue(sut.isCompatible(TEST));
 	}
-
+	
+	@Test(expected = UnconvertibleException.class)
+	public void testGetConverterTo() {
+		sut = DistanceUnit.m;
+		UnitConverter converter = sut.getConverterTo(BaseUnit.ONE);
+		assertNotNull(converter);
+	}
 }

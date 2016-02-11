@@ -33,8 +33,6 @@ import javax.measure.Unit;
 import javax.measure.quantity.Area;
 import javax.measure.test.TestUnit;
 
-
-
 /**
  * @author Werner Keil
  */

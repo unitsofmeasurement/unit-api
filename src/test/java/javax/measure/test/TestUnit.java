@@ -40,7 +40,6 @@ import javax.measure.UnitConverter;
 import javax.measure.quantity.Dimensionless;
 import javax.measure.test.unit.BaseUnit;
 
-
 /**
  * @author Werner Keil
  */
@@ -97,17 +96,39 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
         // TODO Auto-generated method stub
         return null;
     }
-
+    
     public UnitConverter getConverterTo(Unit<Q> that) throws UnconvertibleException {
-        // TODO Auto-generated method stub
-        return null;
+		if ((this == that) || this.equals(that))
+			return TestConverter.IDENTITY; // Shortcut.
+		Unit<Q> thisSystemUnit = this.getSystemUnit();
+		Unit<Q> thatSystemUnit = that.getSystemUnit();
+		if (!thisSystemUnit.equals(thatSystemUnit))
+			try {
+				return getConverterToAny(that);
+			} catch (IncommensurableException e) {
+				throw new UnconvertibleException(e);
+			}
+		UnitConverter thisToSI = this.getSystemConverter();
+		UnitConverter thatToSI = that.getConverterTo(thatSystemUnit);
+		return thatToSI.inverse().concatenate(thisToSI);
     }
 
     public UnitConverter getConverterToAny(Unit<?> that)
-            throws IncommensurableException, UnconvertibleException
-    {
-        // TODO Auto-generated method stub
-        return null;
+		throws IncommensurableException, UnconvertibleException {
+		if (!isCompatible(that))
+			throw new IncommensurableException(this
+					+ " is not compatible with " + that);
+		TestUnit thatAbstr = (TestUnit) that; // Since both units are
+														// compatible they must
+														// be both test
+														// units.
+		Unit thisSystemUnit = this.getSystemUnit();
+		UnitConverter thisToDimension = 
+				this.getSystemConverter();
+		Unit thatSystemUnit = thatAbstr.getSystemUnit();
+		UnitConverter thatToDimension = 
+				thatAbstr.getSystemConverter();
+		return thatToDimension.inverse().concatenate(thisToDimension);
     }
 
     public Dimension getDimension() {
@@ -158,7 +179,18 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
     }
 
     public abstract Unit<Q> getSystemUnit();
-
+    
+	/**
+	 * Returns the converter from this unit to its unscaled {@link #toSysemUnit System Unit}
+	 * unit.
+	 *
+	 * @return <code>getConverterTo(this.toSystemUnit())</code>
+	 * @see #toSI
+	 */
+    public UnitConverter getSystemConverter() throws UnsupportedOperationException {
+        return TestConverter.IDENTITY;
+    }
+    
     public Unit<Q> transform(UnitConverter operation) {
         // TODO Auto-generated method stub
         return null;
