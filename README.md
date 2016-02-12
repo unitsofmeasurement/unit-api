@@ -11,3 +11,6 @@ unit-api
 [![Join the chat at https://gitter.im/unitsofmeasurement/unit-api](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/unitsofmeasurement/unit-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 JSR 363 - Units of Measurement API
+
+The Unit of Measurement API provides a set of Java language programming interfaces for handling units and quantities.
+The interfaces provide a layer which separates client code, that would call the API, from library code, which implements the API.
