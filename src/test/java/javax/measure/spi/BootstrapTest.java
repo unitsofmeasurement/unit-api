@@ -51,6 +51,7 @@ public class BootstrapTest {
         TestServiceProvider testProv = new TestServiceProvider();
         ServiceProvider prov = Bootstrap.init(testProv);
         assertTrue(testProv == Bootstrap.init(prov));
+        assertEquals(0, testProv.getPriority());
     }
 
     @Test
@@ -67,8 +68,10 @@ public class BootstrapTest {
 
     @Test
     public void testGetServiceProvider() throws Exception {
-        assertNotNull(Bootstrap.getServiceProvider());
-        assertEquals(Bootstrap.getServiceProvider().getClass(), TestServiceProvider.class);
+    	ServiceProvider prov = Bootstrap.getServiceProvider();
+        assertNotNull(prov);
+        assertEquals(prov.getClass(), TestServiceProvider.class);
+        assertEquals(0, prov.getPriority());
     }
 
     @Test

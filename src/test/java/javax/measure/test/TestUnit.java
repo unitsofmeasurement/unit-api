@@ -69,13 +69,11 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
     }
 
     public Unit<Q> shift(double offset) {
-        // TODO Auto-generated method stub
-        return null;
+        return this;
     }
 
     public Unit<Q> alternate(String symbol) {
-        // TODO Auto-generated method stub
-        return null;
+        return new BaseUnit(symbol);
     }
 
     public <T extends Quantity<T>> Unit<T> asType(Class<T> type) throws ClassCastException {
