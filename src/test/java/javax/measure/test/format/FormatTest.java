@@ -101,4 +101,17 @@ public class FormatTest {
 	public void testParseIrregularString() {
 		Unit<?> u = format.parse("bl//^--1a");
 	}
+	
+	@Test(expected = ParserException.class)
+	public void testParserException() {
+		throw new ParserException(new IllegalArgumentException());
+	}
+	
+	@Test(expected = ParserException.class)
+	public void testParserExceptionWithPosition() {
+		ParserException pe = new ParserException("test", 1);
+		assertEquals(1, pe.getPosition());
+		assertEquals("test", pe.getParsedString());
+		throw pe;
+	}
 }

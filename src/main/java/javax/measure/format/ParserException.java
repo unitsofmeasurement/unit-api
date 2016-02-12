@@ -35,7 +35,7 @@ import javax.measure.MeasurementException;
  * Signals that an error has been reached unexpectedly while parsing.
  * 
  * @author Werner Keil
- * @version 0.4, $Date: 2014-08-04 $
+ * @version 0.5, $Date: 2016-02-12 $
  */
 public class ParserException extends MeasurementException {
 
@@ -80,14 +80,11 @@ public class ParserException extends MeasurementException {
 	 * 
 	 * @param parsedData
 	 *            the parsed text, should not be null
-	 * @param errorIndex
+	 * @param position
 	 *            the position where the error is found while parsing.
 	 */
-	public ParserException(CharSequence parsedData,
-			int errorIndex) {
-		super("Parse Error");
-		this.data = parsedData;
-		this.position = errorIndex;
+	public ParserException(CharSequence parsedData,	int position) {
+		this("Parse Error", parsedData, position);
 	}
 	
 	/**
@@ -120,5 +117,4 @@ public class ParserException extends MeasurementException {
 			return null;
 		return data.toString();
 	}
-
 }
