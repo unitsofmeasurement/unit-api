@@ -29,7 +29,6 @@
  */
 package javax.measure;
 
-
 /**
  * Signals that a problem of some sort has occurred due to incommensurable of
  * some quantities/units. Only commensurable quantity (quantities with the same
@@ -41,7 +40,7 @@ package javax.measure;
  * </p>
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.15, $Date: 2014-06-28 $
+ * @version 0.16, $Date: 2016-02-13 $
  *
  * @see <a href="http://en.wikipedia.org/wiki/Unit_commensurability#Commensurability">Wikipedia: Unit Commensurability</a>
  */
@@ -49,7 +48,7 @@ public class IncommensurableException extends Exception {
     /**
      * For cross-version compatibility.
      */
-    //private static final long serialVersionUID = -3676414292638136515L;
+    private static final long serialVersionUID = -3676414292638136515L;
 
     /**
      * Constructs a {@code IncommensurableException} with the given message.

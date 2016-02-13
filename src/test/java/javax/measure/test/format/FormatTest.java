@@ -72,7 +72,6 @@ public class FormatTest {
 		Unit<?> u = format.parse("s");
 		assertNotNull(u);
 		assertEquals("s", u.getSymbol());
-		// assertEquals(SECOND, u);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -112,6 +111,14 @@ public class FormatTest {
 		ParserException pe = new ParserException("test", 1);
 		assertEquals(1, pe.getPosition());
 		assertEquals("test", pe.getParsedString());
+		throw pe;
+	}
+	
+	@Test(expected = ParserException.class)
+	public void testParserExceptionWithNullString() {
+		ParserException pe = new ParserException(null, 0);
+		assertEquals(0, pe.getPosition());
+		assertNull(pe.getParsedString());
 		throw pe;
 	}
 }

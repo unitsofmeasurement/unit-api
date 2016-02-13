@@ -29,9 +29,6 @@
  */
 package javax.measure;
 
-
-
-
 /**
  * Signals that a problem of some sort has occurred due to the impossibility of
  * constructing a converter between two units. For example, the multiplication of
@@ -40,7 +37,7 @@ package javax.measure;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.4, 2014-06-10
+ * @version 0.5, 2016-02-13
  *
  */
 public class UnconvertibleException extends MeasurementException {
