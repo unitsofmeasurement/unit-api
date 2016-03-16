@@ -31,16 +31,15 @@ package javax.measure.quantity;
 
 import javax.measure.Quantity;
 
-
 /**
  * Luminous flux density per solid angle
  * as measured in a given direction relative to the emitting source.
  * The metric system unit for this quantity is "cd" (candela).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @version 1.1
+ * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @version 1.2
  *
- * @see Luminance
  * 
  * @apiNote 
  * SI Base Unit
