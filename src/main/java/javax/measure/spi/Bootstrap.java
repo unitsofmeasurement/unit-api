@@ -42,7 +42,7 @@ import java.util.logging.Logger;
  * services.
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.5, October 4, 2015
+ * @version 0.6, March 18, 2016
  */
 public final class Bootstrap {
     /**
@@ -70,8 +70,10 @@ public final class Bootstrap {
             for (ServiceProvider sp : ServiceLoader.load(ServiceProvider.class)) {
                 return sp;
             }
-        } catch (Exception e) {
+        } catch (Exception ex) {
             Logger.getLogger(Bootstrap.class.getName()).log(INFO, "No ServiceProvider loaded, using default.");
+        } catch (Error er) {
+        	 Logger.getLogger(Bootstrap.class.getName()).log(WARNING, er.getMessage());
         }
         return new DefaultServiceProvider();
     }
