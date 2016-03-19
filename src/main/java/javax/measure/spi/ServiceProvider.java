@@ -37,7 +37,7 @@ import java.util.List;
  * 
  * @author Werner Keil
  */
-public interface ServiceProvider {
+public interface ServiceProvider extends Comparable<ServiceProvider> {
 
     /**
      * This method allows to define a priority for a registered ServiceProvider instance. When multiple providers are
