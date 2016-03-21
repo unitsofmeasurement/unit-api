@@ -32,7 +32,10 @@ package javax.measure.spi;
 import static java.util.logging.Level.INFO;
 import static java.util.logging.Level.WARNING;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.ServiceLoader;
 import java.util.logging.Logger;
 
@@ -42,7 +45,7 @@ import java.util.logging.Logger;
  * services.
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.6, March 18, 2016
+ * @version 0.7, March 20, 2016
  */
 public final class Bootstrap {
     /**
@@ -59,6 +62,18 @@ public final class Bootstrap {
      */
     private Bootstrap() {
     }
+    
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	private static <E> Collection<E> makeCollection(Iterable<E> iter, boolean sort) {
+        List list = new ArrayList<E>();
+        for (E item : iter) {
+            list.add(item);
+        }
+        if (sort) {
+        	Collections.sort(list, Collections.reverseOrder()); // to get highest prio first
+        }
+        return list;
+    }
 
     /**
      * Load the {@link ServiceProvider} to be used.
@@ -67,8 +82,9 @@ public final class Bootstrap {
      */
     private static ServiceProvider loadDefaultServiceProvider() {
         try {
-            for (ServiceProvider sp : ServiceLoader.load(ServiceProvider.class)) {
-                return sp;
+        	Collection<ServiceProvider> providers = makeCollection(ServiceLoader.load(ServiceProvider.class), true);
+            for (ServiceProvider provider : providers) {
+                return provider;
             }
         } catch (Exception ex) {
             Logger.getLogger(Bootstrap.class.getName()).log(INFO, "No ServiceProvider loaded, using default.");
