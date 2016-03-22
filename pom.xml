@@ -488,7 +488,7 @@
 
 			<!-- ======================================================= -->
 			<!-- Maven Code Formatter -->
-			<!-- ======================================================= 
+			<!-- ======================================================= -->
 			<plugin>
 				<groupId>net.revelc.code</groupId>
 				<artifactId>formatter-maven-plugin</artifactId>
@@ -499,7 +499,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin -->
+			</plugin>
 
 			<!-- Maven web site -->
 			<plugin>
