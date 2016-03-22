@@ -33,23 +33,23 @@ import javax.measure.Unit;
 import javax.measure.quantity.Speed;
 import javax.measure.test.TestUnit;
 
-
 /**
  * @author Werner Keil
  */
 public class SpeedUnit extends TestUnit<Speed> {
 
-    public static final SpeedUnit kmh = new SpeedUnit("km/h", 1.0); // reference Unit
-    public static final SpeedUnit REF_UNIT = kmh; // reference Unit
-    public static final SpeedUnit mph = new SpeedUnit("sqmile", 1609.0 * 1609.0);
+	public static final SpeedUnit kmh = new SpeedUnit("km/h", 1.0); // reference
+																	// Unit
+	public static final SpeedUnit REF_UNIT = kmh; // reference Unit
+	public static final SpeedUnit mph = new SpeedUnit("sqmile", 1609.0 * 1609.0);
 
-    public SpeedUnit(String name2, double convF) {
-        super(name2);
-        multFactor = convF;
-    }
+	public SpeedUnit(String name2, double convF) {
+		super(name2);
+		multFactor = convF;
+	}
 
-    @Override
-    public Unit<Speed> getSystemUnit() {
-        return REF_UNIT;
-    }
+	@Override
+	public Unit<Speed> getSystemUnit() {
+		return REF_UNIT;
+	}
 }

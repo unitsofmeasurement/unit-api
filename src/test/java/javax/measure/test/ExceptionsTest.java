@@ -50,12 +50,12 @@ public class ExceptionsTest {
 		assertNull(e.getCause());
 		throw e;
 	}
-	
+
 	@Test(expected = MeasurementException.class)
 	public void testMeasurementExceptionWithCause() {
 		throw new MeasurementException(new IllegalArgumentException());
 	}
-	
+
 	@Test(expected = MeasurementException.class)
 	public void testMeasurementExceptionWithMessageAndCause() {
 		Exception cause = new IllegalStateException();
@@ -64,29 +64,30 @@ public class ExceptionsTest {
 		assertEquals(cause, e.getCause());
 		throw e;
 	}
-	
+
 	@Test
 	public void testIncommensurableException() {
 		IncommensurableException ie = new IncommensurableException("error");
 		assertEquals("error", ie.getMessage());
 		assertNull(ie.getCause());
 	}
-	
+
 	@Test
 	public void testIncommensurableExceptionWithCause() {
 		Exception cause = new IllegalArgumentException();
 		IncommensurableException ie = new IncommensurableException(cause);
 		assertEquals(cause, ie.getCause());
 	}
-	
+
 	@Test
 	public void testIncommensurableExceptionWithMessageAndCause() {
 		Exception cause = new IllegalArgumentException();
-		IncommensurableException ie = new IncommensurableException("yet another error", cause);
+		IncommensurableException ie = new IncommensurableException(
+				"yet another error", cause);
 		assertEquals("yet another error", ie.getMessage());
 		assertEquals(cause, ie.getCause());
 	}
-	
+
 	@Test(expected = UnconvertibleException.class)
 	public void testUnconvertibleException() {
 		UnconvertibleException e = new UnconvertibleException("error");
@@ -94,7 +95,7 @@ public class ExceptionsTest {
 		assertNull(e.getCause());
 		throw e;
 	}
-	
+
 	@Test(expected = UnconvertibleException.class)
 	public void testUnconvertibleExceptionWithCause() {
 		Exception cause = new IllegalArgumentException();
@@ -102,11 +103,12 @@ public class ExceptionsTest {
 		assertEquals(cause, e.getCause());
 		throw e;
 	}
-	
+
 	@Test(expected = UnconvertibleException.class)
 	public void testUnconvertibleExceptionWithMessageAndCause() {
 		Exception cause = new IllegalStateException();
-		UnconvertibleException e = new UnconvertibleException("state error", cause);
+		UnconvertibleException e = new UnconvertibleException("state error",
+				cause);
 		assertEquals("state error", e.getMessage());
 		assertEquals(cause, e.getCause());
 		throw e;

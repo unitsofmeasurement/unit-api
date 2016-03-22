@@ -32,8 +32,8 @@ package javax.measure.quantity;
 import javax.measure.Quantity;
 
 /**
- * Angle formed by three or more planes intersecting at a common point.
- * The metric system unit for this quantity is "sr" (steradian).
+ * Angle formed by three or more planes intersecting at a common point. The
+ * metric system unit for this quantity is "sr" (steradian).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>

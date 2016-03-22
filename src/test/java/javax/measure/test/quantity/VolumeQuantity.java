@@ -54,9 +54,9 @@ public class VolumeQuantity extends TestQuantity<Volume> {
 
 	/*
 	 * Volume(double val) {
-	 *
+	 * 
 	 * units = val; unit = cumetre; // reference Unit scalar = val;
-	 *
+	 * 
 	 * }
 	 */
 	public VolumeQuantity add(VolumeQuantity d1) {
@@ -164,11 +164,12 @@ public class VolumeQuantity extends TestQuantity<Volume> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public final <T extends Quantity<T>> Quantity<T> asType(
-			Class<T> type) throws ClassCastException {
-		this.getUnit().asType(type); // Raises ClassCastException is dimension mismatches.
+
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	public final <T extends Quantity<T>> Quantity<T> asType(Class<T> type)
+			throws ClassCastException {
+		this.getUnit().asType(type); // Raises ClassCastException is dimension
+										// mismatches.
 		return (Quantity) this;
 	}
 }

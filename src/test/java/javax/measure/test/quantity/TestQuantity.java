@@ -36,9 +36,11 @@ import javax.measure.test.TestUnit;
 /**
  * @author Werner Keil
  */
-abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>,
-		Comparable<Quantity<Q>> {
-	
+abstract class TestQuantity<Q extends Quantity<Q>>
+		implements
+			Quantity<Q>,
+			Comparable<Quantity<Q>> {
+
 	protected double scalar; // value in reference units
 	protected double units; // value in units (Unit unit)
 	protected TestUnit<Q> unit; // unit
@@ -136,10 +138,10 @@ abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>,
 			i++;
 		}
 		Double bd = new Double(new String(cs, 0, i));
-//		BigDecimal bd2 = bd.setScale(precision, RoundingMode.HALF_UP);
-//		str = bd2.toString();
+		// BigDecimal bd2 = bd.setScale(precision, RoundingMode.HALF_UP);
+		// str = bd2.toString();
 		str = bd.toString();
-		
+
 		String exp = "";
 		if (i < cs.length) {
 			exp = new String(cs, i, cs.length - i);

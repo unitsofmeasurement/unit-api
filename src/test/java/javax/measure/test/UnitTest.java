@@ -51,7 +51,7 @@ import org.junit.Test;
 public class UnitTest {
 	@SuppressWarnings("rawtypes")
 	private Unit sut;
-	
+
 	@Before
 	public void init() {
 		sut = TEST;
@@ -76,14 +76,15 @@ public class UnitTest {
 	}
 
 	/**
-	 * Test method for {@link javax.measure.test.EnumUnit#isCompatible(javax.measure.Unit)}.
+	 * Test method for
+	 * {@link javax.measure.test.EnumUnit#isCompatible(javax.measure.Unit)}.
 	 */
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testIsCompatible() {
 		assertTrue(sut.isCompatible(TEST));
 	}
-	
+
 	@Test(expected = UnconvertibleException.class)
 	public void testGetConverterTo() {
 		sut = DistanceUnit.m;

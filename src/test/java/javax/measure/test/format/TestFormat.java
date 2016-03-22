@@ -64,7 +64,7 @@ import javax.measure.test.TestUnit;
 abstract class TestFormat implements UnitFormat {
 
 	/** The serialVersionUID */
-//	private static final long serialVersionUID = 7765623276257908888L;
+	// private static final long serialVersionUID = 7765623276257908888L;
 
 	/**
 	 * Returns the unit format for the default locale.
@@ -96,17 +96,16 @@ abstract class TestFormat implements UnitFormat {
 	public abstract Appendable format(Unit<?> unit, Appendable appendable)
 			throws IOException;
 
-	protected Unit<?> parse(CharSequence csq, int index)
-			throws ParserException {
+	protected Unit<?> parse(CharSequence csq, int index) throws ParserException {
 		// Parsing reads the whole character sequence from the parse position.
-		int start = index; //cursor != null ? cursor.getIndex() : 0;
+		int start = index; // cursor != null ? cursor.getIndex() : 0;
 		int end = csq.length();
 		if (end <= start) {
 			return TestUnit.ONE;
 		}
 		throw new ParserException("Error", csq, index);
 	}
-	
+
 	/**
 	 * Parses the specified character sequence to produce a unit (convenience
 	 * method). If the specified sequence is empty, the unitary unit

@@ -33,17 +33,21 @@ import javax.measure.spi.QuantityFactory;
 
 /**
  * Provider of {@link QuantityFactory}
+ * 
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @author <a href="mailto:otaviojava@java.net">Otavio Santana</a>
  * @version 0.2
  */
 public interface QuantityFactoryService {
 
-    /**
-     * Return a factory for this {@link Quantity}.
-     * @param quantity the quantity
-     * @return the {@link QuantityFactory}
-     * @throws NullPointerException
-     */
-    <Q extends Quantity<Q>>  QuantityFactory<Q> getQuantityFactory(Class<Q> quantity);
+	/**
+	 * Return a factory for this {@link Quantity}.
+	 * 
+	 * @param quantity
+	 *            the quantity
+	 * @return the {@link QuantityFactory}
+	 * @throws NullPointerException
+	 */
+	<Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(
+			Class<Q> quantity);
 }

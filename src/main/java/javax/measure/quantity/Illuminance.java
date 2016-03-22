@@ -32,8 +32,7 @@ package javax.measure.quantity;
 import javax.measure.Quantity;
 
 /**
- * Illuminance.
- * The metric system unit for this quantity is "lx" (lux).
+ * Illuminance. The metric system unit for this quantity is "lx" (lux).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @version 1.0

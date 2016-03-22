@@ -56,9 +56,9 @@ public class DistanceQuantity extends TestQuantity<Length> implements Length {
 
 	/*
 	 * Distance(double val) {
-	 *
+	 * 
 	 * units = val; unit = m; // reference Unit scalar = val;
-	 *
+	 * 
 	 * }
 	 */
 	public DistanceQuantity add(DistanceQuantity d1) {
@@ -135,52 +135,51 @@ public class DistanceQuantity extends TestQuantity<Length> implements Length {
 		return super.showInUnits(u, precision);
 	}
 
-    public Quantity<?> divide(Quantity<?> that) {
+	public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-    public Quantity<Length> to(Unit<Length> unit) {
+	public Quantity<Length> to(Unit<Length> unit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-    public Quantity<Length> subtract(Quantity<Length> that) {
+	public Quantity<Length> subtract(Quantity<Length> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
-    public Quantity<Length> add(Quantity<Length> that) {
+	public Quantity<Length> add(Quantity<Length> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-    public Quantity<Length> divide(Number that) {
+	public Quantity<Length> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
-    public Quantity<Length> inverse() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-    
-    public Quantity<Length> multiply(Number that) {
+	public Quantity<Length> inverse() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-    public Quantity<?> multiply(Quantity<?> that) {
+	public Quantity<Length> multiply(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-    
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public final <T extends Quantity<T>> Quantity<T> asType(
-			Class<T> type) throws ClassCastException {
-		this.getUnit().asType(type); // Raises ClassCastException is dimension mismatches.
+
+	public Quantity<?> multiply(Quantity<?> that) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	public final <T extends Quantity<T>> Quantity<T> asType(Class<T> type)
+			throws ClassCastException {
+		this.getUnit().asType(type); // Raises ClassCastException is dimension
+										// mismatches.
 		return (Quantity) this;
 	}
 

@@ -32,8 +32,7 @@ package javax.measure.quantity;
 import javax.measure.Quantity;
 
 /**
- * Electric conductance.
- * The metric system unit for this quantity "S" (Siemens).
+ * Electric conductance. The metric system unit for this quantity "S" (Siemens).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @version 1.0

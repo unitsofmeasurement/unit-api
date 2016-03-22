@@ -31,23 +31,22 @@ package javax.measure.test;
 
 import javax.measure.test.quantity.DistanceQuantity;
 
-
 /**
  * @author paul.morrison
  */
 public class TripLeg {
 
-    String fromAirport;
-    String toAirport;
-    DistanceQuantity distance;
+	String fromAirport;
+	String toAirport;
+	DistanceQuantity distance;
 
-    public TripLeg(String fA, String tA, DistanceQuantity dist) {
-        fromAirport = fA;
-        toAirport = tA;
-        distance = dist;
-    }
+	public TripLeg(String fA, String tA, DistanceQuantity dist) {
+		fromAirport = fA;
+		toAirport = tA;
+		distance = dist;
+	}
 
-    public DistanceQuantity getDist() {
-        return distance;
-    }
+	public DistanceQuantity getDist() {
+		return distance;
+	}
 }

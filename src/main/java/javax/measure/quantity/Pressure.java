@@ -31,10 +31,9 @@ package javax.measure.quantity;
 
 import javax.measure.Quantity;
 
-
 /**
- * Force applied uniformly over a surface.
- * The metric system unit for this quantity is "Pa" (Pascal).
+ * Force applied uniformly over a surface. The metric system unit for this
+ * quantity is "Pa" (Pascal).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @version 1.0

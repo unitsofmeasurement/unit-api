@@ -32,8 +32,7 @@ package javax.measure.quantity;
 import javax.measure.Quantity;
 
 /**
- * Electric inductance.
- * The metric system unit for this quantity is "H" (Henry).
+ * Electric inductance. The metric system unit for this quantity is "H" (Henry).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @version 1.0

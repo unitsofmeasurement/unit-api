@@ -32,8 +32,7 @@ package javax.measure.quantity;
 import javax.measure.Quantity;
 
 /**
- * Luminous flux.
- * The metric system unit for this quantity is "lm" (lumen).
+ * Luminous flux. The metric system unit for this quantity is "lm" (lumen).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @version 1.1

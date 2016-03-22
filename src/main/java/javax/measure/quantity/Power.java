@@ -31,10 +31,9 @@ package javax.measure.quantity;
 
 import javax.measure.Quantity;
 
-
 /**
- * Rate at which work is done.
- * The metric system unit for this quantity is "W" (Watt).
+ * Rate at which work is done. The metric system unit for this quantity is "W"
+ * (Watt).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @version 1.0

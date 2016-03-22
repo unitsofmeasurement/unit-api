@@ -31,10 +31,8 @@ package javax.measure.quantity;
 
 import javax.measure.Quantity;
 
-
 /**
- * Electric charge.
- * The metric system unit for this quantity is "C" (Coulomb).
+ * Electric charge. The metric system unit for this quantity is "C" (Coulomb).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @version 1.0

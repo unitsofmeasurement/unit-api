@@ -45,15 +45,15 @@ import javax.measure.UnitConverter;
 enum EnumUnit implements Unit {
 	TEST("t", 1);
 
-    private final String symbol;
-    @SuppressWarnings("unused")
+	private final String symbol;
+	@SuppressWarnings("unused")
 	private final double factor;
 
-    private EnumUnit(String symbol, double factor) {
-    	this.symbol  = symbol;
-    	this.factor  = factor;
-    }
-    
+	private EnumUnit(String symbol, double factor) {
+		this.symbol = symbol;
+		this.factor = factor;
+	}
+
 	public String getSymbol() {
 		return symbol;
 	}
@@ -110,10 +110,10 @@ enum EnumUnit implements Unit {
 	}
 
 	public Unit multiply(Unit that) {
-    	if (!(that instanceof EnumUnit)) {
-    		throw new UnconvertibleException("Incompatible unit");
-    	}
-    	return this;
+		if (!(that instanceof EnumUnit)) {
+			throw new UnconvertibleException("Incompatible unit");
+		}
+		return this;
 	}
 
 	public Unit inverse() {
@@ -125,10 +125,10 @@ enum EnumUnit implements Unit {
 	}
 
 	public Unit divide(Unit that) {
-    	if (!(that instanceof EnumUnit)) {
-    		throw new UnconvertibleException("Incompatible unit");
-    	}
-    	return this;
+		if (!(that instanceof EnumUnit)) {
+			throw new UnconvertibleException("Incompatible unit");
+		}
+		return this;
 	}
 
 	public Unit root(int n) {

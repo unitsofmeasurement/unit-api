@@ -31,7 +31,6 @@ package javax.measure.quantity;
 
 import javax.measure.Quantity;
 
-
 /**
  * Number of times a specified phenomenon occurs within a specified interval.
  * The metric system unit for this quantity is "Hz" (Hertz).

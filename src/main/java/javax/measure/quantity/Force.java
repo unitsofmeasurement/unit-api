@@ -32,8 +32,8 @@ package javax.measure.quantity;
 import javax.measure.Quantity;
 
 /**
- * Quantity that tends to produce an acceleration of a body in the direction of its application.
- * The metric system unit for this quantity is "N" (Newton).
+ * Quantity that tends to produce an acceleration of a body in the direction of
+ * its application. The metric system unit for this quantity is "N" (Newton).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @version 1.1

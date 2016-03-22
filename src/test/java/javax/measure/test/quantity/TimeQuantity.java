@@ -54,9 +54,9 @@ public class TimeQuantity extends TestQuantity<Time> {
 
 	/*
 	 * Distance(double val) {
-	 *
+	 * 
 	 * units = val; unit = m; // reference Unit scalar = val;
-	 *
+	 * 
 	 * }
 	 */
 	public TimeQuantity add(TimeQuantity d1) {
@@ -150,11 +150,12 @@ public class TimeQuantity extends TestQuantity<Time> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public final <T extends Quantity<T>> Quantity<T> asType(
-			Class<T> type) throws ClassCastException {
-		this.getUnit().asType(type); // Raises ClassCastException is dimension mismatches.
+
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	public final <T extends Quantity<T>> Quantity<T> asType(Class<T> type)
+			throws ClassCastException {
+		this.getUnit().asType(type); // Raises ClassCastException is dimension
+										// mismatches.
 		return (Quantity) this;
 	}
 }

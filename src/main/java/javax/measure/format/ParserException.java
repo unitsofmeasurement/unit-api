@@ -56,8 +56,8 @@ public class ParserException extends MeasurementException {
 	private CharSequence data;
 
 	/**
-	 * Constructs a ParserException with the specified detail message,
-	 * parsed text and index. A detail message is a String that describes this
+	 * Constructs a ParserException with the specified detail message, parsed
+	 * text and index. A detail message is a String that describes this
 	 * particular exception.
 	 * 
 	 * @param message
@@ -67,26 +67,25 @@ public class ParserException extends MeasurementException {
 	 * @param position
 	 *            the position where the error was found while parsing.
 	 */
-	public ParserException(String message, CharSequence parsedData,
-			int position) {
+	public ParserException(String message, CharSequence parsedData, int position) {
 		super(message);
 		this.data = parsedData;
 		this.position = position;
 	}
 
 	/**
-	 * Constructs a ParserException with the parsed text and offset. A
-	 * detail message is a String that describes this particular exception.
+	 * Constructs a ParserException with the parsed text and offset. A detail
+	 * message is a String that describes this particular exception.
 	 * 
 	 * @param parsedData
 	 *            the parsed text, should not be null
 	 * @param position
 	 *            the position where the error is found while parsing.
 	 */
-	public ParserException(CharSequence parsedData,	int position) {
+	public ParserException(CharSequence parsedData, int position) {
 		this("Parse Error", parsedData, position);
 	}
-	
+
 	/**
 	 * Constructs a ParserException with the specified cause.
 	 * 

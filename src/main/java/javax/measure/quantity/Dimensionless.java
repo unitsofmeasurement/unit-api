@@ -31,7 +31,6 @@ package javax.measure.quantity;
 
 import javax.measure.Quantity;
 
-
 /**
  * Dimensionless quantity.
  *

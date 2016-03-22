@@ -36,46 +36,46 @@ package javax.measure.test.format;
  * @author Werner Keil
  */
 public final class PrintUtils {
-    private static final String CONSOLE_OUTPUT = "consoleOutput";
+	private static final String CONSOLE_OUTPUT = "consoleOutput";
 
-    private PrintUtils() {
-    }
+	private PrintUtils() {
+	}
 
-    public static boolean isConsoleOutput() {
-        return ("true".equals(System.getProperty(CONSOLE_OUTPUT)));
-    }
+	public static boolean isConsoleOutput() {
+		return ("true".equals(System.getProperty(CONSOLE_OUTPUT)));
+	}
 
-    public static void print(String message) {
-        if (isConsoleOutput()) {
-            System.out.print(message);
-        }
-    }
+	public static void print(String message) {
+		if (isConsoleOutput()) {
+			System.out.print(message);
+		}
+	}
 
-    public static void println(String message) {
-        if (isConsoleOutput()) {
-            System.out.println(message);
-        }
-    }
+	public static void println(String message) {
+		if (isConsoleOutput()) {
+			System.out.println(message);
+		}
+	}
 
-    public static void print(Object object) {
-        print(String.valueOf(object));
-    }
+	public static void print(Object object) {
+		print(String.valueOf(object));
+	}
 
-    public static void println(Object object) {
-        println(String.valueOf(object));
-    }
+	public static void println(Object object) {
+		println(String.valueOf(object));
+	}
 
-    /**
-     * This is a Fantom-style convenience method for console output
-     */
-    public static void echo(Object obj) {
-        println(obj);
-    }
+	/**
+	 * This is a Fantom-style convenience method for console output
+	 */
+	public static void echo(Object obj) {
+		println(obj);
+	}
 
-    /**
-     * This is a Fantom-style convenience method for console output
-     */
-    public static void echo(String str) {
-        println(str);
-    }
+	/**
+	 * This is a Fantom-style convenience method for console output
+	 */
+	public static void echo(String str) {
+		println(str);
+	}
 }

@@ -37,7 +37,7 @@ import org.junit.Test;
 
 public class DimensionTest {
 	private Dimension sut;
-	
+
 	@Before
 	public void init() {
 		sut = TestDimension.getInstance();

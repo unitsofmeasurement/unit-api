@@ -38,96 +38,106 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * This class implements the (default) {@link ServiceProvider} interface and hereby uses the JDK
- * {@link java.util.ServiceLoader} to load the services required.
+ * This class implements the (default) {@link ServiceProvider} interface and
+ * hereby uses the JDK {@link java.util.ServiceLoader} to load the services
+ * required.
  *
  * @author Werner Keil
  */
 class DefaultServiceProvider implements ServiceProvider {
-    /** List of services loaded, per class. */
-    private final Map<Class, List<Object>> servicesLoaded = new HashMap<Class, List<Object>>();
-    // TODO does this work in CLDC8?
-//    @Override
-    public int getPriority() {
-        return 0;
-    }
+	/** List of services loaded, per class. */
+	private final Map<Class, List<Object>> servicesLoaded = new HashMap<Class, List<Object>>();
+	// TODO does this work in CLDC8?
+	// @Override
+	public int getPriority() {
+		return 0;
+	}
 
-    /**
-     * Loads and registers services.
-     *
-     * @param serviceType
-     *            The service type.
-     * @param <T>
-     *            the concrete type.
-     * @return the items found, never {@code null}.
-     */
-//    @Override
-    public <T> List<T> getServices(final Class<T> serviceType) {
-        @SuppressWarnings("unchecked")
-        List<T> found = (List<T>) servicesLoaded.get(serviceType);
-        if (found != null) {
-            return found;
-        }
+	/**
+	 * Loads and registers services.
+	 *
+	 * @param serviceType
+	 *            The service type.
+	 * @param <T>
+	 *            the concrete type.
+	 * @return the items found, never {@code null}.
+	 */
+	// @Override
+	public <T> List<T> getServices(final Class<T> serviceType) {
+		@SuppressWarnings("unchecked")
+		List<T> found = (List<T>) servicesLoaded.get(serviceType);
+		if (found != null) {
+			return found;
+		}
 
-        return loadServices(serviceType);
-    }
+		return loadServices(serviceType);
+	}
 
-//    @Override
-    public <T> T getService(Class<T> serviceType) {
-        List<T> servicesFound = getServices(serviceType);
-        if(servicesFound.isEmpty()){
-            return null;
-        }
-        return servicesFound.get(0);
-    }
+	// @Override
+	public <T> T getService(Class<T> serviceType) {
+		List<T> servicesFound = getServices(serviceType);
+		if (servicesFound.isEmpty()) {
+			return null;
+		}
+		return servicesFound.get(0);
+	}
 
-    /**
-     * Loads and registers services.
-     *
-     * @param   serviceType  The service type.
-     * @param   <T>          the concrete type.
-     *
-     * @return  the items found, never {@code null}.
-     */
-    private <T> List<T> loadServices(final Class<T> serviceType) {
-        final List<T> services = new ArrayList<T>();
-        try {
-            for (T t : ServiceLoader.load(serviceType)) {
-                services.add(t);
-            }
-            if (!servicesLoaded.containsKey(serviceType)) {
-            	@SuppressWarnings("unchecked")
-				final List<T> previousServices = (List<T>) servicesLoaded.put(serviceType, (List<Object>) services);
-            	return new ArrayList<T>(previousServices != null ? previousServices : services);
-            }
-            return services;
-        } catch (Exception e) {
-            Logger.getLogger(DefaultServiceProvider.class.getName()).log(Level.WARNING,
-                                                                         "Error loading services of type " + serviceType, e);
-            return services;
-        }
-    }
+	/**
+	 * Loads and registers services.
+	 *
+	 * @param serviceType
+	 *            The service type.
+	 * @param <T>
+	 *            the concrete type.
+	 *
+	 * @return the items found, never {@code null}.
+	 */
+	private <T> List<T> loadServices(final Class<T> serviceType) {
+		final List<T> services = new ArrayList<T>();
+		try {
+			for (T t : ServiceLoader.load(serviceType)) {
+				services.add(t);
+			}
+			if (!servicesLoaded.containsKey(serviceType)) {
+				@SuppressWarnings("unchecked")
+				final List<T> previousServices = (List<T>) servicesLoaded.put(
+						serviceType, (List<Object>) services);
+				return new ArrayList<T>(previousServices != null
+						? previousServices
+						: services);
+			}
+			return services;
+		} catch (Exception e) {
+			Logger.getLogger(DefaultServiceProvider.class.getName()).log(
+					Level.WARNING,
+					"Error loading services of type " + serviceType, e);
+			return services;
+		}
+	}
 
 	@Override
 	public int compareTo(ServiceProvider o) {
 		return compare(getPriority(), o.getPriority());
 	}
-	
-	 /**
-     * Compares two {@code int} values numerically.
-     * The value returned is identical to what would be returned by:
-     * <pre>
-     *    Integer.valueOf(x).compareTo(Integer.valueOf(y))
-     * </pre>
-     *
-     * @param  x the first {@code int} to compare
-     * @param  y the second {@code int} to compare
-     * @return the value {@code 0} if {@code x == y};
-     *         a value less than {@code 0} if {@code x < y}; and
-     *         a value greater than {@code 0} if {@code x > y}
-     */
-    private static int compare(int x, int y) {
-        return (x < y) ? -1 : ((x == y) ? 0 : 1);
-    }
+
+	/**
+	 * Compares two {@code int} values numerically. The value returned is
+	 * identical to what would be returned by:
+	 * 
+	 * <pre>
+	 * Integer.valueOf(x).compareTo(Integer.valueOf(y))
+	 * </pre>
+	 *
+	 * @param x
+	 *            the first {@code int} to compare
+	 * @param y
+	 *            the second {@code int} to compare
+	 * @return the value {@code 0} if {@code x == y}; a value less than
+	 *         {@code 0} if {@code x < y}; and a value greater than {@code 0} if
+	 *         {@code x > y}
+	 */
+	private static int compare(int x, int y) {
+		return (x < y) ? -1 : ((x == y) ? 0 : 1);
+	}
 
 }

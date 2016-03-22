@@ -38,10 +38,9 @@ import javax.measure.Unit;
 /**
  * A system of units grouped together for historical or cultural reasons.<br>
  * Common system of units are "SI" (System International), "Imperial" (British),
- * "US" (US Customary).
- * Nothing prevents a unit from belonging to several systems of units at the
- * same time (for example an {@code Imperial} system would have many of the
- * units held by the {@code US} Customary system).
+ * "US" (US Customary). Nothing prevents a unit from belonging to several
+ * systems of units at the same time (for example an {@code Imperial} system
+ * would have many of the units held by the {@code US} Customary system).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
@@ -71,9 +70,10 @@ public interface SystemOfUnits {
 	<Q extends Quantity<Q>> Unit<Q> getUnit(Class<Q> quantityType);
 
 	/**
-	 * Returns a read only view over the units explicitly defined by this system. 
-	 * This include the base and derived units which are assigned a special name and symbol. 
-	 * This set does not include new units created by arithmetic or other operations.
+	 * Returns a read only view over the units explicitly defined by this
+	 * system. This include the base and derived units which are assigned a
+	 * special name and symbol. This set does not include new units created by
+	 * arithmetic or other operations.
 	 *
 	 * @return the defined collection of units.
 	 */

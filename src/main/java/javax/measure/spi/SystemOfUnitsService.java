@@ -49,8 +49,8 @@ import java.util.Collection;
 public interface SystemOfUnitsService {
 
 	/**
-	 * Returns the default {@link SystemOfUnits system
-     * of units}. Depending on the implementation this may be the <a
+	 * Returns the default {@link SystemOfUnits system of units}. Depending on
+	 * the implementation this may be the <a
 	 * href=http://en.wikipedia.org/wiki/International_System_of_Units">
 	 * International System of Units</a> or another default system.
 	 * 
@@ -58,18 +58,20 @@ public interface SystemOfUnitsService {
 	 */
 	SystemOfUnits getSystemOfUnits();
 
-    /**
-     * Returns the system of units having the specified name or
-     * <code>null</code> if none.
-     *
-     * @param name the system of unit name.
-     * @return the given system of units.
-     */
+	/**
+	 * Returns the system of units having the specified name or
+	 * <code>null</code> if none.
+	 *
+	 * @param name
+	 *            the system of unit name.
+	 * @return the given system of units.
+	 */
 	SystemOfUnits getSystemOfUnits(String name);
 
-    /**
-     * Gets a list with available systems for this {@link SystemOfUnitsService}.
-     * @return list of available systems of units, never null.
-     */
+	/**
+	 * Gets a list with available systems for this {@link SystemOfUnitsService}.
+	 * 
+	 * @return list of available systems of units, never null.
+	 */
 	Collection<SystemOfUnits> getAvailableSystemsOfUnits();
 }
