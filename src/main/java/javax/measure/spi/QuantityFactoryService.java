@@ -28,6 +28,7 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package javax.measure.spi;
+
 import javax.measure.Quantity;
 import javax.measure.spi.QuantityFactory;
 
@@ -40,14 +41,13 @@ import javax.measure.spi.QuantityFactory;
  */
 public interface QuantityFactoryService {
 
-	/**
-	 * Return a factory for this {@link Quantity}.
-	 * 
-	 * @param quantity
-	 *            the quantity
-	 * @return the {@link QuantityFactory}
-	 * @throws NullPointerException
-	 */
-	<Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(
-			Class<Q> quantity);
+  /**
+   * Return a factory for this {@link Quantity}.
+   * 
+   * @param quantity
+   *          the quantity
+   * @return the {@link QuantityFactory}
+   * @throws NullPointerException
+   */
+  <Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(Class<Q> quantity);
 }

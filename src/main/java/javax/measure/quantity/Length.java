@@ -32,8 +32,7 @@ package javax.measure.quantity;
 import javax.measure.Quantity;
 
 /**
- * Extent of something along its greatest dimension or the extent of space
- * between two objects or places. The metric system unit for this quantity is
+ * Extent of something along its greatest dimension or the extent of space between two objects or places. The metric system unit for this quantity is
  * "m" (metre).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>

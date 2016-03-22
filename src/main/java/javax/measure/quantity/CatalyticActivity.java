@@ -32,8 +32,7 @@ package javax.measure.quantity;
 import javax.measure.Quantity;
 
 /**
- * Catalytic activity. The metric system unit for this quantity is "kat"
- * (katal).
+ * Catalytic activity. The metric system unit for this quantity is "kat" (katal).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @version 1.0

@@ -37,55 +37,49 @@ import javax.measure.Unit;
 
 /**
  * A system of units grouped together for historical or cultural reasons.<br>
- * Common system of units are "SI" (System International), "Imperial" (British),
- * "US" (US Customary). Nothing prevents a unit from belonging to several
- * systems of units at the same time (for example an {@code Imperial} system
- * would have many of the units held by the {@code US} Customary system).
+ * Common system of units are "SI" (System International), "Imperial" (British), "US" (US Customary). Nothing prevents a unit from belonging to
+ * several systems of units at the same time (for example an {@code Imperial} system would have many of the units held by the {@code US} Customary
+ * system).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 0.8.1, 2015-10-26
- * @see <a href="http://en.wikipedia.org/wiki/International_System_of_Units">
- *      Wikipedia: International System of Units</a>
- * @see <a href="http://en.wikipedia.org/wiki/Systems_of_measurement">
- *      Wikipedia: System of measurement</a>
+ * @see <a href="http://en.wikipedia.org/wiki/International_System_of_Units"> Wikipedia: International System of Units</a>
+ * @see <a href="http://en.wikipedia.org/wiki/Systems_of_measurement"> Wikipedia: System of measurement</a>
  *
  */
 public interface SystemOfUnits {
 
-	/**
-	 * @return a name
-	 */
-	String getName();
+  /**
+   * @return a name
+   */
+  String getName();
 
-	/**
-	 * Returns the default unit for the specified quantity.
-	 *
-	 * @param <Q>
-	 *            the compile-time quantity type.
-	 * @param quantityType
-	 *            the quantity type.
-	 * @return the unit for the specified quantity.
-	 */
-	<Q extends Quantity<Q>> Unit<Q> getUnit(Class<Q> quantityType);
+  /**
+   * Returns the default unit for the specified quantity.
+   *
+   * @param <Q>
+   *          the compile-time quantity type.
+   * @param quantityType
+   *          the quantity type.
+   * @return the unit for the specified quantity.
+   */
+  <Q extends Quantity<Q>> Unit<Q> getUnit(Class<Q> quantityType);
 
-	/**
-	 * Returns a read only view over the units explicitly defined by this
-	 * system. This include the base and derived units which are assigned a
-	 * special name and symbol. This set does not include new units created by
-	 * arithmetic or other operations.
-	 *
-	 * @return the defined collection of units.
-	 */
-	Set<? extends Unit<?>> getUnits();
+  /**
+   * Returns a read only view over the units explicitly defined by this system. This include the base and derived units which are assigned a special
+   * name and symbol. This set does not include new units created by arithmetic or other operations.
+   *
+   * @return the defined collection of units.
+   */
+  Set<? extends Unit<?>> getUnits();
 
-	/**
-	 * Returns the units defined in this system having the specified dimension
-	 * (convenience method).
-	 *
-	 * @param dimension
-	 *            the dimension of the units to be returned.
-	 * @return the collection of units of specified dimension.
-	 */
-	Set<? extends Unit<?>> getUnits(Dimension dimension);
+  /**
+   * Returns the units defined in this system having the specified dimension (convenience method).
+   *
+   * @param dimension
+   *          the dimension of the units to be returned.
+   * @return the collection of units of specified dimension.
+   */
+  Set<? extends Unit<?>> getUnits(Dimension dimension);
 }

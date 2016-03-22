@@ -32,8 +32,7 @@ package javax.measure.quantity;
 import javax.measure.Quantity;
 
 /**
- * Amount of space occupied by a three-dimensional object or region of space.
- * The metric system unit for this quantity is "m³" (cubic metre).
+ * Amount of space occupied by a three-dimensional object or region of space. The metric system unit for this quantity is "m³" (cubic metre).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>

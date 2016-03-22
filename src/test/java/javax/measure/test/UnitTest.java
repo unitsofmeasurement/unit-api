@@ -49,46 +49,45 @@ import org.junit.Test;
  *
  */
 public class UnitTest {
-	@SuppressWarnings("rawtypes")
-	private Unit sut;
+  @SuppressWarnings("rawtypes")
+  private Unit sut;
 
-	@Before
-	public void init() {
-		sut = TEST;
-	}
+  @Before
+  public void init() {
+    sut = TEST;
+  }
 
-	/**
-	 * Test method for {@link javax.measure.test.EnumUnit#getSymbol()}.
-	 */
-	@Test
-	public void testGetSymbol() {
-		assertNotNull(sut.getSymbol());
-		assertEquals("t", sut.getSymbol());
-	}
+  /**
+   * Test method for {@link javax.measure.test.EnumUnit#getSymbol()}.
+   */
+  @Test
+  public void testGetSymbol() {
+    assertNotNull(sut.getSymbol());
+    assertEquals("t", sut.getSymbol());
+  }
 
-	/**
-	 * Test method for {@link javax.measure.test.EnumUnit#getDimension()}.
-	 */
-	@Test
-	public void testGetDimension() {
-		final Dimension dim = TestDimension.getInstance();
-		assertEquals(dim, sut.getDimension());
-	}
+  /**
+   * Test method for {@link javax.measure.test.EnumUnit#getDimension()}.
+   */
+  @Test
+  public void testGetDimension() {
+    final Dimension dim = TestDimension.getInstance();
+    assertEquals(dim, sut.getDimension());
+  }
 
-	/**
-	 * Test method for
-	 * {@link javax.measure.test.EnumUnit#isCompatible(javax.measure.Unit)}.
-	 */
-	@SuppressWarnings("unchecked")
-	@Test
-	public void testIsCompatible() {
-		assertTrue(sut.isCompatible(TEST));
-	}
+  /**
+   * Test method for {@link javax.measure.test.EnumUnit#isCompatible(javax.measure.Unit)}.
+   */
+  @SuppressWarnings("unchecked")
+  @Test
+  public void testIsCompatible() {
+    assertTrue(sut.isCompatible(TEST));
+  }
 
-	@Test(expected = UnconvertibleException.class)
-	public void testGetConverterTo() {
-		sut = DistanceUnit.m;
-		UnitConverter converter = sut.getConverterTo(BaseUnit.ONE);
-		assertNotNull(converter);
-	}
+  @Test(expected = UnconvertibleException.class)
+  public void testGetConverterTo() {
+    sut = DistanceUnit.m;
+    UnitConverter converter = sut.getConverterTo(BaseUnit.ONE);
+    assertNotNull(converter);
+  }
 }

@@ -492,6 +492,9 @@
 			<plugin>
 				<groupId>net.revelc.code</groupId>
 				<artifactId>formatter-maven-plugin</artifactId>
+				<configuration>
+					<configFile>${project.basedir}/src/etc/eclipse-formatter-config.xml</configFile>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>

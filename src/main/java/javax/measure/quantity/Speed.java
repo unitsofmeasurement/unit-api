@@ -32,12 +32,10 @@ package javax.measure.quantity;
 import javax.measure.Quantity;
 
 /**
- * Distance traveled divided by the time of travel. The metric system unit for
- * this quantity is "m/s" (metre per second).
+ * Distance traveled divided by the time of travel. The metric system unit for this quantity is "m/s" (metre per second).
  *
  * <p>
- * <cite>Speed</cite> is a scalar value, while <cite>velocity</cite> is a
- * vector. Speed is the magnitude of the velocity vector, or the components of
+ * <cite>Speed</cite> is a scalar value, while <cite>velocity</cite> is a vector. Speed is the magnitude of the velocity vector, or the components of
  * the velocity vector.
  * </p>
  *

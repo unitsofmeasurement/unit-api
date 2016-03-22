@@ -44,196 +44,188 @@ import javax.measure.UnitConverter;
  */
 public abstract class TestConverter implements UnitConverter {
 
-	/**
-	 * Holds identity converter.
-	 */
-	public static final TestConverter IDENTITY = new Identity();
+  /**
+   * Holds identity converter.
+   */
+  public static final TestConverter IDENTITY = new Identity();
 
-	/**
-	 * Default constructor.
-	 */
-	protected TestConverter() {
-	}
+  /**
+   * Default constructor.
+   */
+  protected TestConverter() {
+  }
 
-	/**
-	 * Concatenates this physics converter with another unit converter. The
-	 * resulting converter is equivalent to first converting by the specified
-	 * converter (right converter), and then converting by this converter (left
-	 * converter).
-	 *
-	 * @param that
-	 *            the other converter.
-	 * @return the concatenation of this converter with that converter.
-	 */
-	public TestConverter concatenate(TestConverter that) {
-		return (that == IDENTITY) ? this : new Pair(this, that);
-	}
+  /**
+   * Concatenates this physics converter with another unit converter. The resulting converter is equivalent to first converting by the specified
+   * converter (right converter), and then converting by this converter (left converter).
+   *
+   * @param that
+   *          the other converter.
+   * @return the concatenation of this converter with that converter.
+   */
+  public TestConverter concatenate(TestConverter that) {
+    return (that == IDENTITY) ? this : new Pair(this, that);
+  }
 
-	public boolean isIdentity() {
-		return false;
-	}
+  public boolean isIdentity() {
+    return false;
+  }
 
-	@Override
-	public abstract boolean equals(Object cvtr);
+  @Override
+  public abstract boolean equals(Object cvtr);
 
-	@Override
-	public abstract int hashCode();
+  @Override
+  public abstract int hashCode();
 
-	@Override
-	public abstract TestConverter inverse();
+  @Override
+  public abstract TestConverter inverse();
 
-	@Override
-	public UnitConverter concatenate(UnitConverter converter) {
-		return (converter == IDENTITY) ? this : new Pair(this, converter);
-	}
+  @Override
+  public UnitConverter concatenate(UnitConverter converter) {
+    return (converter == IDENTITY) ? this : new Pair(this, converter);
+  }
 
-	@Override
-	public List<? extends UnitConverter> getConversionSteps() {
-		final List<TestConverter> steps = new ArrayList<TestConverter>();
-		steps.add(this);
-		return steps;
-	}
+  @Override
+  public List<? extends UnitConverter> getConversionSteps() {
+    final List<TestConverter> steps = new ArrayList<TestConverter>();
+    steps.add(this);
+    return steps;
+  }
 
-	/**
-	 * @throws IllegalArgumentException
-	 *             if the value is </code>null</code>.
-	 */
-	public Number convert(Number value) {
-		if (value != null) {
-			return convert(value.doubleValue());
-		} else {
-			throw new IllegalArgumentException("Value cannot be null");
-		}
-	}
+  /**
+   * @throws IllegalArgumentException
+   *           if the value is </code>null</code>.
+   */
+  public Number convert(Number value) {
+    if (value != null) {
+      return convert(value.doubleValue());
+    } else {
+      throw new IllegalArgumentException("Value cannot be null");
+    }
+  }
 
-	public abstract double convert(double value);
+  public abstract double convert(double value);
 
-	/**
-	 * This class represents the identity converter (singleton).
-	 */
-	private static final class Identity extends TestConverter {
+  /**
+   * This class represents the identity converter (singleton).
+   */
+  private static final class Identity extends TestConverter {
 
-		@Override
-		public boolean isIdentity() {
-			return true;
-		}
+    @Override
+    public boolean isIdentity() {
+      return true;
+    }
 
-		@Override
-		public Identity inverse() {
-			return this;
-		}
+    @Override
+    public Identity inverse() {
+      return this;
+    }
 
-		@Override
-		public double convert(double value) {
-			return value;
-		}
+    @Override
+    public double convert(double value) {
+      return value;
+    }
 
-		@Override
-		public UnitConverter concatenate(UnitConverter converter) {
-			return converter;
-		}
+    @Override
+    public UnitConverter concatenate(UnitConverter converter) {
+      return converter;
+    }
 
-		@Override
-		public boolean equals(Object cvtr) {
-			return (cvtr instanceof Identity);
-		}
+    @Override
+    public boolean equals(Object cvtr) {
+      return (cvtr instanceof Identity);
+    }
 
-		@Override
-		public int hashCode() {
-			return 0;
-		}
+    @Override
+    public int hashCode() {
+      return 0;
+    }
 
-		public boolean isLinear() {
-			return true;
-		}
-	}
+    public boolean isLinear() {
+      return true;
+    }
+  }
 
-	/**
-	 * This class represents converters made up of two or more separate
-	 * converters (in matrix notation <code>[pair] = [left] x [right]</code>).
-	 */
-	public static final class Pair extends TestConverter {
+  /**
+   * This class represents converters made up of two or more separate converters (in matrix notation <code>[pair] = [left] x [right]</code>).
+   */
+  public static final class Pair extends TestConverter {
 
-		/**
-		 * Holds the first converter.
-		 */
-		private final UnitConverter left;
+    /**
+     * Holds the first converter.
+     */
+    private final UnitConverter left;
 
-		/**
-		 * Holds the second converter.
-		 */
-		private final UnitConverter right;
+    /**
+     * Holds the second converter.
+     */
+    private final UnitConverter right;
 
-		/**
-		 * Creates a compound converter resulting from the combined
-		 * transformation of the specified converters.
-		 *
-		 * @param left
-		 *            the left converter.
-		 * @param right
-		 *            the right converter.
-		 * @throws IllegalArgumentException
-		 *             if either the left or right converter are
-		 *             </code>null</code>
-		 */
-		public Pair(UnitConverter left, UnitConverter right) {
-			this.left = left;
-			this.right = right;
-		}
+    /**
+     * Creates a compound converter resulting from the combined transformation of the specified converters.
+     *
+     * @param left
+     *          the left converter.
+     * @param right
+     *          the right converter.
+     * @throws IllegalArgumentException
+     *           if either the left or right converter are </code>null</code>
+     */
+    public Pair(UnitConverter left, UnitConverter right) {
+      this.left = left;
+      this.right = right;
+    }
 
-		public boolean isLinear() {
-			return left.isLinear() && right.isLinear();
-		}
+    public boolean isLinear() {
+      return left.isLinear() && right.isLinear();
+    }
 
-		@Override
-		public boolean isIdentity() {
-			return false;
-		}
+    @Override
+    public boolean isIdentity() {
+      return false;
+    }
 
-		@Override
-		public List<UnitConverter> getConversionSteps() {
-			final List<UnitConverter> steps = new ArrayList<UnitConverter>();
-			List<? extends UnitConverter> leftCompound = left
-					.getConversionSteps();
-			List<? extends UnitConverter> rightCompound = right
-					.getConversionSteps();
-			steps.addAll(leftCompound);
-			steps.addAll(rightCompound);
-			return steps;
-		}
+    @Override
+    public List<UnitConverter> getConversionSteps() {
+      final List<UnitConverter> steps = new ArrayList<UnitConverter>();
+      List<? extends UnitConverter> leftCompound = left.getConversionSteps();
+      List<? extends UnitConverter> rightCompound = right.getConversionSteps();
+      steps.addAll(leftCompound);
+      steps.addAll(rightCompound);
+      return steps;
+    }
 
-		@Override
-		public Pair inverse() {
-			return new Pair(right.inverse(), left.inverse());
-		}
+    @Override
+    public Pair inverse() {
+      return new Pair(right.inverse(), left.inverse());
+    }
 
-		@Override
-		public double convert(double value) {
-			return left.convert(right.convert(value));
-		}
+    @Override
+    public double convert(double value) {
+      return left.convert(right.convert(value));
+    }
 
-		@Override
-		public boolean equals(Object cvtr) {
-			if (this == cvtr)
-				return true;
-			if (!(cvtr instanceof Pair))
-				return false;
-			Pair that = (Pair) cvtr;
-			return (this.left.equals(that.left))
-					&& (this.right.equals(that.right));
-		}
+    @Override
+    public boolean equals(Object cvtr) {
+      if (this == cvtr)
+        return true;
+      if (!(cvtr instanceof Pair))
+        return false;
+      Pair that = (Pair) cvtr;
+      return (this.left.equals(that.left)) && (this.right.equals(that.right));
+    }
 
-		@Override
-		public int hashCode() {
-			return left.hashCode() + right.hashCode();
-		}
+    @Override
+    public int hashCode() {
+      return left.hashCode() + right.hashCode();
+    }
 
-		public UnitConverter getLeft() {
-			return left;
-		}
+    public UnitConverter getLeft() {
+      return left;
+    }
 
-		public UnitConverter getRight() {
-			return right;
-		}
-	}
+    public UnitConverter getRight() {
+      return right;
+    }
+  }
 }

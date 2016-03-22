@@ -40,135 +40,125 @@ import java.util.ServiceLoader;
 import java.util.logging.Logger;
 
 /**
- * This singleton provides access to the services available in the current
- * runtime environment. The behavior can be adapted, by calling
+ * This singleton provides access to the services available in the current runtime environment. The behavior can be adapted, by calling
  * {@link #init(ServiceProvider)} before accessing any measurement services.
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 0.7, March 20, 2016
  */
 public final class Bootstrap {
-	/**
-	 * The ServiceProvider used.
-	 */
-	private static volatile ServiceProvider serviceProviderDelegate;
-	/**
-	 * The shared lock instance user.
-	 */
-	private static final Object LOCK = new Object();
+  /**
+   * The ServiceProvider used.
+   */
+  private static volatile ServiceProvider serviceProviderDelegate;
+  /**
+   * The shared lock instance user.
+   */
+  private static final Object LOCK = new Object();
 
-	/**
-	 * Private singleton constructor.
-	 */
-	private Bootstrap() {
-	}
+  /**
+   * Private singleton constructor.
+   */
+  private Bootstrap() {
+  }
 
-	@SuppressWarnings({"rawtypes", "unchecked"})
-	private static <E> Collection<E> makeCollection(Iterable<E> iter,
-			boolean sort) {
-		List list = new ArrayList<E>();
-		for (E item : iter) {
-			list.add(item);
-		}
-		if (sort) {
-			Collections.sort(list, Collections.reverseOrder()); // to get
-																// highest prio
-																// first
-		}
-		return list;
-	}
+  @SuppressWarnings({ "rawtypes", "unchecked" })
+  private static <E> Collection<E> makeCollection(Iterable<E> iter, boolean sort) {
+    List list = new ArrayList<E>();
+    for (E item : iter) {
+      list.add(item);
+    }
+    if (sort) {
+      Collections.sort(list, Collections.reverseOrder()); // to get
+      // highest prio
+      // first
+    }
+    return list;
+  }
 
-	/**
-	 * Load the {@link ServiceProvider} to be used.
-	 *
-	 * @return {@link ServiceProvider} to be used for loading the services.
-	 */
-	private static ServiceProvider loadDefaultServiceProvider() {
-		try {
-			Collection<ServiceProvider> providers = makeCollection(
-					ServiceLoader.load(ServiceProvider.class), true);
-			for (ServiceProvider provider : providers) {
-				return provider;
-			}
-		} catch (Exception ex) {
-			Logger.getLogger(Bootstrap.class.getName()).log(INFO,
-					"No ServiceProvider loaded, using default.");
-		} catch (Error er) {
-			Logger.getLogger(Bootstrap.class.getName()).log(WARNING,
-					er.getMessage());
-		}
-		return new DefaultServiceProvider();
-	}
+  /**
+   * Load the {@link ServiceProvider} to be used.
+   *
+   * @return {@link ServiceProvider} to be used for loading the services.
+   */
+  private static ServiceProvider loadDefaultServiceProvider() {
+    try {
+      Collection<ServiceProvider> providers = makeCollection(ServiceLoader.load(ServiceProvider.class), true);
+      for (ServiceProvider provider : providers) {
+        return provider;
+      }
+    } catch (Exception ex) {
+      Logger.getLogger(Bootstrap.class.getName()).log(INFO, "No ServiceProvider loaded, using default.");
+    } catch (Error er) {
+      Logger.getLogger(Bootstrap.class.getName()).log(WARNING, er.getMessage());
+    }
+    return new DefaultServiceProvider();
+  }
 
-	/**
-	 * Replace the current {@link ServiceProvider} in use.
-	 *
-	 * @param serviceProvider
-	 *            the new {@link ServiceProvider}
-	 * @return the removed , or null.
-	 */
-	public static ServiceProvider init(ServiceProvider serviceProvider) {
-		if (serviceProvider == null) {
-			throw new NullPointerException();
-		}
-		synchronized (LOCK) {
-			if (Bootstrap.serviceProviderDelegate == null) {
-				Bootstrap.serviceProviderDelegate = serviceProvider;
-				Logger.getLogger(Bootstrap.class.getName()).log(
-						INFO,
-						"Measurement Bootstrap: new ServiceProvider set: "
-								+ serviceProvider.getClass().getName());
-				return null;
-			} else {
-				ServiceProvider prevProvider = Bootstrap.serviceProviderDelegate;
-				Bootstrap.serviceProviderDelegate = serviceProvider;
-				Logger.getLogger(Bootstrap.class.getName()).log(
-						WARNING,
-						"Measurement Bootstrap: ServiceProvider replaced: "
-								+ serviceProvider.getClass().getName());
-				return prevProvider;
-			}
-		}
-	}
+  /**
+   * Replace the current {@link ServiceProvider} in use.
+   *
+   * @param serviceProvider
+   *          the new {@link ServiceProvider}
+   * @return the removed , or null.
+   */
+  public static ServiceProvider init(ServiceProvider serviceProvider) {
+    if (serviceProvider == null) {
+      throw new NullPointerException();
+    }
+    synchronized (LOCK) {
+      if (Bootstrap.serviceProviderDelegate == null) {
+        Bootstrap.serviceProviderDelegate = serviceProvider;
+        Logger.getLogger(Bootstrap.class.getName()).log(INFO,
+            "Measurement Bootstrap: new ServiceProvider set: " + serviceProvider.getClass().getName());
+        return null;
+      } else {
+        ServiceProvider prevProvider = Bootstrap.serviceProviderDelegate;
+        Bootstrap.serviceProviderDelegate = serviceProvider;
+        Logger.getLogger(Bootstrap.class.getName()).log(WARNING,
+            "Measurement Bootstrap: ServiceProvider replaced: " + serviceProvider.getClass().getName());
+        return prevProvider;
+      }
+    }
+  }
 
-	/**
-	 * Returns the current {@link ServiceProvider}. If necessary the
-	 * {@link ServiceProvider} will be lazily loaded.
-	 *
-	 * @return the {@link ServiceProvider} used.
-	 */
-	static ServiceProvider getServiceProvider() {
-		if (serviceProviderDelegate == null) {
-			synchronized (LOCK) {
-				if (serviceProviderDelegate == null) {
-					serviceProviderDelegate = loadDefaultServiceProvider();
-				}
-			}
-		}
-		return serviceProviderDelegate;
-	}
+  /**
+   * Returns the current {@link ServiceProvider}. If necessary the {@link ServiceProvider} will be lazily loaded.
+   *
+   * @return the {@link ServiceProvider} used.
+   */
+  static ServiceProvider getServiceProvider() {
+    if (serviceProviderDelegate == null) {
+      synchronized (LOCK) {
+        if (serviceProviderDelegate == null) {
+          serviceProviderDelegate = loadDefaultServiceProvider();
+        }
+      }
+    }
+    return serviceProviderDelegate;
+  }
 
-	/**
-	 * Delegate method for {@link ServiceProvider#getServices(Class)}.
-	 *
-	 * @param serviceType
-	 *            the service type.
-	 * @return the services found.
-	 * @see ServiceProvider#getServices(Class)
-	 */
-	public static <T> Collection<T> getServices(Class<T> serviceType) {
-		return getServiceProvider().getServices(serviceType);
-	}
+  /**
+   * Delegate method for {@link ServiceProvider#getServices(Class)}.
+   *
+   * @param serviceType
+   *          the service type.
+   * @return the services found.
+   * @see ServiceProvider#getServices(Class)
+   */
+  public static <T> Collection<T> getServices(Class<T> serviceType) {
+    return getServiceProvider().getServices(serviceType);
+  }
 
-	/**
-	 * Delegate method for {@link ServiceProvider#getService(Class)}.
-	 *
-	 * @param serviceType
-	 *            the service type.
-	 * @return the service found, or {@code null}.
-	 * @see ServiceProvider#getServices(Class)
-	 */
-	public static <T> T getService(Class<T> serviceType) {
-		return getServiceProvider().getService(serviceType);
-	}
+  /**
+   * Delegate method for {@link ServiceProvider#getService(Class)}.
+   *
+   * @param serviceType
+   *          the service type.
+   * @return the service found, or {@code null}.
+   * @see ServiceProvider#getServices(Class)
+   */
+  public static <T> T getService(Class<T> serviceType) {
+    return getServiceProvider().getService(serviceType);
+  }
 }

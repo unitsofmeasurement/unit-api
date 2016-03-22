@@ -33,13 +33,11 @@ import java.util.Collection;
 
 /**
  * <p>
- * This interface represents the service to obtain a {@link SystemOfUnits system
- * of units}.
+ * This interface represents the service to obtain a {@link SystemOfUnits system of units}.
  * </p>
  * 
  * <p>
- * Common system of units are "SI" (System International), "Imperial" (British),
- * "US" (US Customary).
+ * Common system of units are "SI" (System International), "Imperial" (British), "US" (US Customary).
  * </p>
  * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
@@ -48,30 +46,27 @@ import java.util.Collection;
  */
 public interface SystemOfUnitsService {
 
-	/**
-	 * Returns the default {@link SystemOfUnits system of units}. Depending on
-	 * the implementation this may be the <a
-	 * href=http://en.wikipedia.org/wiki/International_System_of_Units">
-	 * International System of Units</a> or another default system.
-	 * 
-	 * @return the default system of units.
-	 */
-	SystemOfUnits getSystemOfUnits();
+  /**
+   * Returns the default {@link SystemOfUnits system of units}. Depending on the implementation this may be the <a
+   * href=http://en.wikipedia.org/wiki/International_System_of_Units"> International System of Units</a> or another default system.
+   * 
+   * @return the default system of units.
+   */
+  SystemOfUnits getSystemOfUnits();
 
-	/**
-	 * Returns the system of units having the specified name or
-	 * <code>null</code> if none.
-	 *
-	 * @param name
-	 *            the system of unit name.
-	 * @return the given system of units.
-	 */
-	SystemOfUnits getSystemOfUnits(String name);
+  /**
+   * Returns the system of units having the specified name or <code>null</code> if none.
+   *
+   * @param name
+   *          the system of unit name.
+   * @return the given system of units.
+   */
+  SystemOfUnits getSystemOfUnits(String name);
 
-	/**
-	 * Gets a list with available systems for this {@link SystemOfUnitsService}.
-	 * 
-	 * @return list of available systems of units, never null.
-	 */
-	Collection<SystemOfUnits> getAvailableSystemsOfUnits();
+  /**
+   * Gets a list with available systems for this {@link SystemOfUnitsService}.
+   * 
+   * @return list of available systems of units, never null.
+   */
+  Collection<SystemOfUnits> getAvailableSystemsOfUnits();
 }

@@ -32,8 +32,7 @@ package javax.measure.quantity;
 import javax.measure.Quantity;
 
 /**
- * Number of times a specified phenomenon occurs within a specified interval.
- * The metric system unit for this quantity is "Hz" (Hertz).
+ * Number of times a specified phenomenon occurs within a specified interval. The metric system unit for this quantity is "Hz" (Hertz).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @version 1.0

@@ -52,73 +52,73 @@ import org.junit.Test;
  *
  */
 public class FormatTest {
-	private Quantity<Length> sut;
-	private UnitFormat format;
+  private Quantity<Length> sut;
+  private UnitFormat format;
 
-	@Before
-	public void init() {
-		sut = new DistanceQuantity(10, DistanceUnit.m);
-		format = SimpleTestFormat.getInstance();
-	}
+  @Before
+  public void init() {
+    sut = new DistanceQuantity(10, DistanceUnit.m);
+    format = SimpleTestFormat.getInstance();
+  }
 
-	@Test
-	public void testFormatKph() {
-		Unit<Speed> kph = SpeedUnit.kmh;
-		assertEquals("km/h", kph.toString());
-	}
+  @Test
+  public void testFormatKph() {
+    Unit<Speed> kph = SpeedUnit.kmh;
+    assertEquals("km/h", kph.toString());
+  }
 
-	@Test(expected = ParserException.class)
-	public void testParseSimple() {
-		Unit<?> u = format.parse("s");
-		assertNotNull(u);
-		assertEquals("s", u.getSymbol());
-	}
+  @Test(expected = ParserException.class)
+  public void testParseSimple() {
+    Unit<?> u = format.parse("s");
+    assertNotNull(u);
+    assertEquals("s", u.getSymbol());
+  }
 
-	@Test(expected = IllegalArgumentException.class)
-	public void testFormatFromQuantity() {
-		final Appendable a = new StringBuilder();
-		try {
-			format.format(DistanceUnit.m, a);
-		} catch (IOException e) {
-			fail(e.getMessage());
-		}
-		assertEquals(DistanceUnit.m, sut.getUnit());
-		assertEquals("m", a.toString());
+  @Test(expected = IllegalArgumentException.class)
+  public void testFormatFromQuantity() {
+    final Appendable a = new StringBuilder();
+    try {
+      format.format(DistanceUnit.m, a);
+    } catch (IOException e) {
+      fail(e.getMessage());
+    }
+    assertEquals(DistanceUnit.m, sut.getUnit());
+    assertEquals("m", a.toString());
 
-		final Appendable a2 = new StringBuilder();
-		@SuppressWarnings("unchecked")
-		Unit<Speed> v = (Unit<Speed>) sut.getUnit().divide(TimeUnit.s);
-		try {
-			format.format(v, a2);
-		} catch (IOException e) {
-			fail(e.getMessage());
-		}
-		assertEquals("m/s", a2.toString());
-	}
+    final Appendable a2 = new StringBuilder();
+    @SuppressWarnings("unchecked")
+    Unit<Speed> v = (Unit<Speed>) sut.getUnit().divide(TimeUnit.s);
+    try {
+      format.format(v, a2);
+    } catch (IOException e) {
+      fail(e.getMessage());
+    }
+    assertEquals("m/s", a2.toString());
+  }
 
-	@Test(expected = ParserException.class)
-	public void testParseIrregularString() {
-		Unit<?> u = format.parse("bl//^--1a");
-	}
+  @Test(expected = ParserException.class)
+  public void testParseIrregularString() {
+    Unit<?> u = format.parse("bl//^--1a");
+  }
 
-	@Test(expected = ParserException.class)
-	public void testParserException() {
-		throw new ParserException(new IllegalArgumentException());
-	}
+  @Test(expected = ParserException.class)
+  public void testParserException() {
+    throw new ParserException(new IllegalArgumentException());
+  }
 
-	@Test(expected = ParserException.class)
-	public void testParserExceptionWithPosition() {
-		ParserException pe = new ParserException("test", 1);
-		assertEquals(1, pe.getPosition());
-		assertEquals("test", pe.getParsedString());
-		throw pe;
-	}
+  @Test(expected = ParserException.class)
+  public void testParserExceptionWithPosition() {
+    ParserException pe = new ParserException("test", 1);
+    assertEquals(1, pe.getPosition());
+    assertEquals("test", pe.getParsedString());
+    throw pe;
+  }
 
-	@Test(expected = ParserException.class)
-	public void testParserExceptionWithNullString() {
-		ParserException pe = new ParserException(null, 0);
-		assertEquals(0, pe.getPosition());
-		assertNull(pe.getParsedString());
-		throw pe;
-	}
+  @Test(expected = ParserException.class)
+  public void testParserExceptionWithNullString() {
+    ParserException pe = new ParserException(null, 0);
+    assertEquals(0, pe.getPosition());
+    assertNull(pe.getParsedString());
+    throw pe;
+  }
 }

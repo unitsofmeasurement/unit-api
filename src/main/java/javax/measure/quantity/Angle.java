@@ -32,8 +32,7 @@ package javax.measure.quantity;
 import javax.measure.Quantity;
 
 /**
- * Figure formed by two lines diverging from a common point. The metric system
- * unit for this quantity is "rad" (radian).
+ * Figure formed by two lines diverging from a common point. The metric system unit for this quantity is "rad" (radian).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>

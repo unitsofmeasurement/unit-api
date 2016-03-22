@@ -74,3 +74,4 @@
  *
  */
 package javax.measure.quantity;
+
