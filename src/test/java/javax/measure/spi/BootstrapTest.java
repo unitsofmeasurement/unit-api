@@ -46,14 +46,6 @@ import org.junit.Test;
 @SuppressWarnings("unchecked")
 public class BootstrapTest {
 
-  @Test(expected = NullPointerException.class)
-  public void testInit_InitTwice() throws Exception {
-    TestServiceProvider testProv = new TestServiceProvider();
-    ServiceProvider prov = Bootstrap.init(testProv);
-    assertTrue(testProv == Bootstrap.init(prov));
-    assertEquals(0, testProv.getPriority());
-  }
-
   @Test
   public void testInit() throws Exception {
     Collection<Object> services = Collection.class.cast(Bootstrap.getServices(String.class));
@@ -65,7 +57,21 @@ public class BootstrapTest {
     assertNotNull(services);
     assertTrue(services.isEmpty());
   }
+  
+  @Test(expected = NullPointerException.class)
+  public void testInit_Null() throws Exception {
+    ServiceProvider prov = Bootstrap.init(null);
+    assertNull(prov);
+  }
 
+  @Test(expected = NullPointerException.class)
+  public void testInit_InitTwice() throws Exception {
+    TestServiceProvider testProv = new TestServiceProvider();
+    ServiceProvider prov = Bootstrap.init(testProv);
+    assertTrue(testProv == Bootstrap.init(prov));
+    assertEquals(0, testProv.getPriority());
+  }
+  
   @Test
   public void testGetServiceProvider() throws Exception {
     ServiceProvider prov = Bootstrap.getServiceProvider();
