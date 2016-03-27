@@ -43,6 +43,13 @@ import org.junit.Test;
  */
 public class ExceptionsTest {
 
+  @SuppressWarnings("serial")
+static class TestException extends MeasurementException {
+      public TestException() {
+	  super();
+      }
+  }
+    
   @Test(expected = MeasurementException.class)
   public void testMeasurementException() {
     MeasurementException e = new MeasurementException("error");
@@ -62,6 +69,14 @@ public class ExceptionsTest {
     MeasurementException e = new MeasurementException("state error", cause);
     assertEquals("state error", e.getMessage());
     assertEquals(cause, e.getCause());
+    throw e;
+  }
+  
+  @Test(expected = MeasurementException.class)
+  public void testDefaultConstructor() {
+    MeasurementException e = new TestException();
+    assertNull(e.getMessage());
+    assertNull(e.getCause());
     throw e;
   }
 
