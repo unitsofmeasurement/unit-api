@@ -64,7 +64,8 @@ public class BootstrapTest {
     assertNull(prov);
   }
 
-  @Test(expected = NullPointerException.class)
+  @Test
+  // (expected = NullPointerException.class)
   public void testInit_InitTwice() throws Exception {
     TestServiceProvider testProv = new TestServiceProvider();
     ServiceProvider prov = Bootstrap.init(testProv);
