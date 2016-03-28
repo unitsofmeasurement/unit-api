@@ -57,7 +57,7 @@ public class BootstrapTest {
     assertNotNull(services);
     assertTrue(services.isEmpty());
   }
-  
+
   @Test(expected = NullPointerException.class)
   public void testInit_Null() throws Exception {
     ServiceProvider prov = Bootstrap.init(null);
@@ -71,7 +71,7 @@ public class BootstrapTest {
     assertTrue(testProv == Bootstrap.init(prov));
     assertEquals(0, testProv.getPriority());
   }
-  
+
   @Test
   public void testGetServiceProvider() throws Exception {
     ServiceProvider prov = Bootstrap.getServiceProvider();
