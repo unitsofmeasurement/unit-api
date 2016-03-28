@@ -155,7 +155,7 @@ public interface Unit<Q extends Quantity<Q>> {
    * this unit's dimension do not match. For example:
    *
    * <code>
-   *      Unit<Speed> C = METRE.times(299792458).divide(SECOND).asType(Speed.class);
+   *      {@literal Unit<Speed>} C = METRE.times(299792458).divide(SECOND).asType(Speed.class);
    * </code>
    *
    * @param <T>
@@ -216,9 +216,9 @@ public interface Unit<Q extends Quantity<Q>> {
    * </p>
    *
    * <code>
-   *     Unit<Angle> RADIAN = ONE.alternate("rad").asType(Angle.class);<br>
-   *     Unit<Force> NEWTON = METRE.times(KILOGRAM).divide(SECOND.pow(2)).alternate("N").asType(Force.class);<br>
-   *     Unit<Pressure> PASCAL = NEWTON.divide(METRE.pow(2)).alternate("Pa").asType(Pressure.class);<br>
+   *     {@literal Unit<Angle>} RADIAN = ONE.alternate("rad").asType(Angle.class);<br>
+   *     {@literal Unit<Force>} NEWTON = METRE.times(KILOGRAM).divide(SECOND.pow(2)).alternate("N").asType(Force.class);<br>
+   *     {@literal Unit<Pressure>} PASCAL = NEWTON.divide(METRE.pow(2)).alternate("Pa").asType(Pressure.class);<br>
    * </code>
    *
    * @param symbol
@@ -324,7 +324,7 @@ public interface Unit<Q extends Quantity<Q>> {
   /**
    * Returns the unit derived from this unit using the specified converter. The converter does not need to be linear. For example:<br>
    * <code>
-   *     Unit<Dimensionless> DECIBEL = Unit.ONE.transform(
+   *     {@literal Unit<Dimensionless>} DECIBEL = Unit.ONE.transform(
    *         new LogConverter(10).inverse().concatenate(
    *             new RationalConverter(1, 10)));
    * </code>
@@ -333,7 +333,7 @@ public interface Unit<Q extends Quantity<Q>> {
    *          the converter from the transformed unit to this unit.
    * @return the unit after the specified transformation.
    */
-  Unit<Q> transform(UnitConverter converter);
+  Unit<Q> transform(UnitConverter operation);
 
   /**
    * <p>
@@ -341,7 +341,7 @@ public interface Unit<Q extends Quantity<Q>> {
    * representation of {@linkplain #getProductUnits() product units}, multiplication factor and offset if any.
    * </p>
    * The string may be localized at implementation choice by the means of a particular device and platform. <br>
-   * 
+   *
    * @return the string representation of this unit.
    *
    * @see #getSymbol()

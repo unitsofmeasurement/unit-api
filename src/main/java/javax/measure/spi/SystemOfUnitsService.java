@@ -32,14 +32,12 @@ package javax.measure.spi;
 import java.util.Collection;
 
 /**
- * <p>
  * This interface represents the service to obtain a {@link SystemOfUnits system of units}.
- * </p>
- * 
+ *
  * <p>
  * Common system of units are "SI" (System International), "Imperial" (British), "US" (US Customary).
  * </p>
- * 
+ *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 0.7, $Date: 2015-11-08 $
@@ -49,7 +47,7 @@ public interface SystemOfUnitsService {
   /**
    * Returns the default {@link SystemOfUnits system of units}. Depending on the implementation this may be the <a
    * href=http://en.wikipedia.org/wiki/International_System_of_Units"> International System of Units</a> or another default system.
-   * 
+   *
    * @return the default system of units.
    */
   SystemOfUnits getSystemOfUnits();
@@ -65,7 +63,7 @@ public interface SystemOfUnitsService {
 
   /**
    * Gets a list with available systems for this {@link SystemOfUnitsService}.
-   * 
+   *
    * @return list of available systems of units, never null.
    */
   Collection<SystemOfUnits> getAvailableSystemsOfUnits();

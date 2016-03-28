@@ -30,14 +30,13 @@
 package javax.measure;
 
 /**
- * <p>
  * Represents a quantitative property of a phenomenon, body, or substance, that can be quantified by measurement. {@link javax.measure.quantity.Mass
  * Mass}, time, distance, heat, and angular separation are among the familiar examples of quantitative properties.
+ * <p>
+ * <code> {@literal Unit<Mass>} pound = ... {@literal Quantity<Length>} size = ... {@literal Sensor<Temperature>}<br>
+ * thermometer = ... {@literal Vector3D<Speed>} aircraftSpeed = ... </code>
  * </p>
  *
- * <code> Unit<Mass> pound = ... Quantity<Length> size = ... Sensor<Temperature><br>
- * thermometer = ... Vector3D<Speed> aircraftSpeed = ... </code> </p>
- * 
  * @apiNote This interface places no restrictions on the mutability of implementations, however immutability is strongly recommended. All
  *          implementations must be {@link Comparable}.
  *
@@ -100,7 +99,7 @@ public interface Quantity<Q extends Quantity<Q>> {
    * @throws ClassCastException
    *           if the type of an element in the specified operation is incompatible with this quantity (<a href="#optional-restrictions">optional</a>)
    *
-   * @param that
+   * @param multiplier
    *          the {@code Quantity} multiplier.
    * @return <code>this * multiplier</code>.
    */
@@ -109,7 +108,7 @@ public interface Quantity<Q extends Quantity<Q>> {
   /**
    * Returns the product of this {@code Quantity} with the {@code Number} value specified.
    *
-   * @param that
+   * @param multiplier
    *          the {@code Number} multiplier.
    * @return <code>this * multiplier</code>.
    */
@@ -133,12 +132,14 @@ public interface Quantity<Q extends Quantity<Q>> {
 
   /**
    * Casts this quantity to a parameterized unit of specified nature or throw a <code>ClassCastException</code> if the dimension of the specified
-   * quantity and this measure unit's dimension do not match. For example:<br/>
+   * quantity and this measure unit's dimension do not match. For example:
+   * <p>
    * <code>
-   *     Quantity<Length> length = Quantities.getQuantity("2 km").asType(Length.class);
+   *     {@literal Quantity<Length>} length = Quantities.getQuantity("2 km").asType(Length.class);
    * </code> or <code>
-   *      Quantity<Speed> C = length.multiply(299792458).divide(second).asType(Speed.class);
+   *     {@literal Quantity<Speed>} C = length.multiply(299792458).divide(second).asType(Speed.class);
    * </code>
+   * </p>
    *
    * @param <T>
    *          The type of the quantity.

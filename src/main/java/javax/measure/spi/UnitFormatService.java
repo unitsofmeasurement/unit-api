@@ -34,10 +34,8 @@ import java.util.Set;
 import javax.measure.format.UnitFormat;
 
 /**
- * <p>
  * This interface represent the service to obtain {@link UnitFormat} instances.
- * </p>
- * 
+ *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 0.6, $Date: 2015-11-03 $
@@ -46,7 +44,7 @@ public interface UnitFormatService {
 
   /**
    * Returns the default unit format.
-   * 
+   *
    * It is up to implementations what to consider a suitable default. For some (locale-sensitive) implementations it may be a unit format based on
    * <code>Locale.getDefault()</code> while others may return <code>getUnitFormat("Simple")</code> or <code>getUnitFormat("ISO")</code>
    *
@@ -56,7 +54,7 @@ public interface UnitFormatService {
 
   /**
    * Returns the unit format having the specified name or <code>null</code> if none.
-   * 
+   *
    * For example <code>getUnitFormat("UCUM")</code> to return a UCUM specific {@link UnitFormat} implementation.
    *
    * @param name
@@ -67,7 +65,7 @@ public interface UnitFormatService {
 
   /**
    * Gets a list with available format names for this format service.
-   * 
+   *
    * @return list of available formats, never null.
    */
   Set<String> getAvailableFormatNames();
