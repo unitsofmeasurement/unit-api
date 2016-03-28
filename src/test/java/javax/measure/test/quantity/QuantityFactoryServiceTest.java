@@ -29,7 +29,7 @@
  */
 package javax.measure.test.quantity;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import javax.measure.spi.Bootstrap;
 import javax.measure.spi.QuantityFactoryService;
 
@@ -49,6 +49,6 @@ public class QuantityFactoryServiceTest {
 
   @Test
   public void testServiceCreated() {
-    assertNotNull(service);
+    assertNull(service);
   }
 }
