@@ -35,10 +35,6 @@ import javax.measure.Unit;
 /**
  * Represents a factory that accepts {@linkplain Number} and {@link Unit} arguments to create a {@link Quantity} result.
  *
- * <p>
- * This is a <a href= "http://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html#package.description" >functional interface</a>
- * whose functional method is {@link #create(Number, Unit)}.
- *
  * @param <Q>
  *          the type of the {@link Quantity} result
  *
@@ -51,7 +47,7 @@ public interface QuantityFactory<Q extends Quantity<Q>> {
   /**
    * Returns the quantity for the specified number stated in the specified unit.
    *
-   * @param number
+   * @param value
    *          the numeric value stated in the specified unit
    * @param unit
    *          the unit
@@ -66,12 +62,12 @@ public interface QuantityFactory<Q extends Quantity<Q>> {
    * Because the system unit is unique by quantity type, it can be be used to identify the quantity given the unit. For example:
    * </p>
    *
-   * <code>
-   *     static boolean isAngularSpeed(Unit<?> unit) {
+   * <pre>
+   *     static boolean isAngularSpeed({@literal Unit<?>} unit) {
    *         return unit.getSystemUnit().equals(RADIAN.divide(SECOND));
    *     }
    *     assert isAngularSpeed(REVOLUTION.divide(MINUTE)); // Returns true.
-   * </code>
+   * </pre>
    *
    * @return the system unit for this factory.
    * @see Unit#getSystemUnit()

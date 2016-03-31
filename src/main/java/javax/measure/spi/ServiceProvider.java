@@ -29,14 +29,38 @@
  */
 package javax.measure.spi;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.ServiceLoader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.measure.Quantity;
+import javax.measure.format.UnitFormat;
 
 /**
  * This class models the component to managing the lifecycle of the Unit and Quantity services.
- * 
+ *
  * @author Werner Keil
  */
-public interface ServiceProvider extends Comparable<ServiceProvider> {
+public abstract class ServiceProvider {
+  /**
+   * Synchronization lock for searching or setting the service providers.
+   */
+  private static final Object LOCK = new Object();
+
+  /**
+   * All service providers found, sorted in preference order. Array content shall never been changed after initialization; if we want to change the
+   * array content, a new array shall be created.
+   */
+  private static volatile ServiceProvider[] providers;
+
+  /**
+   * Creates a new service provider.
+   */
+  protected ServiceProvider() {
+  }
 
   /**
    * This method allows to define a priority for a registered ServiceProvider instance. When multiple providers are registered in the system the
@@ -44,25 +68,108 @@ public interface ServiceProvider extends Comparable<ServiceProvider> {
    *
    * @return the provider's priority (default is 0).
    */
-  public int getPriority();
+  public int getPriority() {
+    return 0;
+  }
 
   /**
-   * Access a list of services, given its type. The bootstrap mechanism should order the instance for precedence, hereby the most significant should
-   * be first in order. If no such services are found, an empty list should be returned.
+   * Returns the service to obtain a {@link SystemOfUnits}, or {@code null} if none.
    *
-   * @param serviceType
-   *          the service type.
-   * @return The instance to be used, never {@code null}
+   * @return the service to obtain a {@link SystemOfUnits}, or {@code null}.
    */
-  <T> List<T> getServices(Class<T> serviceType);
+  public abstract SystemOfUnitsService getSystemOfUnitsService();
 
   /**
-   * Access a single service, given its type. The bootstrap mechanism should order the instance for precedence, hereby the most significant should be
-   * first in order and returned. If no such services are found, null is returned.
+   * Returns the service to obtain a {@link UnitFormat}, or {@code null} if none.
    *
-   * @param serviceType
-   *          the service type.
-   * @return The instance, (with highest precedence) or {@code null}, if no such service is available.
+   * @return the service to obtain a {@link UnitFormat}, or {@code null}.
    */
-  <T> T getService(Class<T> serviceType);
+  public abstract UnitFormatService getUnitFormatService();
+
+  /**
+   * Returns the service to obtain a {@link Quantity}, or {@code null} if none.
+   *
+   * @return the service to obtain a {@link Quantity}, or {@code null}.
+   */
+  public abstract QuantityFactoryService getQuantityFactoryService();
+
+  /**
+   * Gets all {@link ServiceProvider}. This method loads the provider when first needed.
+   */
+  private static ServiceProvider[] getProviders() {
+    ServiceProvider[] p = providers;
+    if (p == null) {
+      synchronized (LOCK) {
+        p = providers;
+        if (p == null) {
+          final List<ServiceProvider> loaded = new ArrayList<ServiceProvider>();
+          for (ServiceProvider provider : ServiceLoader.load(ServiceProvider.class)) {
+            loaded.add(provider);
+          }
+          p = loaded.toArray(new ServiceProvider[loaded.size()]);
+          Arrays.sort(p, new Comparator<ServiceProvider>() {
+            @Override
+            public int compare(ServiceProvider p1, ServiceProvider p2) {
+              return p2.getPriority() - p1.getPriority();
+            }
+          });
+          providers = p; // Set only on success.
+        }
+      }
+    }
+    return p;
+  }
+
+  /**
+   * Returns all available service providers.
+   *
+   * @return all available service providers.
+   */
+  public static ServiceProvider[] getAvailables() {
+    return getProviders().clone();
+  }
+
+  /**
+   * Returns the current {@link ServiceProvider}. If necessary the {@link ServiceProvider} will be lazily loaded.
+   *
+   * @return the {@link ServiceProvider} used.
+   * @throws IllegalStateException
+   *           if no {@link ServiceProvider} has been found.
+   */
+  public static ServiceProvider getDefault() {
+    ServiceProvider[] p = getProviders();
+    if (p.length != 0) {
+      return p[0];
+    }
+    throw new IllegalStateException("No measurement ServiceProvider found.");
+  }
+
+  /**
+   * Replaces the default {@link ServiceProvider}.
+   *
+   * @param provider
+   *          the new {@link ServiceProvider}
+   * @return the removed provider, or null.
+   */
+  public static ServiceProvider setDefault(ServiceProvider provider) {
+    if (provider == null) {
+      throw new NullPointerException();
+    }
+    synchronized (LOCK) {
+      ServiceProvider[] p = getProviders();
+      ServiceProvider old = (p.length != 0) ? p[0] : null;
+      if (provider != old) {
+        List<ServiceProvider> copy = new ArrayList<ServiceProvider>(Arrays.asList(p));
+        copy.remove(provider);
+        copy.add(0, provider);
+        providers = copy.toArray(new ServiceProvider[copy.size()]);
+
+        // Keep the log inside the synchronized block for making sure that the order
+        // or logging messages matches the order in which ServiceProviders were set.
+        Logger.getLogger("javax.measure.spi").log(Level.CONFIG,
+            (old == null) ? "Measurement ServiceProvider set to {0}" : "Measurement ServiceProvider replaced by {0}", provider.getClass().getName());
+      }
+      return old;
+    }
+  }
 }

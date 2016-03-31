@@ -29,23 +29,55 @@
  */
 package javax.measure.spi;
 
-import static org.junit.Assert.*;
-
-import javax.measure.spi.DefaultServiceProvider;
-import javax.measure.spi.ServiceProvider;
-
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * Tests for {@link ServiceProvider}.
  */
 public class ServiceProviderTest {
 
+  @Test(expected = NullPointerException.class)
+  public void testSetDefault_Null() {
+    ServiceProvider.setDefault(null);
+  }
+
+  /**
+   * Tests {@link ServiceProvider#getDefault()} and {@link ServiceProvider#setDefault(ServiceProvider)}. The getter and setter are tested in a single
+   * method for avoiding issues with the order in which JUnit executes tests.
+   */
   @Test
-  public void testCompare() throws Exception {
-    ServiceProvider provider1 = new DefaultServiceProvider();
-    ServiceProvider provider2 = new DefaultServiceProvider();
-    int result = provider1.compareTo(provider2);
-    assertEquals(0, result);
+  public void testGetAndSetDefault() {
+    assertEquals(0, ServiceProvider.getAvailables().length);
+    try {
+      ServiceProvider.getDefault();
+      fail("Expected no ServiceProvider before we set one.");
+    } catch (IllegalStateException e) {
+      // This is the expected exception.
+    }
+    TestServiceProvider testProv = new TestServiceProvider();
+    assertNull("Expected no ServiceProvider before we set one.", ServiceProvider.setDefault(testProv));
+    assertSame("Setting the same ServiceProvider twice should be a no-op.", testProv, ServiceProvider.setDefault(testProv));
+    assertSame(testProv, ServiceProvider.getDefault());
+    assertArrayEquals(new ServiceProvider[] { testProv }, ServiceProvider.getAvailables());
+  }
+
+  private static final class TestServiceProvider extends ServiceProvider {
+
+    @Override
+    public SystemOfUnitsService getSystemOfUnitsService() {
+      return null;
+    }
+
+    @Override
+    public UnitFormatService getUnitFormatService() {
+      return null;
+    }
+
+    @Override
+    public QuantityFactoryService getQuantityFactoryService() {
+      return null;
+    }
   }
 }

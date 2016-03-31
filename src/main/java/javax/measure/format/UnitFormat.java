@@ -34,11 +34,9 @@ import java.io.IOException;
 import javax.measure.Unit;
 
 /**
- * <p>
  * Formats instances of {@link Unit} to a {@link String} or an {@link Appendable} and parses a {@link CharSequence} to a {@link Unit}.
- * </p>
+ *
  * <h4><a name="synchronization">Synchronization</a></h4>
- * <p>
  * <p>
  * Instances of this class are not required to be thread-safe. It is recommended to of separate format instances for each thread. If multiple threads
  * access a format concurrently, it must be synchronized externally.
@@ -71,8 +69,6 @@ public interface UnitFormat {
    * @param unit
    *          the {@link Unit} to format, not {@code null}
    * @return the string representation using the settings of this {@link UnitFormat}.
-   * @throws IOException
-   *           if an error occurs while writing to the destination.
    */
   String format(Unit<?> unit);
 
@@ -90,7 +86,7 @@ public interface UnitFormat {
    * also implementing <tt>UnitFormat</tt>. If a <tt>UnitFormat</tt> #isLocaleSensitive() it is up to the implementation, whether the label is
    * ignored, applied in a local-neutral manner (in addition to its local-sensitive information) or locale-specific.
    * </p>
-   * 
+   *
    * @param unit
    *          the unit being labeled.
    * @param label
@@ -108,7 +104,7 @@ public interface UnitFormat {
    * <p>
    * In environments that do not support a <code>Locale</code>, e.g. Java ME, this usually returns <code>false</code>.
    * </p>
-   * 
+   *
    * @return Whether this format depends on the locale.
    */
   boolean isLocaleSensitive();
