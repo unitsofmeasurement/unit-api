@@ -342,14 +342,12 @@
 										<limit implementation="org.jacoco.report.check.Limit">
 											<counter>INSTRUCTION</counter>
 											<value>COVEREDRATIO</value>
-											<!-- TODO Could value be higher? (especially Bootstrap testing) -->
-											<minimum>0.59</minimum>
+											<minimum>0.8</minimum>
 										</limit>
 										<limit>
 											<counter>COMPLEXITY</counter>
 											<value>COVEREDRATIO</value>
-                                            <!-- TODO Could value be higher? (especially Bootstrap testing) -->
-											<minimum>0.62</minimum>
+											<minimum>0.8</minimum>
 										</limit>
 									</limits>
 								</rule>
