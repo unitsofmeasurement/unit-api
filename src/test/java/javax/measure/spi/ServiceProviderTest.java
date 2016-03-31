@@ -44,14 +44,14 @@ public class ServiceProviderTest {
   }
 
   /**
-   * Tests {@link ServiceProvider#getDefault()} and {@link ServiceProvider#setDefault(ServiceProvider)}. The getter and setter are tested in a single
+   * Tests {@link ServiceProvider#current()} and {@link ServiceProvider#setDefault(ServiceProvider)}. The getter and setter are tested in a single
    * method for avoiding issues with the order in which JUnit executes tests.
    */
   @Test
   public void testGetAndSetDefault() {
-    assertEquals(0, ServiceProvider.getAvailables().length);
+    assertEquals(0, ServiceProvider.available().length);
     try {
-      ServiceProvider.getDefault();
+      ServiceProvider.current();
       fail("Expected no ServiceProvider before we set one.");
     } catch (IllegalStateException e) {
       // This is the expected exception.
@@ -59,8 +59,8 @@ public class ServiceProviderTest {
     TestServiceProvider testProv = new TestServiceProvider();
     assertNull("Expected no ServiceProvider before we set one.", ServiceProvider.setDefault(testProv));
     assertSame("Setting the same ServiceProvider twice should be a no-op.", testProv, ServiceProvider.setDefault(testProv));
-    assertSame(testProv, ServiceProvider.getDefault());
-    assertArrayEquals(new ServiceProvider[] { testProv }, ServiceProvider.getAvailables());
+    assertSame(testProv, ServiceProvider.current());
+    assertArrayEquals(new ServiceProvider[] { testProv }, ServiceProvider.available());
   }
 
   private static final class TestServiceProvider extends ServiceProvider {

@@ -125,7 +125,7 @@ public abstract class ServiceProvider {
    *
    * @return all available service providers.
    */
-  public static ServiceProvider[] getAvailables() {
+  public static ServiceProvider[] available() {
     return getProviders().clone();
   }
 
@@ -136,7 +136,7 @@ public abstract class ServiceProvider {
    * @throws IllegalStateException
    *           if no {@link ServiceProvider} has been found.
    */
-  public static ServiceProvider getDefault() {
+  public static ServiceProvider current() {
     ServiceProvider[] p = getProviders();
     if (p.length != 0) {
       return p[0];

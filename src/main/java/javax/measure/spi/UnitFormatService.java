@@ -46,7 +46,7 @@ public interface UnitFormatService {
    * Returns the default unit format.
    *
    * It is up to implementations what to consider a suitable default. For some (locale-sensitive) implementations it may be a unit format based on
-   * <code>Locale.getDefault()</code> while others may return <code>getUnitFormat("Simple")</code> or <code>getUnitFormat("ISO")</code>
+   * <code>Locale.current()</code> while others may return <code>getUnitFormat("Simple")</code> or <code>getUnitFormat("ISO")</code>
    *
    * @return the default {@link UnitFormat} implementation.
    */
