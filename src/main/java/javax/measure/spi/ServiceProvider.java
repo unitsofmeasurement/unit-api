@@ -40,9 +40,11 @@ import javax.measure.Quantity;
 import javax.measure.format.UnitFormat;
 
 /**
- * This class models the component to managing the lifecycle of the Unit and Quantity services.
+ * Servide Provider for Units of Measurement services.<p>
+ * All the methods in this class are safe for use by multiple concurrent threads.
  *
  * @author Werner Keil
+ * @author Martin Desruisseaux
  */
 public abstract class ServiceProvider {
   /**
