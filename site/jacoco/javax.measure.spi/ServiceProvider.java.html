@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ServiceProvider.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure.spi</a> &gt; <span class="el_source">ServiceProvider.java</span></div><h1>ServiceProvider.java</h1><pre class="source lang-java linenums">/*
+ * Units of Measurement API
+ * Copyright (c) 2014-2016, Jean-Marie Dautelle, Werner Keil, V2COM.
+ *
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+ *    and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of JSR-363 nor the names of its contributors may be used to endorse or promote products
+ *    derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+package javax.measure.spi;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.ServiceLoader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.measure.Quantity;
+import javax.measure.format.UnitFormat;
+
+/**
+ * Service Provider for Units of Measurement services.
+ * &lt;p&gt;
+ * All the methods in this class are safe for use by multiple concurrent threads.
+ *
+ * @version 0.8.2, April 1, 2016
+ * @author Werner Keil
+ * @author Martin Desruisseaux
+ */
+public abstract class ServiceProvider {
+  /**
+   * Synchronization lock for searching or setting the service providers.
+   */
+<span class="fc" id="L55">  private static final Object LOCK = new Object();</span>
+
+  /**
+   * All service providers found, sorted in preference order. Array content shall never been changed after initialization; if we want to change the
+   * array content, a new array shall be created.
+   */
+  private static volatile ServiceProvider[] providers;
+
+  /**
+   * Creates a new service provider.
+   */
+<span class="fc" id="L66">  protected ServiceProvider() {</span>
+<span class="fc" id="L67">  }</span>
+
+  /**
+   * This method allows to define a priority for a registered ServiceProvider instance. When multiple providers are registered in the system the
+   * provider with the highest priority value is taken.
+   *
+   * @return the provider's priority (default is 0).
+   */
+  public int getPriority() {
+<span class="nc" id="L76">    return 0;</span>
+  }
+
+  /**
+   * Returns the service to obtain a {@link SystemOfUnits}, or {@code null} if none.
+   *
+   * @return the service to obtain a {@link SystemOfUnits}, or {@code null}.
+   */
+  public abstract SystemOfUnitsService getSystemOfUnitsService();
+
+  /**
+   * Returns the service to obtain a {@link UnitFormat}, or {@code null} if none.
+   *
+   * @return the service to obtain a {@link UnitFormat}, or {@code null}.
+   */
+  public abstract UnitFormatService getUnitFormatService();
+
+  /**
+   * Returns the service to obtain a {@link Quantity}, or {@code null} if none.
+   *
+   * @return the service to obtain a {@link Quantity}, or {@code null}.
+   */
+  public abstract QuantityFactoryService getQuantityFactoryService();
+
+  /**
+   * Gets all {@link ServiceProvider}. This method loads the provider when first needed.
+   */
+  private static ServiceProvider[] getProviders() {
+<span class="fc" id="L104">    ServiceProvider[] p = providers;</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">    if (p == null) {</span>
+<span class="fc" id="L106">      synchronized (LOCK) {</span>
+<span class="fc" id="L107">        p = providers;</span>
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">        if (p == null) {</span>
+<span class="fc" id="L109">          final List&lt;ServiceProvider&gt; loaded = new ArrayList&lt;ServiceProvider&gt;();</span>
+<span class="pc bpc" id="L110" title="1 of 2 branches missed.">          for (ServiceProvider provider : ServiceLoader.load(ServiceProvider.class)) {</span>
+<span class="nc" id="L111">            loaded.add(provider);</span>
+<span class="nc" id="L112">          }</span>
+<span class="fc" id="L113">          p = loaded.toArray(new ServiceProvider[loaded.size()]);</span>
+<span class="fc" id="L114">          Arrays.sort(p, new Comparator&lt;ServiceProvider&gt;() {</span>
+            @Override
+            public int compare(ServiceProvider p1, ServiceProvider p2) {
+<span class="nc" id="L117">              return p2.getPriority() - p1.getPriority();</span>
+            }
+          });
+<span class="fc" id="L120">          providers = p; // Set only on success.</span>
+        }
+<span class="pc" id="L122">      }</span>
+    }
+<span class="fc" id="L124">    return p;</span>
+  }
+
+  /**
+   * Returns all available service providers.
+   *
+   * @return all available service providers.
+   */
+  public static ServiceProvider[] available() {
+<span class="fc" id="L133">    return getProviders().clone();</span>
+  }
+
+  /**
+   * Returns the current {@link ServiceProvider}. If necessary the {@link ServiceProvider} will be lazily loaded.
+   *
+   * @return the {@link ServiceProvider} used.
+   * @throws IllegalStateException
+   *           if no {@link ServiceProvider} has been found.
+   */
+  public static ServiceProvider current() {
+<span class="fc" id="L144">    ServiceProvider[] p = getProviders();</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">    if (p.length != 0) {</span>
+<span class="fc" id="L146">      return p[0];</span>
+    }
+<span class="fc" id="L148">    throw new IllegalStateException(&quot;No measurement ServiceProvider found.&quot;);</span>
+  }
+
+  /**
+   * Replaces the current {@link ServiceProvider}.
+   *
+   * @param provider
+   *          the new {@link ServiceProvider}
+   * @return the removed provider, or null.
+   */
+  public static ServiceProvider setCurrent(ServiceProvider provider) {
+<span class="fc bfc" id="L159" title="All 2 branches covered.">    if (provider == null) {</span>
+<span class="fc" id="L160">      throw new NullPointerException();</span>
+    }
+<span class="fc" id="L162">    synchronized (LOCK) {</span>
+<span class="fc" id="L163">      ServiceProvider[] p = getProviders();</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">      ServiceProvider old = (p.length != 0) ? p[0] : null;</span>
+<span class="fc bfc" id="L165" title="All 2 branches covered.">      if (provider != old) {</span>
+<span class="fc" id="L166">        List&lt;ServiceProvider&gt; copy = new ArrayList&lt;ServiceProvider&gt;(Arrays.asList(p));</span>
+<span class="fc" id="L167">        copy.remove(provider);</span>
+<span class="fc" id="L168">        copy.add(0, provider);</span>
+<span class="fc" id="L169">        providers = copy.toArray(new ServiceProvider[copy.size()]);</span>
+
+        // Keep the log inside the synchronized block for making sure that the order
+        // or logging messages matches the order in which ServiceProviders were set.
+<span class="pc bpc" id="L173" title="1 of 2 branches missed.">        Logger.getLogger(&quot;javax.measure.spi&quot;).log(Level.CONFIG,</span>
+            (old == null) ? &quot;Measurement ServiceProvider set to {0}&quot; : &quot;Measurement ServiceProvider replaced by {0}&quot;, provider.getClass().getName());
+      }
+<span class="fc" id="L176">      return old;</span>
+<span class="nc" id="L177">    }</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

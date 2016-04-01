@@ -25,9 +25,9 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2014 - 2016 Jean-Marie Dautelle, Werner Keil, V2COM</copyright>
     <item>
-      <title>File: 57,
+      <title>File: 52,
              Errors: 0,
-             Warnings: 42,
+             Warnings: 15,
              Infos: 0
       </title>
             <link>http://unitsofmeasurement.github.io//checkstyle.html</link>
@@ -66,7 +66,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  2
+                  0
                 </td>
                 <td>
                   0
@@ -75,48 +75,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.quantity.Force.java">javax/measure/quantity/Force.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.quantity.Luminance.java">javax/measure/quantity/Luminance.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.quantity.MagneticFieldStrength.java">javax/measure/quantity/MagneticFieldStrength.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.package-info.java">javax/measure/package-info.java</a>
                 </td>
                 <td>
                   0
@@ -144,13 +102,27 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.package-info.java">javax/measure/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.spi.SystemOfUnits.java">javax/measure/spi/SystemOfUnits.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
                 <td>
                   0
@@ -270,20 +242,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.spi.DefaultServiceProvider.java">javax/measure/spi/DefaultServiceProvider.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  3
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.quantity.SolidAngle.java">javax/measure/quantity/SolidAngle.java</a>
                 </td>
                 <td>
@@ -360,7 +318,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  2
+                  0
                 </td>
                 <td>
                   0
@@ -424,34 +382,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.spi.QuantityFactoryService.java">javax/measure/spi/QuantityFactoryService.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  2
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.quantity.ElectricPermittivity.java">javax/measure/quantity/ElectricPermittivity.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.quantity.ElectricInductance.java">javax/measure/quantity/ElectricInductance.java</a>
                 </td>
                 <td>
@@ -472,7 +402,21 @@ under the License.
                   0
                 </td>
                 <td>
-                  5
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.spi.QuantityFactoryService.java">javax/measure/spi/QuantityFactoryService.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
                 </td>
                 <td>
                   0
@@ -542,7 +486,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
                 <td>
                   0
@@ -556,7 +500,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  4
+                  3
                 </td>
                 <td>
                   0
@@ -626,21 +570,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.spi.Bootstrap.java">javax/measure/spi/Bootstrap.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  7
+                  1
                 </td>
                 <td>
                   0
@@ -649,20 +579,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.Quantity.java">javax/measure/Quantity.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  2
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.spi.SystemOfUnitsService.java">javax/measure/spi/SystemOfUnitsService.java</a>
                 </td>
                 <td>
                   0
@@ -683,6 +599,20 @@ under the License.
                 </td>
                 <td>
                   1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://unitsofmeasurement.github.io//checkstyle.html#javax.measure.spi.SystemOfUnitsService.java">javax/measure/spi/SystemOfUnitsService.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
                 <td>
                   0
@@ -780,7 +710,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
                 <td>
                   0
@@ -822,7 +752,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  2
+                  0
                 </td>
                 <td>
                   0
