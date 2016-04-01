@@ -40,11 +40,11 @@ public class ServiceProviderTest {
 
   @Test(expected = NullPointerException.class)
   public void testSetDefault_Null() {
-    ServiceProvider.setDefault(null);
+    ServiceProvider.setCurrent(null);
   }
 
   /**
-   * Tests {@link ServiceProvider#current()} and {@link ServiceProvider#setDefault(ServiceProvider)}. The getter and setter are tested in a single
+   * Tests {@link ServiceProvider#current()} and {@link ServiceProvider#setCurrent(ServiceProvider)}. The getter and setter are tested in a single
    * method for avoiding issues with the order in which JUnit executes tests.
    */
   @Test
@@ -57,8 +57,8 @@ public class ServiceProviderTest {
       // This is the expected exception.
     }
     TestServiceProvider testProv = new TestServiceProvider();
-    assertNull("Expected no ServiceProvider before we set one.", ServiceProvider.setDefault(testProv));
-    assertSame("Setting the same ServiceProvider twice should be a no-op.", testProv, ServiceProvider.setDefault(testProv));
+    assertNull("Expected no ServiceProvider before we set one.", ServiceProvider.setCurrent(testProv));
+    assertSame("Setting the same ServiceProvider twice should be a no-op.", testProv, ServiceProvider.setCurrent(testProv));
     assertSame(testProv, ServiceProvider.current());
     assertArrayEquals(new ServiceProvider[] { testProv }, ServiceProvider.available());
   }

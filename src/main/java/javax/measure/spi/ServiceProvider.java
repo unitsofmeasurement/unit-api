@@ -40,9 +40,11 @@ import javax.measure.Quantity;
 import javax.measure.format.UnitFormat;
 
 /**
- * Servide Provider for Units of Measurement services.<p>
+ * Service Provider for Units of Measurement services.
+ * <p>
  * All the methods in this class are safe for use by multiple concurrent threads.
  *
+ * @version 0.8.2, April 1, 2016
  * @author Werner Keil
  * @author Martin Desruisseaux
  */
@@ -147,13 +149,13 @@ public abstract class ServiceProvider {
   }
 
   /**
-   * Replaces the default {@link ServiceProvider}.
+   * Replaces the current {@link ServiceProvider}.
    *
    * @param provider
    *          the new {@link ServiceProvider}
    * @return the removed provider, or null.
    */
-  public static ServiceProvider setDefault(ServiceProvider provider) {
+  public static ServiceProvider setCurrent(ServiceProvider provider) {
     if (provider == null) {
       throw new NullPointerException();
     }
