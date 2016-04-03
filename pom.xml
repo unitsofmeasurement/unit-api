@@ -126,6 +126,37 @@
 			</roles>
 		</developer>
 		<developer>
+			<id>otaviojava</id>
+			<name>Otávio Gonçalves de Santana</name>
+			<email>otaviopolianasantana@gmail.com</email>
+			<organization>Individual / SouJava</organization>
+			<timezone>-5</timezone>
+			<roles>
+				<role>Expert</role>
+				<role>Java Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>duckasteroid</id>
+			<name>Chris Senior</name>
+			<email>christopher.senior@gmail.com</email>
+			<organization>Snap-on Inc.</organization>
+			<roles>
+				<role>Expert</role>
+				<role>Java Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>eralmas7</id>
+			<name>Muhammed Almas</name>
+			<email>eralmas7@yahoo.com</email>
+			<organization>Individual / JP Morgan</organization>
+			<roles>
+				<role>Expert</role>
+				<role>Test Engineer</role>
+			</roles>
+		</developer>
+		<developer>
 			<id>karen_legrand</id>
 			<name>Karen Legrand</name>
 			<email>karen.legrand@iem.com</email>
@@ -149,31 +180,10 @@
 			</roles>
 		</developer>
 		<developer>
-			<id>otaviojava</id>
-			<name>Otávio Gonçalves de Santana</name>
-			<email>otaviopolianasantana@gmail.com</email>
-			<organization>Individual / SouJava</organization>
-			<timezone>-5</timezone>
-			<roles>
-				<role>Expert</role>
-				<role>Java Developer</role>
-			</roles>
-		</developer>
-		<developer>
 			<id>rajmahendra</id>
 			<name>Rajmahendra Hegde</name>
 			<email>rajmahendra@gmail.com</email>
 			<organization>JUG Chennai</organization>
-			<roles>
-				<role>Expert</role>
-				<role>Java Developer</role>
-			</roles>
-		</developer>
-		<developer>
-			<id>duckasteroid</id>
-			<name>Chris Senior</name>
-			<email>christopher.senior@gmail.com</email>
-			<organization>Snap-on Inc.</organization>
 			<roles>
 				<role>Expert</role>
 				<role>Java Developer</role>
