@@ -101,7 +101,7 @@
 			</roles>
 		</developer>
 		<developer>
-		    <id>leomrlima</id>
+			<id>leomrlima</id>
 			<name>Leonardo de Moura Rocha Lima</name>
 			<email>llima@v2com.mobi</email>
 			<organization>V2COM</organization>
@@ -123,7 +123,7 @@
 			<roles>
 				<role>Expert</role>
 				<role>Java Developer</role>
-				<role>Jenkins Admin</role>
+				<role>Architect</role>
 			</roles>
 		</developer>
 		<developer>
@@ -138,6 +138,17 @@
 			</roles>
 		</developer>
 		<developer>
+			<id>eralmas7</id>
+			<name>Muhammed Almas</name>
+			<email>eralmas7@yahoo.com</email>
+			<organization>Individual / JP Morgan</organization>
+			<timezone>+5.5</timezone>
+			<roles>
+				<role>Expert</role>
+				<role>Test Engineer</role>
+			</roles>
+		</developer>
+		<developer>
 			<id>duckasteroid</id>
 			<name>Chris Senior</name>
 			<email>christopher.senior@gmail.com</email>
@@ -148,14 +159,14 @@
 			</roles>
 		</developer>
 		<developer>
-			<id>eralmas7</id>
-			<name>Muhammed Almas</name>
-			<email>eralmas7@yahoo.com</email>
-			<organization>Individual / JP Morgan</organization>
-			<timezone>+5:30</timezone>
+			<id>rajmahendra</id>
+			<name>Rajmahendra Hegde</name>
+			<email>rajmahendra@gmail.com</email>
+			<organization>JUG Chennai</organization>
+			<timezone>+5.5</timezone>
 			<roles>
 				<role>Expert</role>
-				<role>Test Engineer</role>
+				<role>Java Developer</role>
 			</roles>
 		</developer>
 		<developer>
@@ -176,17 +187,6 @@
 			<email>mohamed.taman@gmail.com</email>
 			<organization>Individual / Morocco JUG</organization>
 			<timezone>+2</timezone>
-			<roles>
-				<role>Expert</role>
-				<role>Java Developer</role>
-			</roles>
-		</developer>
-		<developer>
-			<id>rajmahendra</id>
-			<name>Rajmahendra Hegde</name>
-			<email>rajmahendra@gmail.com</email>
-			<organization>JUG Chennai</organization>
-			<timezone>+5:30</timezone>
 			<roles>
 				<role>Expert</role>
 				<role>Java Developer</role>
