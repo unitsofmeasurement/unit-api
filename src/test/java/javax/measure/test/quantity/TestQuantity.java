@@ -107,8 +107,8 @@ abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>, Compa
   }
 
   /**
-   * Compares this quantity to the specified Measurement quantity. The default implementation compares the {@link AbstractQuantity#doubleValue(Unit)}
-   * of both this quantity and the specified Quantity stated in the same unit (this quantity's {@link #getUnit() unit}).
+   * Compares this quantity to the specified Measurement quantity. The default implementation compares the {@link Quantity#getValue()} of both this
+   * quantity and the specified Quantity stated in the same unit (this quantity's {@link #getUnit() unit}).
    *
    * @return a negative integer, zero, or a positive integer as this quantity is less than, equal to, or greater than the specified Quantity quantity.
    * @return <code>Double.compare(this.doubleValue(getUnit()),

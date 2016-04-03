@@ -73,6 +73,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
     return this;
   }
 
+  @SuppressWarnings({ "unchecked", "rawtypes" })
   public Unit<Q> alternate(String symbol) {
     return new BaseUnit(symbol);
   }
@@ -136,7 +137,6 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
   }
 
   public Map<Unit<?>, Integer> getProductUnits() {
-    // TODO Auto-generated method stub
     return null;
   }
 
@@ -145,49 +145,42 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
   }
 
   public Unit<?> inverse() {
-    // TODO Auto-generated method stub
     return null;
   }
 
   public boolean isCompatible(Unit<?> that) {
-    // TODO Auto-generated method stub
     return false;
   }
 
   public Unit<Q> multiply(double factor) {
-    // TODO Auto-generated method stub
     return null;
   }
 
   public Unit<?> multiply(Unit<?> that) {
-    // TODO Auto-generated method stub
     return null;
   }
 
   public Unit<?> pow(int n) {
-    // TODO Auto-generated method stub
     return null;
   }
 
   public Unit<?> root(int n) {
-    // TODO Auto-generated method stub
     return null;
   }
 
   public abstract Unit<Q> getSystemUnit();
 
   /**
-   * Returns the converter from this unit to its unscaled {@link #toSysemUnit System Unit} unit.
+   * Returns the converter from this unit to its unscaled {@link #getSystemUnit System Unit} unit.
    *
    * @return <code>getConverterTo(this.toSystemUnit())</code>
-   * @see #toSI
+   * @see #getSystemUnit
    */
   public UnitConverter getSystemConverter() throws UnsupportedOperationException {
     return TestConverter.IDENTITY;
   }
 
   public Unit<Q> transform(UnitConverter operation) {
-    // TODO Auto-generated method stub
     return null;
   }
 

@@ -56,7 +56,7 @@ import javax.measure.test.TestUnit;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.3
+ * @version 0.8
  *
  */
 abstract class TestFormat implements UnitFormat {
@@ -117,11 +117,11 @@ abstract class TestFormat implements UnitFormat {
   }
 
   /**
-   * Formats an object to produce a string. This is equivalent to <blockquote> {@link #format(Unit, StringBuilder) format}<code>(unit,
+   * Formats an object to produce a string. This is equivalent to <blockquote> {@link #format(Unit, Appendable) format}<code>(unit,
    *         new StringBuilder()).toString();</code> </blockquote>
    *
-   * @param obj
-   *          The object to format
+   * @param unit
+   *          The unit to format
    * @return Formatted string.
    * @exception IllegalArgumentException
    *              if the Format cannot format the given object

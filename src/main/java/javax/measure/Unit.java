@@ -67,7 +67,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:desruisseaux@users.sourceforge.net">Martin Desruisseaux</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.20, December 30, 2015
+ * @version 0.21, April 3, 2016
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
  */
@@ -83,7 +83,7 @@ public interface Unit<Q extends Quantity<Q>> {
    * @return this unit symbol, or {@code null} if this unit has not specific symbol associated with (e.g. product of units).
    *
    * @see #toString()
-   * @see UnitFormat
+   * @see javax.measure.format.UnitFormat
    */
   String getSymbol();
 
@@ -93,7 +93,7 @@ public interface Unit<Q extends Quantity<Q>> {
    * @return this unit name, or {@code null} if this unit has not specific name associated with (e.g. product of units).
    *
    * @see #toString()
-   * @see UnitFormat
+   * @see javax.measure.format.UnitFormat
    */
   String getName();
 
