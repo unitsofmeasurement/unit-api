@@ -33,6 +33,8 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+import javax.measure.Quantity;
+
 /**
  * Tests for {@link ServiceProvider}.
  */
@@ -77,6 +79,11 @@ public class ServiceProviderTest {
 
     @Override
     public QuantityFactoryService getQuantityFactoryService() {
+      return null;
+    }
+
+    @Override
+    public <Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(Class<Q> quantity) {
       return null;
     }
   }

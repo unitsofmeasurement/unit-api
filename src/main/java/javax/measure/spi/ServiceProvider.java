@@ -44,7 +44,7 @@ import javax.measure.format.UnitFormat;
  * <p>
  * All the methods in this class are safe for use by multiple concurrent threads.
  *
- * @version 0.8.2, April 1, 2016
+ * @version 0.9, May 11, 2016
  * @author Werner Keil
  * @author Martin Desruisseaux
  */
@@ -94,8 +94,18 @@ public abstract class ServiceProvider {
    * Returns the service to obtain a {@link Quantity}, or {@code null} if none.
    *
    * @return the service to obtain a {@link Quantity}, or {@code null}.
+   * @deprecated use {@link #getQuantityFactory(Class)} instead
    */
   public abstract QuantityFactoryService getQuantityFactoryService();
+
+  /**
+   * Return a factory for this {@link Quantity}.
+   *
+   * @param quantity
+   *          the quantity
+   * @return the {@link QuantityFactory}
+   */
+  public abstract <Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(Class<Q> quantity);
 
   /**
    * Gets all {@link ServiceProvider}. This method loads the provider when first needed.

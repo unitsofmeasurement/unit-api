@@ -36,7 +36,8 @@ import javax.measure.Quantity;
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @author <a href="mailto:otaviojava@java.net">Otavio Santana</a>
- * @version 0.2
+ * @version 0.3
+ * @deprecated Factory provided by {@link ServiceProvider} directly
  */
 public interface QuantityFactoryService {
 
