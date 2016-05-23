@@ -38,7 +38,7 @@ import javax.measure.Unit;
  *
  * <h4><a name="synchronization">Synchronization</a></h4>
  * <p>
- * Instances of this class are not required to be thread-safe. It is recommended to of separate format instances for each thread. If multiple threads
+ * Instances of this class are not required to be thread-safe. It is recommended to use separate format instances for each thread. If multiple threads
  * access a format concurrently, it must be synchronized externally.
  * <p>
  *

@@ -155,7 +155,7 @@ public interface Unit<Q extends Quantity<Q>> {
    * this unit's dimension do not match. For example:
    *
    * <code>
-   *      {@literal Unit<Speed>} C = METRE.times(299792458).divide(SECOND).asType(Speed.class);
+   *      {@literal Unit<Speed>} C = METRE.multiply(299792458).divide(SECOND).asType(Speed.class);
    * </code>
    *
    * @param <T>
@@ -217,7 +217,7 @@ public interface Unit<Q extends Quantity<Q>> {
    *
    * <code>
    *     {@literal Unit<Angle>} RADIAN = ONE.alternate("rad").asType(Angle.class);<br>
-   *     {@literal Unit<Force>} NEWTON = METRE.times(KILOGRAM).divide(SECOND.pow(2)).alternate("N").asType(Force.class);<br>
+   *     {@literal Unit<Force>} NEWTON = METRE.multiply(KILOGRAM).divide(SECOND.pow(2)).alternate("N").asType(Force.class);<br>
    *     {@literal Unit<Pressure>} PASCAL = NEWTON.divide(METRE.pow(2)).alternate("Pa").asType(Pressure.class);<br>
    * </code>
    *
