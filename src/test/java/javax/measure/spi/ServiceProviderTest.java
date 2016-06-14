@@ -51,7 +51,7 @@ public class ServiceProviderTest {
    */
   @Test
   public void testGetAndSetDefault() {
-    assertEquals(0, ServiceProvider.available().length);
+    assertEquals(0, ServiceProvider.available().size());
     try {
       ServiceProvider.current();
       fail("Expected no ServiceProvider before we set one.");
@@ -62,7 +62,7 @@ public class ServiceProviderTest {
     assertNull("Expected no ServiceProvider before we set one.", ServiceProvider.setCurrent(testProv));
     assertSame("Setting the same ServiceProvider twice should be a no-op.", testProv, ServiceProvider.setCurrent(testProv));
     assertSame(testProv, ServiceProvider.current());
-    assertArrayEquals(new ServiceProvider[] { testProv }, ServiceProvider.available());
+    assertArrayEquals(new ServiceProvider[] { testProv }, ServiceProvider.available().toArray());
   }
 
   private static final class TestServiceProvider extends ServiceProvider {

@@ -44,7 +44,7 @@ import javax.measure.format.UnitFormat;
  * <p>
  * All the methods in this class are safe for use by multiple concurrent threads.
  *
- * @version 0.9.1, June 14, 2016
+ * @version 0.9.2, June 15, 2016
  * @author Werner Keil
  * @author Martin Desruisseaux
  */
@@ -127,12 +127,12 @@ public abstract class ServiceProvider {
   }
 
   /**
-   * Returns all available service providers.
+   * Returns the list of available service providers.
    *
    * @return all available service providers.
    */
-  public static ServiceProvider[] available() {
-    return getProviders().clone();
+  public static List<ServiceProvider> available() {
+    return Arrays.asList(getProviders()); // .clone();
   }
 
   /**
