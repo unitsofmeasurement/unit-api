@@ -44,7 +44,7 @@ import javax.measure.format.UnitFormat;
  * <p>
  * All the methods in this class are safe for use by multiple concurrent threads.
  *
- * @version 0.9, May 11, 2016
+ * @version 0.9.1, June 14, 2016
  * @author Werner Keil
  * @author Martin Desruisseaux
  */
@@ -89,14 +89,6 @@ public abstract class ServiceProvider {
    * @return the service to obtain a {@link UnitFormat}, or {@code null}.
    */
   public abstract UnitFormatService getUnitFormatService();
-
-  /**
-   * Returns the service to obtain a {@link Quantity}, or {@code null} if none.
-   *
-   * @return the service to obtain a {@link Quantity}, or {@code null}.
-   * @deprecated use {@link #getQuantityFactory(Class)} instead
-   */
-  public abstract QuantityFactoryService getQuantityFactoryService();
 
   /**
    * Return a factory for this {@link Quantity}.

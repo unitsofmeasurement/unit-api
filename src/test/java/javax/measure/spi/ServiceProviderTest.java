@@ -78,11 +78,6 @@ public class ServiceProviderTest {
     }
 
     @Override
-    public QuantityFactoryService getQuantityFactoryService() {
-      return null;
-    }
-
-    @Override
     public <Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(Class<Q> quantity) {
       return null;
     }
