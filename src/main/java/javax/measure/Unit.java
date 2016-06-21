@@ -131,6 +131,11 @@ public interface Unit<Q extends Quantity<Q>> {
    *
    * @return the base units and their exponent making up this unit.
    */
+  Map<? extends Unit<?>, Integer> getBaseUnits();
+
+  /**
+   * @deprecated use #getBaseUnits instead
+   */
   Map<? extends Unit<?>, Integer> getProductUnits();
 
   /**
@@ -338,7 +343,7 @@ public interface Unit<Q extends Quantity<Q>> {
   /**
    * <p>
    * Returns a string representation of this unit. The string representation may be the unit {@linkplain #getSymbol() symbol}, or may be some
-   * representation of {@linkplain #getProductUnits() product units}, multiplication factor and offset if any.
+   * representation of {@linkplain #getBaseUnits() product units}, multiplication factor and offset if any.
    * </p>
    * The string may be localized at implementation choice by the means of a particular device and platform. <br>
    *

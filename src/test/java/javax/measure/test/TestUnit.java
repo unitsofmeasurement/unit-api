@@ -136,7 +136,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
     return name;
   }
 
-  public Map<Unit<?>, Integer> getProductUnits() {
+  public Map<Unit<?>, Integer> getBaseUnits() {
     return null;
   }
 
@@ -191,5 +191,9 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
   @Override
   public String toString() {
     return getName();
+  }
+
+  public Map getProductUnits() {
+    throw new UnsupportedOperationException("Use getBaseUnits() instead");
   }
 }

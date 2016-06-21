@@ -66,7 +66,7 @@ enum EnumUnit implements Unit {
     return this;
   }
 
-  public Map getProductUnits() {
+  public Map getBaseUnits() {
     // TODO Auto-generated method stub
     return null;
   }
@@ -139,6 +139,11 @@ enum EnumUnit implements Unit {
 
   public String getName() {
     return name();
+  }
+
+  public Map getProductUnits() {
+    // TODO Auto-generated method stub
+    return null;
   }
 
 }
