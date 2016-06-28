@@ -67,7 +67,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:desruisseaux@users.sourceforge.net">Martin Desruisseaux</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.21, April 3, 2016
+ * @version 0.22, June 28, 2016
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
  */
@@ -132,11 +132,6 @@ public interface Unit<Q extends Quantity<Q>> {
    * @return the base units and their exponent making up this unit.
    */
   Map<? extends Unit<?>, Integer> getBaseUnits();
-
-  /**
-   * @deprecated use #getBaseUnits instead
-   */
-  Map<? extends Unit<?>, Integer> getProductUnits();
 
   /**
    * Indicates if this unit is compatible with the unit specified. Units don't need to be equals to be compatible. For example (assuming {@code ONE}

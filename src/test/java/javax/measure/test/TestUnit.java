@@ -44,11 +44,7 @@ import javax.measure.test.unit.BaseUnit;
  * @author Werner Keil
  */
 public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
-
   public static final Unit<Dimensionless> ONE = new BaseUnit<Dimensionless>("one");
-
-  // public static final Unit<Mass> METRIC_MASS =
-  // QuantityFactory.getInstance(Mass.class).getMetricUnit();
 
   protected String symbol; // e.g. "A"
   protected final String name; // e.g. "Angstrom"
@@ -191,9 +187,5 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
   @Override
   public String toString() {
     return getName();
-  }
-
-  public Map getProductUnits() {
-    throw new UnsupportedOperationException("Use getBaseUnits() instead");
   }
 }
