@@ -45,7 +45,7 @@ import java.util.Map;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.13, December 6, 2014
+ * @version 0.14, June 28, 2016
  *
  * @see <a href="http://en.wikipedia.org/wiki/Dimensional_analysis">Wikipedia: Dimensional Analysis</a>
  */
@@ -89,10 +89,10 @@ public interface Dimension {
   Dimension root(int n);
 
   /**
-   * Returns the fundamental dimensions and their exponent whose product is this dimension, or {@code null} if this dimension is a fundamental
+   * Returns the (fundamental) base dimensions and their exponent whose product is this dimension, or {@code null} if this dimension is a base
    * dimension.
    *
    * @return the mapping between the fundamental dimensions and their exponent.
    */
-  Map<? extends Dimension, Integer> getProductDimensions();
+  Map<? extends Dimension, Integer> getBaseDimensions();
 }

@@ -62,7 +62,7 @@ final class TestDimension implements Dimension {
     return this;
   }
 
-  public Map<? extends Dimension, Integer> getProductDimensions() {
+  public Map<? extends Dimension, Integer> getBaseDimensions() {
     final Map<Dimension, Integer> products = new HashMap<Dimension, Integer>();
     products.put(this, 1);
     return products;

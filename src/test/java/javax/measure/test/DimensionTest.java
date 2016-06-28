@@ -77,8 +77,8 @@ public class DimensionTest {
 
   @Test
   public void testGetProductDimensions() {
-    assertNotNull(sut.getProductDimensions());
-    assertEquals(1, sut.getProductDimensions().size());
+    assertNotNull(sut.getBaseDimensions());
+    assertEquals(1, sut.getBaseDimensions().size());
   }
 
 }
