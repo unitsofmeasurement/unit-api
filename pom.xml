@@ -665,7 +665,7 @@
 				<plugins>
 					<plugin>
 						<artifactId>maven-jar-plugin</artifactId>
-						<version>2.6</version>
+						<version>${maven.jar.version}</version>
 						<executions>
 							<execution>
 								<id>core-jar</id>
@@ -695,7 +695,7 @@
 				<plugins>
 					<plugin>
 						<artifactId>maven-jar-plugin</artifactId>
-						<version>2.6</version>
+						<version>${maven.jar.version}</version>
 						<executions>
 							<execution>
 								<id>format-jar</id>
