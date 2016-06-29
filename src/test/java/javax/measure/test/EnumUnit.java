@@ -140,10 +140,4 @@ enum EnumUnit implements Unit {
   public String getName() {
     return name();
   }
-
-  public Map getProductUnits() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
 }
