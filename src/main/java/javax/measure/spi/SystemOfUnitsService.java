@@ -40,7 +40,7 @@ import java.util.Collection;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.7, $Date: 2015-11-08 $
+ * @version 0.9, July 2, 2016
  */
 public interface SystemOfUnitsService {
 

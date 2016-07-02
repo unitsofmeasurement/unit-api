@@ -44,7 +44,7 @@ import javax.measure.format.UnitFormat;
  * <p>
  * All the methods in this class are safe for use by multiple concurrent threads.
  *
- * @version 0.9.2, June 15, 2016
+ * @version 0.9.3, July 2, 2016
  * @author Werner Keil
  * @author Martin Desruisseaux
  */
@@ -61,7 +61,7 @@ public abstract class ServiceProvider {
   private static volatile ServiceProvider[] providers;
 
   /**
-   * Creates a new service provider.
+   * Creates a new service provider. Only to be used by subclasses.
    */
   protected ServiceProvider() {
   }

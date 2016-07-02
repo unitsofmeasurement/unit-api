@@ -38,7 +38,7 @@ import javax.measure.format.UnitFormat;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.6, $Date: 2015-11-03 $
+ * @version 0.9, July 2, 2016
  */
 public interface UnitFormatService {
 
