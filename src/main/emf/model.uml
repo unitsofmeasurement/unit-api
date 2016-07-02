@@ -302,7 +302,7 @@
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7ir7XY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7ir7nY5EeSqtc-Sb9aJnA" name="getProductUnits">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7ir7nY5EeSqtc-Sb9aJnA" name="getBaseUnits">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f7ir73Y5EeSqtc-Sb9aJnA">
               <body>
      * Returns the base units and their exponent whose product is this unit,
@@ -545,7 +545,7 @@
               <body>
      * Returns a string representation of this unit. The string representation may
      * be the unit {@linkplain #getSymbol() symbol}, or may be some representation
-     * of {@linkplain #getProductUnits() product units}, multiplication factor and
+     * of {@linkplain #getBaseUnits() base units}, multiplication factor and
      * offset if any. The string may be localized at implementation choice.
      *
      * @return the (eventually localized) string representation of this unit.
@@ -641,7 +641,7 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f682BXY5EeSqtc-Sb9aJnA" type="_f6zFAHY5EeSqtc-Sb9aJnA" direction="return"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f682BnY5EeSqtc-Sb9aJnA" name="n" type="_f6zFDHY5EeSqtc-Sb9aJnA"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_f682B3Y5EeSqtc-Sb9aJnA" name="getProductDimensions">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f682B3Y5EeSqtc-Sb9aJnA" name="getBaseDimensions">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f682CHY5EeSqtc-Sb9aJnA">
               <body>
      * Returns the fundamental dimensions and their exponent whose product is
@@ -2157,7 +2157,7 @@
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLXNDXonEeS9Gr9yPtn_zA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLdToHonEeS9Gr9yPtn_zA" name="type" type="_Cgf4hnWcEeSrSaxu8IGQmg"/>
             </ownedOperation>
-            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLdToXonEeS9Gr9yPtn_zA" name="getProductUnits" visibility="public" isAbstract="true">
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_fLdToXonEeS9Gr9yPtn_zA" name="getBaseUnits" visibility="public" isAbstract="true">
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLdTononEeS9Gr9yPtn_zA" type="_f682CnY5EeSqtc-Sb9aJnA" direction="return"/>
             </ownedOperation>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_fLdTo3onEeS9Gr9yPtn_zA" name="getDimension" visibility="public" isAbstract="true">
