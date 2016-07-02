@@ -27,7 +27,7 @@ under the License.
     <item>
       <title>File: 52,
              Errors: 0,
-             Warnings: 15,
+             Warnings: 16,
              Infos: 0
       </title>
             <link>http://unitsofmeasurement.github.io//checkstyle.html</link>
@@ -416,7 +416,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  2
                 </td>
                 <td>
                   0

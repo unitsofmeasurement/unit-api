@@ -4,4 +4,4 @@ Units of Measurement API,javax.measure,MeasurementException,0,16,0,0,0,8,0,4,0,4
 Units of Measurement API,javax.measure,UnconvertibleException,0,13,0,0,0,6,0,3,0,3
 Units of Measurement API,javax.measure,IncommensurableException,0,13,0,0,0,6,0,3,0,3
 Units of Measurement API,javax.measure.spi,ServiceProvider.new Comparator() {...},6,3,0,0,1,1,1,1,1,1
-Units of Measurement API,javax.measure.spi,ServiceProvider,22,128,3,13,4,32,4,11,1,6
+Units of Measurement API,javax.measure.spi,ServiceProvider,22,127,3,13,4,32,4,11,1,6
