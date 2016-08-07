@@ -46,11 +46,12 @@ package javax.measure;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:desruisseaux@users.sourceforge.net">Martin Desruisseaux</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @author <a href="mailto:otaviojava@java.net">Otavio Santana</a>
+ * @author <a href="mailto:otaviopolianasantana@gmail.com">Otavio Santana</a>
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @see <a href="http://martinfowler.com/eaaDev/quantity.html"> Martin Fowler - Quantity</a>
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia: Conversion of units</a>
- * @version 0.26, Date: 2015-12-23
+ * @version 1.0, August 8, 2016
+ * @since 1.0
  */
 public interface Quantity<Q extends Quantity<Q>> {
 

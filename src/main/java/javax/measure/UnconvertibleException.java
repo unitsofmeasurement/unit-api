@@ -34,8 +34,8 @@ package javax.measure;
  * multiplication of offset units are usually units not convertible to their {@linkplain Unit#getSystemUnit() system unit}.
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.5, 2016-02-13
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @version 1.0, Aug 8, 2016
  *
  */
 public class UnconvertibleException extends MeasurementException {

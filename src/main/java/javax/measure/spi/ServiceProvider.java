@@ -42,11 +42,12 @@ import javax.measure.format.UnitFormat;
 /**
  * Service Provider for Units of Measurement services.
  * <p>
- * All the methods in this class are safe for use by multiple concurrent threads.
+ * All the methods in this class are safe to use by multiple concurrent threads.
  *
- * @version 0.9.3, July 2, 2016
+ * @version 1.0, August 8, 2016
  * @author Werner Keil
  * @author Martin Desruisseaux
+ * @since 1.0
  */
 public abstract class ServiceProvider {
   /**

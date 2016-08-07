@@ -37,8 +37,9 @@ import javax.measure.format.UnitFormat;
  * This interface represent the service to obtain {@link UnitFormat} instances.
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.9, July 2, 2016
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @version 1.0, August 8, 2016
+ * @since 1.0
  */
 public interface UnitFormatService {
 

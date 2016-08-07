@@ -66,9 +66,10 @@ import java.util.Map;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:desruisseaux@users.sourceforge.net">Martin Desruisseaux</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.22, June 28, 2016
- *
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @version 1.0, August 8, 2016
+ * @since 1.0
+ * 
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
  */
 public interface Unit<Q extends Quantity<Q>> {

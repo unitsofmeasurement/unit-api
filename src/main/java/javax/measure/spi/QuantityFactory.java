@@ -33,14 +33,17 @@ import javax.measure.Quantity;
 import javax.measure.Unit;
 
 /**
- * Represents a factory that accepts {@linkplain Number} and {@link Unit} arguments to create a {@link Quantity} result.
+ * Represents a factory that accepts {@linkplain Number} and {@link Unit} arguments to create {@link Quantity} results.
  *
  * @param <Q>
  *          the type of the {@link Quantity} result
  *
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @author <a href="mailto:otaviojava@java.net">Otavio Santana</a>
- * @version 0.7, $Date: 2015-09-27 $
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @author <a href="mailto:otaviopolianasantana@gmail.com">Otavio Santana</a>
+ * @version 1.0, August 8, 2016
+ * @since 1.0
+ * 
+ * @see Quantity
  */
 public interface QuantityFactory<Q extends Quantity<Q>> {
 

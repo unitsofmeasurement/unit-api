@@ -38,9 +38,10 @@ package javax.measure;
  * </p>
  * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.16, $Date: 2016-02-13 $
- *
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @version 1.0, August 8, 2016
+ * @since 1.0
+ * 
  * @see <a href="http://en.wikipedia.org/wiki/Unit_commensurability#Commensurability">Wikipedia: Unit Commensurability</a>
  */
 public class IncommensurableException extends Exception {

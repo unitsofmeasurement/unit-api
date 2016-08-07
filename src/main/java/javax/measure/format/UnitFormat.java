@@ -34,7 +34,7 @@ import java.io.IOException;
 import javax.measure.Unit;
 
 /**
- * Formats instances of {@link Unit} to a {@link String} or an {@link Appendable} and parses a {@link CharSequence} to a {@link Unit}.
+ * Formats instances of {@link Unit} to a {@link String} or {@link Appendable} and parses a {@link CharSequence} to a {@link Unit}.
  *
  * <h4><a name="synchronization">Synchronization</a></h4>
  * <p>
@@ -43,9 +43,10 @@ import javax.measure.Unit;
  * <p>
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  *
- * @version 0.8, Nov 25, 2015
+ * @version 1.0, August 8, 2016
+ * @since 1.0
  *
  * @see Unit
  */

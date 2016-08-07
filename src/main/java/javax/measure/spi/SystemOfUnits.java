@@ -42,11 +42,12 @@ import javax.measure.Unit;
  * system).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.8.1, 2015-10-26
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @version 1.0, August 8, 2016
+ * @since 1.0
+ * 
  * @see <a href="http://en.wikipedia.org/wiki/International_System_of_Units"> Wikipedia: International System of Units</a>
  * @see <a href="http://en.wikipedia.org/wiki/Systems_of_measurement"> Wikipedia: System of measurement</a>
- *
  */
 public interface SystemOfUnits {
 
