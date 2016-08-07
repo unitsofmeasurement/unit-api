@@ -41,8 +41,9 @@ package javax.measure;
  *
  * @implSpec This class is intended for use in a single thread. Exception thrown when errors occur during Units of Measurement operations.
  *
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.6, Oct 14, 2015
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @version 1.0, Aug 8, 2016
+ * @since 1.0
  */
 public class MeasurementException extends RuntimeException {
 
