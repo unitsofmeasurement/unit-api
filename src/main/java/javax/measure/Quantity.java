@@ -47,9 +47,9 @@ package javax.measure;
  * @author <a href="mailto:desruisseaux@users.sourceforge.net">Martin Desruisseaux</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @author <a href="mailto:otaviopolianasantana@gmail.com">Otavio Santana</a>
+ * @see Unit
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
- * @see <a href="http://martinfowler.com/eaaDev/quantity.html"> Martin Fowler - Quantity</a>
- * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units">Wikipedia: Conversion of units</a>
+ * @see <a href="http://martinfowler.com/eaaDev/quantity.html">Martin Fowler - Quantity</a>
  * @version 1.0, August 8, 2016
  * @since 1.0
  */
