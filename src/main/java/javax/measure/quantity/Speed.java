@@ -42,6 +42,7 @@ import javax.measure.Quantity;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.2
+ * @since 1.0
  *
  * @see Length
  * @see Time

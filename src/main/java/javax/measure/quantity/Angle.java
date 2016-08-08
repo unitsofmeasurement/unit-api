@@ -37,6 +37,8 @@ import javax.measure.Quantity;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 1.2
+ * @since 1.0
+ * 
  * @see <a href="http://en.wikipedia.org/wiki/Angle">Wikipedia: Angle</a>
  * 
  * @see SolidAngle

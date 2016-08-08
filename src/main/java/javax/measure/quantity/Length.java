@@ -38,6 +38,7 @@ import javax.measure.Quantity;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.3
+ * @since 1.0
  *
  * @see Area
  * @see Volume

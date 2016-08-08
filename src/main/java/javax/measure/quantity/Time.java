@@ -35,13 +35,15 @@ import javax.measure.Quantity;
  * Period of existence or persistence. The metric system unit for this quantity is "s" (second).
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.5
+ * @version 1.6
+ * @since 1.0
  *
  * @see Frequency
  * @see Speed
  * @see Acceleration
  * @see ElectricCurrent
  * @see Power
+ * @see <a href="https://en.wikipedia.org/wiki/Unit_of_time">Wikipedia: Unit of time</a>
  * 
  * @apiNote SI Base Unit
  */

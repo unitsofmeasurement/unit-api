@@ -38,6 +38,7 @@ import javax.measure.Quantity;
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @author Martin Desruisseaux
  * @version 1.2
+ * @since 1.0
  */
 public interface Radioactivity extends Quantity<Radioactivity> {
 }

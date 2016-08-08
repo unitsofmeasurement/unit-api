@@ -37,7 +37,7 @@ import javax.measure.Quantity;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.1
- * 
+ * @since 1.0
  * @see <a href="https://en.wikipedia.org/wiki/Acceleration">Wikipedia: Acceleration</a>
  *
  * @see Length
