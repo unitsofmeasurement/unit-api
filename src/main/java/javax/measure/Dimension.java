@@ -47,6 +47,7 @@ import java.util.Map;
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 1.0, August 8, 2016
  * @since 1.0
+ * @see Unit
  * @see <a href="http://en.wikipedia.org/wiki/Dimensional_analysis">Wikipedia: Dimensional Analysis</a>
  */
 public interface Dimension {
