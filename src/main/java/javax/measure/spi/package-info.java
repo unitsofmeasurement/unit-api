@@ -28,10 +28,13 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /**
- * [OPTIONAL] Provides services for units, quantities or their textual representation.
+ * [OPTIONAL] The Units of Measurement SPI. Provides services for units, quantities, unit systems and formatters/parsers.
+ * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author  <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.3, $Date: 2014-11-01 $
+ * @author <a href="mailto:desruisseaux@users.sourceforge.net">Martin Desruisseaux</a>
+ * @version 1.0, August 11, 2016
+ * @since 1.0
  */
 package javax.measure.spi;
 

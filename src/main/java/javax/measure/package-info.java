@@ -36,7 +36,7 @@
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @author <a href="mailto:llima@v2com.mobi">Leonardo de Moura Rocha Lima</a>
- * @version 1.3 ($Revision: 395 $), $Date: 2016-04-03 $
+ * @version 1.4, August 11, 2016
  *
  */
 package javax.measure;

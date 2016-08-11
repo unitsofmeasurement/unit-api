@@ -30,6 +30,7 @@
 /**
  * [OPTIONAL] Provides Formatting and Parsing functionality for units, quantities, dimensions or their textual representation.
  * @author  <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.4.1, $Date: 2014-01-27 23:16:02 +0100 (Mo, 27 Jän 2014) $
+ * @version 1.0, August 11, 2016
+ * @since 1.0
  */
 package javax.measure.format;
