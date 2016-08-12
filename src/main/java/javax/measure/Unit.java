@@ -65,7 +65,7 @@ import java.util.Map;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
- * @author <a href="mailto:desruisseaux@users.sourceforge.net">Martin Desruisseaux</a>
+ * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 1.0, August 8, 2016
  * @since 1.0

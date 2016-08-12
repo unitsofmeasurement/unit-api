@@ -32,7 +32,7 @@
  * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author  <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @author <a href="mailto:desruisseaux@users.sourceforge.net">Martin Desruisseaux</a>
+ * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
  * @version 1.0, August 11, 2016
  * @since 1.0
  */
