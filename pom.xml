@@ -142,7 +142,7 @@
 		</developer>
 		<developer>
 			<id>eralmas7</id>
-			<name>Muhammed Almas</name>
+			<name>Almas Shaikh</name>
 			<email>eralmas7@yahoo.com</email>
 			<organization>Individual / JP Morgan</organization>
 			<timezone>+5.5</timezone>
@@ -197,8 +197,16 @@
 		</developer>
 	</developers>
 	<contributors>
+	   <contributor>
+            <name>Nathan Scott</name>
+            <email>nathans@redhat.com</email>
+            <organization>Red Hat</organization>
+            <timezone>-5</timezone>
+            <roles>
+                <role>Contributor</role>
+            </roles>
+        </contributor>
 		<contributor>
-			<!-- id>dan.leuck</id -->
 			<name>Daniel Leuck</name>
 			<email>dan@ikayzo.com</email>
 			<organization>Ikayzo</organization>
@@ -208,7 +216,6 @@
 			</roles>
 		</contributor>
 		<contributor>
-			<!-- id>eric-r</id -->
 			<name>Eric Russell</name>
 			<email>eric-r@northwestern.edu</email>
 			<timezone>-5</timezone>
@@ -217,7 +224,6 @@
 			</roles>
 		</contributor>
 		<contributor>
-			<!-- id>paul.morrison</id -->
 			<name>John Paul Morrison</name>
 			<organization>J.P. Morrison Enterprises, Ltd.</organization>
 			<timezone>-5</timezone>
@@ -226,7 +232,6 @@
 			</roles>
 		</contributor>
 		<contributor>
-			<!-- id>mgruebsch</id -->
 			<name>Michael Gruebsch</name>
 			<email>michael@mkm-rabis.de</email>
 			<roles>
@@ -260,8 +265,7 @@
 					<version>0.5.2</version>
 				</plugin>
 
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -415,9 +419,7 @@
 					<keywords>true</keywords>
 					<linksource>true</linksource>
 					<failOnError>false</failOnError>
-					<!-- overview>${basedir}/overview.html</overview -->
 					<source>${maven.compile.sourceLevel}</source>
-					<!-- stylesheetfile>${basedir}/src/site/css/money-jdoc.css</stylesheetfile -->
 					<verbose>true</verbose>
 				</configuration>
 			</plugin>
@@ -449,8 +451,6 @@
 				<artifactId>maven-bundle-plugin</artifactId>
 				<version>${felix.version}</version>
 				<extensions>true</extensions>
-				<!-- configuration> <instructions> <Export-Package>javax.measure.*</Export-Package> 
-					<Private-Package>!*</Private-Package> </instructions> </configuration -->
 			</plugin>
 
 			<!-- Resources -->
@@ -690,8 +690,7 @@
 		
 		<profile>
 			<id>format-jar</id>
-			<!-- This profile builds (optional) format elements into separate JAR 
-				files -->
+			<!-- This profile builds (optional) format elements into separate JAR files -->
 			<build>
 				<plugins>
 					<plugin>
@@ -718,8 +717,7 @@
 
 		<profile>
 			<id>quantity-jar</id>
-			<!-- This profile builds (optional) quantities into separate JAR 
-				files -->
+			<!-- This profile builds (optional) quantities into separate JAR files -->
 			<build>
 				<plugins>
 					<plugin>
@@ -746,8 +744,7 @@
 		
 		  <profile>
             <id>spi-jar</id>
-            <!-- This profile builds (optional) SPI into separate JAR 
-                files -->
+            <!-- This profile builds (optional) SPI into separate JAR files -->
             <build>
                 <plugins>
                     <plugin>
@@ -775,8 +772,7 @@
         <!-- Profile JARs -->
         <profile>
             <id>format-profile</id>
-            <!-- This profile builds the Format Profile (core+format) into a separate 
-                jar file -->
+            <!-- This profile builds the Format Profile (core+format) into a separate jar file -->
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -807,8 +803,7 @@
 
         <profile>
             <id>spi-profile</id>
-            <!-- This profile builds the SPI Profile (core+format+spi) into a separate 
-                jar file -->
+            <!-- This profile builds the SPI Profile (core+format+spi) into a separate jar file -->
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -858,10 +853,6 @@
 									<imagesDir>arc/main/asciidoc/images</imagesDir>
 								</configuration>
 							</execution>
-							<!-- execution> <id>output-pdf</id> <phase>generate-resources</phase> 
-								<goals> <goal>process-asciidoc</goal> </goals> <configuration> <outputDirectory>target/docs</outputDirectory> 
-								<sourceHighlighter>highlightjs</sourceHighlighter> <backend>pdf</backend> 
-								</configuration> </execution -->
 						</executions>
 					</plugin>
 				</plugins>
@@ -869,7 +860,6 @@
 		</profile>
 		<profile>
 			<id>brokenGitHubSite</id>
-
 			<build>
 				<plugins>
 					<!-- ======================================================= -->
