@@ -133,15 +133,19 @@ public abstract class ServiceProvider {
    * @return all available service providers.
    */
   public static List<ServiceProvider> available() {
-    return Arrays.asList(getProviders()); // .clone();
+    return Arrays.asList(getProviders());
   }
 
   /**
    * Returns the current {@link ServiceProvider}. If necessary the {@link ServiceProvider} will be lazily loaded.
-   *
+   * <p>
+   * If there are no providers available, an {@linkplain IllegalStateException} is thrown, otherwise the provider with the highest priority is used or the one explicitly designated via {@link setCurrent()} .
+   * </p>
    * @return the {@link ServiceProvider} used.
    * @throws IllegalStateException
    *           if no {@link ServiceProvider} has been found.
+   * @see #getPriority()
+   * @see #setCurrent()
    */
   public static ServiceProvider current() {
     ServiceProvider[] p = getProviders();
