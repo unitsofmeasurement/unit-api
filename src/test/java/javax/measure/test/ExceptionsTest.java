@@ -39,7 +39,7 @@ import org.junit.Test;
 
 /**
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- *
+ * @version 1.0
  */
 public class ExceptionsTest {
 
