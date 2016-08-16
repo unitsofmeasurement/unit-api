@@ -133,22 +133,28 @@ public abstract class ServiceProvider {
    * @return all available service providers.
    */
   public static List&lt;ServiceProvider&gt; available() {
-<span class="fc" id="L136">    return Arrays.asList(getProviders()); // .clone();</span>
+<span class="fc" id="L136">    return Arrays.asList(getProviders());</span>
   }
 
   /**
    * Returns the current {@link ServiceProvider}. If necessary the {@link ServiceProvider} will be lazily loaded.
-   *
+   * &lt;p&gt;
+   * If there are no providers available, an {@linkplain IllegalStateException} is thrown, otherwise the provider with the highest priority is used or
+   * the one explicitly designated via {@link setCurrent()} .
+   * &lt;/p&gt;
+   * 
    * @return the {@link ServiceProvider} used.
    * @throws IllegalStateException
    *           if no {@link ServiceProvider} has been found.
+   * @see #getPriority()
+   * @see #setCurrent()
    */
   public static ServiceProvider current() {
-<span class="fc" id="L147">    ServiceProvider[] p = getProviders();</span>
-<span class="fc bfc" id="L148" title="All 2 branches covered.">    if (p.length != 0) {</span>
-<span class="fc" id="L149">      return p[0];</span>
+<span class="fc" id="L153">    ServiceProvider[] p = getProviders();</span>
+<span class="fc bfc" id="L154" title="All 2 branches covered.">    if (p.length != 0) {</span>
+<span class="fc" id="L155">      return p[0];</span>
     }
-<span class="fc" id="L151">    throw new IllegalStateException(&quot;No measurement ServiceProvider found.&quot;);</span>
+<span class="fc" id="L157">    throw new IllegalStateException(&quot;No measurement ServiceProvider found.&quot;);</span>
   }
 
   /**
@@ -159,25 +165,25 @@ public abstract class ServiceProvider {
    * @return the removed provider, or null.
    */
   public static ServiceProvider setCurrent(ServiceProvider provider) {
-<span class="fc bfc" id="L162" title="All 2 branches covered.">    if (provider == null) {</span>
-<span class="fc" id="L163">      throw new NullPointerException();</span>
+<span class="fc bfc" id="L168" title="All 2 branches covered.">    if (provider == null) {</span>
+<span class="fc" id="L169">      throw new NullPointerException();</span>
     }
-<span class="fc" id="L165">    synchronized (LOCK) {</span>
-<span class="fc" id="L166">      ServiceProvider[] p = getProviders();</span>
-<span class="fc bfc" id="L167" title="All 2 branches covered.">      ServiceProvider old = (p.length != 0) ? p[0] : null;</span>
-<span class="fc bfc" id="L168" title="All 2 branches covered.">      if (provider != old) {</span>
-<span class="fc" id="L169">        List&lt;ServiceProvider&gt; copy = new ArrayList&lt;ServiceProvider&gt;(Arrays.asList(p));</span>
-<span class="fc" id="L170">        copy.remove(provider);</span>
-<span class="fc" id="L171">        copy.add(0, provider);</span>
-<span class="fc" id="L172">        providers = copy.toArray(new ServiceProvider[copy.size()]);</span>
+<span class="fc" id="L171">    synchronized (LOCK) {</span>
+<span class="fc" id="L172">      ServiceProvider[] p = getProviders();</span>
+<span class="fc bfc" id="L173" title="All 2 branches covered.">      ServiceProvider old = (p.length != 0) ? p[0] : null;</span>
+<span class="fc bfc" id="L174" title="All 2 branches covered.">      if (provider != old) {</span>
+<span class="fc" id="L175">        List&lt;ServiceProvider&gt; copy = new ArrayList&lt;ServiceProvider&gt;(Arrays.asList(p));</span>
+<span class="fc" id="L176">        copy.remove(provider);</span>
+<span class="fc" id="L177">        copy.add(0, provider);</span>
+<span class="fc" id="L178">        providers = copy.toArray(new ServiceProvider[copy.size()]);</span>
 
         // Keep the log inside the synchronized block for making sure that the order
         // or logging messages matches the order in which ServiceProviders were set.
-<span class="pc bpc" id="L176" title="1 of 2 branches missed.">        Logger.getLogger(&quot;javax.measure.spi&quot;).log(Level.CONFIG,</span>
+<span class="pc bpc" id="L182" title="1 of 2 branches missed.">        Logger.getLogger(&quot;javax.measure.spi&quot;).log(Level.CONFIG,</span>
             (old == null) ? &quot;Measurement ServiceProvider set to {0}&quot; : &quot;Measurement ServiceProvider replaced by {0}&quot;, provider.getClass().getName());
       }
-<span class="fc" id="L179">      return old;</span>
-<span class="nc" id="L180">    }</span>
+<span class="fc" id="L185">      return old;</span>
+<span class="nc" id="L186">    }</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
