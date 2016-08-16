@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>javax.measure</groupId>
 	<artifactId>unit-api</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>Units of Measurement API</name>
 	<packaging>bundle</packaging>
 	<url>http://unitsofmeasurement.github.io/</url>
@@ -197,15 +197,15 @@
 		</developer>
 	</developers>
 	<contributors>
-	   <contributor>
-            <name>Nathan Scott</name>
-            <email>nathans@redhat.com</email>
-            <organization>Red Hat</organization>
-            <timezone>-5</timezone>
-            <roles>
-                <role>Contributor</role>
-            </roles>
-        </contributor>
+		<contributor>
+			<name>Nathan Scott</name>
+			<email>nathans@redhat.com</email>
+			<organization>Red Hat</organization>
+			<timezone>-5</timezone>
+			<roles>
+				<role>Contributor</role>
+			</roles>
+		</contributor>
 		<contributor>
 			<name>Daniel Leuck</name>
 			<email>dan@ikayzo.com</email>
@@ -265,7 +265,8 @@
 					<version>0.5.2</version>
 				</plugin>
 
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -444,7 +445,19 @@
 					</archive>
 				</configuration>
 			</plugin>
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven.jar.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
 			<!-- Packaging (OSGi bundle) -->
 			<plugin>
 				<groupId>org.apache.felix</groupId>
@@ -654,7 +667,7 @@
 			</properties>
 		</profile>
 
-        <!-- Individual JARs -->
+		<!-- Individual JARs -->
 		<profile>
 			<id>core-jar</id>
 			<!-- This profile builds only the core (root level) elements into a separate 
@@ -687,10 +700,11 @@
 				</plugins>
 			</build>
 		</profile>
-		
+
 		<profile>
 			<id>format-jar</id>
-			<!-- This profile builds (optional) format elements into separate JAR files -->
+			<!-- This profile builds (optional) format elements into separate JAR 
+				files -->
 			<build>
 				<plugins>
 					<plugin>
@@ -741,95 +755,97 @@
 				</plugins>
 			</build>
 		</profile>
-		
-		  <profile>
-            <id>spi-jar</id>
-            <!-- This profile builds (optional) SPI into separate JAR files -->
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-jar-plugin</artifactId>
-                        <version>${maven.jar.version}</version>
-                        <executions>
-                            <execution>
-                                <id>spi-jar</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                                <configuration>
-                                    <classifier>spi</classifier>
-                                    <includes>
-                                        <include>javax/measure/spi/**</include>
-                                    </includes>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        
-        <!-- Profile JARs -->
-        <profile>
-            <id>format-profile</id>
-            <!-- This profile builds the Format Profile (core+format) into a separate jar file -->
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-jar-plugin</artifactId>
-                        <version>${maven.jar.version}</version>
-                        <executions>
-                            <execution>
-                                <id>format-profile-jar</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                                <configuration>
-                                    <classifier>format-profile</classifier>
-                                    <excludes>
-                                        <exclude>javax/measure/quantity/**</exclude>
-                                        <exclude>javax/measure/spi/**</exclude>
-                                    </excludes>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
 
-        <profile>
-            <id>spi-profile</id>
-            <!-- This profile builds the SPI Profile (core+format+spi) into a separate jar file -->
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-jar-plugin</artifactId>
-                        <version>${maven.jar.version}</version>
-                        <executions>
-                            <execution>
-                                <id>core-jar</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                                <configuration>
-                                    <classifier>spi-profile</classifier>
-                                    <excludes>
-                                        <exclude>javax/measure/quantity/**</exclude>
-                                    </excludes>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+		<profile>
+			<id>spi-jar</id>
+			<!-- This profile builds (optional) SPI into separate JAR files -->
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-jar-plugin</artifactId>
+						<version>${maven.jar.version}</version>
+						<executions>
+							<execution>
+								<id>spi-jar</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+								<configuration>
+									<classifier>spi</classifier>
+									<includes>
+										<include>javax/measure/spi/**</include>
+									</includes>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<!-- Profile JARs -->
+		<profile>
+			<id>format-profile</id>
+			<!-- This profile builds the Format Profile (core+format) into a separate 
+				jar file -->
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-jar-plugin</artifactId>
+						<version>${maven.jar.version}</version>
+						<executions>
+							<execution>
+								<id>format-profile-jar</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+								<configuration>
+									<classifier>format-profile</classifier>
+									<excludes>
+										<exclude>javax/measure/quantity/**</exclude>
+										<exclude>javax/measure/spi/**</exclude>
+									</excludes>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>spi-profile</id>
+			<!-- This profile builds the SPI Profile (core+format+spi) into a separate 
+				jar file -->
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-jar-plugin</artifactId>
+						<version>${maven.jar.version}</version>
+						<executions>
+							<execution>
+								<id>core-jar</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+								<configuration>
+									<classifier>spi-profile</classifier>
+									<excludes>
+										<exclude>javax/measure/quantity/**</exclude>
+									</excludes>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 
 		<profile>
 			<id>documentation</id>
