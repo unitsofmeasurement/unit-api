@@ -67,7 +67,7 @@
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
 
 		<!-- Plugins -->
-		<felix.version>3.0.1</felix.version>
+		<felix.version>3.2.0</felix.version>
 		<github.maven.version>0.12</github.maven.version>
 		<github.global.server>github</github.global.server>
 		<maven.resources.version>3.0.1</maven.resources.version>
