@@ -44,13 +44,13 @@ package javax.measure;
  *          The type of the quantity.
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:desruisseaux@users.sourceforge.net">Martin Desruisseaux</a>
+ * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @author <a href="mailto:otaviopolianasantana@gmail.com">Otavio Santana</a>
  * @see Unit
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @see <a href="http://martinfowler.com/eaaDev/quantity.html">Martin Fowler - Quantity</a>
- * @version 1.0, August 8, 2016
+ * @version 1.0.1, October 6, 2016
  * @since 1.0
  */
 public interface Quantity<Q extends Quantity<Q>> {
