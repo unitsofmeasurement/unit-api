@@ -116,7 +116,7 @@ public interface Unit<Q extends Quantity<Q>> {
    * Because the system unit is unique by quantity type, it can be be used to identify the quantity given the unit. For example:
    * </p>
    * <code>
-   *     static boolean isAngularSpeed(Unit<?> unit) {<br>
+   *     static boolean isAngularSpeed(Unit&lt;?&gt; unit) {<br>
    *     &nbsp;&nbsp;    return unit.getSystemUnit().equals(RADIAN.divide(SECOND));<br>
    *     }<br>
    *     assert isAngularSpeed(REVOLUTION.divide(MINUTE)); // Returns true.<br><br>

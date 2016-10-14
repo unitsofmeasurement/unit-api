@@ -58,12 +58,12 @@
  *
  * <code>
  *    // A general-purpose Sensor class used for temperature measurements:<br>
- *    Sensor<Temperature> sensor ...;<br>
+ *    Sensor&lt;Temperature&gt; sensor ...;<br>
  *    Temperature temp = sensor.getValue();<br><br>
  *
  *    // A vector of velocity in a three-dimensional space.<br>
- *    Unit<Speed> = metrePerSecond = METRE.divide(SECOND);<br>
- *    Vector3D<Speed> aircraftSpeed = new Vector3D(200.0, 50.0, -0.5, metrePerSecond);
+ *    Unit&lt;Speed&gt; = metrePerSecond = METRE.divide(SECOND);<br>
+ *    Vector3D&lt;Speed&gt; aircraftSpeed = new Vector3D(200.0, 50.0, -0.5, metrePerSecond);
  * </code>
  *
  * <p>This package holds only the quantities required by the metric system.</p>
