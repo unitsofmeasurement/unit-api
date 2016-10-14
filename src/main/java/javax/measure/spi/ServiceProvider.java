@@ -94,6 +94,8 @@ public abstract class ServiceProvider {
   /**
    * Return a factory for this {@link Quantity}.
    *
+   * @param <Q>
+   *          the type of the {@link Quantity} result
    * @param quantity
    *          the quantity
    * @return the {@link QuantityFactory}
@@ -140,14 +142,14 @@ public abstract class ServiceProvider {
    * Returns the current {@link ServiceProvider}. If necessary the {@link ServiceProvider} will be lazily loaded.
    * <p>
    * If there are no providers available, an {@linkplain IllegalStateException} is thrown, otherwise the provider with the highest priority is used or
-   * the one explicitly designated via {@link setCurrent()} .
+   * the one explicitly designated via {@link #setCurrent(ServiceProvider)} .
    * </p>
    * 
    * @return the {@link ServiceProvider} used.
    * @throws IllegalStateException
    *           if no {@link ServiceProvider} has been found.
    * @see #getPriority()
-   * @see #setCurrent()
+   * @see #setCurrent(ServiceProvider)
    */
   public static ServiceProvider current() {
     ServiceProvider[] p = getProviders();

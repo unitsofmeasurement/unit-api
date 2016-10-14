@@ -201,7 +201,7 @@
 			<name>Nathan Scott</name>
 			<email>nathans@redhat.com</email>
 			<organization>Red Hat</organization>
-			<timezone>-5</timezone>
+			<timezone>+10</timezone>
 			<roles>
 				<role>Contributor</role>
 			</roles>
@@ -422,6 +422,18 @@
 					<failOnError>false</failOnError>
 					<source>${maven.compile.sourceLevel}</source>
 					<verbose>true</verbose>
+					<tags>
+						<tag>
+							<name>apiNote</name>
+							<placement>a</placement>
+							<head>API Note:</head>
+						</tag>
+						<tag>
+							<name>implSpec</name>
+							<placement>a</placement>
+							<head>Implementation Requirements:</head>
+						</tag>
+					</tags>
 				</configuration>
 			</plugin>
 
@@ -444,11 +456,6 @@
 						</manifestEntries>
 					</archive>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven.jar.version}</version>
 				<executions>
 					<execution>
 						<goals>

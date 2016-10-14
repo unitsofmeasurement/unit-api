@@ -42,12 +42,14 @@ import java.util.Collection;
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 1.0, August 8, 2016
  * @since 1.0
+ *
+ * @see <a href="http://en.wikipedia.org/wiki/International_System_of_Units">Wikipedia: International System of Units</a>
  */
 public interface SystemOfUnitsService {
 
   /**
-   * Returns the default {@link SystemOfUnits system of units}. Depending on the implementation this may be the <a
-   * href=http://en.wikipedia.org/wiki/International_System_of_Units"> International System of Units</a> or another default system.
+   * Returns the default {@link SystemOfUnits system of units}. Depending on the implementation this may be the
+   * <a href="http://en.wikipedia.org/wiki/International_System_of_Units"> International System of Units</a> or another default system.
    *
    * @return the default system of units.
    */
