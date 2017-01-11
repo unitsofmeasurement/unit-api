@@ -164,7 +164,7 @@ public abstract class ServiceProvider {
    *
    * @param provider
    *          the new {@link ServiceProvider}
-   * @return the removed provider, or null.
+   * @return the replaced provider, or null.
    */
   public static ServiceProvider setCurrent(ServiceProvider provider) {
     if (provider == null) {
