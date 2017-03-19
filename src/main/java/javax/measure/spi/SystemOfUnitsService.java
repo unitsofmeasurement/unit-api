@@ -48,8 +48,8 @@ import java.util.Collection;
 public interface SystemOfUnitsService {
 
   /**
-   * Returns the default {@link SystemOfUnits system of units}. Depending on the implementation this may be the
-   * <a href="http://en.wikipedia.org/wiki/International_System_of_Units"> International System of Units</a> or another default system.
+   * Returns the default {@link SystemOfUnits system of units}. Depending on the implementation this may be the <a
+   * href="http://en.wikipedia.org/wiki/International_System_of_Units"> International System of Units</a> or another default system.
    *
    * @return the default system of units.
    */
