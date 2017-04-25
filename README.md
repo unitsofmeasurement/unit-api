@@ -15,3 +15,6 @@ JSR 363 - Units of Measurement API
 
 The Unit of Measurement API provides a set of Java language programming interfaces for handling units and quantities.
 The interfaces provide a layer which separates client code, that would call the API, from library code, which implements the API.
+
+## Planning
+[![Issue Stats](http://issuestats.com/github/unitsofmeasurement/unit-api/badge/issue?style=flat)](http://issuestats.com/github/unitsofmeasurement/unit-api)
