@@ -17,4 +17,5 @@ The Unit of Measurement API provides a set of Java language programming interfac
 The interfaces provide a layer which separates client code, that would call the API, from library code, which implements the API.
 
 ## Planning
-[![Issue Stats](http://issuestats.com/github/unitsofmeasurement/unit-api/badge/issue?style=flat)](http://issuestats.com/github/unitsofmeasurement/unit-api)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/unitsofmeasurement/unit-api.svg)](http://isitmaintained.com/project/unitsofmeasurement/unit-api "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/unitsofmeasurement/unit-api.svg)](http://isitmaintained.com/project/unitsofmeasurement/unit-api "Percentage of issues still open")
