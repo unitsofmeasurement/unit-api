@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>javax.measure</groupId>
 	<artifactId>unit-api-site</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>Units of Measurement API</name>
 	<packaging>pom</packaging>
 	<build>
