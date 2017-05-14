@@ -28,8 +28,8 @@
 
 	<!-- Issue managements and mailing lists. -->
 	<issueManagement>
-		<system>JIRA</system>
-		<url>https://java.net/jira/browse/UNITSOFMEASUREMENT</url>
+		<system>GitHub</system>
+		<url>https://github.com/unitsofmeasurement/unit-api/issues</url>
 	</issueManagement>
 	<ciManagement>
 		<system>CircleCI</system>

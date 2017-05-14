@@ -28,7 +28,7 @@
  * @author &lt;a href=&quot;mailto:desruisseaux@users.sourceforge.net&quot;>Martin
  *         Desruisseaux&lt;/a>
  * @author &lt;a href=&quot;mailto:werner@uom.technology&quot;>Werner Keil&lt;/a>
- * @author &lt;a href=&quot;mailto:otaviojava@java.net&quot;>Otavio Santana&lt;/a>
+ * @author &lt;a href=&quot;mailto:otaviopolianasantana@gmail.com&quot;>Otavio Santana&lt;/a>
  * @see &lt;a href=&quot;http://en.wikipedia.org/wiki/Quantity&quot;>Wikipedia: Quantity&lt;/a>
  * @see &lt;a href=&quot;http://martinfowler.com/eaaDev/quantity.html&quot;> Martin Fowler -
  *      Quantity&lt;/a>
@@ -957,7 +957,7 @@
  * @param &lt;Q> the type of the {@link Quantity} result
  *
  * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>
- * @author &lt;a href=&quot;mailto:otaviojava@java.net&quot;>Otavio Santana&lt;/a>
+ * @author &lt;a href=&quot;mailto:otaviopolianasantana@gmail.com&quot;>Otavio Santana&lt;/a>
  * @version 0.5, $Date: 2014-09-18 $
  </body>
             </ownedComment>

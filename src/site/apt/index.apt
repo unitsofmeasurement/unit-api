@@ -1,5 +1,5 @@
 ~~ 
-~~ JSR-363 - Units of Measurement API for Java (http://unitsofmeasurement.java.net)
+~~ JSR-363 - Units of Measurement API for Java (http://unitsofmeasurement.github.io)
 ~~ Copyright (c) 2014-2016, Jean-Marie Dautelle, Werner Keil, V2COM
 ~~ All rights reserved.
 ~~
@@ -10,7 +10,7 @@
                     -----------------------------------------------------
                     Jean-Marie Dautelle, Werner Keil, V2COM
                     -----------------------------------------------------
-                    $Date: 2016-01-01 $
+                    $Date: 2017-05-14 $
                     -----------------------------------------------------
 
 
@@ -39,7 +39,7 @@ The Units of Measurement API for Java
 
     * {{{./apidocs/index.html}Browse javadoc}}
 
-    * {{{https://java.net/projects/unitsofmeasurement/downloads}Presentation material}} (e.g. slides, draft specification)
+    * {{{https://bintray.com/unitsofmeasurement/downloads}Presentation material}} (e.g. slides, draft specification)
 
-    * {{{https://circleci.com/gh/unitsofmeasurement/unit-api/}Nightly builds}}
+    * {{{https://circleci.com/gh/unitsofmeasurement/unit-api/}Snapshot builds}}
 
