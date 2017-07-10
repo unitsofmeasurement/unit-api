@@ -35,12 +35,12 @@ import java.util.Collection;
  * This interface represents the service to obtain a {@link SystemOfUnits system of units}.
  *
  * <p>
- * Common system of units are "SI" (System International), "Imperial" (British), "US" (US Customary).
+ * Common systems of units are "SI" (System International), "Imperial" (British), or "US" (US Customary).
  * </p>
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.0, August 8, 2016
+ * @version 1.0.1, July 10, 2017
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/International_System_of_Units">Wikipedia: International System of Units</a>
@@ -49,7 +49,7 @@ public interface SystemOfUnitsService {
 
   /**
    * Returns the default {@link SystemOfUnits system of units}. Depending on the implementation this may be the <a
-   * href="http://en.wikipedia.org/wiki/International_System_of_Units"> International System of Units</a> or another default system.
+   * href="http://en.wikipedia.org/wiki/International_System_of_Units">International System of Units</a> or another default system.
    *
    * @return the default system of units.
    */
