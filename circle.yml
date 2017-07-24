@@ -1,11 +1,6 @@
 #general:
 #  artifacts:
 #    - "target" # files, relative to the build directory
-#machine:
-#  java:
-#    version: oraclejdk6
-#  environment:
-#    UOM_VERSION: 0.8-SNAPSHOT
 test:
    override:
      - mvn install
