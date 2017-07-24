@@ -67,12 +67,13 @@
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
 
 		<!-- Plugins -->
-		<felix.version>3.2.0</felix.version>
+		<felix.version>3.3.0</felix.version>
 		<github.maven.version>0.12</github.maven.version>
 		<github.global.server>github</github.global.server>
-		<maven.resources.version>3.0.1</maven.resources.version>
-		<maven.site.version>3.5.1</maven.site.version>
+		<maven.resources.version>3.0.2</maven.resources.version>
+		<maven.site.version>3.6</maven.site.version>
 		<maven.jar.version>3.0.2</maven.jar.version>
+		<jacoco.plugin.version>0.7.9</jacoco.plugin.version>
 	</properties>
 
 	<!-- Developers and Contributors -->
@@ -322,7 +323,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version>
+				<version>3.6.1</version>
 				<configuration>
 					<source>${maven.compile.sourceLevel}</source>
 					<target>${maven.compile.targetLevel}</target>
@@ -334,7 +335,7 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.7.7.201606060606</version>
+				<version>${jacoco.plugin.version}</version>
 				<configuration>
 					<destfile>${basedir}/target/coverage-reports/jacoco-unit.exec</destfile>
 					<datafile>${basedir}/target/coverage-reports/jacoco-unit.exec</datafile>
