@@ -29,5 +29,9 @@
  */
 module java.measure {
     requires java.logging;
+    exports javax.measure;
+    exports javax.measure.format;
+    exports javax.measure.quantity;
+    exports javax.measure.spi;
     uses javax.measure.spi.ServiceProvider;
 }
