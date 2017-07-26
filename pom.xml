@@ -65,6 +65,7 @@
 		<project.build.javaVersion>${jdkVersion}</project.build.javaVersion>
 		<maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
+		<compile.exclude.files>module-info.java</compile.exclude.files>
 
 		<!-- Plugins -->
 		<felix.version>3.3.0</felix.version>
@@ -266,7 +267,7 @@
 					<version>0.5.2</version>
 				</plugin>
 
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
+				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -328,6 +329,9 @@
 					<source>${maven.compile.sourceLevel}</source>
 					<target>${maven.compile.targetLevel}</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
+					<excludes>
+						<exclude>${compile.exclude.files}</exclude>
+					</excludes>
 				</configuration>
 			</plugin>
 
@@ -465,7 +469,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
 			<!-- Packaging (OSGi bundle) -->
 			<plugin>
 				<groupId>org.apache.felix</groupId>
@@ -674,11 +678,18 @@
 				<jdkVersion>1.8</jdkVersion>
 			</properties>
 		</profile>
+		<profile>
+			<id>jdk9</id>
+			<properties>
+				<jdkVersion>9</jdkVersion>
+				<compile.exclude.files>none</compile.exclude.files>
+			</properties>
+		</profile>
 
 		<!-- Individual JARs -->
 		<profile>
 			<id>core-jar</id>
-			<!-- This profile builds only the core (root level) elements into a separate 
+			<!-- This profile builds only the core (root level) elements into a separate
 				-core.jar file -->
 			<activation>
 				<activeByDefault>false</activeByDefault>
@@ -711,7 +722,7 @@
 
 		<profile>
 			<id>format-jar</id>
-			<!-- This profile builds (optional) format elements into separate JAR 
+			<!-- This profile builds (optional) format elements into separate JAR
 				files -->
 			<build>
 				<plugins>
@@ -794,7 +805,7 @@
 		<!-- Profile JARs -->
 		<profile>
 			<id>format-profile</id>
-			<!-- This profile builds the Format Profile (core+format) into a separate 
+			<!-- This profile builds the Format Profile (core+format) into a separate
 				jar file -->
 			<activation>
 				<activeByDefault>false</activeByDefault>
@@ -826,7 +837,7 @@
 
 		<profile>
 			<id>spi-profile</id>
-			<!-- This profile builds the SPI Profile (core+format+spi) into a separate 
+			<!-- This profile builds the SPI Profile (core+format+spi) into a separate
 				jar file -->
 			<activation>
 				<activeByDefault>false</activeByDefault>
