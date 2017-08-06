@@ -67,7 +67,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.0, August 8, 2016
+ * @version 1.0.1, August 6, 2017
  * @since 1.0
  * 
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
@@ -170,7 +170,7 @@ public interface Unit<Q extends Quantity<Q>> {
   <T extends Quantity<T>> Unit<T> asType(Class<T> type) throws ClassCastException;
 
   /**
-   * Returns a converter of numeric values from this unit to another unit of same type. This method performs the same work than
+   * Returns a converter of numeric values from this unit to another unit of same type. This method performs the same work as
    * {@link #getConverterToAny(Unit)} without raising checked exception.
    *
    * @param that
