@@ -72,6 +72,7 @@
 		<github.maven.version>0.12</github.maven.version>
 		<github.global.server>github</github.global.server>
 		<maven.resources.version>3.0.2</maven.resources.version>
+		<maven.compile.version>3.7.0</maven.compile.version>
 		<maven.site.version>3.6</maven.site.version>
 		<maven.jar.version>3.0.2</maven.jar.version>
 		<jacoco.plugin.version>0.7.9</jacoco.plugin.version>
@@ -324,7 +325,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.6.2</version>
+				<version>${maven.compile.version}</version>
 				<configuration>
 					<source>${maven.compile.sourceLevel}</source>
 					<target>${maven.compile.targetLevel}</target>
