@@ -3,13 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>javax.measure</groupId>
 	<artifactId>unit-api</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>2.0-SNAPSHOT</version>
 	<name>Units of Measurement API</name>
 	<packaging>bundle</packaging>
 	<url>http://unitsofmeasurement.github.io/</url>
 	<description>Units of Measurement Standard - This JSR specifies Java packages for modeling and working with measurement values, quantities and their corresponding units.</description>
 	<organization>
-		<name>Jean-Marie Dautelle, Werner Keil, V2COM</name>
+		<name>Jean-Marie Dautelle, Werner Keil, Otavio Santana</name>
 		<url>http://unitsofmeasurement.github.io</url>
 	</organization>
 	<inceptionYear>2014</inceptionYear>
@@ -107,6 +107,18 @@
 			</roles>
 		</developer>
 		<developer>
+			<id>otaviojava</id>
+			<name>Otávio Gonçalves de Santana</name>
+			<email>otaviopolianasantana@gmail.com</email>
+			<organization>Individual / SouJava</organization>
+			<timezone>-5</timezone>
+			<roles>
+				<role>Expert</role>
+				<role>Java Developer</role>
+				<role>Spec Lead</role>
+			</roles>
+		</developer>
+		<developer>
 			<id>leomrlima</id>
 			<name>Leonardo de Moura Rocha Lima</name>
 			<email>llima@v2com.mobi</email>
@@ -116,7 +128,7 @@
 			<roles>
 				<role>Architect</role>
 				<role>Java Developer</role>
-				<role>Spec Lead</role>
+				<role>Expert</role>
 			</roles>
 		</developer>
 		<developer>
@@ -130,17 +142,6 @@
 				<role>Expert</role>
 				<role>Java Developer</role>
 				<role>Architect</role>
-			</roles>
-		</developer>
-		<developer>
-			<id>otaviojava</id>
-			<name>Otávio Gonçalves de Santana</name>
-			<email>otaviopolianasantana@gmail.com</email>
-			<organization>Individual / SouJava</organization>
-			<timezone>-5</timezone>
-			<roles>
-				<role>Expert</role>
-				<role>Java Developer</role>
 			</roles>
 		</developer>
 		<developer>
