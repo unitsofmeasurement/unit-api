@@ -68,7 +68,7 @@
 		<compile.exclude.files>module-info.java</compile.exclude.files>
 
 		<!-- Plugins -->
-		<felix.version>3.3.0</felix.version>
+		<felix.version>3.4.0</felix.version>
 		<github.maven.version>0.12</github.maven.version>
 		<github.global.server>github</github.global.server>
 		<maven.resources.version>3.0.2</maven.resources.version>
