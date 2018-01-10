@@ -48,7 +48,6 @@
 			<post>units-users@googlegroups.com</post>
 		</mailingList>
 	</mailingLists>
-
 	<scm>
 		<connection>scm:git:git@github.com:unitsofmeasurement/unit-api.git</connection>
 		<developerConnection>scm:git:git@github.com:unitsofmeasurement/unit-api.git</developerConnection>
@@ -66,7 +65,8 @@
 		<maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
 		<compile.exclude.files>module-info.java</compile.exclude.files>
-
+		<thisYear>2018</thisYear>
+		
 		<!-- Plugins -->
 		<felix.version>3.4.0</felix.version>
 		<github.maven.version>0.12</github.maven.version>
@@ -501,10 +501,10 @@
 				<groupId>com.mycila</groupId>
 				<artifactId>license-maven-plugin</artifactId>
 				<configuration>
-					<header>src/etc/header.txt</header>
+					<header>src/main/config/header.txt</header>
 					<properties>
-						<owner>Jean-Marie Dautelle, Werner Keil, V2COM</owner>
-						<currentYear>2016</currentYear>
+						<owner>${project.organization.name}</owner>
+						<currentYear>${thisYear}</currentYear>
 					</properties>
 					<excludes>
 						<exclude>**/pom.xml</exclude>
@@ -512,6 +512,7 @@
 						<exclude>**/settings.xml</exclude>
 						<exclude>src/test/resources/**</exclude>
 						<exclude>src/main/resources/**</exclude>
+						<exclude>src/main/config/**</exclude>
 						<exclude>src/main/emf/**</exclude>
 						<exclude>src/site/**</exclude>
 						<exclude>src/etc/**</exclude>
@@ -521,7 +522,7 @@
 						<exclude>*.yml</exclude>
 					</excludes>
 					<headerDefinitions>
-						<headerDefinition>src/etc/headers.xml</headerDefinition>
+						<headerDefinition>src/main/config/headers.xml</headerDefinition>
 					</headerDefinitions>
 					<mapping>
 						<java>JAVA_STYLE</java>
@@ -536,7 +537,7 @@
 				<groupId>net.revelc.code</groupId>
 				<artifactId>formatter-maven-plugin</artifactId>
 				<configuration>
-					<configFile>${project.basedir}/src/etc/eclipse-formatter-config.xml</configFile>
+					<configFile>${project.basedir}/src/main/config/eclipse-formatter-config.xml</configFile>
 				</configuration>
 				<executions>
 					<execution>
@@ -627,7 +628,7 @@
 							<artifactId>maven-checkstyle-plugin</artifactId>
 							<version>2.12.1</version>
 							<configuration>
-								<configLocation>src/etc/checkstyle.xml</configLocation>
+								<configLocation>src/main/config/checkstyle.xml</configLocation>
 							</configuration>
 						</plugin>
 					</reportPlugins>
@@ -649,9 +650,9 @@
 			<url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
 		</snapshotRepository>
 		<site>
-			<id>JSR-363</id>
-			<name>JSR-363 Maven reports</name>
-			<url>file:///var/www/www.unitsofmeasurement.org/jsr-363</url>
+			<id>JSR-385</id>
+			<name>JSR-385 Maven reports</name>
+			<url>file:///var/www/www.unitsofmeasurement.org/jsr-385</url>
 			<!-- No longer active, just a placeholder! -->
 		</site>
 	</distributionManagement>
