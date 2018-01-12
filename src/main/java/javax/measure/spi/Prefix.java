@@ -38,7 +38,7 @@ import javax.measure.UnitConverter;
  * @see <a href="http://en.wikipedia.org/wiki/Unit_prefix">Wikipedia: Unit Prefix</a>
  * @see <a href="http://en.wikipedia.org/wiki/Metric_prefix">Wikipedia: Metric Prefix</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.3, 2017-12-29
+ * @version 0.4, 2018-01-12
  */
 interface Prefix {
   // TODO consider pulling SymbolSupplier and maybe UnitConverterSupplier into the API
