@@ -40,7 +40,7 @@ import javax.measure.UnitConverter;
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 0.4, 2018-01-12
  */
-interface Prefix {
+public interface Prefix {
   // TODO consider pulling SymbolSupplier and maybe UnitConverterSupplier into the API
 
   /**
