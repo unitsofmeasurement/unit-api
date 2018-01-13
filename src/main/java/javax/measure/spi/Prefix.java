@@ -36,9 +36,9 @@ import javax.measure.UnitConverter;
  * A unit prefix is a specifier or mnemonic that is prepended to units of measurement to indicate multiples or fractions of the units.
  * 
  * @see <a href="http://en.wikipedia.org/wiki/Unit_prefix">Wikipedia: Unit Prefix</a>
- * @see <a href="http://en.wikipedia.org/wiki/Metric_prefix">Wikipedia: Metric Prefix</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.4, 2018-01-12
+ * @version 0.5, 2018-01-13
+ * @since 2.0
  */
 public interface Prefix {
   // TODO consider pulling SymbolSupplier and maybe UnitConverterSupplier into the API
@@ -51,7 +51,7 @@ public interface Prefix {
   public String getSymbol();
 
   /**
-   * Returns the corresponding unit converter.
+   * Returns the corresponding {@link UnitConverter}.
    *
    * @return the unit converter.
    */
