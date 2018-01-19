@@ -41,12 +41,10 @@ import javax.measure.format.UnitFormat;
  * Provides a simple interface for formatting and parsing {@linkplain Unit units}.
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.4.1
+ * @version 0.5
  */
 public class SimpleTestUnitFormat extends TestUnitFormat {
-  // private static final long serialVersionUID = -7753687108842507677L;
-
-  private final Map<String, String> symbolMap = new HashMap<String, String>();
+  private final Map<String, String> symbolMap = new HashMap<>();
 
   private static final TestUnitFormat DEFAULT = new SimpleTestUnitFormat();
 
@@ -75,12 +73,7 @@ public class SimpleTestUnitFormat extends TestUnitFormat {
   // //////////////
   public Appendable format(final Unit<?> unit, final Appendable appendable) throws IOException {
     CharSequence symbol;
-    // CharSequence annotation = null;
-    // if (unit instanceof AnnotatedUnit<?>) {
-    // AnnotatedUnit<?> annotatedUnit = (AnnotatedUnit<?>) unit;
-    // unit = annotatedUnit.getActualUnit();
-    // annotation = annotatedUnit.getAnnotation();
-    // }
+    @SuppressWarnings("unlikely-arg-type")
     String mapSymbol = symbolMap.get(unit);
     if (mapSymbol != null) {
       symbol = mapSymbol;
@@ -90,9 +83,6 @@ public class SimpleTestUnitFormat extends TestUnitFormat {
           "(see UnitFormat.SymbolMap)"); //$NON-NLS-1$
     }
     appendable.append(symbol);
-    // if (annotation != null && annotation.length() > 0) {
-    // appendAnnotation(unit, symbol, annotation, appendable);
-    // }
     return appendable;
   }
 
@@ -124,7 +114,6 @@ public class SimpleTestUnitFormat extends TestUnitFormat {
   void formatConverter(final UnitConverter converter, final boolean continued, final StringBuffer buffer) {
     boolean unitIsExpression = ((buffer.indexOf(".") >= 0) || (buffer //$NON-NLS-1$
         .indexOf("/") >= 0)); //$NON-NLS-1$
-    // Prefix prefix = symbolMap.getPrefixObject(converter);
     String prefix = "";
     if ((prefix != null) && (!unitIsExpression)) {
       buffer.insert(0, symbolMap.get(prefix));

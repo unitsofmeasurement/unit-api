@@ -44,7 +44,7 @@ import org.junit.Test;
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  *
  */
-public class QuantityFormatTests {
+public class QuantityFormatTest {
   private Quantity<Length> sut;
   private QuantityFormat format;
 
@@ -56,9 +56,9 @@ public class QuantityFormatTests {
 
   @Test
   public void testParseSimple() {
-    Quantity<?> q = format.parse("1 s");
+    Quantity<?> q = format.parse("1 m");
     assertNotNull(q);
-    assertEquals("one", q.getUnit().getSymbol()); // TODO check why this is not s?
+    assertEquals("m", q.getUnit().getSymbol());
     assertEquals(1d, q.getValue());
   }
 

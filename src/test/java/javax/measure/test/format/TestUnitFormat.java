@@ -30,25 +30,21 @@
 package javax.measure.test.format;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.measure.Unit;
 import javax.measure.format.ParserException;
 import javax.measure.format.UnitFormat;
 import javax.measure.test.TestUnit;
+import javax.measure.test.unit.DistanceUnit;
 
 /**
  * Provides the interface for formatting and parsing {@linkplain Unit units}.
  *
  * <p>
- * The {@linkplain #getInstance standard} instance recognizes all metric units and the 20 SI prefixes used to form decimal multiples and some
- * customary units. For example:
+ * The {@linkplain #getInstance standard} instance recognizes all metric units.
  * </p>
- *
- * <code>
- *     TestUnitFormat.getInstance().parse("kW").equals(KILO(WATT))<br>
- *     TestUnitFormat.getInstance().parse("[ft_i]").equals(METRE.multiply(3048).divide(10000))<br>
- *     TestUnitFormat.getInstance().parse("ft").equals(METRE.multiply(3048).divide(10000))
- * </code>
  *
  * <p>
  * OSGi bundles should use {@link javax.measure.format.UnitFormat} to parse/format {@linkplain #getInstance() standard} units.
@@ -56,13 +52,14 @@ import javax.measure.test.TestUnit;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.9
+ * @version 1.0
  *
  */
 abstract class TestUnitFormat implements UnitFormat {
-
-  /** The serialVersionUID */
-  // private static final long serialVersionUID = 7765623276257908888L;
+  /**
+   * Holds the unique symbols collection.
+   */
+  private static final Map<String, Unit<?>> SYMBOL_TO_UNIT = new HashMap<>();
 
   /**
    * Returns the unit format for the default locale.
@@ -77,6 +74,7 @@ abstract class TestUnitFormat implements UnitFormat {
    * Base constructor.
    */
   protected TestUnitFormat() {
+    SYMBOL_TO_UNIT.put("m", DistanceUnit.m);
   }
 
   /**
@@ -98,6 +96,10 @@ abstract class TestUnitFormat implements UnitFormat {
     int end = csq.length();
     if (end <= start) {
       return TestUnit.ONE;
+    }
+    final Unit<?> result = SYMBOL_TO_UNIT.get(csq);
+    if (result != null) {
+      return result;
     }
     throw new ParserException("Error", csq, index);
   }

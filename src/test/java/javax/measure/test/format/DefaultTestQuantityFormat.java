@@ -95,8 +95,9 @@ class DefaultTestQuantityFormat extends TestQuantityFormat {
       endDecimal++;
     }
     try {
-      Double decimal = new Double(csq.subSequence(startDecimal, endDecimal).toString());
-      Unit unit = SimpleTestUnitFormat.getInstance().parse(csq.subSequence(endDecimal + 1, csq.length() - 1).toString());
+      final Double decimal = new Double(csq.subSequence(startDecimal, endDecimal).toString());
+      final String uStr = csq.subSequence(endDecimal + 1, csq.length()).toString();
+      Unit unit = SimpleTestUnitFormat.getInstance().parse(uStr);
       return TestQuantities.getQuantity(decimal, unit);
     } catch (NumberFormatException nfe) {
       throw new ParserException(nfe);
