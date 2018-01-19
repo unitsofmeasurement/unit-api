@@ -31,12 +31,16 @@ package javax.measure.test.quantity;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
+import javax.measure.quantity.Dimensionless;
 import javax.measure.test.TestUnit;
+import javax.measure.test.unit.BaseUnit;
 
 /**
  * @author Werner Keil
  */
-abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>, Comparable<Quantity<Q>> {
+public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>, Comparable<Quantity<Q>> {
+
+  public static final Quantity<Dimensionless> ONE = new DimensionlessQuantity(1d, (BaseUnit) TestUnit.ONE);
 
   protected double scalar; // value in reference units
   protected double units; // value in units (Unit unit)

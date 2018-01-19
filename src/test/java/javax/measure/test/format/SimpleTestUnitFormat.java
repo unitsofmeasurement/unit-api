@@ -43,12 +43,12 @@ import javax.measure.format.UnitFormat;
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 0.4.1
  */
-public class SimpleTestFormat extends TestFormat {
+public class SimpleTestUnitFormat extends TestUnitFormat {
   // private static final long serialVersionUID = -7753687108842507677L;
 
   private final Map<String, String> symbolMap = new HashMap<String, String>();
 
-  private static final TestFormat DEFAULT = new SimpleTestFormat();
+  private static final TestUnitFormat DEFAULT = new SimpleTestUnitFormat();
 
   // /////////////////
   // Class methods //
@@ -67,7 +67,7 @@ public class SimpleTestFormat extends TestFormat {
   /**
    * Base constructor.
    */
-  SimpleTestFormat() {
+  SimpleTestUnitFormat() {
   }
 
   // //////////////

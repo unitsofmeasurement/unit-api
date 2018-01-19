@@ -39,7 +39,7 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.4
+ * @version 0.5
  */
 public class DistanceQuantity extends TestQuantity<Length> implements Length {
 
@@ -48,6 +48,10 @@ public class DistanceQuantity extends TestQuantity<Length> implements Length {
     units = val;
     unit = un;
     scalar = val * unit.getMultFactor();
+  }
+
+  public DistanceQuantity(Number val, Unit un) {
+    this(val.doubleValue(), (DistanceUnit) un);
   }
 
   public DistanceQuantity() {

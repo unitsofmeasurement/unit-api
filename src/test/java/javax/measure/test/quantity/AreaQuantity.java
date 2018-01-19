@@ -52,6 +52,10 @@ public class AreaQuantity extends TestQuantity<Area> implements Area {
     scalar = val * unit.getMultFactor();
   }
 
+  public AreaQuantity(Number val, Unit u) {
+    this(val.doubleValue(), (AreaUnit) u);
+  }
+
   public AreaQuantity add(AreaQuantity d1) {
     AreaQuantity dn = new AreaQuantity();
     Object o = super.add(dn, this, d1, AreaUnit.REF_UNIT);

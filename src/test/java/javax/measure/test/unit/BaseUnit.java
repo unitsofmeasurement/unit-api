@@ -31,8 +31,6 @@ package javax.measure.test.unit;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
-import javax.measure.UnitConverter;
-import javax.measure.test.TestConverter;
 import javax.measure.test.TestUnit;
 
 /**
@@ -47,7 +45,7 @@ import javax.measure.test.TestUnit;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.9
+ * @version 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/SI_base_unit">Wikipedia: SI base unit</a>
  */
