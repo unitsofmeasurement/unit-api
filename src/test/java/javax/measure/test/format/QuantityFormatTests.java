@@ -65,6 +65,7 @@ public class QuantityFormatTests {
   @Test(expected = ParserException.class)
   public void testParseIrregularString() {
     Quantity<?> u = format.parse("bl//^--1a");
+    System.out.println(u);
   }
 
   @Test(expected = ParserException.class)
