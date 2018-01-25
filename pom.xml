@@ -60,11 +60,12 @@
 		<sourceEncoding>UTF-8</sourceEncoding> <!-- in Maven 3. -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${sourceEncoding}</project.reporting.outputEncoding>
-		<jdkVersion>1.7</jdkVersion>
+		<jdkVersion>1.8</jdkVersion>
 		<project.build.javaVersion>${jdkVersion}</project.build.javaVersion>
 		<maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
 		<compile.exclude.files>module-info.java</compile.exclude.files>
+		<additionalparam>-Xdoclint:none</additionalparam>
 		<thisYear>2018</thisYear>
 		
 		<!-- Plugins -->
@@ -621,7 +622,7 @@
 						<plugin>
 							<groupId>org.codehaus.mojo</groupId>
 							<artifactId>findbugs-maven-plugin</artifactId>
-							<version>2.5.5</version>
+							<version>3.0.2</version>
 						</plugin>
 						<plugin>
 							<groupId>org.apache.maven.plugins</groupId>
