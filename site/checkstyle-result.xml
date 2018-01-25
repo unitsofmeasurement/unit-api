@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.7">
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\Dimension.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\format\package-info.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\format\ParserException.java">
+<error line="50" column="3" severity="warning" message="The field &apos;position&apos; must be declared final." source="com.puppycrawl.tools.checkstyle.checks.design.MutableExceptionCheck"/>
+<error line="53" column="3" severity="warning" message="The field &apos;data&apos; must be declared final." source="com.puppycrawl.tools.checkstyle.checks.design.MutableExceptionCheck"/>
+<error line="109" severity="warning" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\format\QuantityFormat.java">
+<error line="36" column="1" severity="warning" message="Redundant import from the same package - javax.measure.format.ParserException." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+<error line="61" column="3" severity="warning" message="Redundant &apos;public&apos; modifier." source="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck"/>
+<error line="75" column="3" severity="warning" message="Redundant &apos;public&apos; modifier." source="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck"/>
+<error line="89" column="3" severity="warning" message="Redundant &apos;public&apos; modifier." source="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck"/>
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\format\UnitFormat.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\IncommensurableException.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\MeasurementException.java">
+<error line="42" column="4" severity="warning" message="Unknown tag &apos;implSpec&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\package-info.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Acceleration.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\AmountOfSubstance.java">
+<error line="44" column="4" severity="warning" message="Unknown tag &apos;apiNote&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Angle.java">
+<error line="47" column="4" severity="warning" message="Unknown tag &apos;apiNote&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Area.java">
+<error line="45" column="4" severity="warning" message="Unknown tag &apos;apiNote&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\CatalyticActivity.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Dimensionless.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\ElectricCapacitance.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\ElectricCharge.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\ElectricConductance.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\ElectricCurrent.java">
+<error line="44" column="4" severity="warning" message="Unknown tag &apos;apiNote&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\ElectricInductance.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\ElectricPotential.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\ElectricResistance.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Energy.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Force.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Frequency.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Illuminance.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Length.java">
+<error line="49" column="4" severity="warning" message="Unknown tag &apos;apiNote&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\LuminousFlux.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\LuminousIntensity.java">
+<error line="44" column="4" severity="warning" message="Unknown tag &apos;apiNote&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\MagneticFlux.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\MagneticFluxDensity.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Mass.java">
+<error line="45" column="4" severity="warning" message="Unknown tag &apos;apiNote&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\package-info.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Power.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Pressure.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\RadiationDoseAbsorbed.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\RadiationDoseEffective.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Radioactivity.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\SolidAngle.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Speed.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Temperature.java">
+<error line="41" column="4" severity="warning" message="Unknown tag &apos;apiNote&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Time.java">
+<error line="48" column="4" severity="warning" message="Unknown tag &apos;apiNote&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\quantity\Volume.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\Quantity.java">
+<error line="40" column="4" severity="warning" message="Unknown tag &apos;apiNote&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\spi\package-info.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\spi\Prefix.java">
+<error line="51" column="3" severity="warning" message="Redundant &apos;public&apos; modifier." source="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck"/>
+<error line="58" column="3" severity="warning" message="Redundant &apos;public&apos; modifier." source="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck"/>
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\spi\QuantityFactory.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\spi\ServiceProvider.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\spi\SystemOfUnits.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\spi\SystemOfUnitsService.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\spi\UnitFormatService.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\UnconvertibleException.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\Unit.java">
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\UnitConverter.java">
+</file>
+</checkstyle>

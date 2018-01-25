@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.1.2" timestamp="2018-01-25T21:13:14.473">
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\format\QuantityFormat.java">
+<violation beginline="36" endline="36" begincolumn="1" endcolumn="44" rule="ImportFromSamePackage" ruleset="Import Statements" package="javax.measure.format" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.2/rules/java/imports.html#ImportFromSamePackage" priority="3">
+No need to import a type that lives in the same package
+</violation>
+<violation beginline="61" endline="61" begincolumn="10" endcolumn="85" rule="UnusedModifier" ruleset="Unused Code" package="javax.measure.format" class="QuantityFormat" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.2/rules/java/unusedcode.html#UnusedModifier" priority="3">
+Avoid modifiers which are implied by the context
+</violation>
+<violation beginline="75" endline="75" begincolumn="10" endcolumn="116" rule="UnusedModifier" ruleset="Unused Code" package="javax.measure.format" class="QuantityFormat" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.2/rules/java/unusedcode.html#UnusedModifier" priority="3">
+Avoid modifiers which are implied by the context
+</violation>
+<violation beginline="89" endline="89" begincolumn="10" endcolumn="68" rule="UnusedModifier" ruleset="Unused Code" package="javax.measure.format" class="QuantityFormat" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.2/rules/java/unusedcode.html#UnusedModifier" priority="3">
+Avoid modifiers which are implied by the context
+</violation>
+</file>
+<file name="C:\Users\werner\git\unit-api\src\main\java\javax\measure\spi\Prefix.java">
+<violation beginline="51" endline="51" begincolumn="10" endcolumn="28" rule="UnusedModifier" ruleset="Unused Code" package="javax.measure.spi" class="Prefix" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.2/rules/java/unusedcode.html#UnusedModifier" priority="3">
+Avoid modifiers which are implied by the context
+</violation>
+<violation beginline="58" endline="58" begincolumn="10" endcolumn="38" rule="UnusedModifier" ruleset="Unused Code" package="javax.measure.spi" class="Prefix" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.1.2/rules/java/unusedcode.html#UnusedModifier" priority="3">
+Avoid modifiers which are implied by the context
+</violation>
+</file>
+</pmd>
