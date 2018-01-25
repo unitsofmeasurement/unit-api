@@ -1,9 +1,7 @@
-#general:
-#  artifacts:
-#    - "target" # files, relative to the build directory
+machine:
+  java:
+    version: oraclejdk8
 test:
-   override:
-     - mvn install
    post:
      - mvn deploy -Dmaven.test.skip -s settings.xml
      - mvn test jacoco:report coveralls:report -DsourceEncoding=UTF-8
