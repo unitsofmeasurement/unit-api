@@ -20,4 +20,4 @@ The interfaces provide a layer which separates client code, that would call the 
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/unitsofmeasurement/unit-api.svg)](http://isitmaintained.com/project/unitsofmeasurement/unit-api "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/unitsofmeasurement/unit-api.svg)](http://isitmaintained.com/project/unitsofmeasurement/unit-api "Percentage of issues still open")
 
-[![Stories in Ready](https://badge.waffle.io/unitsofmeasurement/unit-api.png?label=ready&title=Ready)](https://waffle.io/unitsofmeasurement/unit-api?utm_source=badge)
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/unitsofmeasurement/unit-api.png?columns=all)](https://waffle.io/unitsofmeasurement//unit-api?utm_source=badge)
