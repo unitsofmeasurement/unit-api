@@ -45,7 +45,7 @@ import javax.measure.Unit;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  *
- * @version 1.0, August 8, 2016
+ * @version 1.1, January 26, 2018
  * @since 1.0
  *
  * @see Unit
@@ -108,7 +108,9 @@ public interface UnitFormat {
    *
    * @return Whether this format depends on the locale.
    */
-  boolean isLocaleSensitive();
+  default boolean isLocaleSensitive() {
+	  return false;
+  }
 
   /**
    * Parses the text into an instance of {@link Unit}.

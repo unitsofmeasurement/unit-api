@@ -40,6 +40,12 @@ import javax.measure.format.ParserException;
  * Formats instances of {@link Quantity}.
  * </p>
  *
+ * <h1><a name="synchronization">Synchronization</a></h1>
+ * <p>
+ * Instances of this class are not required to be thread-safe. It is recommended to use separate format instances for each thread. If multiple threads
+ * access a format concurrently, it must be synchronized externally.
+ * <p>
+ *
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 0.3, 26 January, 2018
  * @since 2.0
