@@ -41,7 +41,7 @@ import javax.measure.format.ParserException;
  * </p>
  *
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 0.2, 26 January, 2018
+ * @version 0.3, 26 January, 2018
  * @since 2.0
  * 
  */
@@ -87,4 +87,16 @@ public interface QuantityFormat {
    *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
    */
   public Quantity<?> parse(CharSequence csq) throws ParserException;
+  
+  /**
+   * Returns <code>true</code> if this {@link UnitFormat} depends on a <code>Locale</code> to perform its tasks.
+   * <p>
+   * In environments that do not support a <code>Locale</code>, e.g. Java ME, this usually returns <code>false</code>.
+   * </p>
+   *
+   * @return Whether this format depends on the locale.
+   */
+  default boolean isLocaleSensitive() {
+	  return false;
+  }
 }
