@@ -74,7 +74,7 @@
 		<github.global.server>github</github.global.server>
 		<maven.resources.version>3.0.2</maven.resources.version>
 		<maven.compile.version>3.7.0</maven.compile.version>
-		<maven.site.version>3.6</maven.site.version>
+		<maven.site.version>3.7</maven.site.version>
 		<maven.jar.version>3.0.2</maven.jar.version>
 		<jacoco.plugin.version>0.7.9</jacoco.plugin.version>
 	</properties>
