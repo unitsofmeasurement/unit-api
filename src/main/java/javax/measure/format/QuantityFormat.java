@@ -37,11 +37,11 @@ import javax.measure.format.ParserException;
 
 /**
  * <p>
- * Formats instances of {@link Quantity Quantity}.
+ * Formats instances of {@link Quantity}.
  * </p>
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.1, $Date: 2018-01-18 $
+ * @version 0.2, 26 January, 2018
  * @since 2.0
  * 
  */
@@ -61,28 +61,28 @@ public interface QuantityFormat {
   public Appendable format(Quantity<?> quantity, Appendable dest) throws IOException;
 
   /**
-   * Parses a portion of the specified <code>CharSequence</code> from the specified position to produce an object. If parsing succeeds, then the index
-   * of the <code>cursor</code> argument is updated to the index after the last character used.
+   * Parses a portion of the specified <code>CharSequence</code> from the specified position to produce a {@link Quantity}. If parsing succeeds, then
+   * the index of the <code>cursor</code> argument is updated to the index after the last character used.
    *
    * @param csq
    *          the <code>CharSequence</code> to parse.
    * @param cursor
    *          the cursor holding the current parsing index.
-   * @return the object parsed from the specified character sub-sequence.
+   * @return the quantity parsed from the specified character sub-sequence.
    * @throws IllegalArgumentException
    *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
    */
   public Quantity<?> parse(CharSequence csq, ParsePosition cursor) throws IllegalArgumentException, ParserException;
 
   /**
-   * Parses a portion of the specified <code>CharSequence</code> from the specified position to produce an object. If parsing succeeds, then the index
-   * of the <code>cursor</code> argument is updated to the index after the last character used.
+   * Parses a portion of the specified <code>CharSequence</code> from the specified position to produce a {@link Quantity}. If parsing succeeds, then
+   * the index of the <code>cursor</code> argument is updated to the index after the last character used.
    *
    * @param csq
    *          the <code>CharSequence</code> to parse.
    * @param cursor
    *          the cursor holding the current parsing index.
-   * @return the object parsed from the specified character sub-sequence.
+   * @return the quantity parsed from the specified character sub-sequence.
    * @throws IllegalArgumentException
    *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
    */
