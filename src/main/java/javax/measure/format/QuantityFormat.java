@@ -89,7 +89,7 @@ public interface QuantityFormat {
   public Quantity<?> parse(CharSequence csq) throws ParserException;
   
   /**
-   * Returns <code>true</code> if this {@link UnitFormat} depends on a <code>Locale</code> to perform its tasks.
+   * Returns <code>true</code> if this {@link QuantityFormat} depends on a <code>Locale</code> to perform its tasks.
    * <p>
    * In environments that do not support a <code>Locale</code>, e.g. Java ME, this usually returns <code>false</code>.
    * </p>
