@@ -40,7 +40,7 @@ import javax.measure.format.ParserException;
  * Formats instances of {@link Quantity}.
  * </p>
  *
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 0.2, 26 January, 2018
  * @since 2.0
  * 
