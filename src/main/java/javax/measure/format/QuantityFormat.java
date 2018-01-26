@@ -44,6 +44,7 @@ import javax.measure.format.ParserException;
  * @version 0.3, 26 January, 2018
  * @since 2.0
  * 
+ * @see Quantity
  */
 public interface QuantityFormat {
 
