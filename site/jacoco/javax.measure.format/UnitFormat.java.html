@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UnitFormat.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure.format</a> &gt; <span class="el_source">UnitFormat.java</span></div><h1>UnitFormat.java</h1><pre class="source lang-java linenums">/*
+ * Units of Measurement API
+ * Copyright (c) 2014-2018, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ *
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+ *    and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of JSR-385 nor the names of its contributors may be used to endorse or promote products
+ *    derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+package javax.measure.format;
+
+import java.io.IOException;
+
+import javax.measure.Unit;
+
+/**
+ * Formats instances of {@link Unit} to a {@link String} or {@link Appendable} and parses a {@link CharSequence} to a {@link Unit}.
+ *
+ * &lt;h1&gt;&lt;a name=&quot;synchronization&quot;&gt;Synchronization&lt;/a&gt;&lt;/h1&gt;
+ * &lt;p&gt;
+ * Instances of this class are not required to be thread-safe. It is recommended to use separate format instances for each thread. If multiple threads
+ * access a format concurrently, it must be synchronized externally.
+ * &lt;p&gt;
+ *
+ * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;&gt;Jean-Marie Dautelle&lt;/a&gt;
+ * @author &lt;a href=&quot;mailto:werner@uom.technology&quot;&gt;Werner Keil&lt;/a&gt;
+ *
+ * @version 1.1, January 26, 2018
+ * @since 1.0
+ *
+ * @see Unit
+ */
+public interface UnitFormat {
+  /**
+   * Formats the specified {@link Unit}.
+   *
+   * @param unit
+   *          the {@link Unit} to format, not {@code null}
+   * @param appendable
+   *          the appendable destination.
+   * @return the appendable destination passed in with formatted text appended.
+   * @throws IOException
+   *           if an error occurs while writing to the destination.
+   */
+  Appendable format(Unit&lt;?&gt; unit, Appendable appendable) throws IOException;
+
+  /**
+   * Formats the specified {@link Unit}.
+   *
+   * @param unit
+   *          the {@link Unit} to format, not {@code null}
+   * @return the string representation using the settings of this {@link UnitFormat}.
+   */
+  String format(Unit&lt;?&gt; unit);
+
+  /**
+   * Attaches a system-wide label to the specified unit.
+   * &lt;p&gt;
+   * If the specified label is already associated to a unit the previous association can be discarded or ignored. Depending on the {@link UnitFormat}
+   * implementation, this call may be ignored if the particular unit already has a label.
+   * &lt;/p&gt;
+   * If a {@link UnitFormat} implementation is explicitly &lt;b&gt;immutable&lt;/b&gt;, similar to e.g. the result of &lt;tt&gt;Collections.unmodifiableList()&lt;/tt&gt;,
+   * then an {@linkplain UnsupportedOperationException} may be thrown upon this call.
+   * &lt;p&gt;
+   * Since &lt;tt&gt;UnitFormat&lt;/tt&gt; implementations often apply the Singleton pattern, &lt;b&gt;system-wide&lt;/b&gt; means, the label applies to every instance of
+   * &lt;tt&gt;UnitFormatA&lt;/tt&gt; implementing &lt;tt&gt;UnitFormat&lt;/tt&gt; in this case, but not every instance of &lt;tt&gt;UnitFormatB&lt;/tt&gt; or &lt;tt&gt;UnitFormatC&lt;/tt&gt; both
+   * also implementing &lt;tt&gt;UnitFormat&lt;/tt&gt;. If a &lt;tt&gt;UnitFormat&lt;/tt&gt; #isLocaleSensitive() it is up to the implementation, whether the label is
+   * ignored, applied in a local-neutral manner (in addition to its local-sensitive information) or locale-specific.
+   * &lt;/p&gt;
+   *
+   * @param unit
+   *          the unit being labeled.
+   * @param label
+   *          the new label for this unit.
+   * @throws IllegalArgumentException
+   *           if the label is not a valid identifier. This may include characters not supported by a particular {@link UnitFormat} implementation
+   *           (e.g. only &lt;b&gt;ASCII&lt;/b&gt; characters for certain devices)
+   * @throws UnsupportedOperationException
+   *           if the &lt;tt&gt;label&lt;/tt&gt; operation is not supported by this {@link UnitFormat}
+   */
+  void label(Unit&lt;?&gt; unit, String label);
+
+  /**
+   * Returns &lt;code&gt;true&lt;/code&gt; if this {@link UnitFormat} depends on a &lt;code&gt;Locale&lt;/code&gt; to perform its tasks.
+   * &lt;p&gt;
+   * In environments that do not support a &lt;code&gt;Locale&lt;/code&gt;, e.g. Java ME, this usually returns &lt;code&gt;false&lt;/code&gt;.
+   * &lt;/p&gt;
+   *
+   * @return Whether this format depends on the locale.
+   */
+  default boolean isLocaleSensitive() {
+<span class="nc" id="L112">	  return false;</span>
+  }
+
+  /**
+   * Parses the text into an instance of {@link Unit}.
+   * &lt;p&gt;
+   * The parse must complete normally and parse the entire text. If the parse completes without reading the entire length of the text, an exception is
+   * thrown. If any other problem occurs during parsing, an exception is thrown.
+   * &lt;p&gt;
+   *
+   * @param csq
+   *          the {@code CharSequence} to parse.
+   * @return the unit parsed from the specified character sequence.
+   * @throws ParserException
+   *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
+   * @throws UnsupportedOperationException
+   *           if the {@link UnitFormat} is unable to parse.
+   */
+  Unit&lt;?&gt; parse(CharSequence csq) throws ParserException;
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
