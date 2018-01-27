@@ -6,7 +6,7 @@
 	<version>2.0-SNAPSHOT</version>
 	<name>Units of Measurement API</name>
 	<packaging>bundle</packaging>
-	<url>http://unitsofmeasurement.github.io/</url>
+	<url>http://unitsofmeasurement.github.io/unit-api/</url>
 	<description>Units of Measurement Standard - This JSR specifies Java packages for modeling and working with measurement values, quantities and their corresponding units.</description>
 	<organization>
 		<name>Jean-Marie Dautelle, Werner Keil, Otavio Santana</name>
@@ -67,7 +67,7 @@
 		<compile.exclude.files>module-info.java</compile.exclude.files>
 		<additionalparam>-Xdoclint:none</additionalparam>
 		<thisYear>2018</thisYear>
-		
+
 		<!-- Plugins -->
 		<felix.version>3.4.0</felix.version>
 		<github.maven.version>0.12</github.maven.version>
@@ -76,6 +76,7 @@
 		<maven.compile.version>3.7.0</maven.compile.version>
 		<maven.site.version>3.7</maven.site.version>
 		<maven.jar.version>3.0.2</maven.jar.version>
+		<maven.javadoc.version>3.0.0-M1</maven.javadoc.version>
 		<jacoco.plugin.version>0.7.9</jacoco.plugin.version>
 	</properties>
 
@@ -166,40 +167,6 @@
 				<role>Java Developer</role>
 			</roles>
 		</developer>
-		<developer>
-			<id>rajmahendra</id>
-			<name>Rajmahendra Hegde</name>
-			<email>rajmahendra@gmail.com</email>
-			<organization>JUG Chennai</organization>
-			<timezone>+5.5</timezone>
-			<roles>
-				<role>Expert</role>
-				<role>Java Developer</role>
-			</roles>
-		</developer>
-		<developer>
-			<id>karen_legrand</id>
-			<name>Karen Legrand</name>
-			<email>karen.legrand@iem.com</email>
-			<organization>Innovation Emergency Management (IEM)</organization>
-			<organizationUrl>http://www.iem.com</organizationUrl>
-			<timezone>-5</timezone>
-			<roles>
-				<role>Expert</role>
-				<role>Java Developer</role>
-			</roles>
-		</developer>
-		<developer>
-			<id>mohamed-taman</id>
-			<name>Mohamed Mahmoud Taman</name>
-			<email>mohamed.taman@gmail.com</email>
-			<organization>Individual / Morocco JUG</organization>
-			<timezone>+2</timezone>
-			<roles>
-				<role>Expert</role>
-				<role>Java Developer</role>
-			</roles>
-		</developer>
 	</developers>
 	<contributors>
 		<contributor>
@@ -209,6 +176,37 @@
 			<timezone>+10</timezone>
 			<roles>
 				<role>Contributor</role>
+			</roles>
+		</contributor>
+		<contributor>
+			<!-- id>rajmahendra</id -->
+			<name>Rajmahendra Hegde</name>
+			<email>rajmahendra@gmail.com</email>
+			<organization>JUG Chennai</organization>
+			<timezone>+5.5</timezone>
+			<roles>
+				<role>Java Developer</role>
+			</roles>
+		</contributor>
+		<contributor>
+			<!-- id>karen_legrand</id -->
+			<name>Karen Legrand</name>
+			<email>karen.legrand@iem.com</email>
+			<organization>Innovation Emergency Management (IEM)</organization>
+			<organizationUrl>http://www.iem.com</organizationUrl>
+			<timezone>-5</timezone>
+			<roles>
+				<role>Java Developer</role>
+			</roles>
+		</contributor>
+		<contributor>
+			<!-- id>mohamed-taman</id -->
+			<name>Mohamed Mahmoud Taman</name>
+			<email>mohamed.taman@gmail.com</email>
+			<organization>Individual / Morocco JUG</organization>
+			<timezone>+2</timezone>
+			<roles>
+				<role>Java Developer</role>
 			</roles>
 		</contributor>
 		<contributor>
@@ -414,7 +412,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.0.0-M1</version>
+				<version>${maven.javadoc.version}</version>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -446,7 +444,6 @@
 						<exclude>**/module-info.java</exclude>
 					</sourceFileExcludes>
 				</configuration>
-
 			</plugin>
 
 			<!-- JAR packaging -->
@@ -554,89 +551,84 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
 				<version>${maven.site.version}</version>
-				<configuration>
-					<locales>en</locales>
-					<inputEncoding>${project.build.sourceEncoding}</inputEncoding>
-					<outputEncoding>UTF-8</outputEncoding>
-					<skipDeploy>true</skipDeploy>
-					<reportPlugins>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-project-info-reports-plugin</artifactId>
-							<version>2.7</version>
-							<reportSets>
-								<reportSet>
-									<reports>
-										<report>index</report>
-										<report>summary</report>
-										<report>license</report>
-										<report>scm</report>
-										<report>cim</report>
-										<report>project-team</report>
-										<report>mailing-list</report>
-										<report>issue-tracking</report>
-									</reports>
-								</reportSet>
-							</reportSets>
-						</plugin>
-
-						<!-- Javadoc generation -->
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-javadoc-plugin</artifactId>
-							<version>2.9.1</version>
-							<configuration>
-								<source>${maven.compile.sourceLevel}</source>
-								<encoding>${project.build.sourceEncoding}</encoding>
-								<docencoding>${project.reporting.outputEncoding}</docencoding>
-								<charset>${project.reporting.outputEncoding}</charset>
-								<locale>en</locale>
-								<noqualifier>all</noqualifier>
-								<quiet>true</quiet>
-								<keywords>true</keywords>
-								<links>
-									<link>http://docs.oracle.com/javase/8/docs/api/</link>
-								</links>
-							</configuration>
-						</plugin>
-
-						<!-- Code analysis -->
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-pmd-plugin</artifactId>
-							<version>3.2</version>
-							<configuration>
-								<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
-								<targetJdk>${project.build.javaVersion}</targetJdk>
-							</configuration>
-						</plugin>
-
-						<!-- Report on test results -->
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-surefire-report-plugin</artifactId>
-							<version>2.17</version>
-						</plugin>
-
-						<!-- Static analysis for occurrences of bug patterns -->
-						<plugin>
-							<groupId>org.codehaus.mojo</groupId>
-							<artifactId>findbugs-maven-plugin</artifactId>
-							<version>3.0.2</version>
-						</plugin>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-checkstyle-plugin</artifactId>
-							<version>2.12.1</version>
-							<configuration>
-								<configLocation>src/main/config/checkstyle.xml</configLocation>
-							</configuration>
-						</plugin>
-					</reportPlugins>
-				</configuration>
+				<!-- <configuration> <locales>en</locales> <inputEncoding>${project.build.sourceEncoding}</inputEncoding> 
+					<outputEncoding>UTF-8</outputEncoding> <skipDeploy>true</skipDeploy> <reportPlugins> 
+					</reportPlugins> </configuration> -->
 			</plugin>
 		</plugins>
 	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.9</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>index</report>
+							<report>summary</report>
+							<report>license</report>
+							<report>scm</report>
+							<report>cim</report>
+							<report>project-team</report>
+							<report>mailing-list</report>
+							<report>issue-tracking</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+
+			<!-- Javadoc generation -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven.javadoc.version}</version>
+				<configuration>
+					<source>${maven.compile.sourceLevel}</source>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<docencoding>${project.reporting.outputEncoding}</docencoding>
+					<charset>${project.reporting.outputEncoding}</charset>
+					<locale>en</locale>
+					<noqualifier>all</noqualifier>
+					<quiet>true</quiet>
+					<keywords>true</keywords>
+					<links>
+						<link>http://docs.oracle.com/javase/8/docs/api/</link>
+					</links>
+				</configuration>
+			</plugin>
+
+			<!-- Code analysis -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.8</version>
+				<configuration>
+					<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+					<targetJdk>${project.build.javaVersion}</targetJdk>
+				</configuration>
+			</plugin>
+
+			<!-- Report on test results -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.20.1</version>
+			</plugin>
+
+			<!-- Static analysis for occurrences of bug patterns -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>3.0.5</version>
+			</plugin>
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-checkstyle-plugin</artifactId> 
+				<version>3.0.0</version> <configuration> <configLocation>src/main/config/checkstyle.xml</configLocation> 
+				</configuration> </plugin> -->
+		</plugins>
+	</reporting>
 
 	<!-- Deployment to public servers -->
 	<distributionManagement>
@@ -653,7 +645,7 @@
 		<site>
 			<id>JSR-385</id>
 			<name>JSR-385 Maven reports</name>
-			<url>file:///var/www/www.unitsofmeasurement.org/jsr-385</url>
+			<url>file:///var/www/www.unitsofmeasurement.github.io/jsr-385</url>
 			<!-- No longer active, just a placeholder! -->
 		</site>
 	</distributionManagement>
@@ -692,6 +684,29 @@
 				<jdkVersion>9</jdkVersion>
 				<compile.exclude.files>none</compile.exclude.files>
 			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<version>3.0.0</version>
+						<executions>
+							<execution>
+								<id>add-source</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>add-source</goal>
+								</goals>
+								<configuration>
+									<sources>
+										<source>src/main/java9</source>
+									</sources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
 		</profile>
 
 		<!-- Individual JARs -->

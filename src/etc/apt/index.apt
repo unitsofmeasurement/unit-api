@@ -1,21 +1,27 @@
-
+~~ 
+~~ JSR-363 - Units of Measurement API for Java (http://unitsofmeasurement.github.io)
+~~ Copyright (c) 2014-2016, Jean-Marie Dautelle, Werner Keil, V2COM
+~~ All rights reserved.
+~~
+~~ See LICENSE.txt for details.
+~~
                     -----------------------------------------------------
                     Unit API home page
                     -----------------------------------------------------
-                    Jean-Marie Dautelle, Werner Keil, Otavio Santana
+                    Jean-Marie Dautelle, Werner Keil, V2COM
                     -----------------------------------------------------
-                    2018-01-27
+                    $Date: 2017-05-14 $
                     -----------------------------------------------------
 
 
 The Units of Measurement API for Java
 
-[./images/duke.png] Logo
+[./images/icon.png] Logo
 
   Units of Measurement Standard - This JSR specifies Java packages for modeling and working with measurement values,
   quantities and their corresponding units.
 
-  Copyright 2014-2018 Jean-Marie Dautelle, Werner Keil, Otavio Santana
+  Copyright 2014-2016 Jean-Marie Dautelle, Werner Keil, V2COM
   All rights reserved. 
 
   See {{{./license.html}license}} for details.
@@ -29,7 +35,7 @@ The Units of Measurement API for Java
 
 * Links
 
-    * {{{https://jcp.org/en/jsr/detail?id=385}JSR-385 Units of Measurement 2.0 Detail page}}
+    * {{{https://jcp.org/en/jsr/detail?id=363}JSR-363 Units of Measurement Detail page}}
 
     * {{{./apidocs/index.html}Browse javadoc}}
 
