@@ -33,6 +33,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.measure.MeasurementException;
 import javax.measure.Unit;
 import javax.measure.format.ParserException;
 import javax.measure.format.UnitFormat;
@@ -52,7 +53,7 @@ import javax.measure.test.unit.DistanceUnit;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.0
+ * @version 1.1
  *
  */
 abstract class TestUnitFormat implements UnitFormat {
@@ -133,13 +134,13 @@ abstract class TestUnitFormat implements UnitFormat {
       try {
         return format((TestUnit<?>) unit, new StringBuilder()).toString();
       } catch (IOException ex) {
-        throw new ParserException(ex); // Should never happen.
+        throw new MeasurementException(ex); // Should never happen.
       }
     } else {
       try {
         return (this.format(unit, new StringBuilder())).toString();
       } catch (IOException ex) {
-        throw new ParserException(ex); // Should never happen.
+        throw new MeasurementException(ex); // Should never happen.
       }
     }
   }
