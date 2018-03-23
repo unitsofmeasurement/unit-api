@@ -116,9 +116,10 @@ public interface Quantity<Q extends Quantity<Q>> {
   Quantity<Q> multiply(Number multiplier);
 
   /**
-   * Returns a {@code Quantity} whose unit is {@code unit.inverse()}.
+   * Returns a {@code Quantity} that is the multiplicative inverse of this {@code Quantity}, 
+   * having reciprocal value and reciprocal unit as given by {@code this.getUnit().inverse()}.
    *
-   * @return {@code Quantity with this.getUnit().inverse()}.
+   * @return reciprocal {@code Quantity}
    */
   Quantity<?> inverse();
 
