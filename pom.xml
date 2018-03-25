@@ -121,19 +121,6 @@
 			</roles>
 		</developer>
 		<developer>
-			<id>leomrlima</id>
-			<name>Leonardo de Moura Rocha Lima</name>
-			<email>llima@v2com.mobi</email>
-			<organization>V2COM</organization>
-			<organizationUrl>http://www.v2com.mobi/</organizationUrl>
-			<timezone>-5</timezone>
-			<roles>
-				<role>Architect</role>
-				<role>Java Developer</role>
-				<role>Expert</role>
-			</roles>
-		</developer>
-		<developer>
 			<id>desruisseaux</id>
 			<name>Martin Desruisseaux</name>
 			<email>martin.desruisseaux@geomatys.com</email>
@@ -147,21 +134,20 @@
 			</roles>
 		</developer>
 		<developer>
-			<id>eralmas7</id>
-			<name>Almas Shaikh</name>
-			<email>eralmas7@yahoo.com</email>
-			<organization>Individual / JP Morgan</organization>
-			<timezone>+5.5</timezone>
-			<roles>
-				<role>Expert</role>
-				<role>Test Engineer</role>
-			</roles>
-		</developer>
-		<developer>
 			<id>duckasteroid</id>
 			<name>Chris Senior</name>
 			<email>christopher.senior@gmail.com</email>
 			<organization>Snap-on Inc.</organization>
+			<roles>
+				<role>Expert</role>
+				<role>Java Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>jhg023</id>
+			<name>Jacob Glickman</name>
+			<organization>Individual</organization>
+			<timezone>-4</timezone>
 			<roles>
 				<role>Expert</role>
 				<role>Java Developer</role>
@@ -176,6 +162,28 @@
 			<timezone>+10</timezone>
 			<roles>
 				<role>Contributor</role>
+			</roles>
+		</contributor>
+		<contributor>
+			<!-- id>leomrlima</id -->
+			<name>Leonardo de Moura Rocha Lima</name>
+			<email>llima@v2com.mobi</email>
+			<organization>V2COM</organization>
+			<organizationUrl>http://www.v2com.mobi/</organizationUrl>
+			<timezone>-5</timezone>
+			<roles>
+				<role>Architect</role>
+				<role>Java Developer</role>
+			</roles>
+		</contributor>
+		<contributor>
+			<!-- id>eralmas7</id -->
+			<name>Almas Shaikh</name>
+			<email>eralmas7@yahoo.com</email>
+			<organization>Individual / JP Morgan</organization>
+			<timezone>+5.5</timezone>
+			<roles>
+				<role>Test Engineer</role>
 			</roles>
 		</contributor>
 		<contributor>
@@ -374,7 +382,7 @@
 										<limit>
 											<counter>COMPLEXITY</counter>
 											<value>COVEREDRATIO</value>
-											<minimum>0.8</minimum>
+											<minimum>0.7</minimum>
 										</limit>
 									</limits>
 								</rule>
