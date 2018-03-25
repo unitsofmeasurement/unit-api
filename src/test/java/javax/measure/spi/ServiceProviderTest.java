@@ -41,7 +41,7 @@ import javax.measure.Quantity;
 public class ServiceProviderTest {
 
   @Test(expected = NullPointerException.class)
-  public void testSetDefault_Null() {
+  public void testSetDefaultNull() {
     ServiceProvider.setCurrent(null);
   }
 

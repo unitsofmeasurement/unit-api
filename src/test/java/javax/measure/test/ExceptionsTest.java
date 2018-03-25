@@ -39,13 +39,13 @@ import org.junit.Test;
 
 /**
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.0
+ * @version 1.1
  */
 public class ExceptionsTest {
 
   @SuppressWarnings("serial")
   static class TestException extends MeasurementException {
-    public TestException() {
+    TestException() {
       super();
     }
   }

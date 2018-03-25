@@ -49,8 +49,8 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
   protected String symbol; // e.g. "A"
   protected final String name; // e.g. "Angstrom"
   protected double multFactor; // e.g. 1E-10
-  double addFactor = 0.0; // used for temperatures
-  final Dimension dimension = TestDimension.getInstance();
+  private double addFactor = 0.0; // used for temperatures
+  private final Dimension dimension = TestDimension.getInstance();
 
   protected TestUnit() {
     name = "";
