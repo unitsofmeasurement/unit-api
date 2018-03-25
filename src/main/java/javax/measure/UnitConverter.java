@@ -40,7 +40,7 @@ import java.util.List;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.0, August 8, 2016
+ * @version 1.1, March 25, 2018
  * @since 1.0
  * 
  * @see Unit
@@ -53,7 +53,9 @@ public interface UnitConverter {
    *
    * @return {@code true} if this converter is an identity converter.
    */
-  boolean isIdentity();
+  default boolean isIdentity() {
+	  return false;
+  }
 
   /**
    * Indicates if this converter is linear. A converter is linear if:
@@ -75,7 +77,9 @@ public interface UnitConverter {
    *
    * @return {@code true} if this converter is linear; {@code false} otherwise.
    */
-  boolean isLinear();
+  default boolean isLinear() {
+	  return false;
+  }
 
   /**
    * Returns the inverse of this converter. If {@code x} is a valid value, then {@code x == inverse().convert(convert(x))} to within the accuracy of
