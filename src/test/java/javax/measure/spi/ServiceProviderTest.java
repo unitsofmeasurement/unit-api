@@ -64,6 +64,14 @@ public class ServiceProviderTest {
     assertSame(testProv, ServiceProvider.current());
     assertArrayEquals(new ServiceProvider[] { testProv }, ServiceProvider.available().toArray());
   }
+  
+  /**
+   * Tests {@link ServiceProvider#getPriority()}.
+   */
+  @Test
+  public void testPriority() {
+	  assertEquals(0, ServiceProvider.current().getPriority());
+  }
 
   private static final class TestServiceProvider extends ServiceProvider {
 
