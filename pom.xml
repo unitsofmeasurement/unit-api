@@ -559,9 +559,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
 				<version>${maven.site.version}</version>
-				<!-- <configuration> <locales>en</locales> <inputEncoding>${project.build.sourceEncoding}</inputEncoding> 
-					<outputEncoding>UTF-8</outputEncoding> <skipDeploy>true</skipDeploy> <reportPlugins> 
-					</reportPlugins> </configuration> -->
 			</plugin>
 		</plugins>
 	</build>
