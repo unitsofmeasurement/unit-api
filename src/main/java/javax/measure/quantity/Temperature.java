@@ -37,7 +37,7 @@ import javax.measure.Quantity;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @version 1.1
  * @since 1.0
- * 
+ *
  * @apiNote SI Base Unit
  */
 public interface Temperature extends Quantity<Temperature> {

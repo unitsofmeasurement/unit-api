@@ -38,9 +38,9 @@ import javax.measure.Quantity;
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.3
  * @since 1.0
- * 
+ *
  * @see <a href="http://en.wikipedia.org/wiki/Amount_of_substance">Wikipedia: Amount of Substance</a>
- * 
+ *
  * @apiNote SI Base Unit
  */
 public interface AmountOfSubstance extends Quantity<AmountOfSubstance> {

@@ -36,12 +36,12 @@ package javax.measure;
  * <p>
  * This is a <strong>checked</strong> exception, so it deliberately doesn't inherit from <code>MeasurementException</code> like most other exceptions.
  * </p>
- * 
+ *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 1.0, August 8, 2016
  * @since 1.0
- * 
+ *
  * @see <a href="http://en.wikipedia.org/wiki/Unit_commensurability#Commensurability">Wikipedia: Unit Commensurability</a>
  */
 public class IncommensurableException extends Exception {

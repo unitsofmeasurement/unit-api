@@ -1,0 +1,4 @@
+# Explicitly declare text files to always be normalized and converted
+# to native line endings on checkout.
+*.java text
+*.xml text

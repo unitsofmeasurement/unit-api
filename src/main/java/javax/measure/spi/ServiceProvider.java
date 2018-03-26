@@ -144,7 +144,7 @@ public abstract class ServiceProvider {
    * If there are no providers available, an {@linkplain IllegalStateException} is thrown, otherwise the provider with the highest priority is used or
    * the one explicitly designated via {@link #setCurrent(ServiceProvider)} .
    * </p>
-   * 
+   *
    * @return the {@link ServiceProvider} used.
    * @throws IllegalStateException
    *           if no {@link ServiceProvider} has been found.

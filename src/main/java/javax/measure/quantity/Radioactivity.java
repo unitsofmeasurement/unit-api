@@ -33,7 +33,7 @@ import javax.measure.Quantity;
 
 /**
  * Radioactive activity. The metric system unit for this quantity is "Bq" (Becquerel).
- * 
+ *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @author Martin Desruisseaux

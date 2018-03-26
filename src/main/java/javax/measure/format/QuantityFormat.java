@@ -49,7 +49,7 @@ import javax.measure.format.ParserException;
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 0.3, 26 January, 2018
  * @since 2.0
- * 
+ *
  * @see Quantity
  */
 public interface QuantityFormat {
@@ -94,7 +94,7 @@ public interface QuantityFormat {
    *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
    */
   public Quantity<?> parse(CharSequence csq) throws ParserException;
-  
+
   /**
    * Returns <code>true</code> if this {@link QuantityFormat} depends on a <code>Locale</code> to perform its tasks.
    * <p>
@@ -104,6 +104,6 @@ public interface QuantityFormat {
    * @return Whether this format depends on the locale.
    */
   default boolean isLocaleSensitive() {
-	  return false;
+      return false;
   }
 }

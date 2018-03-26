@@ -58,9 +58,9 @@ public class TimeQuantity extends TestQuantity<Time> {
 
   /*
    * Distance(double val) {
-   * 
+   *
    * units = val; unit = m; // reference Unit scalar = val;
-   * 
+   *
    * }
    */
   public TimeQuantity add(TimeQuantity d1) {

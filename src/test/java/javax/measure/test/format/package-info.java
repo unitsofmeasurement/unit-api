@@ -28,10 +28,11 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /**
- * 
+ *
  */
 /**
  * @author Werner
  *
  */
 package javax.measure.test.format;
+

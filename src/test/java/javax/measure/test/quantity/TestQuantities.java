@@ -43,7 +43,7 @@ import javax.measure.test.unit.TimeUnit;
 
 /**
  * Singleton class for accessing {@link Quantity} instances.
- * 
+ *
  * @author werner
  * @author otaviojava
  * @since 1.0
@@ -58,7 +58,7 @@ public final class TestQuantities {
   /**
    * Returns the scalar measurement. When the {@link Number} was {@link BigDecimal} or {@link BigInteger} will uses {@link DecimalQuantity}, when the
    * {@link Number} was {@link Double} will {@link DoubleQuantity} otherwise will {@link NumberQuantity}. in the specified unit.
-   * 
+   *
    * @param value
    *          the measurement value.
    * @param unit

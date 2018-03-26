@@ -54,9 +54,9 @@ public class VolumeQuantity extends TestQuantity<Volume> {
 
   /*
    * Volume(double val) {
-   * 
+   *
    * units = val; unit = cumetre; // reference Unit scalar = val;
-   * 
+   *
    * }
    */
   public VolumeQuantity add(VolumeQuantity d1) {

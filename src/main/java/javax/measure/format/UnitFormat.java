@@ -109,7 +109,7 @@ public interface UnitFormat {
    * @return Whether this format depends on the locale.
    */
   default boolean isLocaleSensitive() {
-	  return false;
+      return false;
   }
 
   /**

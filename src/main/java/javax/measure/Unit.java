@@ -69,7 +69,7 @@ import java.util.Map;
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 1.0.2, December 25, 2017
  * @since 1.0
- * 
+ *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
  */
 public interface Unit<Q extends Quantity<Q>> {

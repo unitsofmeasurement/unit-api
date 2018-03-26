@@ -41,7 +41,7 @@ import javax.measure.Quantity;
  * @since 1.0
  *
  * @see RadiationDoseAbsorbed
- * 
+ *
  * @apiNote SI Base Unit
  */
 public interface Mass extends Quantity<Mass> {
