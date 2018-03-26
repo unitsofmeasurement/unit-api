@@ -29,20 +29,34 @@
  */
 package javax.measure.format;
 
+import javax.measure.MeasurementException;
+
 /**
  * Signals that an error has been reached unexpectedly while parsing.
  *
  * @author Werner Keil
- * @version 1.1, March 27, 2018
- * @since 1.0
- * @deprecated Use MeasurementParseException, this exception will be removed in a future version, it is here for backward compatibility only.
+ * @version 1.0, March 27, 2018
+ * @since 2.0
  */
-public class ParserException extends MeasurementParseException {
-
-  private static final long serialVersionUID = -3179553925611520368L;
+public class MeasurementParseException extends MeasurementException {
 
   /**
-   * Constructs a ParserException with the specified detail message, parsed text and index. A detail message is a String that describes this
+   * 
+   */
+  private static final long serialVersionUID = 2727457045794254852L;
+
+  /**
+   * The zero-based character position in the string being parsed at which the error was found while parsing.
+   *
+   * @serial
+   */
+  private int position;
+
+  /** The original input data. */
+  private CharSequence data;
+
+  /**
+   * Constructs a MeasurementParseException with the specified detail message, parsed text and index. A detail message is a String that describes this
    * particular exception.
    *
    * @param message
@@ -52,29 +66,51 @@ public class ParserException extends MeasurementParseException {
    * @param position
    *          the position where the error was found while parsing.
    */
-  public ParserException(String message, CharSequence parsedData, int position) {
-    super(message, parsedData, position);
+  public MeasurementParseException(String message, CharSequence parsedData, int position) {
+    super(message);
+    this.data = parsedData;
+    this.position = position;
   }
 
   /**
-   * Constructs a ParserException with the parsed text and offset. A detail message is a String that describes this particular exception.
+   * Constructs a MeasurementParseException with the parsed text and offset. A detail message is a String that describes this particular exception.
    *
    * @param parsedData
    *          the parsed text, should not be null
    * @param position
    *          the position where the error is found while parsing.
    */
-  public ParserException(CharSequence parsedData, int position) {
-    super(parsedData, position);
+  public MeasurementParseException(CharSequence parsedData, int position) {
+    this("Parse Error", parsedData, position);
   }
 
   /**
-   * Constructs a ParserException with the specified cause.
+   * Constructs a MeasurementParseException with the specified cause.
    *
    * @param cause
    *          the root cause
    */
-  public ParserException(Throwable cause) {
+  public MeasurementParseException(Throwable cause) {
     super(cause);
+  }
+
+  /**
+   * Returns the position where the error was found.
+   *
+   * @return the position of the error
+   */
+  public int getPosition() {
+    return position;
+  }
+
+  /**
+   * Returns the string that was being parsed.
+   *
+   * @return the parsed string, or {@code null}, if {@code null} was passed as input.
+   */
+  public String getParsedString() {
+    if (data == null)
+      return null;
+    return data.toString();
   }
 }
