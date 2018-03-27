@@ -32,6 +32,7 @@ package javax.measure.test.format;
 import static org.junit.Assert.*;
 
 import javax.measure.Quantity;
+import javax.measure.format.MeasurementParseException;
 import javax.measure.format.ParserException;
 import javax.measure.format.QuantityFormat;
 import javax.measure.quantity.Length;
@@ -63,7 +64,7 @@ public class QuantityFormatTest {
     assertEquals(1d, q.getValue());
   }
 
-  @Test(expected = ParserException.class)
+  @Test(expected = MeasurementParseException.class)
   public void testParseIrregularString() {
     Quantity<?> u = format.parse("bl//^--1a");
     System.out.println(u);

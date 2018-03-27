@@ -32,6 +32,7 @@ package javax.measure.test.format;
 import java.io.IOException;
 
 import javax.measure.Quantity;
+import javax.measure.format.MeasurementParseException;
 import javax.measure.format.ParserException;
 import javax.measure.format.QuantityFormat;
 import javax.measure.test.quantity.TestQuantity;
@@ -71,7 +72,7 @@ abstract class TestQuantityFormat implements QuantityFormat {
    */
   public abstract Appendable format(Quantity<?> Quantity, Appendable appendable) throws IOException;
 
-  protected Quantity<?> parse(CharSequence csq, int index) throws ParserException {
+  protected Quantity<?> parse(CharSequence csq, int index) throws MeasurementParseException {
     // Parsing reads the whole character sequence from the parse position.
     int start = index; // cursor != null ? cursor.getIndex() : 0;
     int end = csq.length();
@@ -91,7 +92,7 @@ abstract class TestQuantityFormat implements QuantityFormat {
    * @throws ParseException
    *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
    */
-  public final Quantity<?> parse(CharSequence csq) throws ParserException {
+  public final Quantity<?> parse(CharSequence csq) throws MeasurementParseException {
     return parse(csq, 0);
   }
 

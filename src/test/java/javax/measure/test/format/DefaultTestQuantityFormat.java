@@ -35,6 +35,7 @@ import java.text.ParsePosition;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
+import javax.measure.format.MeasurementParseException;
 import javax.measure.format.ParserException;
 import javax.measure.format.QuantityFormat;
 import javax.measure.test.TestUnit;
@@ -68,7 +69,7 @@ class DefaultTestQuantityFormat extends TestQuantityFormat {
 
   @SuppressWarnings("unchecked")
   @Override
-  public Quantity<?> parse(CharSequence csq, ParsePosition cursor) throws ParserException {
+  public Quantity<?> parse(CharSequence csq, ParsePosition cursor) throws MeasurementParseException {
     int startDecimal = cursor.getIndex();
     while ((startDecimal < csq.length()) && Character.isWhitespace(csq.charAt(startDecimal))) {
       startDecimal++;
@@ -85,7 +86,7 @@ class DefaultTestQuantityFormat extends TestQuantityFormat {
 
   @SuppressWarnings("unchecked")
   @Override
-  public Quantity<?> parse(CharSequence csq, int index) throws ParserException {
+  public Quantity<?> parse(CharSequence csq, int index) throws MeasurementParseException {
     int startDecimal = index; // cursor.getIndex();
     while ((startDecimal < csq.length()) && Character.isWhitespace(csq.charAt(startDecimal))) {
       startDecimal++;
@@ -100,7 +101,7 @@ class DefaultTestQuantityFormat extends TestQuantityFormat {
       Unit unit = SimpleTestUnitFormat.getInstance().parse(uStr);
       return TestQuantities.getQuantity(decimal, unit);
     } catch (NumberFormatException nfe) {
-      throw new ParserException(nfe);
+      throw new MeasurementParseException(nfe);
     }
   }
 }

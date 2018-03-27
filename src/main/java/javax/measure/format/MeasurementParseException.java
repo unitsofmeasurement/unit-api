@@ -35,7 +35,7 @@ import javax.measure.MeasurementException;
  * Signals that an error has been reached unexpectedly while parsing.
  *
  * @author Werner Keil
- * @version 1.0, March 27, 2018
+ * @version 1.1, March 27, 2018
  * @since 2.0
  */
 public class MeasurementParseException extends MeasurementException {
@@ -92,6 +92,16 @@ public class MeasurementParseException extends MeasurementException {
    */
   public MeasurementParseException(Throwable cause) {
     super(cause);
+  }
+
+  /**
+   * Constructs a MeasurementParseException with the specified detail message.
+   *
+   * @param message
+   *          the detail message
+   */
+  public MeasurementParseException(String message) {
+    super(message);
   }
 
   /**
