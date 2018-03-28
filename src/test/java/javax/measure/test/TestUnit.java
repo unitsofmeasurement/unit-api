@@ -39,6 +39,7 @@ import javax.measure.UnconvertibleException;
 import javax.measure.UnitConverter;
 import javax.measure.quantity.Dimensionless;
 import javax.measure.test.unit.BaseUnit;
+import javax.measure.test.unit.MultiplyConverter;
 
 /**
  * @author Werner Keil
@@ -49,14 +50,14 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
   protected String symbol; // e.g. "A"
   protected final String name; // e.g. "Angstrom"
   protected double multFactor; // e.g. 1E-10
-  private double addFactor = 0.0; // used for temperatures
+  // private double addFactor = 0.0; // used for temperatures
   private final Dimension dimension = TestDimension.getInstance();
 
   protected TestUnit() {
     name = "";
   }
 
-  public TestUnit(String name, double factor) {
+  protected TestUnit(String name, double factor) {
     this.name = name;
     this.multFactor = factor;
   }
@@ -79,18 +80,16 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
     // QuantityFactory.getInstance(type).getMetricUnit();
     // if ((metricUnit == null) || metricUnit.isCompatible(this))
     // return (Unit<T>) this;
-    //      throw new ClassCastException("The unit: " + this //$NON-NLS-1$
-    //              + " is not of parameterized type " + type); //$NON-NLS-1$
+    // throw new ClassCastException("The unit: " + this //$NON-NLS-1$
+    // + " is not of parameterized type " + type); //$NON-NLS-1$
     return null;
   }
 
   public Unit<Q> divide(double divisor) {
-    // TODO Auto-generated method stub
     return null;
   }
 
   public Unit<?> divide(Unit<?> that) {
-    // TODO Auto-generated method stub
     return null;
   }
 
@@ -149,7 +148,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
   }
 
   public Unit<Q> multiply(double factor) {
-    return null;
+    return new BaseUnit(symbol, multFactor * factor);
   }
 
   public Unit<?> multiply(Unit<?> that) {
@@ -177,7 +176,12 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
   }
 
   public Unit<Q> transform(UnitConverter operation) {
-    return null;
+    if (operation instanceof MultiplyConverter) {
+      MultiplyConverter mult = (MultiplyConverter) operation;
+      return this.multiply(mult.getFactor());
+    } else {
+      return this;
+    }
   }
 
   public double getMultFactor() {

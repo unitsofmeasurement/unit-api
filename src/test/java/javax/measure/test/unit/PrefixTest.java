@@ -27,50 +27,29 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package javax.measure.spi;
+package javax.measure.test.unit;
 
-import java.util.Set;
+import javax.measure.Quantity;
+import javax.measure.Unit;
+import javax.measure.quantity.Length;
+import javax.measure.test.TestUnit;
+import javax.measure.test.quantity.DistanceQuantity;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static javax.measure.test.unit.DistanceUnit.m;
+import static javax.measure.test.unit.TestPrefix.*;
 
-import javax.measure.UnitConverter;
-
-/**
- * <p>
- * A unit prefix is a specifier or mnemonic that is prepended to units of measurement to indicate multiples or fractions of the units.
- *
- * @see <a href="http://en.wikipedia.org/wiki/Unit_prefix">Wikipedia: Unit Prefix</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.6, 2018-03-28
- * @since 2.0
- */
-public interface Prefix {
-  // TODO consider pulling SymbolSupplier and maybe UnitConverterSupplier into the API
-
-  /**
-   * Returns the symbol of this prefix.
-   *
-   * @return this prefix symbol, not {@code null}.
-   */
-  public String getSymbol();
-
-  /**
-   * Returns the corresponding {@link UnitConverter}.
-   *
-   * @return the unit converter.
-   */
-  public UnitConverter getConverter();
-
-  /**
-   * Returns a Set containing the values of a particular Prefix type.<br>
-   * This method may be used to iterate over the prefixes as follows:
-   * 
-   * <pre>
-   * <code>
-   *    for(Prefix p : prefix.prefixes())
-   *        System.out.println(p);
-   * </code>
-   * </pre>
-   * 
-   * @return a set containing the constant values of this Prefix type, in the order they're declared
-   */
-  public Set<Prefix> prefixes();
+public class PrefixTest {
+  @Test
+  public void testKilo() {
+    final Quantity<Length> m1 = new DistanceQuantity(1, m);
+    final Unit<Length> km = m.transform(KILO.getConverter());
+    assertEquals("k", KILO.getSymbol());
+    assertEquals(1d, m1.getValue());
+    assertEquals("m", km.toString());
+    if (km instanceof TestUnit) {
+      TestUnit testKm = (TestUnit) km;
+      assertEquals(1000d, testKm.getMultFactor(), 0);
+    }
+  }
 }

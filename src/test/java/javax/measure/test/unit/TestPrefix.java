@@ -29,81 +29,75 @@
  */
 package javax.measure.test.unit;
 
-import javax.measure.Quantity;
-import javax.measure.Unit;
-import javax.measure.test.TestUnit;
+import javax.measure.UnitConverter;
+import javax.measure.spi.Prefix;
+
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.Set;
 
 /**
- * Building blocks on top of which all others units are created. Base units are always unscaled metric units.
- *
  * <p>
- * When using the standard model (default), all seven base units are dimensionally independent.
- * </p>
- *
- * @param <Q>
- *          The type of the quantity measured by this unit.
- *
- * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
+ * This class provides support for some prefixes used in the metric system (decimal multiples and submultiples of units). For example:
+ * 
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.0
- *
- * @see <a href="http://en.wikipedia.org/wiki/SI_base_unit">Wikipedia: SI base unit</a>
+ * @version 1.0, 2018-03-28
+ * @since 2.0
  */
-public class BaseUnit<Q extends Quantity<Q>> extends TestUnit<Q> {
+public enum TestPrefix implements Prefix {
+  MEGA("M", new MultiplyConverter(1E6d)), //
+  KILO("k", new MultiplyConverter(1E3d));
+
   /**
-   * Creates a base unit having the specified symbol.
+   * The symbol of this prefix, as returned by {@link #getSymbol}.
+   *
+   * @serial
+   * @see #getSymbol()
+   */
+  private final String symbol;
+
+  /**
+   * The <code>UnitConverter</code> of this prefix, as returned by {@link #getConverter}.
+   *
+   * @serial
+   * @see #getConverter()
+   * @see {@link UnitConverter}
+   */
+  private final UnitConverter converter;
+
+  /**
+   * Creates a new prefix.
    *
    * @param symbol
-   *          the symbol of this base unit.
-   * @throws IllegalArgumentException
-   *           if the specified symbol is associated to a different unit.
+   *          the symbol of this prefix.
+   * @param converter
+   *          the associated unit converter.
    */
-  public BaseUnit(String symbol, String name) {
-    super(name);
+  private TestPrefix(String symbol, UnitConverter converter) {
     this.symbol = symbol;
-  }
-
-  public BaseUnit(String name, double factor) {
-    super(name, factor);
+    this.converter = converter;
   }
 
   /**
-   * Creates a base unit having the specified symbol.
+   * Returns the symbol of this prefix.
    *
-   * @param symbol
-   *          the symbol of this base unit.
-   * @throws IllegalArgumentException
-   *           if the specified symbol is associated to a different unit.
+   * @return this prefix symbol, not {@code null}.
    */
-  public BaseUnit(String symbol) {
-    this(symbol, null);
-  }
-
-  @Override
   public String getSymbol() {
     return symbol;
   }
 
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj) {
-      return true;
-    }
-    if (obj instanceof BaseUnit<?>) {
-      BaseUnit<?> other = (BaseUnit<?>) obj;
-      return symbol != null && symbol.equals(other.symbol);
-    }
-    return false;
+  /**
+   * Returns the corresponding unit converter.
+   *
+   * @return the unit converter.
+   */
+  public UnitConverter getConverter() {
+    return converter;
   }
 
   @Override
-  public int hashCode() {
-    // return Objects.hashCode(symbol);
-    return 0;
-  }
-
-  @Override
-  public Unit<Q> getSystemUnit() {
-    return this;
+  public Set<Prefix> prefixes() {
+    return Collections.<Prefix> unmodifiableSet(EnumSet.allOf(TestPrefix.class));
   }
 }
