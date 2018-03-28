@@ -53,9 +53,7 @@ public interface UnitConverter {
    *
    * @return {@code true} if this converter is an identity converter.
    */
-  default boolean isIdentity() {
-      return false;
-  }
+  boolean isIdentity();
 
   /**
    * Indicates if this converter is linear. A converter is linear if:
@@ -77,9 +75,7 @@ public interface UnitConverter {
    *
    * @return {@code true} if this converter is linear; {@code false} otherwise.
    */
-  default boolean isLinear() {
-      return false;
-  }
+  boolean isLinear();
 
   /**
    * Returns the inverse of this converter. If {@code x} is a valid value, then {@code x == inverse().convert(convert(x))} to within the accuracy of
