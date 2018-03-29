@@ -34,14 +34,14 @@ import java.util.Set;
 import javax.measure.format.UnitFormat;
 
 /**
- * This interface represent the service to obtain {@link UnitFormat} instances.
- *
+ * This interface represent the service to obtain {@link UnitFormat} instances.<br>
+ * <br>
+ * <b>Note:</b> This parent interface remains separate for backward-compatibility, it will be merged into FormatService in a future version.
+ * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 1.1, March 29, 2017
  * @since 1.0
- * @deprecated Use FormatService, this parent interface remains separate for backward-compatibility, it will be merged into FormatService in a future
- *             version.
  */
 public interface UnitFormatService {
 
