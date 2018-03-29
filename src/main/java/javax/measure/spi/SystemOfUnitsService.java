@@ -70,7 +70,7 @@ public interface SystemOfUnitsService {
    * @return list of available systems of units, never null.
    */
   Collection<SystemOfUnits> getAvailableSystemsOfUnits();
-  
+
   /**
    * Returns a Set containing the values of a particular Prefix type.<br>
    * This method may be used to iterate over the prefixes as follows:
