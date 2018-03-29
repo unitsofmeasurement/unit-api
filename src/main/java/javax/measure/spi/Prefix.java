@@ -59,21 +59,4 @@ public interface Prefix {
    * @return the unit converter.
    */
   public UnitConverter getConverter();
-
-  /**
-   * Returns a Set containing the values of a particular Prefix type.<br>
-   * This method may be used to iterate over the prefixes as follows:
-   * 
-   * <pre>
-   * <code>
-   *    for(Prefix p : prefix.prefixes())
-   *        System.out.println(p);
-   * </code>
-   * </pre>
-   * 
-   * @return a set containing the constant values of this Prefix type, in the order they're declared
-   */
-  public static Set<Prefix> prefixes() {
-	  return Collections.emptySet();
-  }
 }
