@@ -29,6 +29,7 @@
  */
 package javax.measure.spi;
 
+import java.util.Collections;
 import java.util.Set;
 
 import javax.measure.UnitConverter;
@@ -72,5 +73,7 @@ public interface Prefix {
    * 
    * @return a set containing the constant values of this Prefix type, in the order they're declared
    */
-  public Set<Prefix> prefixes();
+  public static Set<Prefix> prefixes() {
+	  return Collections.emptySet();
+  }
 }

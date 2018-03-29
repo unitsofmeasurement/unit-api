@@ -96,8 +96,7 @@ public enum TestPrefix implements Prefix {
     return converter;
   }
 
-  @Override
-  public Set<Prefix> prefixes() {
+  public static Set<Prefix> prefixes() {
     return Collections.<Prefix> unmodifiableSet(EnumSet.allOf(TestPrefix.class));
   }
 }
