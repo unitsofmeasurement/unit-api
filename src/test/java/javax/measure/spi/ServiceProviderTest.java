@@ -89,5 +89,10 @@ public class ServiceProviderTest {
     public <Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(Class<Q> quantity) {
       return null;
     }
+
+    @Override
+    public FormatService getFormatService() {
+      return null;
+    }
   }
 }

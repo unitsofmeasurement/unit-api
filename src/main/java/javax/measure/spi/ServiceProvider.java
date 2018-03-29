@@ -37,6 +37,7 @@ import java.util.ServiceLoader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.measure.Quantity;
+import javax.measure.format.QuantityFormat;
 import javax.measure.format.UnitFormat;
 
 /**
@@ -44,7 +45,7 @@ import javax.measure.format.UnitFormat;
  * <p>
  * All the methods in this class are safe to use by multiple concurrent threads.
  *
- * @version 1.0, August 8, 2016
+ * @version 1.1, March 29, 2018
  * @author Werner Keil
  * @author Martin Desruisseaux
  * @since 1.0
@@ -88,8 +89,16 @@ public abstract class ServiceProvider {
    * Returns the service to obtain a {@link UnitFormat}, or {@code null} if none.
    *
    * @return the service to obtain a {@link UnitFormat}, or {@code null}.
+   * @deprecated Use #getFormatService(), this method will be removed in a future version, it is here for backward compatibility only.
    */
   public abstract UnitFormatService getUnitFormatService();
+
+  /**
+   * Returns the service to obtain {@link UnitFormat} and {@link QuantityFormat} or {@code null} if none.
+   *
+   * @return the service to obtain a {@link UnitFormat} and {@link QuantityFormat}, or {@code null}.
+   */
+  public abstract FormatService getFormatService();
 
   /**
    * Return a factory for this {@link Quantity}.
