@@ -88,5 +88,5 @@ public interface SystemOfUnitsService {
    * @return a set containing the constant values of this Prefix type, in the order they're declared
    * @since 2.0
    */
-  Set<Prefix> getPrefixes(Class<?> prefixType);
+  Set<Prefix> getPrefixes(@SuppressWarnings("rawtypes") Class prefixType);
 }
