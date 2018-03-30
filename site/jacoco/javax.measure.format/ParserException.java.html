@@ -29,28 +29,17 @@
  */
 package javax.measure.format;
 
-import javax.measure.MeasurementException;
-
 /**
  * Signals that an error has been reached unexpectedly while parsing.
  *
  * @author Werner Keil
- * @version 1.0, August 8, 2016
+ * @version 1.1, March 27, 2018
  * @since 1.0
+ * @deprecated Use MeasurementParseException, this exception will be removed in a future version, it is here for backward compatibility only.
  */
-public class ParserException extends MeasurementException {
+public class ParserException extends MeasurementParseException {
 
   private static final long serialVersionUID = -3179553925611520368L;
-
-  /**
-   * The zero-based character position in the string being parsed at which the error was found while parsing.
-   *
-   * @serial
-   */
-  private int position;
-
-  /** The original input data. */
-  private CharSequence data;
 
   /**
    * Constructs a ParserException with the specified detail message, parsed text and index. A detail message is a String that describes this
@@ -64,10 +53,8 @@ public class ParserException extends MeasurementException {
    *          the position where the error was found while parsing.
    */
   public ParserException(String message, CharSequence parsedData, int position) {
-<span class="fc" id="L67">    super(message);</span>
-<span class="fc" id="L68">    this.data = parsedData;</span>
-<span class="fc" id="L69">    this.position = position;</span>
-<span class="fc" id="L70">  }</span>
+<span class="fc" id="L56">    super(message, parsedData, position);</span>
+<span class="fc" id="L57">  }</span>
 
   /**
    * Constructs a ParserException with the parsed text and offset. A detail message is a String that describes this particular exception.
@@ -78,8 +65,8 @@ public class ParserException extends MeasurementException {
    *          the position where the error is found while parsing.
    */
   public ParserException(CharSequence parsedData, int position) {
-<span class="fc" id="L81">    this(&quot;Parse Error&quot;, parsedData, position);</span>
-<span class="fc" id="L82">  }</span>
+<span class="fc" id="L68">    super(parsedData, position);</span>
+<span class="fc" id="L69">  }</span>
 
   /**
    * Constructs a ParserException with the specified cause.
@@ -88,27 +75,7 @@ public class ParserException extends MeasurementException {
    *          the root cause
    */
   public ParserException(Throwable cause) {
-<span class="fc" id="L91">    super(cause);</span>
-<span class="fc" id="L92">  }</span>
-
-  /**
-   * Returns the position where the error was found.
-   *
-   * @return the position of the error
-   */
-  public int getPosition() {
-<span class="fc" id="L100">    return position;</span>
-  }
-
-  /**
-   * Returns the string that was being parsed.
-   *
-   * @return the parsed string, or {@code null}, if {@code null} was passed as input.
-   */
-  public String getParsedString() {
-<span class="fc bfc" id="L109" title="All 2 branches covered.">    if (data == null)</span>
-<span class="fc" id="L110">      return null;</span>
-<span class="fc" id="L111">    return data.toString();</span>
-  }
+<span class="fc" id="L78">    super(cause);</span>
+<span class="fc" id="L79">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

@@ -3,7 +3,9 @@ Units of Measurement API,javax.measure,IncommensurableException,0,13,0,0,0,6,0,3
 Units of Measurement API,javax.measure,UnconvertibleException,0,13,0,0,0,6,0,3,0,3
 Units of Measurement API,javax.measure,MeasurementException,0,16,0,0,0,8,0,4,0,4
 Units of Measurement API,javax.measure.spi,ServiceProvider.new Comparator() {...},6,3,0,0,1,1,1,1,1,1
-Units of Measurement API,javax.measure.spi,ServiceProvider,22,127,3,13,4,33,4,11,1,6
-Units of Measurement API,javax.measure.format,ParserException,0,32,0,2,0,12,0,6,0,5
+Units of Measurement API,javax.measure.spi,ServiceProvider,20,129,3,13,3,34,3,12,0,7
+Units of Measurement API,javax.measure.spi,FormatService.FormatType,5,33,0,0,0,2,1,3,1,3
+Units of Measurement API,javax.measure.format,ParserException,0,15,0,0,0,6,0,3,0,3
 Units of Measurement API,javax.measure.format,UnitFormat,2,0,0,0,1,0,1,0,1,0
-Units of Measurement API,javax.measure.format,QuantityFormat,2,0,0,0,1,0,1,0,1,0
+Units of Measurement API,javax.measure.format,QuantityFormat,0,2,0,0,0,1,0,1,0,1
+Units of Measurement API,javax.measure.format,MeasurementParseException,0,36,0,2,0,14,0,7,0,6
