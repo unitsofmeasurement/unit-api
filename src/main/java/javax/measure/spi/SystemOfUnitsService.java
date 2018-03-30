@@ -83,7 +83,7 @@ public interface SystemOfUnitsService {
    * </pre>
    * 
    * @return a set containing the constant values of this Prefix type, in the order they're declared
-   * 
+   * @since 2.0
    */
   Collection<Prefix> getPrefixes(String name);
 }
