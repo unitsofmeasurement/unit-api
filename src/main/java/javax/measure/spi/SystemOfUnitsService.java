@@ -86,4 +86,20 @@ public interface SystemOfUnitsService {
    * @since 2.0
    */
   Collection<Prefix> getPrefixes(String name);
+
+  /**
+   * Returns a Set containing the values of a particular Prefix type.<br>
+   * This method may be used to iterate over the prefixes as follows:
+   * 
+   * <pre>
+   * <code>
+   *    for(Prefix p : prefix.prefixes())
+   *        System.out.println(p);
+   * </code>
+   * </pre>
+   * 
+   * @return a set containing the constant values of this Prefix type, in the order they're declared
+   * @since 2.0
+   */
+  Collection<Prefix> getPrefixes(Class<Prefix> c);
 }
