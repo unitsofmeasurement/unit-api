@@ -77,7 +77,7 @@
 		<maven.site.version>3.7</maven.site.version>
 		<maven.jar.version>3.0.2</maven.jar.version>
 		<maven.javadoc.version>3.0.0-M1</maven.javadoc.version>
-		<jacoco.plugin.version>0.7.9</jacoco.plugin.version>
+		<jacoco.plugin.version>0.8.1</jacoco.plugin.version>
 	</properties>
 
 	<!-- Developers and Contributors -->
