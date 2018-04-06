@@ -42,7 +42,7 @@ import javax.measure.Unit;
  * @author <a href="mailto:otaviopolianasantana@gmail.com">Otavio Santana</a>
  * @version 1.0, August 8, 2016
  * @since 1.0
- * 
+ *
  * @see Quantity
  */
 public interface QuantityFactory<Q extends Quantity<Q>> {

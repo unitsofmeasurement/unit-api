@@ -27,22 +27,76 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package javax.measure.quantity;
+package javax.measure.test.unit;
 
-import javax.measure.Quantity;
+import javax.measure.UnitConverter;
+import javax.measure.spi.Prefix;
+
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.Set;
 
 /**
- * Measure of the quantity of matter that a body or an object contains. The mass of the body is not dependent on gravity and therefore is different
- * from but proportional to its weight. The metric system unit for this quantity is "kg" (kilogram).
- *
- * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
+ * <p>
+ * This class provides support for some prefixes used in the metric system (decimal multiples and submultiples of units). For example:
+ * 
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2
- * @since 1.0
- *
- * @see RadiationDoseAbsorbed
- *
- * @apiNote SI Base Unit
+ * @version 1.0, 2018-03-28
+ * @since 2.0
  */
-public interface Mass extends Quantity<Mass> {
+public enum TestPrefix implements Prefix {
+  MEGA("M", new MultiplyConverter(1E6d)), //
+  KILO("k", new MultiplyConverter(1E3d));
+
+  /**
+   * The symbol of this prefix, as returned by {@link #getSymbol}.
+   *
+   * @serial
+   * @see #getSymbol()
+   */
+  private final String symbol;
+
+  /**
+   * The <code>UnitConverter</code> of this prefix, as returned by {@link #getConverter}.
+   *
+   * @serial
+   * @see #getConverter()
+   * @see {@link UnitConverter}
+   */
+  private final UnitConverter converter;
+
+  /**
+   * Creates a new prefix.
+   *
+   * @param symbol
+   *          the symbol of this prefix.
+   * @param converter
+   *          the associated unit converter.
+   */
+  private TestPrefix(String symbol, UnitConverter converter) {
+    this.symbol = symbol;
+    this.converter = converter;
+  }
+
+  /**
+   * Returns the symbol of this prefix.
+   *
+   * @return this prefix symbol, not {@code null}.
+   */
+  public String getSymbol() {
+    return symbol;
+  }
+
+  /**
+   * Returns the corresponding unit converter.
+   *
+   * @return the unit converter.
+   */
+  public UnitConverter getConverter() {
+    return converter;
+  }
+
+  public static Set<Prefix> prefixes() {
+    return Collections.<Prefix> unmodifiableSet(EnumSet.allOf(TestPrefix.class));
+  }
 }

@@ -41,7 +41,7 @@ import javax.measure.Quantity;
  * @see Length
  * @see Volume
  * @see Pressure
- * 
+ *
  * @apiNote SI Derived Unit
  */
 public interface Area extends Quantity<Area> {

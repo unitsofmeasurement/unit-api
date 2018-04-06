@@ -27,22 +27,29 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package javax.measure.quantity;
+package javax.measure.test.unit;
 
 import javax.measure.Quantity;
+import javax.measure.Unit;
+import javax.measure.quantity.Length;
+import javax.measure.test.TestUnit;
+import javax.measure.test.quantity.DistanceQuantity;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static javax.measure.test.unit.DistanceUnit.m;
+import static javax.measure.test.unit.TestPrefix.*;
 
-/**
- * Measure of the quantity of matter that a body or an object contains. The mass of the body is not dependent on gravity and therefore is different
- * from but proportional to its weight. The metric system unit for this quantity is "kg" (kilogram).
- *
- * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2
- * @since 1.0
- *
- * @see RadiationDoseAbsorbed
- *
- * @apiNote SI Base Unit
- */
-public interface Mass extends Quantity<Mass> {
+public class PrefixTest {
+  @Test
+  public void testKilo() {
+    final Quantity<Length> m1 = new DistanceQuantity(1, m);
+    final Unit<Length> km = m.transform(KILO.getConverter());
+    assertEquals("k", KILO.getSymbol());
+    assertEquals(1d, m1.getValue());
+    assertEquals("m", km.toString());
+    if (km instanceof TestUnit) {
+      TestUnit testKm = (TestUnit) km;
+      assertEquals(1000d, testKm.getMultFactor(), 0);
+    }
+  }
 }

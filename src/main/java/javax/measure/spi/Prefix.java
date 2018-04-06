@@ -29,15 +29,18 @@
  */
 package javax.measure.spi;
 
+import java.util.Collections;
+import java.util.Set;
+
 import javax.measure.UnitConverter;
 
 /**
  * <p>
  * A unit prefix is a specifier or mnemonic that is prepended to units of measurement to indicate multiples or fractions of the units.
- * 
+ *
  * @see <a href="http://en.wikipedia.org/wiki/Unit_prefix">Wikipedia: Unit Prefix</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.5, 2018-01-13
+ * @version 0.6, 2018-03-28
  * @since 2.0
  */
 public interface Prefix {

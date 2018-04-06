@@ -27,22 +27,18 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package javax.measure.quantity;
+package javax.measure.test.format;
 
-import javax.measure.Quantity;
+import javax.measure.format.MeasurementParseException;
+import org.junit.Test;
 
 /**
- * Measure of the quantity of matter that a body or an object contains. The mass of the body is not dependent on gravity and therefore is different
- * from but proportional to its weight. The metric system unit for this quantity is "kg" (kilogram).
- *
- * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2
- * @since 1.0
- *
- * @see RadiationDoseAbsorbed
- *
- * @apiNote SI Base Unit
+ * Measurement Format Tests
  */
-public interface Mass extends Quantity<Mass> {
+public class MeasurementParseTest {
+
+  @Test(expected = MeasurementParseException.class)
+  public void testExceptionWithMessage() {
+    throw new MeasurementParseException("Error");
+  }
 }

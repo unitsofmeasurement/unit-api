@@ -38,12 +38,12 @@ import javax.measure.Quantity;
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 1.2
  * @since 1.0
- * 
+ *
  * @see <a href="http://en.wikipedia.org/wiki/Angle">Wikipedia: Angle</a>
- * 
+ *
  * @see SolidAngle
  * @see Length
- * 
+ *
  * @apiNote SI Derived Unit with special name and symbol
  */
 public interface Angle extends Quantity<Angle> {

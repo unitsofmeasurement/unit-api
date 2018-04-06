@@ -98,6 +98,7 @@ public class UnitFormatTest {
 
   @Test(expected = ParserException.class)
   public void testParseIrregularString() {
+    @SuppressWarnings("unused")
     Unit<?> u = format.parse("bl//^--1a");
   }
 
@@ -120,5 +121,10 @@ public class UnitFormatTest {
     assertEquals(0, pe.getPosition());
     assertNull(pe.getParsedString());
     throw pe;
+  }
+
+  @Test
+  public void testLocalSensitive() {
+    assertFalse(format.isLocaleSensitive());
   }
 }

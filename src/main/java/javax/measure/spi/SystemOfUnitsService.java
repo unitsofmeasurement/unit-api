@@ -30,6 +30,7 @@
 package javax.measure.spi;
 
 import java.util.Collection;
+import java.util.Set;
 
 /**
  * This interface represents the service to obtain a {@link SystemOfUnits system of units}.
@@ -40,7 +41,7 @@ import java.util.Collection;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.0.1, July 10, 2017
+ * @version 1.2, March 30, 2018
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/International_System_of_Units">Wikipedia: International System of Units</a>
@@ -70,4 +71,22 @@ public interface SystemOfUnitsService {
    * @return list of available systems of units, never null.
    */
   Collection<SystemOfUnits> getAvailableSystemsOfUnits();
+
+  /**
+   * Returns a {@link Set} containing the values of a particular {@link Prefix} type.<br>
+   * This method may be used to iterate over the prefixes as follows:
+   * 
+   * <pre>
+   * <code>
+   *    for(Prefix p : service.getPrefixes(PrefixType.class))
+   *        System.out.println(p);
+   * </code>
+   * </pre>
+   * 
+   * @param prefixType
+   *          the {@link Prefix} type
+   * @return a set containing the constant values of this Prefix type, in the order they're declared
+   * @since 2.0
+   */
+  Set<Prefix> getPrefixes(@SuppressWarnings("rawtypes") Class prefixType);
 }

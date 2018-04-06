@@ -60,9 +60,9 @@ public class DistanceQuantity extends TestQuantity<Length> implements Length {
 
   /*
    * Distance(double val) {
-   * 
+   *
    * units = val; unit = m; // reference Unit scalar = val;
-   * 
+   *
    * }
    */
   public DistanceQuantity add(DistanceQuantity d1) {

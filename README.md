@@ -1,6 +1,6 @@
 unit-api
 ========
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/javax.measure/unit-api/badge.svg)](https://maven-badges.herokuapp.com/maven-central/javax.measure/unit-api)
+[![Maven metadata URI](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/javax/measure/unit-api/maven-metadata.xml.svg)](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22unit-api%22)
 [![javadoc.io](https://javadocio-badges.herokuapp.com/javax.measure/unit-api/badge.svg)](https://javadocio-badges.herokuapp.com/javax.measure/unit-api)
 [![Reference Status](https://www.versioneye.com/java/javax.measure:unit-api/reference_badge.svg?style=flat)](https://www.versioneye.com/java/javax.measure:unit-api/references)
 [![CircleCI](https://circleci.com/gh/unitsofmeasurement/unit-api/tree/master.svg?style=svg)](https://circleci.com/gh/unitsofmeasurement/unit-api/tree/master)

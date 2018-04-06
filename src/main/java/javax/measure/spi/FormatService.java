@@ -27,22 +27,53 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package javax.measure.quantity;
+package javax.measure.spi;
 
-import javax.measure.Quantity;
+import java.util.Set;
+
+import javax.measure.format.QuantityFormat;
+import javax.measure.format.UnitFormat;
 
 /**
- * Measure of the quantity of matter that a body or an object contains. The mass of the body is not dependent on gravity and therefore is different
- * from but proportional to its weight. The metric system unit for this quantity is "kg" (kilogram).
+ * This interface represent the service to obtain instances of {@link UnitFormat} and {@link QuantityFormat}.
  *
- * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2
- * @since 1.0
- *
- * @see RadiationDoseAbsorbed
- *
- * @apiNote SI Base Unit
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @version 1.0, March 29, 2018
+ * @since 2.0
  */
-public interface Mass extends Quantity<Mass> {
+public interface FormatService extends UnitFormatService {
+
+  public static enum FormatType {
+    UNIT_FORMAT, QUANTITY_FORMAT
+  }
+
+  /**
+   * Returns the default quantity format.
+   *
+   * It is up to implementations what to consider a suitable default. For some (locale-sensitive) implementations it may be a quantity format based on
+   * <code>Locale.current()</code> while others may return <code>getQuantityFormat("Simple")</code> or <code>getQuantityFormat("ISO")</code>
+   *
+   * @return the default {@link QuantityFormat} implementation.
+   */
+  QuantityFormat getQuantityFormat();
+
+  /**
+   * Returns the quantity format having the specified name or <code>null</code> if none.
+   *
+   * For example <code>getQuantityFormat("Simple")</code> to return the simple UCUM specific {@link QuantityFormat} implementation.
+   *
+   * @param name
+   *          the name of the format.
+   * @return the corresponding quantity format.
+   */
+  QuantityFormat getQuantityFormat(String name);
+
+  /**
+   * Gets a list with available format names of a given type for this format service.
+   * 
+   * @param type
+   *          the {@link FormatType}
+   * @return list of available formats, never null.
+   */
+  Set<String> getAvailableFormatNames(FormatType type);
 }

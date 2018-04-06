@@ -35,7 +35,7 @@ import java.util.Map;
 import javax.measure.Dimension;
 
 /**
- * 
+ *
  * @author Werner Keil
  * @version 0.3, Date: 2014-07-01
  */

@@ -40,9 +40,9 @@ import java.util.List;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.0, August 8, 2016
+ * @version 1.1, March 25, 2018
  * @since 1.0
- * 
+ *
  * @see Unit
  * @see <a href="http://en.wikipedia.org/wiki/Conversion_of_units"> Wikipedia: Conversion of units</a>
  */
@@ -121,7 +121,7 @@ public interface UnitConverter {
    * For example, {@code converter1.getConversionSteps()} returns {@code converter1} while
    * {@code converter1.concatenate(converter2).getConversionSteps()} returns {@code converter1, converter2}.
    * </p>
-   * 
+   *
    * @return the list of fundamental converters which concatenated make up this converter.
    */
   List<? extends UnitConverter> getConversionSteps();

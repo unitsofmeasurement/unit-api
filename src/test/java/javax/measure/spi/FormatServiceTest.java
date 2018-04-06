@@ -33,66 +33,88 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-import javax.measure.Quantity;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+
+import javax.measure.format.QuantityFormat;
+import javax.measure.format.UnitFormat;
 
 /**
- * Tests for {@link ServiceProvider}.
+ * Tests for {@link FormatService}.
  */
-public class ServiceProviderTest {
-
-  @Test(expected = NullPointerException.class)
-  public void testSetDefaultNull() {
-    ServiceProvider.setCurrent(null);
-  }
+public class FormatServiceTest {
 
   /**
    * Tests {@link ServiceProvider#current()} and {@link ServiceProvider#setCurrent(ServiceProvider)}. The getter and setter are tested in a single
    * method for avoiding issues with the order in which JUnit executes tests.
    */
   @Test
-  public void testGetAndSetDefault() {
-    assertEquals(0, ServiceProvider.available().size());
-    try {
-      ServiceProvider.current();
-      fail("Expected no ServiceProvider before we set one.");
-    } catch (IllegalStateException e) {
-      // This is the expected exception.
-    }
-    TestServiceProvider testProv = new TestServiceProvider();
-    assertNull("Expected no ServiceProvider before we set one.", ServiceProvider.setCurrent(testProv));
-    assertSame("Setting the same ServiceProvider twice should be a no-op.", testProv, ServiceProvider.setCurrent(testProv));
-    assertSame(testProv, ServiceProvider.current());
-    assertArrayEquals(new ServiceProvider[] { testProv }, ServiceProvider.available().toArray());
+  public void testGetDefault() {
+    FormatService service = new TestFormatService();
+    assertEquals(0, service.getAvailableFormatNames().size());
   }
 
   /**
-   * Tests {@link ServiceProvider#getPriority()}.
+   * Tests {@link FormatService#FormatType}.
    */
   @Test
-  public void testPriority() {
-    assertEquals(0, ServiceProvider.current().getPriority());
+  public void testTypes() {
+    assertEquals(2, FormatService.FormatType.values().length);
   }
 
-  private static final class TestServiceProvider extends ServiceProvider {
+  /**
+   * Test format service.
+   */
+  private static final class TestFormatService implements FormatService {
+    private final Map<String, UnitFormat> unitFormats = new HashMap<>();
+    private final Map<String, QuantityFormat> quantityFormats = new HashMap<>();
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see UnitFormatService#getUnitFormat(String)
+     */
     @Override
-    public SystemOfUnitsService getSystemOfUnitsService() {
-      return null;
+    public UnitFormat getUnitFormat(String formatName) {
+      Objects.requireNonNull(formatName, "Format name required");
+      return unitFormats.get(formatName);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see UnitFormatService#getUnitFormat()
+     */
+    @Override
+    public UnitFormat getUnitFormat() {
+      return getUnitFormat("");
+    }
+
+    public Set<String> getAvailableFormatNames() {
+      return getAvailableFormatNames(FormatType.UNIT_FORMAT);
     }
 
     @Override
-    public UnitFormatService getUnitFormatService() {
-      return null;
+    public QuantityFormat getQuantityFormat() {
+      return getQuantityFormat("");
     }
 
     @Override
-    public <Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(Class<Q> quantity) {
-      return null;
+    public QuantityFormat getQuantityFormat(String name) {
+      Objects.requireNonNull(name, "Format name required");
+      return quantityFormats.get(name);
     }
 
     @Override
-    public FormatService getFormatService() {
-      return null;
+    public Set<String> getAvailableFormatNames(FormatType type) {
+      switch (type) {
+        case QUANTITY_FORMAT:
+          return quantityFormats.keySet();
+        default:
+          return unitFormats.keySet();
+      }
     }
   }
 }

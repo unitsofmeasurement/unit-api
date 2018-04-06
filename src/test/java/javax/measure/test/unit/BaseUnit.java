@@ -63,6 +63,10 @@ public class BaseUnit<Q extends Quantity<Q>> extends TestUnit<Q> {
     this.symbol = symbol;
   }
 
+  public BaseUnit(String name, double factor) {
+    super(name, factor);
+  }
+
   /**
    * Creates a base unit having the specified symbol.
    *

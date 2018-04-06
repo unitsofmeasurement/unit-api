@@ -27,22 +27,31 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package javax.measure.quantity;
+package javax.measure.test;
 
-import javax.measure.Quantity;
+import static org.junit.Assert.*;
 
-/**
- * Measure of the quantity of matter that a body or an object contains. The mass of the body is not dependent on gravity and therefore is different
- * from but proportional to its weight. The metric system unit for this quantity is "kg" (kilogram).
- *
- * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2
- * @since 1.0
- *
- * @see RadiationDoseAbsorbed
- *
- * @apiNote SI Base Unit
- */
-public interface Mass extends Quantity<Mass> {
+import javax.measure.UnitConverter;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class ConverterTest {
+  private UnitConverter sut;
+
+  @Before
+  public void init() {
+    sut = TestConverter.IDENTITY;
+  }
+
+  @Test
+  public void testIdentity() {
+    assertTrue(sut.isIdentity());
+  }
+
+  @Test
+  public void testLinear() {
+    assertTrue(sut.isLinear());
+  }
+
 }
