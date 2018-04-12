@@ -75,18 +75,18 @@ public interface SystemOfUnitsService {
   /**
    * Returns a {@link Set} containing the values of a particular {@link Prefix} type.<br>
    * This method may be used to iterate over the prefixes as follows:
-   * 
+   *
    * <pre>
    * <code>
    *    for(Prefix p : service.getPrefixes(PrefixType.class))
    *        System.out.println(p);
    * </code>
    * </pre>
-   * 
+   *
    * @param prefixType
    *          the {@link Prefix} type
    * @return a set containing the constant values of this Prefix type, in the order they're declared
    * @since 2.0
    */
-  Set<Prefix> getPrefixes(@SuppressWarnings("rawtypes") Class prefixType);
+  Set<Prefix> getPrefixes(Class<?> prefixType);
 }
