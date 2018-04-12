@@ -41,7 +41,8 @@ import java.util.Set;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.2, March 30, 2018
+ * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
+ * @version 1.3, April 12, 2018
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/International_System_of_Units">Wikipedia: International System of Units</a>
@@ -86,6 +87,8 @@ public interface SystemOfUnitsService {
    * @param prefixType
    *          the {@link Prefix} type
    * @return a set containing the constant values of this Prefix type, in the order they're declared
+   * @throws ClassCastException
+   *           if the class is not compatible with the desired Prefix implementation.
    * @since 2.0
    */
   Set<Prefix> getPrefixes(Class<?> prefixType);
