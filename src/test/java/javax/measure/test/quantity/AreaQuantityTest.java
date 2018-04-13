@@ -148,4 +148,10 @@ public class AreaQuantityTest {
     String result = area.showInUnits(AreaUnit.hectare, 2);
     assertEquals("0.01 hectare", result);
   }
+
+  @Test
+  public void testToSystemUnit() {
+    assertEquals(area.toSystemUnit(), area.to(area.getUnit().getSystemUnit()));
+  }
+
 }
