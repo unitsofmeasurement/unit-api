@@ -274,7 +274,7 @@ public interface Unit<Q extends Quantity<Q>> {
   Unit<?> multiply(Unit<?> multiplier);
 
   /**
-   * Returns the inverse of this unit.
+   * Returns the reciprocal of this unit.
    *
    * @return {@code 1 / this}
    */
@@ -303,18 +303,20 @@ public interface Unit<Q extends Quantity<Q>> {
   Unit<?> divide(Unit<?> divisor);
 
   /**
-   * Returns a unit equals to the given root of this unit.
+   * Returns an unit that is the n-th (integer) root of this unit.<br/>
+   * Equivalent to the mathematical expression {@code unit^(1/n)}.
    *
    * @param n
-   *          the root's order.
-   * @return the result of taking the given root of this unit.
+   *          an integer giving the root's order as in 'n-th root' 
+   * @return the n-th root of this unit.
    * @throws ArithmeticException
    *           if {@code n == 0} or if this operation would result in an unit with a fractional exponent.
    */
   Unit<?> root(int n);
 
   /**
-   * Returns a unit equals to this unit raised to an exponent.
+   * Returns an unit raised to the n-th (integer) power of this unit.<br/>
+   * Equivalent to the mathematical expression {@code unit^n}.
    *
    * @param n
    *          the exponent.
