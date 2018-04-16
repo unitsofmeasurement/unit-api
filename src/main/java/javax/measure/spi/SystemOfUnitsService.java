@@ -91,5 +91,5 @@ public interface SystemOfUnitsService {
    *           if the class is not compatible with the desired Prefix implementation.
    * @since 2.0
    */
-  Set<Prefix> getPrefixes(Class<?> prefixType);
+  Set<Prefix> getPrefixes(Class<? extends Prefix> prefixType);
 }
