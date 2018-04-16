@@ -143,6 +143,13 @@ public interface Quantity<Q extends Quantity<Q>> {
 	 * @return the converted result.
 	 */
 	Quantity<Q> to(Unit<Q> unit);
+  /**
+   * Returns a {@code Quantity} that is the multiplicative inverse of this {@code Quantity}, 
+   * having reciprocal value and reciprocal unit as given by {@code this.getUnit().inverse()}.
+   *
+   * @return reciprocal {@code Quantity}
+   */
+  Quantity<?> inverse();
 
 	/**
 	 * Casts this quantity to a parameterized unit of specified nature or throw a
