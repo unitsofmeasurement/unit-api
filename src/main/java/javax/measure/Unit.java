@@ -307,7 +307,7 @@ public interface Unit<Q extends Quantity<Q>> {
    * Equivalent to the mathematical expression {@code unit^(1/n)}.
    *
    * @param n
-   *          an integer giving the root's order as in 'n-th root' 
+   *          an integer giving the root's order as in 'n-th root'
    * @return the n-th root of this unit.
    * @throws ArithmeticException
    *           if {@code n == 0} or if this operation would result in an unit with a fractional exponent.
