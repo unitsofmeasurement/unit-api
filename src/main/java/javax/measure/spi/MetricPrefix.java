@@ -55,6 +55,7 @@ import javax.measure.Unit;
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.6, 2018-04-17
  * @since 2.0
+ * @deprecated Subject to change, this may not be able to stay here
  */
 public enum MetricPrefix implements Prefix {
   YOTTA("Y", Math.pow(10, 24)), //
