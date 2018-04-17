@@ -29,22 +29,16 @@
  */
 package javax.measure.spi;
 
-import java.util.Collections;
-import java.util.Set;
-
-import javax.measure.UnitConverter;
-
 /**
  * <p>
  * A unit prefix is a specifier or mnemonic that is prepended to units of measurement to indicate multiples or fractions of the units.
  *
  * @see <a href="http://en.wikipedia.org/wiki/Unit_prefix">Wikipedia: Unit Prefix</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.6, 2018-03-28
+ * @version 0.7, 2018-04-17
  * @since 2.0
  */
 public interface Prefix {
-  // TODO consider pulling SymbolSupplier and maybe UnitConverterSupplier into the API
 
   /**
    * Returns the symbol of this prefix.
@@ -54,9 +48,9 @@ public interface Prefix {
   public String getSymbol();
 
   /**
-   * Returns the corresponding {@link UnitConverter}.
+   * Returns the corresponding factor.
    *
-   * @return the unit converter.
+   * @return the conversion factor.
    */
-  public UnitConverter getConverter();
+  public Number getFactor();
 }

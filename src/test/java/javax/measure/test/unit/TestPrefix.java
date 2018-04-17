@@ -32,10 +32,6 @@ package javax.measure.test.unit;
 import javax.measure.UnitConverter;
 import javax.measure.spi.Prefix;
 
-import java.util.Collections;
-import java.util.EnumSet;
-import java.util.Set;
-
 /**
  * <p>
  * This class provides support for some prefixes used in the metric system (decimal multiples and submultiples of units). For example:
@@ -43,10 +39,11 @@ import java.util.Set;
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.0, 2018-03-28
  * @since 2.0
+ * @deprecated Use actual prefixes like BinaryPrefix for tests
  */
 public enum TestPrefix implements Prefix {
-  MEGA("M", new MultiplyConverter(1E6d)), //
-  KILO("k", new MultiplyConverter(1E3d));
+  MEGA("M", 1E6d), //
+  KILO("k", 1E3d);
 
   /**
    * The symbol of this prefix, as returned by {@link #getSymbol}.
@@ -63,7 +60,7 @@ public enum TestPrefix implements Prefix {
    * @see #getConverter()
    * @see {@link UnitConverter}
    */
-  private final UnitConverter converter;
+  private final Number converter;
 
   /**
    * Creates a new prefix.
@@ -73,7 +70,7 @@ public enum TestPrefix implements Prefix {
    * @param converter
    *          the associated unit converter.
    */
-  private TestPrefix(String symbol, UnitConverter converter) {
+  private TestPrefix(String symbol, Number converter) {
     this.symbol = symbol;
     this.converter = converter;
   }
@@ -87,16 +84,9 @@ public enum TestPrefix implements Prefix {
     return symbol;
   }
 
-  /**
-   * Returns the corresponding unit converter.
-   *
-   * @return the unit converter.
-   */
-  public UnitConverter getConverter() {
+  @Override
+  public Number getFactor() {
     return converter;
   }
 
-  public static Set<Prefix> prefixes() {
-    return Collections.<Prefix> unmodifiableSet(EnumSet.allOf(TestPrefix.class));
-  }
 }

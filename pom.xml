@@ -377,12 +377,12 @@
 										<limit implementation="org.jacoco.report.check.Limit">
 											<counter>INSTRUCTION</counter>
 											<value>COVEREDRATIO</value>
-											<minimum>0.8</minimum>
+											<minimum>0.5</minimum>
 										</limit>
 										<limit>
 											<counter>COMPLEXITY</counter>
 											<value>COVEREDRATIO</value>
-											<minimum>0.7</minimum>
+											<minimum>0.6</minimum>
 										</limit>
 									</limits>
 								</rule>
