@@ -38,10 +38,9 @@ import javax.measure.Unit;
  * </p>
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.1, April 16, 2018
+ * @version 1.2, April 18, 2018
  * @see <a href="https://en.wikipedia.org/wiki/Binary_prefix">Wikipedia: Binary Prefix</a>
  * @since 2.0
- * @deprecated Subject to change, this may not be able to stay here
  */
 public enum BinaryPrefix implements Prefix {
   KIBI("Ki", 1024), //

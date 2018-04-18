@@ -39,7 +39,7 @@ import javax.measure.Unit;
  * <pre>
  * <code>
  *     import static tech.units.indriya.unit.Units.*;  // Static import.
- *     import static tech.units.indriya.unit.MetricPrefix.*; // Static import.
+ *     import static javax.measure.spi.MetricPrefix.*; // Static import.
  *     import javax.measure.*;
  *     import javax.measure.quantity.*;
  *     ...
@@ -53,9 +53,8 @@ import javax.measure.Unit;
  * @see <a href="http://en.wikipedia.org/wiki/Metric_prefix">Wikipedia: Metric Prefix</a>
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.6, 2018-04-17
+ * @version 1.7, 2018-04-18
  * @since 2.0
- * @deprecated Subject to change, this may not be able to stay here
  */
 public enum MetricPrefix implements Prefix {
   YOTTA("Y", Math.pow(10, 24)), //
