@@ -33,6 +33,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+import java.util.Collection;
+
+import javax.measure.BinaryPrefix;
+import javax.measure.MetricPrefix;
+import javax.measure.Prefix;
 import javax.measure.Quantity;
 
 /**
@@ -58,7 +63,7 @@ public class ServiceProviderTest {
     } catch (IllegalStateException e) {
       // This is the expected exception.
     }
-    TestServiceProvider testProv = new TestServiceProvider();
+    ServiceProvider testProv = new TestServiceProvider();
     assertNull("Expected no ServiceProvider before we set one.", ServiceProvider.setCurrent(testProv));
     assertSame("Setting the same ServiceProvider twice should be a no-op.", testProv, ServiceProvider.setCurrent(testProv));
     assertSame(testProv, ServiceProvider.current());
@@ -73,11 +78,30 @@ public class ServiceProviderTest {
     assertEquals(0, ServiceProvider.current().getPriority());
   }
 
+  @Test
+  public void testGetMetricPrefixes() {
+    final ServiceProvider testProv = new TestServiceProvider();
+    final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
+    Collection<Prefix> prefixes = service.getPrefixes(MetricPrefix.class);
+    assertNotNull(prefixes);
+    assertEquals(20, prefixes.size());
+  }
+
+  @Test
+  public void testGetBinaryPrefixes() {
+    final ServiceProvider testProv = new TestServiceProvider();
+    final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
+    assertNotNull(service);
+    Collection<Prefix> prefixes = service.getPrefixes(BinaryPrefix.class);
+    assertNotNull(prefixes);
+    assertEquals(8, prefixes.size());
+  }
+
   private static final class TestServiceProvider extends ServiceProvider {
 
     @Override
     public SystemOfUnitsService getSystemOfUnitsService() {
-      return null;
+      return new TestSystemOfUnitsService();
     }
 
     @Override

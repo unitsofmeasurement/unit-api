@@ -27,34 +27,45 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package javax.measure;
+package javax.measure.spi;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+
+import javax.measure.Prefix;
+import javax.measure.spi.SystemOfUnits;
+import javax.measure.spi.SystemOfUnitsService;
 
 /**
- * <p>
- * A unit prefix is a specifier or mnemonic that is prepended to units of measurement to indicate multiples or fractions of the units.
- *
- * @see <a href="http://en.wikipedia.org/wiki/Unit_prefix">Wikipedia: Unit Prefix</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.8, 2018-04-20
+ * @version 0.8, April 20, 2018
  * @since 2.0
  */
-public interface Prefix {
+class TestSystemOfUnitsService implements SystemOfUnitsService {
+  protected final Map<String, SystemOfUnits> souMap = new ConcurrentHashMap<>();
 
-  /**
-   * Returns the symbol of this prefix.
-   *
-   * @return this prefix symbol, not {@code null}.
-   */
-  public String getSymbol();
+  @Override
+  public Collection<SystemOfUnits> getAvailableSystemsOfUnits() {
+    return souMap.values();
+  }
 
-  /**
-   * Base part of the associated factor in base^exponent representation.
-   */
-  public int getBase();
+  @Override
+  public SystemOfUnits getSystemOfUnits(String name) {
+    return souMap.get(name);
+  }
 
-  /**
-   * Exponent part of the associated factor in base^exponent representation.
-   */
-  public int getExponent();
+  @SuppressWarnings("unchecked")
+  @Override
+  public Set<Prefix> getPrefixes(Class<? extends Prefix> prefixType) {
+    return Collections.<Prefix> unmodifiableSet(EnumSet.allOf(prefixType.asSubclass(Enum.class)));
+  }
 
+  @Override
+  public SystemOfUnits getSystemOfUnits() {
+    return getSystemOfUnits("");
+  }
 }

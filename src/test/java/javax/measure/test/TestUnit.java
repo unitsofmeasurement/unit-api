@@ -184,11 +184,10 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
       return this;
     }
   }
-  
+
   @Override
   public Unit<Q> prefix(Prefix prefix) {
-    final MultiplyConverter converter = 
-      new MultiplyConverter(Math.pow(prefix.getBase(), prefix.getExponent()));
+    final MultiplyConverter converter = new MultiplyConverter(Math.pow(prefix.getBase(), prefix.getExponent()));
     return this.transform(converter);
   }
 

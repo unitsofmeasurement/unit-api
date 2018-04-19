@@ -145,8 +145,7 @@ enum EnumUnit implements Unit {
 
   @Override
   public Unit prefix(Prefix prefix) {
-    final MultiplyConverter converter = 
-      new MultiplyConverter(Math.pow(prefix.getBase(), prefix.getExponent()));
+    final MultiplyConverter converter = new MultiplyConverter(Math.pow(prefix.getBase(), prefix.getExponent()));
     return this.transform(converter);
   }
 }

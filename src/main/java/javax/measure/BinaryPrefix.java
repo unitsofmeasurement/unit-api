@@ -61,7 +61,7 @@ public enum BinaryPrefix implements Prefix {
    * Base part of the associated factor in base^exponent representation.
    */
   private int base;
-  
+
   /**
    * Exponent part of the associated factor in base^exponent representation.
    */
@@ -78,9 +78,9 @@ public enum BinaryPrefix implements Prefix {
    *          part of the associated factor in base^exponent representation.
    */
   private BinaryPrefix(String symbol, int base, int exponent) {
-  	this.symbol = symbol;
-  	this.base = base;
-  	this.exponent= exponent;
+    this.symbol = symbol;
+    this.base = base;
+    this.exponent = exponent;
   }
 
   /**
@@ -179,14 +179,14 @@ public enum BinaryPrefix implements Prefix {
   public String getSymbol() {
     return symbol;
   }
-  
+
   /**
    * Base part of the associated factor in base^exponent representation.
    */
   public int getBase() {
     return base;
   }
-  
+
   /**
    * Exponent part of the associated factor in base^exponent representation.
    */

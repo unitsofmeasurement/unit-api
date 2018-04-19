@@ -355,8 +355,9 @@ public interface Unit<Q extends Quantity<Q>> {
 
   /**
    * Returns a new unit equal to this unit prefixed by the specified {@code prefix}.
+   * 
    * @param prefix
-   * @return 
+   * @return
    */
   Unit<Q> prefix(Prefix prefix);
 }

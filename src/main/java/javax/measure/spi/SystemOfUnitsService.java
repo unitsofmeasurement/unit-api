@@ -30,68 +30,85 @@
 package javax.measure.spi;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.EnumSet;
 import java.util.Set;
 
 import javax.measure.Prefix;
 
 /**
- * This interface represents the service to obtain a {@link SystemOfUnits system of units}.
+ * This interface represents the service to obtain a {@link SystemOfUnits system
+ * of units}.
  *
  * <p>
- * Common systems of units are "SI" (System International), "Imperial" (British), or "US" (US Customary).
+ * Common systems of units are "SI" (System International), "Imperial"
+ * (British), or "US" (US Customary).
  * </p>
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
- * @version 1.3, April 12, 2018
+ * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin
+ *         Desruisseaux</a>
+ * @version 1.4, April 20, 2018
  * @since 1.0
  *
- * @see <a href="http://en.wikipedia.org/wiki/International_System_of_Units">Wikipedia: International System of Units</a>
+ * @see <a href=
+ *      "http://en.wikipedia.org/wiki/International_System_of_Units">Wikipedia:
+ *      International System of Units</a>
  */
 public interface SystemOfUnitsService {
 
-  /**
-   * Returns the default {@link SystemOfUnits system of units}. Depending on the implementation this may be the <a
-   * href="http://en.wikipedia.org/wiki/International_System_of_Units">International System of Units</a> or another default system.
-   *
-   * @return the default system of units.
-   */
-  SystemOfUnits getSystemOfUnits();
+	/**
+	 * Returns the default {@link SystemOfUnits system of units}. Depending on the
+	 * implementation this may be the <a href=
+	 * "http://en.wikipedia.org/wiki/International_System_of_Units">International
+	 * System of Units</a> or another default system.
+	 *
+	 * @return the default system of units.
+	 */
+	SystemOfUnits getSystemOfUnits();
 
-  /**
-   * Returns the system of units having the specified name or <code>null</code> if none.
-   *
-   * @param name
-   *          the system of unit name.
-   * @return the given system of units.
-   */
-  SystemOfUnits getSystemOfUnits(String name);
+	/**
+	 * Returns the system of units having the specified name or <code>null</code> if
+	 * none.
+	 *
+	 * @param name
+	 *            the system of unit name.
+	 * @return the given system of units.
+	 */
+	SystemOfUnits getSystemOfUnits(String name);
 
-  /**
-   * Gets a list with available systems for this {@link SystemOfUnitsService}.
-   *
-   * @return list of available systems of units, never null.
-   */
-  Collection<SystemOfUnits> getAvailableSystemsOfUnits();
+	/**
+	 * Gets a list with available systems for this {@link SystemOfUnitsService}.
+	 *
+	 * @return list of available systems of units, never null.
+	 */
+	Collection<SystemOfUnits> getAvailableSystemsOfUnits();
 
-  /**
-   * Returns a {@link Set} containing the values of a particular {@link Prefix} type.<br>
-   * This method may be used to iterate over the prefixes as follows:
-   *
-   * <pre>
-   * <code>
-   *    for(Prefix p : service.getPrefixes(PrefixType.class))
-   *        System.out.println(p);
-   * </code>
-   * </pre>
-   *
-   * @param prefixType
-   *          the {@link Prefix} type
-   * @return a set containing the constant values of this Prefix type, in the order they're declared
-   * @throws ClassCastException
-   *           if the class is not compatible with the desired Prefix implementation.
-   * @since 2.0
-   */
-  Set<Prefix> getPrefixes(Class<? extends Prefix> prefixType);
+	/**
+	 * Returns a {@link Set} containing the values of a particular {@link Prefix}
+	 * type.<br>
+	 * This method may be used to iterate over the prefixes as follows:
+	 *
+	 * <pre>
+	 * <code>
+	 *    for(Prefix p : service.getPrefixes(PrefixType.class))
+	 *        System.out.println(p);
+	 * </code>
+	 * </pre>
+	 *
+	 * @param prefixType
+	 *            the {@link Prefix} type
+	 * @return a set containing the constant values of this Prefix type, in the
+	 *         order they're declared
+	 * @throws ClassCastException
+	 *             if the class is not compatible with the desired Prefix
+	 *             implementation.
+	 * @since 2.0
+	 */
+	@SuppressWarnings("unchecked")
+	default Set<Prefix> getPrefixes(Class<? extends Prefix> prefixType) {
+		return Collections.<Prefix>unmodifiableSet(EnumSet.allOf(prefixType.asSubclass(Enum.class)));
+
+	}
 }

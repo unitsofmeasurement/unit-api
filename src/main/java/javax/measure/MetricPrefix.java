@@ -87,7 +87,7 @@ public enum MetricPrefix implements Prefix {
    * Base part of the associated factor in base^exponent representation.
    */
   private int base;
-  
+
   /**
    * Exponent part of the associated factor in base^exponent representation.
    */
@@ -104,9 +104,9 @@ public enum MetricPrefix implements Prefix {
    *          part of the associated factor in base^exponent representation.
    */
   private MetricPrefix(String symbol, int base, int exponent) {
-  	this.symbol = symbol;
-  	this.base = base;
-  	this.exponent= exponent;
+    this.symbol = symbol;
+    this.base = base;
+    this.exponent = exponent;
   }
 
   /**
@@ -368,7 +368,7 @@ public enum MetricPrefix implements Prefix {
   public static <Q extends Quantity<Q>> Unit<Q> YOCTO(Unit<Q> unit) {
     return unit.prefix(YOCTO);
   }
-  
+
   /**
    * Returns the symbol of this prefix.
    *
@@ -377,14 +377,14 @@ public enum MetricPrefix implements Prefix {
   public String getSymbol() {
     return symbol;
   }
-  
+
   /**
    * Base part of the associated factor in base^exponent representation.
    */
   public int getBase() {
     return base;
   }
-  
+
   /**
    * Exponent part of the associated factor in base^exponent representation.
    */
@@ -392,5 +392,4 @@ public enum MetricPrefix implements Prefix {
     return exponent;
   }
 
-  
 }
