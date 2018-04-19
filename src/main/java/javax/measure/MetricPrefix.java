@@ -36,7 +36,7 @@ package javax.measure;
  * <pre>
  * <code>
  *     import static tech.units.indriya.unit.Units.*;  // Static import.
- *     import static javax.measure.spi.MetricPrefix.*; // Static import.
+ *     import static javax.measure.MetricPrefix.*; // Static import.
  *     import javax.measure.*;
  *     import javax.measure.quantity.*;
  *     ...
@@ -50,7 +50,7 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Metric_prefix">Wikipedia: Metric Prefix</a>
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.7, 2018-04-18
+ * @version 1.8, 2018-04-20
  * @since 2.0
  */
 public enum MetricPrefix implements Prefix {

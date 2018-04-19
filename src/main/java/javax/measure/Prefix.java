@@ -35,7 +35,7 @@ package javax.measure;
  *
  * @see <a href="http://en.wikipedia.org/wiki/Unit_prefix">Wikipedia: Unit Prefix</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.7, 2018-04-17
+ * @version 0.8, 2018-04-20
  * @since 2.0
  */
 public interface Prefix {

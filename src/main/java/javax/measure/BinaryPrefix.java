@@ -35,7 +35,7 @@ package javax.measure;
  * </p>
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2, April 18, 2018
+ * @version 1.3, April 20, 2018
  * @see <a href="https://en.wikipedia.org/wiki/Binary_prefix">Wikipedia: Binary Prefix</a>
  * @since 2.0
  */
