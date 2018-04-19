@@ -52,17 +52,17 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 
+import static javax.measure.BinaryPrefix.*;
+import static javax.measure.MetricPrefix.*;
 import static javax.measure.test.unit.AreaUnit.*;
 import static javax.measure.test.unit.DistanceUnit.*;
 import static javax.measure.test.unit.VolumeUnit.*;
-import static javax.measure.spi.BinaryPrefix.*;
-import static javax.measure.spi.MetricPrefix.*;
 
 public class PrefixTest {
   @Test
   public void testKilo() {
     final Quantity<Length> m1 = new DistanceQuantity(1, m);
-    final Unit<Length> km = m.multiply(KILO.getFactor().doubleValue());
+    final Unit<Length> km = KILO(m);
     assertEquals("k", KILO.getSymbol());
     assertEquals(1d, m1.getValue());
     assertEquals("m", km.toString());

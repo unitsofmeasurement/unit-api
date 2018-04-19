@@ -38,6 +38,7 @@ import javax.measure.IncommensurableException;
 import javax.measure.UnconvertibleException;
 import javax.measure.UnitConverter;
 import javax.measure.quantity.Dimensionless;
+import javax.measure.spi.Prefix;
 import javax.measure.test.unit.BaseUnit;
 import javax.measure.test.unit.MultiplyConverter;
 
@@ -182,6 +183,13 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
     } else {
       return this;
     }
+  }
+  
+  @Override
+  public Unit<Q> prefix(Prefix prefix) {
+    final MultiplyConverter converter = 
+      new MultiplyConverter(Math.pow(prefix.getBase(), prefix.getExponent()));
+    return this.transform(converter);
   }
 
   public double getMultFactor() {

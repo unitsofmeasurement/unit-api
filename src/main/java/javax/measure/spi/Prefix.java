@@ -48,9 +48,13 @@ public interface Prefix {
   public String getSymbol();
 
   /**
-   * Returns the corresponding factor.
-   *
-   * @return the conversion factor.
+   * Base part of the associated factor in base^exponent representation.
    */
-  public Number getFactor();
+  public int getBase();
+  
+  /**
+   * Exponent part of the associated factor in base^exponent representation.
+   */
+  public int getExponent();
+  
 }
