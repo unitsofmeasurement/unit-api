@@ -32,6 +32,8 @@ package javax.measure.spi;
 import java.util.Collection;
 import java.util.Set;
 
+import javax.measure.Prefix;
+
 /**
  * This interface represents the service to obtain a {@link SystemOfUnits system of units}.
  *

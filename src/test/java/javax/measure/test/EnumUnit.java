@@ -33,9 +33,11 @@ import java.util.Map;
 
 import javax.measure.Dimension;
 import javax.measure.IncommensurableException;
+import javax.measure.Prefix;
 import javax.measure.UnconvertibleException;
 import javax.measure.Unit;
 import javax.measure.UnitConverter;
+import javax.measure.test.unit.MultiplyConverter;
 
 /**
  * @author Werner Keil
@@ -139,5 +141,12 @@ enum EnumUnit implements Unit {
 
   public String getName() {
     return name();
+  }
+
+  @Override
+  public Unit prefix(Prefix prefix) {
+    final MultiplyConverter converter = 
+      new MultiplyConverter(Math.pow(prefix.getBase(), prefix.getExponent()));
+    return this.transform(converter);
   }
 }

@@ -27,10 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package javax.measure.spi;
-
-import javax.measure.Quantity;
-import javax.measure.Unit;
+package javax.measure;
 
 /**
  * <p>
@@ -43,14 +40,14 @@ import javax.measure.Unit;
  * @since 2.0
  */
 public enum BinaryPrefix implements Prefix {
-  KIBI("Ki", 1024), //
-  MEBI("Mi", Math.pow(1024, 2)), //
-  GIBI("Gi", Math.pow(1024, 3)), //
-  TEBI("Ti", Math.pow(1024, 4)), //
-  PEBI("Pi", Math.pow(1024, 5)), //
-  EXBI("Ei", Math.pow(1024, 6)), //
-  ZEBI("Zi", Math.pow(1024, 7)), //
-  YOBI("Yi", Math.pow(1024, 8));
+  KIBI("Ki", 1024, 1), //
+  MEBI("Mi", 1024, 2), //
+  GIBI("Gi", 1024, 3), //
+  TEBI("Ti", 1024, 4), //
+  PEBI("Pi", 1024, 5), //
+  EXBI("Ei", 1024, 6), //
+  ZEBI("Zi", 1024, 7), //
+  YOBI("Yi", 1024, 8);
 
   /**
    * The symbol of this prefix, as returned by {@link #getSymbol}.
@@ -61,23 +58,29 @@ public enum BinaryPrefix implements Prefix {
   private final String symbol;
 
   /**
-   * The <code>UnitConverter</code> of this prefix, as returned by {@link #getConverter}.
-   *
-   * @serial
+   * Base part of the associated factor in base^exponent representation.
    */
-  private final Number factor;
+  private int base;
+  
+  /**
+   * Exponent part of the associated factor in base^exponent representation.
+   */
+  private int exponent;
 
   /**
    * Creates a new prefix.
    *
    * @param symbol
    *          the symbol of this prefix.
-   * @param factor
-   *          the associated conversion factor
+   * @param base
+   *          part of the associated factor in base^exponent representation.
+   * @param exponent
+   *          part of the associated factor in base^exponent representation.
    */
-  private BinaryPrefix(String symbol, Number factor) {
-    this.symbol = symbol;
-    this.factor = factor;
+  private BinaryPrefix(String symbol, int base, int exponent) {
+  	this.symbol = symbol;
+  	this.base = base;
+  	this.exponent= exponent;
   }
 
   /**
@@ -88,7 +91,7 @@ public enum BinaryPrefix implements Prefix {
    * @return <code>unit.multiply(1024)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> KIBI(Unit<Q> unit) {
-    return unit.multiply(1024);
+    return unit.prefix(KIBI);
   }
 
   /**
@@ -99,7 +102,7 @@ public enum BinaryPrefix implements Prefix {
    * @return <code>unit.multiply(1048576)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> MEBI(Unit<Q> unit) {
-    return unit.multiply(1048576);
+    return unit.prefix(MEBI);
   }
 
   /**
@@ -110,7 +113,7 @@ public enum BinaryPrefix implements Prefix {
    * @return <code>unit.multiply(1073741824)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> GIBI(Unit<Q> unit) {
-    return unit.multiply(1073741824);
+    return unit.prefix(GIBI);
   }
 
   /**
@@ -121,7 +124,7 @@ public enum BinaryPrefix implements Prefix {
    * @return <code>unit.multiply(1099511627776L)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> TEBI(Unit<Q> unit) {
-    return unit.multiply(1099511627776L);
+    return unit.prefix(TEBI);
   }
 
   /**
@@ -132,7 +135,7 @@ public enum BinaryPrefix implements Prefix {
    * @return <code>unit.multiply(1125899906842624L)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> PEBI(Unit<Q> unit) {
-    return unit.multiply(1125899906842624L);
+    return unit.prefix(PEBI);
   }
 
   /**
@@ -143,7 +146,7 @@ public enum BinaryPrefix implements Prefix {
    * @return <code>unit.multiply(1152921504606846976L)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> EXBI(Unit<Q> unit) {
-    return unit.multiply(EXBI.getFactor().doubleValue());
+    return unit.prefix(EXBI);
   }
 
   /**
@@ -154,7 +157,7 @@ public enum BinaryPrefix implements Prefix {
    * @return <code>unit.multiply(1152921504606846976d)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> ZEBI(Unit<Q> unit) {
-    return unit.multiply(1180591620717411303424d);
+    return unit.prefix(ZEBI);
   }
 
   /**
@@ -165,16 +168,7 @@ public enum BinaryPrefix implements Prefix {
    * @return <code>unit.multiply(1208925819614629174706176d)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> YOBI(Unit<Q> unit) {
-    return unit.multiply(1208925819614629174706176d);
-  }
-
-  /**
-   * Returns the corresponding conversion factor.
-   *
-   * @return the conversion factor.
-   */
-  public Number getFactor() {
-    return factor;
+    return unit.prefix(YOBI);
   }
 
   /**
@@ -184,5 +178,19 @@ public enum BinaryPrefix implements Prefix {
    */
   public String getSymbol() {
     return symbol;
+  }
+  
+  /**
+   * Base part of the associated factor in base^exponent representation.
+   */
+  public int getBase() {
+    return base;
+  }
+  
+  /**
+   * Exponent part of the associated factor in base^exponent representation.
+   */
+  public int getExponent() {
+    return exponent;
   }
 }

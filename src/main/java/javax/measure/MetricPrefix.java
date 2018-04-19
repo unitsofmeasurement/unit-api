@@ -27,10 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package javax.measure.spi;
-
-import javax.measure.Quantity;
-import javax.measure.Unit;
+package javax.measure;
 
 /**
  * <p>
@@ -57,26 +54,26 @@ import javax.measure.Unit;
  * @since 2.0
  */
 public enum MetricPrefix implements Prefix {
-  YOTTA("Y", Math.pow(10, 24)), //
-  ZETTA("Z", Math.pow(10, 21)), //
-  EXA("E", Math.pow(10, 18)), //
-  PETA("P", Math.pow(10, 15)), //
-  TERA("T", Math.pow(10, 12)), //
-  GIGA("G", Math.pow(10, 9)), //
-  MEGA("M", Math.pow(10, 6)), //
-  KILO("k", Math.pow(10, 3)), //
-  HECTO("h", Math.pow(10, 2)), //
-  DEKA("da", Math.pow(10, 1)), //
-  DECI("d", Math.pow(10, -1)), //
-  CENTI("c", Math.pow(10, -2)), //
-  MILLI("m", Math.pow(10, -3)), //
-  MICRO("µ", Math.pow(10, -6)), //
-  NANO("n", Math.pow(10, -9)), //
-  PICO("p", Math.pow(10, -12)), //
-  FEMTO("f", Math.pow(10, -15)), //
-  ATTO("a", Math.pow(10, -18)), //
-  ZEPTO("z", Math.pow(10, -21)), //
-  YOCTO("y", Math.pow(10, -24));
+  YOTTA("Y", 10, 24), //
+  ZETTA("Z", 10, 21), //
+  EXA("E", 10, 18), //
+  PETA("P", 10, 15), //
+  TERA("T", 10, 12), //
+  GIGA("G", 10, 9), //
+  MEGA("M", 10, 6), //
+  KILO("k", 10, 3), //
+  HECTO("h", 10, 2), //
+  DEKA("da", 10, 1), //
+  DECI("d", 10, -1), //
+  CENTI("c", 10, -2), //
+  MILLI("m", 10, -3), //
+  MICRO("µ", 10, -6), //
+  NANO("n", 10, -9), //
+  PICO("p", 10, -12), //
+  FEMTO("f", 10, -15), //
+  ATTO("a", 10, -18), //
+  ZEPTO("z", 10, -21), //
+  YOCTO("y", 10, -24);
 
   /**
    * The symbol of this prefix, as returned by {@link #getSymbol}.
@@ -87,25 +84,29 @@ public enum MetricPrefix implements Prefix {
   private final String symbol;
 
   /**
-   * The <code>UnitConverter</code> of this prefix, as returned by {@link #getConverter}.
-   *
-   * @serial
-   * @see #getConverter()
-   * @see {@link UnitConverter}
+   * Base part of the associated factor in base^exponent representation.
    */
-  private final Number converter;
+  private int base;
+  
+  /**
+   * Exponent part of the associated factor in base^exponent representation.
+   */
+  private int exponent;
 
   /**
    * Creates a new prefix.
    *
    * @param symbol
    *          the symbol of this prefix.
-   * @param converter
-   *          the associated unit converter.
+   * @param base
+   *          part of the associated factor in base^exponent representation.
+   * @param exponent
+   *          part of the associated factor in base^exponent representation.
    */
-  private MetricPrefix(String symbol, Number converter) {
-    this.symbol = symbol;
-    this.converter = converter;
+  private MetricPrefix(String symbol, int base, int exponent) {
+  	this.symbol = symbol;
+  	this.base = base;
+  	this.exponent= exponent;
   }
 
   /**
@@ -118,7 +119,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e24)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> YOTTA(Unit<Q> unit) {
-    return unit.multiply(YOTTA.getFactor().doubleValue());
+    return unit.prefix(YOTTA);
   }
 
   /**
@@ -131,7 +132,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e21)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> ZETTA(Unit<Q> unit) {
-    return unit.multiply(ZETTA.getFactor().doubleValue());
+    return unit.prefix(ZETTA);
   }
 
   /**
@@ -144,7 +145,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e18)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> EXA(Unit<Q> unit) {
-    return unit.multiply(EXA.getFactor().doubleValue());
+    return unit.prefix(EXA);
   }
 
   /**
@@ -157,7 +158,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e15)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> PETA(Unit<Q> unit) {
-    return unit.multiply(PETA.getFactor().doubleValue());
+    return unit.prefix(PETA);
   }
 
   /**
@@ -170,7 +171,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e12)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> TERA(Unit<Q> unit) {
-    return unit.multiply(TERA.getFactor().doubleValue());
+    return unit.prefix(TERA);
   }
 
   /**
@@ -183,7 +184,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e9)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> GIGA(Unit<Q> unit) {
-    return unit.multiply(GIGA.getFactor().doubleValue());
+    return unit.prefix(GIGA);
   }
 
   /**
@@ -196,7 +197,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e6)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> MEGA(Unit<Q> unit) {
-    return unit.multiply(MEGA.getFactor().doubleValue());
+    return unit.prefix(MEGA);
   }
 
   /**
@@ -209,7 +210,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e3)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> KILO(Unit<Q> unit) {
-    return unit.multiply(KILO.getFactor().doubleValue());
+    return unit.prefix(KILO);
   }
 
   /**
@@ -222,7 +223,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e2)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> HECTO(Unit<Q> unit) {
-    return unit.multiply(HECTO.getFactor().doubleValue());
+    return unit.prefix(HECTO);
   }
 
   /**
@@ -235,7 +236,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e1)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> DEKA(Unit<Q> unit) {
-    return unit.multiply(DEKA.getFactor().doubleValue());
+    return unit.prefix(DEKA);
   }
 
   /**
@@ -248,7 +249,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e-1)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> DECI(Unit<Q> unit) {
-    return unit.multiply(DECI.getFactor().doubleValue());
+    return unit.prefix(DECI);
   }
 
   /**
@@ -261,7 +262,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e-2)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> CENTI(Unit<Q> unit) {
-    return unit.multiply(CENTI.getFactor().doubleValue());
+    return unit.prefix(CENTI);
   }
 
   /**
@@ -274,7 +275,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e-3)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> MILLI(Unit<Q> unit) {
-    return unit.multiply(MILLI.getFactor().doubleValue());
+    return unit.prefix(MILLI);
   }
 
   /**
@@ -287,7 +288,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e-6)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> MICRO(Unit<Q> unit) {
-    return unit.multiply(MICRO.getFactor().doubleValue());
+    return unit.prefix(MICRO);
   }
 
   /**
@@ -300,7 +301,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e-9)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> NANO(Unit<Q> unit) {
-    return unit.multiply(NANO.getFactor().doubleValue());
+    return unit.prefix(NANO);
   }
 
   /**
@@ -313,7 +314,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e-12)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> PICO(Unit<Q> unit) {
-    return unit.multiply(PICO.getFactor().doubleValue());
+    return unit.prefix(PICO);
   }
 
   /**
@@ -326,7 +327,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e-15)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> FEMTO(Unit<Q> unit) {
-    return unit.multiply(FEMTO.getFactor().doubleValue());
+    return unit.prefix(FEMTO);
   }
 
   /**
@@ -339,7 +340,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e-18)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> ATTO(Unit<Q> unit) {
-    return unit.multiply(ATTO.getFactor().doubleValue());
+    return unit.prefix(ATTO);
   }
 
   /**
@@ -352,7 +353,7 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e-21)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> ZEPTO(Unit<Q> unit) {
-    return unit.multiply(ZEPTO.getFactor().doubleValue());
+    return unit.prefix(ZEPTO);
   }
 
   /**
@@ -365,18 +366,9 @@ public enum MetricPrefix implements Prefix {
    * @return <code>unit.times(1e-24)</code>.
    */
   public static <Q extends Quantity<Q>> Unit<Q> YOCTO(Unit<Q> unit) {
-    return unit.multiply(YOCTO.getFactor().doubleValue());
+    return unit.prefix(YOCTO);
   }
-
-  /**
-   * Returns the corresponding conversion factor.
-   *
-   * @return the conversion factor.
-   */
-  public Number getFactor() {
-    return converter;
-  }
-
+  
   /**
    * Returns the symbol of this prefix.
    *
@@ -385,4 +377,20 @@ public enum MetricPrefix implements Prefix {
   public String getSymbol() {
     return symbol;
   }
+  
+  /**
+   * Base part of the associated factor in base^exponent representation.
+   */
+  public int getBase() {
+    return base;
+  }
+  
+  /**
+   * Exponent part of the associated factor in base^exponent representation.
+   */
+  public int getExponent() {
+    return exponent;
+  }
+
+  
 }

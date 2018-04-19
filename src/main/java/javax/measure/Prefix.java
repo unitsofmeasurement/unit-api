@@ -27,66 +27,34 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package javax.measure.test.unit;
-
-import javax.measure.UnitConverter;
-import javax.measure.spi.Prefix;
+package javax.measure;
 
 /**
  * <p>
- * This class provides support for some prefixes used in the metric system (decimal multiples and submultiples of units). For example:
- * 
+ * A unit prefix is a specifier or mnemonic that is prepended to units of measurement to indicate multiples or fractions of the units.
+ *
+ * @see <a href="http://en.wikipedia.org/wiki/Unit_prefix">Wikipedia: Unit Prefix</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.0, 2018-03-28
+ * @version 0.7, 2018-04-17
  * @since 2.0
- * @deprecated Use actual prefixes like BinaryPrefix for tests
  */
-public enum TestPrefix implements Prefix {
-  MEGA("M", 1E6d), //
-  KILO("k", 1E3d);
-
-  /**
-   * The symbol of this prefix, as returned by {@link #getSymbol}.
-   *
-   * @serial
-   * @see #getSymbol()
-   */
-  private final String symbol;
-
-  /**
-   * The <code>UnitConverter</code> of this prefix, as returned by {@link #getConverter}.
-   *
-   * @serial
-   * @see #getConverter()
-   * @see {@link UnitConverter}
-   */
-  private final Number converter;
-
-  /**
-   * Creates a new prefix.
-   *
-   * @param symbol
-   *          the symbol of this prefix.
-   * @param converter
-   *          the associated unit converter.
-   */
-  private TestPrefix(String symbol, Number converter) {
-    this.symbol = symbol;
-    this.converter = converter;
-  }
+public interface Prefix {
 
   /**
    * Returns the symbol of this prefix.
    *
    * @return this prefix symbol, not {@code null}.
    */
-  public String getSymbol() {
-    return symbol;
-  }
+  public String getSymbol();
 
-  @Override
-  public Number getFactor() {
-    return converter;
-  }
-
+  /**
+   * Base part of the associated factor in base^exponent representation.
+   */
+  public int getBase();
+  
+  /**
+   * Exponent part of the associated factor in base^exponent representation.
+   */
+  public int getExponent();
+  
 }

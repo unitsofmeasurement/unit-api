@@ -352,4 +352,11 @@ public interface Unit<Q extends Quantity<Q>> {
    */
   @Override
   String toString();
+
+  /**
+   * Returns a new unit equal to this unit prefixed by the specified {@code prefix}.
+   * @param prefix
+   * @return 
+   */
+  Unit<Q> prefix(Prefix prefix);
 }
