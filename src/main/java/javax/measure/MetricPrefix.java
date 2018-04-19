@@ -29,8 +29,6 @@
  */
 package javax.measure;
 
-import javax.measure.spi.Prefix;
-
 /**
  * <p>
  * This class provides support for the 20 prefixes used in the metric system (decimal multiples and submultiples of units). For example:

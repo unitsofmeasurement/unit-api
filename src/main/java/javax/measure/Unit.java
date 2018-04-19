@@ -36,8 +36,6 @@ package javax.measure;
 
 import java.util.Map;
 
-import javax.measure.spi.Prefix;
-
 /**
  * Represents a determinate {@linkplain Quantity quantity} (as of length, time, heat, or value) adopted as a standard of measurement.
  *

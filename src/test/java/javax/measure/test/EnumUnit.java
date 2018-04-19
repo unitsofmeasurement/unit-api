@@ -33,10 +33,10 @@ import java.util.Map;
 
 import javax.measure.Dimension;
 import javax.measure.IncommensurableException;
+import javax.measure.Prefix;
 import javax.measure.UnconvertibleException;
 import javax.measure.Unit;
 import javax.measure.UnitConverter;
-import javax.measure.spi.Prefix;
 import javax.measure.test.unit.MultiplyConverter;
 
 /**

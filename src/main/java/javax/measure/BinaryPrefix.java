@@ -29,8 +29,6 @@
  */
 package javax.measure;
 
-import javax.measure.spi.Prefix;
-
 /**
  * <p>
  * This class provides support for common binary prefixes to be used by units.
