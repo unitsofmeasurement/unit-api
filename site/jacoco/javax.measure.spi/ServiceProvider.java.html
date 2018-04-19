@@ -97,6 +97,7 @@ public abstract class ServiceProvider {
    * Returns the service to obtain {@link UnitFormat} and {@link QuantityFormat} or {@code null} if none.
    *
    * @return the service to obtain a {@link UnitFormat} and {@link QuantityFormat}, or {@code null}.
+   * @since 2.0
    */
   public abstract FormatService getFormatService();
 
@@ -115,27 +116,27 @@ public abstract class ServiceProvider {
    * Gets all {@link ServiceProvider}. This method loads the provider when first needed.
    */
   private static ServiceProvider[] getProviders() {
-<span class="fc" id="L118">    ServiceProvider[] p = providers;</span>
-<span class="fc bfc" id="L119" title="All 2 branches covered.">    if (p == null) {</span>
-<span class="fc" id="L120">      synchronized (LOCK) {</span>
-<span class="fc" id="L121">        p = providers;</span>
-<span class="pc bpc" id="L122" title="1 of 2 branches missed.">        if (p == null) {</span>
-<span class="fc" id="L123">          final List&lt;ServiceProvider&gt; loaded = new ArrayList&lt;ServiceProvider&gt;();</span>
-<span class="pc bpc" id="L124" title="1 of 2 branches missed.">          for (ServiceProvider provider : ServiceLoader.load(ServiceProvider.class)) {</span>
-<span class="nc" id="L125">            loaded.add(provider);</span>
-<span class="nc" id="L126">          }</span>
-<span class="fc" id="L127">          p = loaded.toArray(new ServiceProvider[loaded.size()]);</span>
-<span class="fc" id="L128">          Arrays.sort(p, new Comparator&lt;ServiceProvider&gt;() {</span>
+<span class="fc" id="L119">    ServiceProvider[] p = providers;</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">    if (p == null) {</span>
+<span class="fc" id="L121">      synchronized (LOCK) {</span>
+<span class="fc" id="L122">        p = providers;</span>
+<span class="pc bpc" id="L123" title="1 of 2 branches missed.">        if (p == null) {</span>
+<span class="fc" id="L124">          final List&lt;ServiceProvider&gt; loaded = new ArrayList&lt;ServiceProvider&gt;();</span>
+<span class="pc bpc" id="L125" title="1 of 2 branches missed.">          for (ServiceProvider provider : ServiceLoader.load(ServiceProvider.class)) {</span>
+<span class="nc" id="L126">            loaded.add(provider);</span>
+<span class="nc" id="L127">          }</span>
+<span class="fc" id="L128">          p = loaded.toArray(new ServiceProvider[loaded.size()]);</span>
+<span class="fc" id="L129">          Arrays.sort(p, new Comparator&lt;ServiceProvider&gt;() {</span>
             @Override
             public int compare(ServiceProvider p1, ServiceProvider p2) {
-<span class="nc" id="L131">              return p2.getPriority() - p1.getPriority();</span>
+<span class="nc" id="L132">              return p2.getPriority() - p1.getPriority();</span>
             }
           });
-<span class="fc" id="L134">          providers = p; // Set only on success.</span>
+<span class="fc" id="L135">          providers = p; // Set only on success.</span>
         }
-<span class="pc" id="L136">      }</span>
+<span class="fc" id="L137">      }</span>
     }
-<span class="fc" id="L138">    return p;</span>
+<span class="fc" id="L139">    return p;</span>
   }
 
   /**
@@ -144,7 +145,7 @@ public abstract class ServiceProvider {
    * @return all available service providers.
    */
   public static List&lt;ServiceProvider&gt; available() {
-<span class="fc" id="L147">    return Arrays.asList(getProviders());</span>
+<span class="fc" id="L148">    return Arrays.asList(getProviders());</span>
   }
 
   /**
@@ -161,11 +162,11 @@ public abstract class ServiceProvider {
    * @see #setCurrent(ServiceProvider)
    */
   public static ServiceProvider current() {
-<span class="fc" id="L164">    ServiceProvider[] p = getProviders();</span>
-<span class="fc bfc" id="L165" title="All 2 branches covered.">    if (p.length != 0) {</span>
-<span class="fc" id="L166">      return p[0];</span>
+<span class="fc" id="L165">    ServiceProvider[] p = getProviders();</span>
+<span class="fc bfc" id="L166" title="All 2 branches covered.">    if (p.length != 0) {</span>
+<span class="fc" id="L167">      return p[0];</span>
     }
-<span class="fc" id="L168">    throw new IllegalStateException(&quot;No measurement ServiceProvider found.&quot;);</span>
+<span class="fc" id="L169">    throw new IllegalStateException(&quot;No measurement ServiceProvider found.&quot;);</span>
   }
 
   /**
@@ -176,25 +177,25 @@ public abstract class ServiceProvider {
    * @return the replaced provider, or null.
    */
   public static ServiceProvider setCurrent(ServiceProvider provider) {
-<span class="fc bfc" id="L179" title="All 2 branches covered.">    if (provider == null) {</span>
-<span class="fc" id="L180">      throw new NullPointerException();</span>
+<span class="fc bfc" id="L180" title="All 2 branches covered.">    if (provider == null) {</span>
+<span class="fc" id="L181">      throw new NullPointerException();</span>
     }
-<span class="fc" id="L182">    synchronized (LOCK) {</span>
-<span class="fc" id="L183">      ServiceProvider[] p = getProviders();</span>
-<span class="fc bfc" id="L184" title="All 2 branches covered.">      ServiceProvider old = (p.length != 0) ? p[0] : null;</span>
-<span class="fc bfc" id="L185" title="All 2 branches covered.">      if (provider != old) {</span>
-<span class="fc" id="L186">        List&lt;ServiceProvider&gt; copy = new ArrayList&lt;ServiceProvider&gt;(Arrays.asList(p));</span>
-<span class="fc" id="L187">        copy.remove(provider);</span>
-<span class="fc" id="L188">        copy.add(0, provider);</span>
-<span class="fc" id="L189">        providers = copy.toArray(new ServiceProvider[copy.size()]);</span>
+<span class="fc" id="L183">    synchronized (LOCK) {</span>
+<span class="fc" id="L184">      ServiceProvider[] p = getProviders();</span>
+<span class="fc bfc" id="L185" title="All 2 branches covered.">      ServiceProvider old = (p.length != 0) ? p[0] : null;</span>
+<span class="fc bfc" id="L186" title="All 2 branches covered.">      if (provider != old) {</span>
+<span class="fc" id="L187">        List&lt;ServiceProvider&gt; copy = new ArrayList&lt;ServiceProvider&gt;(Arrays.asList(p));</span>
+<span class="fc" id="L188">        copy.remove(provider);</span>
+<span class="fc" id="L189">        copy.add(0, provider);</span>
+<span class="fc" id="L190">        providers = copy.toArray(new ServiceProvider[copy.size()]);</span>
 
         // Keep the log inside the synchronized block for making sure that the order
         // or logging messages matches the order in which ServiceProviders were set.
-<span class="fc" id="L193">        Logger.getLogger(&quot;javax.measure.spi&quot;).log(Level.CONFIG,</span>
-<span class="pc bpc" id="L194" title="1 of 2 branches missed.">            (old == null) ? &quot;Measurement ServiceProvider set to {0}&quot; : &quot;Measurement ServiceProvider replaced by {0}&quot;, provider.getClass().getName());</span>
+<span class="pc bpc" id="L194" title="1 of 2 branches missed.">        Logger.getLogger(&quot;javax.measure.spi&quot;).log(Level.CONFIG,</span>
+<span class="fc" id="L195">            (old == null) ? &quot;Measurement ServiceProvider set to {0}&quot; : &quot;Measurement ServiceProvider replaced by {0}&quot;, provider.getClass().getName());</span>
       }
-<span class="fc" id="L196">      return old;</span>
-<span class="nc" id="L197">    }</span>
+<span class="fc" id="L197">      return old;</span>
+    }
   }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

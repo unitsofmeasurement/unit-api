@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Quantity.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure</a> &gt; <span class="el_source">Quantity.java</span></div><h1>Quantity.java</h1><pre class="source lang-java linenums">/*
+ * Units of Measurement API
+ * Copyright (c) 2014-2018, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ *
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+ *    and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of JSR-385 nor the names of its contributors may be used to endorse or promote products
+ *    derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+package javax.measure;
+
+/**
+ * Represents a quantitative property of a phenomenon, body, or substance, that
+ * can be quantified by measurement. {@link javax.measure.quantity.Mass Mass},
+ * time, distance, heat, and angular separation are among the familiar examples
+ * of quantitative properties.
+ * &lt;p&gt;
+ * &lt;code&gt; {@literal Unit&lt;Mass&gt;} pound = ... {@literal Quantity&lt;Length&gt;} size = ... {@literal Sensor&lt;Temperature&gt;}&lt;br&gt;
+ * thermometer = ... {@literal Vector3D&lt;Speed&gt;} aircraftSpeed = ... &lt;/code&gt;
+ * &lt;/p&gt;
+ *
+ * @apiNote This interface places no restrictions on the mutability of
+ *          implementations, however immutability is strongly recommended. All
+ *          implementations must be {@link Comparable}.
+ *
+ * @param &lt;Q&gt;
+ *            The type of the quantity.
+ *
+ * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;&gt;Jean-Marie Dautelle&lt;/a&gt;
+ * @author &lt;a href=&quot;mailto:martin.desruisseaux@geomatys.com&quot;&gt;Martin
+ *         Desruisseaux&lt;/a&gt;
+ * @author &lt;a href=&quot;mailto:werner@uom.technology&quot;&gt;Werner Keil&lt;/a&gt;
+ * @author &lt;a href=&quot;mailto:otaviopolianasantana@gmail.com&quot;&gt;Otavio Santana&lt;/a&gt;
+ * @see Unit
+ * @see &lt;a href=&quot;http://en.wikipedia.org/wiki/Quantity&quot;&gt;Wikipedia: Quantity&lt;/a&gt;
+ * @see &lt;a href=&quot;http://martinfowler.com/eaaDev/quantity.html&quot;&gt;Martin Fowler -
+ *      Quantity&lt;/a&gt;
+ * @version 1.0.3, April 17, 2018
+ * @since 1.0
+ */
+public interface Quantity&lt;Q extends Quantity&lt;Q&gt;&gt; {
+
+	/**
+	 * Returns the sum of this {@code Quantity} with the one specified.
+	 *
+	 * @param augend
+	 *            the {@code Quantity} to be added.
+	 * @return {@code this + augend}.
+	 */
+	Quantity&lt;Q&gt; add(Quantity&lt;Q&gt; augend);
+
+	/**
+	 * Returns the difference between this {@code Quantity} and the one specified.
+	 *
+	 * @param subtrahend
+	 *            the {@code Quantity} to be subtracted.
+	 * @return &lt;code&gt;this - that&lt;/code&gt;.
+	 */
+	Quantity&lt;Q&gt; subtract(Quantity&lt;Q&gt; subtrahend);
+
+	/**
+	 * Returns the product of this {@code Quantity} divided by the {@code Quantity}
+	 * specified.
+	 *
+	 * @throws ClassCastException
+	 *             if the type of an element in the specified operation is
+	 *             incompatible with this quantity
+	 *             (&lt;a href=&quot;#optional-restrictions&quot;&gt;optional&lt;/a&gt;)
+	 *
+	 * @param divisor
+	 *            the {@code Quantity} divisor.
+	 * @return &lt;code&gt;this / that&lt;/code&gt;.
+	 */
+	Quantity&lt;?&gt; divide(Quantity&lt;?&gt; divisor);
+
+	/**
+	 * Returns the product of this {@code Quantity} divided by the {@code Number}
+	 * specified.
+	 *
+	 * @param divisor
+	 *            the {@code Number} divisor.
+	 * @return &lt;code&gt;this / that&lt;/code&gt;.
+	 */
+	Quantity&lt;Q&gt; divide(Number divisor);
+
+	/**
+	 * Returns the product of this {@code Quantity} with the one specified.
+	 *
+	 * @throws ClassCastException
+	 *             if the type of an element in the specified operation is
+	 *             incompatible with this quantity
+	 *             (&lt;a href=&quot;#optional-restrictions&quot;&gt;optional&lt;/a&gt;)
+	 *
+	 * @param multiplier
+	 *            the {@code Quantity} multiplier.
+	 * @return &lt;code&gt;this * multiplier&lt;/code&gt;.
+	 */
+	Quantity&lt;?&gt; multiply(Quantity&lt;?&gt; multiplier);
+
+	/**
+	 * Returns the product of this {@code Quantity} with the {@code Number} value
+	 * specified.
+	 *
+	 * @param multiplier
+	 *            the {@code Number} multiplier.
+	 * @return &lt;code&gt;this * multiplier&lt;/code&gt;.
+	 */
+	Quantity&lt;Q&gt; multiply(Number multiplier);
+
+	/**
+	 * Returns this {@code Quantity} converted into another (compatible)
+	 * {@code Unit}.
+	 *
+	 * @param unit
+	 *            the {@code Unit} to convert to.
+	 * @return the converted result.
+	 */
+	Quantity&lt;Q&gt; to(Unit&lt;Q&gt; unit);
+  /**
+   * Returns a {@code Quantity} that is the multiplicative inverse of this {@code Quantity}, 
+   * having reciprocal value and reciprocal unit as given by {@code this.getUnit().inverse()}.
+   *
+   * @return reciprocal {@code Quantity}
+   */
+  Quantity&lt;?&gt; inverse();
+
+	/**
+	 * Casts this quantity to a parameterized unit of specified nature or throw a
+	 * &lt;code&gt;ClassCastException&lt;/code&gt; if the dimension of the specified quantity
+	 * and this measure unit's dimension do not match. For example:
+	 * &lt;p&gt;
+	 * &lt;code&gt;
+	 *     {@literal Quantity&lt;Length&gt;} length = Quantities.getQuantity(&quot;2 km&quot;).asType(Length.class);
+	 * &lt;/code&gt; or &lt;code&gt;
+	 *     {@literal Quantity&lt;Speed&gt;} C = length.multiply(299792458).divide(second).asType(Speed.class);
+	 * &lt;/code&gt;
+	 * &lt;/p&gt;
+	 *
+	 * @param &lt;T&gt;
+	 *            The type of the quantity.
+	 * @param type
+	 *            the quantity class identifying the nature of the quantity.
+	 * @return this quantity parameterized with the specified type.
+	 * @throws ClassCastException
+	 *             if the dimension of this unit is different from the specified
+	 *             quantity dimension.
+	 * @throws UnsupportedOperationException
+	 *             if the specified quantity class does not have a SI unit for the
+	 *             quantity.
+	 * @see Unit#asType(Class)
+	 */
+	&lt;T extends Quantity&lt;T&gt;&gt; Quantity&lt;T&gt; asType(Class&lt;T&gt; type) throws ClassCastException;
+
+	/**
+	 * Returns the value of this {@code Quantity}.
+	 *
+	 * @return a value.
+	 */
+	Number getValue();
+
+	/**
+	 * Returns the unit of this {@code Quantity}.
+	 *
+	 * @return the unit (shall not be {@code null}).
+	 */
+	Unit&lt;Q&gt; getUnit();
+
+	/**
+	 * Convenient method equivalent to {@link #to(javax.measure.Unit)
+	 * to(getUnit().toSystemUnit())}.
+	 *
+	 * @return this quantity or a new quantity equivalent to this quantity stated in
+	 *         SI units.
+	 * @throws ArithmeticException
+	 *             if the result is inexact and the quotient has a non-terminating
+	 *             decimal expansion.
+	 */
+	default Quantity&lt;Q&gt; toSystemUnit() {
+<span class="fc" id="L199">		return to(getUnit().getSystemUnit());</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

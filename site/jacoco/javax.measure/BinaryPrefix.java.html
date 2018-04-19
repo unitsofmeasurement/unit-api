@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BinaryPrefix.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure</a> &gt; <span class="el_source">BinaryPrefix.java</span></div><h1>BinaryPrefix.java</h1><pre class="source lang-java linenums">/*
+ * Units of Measurement API
+ * Copyright (c) 2014-2018, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ *
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+ *    and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of JSR-385 nor the names of its contributors may be used to endorse or promote products
+ *    derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+package javax.measure;
+
+/**
+ * &lt;p&gt;
+ * This class provides support for common binary prefixes to be used by units.
+ * &lt;/p&gt;
+ *
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;&gt;Werner Keil&lt;/a&gt;
+ * @version 1.3, April 20, 2018
+ * @see &lt;a href=&quot;https://en.wikipedia.org/wiki/Binary_prefix&quot;&gt;Wikipedia: Binary Prefix&lt;/a&gt;
+ * @since 2.0
+ */
+<span class="fc" id="L42">public enum BinaryPrefix implements Prefix {</span>
+<span class="fc" id="L43">  KIBI(&quot;Ki&quot;, 1024, 1), //</span>
+<span class="fc" id="L44">  MEBI(&quot;Mi&quot;, 1024, 2), //</span>
+<span class="fc" id="L45">  GIBI(&quot;Gi&quot;, 1024, 3), //</span>
+<span class="fc" id="L46">  TEBI(&quot;Ti&quot;, 1024, 4), //</span>
+<span class="fc" id="L47">  PEBI(&quot;Pi&quot;, 1024, 5), //</span>
+<span class="fc" id="L48">  EXBI(&quot;Ei&quot;, 1024, 6), //</span>
+<span class="fc" id="L49">  ZEBI(&quot;Zi&quot;, 1024, 7), //</span>
+<span class="fc" id="L50">  YOBI(&quot;Yi&quot;, 1024, 8);</span>
+
+  /**
+   * The symbol of this prefix, as returned by {@link #getSymbol}.
+   *
+   * @serial
+   * @see #getSymbol()
+   */
+  private final String symbol;
+
+  /**
+   * Base part of the associated factor in base^exponent representation.
+   */
+  private int base;
+
+  /**
+   * Exponent part of the associated factor in base^exponent representation.
+   */
+  private int exponent;
+
+  /**
+   * Creates a new prefix.
+   *
+   * @param symbol
+   *          the symbol of this prefix.
+   * @param base
+   *          part of the associated factor in base^exponent representation.
+   * @param exponent
+   *          part of the associated factor in base^exponent representation.
+   */
+<span class="fc" id="L80">  private BinaryPrefix(String symbol, int base, int exponent) {</span>
+<span class="fc" id="L81">    this.symbol = symbol;</span>
+<span class="fc" id="L82">    this.base = base;</span>
+<span class="fc" id="L83">    this.exponent = exponent;</span>
+<span class="fc" id="L84">  }</span>
+
+  /**
+   * Returns the specified unit multiplied by the factor &lt;code&gt;1024&lt;/code&gt; (binary prefix).
+   * 
+   * @param unit
+   *          any unit.
+   * @return &lt;code&gt;unit.multiply(1024)&lt;/code&gt;.
+   */
+  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; KIBI(Unit&lt;Q&gt; unit) {
+<span class="nc" id="L94">    return unit.prefix(KIBI);</span>
+  }
+
+  /**
+   * Returns the specified unit multiplied by the factor &lt;code&gt;1024&lt;sup&gt;2&lt;/sup&gt;&lt;/code&gt; (binary prefix).
+   * 
+   * @param unit
+   *          any unit.
+   * @return &lt;code&gt;unit.multiply(1048576)&lt;/code&gt;.
+   */
+  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; MEBI(Unit&lt;Q&gt; unit) {
+<span class="nc" id="L105">    return unit.prefix(MEBI);</span>
+  }
+
+  /**
+   * Returns the specified unit multiplied by the factor &lt;code&gt;1024&lt;sup&gt;3&lt;/sup&gt;&lt;/code&gt; (binary prefix).
+   * 
+   * @param unit
+   *          any unit.
+   * @return &lt;code&gt;unit.multiply(1073741824)&lt;/code&gt;.
+   */
+  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; GIBI(Unit&lt;Q&gt; unit) {
+<span class="nc" id="L116">    return unit.prefix(GIBI);</span>
+  }
+
+  /**
+   * Returns the specified unit multiplied by the factor &lt;code&gt;1024&lt;sup&gt;4&lt;/sup&gt;&lt;/code&gt; (binary prefix).
+   * 
+   * @param unit
+   *          any unit.
+   * @return &lt;code&gt;unit.multiply(1099511627776L)&lt;/code&gt;.
+   */
+  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; TEBI(Unit&lt;Q&gt; unit) {
+<span class="nc" id="L127">    return unit.prefix(TEBI);</span>
+  }
+
+  /**
+   * Returns the specified unit multiplied by the factor &lt;code&gt;1024&lt;sup&gt;5&lt;/sup&gt;&lt;/code&gt; (binary prefix).
+   * 
+   * @param unit
+   *          any unit.
+   * @return &lt;code&gt;unit.multiply(1125899906842624L)&lt;/code&gt;.
+   */
+  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; PEBI(Unit&lt;Q&gt; unit) {
+<span class="nc" id="L138">    return unit.prefix(PEBI);</span>
+  }
+
+  /**
+   * Returns the specified unit multiplied by the factor &lt;code&gt;1024&lt;sup&gt;6&lt;/sup&gt;&lt;/code&gt; (binary prefix).
+   * 
+   * @param unit
+   *          any unit.
+   * @return &lt;code&gt;unit.multiply(1152921504606846976L)&lt;/code&gt;.
+   */
+  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; EXBI(Unit&lt;Q&gt; unit) {
+<span class="nc" id="L149">    return unit.prefix(EXBI);</span>
+  }
+
+  /**
+   * Returns the specified unit multiplied by the factor &lt;code&gt;1024&lt;sup&gt;7&lt;/sup&gt;&lt;/code&gt; (binary prefix).
+   * 
+   * @param unit
+   *          any unit.
+   * @return &lt;code&gt;unit.multiply(1152921504606846976d)&lt;/code&gt;.
+   */
+  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; ZEBI(Unit&lt;Q&gt; unit) {
+<span class="nc" id="L160">    return unit.prefix(ZEBI);</span>
+  }
+
+  /**
+   * Returns the specified unit multiplied by the factor &lt;code&gt;1024&lt;sup&gt;8&lt;/sup&gt;&lt;/code&gt; (binary prefix).
+   * 
+   * @param unit
+   *          any unit.
+   * @return &lt;code&gt;unit.multiply(1208925819614629174706176d)&lt;/code&gt;.
+   */
+  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; YOBI(Unit&lt;Q&gt; unit) {
+<span class="nc" id="L171">    return unit.prefix(YOBI);</span>
+  }
+
+  /**
+   * Returns the symbol of this prefix.
+   *
+   * @return this prefix symbol, not {@code null}.
+   */
+  public String getSymbol() {
+<span class="nc" id="L180">    return symbol;</span>
+  }
+
+  /**
+   * Base part of the associated factor in base^exponent representation.
+   */
+  public int getBase() {
+<span class="nc" id="L187">    return base;</span>
+  }
+
+  /**
+   * Exponent part of the associated factor in base^exponent representation.
+   */
+  public int getExponent() {
+<span class="nc" id="L194">    return exponent;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>
