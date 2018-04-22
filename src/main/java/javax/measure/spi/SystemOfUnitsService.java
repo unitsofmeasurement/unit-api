@@ -41,7 +41,7 @@ import javax.measure.Prefix;
  * of units}.
  *
  * <p>
- * Common systems of units are "SI" (System International), "Imperial"
+ * Common systems of units are "SI" (System International) or Metric system, "Imperial"
  * (British), or "US" (US Customary).
  * </p>
  *
@@ -49,7 +49,7 @@ import javax.measure.Prefix;
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin
  *         Desruisseaux</a>
- * @version 1.4, April 20, 2018
+ * @version 1.5, April 22, 2018
  * @since 1.0
  *
  * @see <a href=
@@ -107,7 +107,7 @@ public interface SystemOfUnitsService {
 	 * @since 2.0
 	 */
 	@SuppressWarnings("unchecked")
-	default Set<Prefix> getPrefixes(Class<? extends Prefix> prefixType) {
+	default Set<Prefix> getPrefixes(@SuppressWarnings("rawtypes") Class prefixType) {
 		return Collections.<Prefix>unmodifiableSet(EnumSet.allOf(prefixType.asSubclass(Enum.class)));
 
 	}
