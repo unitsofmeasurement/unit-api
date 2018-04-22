@@ -43,39 +43,37 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-import static javax.measure.MetricPrefix.*;
+import static javax.measure.BinaryPrefix.*;
 import static javax.measure.test.unit.DistanceUnit.*;
 import static javax.measure.test.unit.VolumeUnit.*;
 
 public class BinaryPrefixTest {
   @Test
-  public void testKilo() {
+  public void testKibi() {
     final Quantity<Length> m1 = new DistanceQuantity(1, m);
-    final Unit<Length> km = KILO(m);
-    assertEquals("k", KILO.getSymbol());
+    final Unit<Length> km = KIBI(m);
+    assertEquals("Ki", KIBI.getSymbol());
     assertEquals(1d, m1.getValue());
     assertEquals("m", km.toString());
     if (km instanceof TestUnit) {
       TestUnit testKm = (TestUnit) km;
-      assertEquals(1000d, testKm.getMultFactor(), 0);
+      assertEquals(1024d, testKm.getMultFactor(), 0);
     }
   }
 
   @Test
-  public void testMega() {
-    assertEquals("M", MEGA.getSymbol());
-    Quantity<Volume> m1 = TestQuantities.getQuantity(1.0, MEGA(litre));
-    // assertEquals(1d, m1.getValue());
-    // assertEquals("Mg", m1.getUnit().toString());
+  public void testMebi() {
+    assertEquals("Mi", MEBI.getSymbol());
+    Quantity<Volume> m1 = TestQuantities.getQuantity(1.0, MEBI(litre));
   }
 
   @Test
-  public void testDeci() {
+  public void testExbi() {
     Quantity<Volume> m1 = new VolumeQuantity(1.0, litre);
     assertEquals(1d, m1.getValue());
     assertEquals("litre", m1.getUnit().toString());
 
-    Quantity<Volume> m2 = m1.to(DECI(litre));
+    Quantity<Volume> m2 = m1.to(EXBI(litre));
     assertNull(m2); // TODO temporary workaround
   }
   /*
