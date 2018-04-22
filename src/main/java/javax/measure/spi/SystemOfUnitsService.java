@@ -33,7 +33,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Set;
-
 import javax.measure.Prefix;
 
 /**
@@ -109,6 +108,25 @@ public interface SystemOfUnitsService {
 	@SuppressWarnings("unchecked")
 	default Set<Prefix> getPrefixes(@SuppressWarnings("rawtypes") Class prefixType) {
 		return Collections.<Prefix>unmodifiableSet(EnumSet.allOf(prefixType.asSubclass(Enum.class)));
-
+/*
+    //TODO [ahuber] currently subject of discussion whether we need it in the service or could use enums instead 
+	// FIXME [keilw] Class<? extends Prefix> no longer works with Java 9
+	public Set<Prefix> getPrefixes(Class<? extends Prefix> prefixType) {
+		if(!Prefix.class.isAssignableFrom(prefixType)) {
+			throw new ClassCastException(String.format("Not a prefix type: %s", prefixType));
+		}
+		if(MetricPrefix.class.equals(prefixType)) {
+			return Stream.of(MetricPrefix.values()).collect(Collectors.toSet()); 
+		}
+		if(BinaryPrefix.class.equals(prefixType)) {
+			return Stream.of(BinaryPrefix.values()).collect(Collectors.toSet()); 
+		}
+		if(Prefix.class.equals(prefixType)) {
+			Stream.concat( Stream.of(MetricPrefix.values()), Stream.of(BinaryPrefix.values()))
+			.collect(Collectors.toSet()); 
+		}
+		return Collections.emptySet();
+	}
+ */
 	}
 }
