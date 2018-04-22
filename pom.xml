@@ -694,55 +694,6 @@
 	</dependencies>
 
 	<profiles>
-		<profile>
-			<id>jdk6</id>
-			<properties>
-				<jdkVersion>1.6</jdkVersion>
-			</properties>
-		</profile>
-		<profile>
-			<id>jdk7</id>
-			<properties>
-				<jdkVersion>1.7</jdkVersion>
-			</properties>
-		</profile>
-		<profile>
-			<id>jdk8</id>
-			<properties>
-				<jdkVersion>1.8</jdkVersion>
-			</properties>
-		</profile>
-		<profile>
-			<id>jdk9</id>
-			<properties>
-				<jdkVersion>9</jdkVersion>
-				<compile.exclude.files>none</compile.exclude.files>
-			</properties>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>build-helper-maven-plugin</artifactId>
-						<version>3.0.0</version>
-						<executions>
-							<execution>
-								<id>add-source</id>
-								<phase>generate-sources</phase>
-								<goals>
-									<goal>add-source</goal>
-								</goals>
-								<configuration>
-									<sources>
-										<source>src/main/java9</source>
-									</sources>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
 		<!-- Individual JARs -->
 		<profile>
 			<id>core-jar</id>

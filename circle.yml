@@ -1,9 +1,0 @@
-machine:
-  java:
-    version: oraclejdk8
-test:
-   post:
-     - mvn deploy -Dmaven.test.skip -s settings.xml
-     - mvn test jacoco:report coveralls:report -DsourceEncoding=UTF-8
- #    - mvn site-deploy -Dmaven.test.skip -s settings.xml
- # GitHub currently has a bug preventing to publish this automatically (triggers "abuse detection mechanism" ;-|) but it works fairly well if the goal is called manually
