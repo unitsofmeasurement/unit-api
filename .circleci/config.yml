@@ -108,9 +108,10 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
         
       # run tests!
-      - run: mvn test jacoco:report coveralls:report -DsourceEncoding=UTF-8
+      - run: mvn integration-test
       
-      # - run: bash <(curl -s https://codecov.io/bash)
+      # share coverage
+      - run: mvn test jacoco:report coveralls:report -DsourceEncoding=UTF-8
 workflows:
   version: 2
   clean_build_deploy:
