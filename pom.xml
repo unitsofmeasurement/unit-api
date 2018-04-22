@@ -255,6 +255,16 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven.compile.version}</version>
+					<configuration>
+						<source>9</source>
+						<target>9</target>
+					</configuration>
+				</plugin>
+
 				<!-- License -->
 				<plugin>
 					<groupId>com.mycila</groupId>
@@ -333,15 +343,34 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven.compile.version}</version>
-				<configuration>
-					<source>${maven.compile.sourceLevel}</source>
-					<target>${maven.compile.targetLevel}</target>
-					<encoding>${project.build.sourceEncoding}</encoding>
-					<excludes>
-						<exclude>${compile.exclude.files}</exclude>
-					</excludes>
-				</configuration>
+
+				<executions>
+					<execution>
+						<id>default-compile</id>
+						<configuration>
+							<!-- compile everything to ensure module-info contains right entries -->
+							<!-- required when JAVA_HOME is JDK 8 or below -->
+							<jdkToolchain>
+								<version>9</version>
+							</jdkToolchain>
+							<release>9</release>
+						</configuration>
+					</execution>
+					<execution>
+						<id>base-compile</id>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+						<!-- recompile everything for target VM except the module-info.java -->
+						<configuration>
+							<source>${maven.compile.sourceLevel}</source>
+							<target>${maven.compile.targetLevel}</target>
+							<excludes>
+								<exclude>${compile.exclude.files}</exclude>
+							</excludes>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 
 			<!-- Coverage -->
