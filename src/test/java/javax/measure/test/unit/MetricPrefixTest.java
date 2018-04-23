@@ -78,31 +78,31 @@ public class MetricPrefixTest {
     Quantity<Volume> m2 = m1.to(DECI(litre));
     assertNull(m2); // TODO temporary workaround
   }
-  
-    @Test
-    public void testMilli() {
-      Quantity<Volume> m1 = TestQuantities.getQuantity(10, MILLI(litre));
-      assertEquals(10d, m1.getValue());
-      assertNull(m1.getUnit().toString());
-    }
 
-    @Test
-    public void testMicro() {
-      Quantity<Length> m1 = TestQuantities.getQuantity(1.0, m);
-      assertEquals(1d, m1.getValue());
-      assertEquals("m", m1.getUnit().toString());
+  @Test
+  public void testMilli() {
+    Quantity<Volume> m1 = TestQuantities.getQuantity(10, MILLI(litre));
+    assertEquals(10d, m1.getValue());
+    assertNull(m1.getUnit().toString());
+  }
 
-      Quantity<Length> m2 = m1.to(MICRO(m));
-      assertNull(m2); // TODO temporary workaround
-    }
+  @Test
+  public void testMicro() {
+    Quantity<Length> m1 = TestQuantities.getQuantity(1.0, m);
+    assertEquals(1d, m1.getValue());
+    assertEquals("m", m1.getUnit().toString());
 
-    @Test
-    public void testNano() {
-      Quantity<Length> m1 = TestQuantities.getQuantity(1.0, m);
-      assertEquals(1d, m1.getValue());
-      assertEquals("m", m1.getUnit().toString());
+    Quantity<Length> m2 = m1.to(MICRO(m));
+    assertNull(m2); // TODO temporary workaround
+  }
 
-      Quantity<Length> m2 = m1.to(NANO(m));
-      assertNull(m2); // TODO temporary workaround
-    }
+  @Test
+  public void testNano() {
+    Quantity<Length> m1 = TestQuantities.getQuantity(1.0, m);
+    assertEquals(1d, m1.getValue());
+    assertEquals("m", m1.getUnit().toString());
+
+    Quantity<Length> m2 = m1.to(NANO(m));
+    assertNull(m2); // TODO temporary workaround
+  }
 }
