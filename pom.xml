@@ -77,6 +77,7 @@
 		<maven.site.version>3.7</maven.site.version>
 		<maven.jar.version>3.0.2</maven.jar.version>
 		<maven.javadoc.version>3.0.0-M1</maven.javadoc.version>
+		<!-- FIXME in javadoc 3.0.0 the Xdoclint:none needs to be applied differently -->
 		<jacoco.plugin.version>0.8.1</jacoco.plugin.version>
 	</properties>
 
@@ -354,6 +355,9 @@
 								<version>9</version>
 							</jdkToolchain>
 							<release>9</release>
+							<sources>
+                				<source>src/main/java-mr/9</source>
+              				</sources>
 						</configuration>
 					</execution>
 					<execution>
@@ -366,7 +370,7 @@
 							<source>${maven.compile.sourceLevel}</source>
 							<target>${maven.compile.targetLevel}</target>
 							<excludes>
-								<exclude>${compile.exclude.files}</exclude>
+								<exclude>java/measure/${compile.exclude.files}</exclude>
 							</excludes>
 						</configuration>
 					</execution>
