@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>javax.measure</groupId>
@@ -332,6 +333,25 @@
 										<ignore></ignore>
 									</action>
 								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.moditect</groupId>
+										<artifactId>
+											moditect-maven-plugin
+										</artifactId>
+										<versionRange>
+											[1.0.0.Beta1,)
+										</versionRange>
+										<goals>
+											<goal>
+												generate-module-info
+											</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
 					</configuration>
@@ -356,8 +376,8 @@
 							</jdkToolchain>
 							<release>9</release>
 							<sources>
-                				<source>src/main/java-mr/9</source>
-              				</sources>
+								<source>src/main/java-mr/9</source>
+							</sources>
 						</configuration>
 					</execution>
 					<execution>
@@ -510,6 +530,7 @@
 							<Specification-Vendor>${project.organization.name}</Specification-Vendor>
 							<Implementation-Vendor>Unit-API contributors</Implementation-Vendor>
 							<Implementation-URL>http://unitsofmeasurement.github.io</Implementation-URL>
+							<Automatic-Module-Name>java.measure</Automatic-Module-Name>
 						</manifestEntries>
 					</archive>
 				</configuration>
@@ -913,6 +934,68 @@
 				</plugins>
 			</build>
 		</profile>
+
+		<profile>
+			<id>modGen</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.moditect</groupId>
+						<artifactId>moditect-maven-plugin</artifactId>
+						<version>1.0.0.Beta1</version>
+						<executions>
+							<execution>
+								<id>generate-module-info</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>generate-module-info</goal>
+								</goals>
+								<configuration>
+									<modules>
+										<module>
+											<artifact>
+												<groupId>javax.measure</groupId>
+												<artifactId>unit-api</artifactId>
+												<version>2.0-SNAPSHOT</version>
+											</artifact>
+											<additionalDependencies>
+												<dependency>
+													<groupId>junit</groupId>
+													<artifactId>junit</artifactId>
+													<version>4.12</version>
+												</dependency>
+											</additionalDependencies>
+											<moduleInfo>
+												<name>java.measure</name>
+												<exports>
+													*;
+												</exports>
+												<requires>
+													*;
+												</requires>
+												<uses>
+													javax.measure.spi.FormatService;
+													javax.measure.spi.QuantityFactory;
+													javax.measure.spi.ServiceProvider;
+													javax.measure.spi.SystemOfUnitsService;
+													javax.measure.spi.UnitFormatService;
+													javax.measure.format.QuantityFormat;
+													javax.measure.format.UnitFormat;
+												</uses>
+												<addServiceUses>true</addServiceUses>
+											</moduleInfo>
+										</module>
+									</modules>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+
+			</build>
+		</profile>
+
 		<profile>
 			<id>brokenGitHubSite</id>
 			<build>
