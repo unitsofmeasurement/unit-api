@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_2m-FwHWbEeSrSaxu8IGQmg" name="model">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_2m-FwHWbEeSrSaxu8IGQmg" name="model">
   <packagedElement xmi:type="uml:Model" xmi:id="_CgTrQHWcEeSrSaxu8IGQmg" name="generated">
     <packagedElement xmi:type="uml:Package" xmi:id="_CgTrQXWcEeSrSaxu8IGQmg" name="javax">
       <packagedElement xmi:type="uml:Package" xmi:id="_CgTrQnWcEeSrSaxu8IGQmg" name="measure">
@@ -281,24 +281,7 @@
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f7ir63Y5EeSqtc-Sb9aJnA" name="getSystemUnit">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f7ir7HY5EeSqtc-Sb9aJnA">
-              <body>
-     * Returns the unscaled system unit from which this unit is derived.
-     * System units are either base units, {@linkplain #alternate(String)
-     * alternate} units or product of rational powers of system units.
-     *
-     * &lt;p>Because the system unit is unique by quantity type, it can be
-     * be used to identify the quantity given the unit. For example:&lt;/p>
-     *
-     * <code>
-     *     static boolean isAngularSpeed(Unit&lt;?> unit) {
-     *         return unit.getSystemUnit().equals(RADIAN.divide(SECOND));
-     *     }
-     *     assert isAngularSpeed(REVOLUTION.divide(MINUTE)); // Returns true.
-     * </code>
-     *
-     * @return the system unit this unit is derived from,
-     *         or {@code this} if this unit is a system unit.
-     </body>
+              <body xsi:nil="true"/>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7ir7XY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
           </ownedOperation>
@@ -315,42 +298,14 @@
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f7ir8XY5EeSqtc-Sb9aJnA" name="isCompatible">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f7ir8nY5EeSqtc-Sb9aJnA">
-              <body>
-     * Indicates if this unit is compatible with the unit specified.
-     * Units don't need to be equals to be compatible. For example
-     * (assuming {@code ONE} is a dimensionless unit):
-     *
-     * <code>
-     *     RADIAN.equals(ONE) == false
-     *     RADIAN.isCompatible(ONE) == true
-     * </code>
-     *
-     * @param  that the other unit to compare for compatibility.
-     * @return {@code this.getDimension().equals(that.getDimension())}
-     *
-     * @see #getDimension()
-     </body>
+              <body xsi:nil="true"/>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7ir9HY5EeSqtc-Sb9aJnA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7ir9XY5EeSqtc-Sb9aJnA" name="that" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f7ir9nY5EeSqtc-Sb9aJnA" name="asType">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f7ir93Y5EeSqtc-Sb9aJnA">
-              <body>
-     * Casts this unit to a parameterized unit of specified nature or throw a
-     * {@code ClassCastException} if the dimension of the specified quantity
-     * and this unit's dimension do not match. For example:
-     *
-     * <code>
-     *      Unit&lt;Speed> C = METRE.times(299792458).divide(SECOND).asType(Speed.class);
-     * </code>
-     *
-     * @param  &lt;T> The type of the quantity measured by the unit.
-     * @param  type the quantity class identifying the nature of the unit.
-     * @return this unit parameterized with the specified type.
-     * @throws ClassCastException if the dimension of this unit is different
-     *         from the specified quantity dimension.
-     </body>
+              <body xsi:nil="true"/>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7ir-HY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc4HY5EeSqtc-Sb9aJnA" name="type" type="_Cgf4hnWcEeSrSaxu8IGQmg"/>
@@ -398,66 +353,21 @@
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f7sc6nY5EeSqtc-Sb9aJnA" name="alternate">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f7sc63Y5EeSqtc-Sb9aJnA">
-              <body>
-     * Returns a system unit equivalent to this unscaled standard unit but used
-     * in expressions to distinguish between quantities of a different nature
-     * but of the same dimensions.
-     *
-     * &lt;p>Examples of alternate units:&lt;/p>
-     *
-     * <code>
-     *     Unit&lt;Angle> RADIAN = ONE.alternate(&quot;rad&quot;).asType(Angle.class);
-     *     Unit&lt;Force> NEWTON = METRE.times(KILOGRAM).divide(SECOND.pow(2)).alternate(&quot;N&quot;).asType(Force.class);
-     *     Unit&lt;Pressure> PASCAL = NEWTON.divide(METRE.pow(2)).alternate(&quot;Pa&quot;).asType(Pressure.class);
-     * </code>
-     *
-     * @param  symbol the new symbol for the alternate unit.
-     * @return the alternate unit.
-     * @throws UnsupportedOperationException if this unit is not an unscaled standard unit.
-     * @throws IllegalArgumentException if the specified symbol is already
-     *         associated to a different unit.
-     </body>
+              <body xsi:nil="true"/>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc7HY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc7XY5EeSqtc-Sb9aJnA" name="symbol" type="_f7ir43Y5EeSqtc-Sb9aJnA"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f7sc73Y5EeSqtc-Sb9aJnA" name="shift">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f7sc8HY5EeSqtc-Sb9aJnA">
-              <body>
-     * Returns the result of setting the origin of the scale of measurement to the given value.
-     * The returned unit is convertible with all units that are convertible with this unit.
-     * For example the following code:
-     *
-     * <code>
-     *    CELSIUS = KELVIN.shift(273.15);
-     * </code>
-     *
-     * creates a new unit where 0Â°C (the origin of the new unit) is equals to 273.15 K.
-     * Converting from the old unit to the new one is equivalent to &lt;em>subtracting&lt;/em>
-     * the offset to the value in the old unit.
-     *
-     * @param  offset the offset added (expressed in this unit).
-     * @return this unit offset by the specified value.
-     </body>
+              <body xsi:nil="true"/>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc8XY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc8nY5EeSqtc-Sb9aJnA" name="offset" type="_f7sc7nY5EeSqtc-Sb9aJnA"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f7sc83Y5EeSqtc-Sb9aJnA" name="multiply">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f7sc9HY5EeSqtc-Sb9aJnA">
-              <body>
-     * Returns the result of multiplying this unit by the specified factor.
-     * If the factor is an integer value, the multiplication is exact
-     * (recommended). For example:
-     *
-     * <code>
-     *    FOOT = METRE.multiply(3048).divide(10000); // Exact definition.
-     *    ELECTRON_MASS = KILOGRAM.multiply(9.10938188e-31); // Approximation.
-     * </code>
-     *
-     * @param  factor the factor
-     * @return this unit scaled by the specified factor.
-     </body>
+              <body xsi:nil="true"/>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc9XY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m0HY5EeSqtc-Sb9aJnA" name="multiplier" type="_f7sc7nY5EeSqtc-Sb9aJnA"/>
@@ -486,18 +396,7 @@
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m2HY5EeSqtc-Sb9aJnA" name="divide">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f71m2XY5EeSqtc-Sb9aJnA">
-              <body>
-     * Returns the result of dividing this unit by an approximate divisor.
-     * If the factor is an integer value, the division is exact.
-     * For example:
-     *
-     * <code>
-     *    QUART = GALLON_LIQUID_US.divide(4); // Exact definition.
-     * </code>
-     *
-     * @param  divisor the divisor value.
-     * @return this unit divided by the specified divisor.
-     </body>
+              <body xsi:nil="true"/>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m2nY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m23Y5EeSqtc-Sb9aJnA" name="divisor" type="_f7sc7nY5EeSqtc-Sb9aJnA"/>
@@ -744,24 +643,7 @@
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f8JI1XY5EeSqtc-Sb9aJnA" name="isLinear">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f8JI1nY5EeSqtc-Sb9aJnA">
-              <body>
-     * Indicates if this converter is linear. A converter is linear if:
-     *
-     * &lt;ul>
-     *   &lt;li>{@code convert(u + v) == convert(u) + convert(v)}&lt;/li>
-     *   &lt;li>{@code convert(r * u) == r * convert(u)}&lt;/li>
-     * &lt;/ul>
-     *
-     * &lt;p>For linear converters the following property always hold:&lt;/p>
-     *
-     * <code>
-     *   y1 = c1.convert(x1);
-     *   y2 = c2.convert(x2);
-     *   assert y1*y2 == c1.concatenate(c2).convert(x1*x2);
-     * </code>
-     *
-     * @return {@code true} if this converter is linear; {@code false} otherwise.
-     </body>
+              <body xsi:nil="true"/>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f8JI13Y5EeSqtc-Sb9aJnA" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
           </ownedOperation>
@@ -1141,6 +1023,7 @@
             </ownedOperation>
           </packagedElement>
         </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_il06sHC0EeiPSP_DaMvzsA" name="Prefix"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_DeY8gHY-EeS0S_a4KNH9ow" name="tec">
@@ -2014,17 +1897,7 @@
             </ownedOperation>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_fLK_ynonEeS9Gr9yPtn_zA" name="toSystemUnit" visibility="protected" isAbstract="true">
               <ownedComment xmi:type="uml:Comment" xmi:id="_fLRGYHonEeS9Gr9yPtn_zA">
-                <body>
-	 * Returns the unscaled {@link SI} unit from which this unit is derived.
-	 * 
-	 * They SI unit can be be used to identify a quantity given the unit. For
-	 * example:<code> static boolean isAngularVelocity(AbstractUnit&lt;?> unit) {
-	 * return unit.toSI().equals(RADIAN.divide(SECOND)); }
-	 * assert(REVOLUTION.divide(MINUTE).isAngularVelocity()); // Returns true.
-	 * </code>
-	 *
-	 * @return the unscaled metric unit from which this unit is derived.
-	 </body>
+                <body xsi:nil="true"/>
               </ownedComment>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLRGYXonEeS9Gr9yPtn_zA" type="_fLK_wHonEeS9Gr9yPtn_zA" direction="return"/>
             </ownedOperation>
@@ -2042,48 +1915,14 @@
             </ownedOperation>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_fLRGZXonEeS9Gr9yPtn_zA" name="annotate" visibility="public">
               <ownedComment xmi:type="uml:Comment" xmi:id="_fLRGZnonEeS9Gr9yPtn_zA">
-                <body>
-	 * Annotates the specified unit. Annotation does not change the unit
-	 * semantic. Annotations are often written between curly braces behind
-	 * units. For example: <code> AbstractUnit&lt;Volume> PERCENT_VOL =
-	 * SI.PERCENT.annotate(&quot;vol&quot;); // &quot;%{vol}&quot; AbstractUnit&lt;Mass> KG_TOTAL =
-	 * SI.KILOGRAM.annotate(&quot;total&quot;); // &quot;kg{total}&quot; AbstractUnit&lt;Dimensionless>
-	 * RED_BLOOD_CELLS = ONE.annotate(&quot;RBC&quot;); // &quot;{RBC}&quot; </code>
-	 *
-	 * Note: Annotation of system units are not considered themselves as system
-	 * units.
-	 *
-	 * @param annotation
-	 *            the unit annotation.
-	 * @return the annotated unit.
-	 </body>
+                <body xsi:nil="true"/>
               </ownedComment>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLRGaXonEeS9Gr9yPtn_zA" type="_fLRGaHonEeS9Gr9yPtn_zA" direction="return"/>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLRGanonEeS9Gr9yPtn_zA" name="annotation" type="_f7ir43Y5EeSqtc-Sb9aJnA"/>
             </ownedOperation>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_fLRGbHonEeS9Gr9yPtn_zA" name="parse" visibility="public" isStatic="true">
               <ownedComment xmi:type="uml:Comment" xmi:id="_fLRGbXonEeS9Gr9yPtn_zA">
-                <body>
-	 * Returns the physics unit represented by the specified characters as per
-	 * standard &lt;a href=&quot;http://www.unitsofmeasure.org/&quot;>UCUM&lt;/a> format.
-	 *
-	 * Locale-sensitive unit parsing may be handled using the OSGi
-	 * {@link javax.measure.spi.UnitFormatService} or for non-OSGi applications
-	 * the {@link LocalUnitFormat} utility class.
-	 *
-	 * &lt;p>
-	 * Note: The standard UCUM format supports dimensionless units.<code>
-	 * AbstractUnit&lt;Dimensionless> PERCENT =
-	 * AbstractUnit.of(&quot;100&quot;).inverse().asType(Dimensionless.class); </code>
-	 * &lt;/p>
-	 *
-	 * @param charSequence
-	 *            the character sequence to parse.
-	 * @return &lt;code>UCUMFormat.getCaseSensitiveInstance().parse(csq, new ParsePosition(0))&lt;/code>
-	 * @throws ParserException
-	 *             if the specified character sequence cannot be correctly
-	 *             parsed (e.g. not UCUM compliant).
-	 </body>
+                <body xsi:nil="true"/>
               </ownedComment>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLRGbnonEeS9Gr9yPtn_zA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLXNAHonEeS9Gr9yPtn_zA" name="charSequence" type="_fLRGa3onEeS9Gr9yPtn_zA"/>
@@ -2108,16 +1947,7 @@
             </ownedOperation>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_fLXNBHonEeS9Gr9yPtn_zA" name="getSystemUnit" visibility="public" isLeaf="true">
               <ownedComment xmi:type="uml:Comment" xmi:id="_fLXNBXonEeS9Gr9yPtn_zA">
-                <body>
-	 * Returns the system unit (unscaled SI unit) from which this unit is
-	 * derived. They can be be used to identify a quantity given the unit. For
-	 * example:<code> static boolean isAngularVelocity(AbstractUnit&lt;?> unit) {
-	 * return unit.getSystemUnit().equals(RADIAN.divide(SECOND)); }
-	 * assert(REVOLUTION.divide(MINUTE).isAngularVelocity()); // Returns true.
-	 * </code>
-	 *
-	 * @return the unscaled metric unit from which this unit is derived.
-	 </body>
+                <body xsi:nil="true"/>
               </ownedComment>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_fLXNBnonEeS9Gr9yPtn_zA" type="_fLK_wHonEeS9Gr9yPtn_zA" direction="return"/>
             </ownedOperation>
