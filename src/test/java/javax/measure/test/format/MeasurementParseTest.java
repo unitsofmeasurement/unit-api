@@ -30,6 +30,8 @@
 package javax.measure.test.format;
 
 import javax.measure.format.MeasurementParseException;
+import javax.measure.format.ParserException;
+
 import org.junit.Test;
 
 /**
@@ -40,5 +42,10 @@ public class MeasurementParseTest {
   @Test(expected = MeasurementParseException.class)
   public void testExceptionWithMessage() {
     throw new MeasurementParseException("Error");
+  }
+  
+  @Test(expected = ParserException.class)
+  public void testOldExceptionWithMessageAndPos() {
+    throw new ParserException("Error", 0);
   }
 }
