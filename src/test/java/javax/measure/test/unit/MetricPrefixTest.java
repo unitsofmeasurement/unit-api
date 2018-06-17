@@ -32,6 +32,7 @@ package javax.measure.test.unit;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Length;
+import javax.measure.quantity.Time;
 import javax.measure.quantity.Volume;
 import javax.measure.test.TestUnit;
 import javax.measure.test.quantity.DistanceQuantity;
@@ -44,64 +45,82 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 import static javax.measure.MetricPrefix.*;
+import static javax.measure.test.unit.AreaUnit.*;
 import static javax.measure.test.unit.DistanceUnit.*;
+import static javax.measure.test.unit.SpeedUnit.*;
+import static javax.measure.test.unit.TimeUnit.*;
 import static javax.measure.test.unit.VolumeUnit.*;
 
 public class MetricPrefixTest {
-  @Test
-  public void testKilo() {
-    final Quantity<Length> m1 = new DistanceQuantity(1, m);
-    final Unit<Length> km = KILO(m);
-    assertEquals("k", KILO.getSymbol());
-    assertEquals(1d, m1.getValue());
-    assertEquals("m * 1000.0", km.toString());
-    if (km instanceof TestUnit) {
-      TestUnit testKm = (TestUnit) km;
-      assertEquals(1000d, testKm.getMultFactor(), 0);
-    }
-  }
+	@Test
+	public void testAtto() {
+		assertEquals("a", ATTO.getSymbol());
+		Quantity<Time> t1 = TestQuantities.getQuantity(1.0, ATTO(min));
+		assertEquals("min * 6.0E-17", t1.getUnit().toString());
+	}
+	
+	@Test
+	public void testCenti() {
+		assertEquals("c", CENTI.getSymbol());
+		Quantity<Length> l1 = TestQuantities.getQuantity(1.0, CENTI(m));
+		assertEquals("m * 0.01", l1.getUnit().toString());
+	}
+	
+	@Test
+	public void testDeci() {
+		Quantity<Volume> m1 = new VolumeQuantity(1.0, litre);
+		assertEquals(1d, m1.getValue());
+		assertEquals("litre * 0.001", m1.getUnit().toString());
 
-  @Test
-  public void testMega() {
-    assertEquals("M", MEGA.getSymbol());
-    Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, MEGA(litre));
-    assertEquals("1000.0", v1.getUnit().toString());
-  }
+		Quantity<Volume> m2 = m1.to(DECI(litre));
+		assertNull(m2); // TODO temporary workaround
+	}
 
-  @Test
-  public void testDeci() {
-    Quantity<Volume> m1 = new VolumeQuantity(1.0, litre);
-    assertEquals(1d, m1.getValue());
-    assertEquals("litre * 0.001", m1.getUnit().toString());
+	@Test
+	public void testKilo() {
+		final Quantity<Length> m1 = new DistanceQuantity(1, m);
+		final Unit<Length> km = KILO(m);
+		assertEquals("k", KILO.getSymbol());
+		assertEquals(1d, m1.getValue());
+		assertEquals("m * 1000.0", km.toString());
+		if (km instanceof TestUnit) {
+			@SuppressWarnings("rawtypes")
+			final TestUnit testKm = (TestUnit) km;
+			assertEquals(1000d, testKm.getMultFactor(), 0);
+		}
+	}
 
-    Quantity<Volume> m2 = m1.to(DECI(litre));
-    assertNull(m2); // TODO temporary workaround
-  }
+	@Test
+	public void testMega() {
+		assertEquals("M", MEGA.getSymbol());
+		Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, MEGA(litre));
+		assertEquals("1000.0", v1.getUnit().toString());
+	}
 
-  @Test
-  public void testMilli() {
-    Quantity<Volume> m1 = TestQuantities.getQuantity(10, MILLI(litre));
-    assertEquals(10d, m1.getValue());
-    assertEquals("1.0E-6", m1.getUnit().toString());
-  }
+	@Test
+	public void testMilli() {
+		Quantity<Volume> m1 = TestQuantities.getQuantity(10, MILLI(litre));
+		assertEquals(10d, m1.getValue());
+		assertEquals("1.0E-6", m1.getUnit().toString());
+	}
 
-  @Test
-  public void testMicro() {
-    Quantity<Length> m1 = TestQuantities.getQuantity(1.0, m);
-    assertEquals(1d, m1.getValue());
-    assertEquals("m", m1.getUnit().getSymbol());
+	@Test
+	public void testMicro() {
+		Quantity<Length> m1 = TestQuantities.getQuantity(1.0, m);
+		assertEquals(1d, m1.getValue());
+		assertEquals("m", m1.getUnit().getSymbol());
 
-    Quantity<Length> m2 = m1.to(MICRO(m));
-    assertNull(m2); // TODO temporary workaround
-  }
+		Quantity<Length> m2 = m1.to(MICRO(m));
+		assertNull(m2); // TODO temporary workaround
+	}
 
-  @Test
-  public void testNano() {
-    Quantity<Length> m1 = TestQuantities.getQuantity(1.0, m);
-    assertEquals(1d, m1.getValue());
-    assertEquals("m", m1.getUnit().getSymbol());
+	@Test
+	public void testNano() {
+		Quantity<Length> m1 = TestQuantities.getQuantity(1.0, m);
+		assertEquals(1d, m1.getValue());
+		assertEquals("m", m1.getUnit().getSymbol());
 
-    Quantity<Length> m2 = m1.to(NANO(m));
-    assertNull(m2); // TODO temporary workaround
-  }
+		Quantity<Length> m2 = m1.to(NANO(m));
+		assertNull(m2); // TODO temporary workaround
+	}
 }
