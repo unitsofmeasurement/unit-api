@@ -54,7 +54,7 @@ public class MetricPrefixTest {
     final Unit<Length> km = KILO(m);
     assertEquals("k", KILO.getSymbol());
     assertEquals(1d, m1.getValue());
-    assertEquals("m", km.toString());
+    assertEquals("m * 1000.0", km.toString());
     if (km instanceof TestUnit) {
       TestUnit testKm = (TestUnit) km;
       assertEquals(1000d, testKm.getMultFactor(), 0);
@@ -64,16 +64,15 @@ public class MetricPrefixTest {
   @Test
   public void testMega() {
     assertEquals("M", MEGA.getSymbol());
-    Quantity<Volume> m1 = TestQuantities.getQuantity(1.0, MEGA(litre));
-    // assertEquals(1d, m1.getValue());
-    // assertEquals("Mg", m1.getUnit().toString());
+    Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, MEGA(litre));
+    assertEquals("1000.0", v1.getUnit().toString());
   }
 
   @Test
   public void testDeci() {
     Quantity<Volume> m1 = new VolumeQuantity(1.0, litre);
     assertEquals(1d, m1.getValue());
-    assertEquals("litre", m1.getUnit().toString());
+    assertEquals("litre * 0.001", m1.getUnit().toString());
 
     Quantity<Volume> m2 = m1.to(DECI(litre));
     assertNull(m2); // TODO temporary workaround
@@ -83,14 +82,14 @@ public class MetricPrefixTest {
   public void testMilli() {
     Quantity<Volume> m1 = TestQuantities.getQuantity(10, MILLI(litre));
     assertEquals(10d, m1.getValue());
-    assertNull(m1.getUnit().toString());
+    assertEquals("1.0E-6", m1.getUnit().toString());
   }
 
   @Test
   public void testMicro() {
     Quantity<Length> m1 = TestQuantities.getQuantity(1.0, m);
     assertEquals(1d, m1.getValue());
-    assertEquals("m", m1.getUnit().toString());
+    assertEquals("m", m1.getUnit().getSymbol());
 
     Quantity<Length> m2 = m1.to(MICRO(m));
     assertNull(m2); // TODO temporary workaround
@@ -100,7 +99,7 @@ public class MetricPrefixTest {
   public void testNano() {
     Quantity<Length> m1 = TestQuantities.getQuantity(1.0, m);
     assertEquals(1d, m1.getValue());
-    assertEquals("m", m1.getUnit().toString());
+    assertEquals("m", m1.getUnit().getSymbol());
 
     Quantity<Length> m2 = m1.to(NANO(m));
     assertNull(m2); // TODO temporary workaround

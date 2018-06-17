@@ -31,7 +31,10 @@ package javax.measure.test.unit;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
+import javax.measure.quantity.Area;
 import javax.measure.quantity.Length;
+import javax.measure.quantity.Speed;
+import javax.measure.quantity.Time;
 import javax.measure.quantity.Volume;
 import javax.measure.test.TestUnit;
 import javax.measure.test.quantity.DistanceQuantity;
@@ -41,10 +44,14 @@ import javax.measure.test.quantity.VolumeQuantity;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import static javax.measure.BinaryPrefix.*;
+import static javax.measure.test.unit.AreaUnit.*;
 import static javax.measure.test.unit.DistanceUnit.*;
+import static javax.measure.test.unit.SpeedUnit.*;
+import static javax.measure.test.unit.TimeUnit.*;
 import static javax.measure.test.unit.VolumeUnit.*;
 
 public class BinaryPrefixTest {
@@ -54,8 +61,9 @@ public class BinaryPrefixTest {
     final Unit<Length> km = KIBI(m);
     assertEquals("Ki", KIBI.getSymbol());
     assertEquals(1d, m1.getValue());
-    assertEquals("m", km.toString());
+    assertEquals("m * 1024.0", km.toString());
     if (km instanceof TestUnit) {
+      @SuppressWarnings("rawtypes")
       TestUnit testKm = (TestUnit) km;
       assertEquals(1024d, testKm.getMultFactor(), 0);
     }
@@ -64,161 +72,58 @@ public class BinaryPrefixTest {
   @Test
   public void testMebi() {
     assertEquals("Mi", MEBI.getSymbol());
-    Quantity<Volume> m1 = TestQuantities.getQuantity(1.0, MEBI(litre));
+    Quantity<Time> t1 = TestQuantities.getQuantity(1.0, MEBI(s));
+    assertNotNull(t1);
+    assertEquals("1.0 s * 1048576.0", t1.toString());
   }
 
   @Test
   public void testExbi() {
-    Quantity<Volume> m1 = new VolumeQuantity(1.0, litre);
-    assertEquals(1d, m1.getValue());
-    assertEquals("litre", m1.getUnit().toString());
+    Quantity<Volume> v1 = new VolumeQuantity(1.0, litre);
+    assertEquals(1d, v1.getValue());
+    assertEquals("litre * 0.001", v1.getUnit().toString());
 
-    Quantity<Volume> m2 = m1.to(EXBI(litre));
-    assertNull(m2); // TODO temporary workaround
+    Quantity<Volume> v2 = v1.to(EXBI(litre));
+    assertNull(v2); // TODO temporary workaround
   }
-  /*
-    @Test
-    public void testMilli() {
-      Quantity<Mass> m1 = Quantities.getQuantity(1.0, MILLI(Units.GRAM));
-      assertEquals(1d, m1.getValue());
-      assertEquals("mg", m1.getUnit().toString());
-    }
 
-    @Test
-    public void testMilli2() {
-      Quantity<Volume> m1 = Quantities.getQuantity(10, MILLI(litre));
-      assertEquals(10, m1.getValue());
-      assertEquals("ml", m1.getUnit().toString());
-    }
+  @Test
+  public void testGibi() {
+    assertEquals("Gi", GIBI.getSymbol());
+    Quantity<Speed> s1 = TestQuantities.getQuantity(1.0, GIBI(mph));
+    assertNotNull(s1);
+    assertEquals("1.0 2.779789807058944E15", s1.toString());
+  }
 
-    @Test
-    public void testMilli3() {
-      Quantity<Volume> m1 = Quantities.getQuantity(1.0, litre);
-      assertEquals(1d, m1.getValue());
-      assertEquals("l", m1.getUnit().toString());
+  @Test
+  public void testTebi() {
+    assertEquals("Ti", TEBI.getSymbol());
+    Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, TEBI(litre));
+    assertNotNull(v1);
+    assertEquals("1.0 1.099511627776E9", v1.toString());
+  }
 
-      Quantity<Volume> m2 = m1.to(MILLI(litre));
-      assertEquals(1000.0d, m2.getValue());
-      assertEquals("ml", m2.getUnit().toString());
-    }
-
-    @Test
-    public void testMilli4() {
-      Quantity<Volume> m1 = Quantities.getQuantity(1.0, MILLI(litre));
-      assertEquals(1d, m1.getValue());
-      assertEquals("ml", m1.getUnit().toString());
-
-      Quantity<Volume> m2 = m1.to(litre);
-      assertEquals(0.001d, m2.getValue());
-      assertEquals("l", m2.getUnit().toString());
-    }
-
-    @Test
-    public void testMicro2() {
-      Quantity<Length> m1 = Quantities.getQuantity(1.0, Units.METRE);
-      assertEquals(1d, m1.getValue());
-      assertEquals("m", m1.getUnit().toString());
-
-      Quantity<Length> m2 = m1.to(MICRO(Units.METRE));
-      assertEquals(1000000.0d, m2.getValue());
-      assertEquals("µm", m2.getUnit().toString());
-    }
-
-    @Test
-    public void testNano() {
-      Quantity<Mass> m1 = Quantities.getQuantity(1.0, Units.GRAM);
-      assertEquals(1d, m1.getValue());
-      assertEquals("g", m1.getUnit().toString());
-
-      Quantity<Mass> m2 = m1.to(NANO(Units.GRAM));
-      assertEquals(1000000000.0d, m2.getValue());
-      assertEquals("ng", m2.getUnit().toString());
-    }
-
-    @Test
-    public void testNano2() {
-      Quantity<Length> m1 = Quantities.getQuantity(1.0, Units.METRE);
-      assertEquals(1d, m1.getValue());
-      assertEquals("m", m1.getUnit().toString());
-
-      Quantity<Length> m2 = m1.to(NANO(Units.METRE));
-      assertEquals(1000000000.0d, m2.getValue());
-      assertEquals("nm", m2.getUnit().toString());
-    }
-
-    @Test
-    public void testHashMapAccessingMap() {
-      assertThat(litre.toString(), is("l"));
-      assertThat(MILLI(litre).toString(), is("ml"));
-      assertThat(MILLI(GRAM).toString(), is("mg"));
-    }
-
-    @Test
-    public void testSingleOperation() {
-      assertEquals(MICRO(GRAM), GRAM.divide(1000000));
-    }
-
-    @Test
-    public void testNestedOperationsNotTheSame() {
-      Unit<Mass> m1 = MICRO(GRAM);
-      Unit<Mass> m2 = GRAM.divide(1000).divide(2000);
-      UnitConverter c1 = m1.getConverterTo(m2);
-      List steps1 = c1.getConversionSteps();
-      UnitConverter c2 = m2.getConverterTo(m1);
-      List steps2 = c2.getConversionSteps();
-      assertNotEquals(c1, c2);
-      assertNotEquals(m1, m2);
-    }
-    
-    @Test
-    public void testKibi() {
-      final UnitConverter expected = new RationalConverter(128, 125);
-      final UnitConverter actual = KIBI(METRE).getConverterTo(KILO(METRE));
-      assertEquals("Ki", KIBI.getSymbol());
-      assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testMebi() {
-      final UnitConverter expected = new RationalConverter(8, 15625);
-      final UnitConverter actual = MEBI(METRE).getConverterTo(MEGA(METRE));
-      assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testGibi() {
-      final UnitConverter expected = new RationalConverter(2, 5859375);
-      final UnitConverter actual = GIBI(METRE).getConverterTo(GIGA(METRE));
-      assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testTebi() {
-      final UnitConverter expected = new RationalConverter(1, 3906250000l);
-      final UnitConverter actual = TEBI(litre).getConverterTo(TERA(litre));
-      assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testPebi() {
-      final UnitConverter expected = new RationalConverter(1, 4882812500000L);
-      final UnitConverter actual = PEBI(litre).getConverterTo(PETA(litre));
-      assertEquals(expected, actual);
-    }
-    
-    @Test
-    public void testZebi() {
-      final UnitConverter expected = new RationalConverter(1, 6835937500000000000L);
-      final UnitConverter actual = ZEBI(GRAM).getConverterTo(ZETTA(GRAM));
-      assertEquals(expected, actual);
-    }
-    
-    @Test
-    public void testYobi() {
-      final UnitConverter expected = new RationalConverter(BigInteger.ONE, 
-      		  BigDecimal.valueOf(7812500000000000000000D).toBigInteger());
-      final UnitConverter actual = YOBI(GRAM).getConverterTo(YOTTA(GRAM));
-      assertEquals(expected, actual);
-    }
-    */
+  @Test
+  public void testPebi() {
+    assertEquals("Pi", PEBI.getSymbol());
+    Quantity<Area> a1 = TestQuantities.getQuantity(1.0, TEBI(acre));
+    assertNotNull(a1);
+    assertEquals("1.0 4.449723557609472E15", a1.toString());
+  }
+  
+  @Test
+  public void testYobi() {
+    assertEquals("Yi", YOBI.getSymbol());
+    Quantity<Area> a1 = TestQuantities.getQuantity(1.0, YOBI(acre));
+    assertNotNull(a1);
+    assertEquals("1.0 4.892522791980404E27", a1.toString());
+  }
+  
+  @Test
+  public void testZebi() {
+    assertEquals("Zi", ZEBI.getSymbol());
+    Quantity<Area> a1 = TestQuantities.getQuantity(1.0, ZEBI(acre));
+    assertNotNull(a1);
+    assertEquals("1.0 4.7778542890433635E24", a1.toString());
+  }
 }

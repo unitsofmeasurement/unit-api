@@ -37,6 +37,7 @@ import javax.measure.test.unit.BaseUnit;
 
 /**
  * @author Werner Keil
+ * @since 1.0
  */
 public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>, Comparable<Quantity<Q>> {
 
@@ -107,7 +108,7 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
 
   @Override
   public String toString() {
-    return (Double.valueOf(units)).toString() + ' ' + unit.getName();
+    return (Double.valueOf(units)).toString() + ' ' + String.valueOf(unit);
   }
 
   /**

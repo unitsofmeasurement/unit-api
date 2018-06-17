@@ -48,7 +48,7 @@ public class TimeQuantity extends TestQuantity<Time> {
     scalar = val * unit.getMultFactor();
   }
 
-  public TimeQuantity(Number val, Unit un) {
+  public TimeQuantity(Number val, @SuppressWarnings("rawtypes") Unit un) {
     this(val.doubleValue(), (TimeUnit) un);
   }
 
@@ -141,8 +141,7 @@ public class TimeQuantity extends TestQuantity<Time> {
   }
 
   public Quantity<Time> multiply(Number that) {
-    // TODO Auto-generated method stub
-    return null;
+    return multiply(that.doubleValue());
   }
 
   public Quantity<Time> to(Unit<Time> unit) {

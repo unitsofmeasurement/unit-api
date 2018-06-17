@@ -197,6 +197,18 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
 
   @Override
   public String toString() {
-    return getName();
+	final StringBuilder sb = new StringBuilder();
+    if (name != null) {
+      sb.append(name);
+    }
+    if (symbol != null) {
+      if (sb.length()>0) sb.append(' ');
+      sb.append(symbol);
+    } 
+    if (multFactor!=0 && multFactor!=1) {
+      if (sb.length()>0) sb.append(" * ");
+      sb.append(String.valueOf(getMultFactor()));
+    }
+    return sb.toString();
   }
 }

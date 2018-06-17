@@ -31,15 +31,14 @@ package javax.measure.test.quantity;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.text.ParsePosition;
 import java.util.Objects;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
-import javax.measure.format.ParserException;
 import javax.measure.test.unit.AreaUnit;
 import javax.measure.test.unit.DistanceUnit;
 import javax.measure.test.unit.TimeUnit;
+import javax.measure.test.unit.VolumeUnit;
 
 /**
  * Singleton class for accessing {@link Quantity} instances.
@@ -49,35 +48,39 @@ import javax.measure.test.unit.TimeUnit;
  * @since 1.0
  */
 public final class TestQuantities {
-  /**
-   * Private singleton constructor.
-   */
-  private TestQuantities() {
-  }
+	/**
+	 * Private singleton constructor.
+	 */
+	private TestQuantities() {
+	}
 
-  /**
-   * Returns the scalar measurement. When the {@link Number} was {@link BigDecimal} or {@link BigInteger} will uses {@link DecimalQuantity}, when the
-   * {@link Number} was {@link Double} will {@link DoubleQuantity} otherwise will {@link NumberQuantity}. in the specified unit.
-   *
-   * @param value
-   *          the measurement value.
-   * @param unit
-   *          the measurement unit.
-   * @return the corresponding <code>numeric</code> measurement.
-   * @throws NullPointerException
-   *           when value or unit were null
-   */
-  @SuppressWarnings("unchecked")
-  public static <Q extends Quantity<Q>> Quantity<Q> getQuantity(Number value, Unit<Q> unit) {
-    Objects.requireNonNull(value);
-    Objects.requireNonNull(unit);
-    if (AreaUnit.class.isInstance(unit)) {
-      return (Quantity<Q>) new AreaQuantity(value, unit);
-    } else if (DistanceUnit.class.isInstance(unit)) {
-      return (Quantity<Q>) new DistanceQuantity(value, unit);
-    } else if (TimeUnit.class.isInstance(unit)) {
-      return (Quantity<Q>) new TimeQuantity(value, unit);
-    }
-    return (Quantity<Q>) new DimensionlessQuantity(value, unit);
-  }
+	/**
+	 * Returns the scalar measurement. When the {@link Number} was
+	 * {@link BigDecimal} or {@link BigInteger} will uses {@link DecimalQuantity},
+	 * when the {@link Number} was {@link Double} will {@link DoubleQuantity}
+	 * otherwise will {@link NumberQuantity}. in the specified unit.
+	 *
+	 * @param value
+	 *            the measurement value.
+	 * @param unit
+	 *            the measurement unit.
+	 * @return the corresponding <code>numeric</code> measurement.
+	 * @throws NullPointerException
+	 *             when value or unit were null
+	 */
+	@SuppressWarnings("unchecked")
+	public static <Q extends Quantity<Q>> Quantity<Q> getQuantity(Number value, Unit<Q> unit) {
+		Objects.requireNonNull(value);
+		Objects.requireNonNull(unit);
+		if (AreaUnit.class.isInstance(unit)) {
+			return (Quantity<Q>) new AreaQuantity(value, unit);
+		} else if (DistanceUnit.class.isInstance(unit)) {
+			return (Quantity<Q>) new DistanceQuantity(value, unit);
+		} else if (TimeUnit.class.isInstance(unit)) {
+			return (Quantity<Q>) new TimeQuantity(value, unit);
+		} else if (VolumeUnit.class.isInstance(unit)) {
+			return (Quantity<Q>) new VolumeQuantity(value, unit);
+		}
+		return (Quantity<Q>) new DimensionlessQuantity(value, unit);
+	}
 }

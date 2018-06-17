@@ -35,7 +35,7 @@ import java.io.IOException;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
-import javax.measure.format.ParserException;
+import javax.measure.format.MeasurementParseException;
 import javax.measure.format.UnitFormat;
 import javax.measure.quantity.Length;
 import javax.measure.quantity.Speed;
@@ -67,7 +67,7 @@ public class UnitFormatTest {
     assertEquals("km/h", kph.toString());
   }
 
-  @Test(expected = ParserException.class)
+  @Test(expected = MeasurementParseException.class)
   public void testParseSimple() {
     Unit<?> u = format.parse("s");
     assertNotNull(u);
@@ -96,28 +96,28 @@ public class UnitFormatTest {
     assertEquals("m/s", a2.toString());
   }
 
-  @Test(expected = ParserException.class)
+  @Test(expected = MeasurementParseException.class)
   public void testParseIrregularString() {
     @SuppressWarnings("unused")
     Unit<?> u = format.parse("bl//^--1a");
   }
 
-  @Test(expected = ParserException.class)
+  @Test(expected = MeasurementParseException.class)
   public void testParserException() {
-    throw new ParserException(new IllegalArgumentException());
+    throw new MeasurementParseException(new IllegalArgumentException());
   }
 
-  @Test(expected = ParserException.class)
+  @Test(expected = MeasurementParseException.class)
   public void testParserExceptionWithPosition() {
-    ParserException pe = new ParserException("test", 1);
+    final MeasurementParseException pe = new MeasurementParseException("test", 1);
     assertEquals(1, pe.getPosition());
     assertEquals("test", pe.getParsedString());
     throw pe;
   }
 
-  @Test(expected = ParserException.class)
+  @Test(expected = MeasurementParseException.class)
   public void testParserExceptionWithNullString() {
-    ParserException pe = new ParserException(null, 0);
+    final MeasurementParseException pe = new MeasurementParseException(null, 0);
     assertEquals(0, pe.getPosition());
     assertNull(pe.getParsedString());
     throw pe;

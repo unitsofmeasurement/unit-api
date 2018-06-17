@@ -35,7 +35,7 @@ import java.util.Map;
 
 import javax.measure.MeasurementException;
 import javax.measure.Unit;
-import javax.measure.format.ParserException;
+import javax.measure.format.MeasurementParseException;
 import javax.measure.format.UnitFormat;
 import javax.measure.test.TestUnit;
 import javax.measure.test.unit.DistanceUnit;
@@ -91,7 +91,7 @@ abstract class TestUnitFormat implements UnitFormat {
    */
   public abstract Appendable format(Unit<?> unit, Appendable appendable) throws IOException;
 
-  protected Unit<?> parse(CharSequence csq, int index) throws ParserException {
+  protected Unit<?> parse(CharSequence csq, int index) throws MeasurementParseException {
     // Parsing reads the whole character sequence from the parse position.
     int start = index; // cursor != null ? cursor.getIndex() : 0;
     int end = csq.length();
@@ -102,7 +102,7 @@ abstract class TestUnitFormat implements UnitFormat {
     if (result != null) {
       return result;
     }
-    throw new ParserException("Error", csq, index);
+    throw new MeasurementParseException("Error", csq, index);
   }
 
   /**
@@ -115,7 +115,7 @@ abstract class TestUnitFormat implements UnitFormat {
    * @throws ParseException
    *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
    */
-  public final Unit<?> parse(CharSequence csq) throws ParserException {
+  public final Unit<?> parse(CharSequence csq) throws MeasurementParseException {
     return parse(csq, 0);
   }
 
