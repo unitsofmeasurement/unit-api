@@ -155,6 +155,16 @@
 				<role>Java Developer</role>
 			</roles>
 		</developer>
+		<developer>
+			<id>magesh678</id>
+			<name>Magesh Kasthuri</name>
+			<organization>Individual</organization>
+			<timezone>+4</timezone>
+			<roles>
+				<role>Expert</role>
+				<role>Java Developer</role>
+			</roles>
+		</developer>
 	</developers>
 	<contributors>
 		<contributor>
