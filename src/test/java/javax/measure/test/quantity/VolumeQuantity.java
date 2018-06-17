@@ -38,7 +38,7 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.4
+ * @version 0.5
  */
 public class VolumeQuantity extends TestQuantity<Volume> {
   public VolumeQuantity() {
@@ -52,13 +52,10 @@ public class VolumeQuantity extends TestQuantity<Volume> {
     scalar = val * unit.getMultFactor();
   }
 
-  /*
-   * Volume(double val) {
-   *
-   * units = val; unit = cumetre; // reference Unit scalar = val;
-   *
-   * }
-   */
+  public VolumeQuantity(Number val, Unit un) {
+    this(val.doubleValue(), (VolumeUnit) un);
+  }
+
   public VolumeQuantity add(VolumeQuantity d1) {
     VolumeQuantity dn = new VolumeQuantity();
     Object o = super.add(dn, this, d1, VolumeUnit.REF_UNIT);
@@ -151,8 +148,7 @@ public class VolumeQuantity extends TestQuantity<Volume> {
   }
 
   public Quantity<Volume> multiply(Number that) {
-    // TODO Auto-generated method stub
-    return null;
+    return multiply(that.doubleValue());
   }
 
   public Quantity<Volume> to(Unit<Volume> unit) {
