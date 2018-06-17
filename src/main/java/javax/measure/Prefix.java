@@ -35,7 +35,7 @@ package javax.measure;
  *
  * @see <a href="http://en.wikipedia.org/wiki/Unit_prefix">Wikipedia: Unit Prefix</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.8, 2018-04-20
+ * @version 0.9, 2018-06-17
  * @since 2.0
  */
 public interface Prefix {
@@ -49,11 +49,15 @@ public interface Prefix {
 
   /**
    * Base part of the associated factor in base^exponent representation.
+   * 
+   * @return the base part of this prefix.
    */
   public int getBase();
 
   /**
    * Exponent part of the associated factor in base^exponent representation.
+   * 
+   * @return the exponent part of this prefix.
    */
   public int getExponent();
 
