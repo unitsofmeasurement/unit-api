@@ -106,9 +106,9 @@ public class BinaryPrefixTest {
   @Test
   public void testPebi() {
     assertEquals("Pi", PEBI.getSymbol());
-    Quantity<Area> a1 = TestQuantities.getQuantity(1.0, TEBI(acre));
+    Quantity<Area> a1 = TestQuantities.getQuantity(1.0, PEBI(acre));
     assertNotNull(a1);
-    assertEquals("1.0 4.449723557609472E15", a1.toString());
+    assertEquals("1.0 4.5565169229920993E18", a1.toString());
   }
   
   @Test

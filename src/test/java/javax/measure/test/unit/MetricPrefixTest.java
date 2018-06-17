@@ -31,7 +31,9 @@ package javax.measure.test.unit;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
+import javax.measure.quantity.Area;
 import javax.measure.quantity.Length;
+import javax.measure.quantity.Speed;
 import javax.measure.quantity.Time;
 import javax.measure.quantity.Volume;
 import javax.measure.test.TestUnit;
@@ -75,6 +77,41 @@ public class MetricPrefixTest {
 		Quantity<Volume> m2 = m1.to(DECI(litre));
 		assertNull(m2); // TODO temporary workaround
 	}
+	
+	@Test
+	public void testDeka() {
+		assertEquals("da", DEKA.getSymbol());
+		Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, DEKA(litre));
+		assertEquals("0.01", v1.getUnit().toString());
+	}
+	
+	@Test
+	public void testExa() {
+		assertEquals("E", EXA.getSymbol());
+		Quantity<Length> l1 = TestQuantities.getQuantity(1.0, EXA(m));
+		assertEquals("m * 1.0E18", l1.getUnit().toString());
+	}
+	
+	@Test
+	public void testFemto() {
+		assertEquals("f", FEMTO.getSymbol());
+		Quantity<Time> t1 = TestQuantities.getQuantity(1.0, FEMTO(s));
+		assertEquals("s * 1.0E-15", t1.getUnit().toString());
+	}
+	
+	@Test
+	public void testGiga() {
+		assertEquals("G", GIGA.getSymbol());
+		Quantity<Area> a1 = TestQuantities.getQuantity(1.0, GIGA(acre));
+		assertEquals("4.047E12", a1.getUnit().toString());
+	}
+	
+	@Test
+	public void testHecto() {
+		assertEquals("h", HECTO.getSymbol());
+		Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, HECTO(litre));
+		assertEquals("0.1", v1.getUnit().toString());
+	}
 
 	@Test
 	public void testKilo() {
@@ -106,6 +143,8 @@ public class MetricPrefixTest {
 
 	@Test
 	public void testMicro() {
+		assertEquals("\\u00b5", toUnicode(MICRO.getSymbol().charAt(0)));
+		assertEquals("\u00b5", MICRO.getSymbol());
 		Quantity<Length> m1 = TestQuantities.getQuantity(1.0, m);
 		assertEquals(1d, m1.getValue());
 		assertEquals("m", m1.getUnit().getSymbol());
@@ -122,5 +161,65 @@ public class MetricPrefixTest {
 
 		Quantity<Length> m2 = m1.to(NANO(m));
 		assertNull(m2); // TODO temporary workaround
+	}
+	
+	@Test
+	public void testPeta() {
+		assertEquals("P", PETA.getSymbol());
+		Quantity<Speed> s1 = TestQuantities.getQuantity(10, PETA(kmh));
+		assertEquals(10d, s1.getValue());
+		assertEquals("1.0E15", s1.getUnit().toString());
+	}
+	
+	@Test
+	public void testPico() {
+		assertEquals("p", PICO.getSymbol());
+		Quantity<Volume> v1 = TestQuantities.getQuantity(10, PICO(litre));
+		assertEquals(10d, v1.getValue());
+		assertEquals("1.0E-15", v1.getUnit().toString());
+	}
+	
+	@Test
+	public void testTera() {
+		assertEquals("T", TERA.getSymbol());
+		Quantity<Length> l1 = TestQuantities.getQuantity(10, TERA(m));
+		assertEquals(10d, l1.getValue());
+		assertEquals("m * 1.0E12", l1.getUnit().toString());
+	}
+	
+	@Test
+	public void testYocto() {
+		assertEquals("y", YOCTO.getSymbol());
+		Quantity<Volume> v1 = TestQuantities.getQuantity(10, YOCTO(litre));
+		assertEquals(10d, v1.getValue());
+		assertEquals("9.999999999999999E-28", v1.getUnit().toString());
+	}
+	
+	@Test
+	public void testYotta() {
+		assertEquals("Y", YOTTA.getSymbol());
+		Quantity<Area> a1 = TestQuantities.getQuantity(10, YOTTA(sqmetre));
+		assertEquals(10d, a1.getValue());
+		assertEquals("1.0E24", a1.getUnit().toString());
+	}
+	
+	@Test
+	public void testZepto() {
+		assertEquals("z", ZEPTO.getSymbol());
+		Quantity<Time> t1 = TestQuantities.getQuantity(10, ZEPTO(s));
+		assertEquals(10d, t1.getValue());
+		assertEquals("s * 1.0E-21", t1.getUnit().toString());
+	}
+	
+	@Test
+	public void testZetta() {
+		assertEquals("Z", ZETTA.getSymbol());
+		Quantity<Length> l1 = TestQuantities.getQuantity(10, ZETTA(m));
+		assertEquals(10d, l1.getValue());
+		assertEquals("m * 1.0E21", l1.getUnit().toString());
+	}
+	
+	private static String toUnicode(char ch) {
+	    return String.format("\\u%04x", (int) ch);
 	}
 }
