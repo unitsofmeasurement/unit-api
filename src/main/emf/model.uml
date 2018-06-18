@@ -472,6 +472,18 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7_X13Y5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7_X2HY5EeSqtc-Sb9aJnA" name="converter" type="_f8JI0HY5EeSqtc-Sb9aJnA"/>
           </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_YROScHLlEeilgvRHPaOOsg" name="prefix">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_YROScXLlEeilgvRHPaOOsg">
+              <body>
+     * Returns a unit equals to this unit raised to an exponent.
+     *
+     * @param  n the exponent.
+     * @return the result of raising this unit to the exponent.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_YROScnLlEeilgvRHPaOOsg" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_YROSc3LlEeilgvRHPaOOsg" name="prefix" type="_il06sHC0EeiPSP_DaMvzsA"/>
+          </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Interface" xmi:id="_f6zFAHY5EeSqtc-Sb9aJnA" name="Dimension">
           <ownedComment xmi:type="uml:Comment" xmi:id="_f6zFAXY5EeSqtc-Sb9aJnA">
@@ -550,6 +562,29 @@
      </body>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f682C3Y5EeSqtc-Sb9aJnA" type="_f682CnY5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_il06sHC0EeiPSP_DaMvzsA" name="Prefix">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_Ru1Y8HLkEeilgvRHPaOOsg" name="getSymbol">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Ru1Y8XLkEeilgvRHPaOOsg">
+              <body>
+     * Returns the symbol (if any) of this unit.
+     * This method returns {@code null} if this unit has no specific symbol associated with.
+     *
+     * @return this unit symbol, or {@code null} if this unit has not
+     *         specific symbol associated with (e.g. product of units).
+     *
+     * @see #toString()
+     * @see UnitFormat
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ru1Y8nLkEeilgvRHPaOOsg" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_qCJL0HLkEeilgvRHPaOOsg" name="getBase">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_ue7gMHLkEeilgvRHPaOOsg" name="int" type="_f6zFDHY5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_AP61kHLlEeilgvRHPaOOsg" name="getExponent">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_AP7coHLlEeilgvRHPaOOsg" name="int" type="_f6zFDHY5EeSqtc-Sb9aJnA" direction="return"/>
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_f682DHY5EeSqtc-Sb9aJnA" name="IncommensurableException">
@@ -826,6 +861,112 @@
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_IzYUUIfnEeWIX-YU2rOOwg" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
             </ownedOperation>
           </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_Eh9OUHLsEeilgvRHPaOOsg" name="MeasurementParseException">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Eh9OUXLsEeilgvRHPaOOsg">
+              <body>
+ * Signals that an error has been reached unexpectedly while parsing.
+ * 
+ * @author Werner Keil
+ * @version 0.4, $Date: 2014-08-04 $
+ </body>
+            </ownedComment>
+            <generalization xmi:type="uml:Generalization" xmi:id="_Eh9OUnLsEeilgvRHPaOOsg" general="_f7F_8HY5EeSqtc-Sb9aJnA"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_Eh9OU3LsEeilgvRHPaOOsg" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" type="_f7F_9HY5EeSqtc-Sb9aJnA" isUnique="false">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_Eh9OVHLsEeilgvRHPaOOsg">
+                <body>
+	 * 
+	 </body>
+              </ownedComment>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_Eh9OVXLsEeilgvRHPaOOsg" name="position" visibility="private" type="_N70hjXY6EeSqtc-Sb9aJnA" isUnique="false">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_Eh9OVnLsEeilgvRHPaOOsg">
+                <body>
+	 * The zero-based character position in the string being parsed at which the
+	 * error was found while parsing.
+	 * 
+	 * @serial
+	 </body>
+              </ownedComment>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_Eh9OV3LsEeilgvRHPaOOsg" name="data" visibility="private" type="_N79rcXY6EeSqtc-Sb9aJnA" isUnique="false">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_Eh9OWHLsEeilgvRHPaOOsg">
+                <body> The original input data. </body>
+              </ownedComment>
+            </ownedAttribute>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_Eh9OWXLsEeilgvRHPaOOsg" name="getPosition" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_Eh9OWnLsEeilgvRHPaOOsg">
+                <body>
+	 * Returns the position where the error was found.
+	 * 
+	 * @return the position of the error
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_Eh9OW3LsEeilgvRHPaOOsg" type="_N70hjXY6EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_Eh9OXHLsEeilgvRHPaOOsg" name="getParsedString" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_Eh9OXXLsEeilgvRHPaOOsg">
+                <body>
+	 * Returns the string that was being parsed.
+	 * 
+	 * @return the parsed string, or {@code null}, if {@code null} was passed as
+	 *         input.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_Eh9OXnLsEeilgvRHPaOOsg" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_U-AxEHLsEeilgvRHPaOOsg" name="QuantityFormat">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_U-AxEXLsEeilgvRHPaOOsg">
+              <body>&#xD;
+ * Formatting and parsing of {@code Quantity} instances.&#xD;
+ *&#xD;
+ * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;>Werner Keil&lt;/a>&#xD;
+ * @version 0.3&#xD;
+ * @since 2.0&#xD;
+ *&#xD;
+ * @see Quantity&#xD;
+ </body>
+            </ownedComment>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_U-AxEnLsEeilgvRHPaOOsg" name="format">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_U-AxE3LsEeilgvRHPaOOsg">
+                <body>
+     * Formats the specified unit.
+     *
+     * @param  unit the unit to format.
+     * @param  appendable the appendable destination.
+     * @return the appendable destination passed in with formatted text appended.
+     * @throws IOException if an error occurs while writing to the destination.
+     </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_U-AxFHLsEeilgvRHPaOOsg" type="_N79rfXY6EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_U-AxFXLsEeilgvRHPaOOsg" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_U-AxFnLsEeilgvRHPaOOsg" name="appendable" type="_N79rfXY6EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_U-AxF3LsEeilgvRHPaOOsg" name="parse">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_U-AxGHLsEeilgvRHPaOOsg" name="csq" type="_N79rcXY6EeSqtc-Sb9aJnA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_CdfmwHLtEeilgvRHPaOOsg" name="cursor" type="_P7W6EHLtEeilgvRHPaOOsg"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_U-AxGXLsEeilgvRHPaOOsg" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_U-AxGnLsEeilgvRHPaOOsg" name="parse">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_U-AxG3LsEeilgvRHPaOOsg">
+                <body>
+     * Parses a portion of the specified {@code CharSequence} from the
+     * specified position to produce a unit. If there is no unit to parse
+     * the unitary unit (dimensionless) is returned.
+     *
+     * @param  csq the {@code CharSequence} to parse.
+     * @return the unit parsed from the specified character sub-sequence.
+     * @throws ParserException if any problem occurs while parsing the
+     *         specified character sequence (e.g. illegal syntax).
+     </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_U-AxHHLsEeilgvRHPaOOsg" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_U-AxHXLsEeilgvRHPaOOsg" name="csq" type="_N79rcXY6EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_U-AxIXLsEeilgvRHPaOOsg" name="isLocaleSensitive">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_U-AxInLsEeilgvRHPaOOsg" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+            </ownedOperation>
+          </packagedElement>
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_VizEgHY7EeSqtc-Sb9aJnA" name="spi">
           <packagedElement xmi:type="uml:Interface" xmi:id="_Vi8OcHY7EeSqtc-Sb9aJnA" name="QuantityFactory">
@@ -1023,7 +1164,6 @@
             </ownedOperation>
           </packagedElement>
         </packagedElement>
-        <packagedElement xmi:type="uml:Interface" xmi:id="_il06sHC0EeiPSP_DaMvzsA" name="Prefix"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_DeY8gHY-EeS0S_a4KNH9ow" name="tec">
@@ -2183,6 +2323,9 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_f8SSxnY5EeSqtc-Sb9aJnA" name="List"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_Vi8OhHY7EeSqtc-Sb9aJnA" name="Set"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_VjF_hXY7EeSqtc-Sb9aJnA" name="Locale"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_IY-GsHLtEeilgvRHPaOOsg" name="text">
+        <packagedElement xmi:type="uml:Class" xmi:id="_P7W6EHLtEeilgvRHPaOOsg" name="ParsePosition"/>
       </packagedElement>
     </packagedElement>
   </packagedElement>
