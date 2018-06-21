@@ -110,7 +110,7 @@ public class BinaryPrefixTest {
     assertNotNull(a1);
     assertEquals("1.0 4.5565169229920993E18", a1.toString());
   }
-  
+
   @Test
   public void testYobi() {
     assertEquals("Yi", YOBI.getSymbol());
@@ -118,7 +118,7 @@ public class BinaryPrefixTest {
     assertNotNull(a1);
     assertEquals("1.0 4.892522791980404E27", a1.toString());
   }
-  
+
   @Test
   public void testZebi() {
     assertEquals("Zi", ZEBI.getSymbol());

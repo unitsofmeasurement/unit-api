@@ -43,7 +43,7 @@ public class MeasurementParseTest {
   public void testExceptionWithMessage() {
     throw new MeasurementParseException("Error");
   }
-  
+
   @Test(expected = ParserException.class)
   public void testOldExceptionWithMessageDataAndPos() {
     throw new ParserException("Error", " ", 0);
