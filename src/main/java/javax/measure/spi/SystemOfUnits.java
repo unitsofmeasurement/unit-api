@@ -43,7 +43,7 @@ import javax.measure.Unit;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.0, August 8, 2016
+ * @version 1.1, June 21, 2018
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/International_System_of_Units"> Wikipedia: International System of Units</a>
@@ -57,7 +57,8 @@ public interface SystemOfUnits {
   String getName();
 
   /**
-   * Returns the default unit for the specified quantity.
+   * Returns the default unit for the specified quantity or <code>null</code> if
+   * none is defined for the given quantity in this unit system.
    *
    * @param <Q>
    *          the compile-time quantity type.

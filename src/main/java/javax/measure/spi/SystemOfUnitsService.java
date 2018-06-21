@@ -48,7 +48,7 @@ import javax.measure.Prefix;
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin
  *         Desruisseaux</a>
- * @version 1.5, April 22, 2018
+ * @version 1.6, June 21, 2018
  * @since 1.0
  *
  * @see <a href=
@@ -69,7 +69,7 @@ public interface SystemOfUnitsService {
 
 	/**
 	 * Returns the system of units having the specified name or <code>null</code> if
-	 * none.
+	 * none is found.
 	 *
 	 * @param name
 	 *            the system of unit name.
