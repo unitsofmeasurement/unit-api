@@ -1066,6 +1066,21 @@
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_VjF_cXY7EeSqtc-Sb9aJnA" type="_Vi8OhHY7EeSqtc-Sb9aJnA" direction="return"/>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_VjF_cnY7EeSqtc-Sb9aJnA" name="dimension" type="_f6zFAHY5EeSqtc-Sb9aJnA"/>
             </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_EvR4oHVdEeiMCukaGwBIrQ" name="getUnit">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_EvR4oXVdEeiMCukaGwBIrQ">
+                <body>
+	 * Returns the default unit for the specified quantity.
+	 *
+	 * @param &lt;Q>
+	 *            the compile-time quantity type.
+	 * @param quantityType
+	 *            the quantity type.
+	 * @return the unit for the specified quantity.
+	 </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_EvR4onVdEeiMCukaGwBIrQ" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_EvR4o3VdEeiMCukaGwBIrQ" name="string" type="_f7ir43Y5EeSqtc-Sb9aJnA"/>
+            </ownedOperation>
           </packagedElement>
           <packagedElement xmi:type="uml:Interface" xmi:id="_VjF_c3Y7EeSqtc-Sb9aJnA" name="SystemOfUnitsService">
             <ownedComment xmi:type="uml:Comment" xmi:id="_VjF_dHY7EeSqtc-Sb9aJnA">
