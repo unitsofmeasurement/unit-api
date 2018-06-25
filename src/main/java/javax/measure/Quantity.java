@@ -55,7 +55,7 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @see <a href="http://martinfowler.com/eaaDev/quantity.html">Martin Fowler -
  *      Quantity</a>
- * @version 1.0.3, April 17, 2018
+ * @version 1.1, June 25, 2018
  * @since 1.0
  */
 public interface Quantity<Q extends Quantity<Q>> {
@@ -136,13 +136,18 @@ public interface Quantity<Q extends Quantity<Q>> {
 	 * @return the converted result.
 	 */
 	Quantity<Q> to(Unit<Q> unit);
-  /**
-   * Returns a {@code Quantity} that is the multiplicative inverse of this {@code Quantity}, 
-   * having reciprocal value and reciprocal unit as given by {@code this.getUnit().inverse()}.
-   *
-   * @return reciprocal {@code Quantity}
-   */
-  Quantity<?> inverse();
+
+	/**
+	 * Returns a {@code Quantity} that is the multiplicative inverse of this
+	 * {@code Quantity}, having reciprocal value and reciprocal unit as given by
+	 * {@code this.getUnit().inverse()}.
+	 *
+	 * @return reciprocal {@code Quantity}
+	 * @see <a href=
+	 *      "https://en.wikipedia.org/wiki/Multiplicative_inverse">Wikipedia:
+	 *      Multiplicative inverse</a>
+	 */
+	Quantity<?> inverse();
 
 	/**
 	 * Casts this quantity to a parameterized unit of specified nature or throw a

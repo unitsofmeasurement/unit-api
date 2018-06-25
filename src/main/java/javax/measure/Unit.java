@@ -278,7 +278,6 @@ public interface Unit<Q extends Quantity<Q>> {
    *
    * @return {@code 1 / this}
    * @see <a href="https://en.wikipedia.org/wiki/Multiplicative_inverse">Wikipedia: Multiplicative inverse</a>
-
    */
   Unit<?> inverse();
 
