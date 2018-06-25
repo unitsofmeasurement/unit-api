@@ -79,7 +79,7 @@ abstract class TestQuantityFormat implements QuantityFormat {
     if (end <= start) {
       return TestQuantity.ONE;
     }
-    throw new ParserException("Error", csq, index);
+    throw new MeasurementParseException("Error", csq, index);
   }
 
   /**
@@ -111,13 +111,13 @@ abstract class TestQuantityFormat implements QuantityFormat {
       try {
         return format((TestQuantity<?>) Quantity, new StringBuilder()).toString();
       } catch (IOException ex) {
-        throw new ParserException(ex); // Should never happen.
+        throw new MeasurementParseException(ex); // Should never happen.
       }
     } else {
       try {
         return (this.format(Quantity, new StringBuilder())).toString();
       } catch (IOException ex) {
-        throw new ParserException(ex); // Should never happen.
+        throw new MeasurementParseException(ex); // Should never happen.
       }
     }
   }

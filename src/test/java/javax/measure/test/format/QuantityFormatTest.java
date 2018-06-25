@@ -70,22 +70,22 @@ public class QuantityFormatTest {
     System.out.println(u);
   }
 
-  @Test(expected = ParserException.class)
+  @Test(expected = MeasurementParseException.class)
   public void testParserException() {
-    throw new ParserException(new IllegalArgumentException());
+    throw new MeasurementParseException(new IllegalArgumentException());
   }
 
-  @Test(expected = ParserException.class)
+  @Test(expected = MeasurementParseException.class)
   public void testParserExceptionWithPosition() {
-    ParserException pe = new ParserException("test", 1);
+    MeasurementParseException pe = new MeasurementParseException("test", 1);
     assertEquals(1, pe.getPosition());
     assertEquals("test", pe.getParsedString());
     throw pe;
   }
 
-  @Test(expected = ParserException.class)
+  @Test(expected = MeasurementParseException.class)
   public void testParserExceptionWithNullString() {
-    ParserException pe = new ParserException(null, 0);
+    MeasurementParseException pe = new MeasurementParseException(null, 0);
     assertEquals(0, pe.getPosition());
     assertNull(pe.getParsedString());
     throw pe;

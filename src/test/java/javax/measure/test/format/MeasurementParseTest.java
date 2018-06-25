@@ -48,4 +48,14 @@ public class MeasurementParseTest {
   public void testOldExceptionWithMessageDataAndPos() {
     throw new ParserException("Error", " ", 0);
   }
+
+  @Test(expected = ParserException.class)
+  public void testOldExceptionWithMessageAndPos() {
+    throw new ParserException("Error", 0);
+  }
+
+  @Test(expected = ParserException.class)
+  public void testOldExceptionWithCause() {
+    throw new ParserException(new IllegalArgumentException("Error"));
+  }
 }

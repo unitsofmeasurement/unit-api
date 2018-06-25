@@ -122,7 +122,7 @@ public interface UnitFormat {
    * @param csq
    *          the {@code CharSequence} to parse.
    * @return the unit parsed from the specified character sequence.
-   * @throws ParserException
+   * @throws MeasurementParseException
    *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
    * @throws UnsupportedOperationException
    *           if the {@link UnitFormat} is unable to parse.
