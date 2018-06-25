@@ -45,7 +45,7 @@ import javax.measure.Unit;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  *
- * @version 1.1, January 26, 2018
+ * @version 1.2, June 25, 2018
  * @since 1.0
  *
  * @see Unit
@@ -127,5 +127,5 @@ public interface UnitFormat {
    * @throws UnsupportedOperationException
    *           if the {@link UnitFormat} is unable to parse.
    */
-  Unit<?> parse(CharSequence csq) throws ParserException;
+  Unit<?> parse(CharSequence csq) throws MeasurementParseException;
 }
