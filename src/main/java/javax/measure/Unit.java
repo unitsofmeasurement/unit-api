@@ -67,7 +67,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.0.2, December 25, 2017
+ * @version 1.1, June 25, 2018
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
@@ -274,9 +274,11 @@ public interface Unit<Q extends Quantity<Q>> {
   Unit<?> multiply(Unit<?> multiplier);
 
   /**
-   * Returns the reciprocal of this unit.
+   * Returns the reciprocal (multiplicative inverse) of this unit.
    *
    * @return {@code 1 / this}
+   * @see <a href="https://en.wikipedia.org/wiki/Multiplicative_inverse">Wikipedia: Multiplicative inverse</a>
+
    */
   Unit<?> inverse();
 
