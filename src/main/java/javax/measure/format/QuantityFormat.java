@@ -33,7 +33,6 @@ import java.io.IOException;
 import java.text.ParsePosition;
 
 import javax.measure.Quantity;
-import javax.measure.format.ParserException;
 
 /**
  * <p>
@@ -47,7 +46,7 @@ import javax.measure.format.ParserException;
  * <p>
  *
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 0.3, 26 January, 2018
+ * @version 0.5, 25 June, 2018
  * @since 2.0
  *
  * @see Quantity
@@ -79,7 +78,7 @@ public interface QuantityFormat {
    * @throws IllegalArgumentException
    *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
    */
-  public Quantity<?> parse(CharSequence csq, ParsePosition cursor) throws IllegalArgumentException, ParserException;
+  public Quantity<?> parse(CharSequence csq, ParsePosition cursor) throws IllegalArgumentException, MeasurementParseException;
 
   /**
    * Parses a portion of the specified <code>CharSequence</code> from the specified position to produce a {@link Quantity}. If parsing succeeds, then
@@ -93,7 +92,7 @@ public interface QuantityFormat {
    * @throws IllegalArgumentException
    *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
    */
-  public Quantity<?> parse(CharSequence csq) throws ParserException;
+  public Quantity<?> parse(CharSequence csq) throws MeasurementParseException;
 
   /**
    * Returns <code>true</code> if this {@link QuantityFormat} depends on a <code>Locale</code> to perform its tasks.
