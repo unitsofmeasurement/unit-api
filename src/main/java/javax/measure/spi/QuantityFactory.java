@@ -33,17 +33,19 @@ import javax.measure.Quantity;
 import javax.measure.Unit;
 
 /**
- * Represents a factory that accepts {@linkplain Number} and {@link Unit} arguments to create {@link Quantity} results.
+ * Represents a factory that accepts {@link Number} and {@link Unit} arguments to create {@link Quantity} results.
  *
  * @param <Q>
  *          the type of the {@link Quantity} result
  *
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @author <a href="mailto:otaviopolianasantana@gmail.com">Otavio Santana</a>
- * @version 1.0, August 8, 2016
+ * @version 1.1, July 6, 2018
  * @since 1.0
  *
+ * @see <a href="https://en.wikipedia.org/wiki/Factory_method_pattern"> Wikipedia: Factory method pattern</a>
  * @see Quantity
+ * @see Unit
  */
 public interface QuantityFactory<Q extends Quantity<Q>> {
 
