@@ -39,13 +39,13 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.5
+ * @version 0.6
  */
 public class DistanceQuantity extends TestQuantity<Length> implements Length {
 
   public DistanceQuantity(double val, DistanceUnit un) {
     this();
-    units = val;
+    value = val;
     unit = un;
     scalar = val * unit.getMultFactor();
   }
@@ -61,7 +61,7 @@ public class DistanceQuantity extends TestQuantity<Length> implements Length {
   /*
    * Distance(double val) {
    *
-   * units = val; unit = m; // reference Unit scalar = val;
+   * value = val; unit = m; // reference Unit scalar = val;
    *
    * }
    */
@@ -102,24 +102,24 @@ public class DistanceQuantity extends TestQuantity<Length> implements Length {
   }
 
   public DistanceQuantity multiply(double v) {
-    return new DistanceQuantity(units * v, (DistanceUnit) unit);
+    return new DistanceQuantity(value * v, (DistanceUnit) unit);
   }
 
   public DistanceQuantity divide(double v) {
-    return new DistanceQuantity(units / v, (DistanceUnit) unit);
+    return new DistanceQuantity(value / v, (DistanceUnit) unit);
   }
 
   // mixed type operations
   public AreaQuantity multiply(DistanceQuantity d1) {
     DistanceQuantity dq0 = convert(DistanceUnit.m);
     DistanceQuantity dq1 = d1.convert(DistanceUnit.m);
-    return new AreaQuantity(dq0.units * dq1.units, AreaUnit.sqmetre);
+    return new AreaQuantity(dq0.value * dq1.value, AreaUnit.sqmetre);
   }
 
   public VolumeQuantity multiply(AreaQuantity a1) {
     DistanceQuantity dq = convert(DistanceUnit.m);
     AreaQuantity aq = a1.convert(AreaUnit.sqmetre);
-    return new VolumeQuantity(dq.units * aq.units, VolumeUnit.cumetre);
+    return new VolumeQuantity(dq.value * aq.value, VolumeUnit.cumetre);
   }
 
   // public Speed divide(TimeInterval t1) {
@@ -155,18 +155,21 @@ public class DistanceQuantity extends TestQuantity<Length> implements Length {
   }
 
   public Quantity<Length> add(Quantity<Length> that) {
-    // TODO Auto-generated method stub
-    return null;
+    return add((DistanceQuantity) that);
   }
 
   public Quantity<Length> divide(Number that) {
-    // TODO Auto-generated method stub
-    return null;
+    return divide(that.doubleValue());
   }
 
   public Quantity<Length> inverse() {
     // TODO Auto-generated method stub
     return null;
+  }
+
+  @Override
+  public Quantity<Length> negate() {
+    return new DistanceQuantity(-value, getUnit());
   }
 
   public Quantity<Length> multiply(Number that) {

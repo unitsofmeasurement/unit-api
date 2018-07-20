@@ -38,7 +38,7 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.5
+ * @version 0.6
  */
 public class VolumeQuantity extends TestQuantity<Volume> {
   public VolumeQuantity() {
@@ -47,7 +47,7 @@ public class VolumeQuantity extends TestQuantity<Volume> {
 
   public VolumeQuantity(double val, VolumeUnit un) {
     this();
-    units = val;
+    value = val;
     unit = un;
     scalar = val * unit.getMultFactor();
   }
@@ -93,11 +93,11 @@ public class VolumeQuantity extends TestQuantity<Volume> {
   }
 
   public VolumeQuantity multiply(double v) {
-    return new VolumeQuantity(units * v, (VolumeUnit) unit);
+    return new VolumeQuantity(value * v, (VolumeUnit) unit);
   }
 
   public VolumeQuantity divide(double v) {
-    return new VolumeQuantity(units / v, (VolumeUnit) unit);
+    return new VolumeQuantity(value / v, (VolumeUnit) unit);
   }
 
   // mixed type operations
@@ -105,13 +105,13 @@ public class VolumeQuantity extends TestQuantity<Volume> {
   public AreaQuantity divide(DistanceQuantity d1) {
     VolumeQuantity dq0 = convert(VolumeUnit.cumetre);
     DistanceQuantity dq1 = d1.convert(DistanceUnit.m);
-    return new AreaQuantity(dq0.units / dq1.units, AreaUnit.sqmetre);
+    return new AreaQuantity(dq0.value / dq1.value, AreaUnit.sqmetre);
   }
 
   public DistanceQuantity divide(AreaQuantity a1) {
     VolumeQuantity dq0 = convert(VolumeUnit.cumetre);
     AreaQuantity dq1 = a1.convert(AreaUnit.sqmetre);
-    return new DistanceQuantity(dq0.units / dq1.units, DistanceUnit.m);
+    return new DistanceQuantity(dq0.value / dq1.value, DistanceUnit.m);
   }
 
   public VolumeQuantity convert(VolumeUnit newUnit) {
@@ -138,8 +138,7 @@ public class VolumeQuantity extends TestQuantity<Volume> {
   }
 
   public Quantity<Volume> divide(Number that) {
-    // TODO Auto-generated method stub
-    return null;
+    return divide(that.doubleValue());
   }
 
   public Quantity<Volume> inverse() {
@@ -159,6 +158,11 @@ public class VolumeQuantity extends TestQuantity<Volume> {
   public Quantity<?> multiply(Quantity<?> that) {
     // TODO Auto-generated method stub
     return null;
+  }
+
+  @Override
+  public Quantity<Volume> negate() {
+    return new VolumeQuantity(-value, getUnit());
   }
 
   @SuppressWarnings({ "unchecked", "rawtypes" })

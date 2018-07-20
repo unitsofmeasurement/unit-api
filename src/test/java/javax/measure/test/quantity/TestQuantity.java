@@ -43,8 +43,8 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
 
   public static final Quantity<Dimensionless> ONE = new DimensionlessQuantity(1d, (BaseUnit) TestUnit.ONE);
 
-  protected double scalar; // value in reference units
-  protected double units; // value in units (Unit unit)
+  protected double scalar; // value in reference value
+  protected double value; // value in value (Unit unit)
   protected TestUnit<Q> unit; // unit
   private final Class<Q> type; // quantity type
 
@@ -60,11 +60,11 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
     if (d1.unit == d2.unit) {
       dn.unit = d1.unit;
       dn.scalar = d1.scalar + d2.scalar;
-      dn.units = d1.units + d2.units;
+      dn.value = d1.value + d2.value;
     } else {
       dn.unit = au;
       dn.scalar = d1.scalar + d2.scalar;
-      dn.units = dn.scalar;
+      dn.value = dn.scalar;
     }
     return dn;
   }
@@ -73,11 +73,11 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
     if (d1.unit == d2.unit) {
       dn.unit = d1.unit;
       dn.scalar = d1.scalar - d2.scalar;
-      dn.units = d1.units - d2.units;
+      dn.value = d1.value - d2.value;
     } else {
       dn.unit = au;
       dn.scalar = d1.scalar - d2.scalar;
-      dn.units = dn.scalar;
+      dn.value = dn.scalar;
     }
     return dn;
   }
@@ -108,7 +108,7 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
 
   @Override
   public String toString() {
-    return (Double.valueOf(units)).toString() + ' ' + String.valueOf(unit);
+    return (Double.valueOf(value)).toString() + ' ' + String.valueOf(unit);
   }
 
   /**
@@ -121,7 +121,7 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
    */
   public int compareTo(Quantity<Q> that) {
     Unit<Q> unit = getUnit();
-    return Double.compare(units, that.getValue().doubleValue());
+    return Double.compare(value, that.getValue().doubleValue());
   }
 
   String showInUnits(TestUnit<?> u, int precision) {
@@ -146,7 +146,7 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
   }
 
   public Number getValue() {
-    return units;
+    return value;
   }
 
   public Unit<Q> getUnit() {

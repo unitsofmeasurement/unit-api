@@ -38,7 +38,7 @@ import javax.measure.test.unit.VolumeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.6
+ * @version 0.7
  */
 public class AreaQuantity extends TestQuantity<Area> implements Area {
   public AreaQuantity() {
@@ -47,7 +47,7 @@ public class AreaQuantity extends TestQuantity<Area> implements Area {
 
   public AreaQuantity(double val, AreaUnit un) {
     this();
-    units = val;
+    value = val;
     unit = un;
     scalar = val * unit.getMultFactor();
   }
@@ -93,11 +93,11 @@ public class AreaQuantity extends TestQuantity<Area> implements Area {
   }
 
   public AreaQuantity multiply(double v) {
-    return new AreaQuantity(units * v, (AreaUnit) unit);
+    return new AreaQuantity(value * v, (AreaUnit) unit);
   }
 
   public AreaQuantity divide(double v) {
-    return new AreaQuantity(units / v, (AreaUnit) unit);
+    return new AreaQuantity(value / v, (AreaUnit) unit);
   }
 
   // mixed type operations
@@ -105,13 +105,13 @@ public class AreaQuantity extends TestQuantity<Area> implements Area {
   public DistanceQuantity divide(DistanceQuantity d1) {
     AreaQuantity dq0 = convert(AreaUnit.sqmetre);
     DistanceQuantity dq1 = d1.convert(DistanceUnit.m);
-    return new DistanceQuantity(dq0.units / dq1.units, DistanceUnit.m);
+    return new DistanceQuantity(dq0.value / dq1.value, DistanceUnit.m);
   }
 
   public VolumeQuantity multiply(DistanceQuantity d1) {
     AreaQuantity dq0 = convert(AreaUnit.sqmetre);
     DistanceQuantity dq1 = d1.convert(DistanceUnit.m);
-    return new VolumeQuantity(dq0.units * dq1.units, VolumeUnit.cumetre);
+    return new VolumeQuantity(dq0.value * dq1.value, VolumeUnit.cumetre);
   }
 
   public AreaQuantity convert(AreaUnit newUnit) {
@@ -143,13 +143,11 @@ public class AreaQuantity extends TestQuantity<Area> implements Area {
   }
 
   public Quantity<Area> add(Quantity<Area> that) {
-    // TODO Auto-generated method stub
-    return null;
+    return add((AreaQuantity) that);
   }
 
   public Quantity<Area> divide(Number that) {
-    // TODO Auto-generated method stub
-    return null;
+    return divide(that.doubleValue());
   }
 
   public Quantity<Area> inverse() {
@@ -169,5 +167,10 @@ public class AreaQuantity extends TestQuantity<Area> implements Area {
     this.getUnit().asType(type); // Raises ClassCastException is dimension
     // mismatches.
     return (Quantity) this;
+  }
+
+  @Override
+  public Quantity<Area> negate() {
+    return new AreaQuantity(-value, getUnit());
   }
 }

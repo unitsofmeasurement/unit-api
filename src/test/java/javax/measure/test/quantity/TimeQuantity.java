@@ -37,13 +37,13 @@ import javax.measure.test.unit.TimeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.5
+ * @version 0.6
  */
 public class TimeQuantity extends TestQuantity<Time> {
 
   public TimeQuantity(double val, TimeUnit un) {
     this();
-    units = val;
+    value = val;
     unit = un;
     scalar = val * unit.getMultFactor();
   }
@@ -57,9 +57,9 @@ public class TimeQuantity extends TestQuantity<Time> {
   }
 
   /*
-   * Distance(double val) {
+   * Time(double val) {
    *
-   * units = val; unit = m; // reference Unit scalar = val;
+   * value = val; unit = m; // reference Unit scalar = val;
    *
    * }
    */
@@ -100,11 +100,11 @@ public class TimeQuantity extends TestQuantity<Time> {
   }
 
   public TimeQuantity multiply(double v) {
-    return new TimeQuantity(units * v, (TimeUnit) unit);
+    return new TimeQuantity(value * v, (TimeUnit) unit);
   }
 
   public TimeQuantity divide(double v) {
-    return new TimeQuantity(units / v, (TimeUnit) unit);
+    return new TimeQuantity(value / v, (TimeUnit) unit);
   }
 
   public TimeQuantity convert(TimeUnit newUnit) {
@@ -126,13 +126,11 @@ public class TimeQuantity extends TestQuantity<Time> {
   }
 
   public Quantity<Time> add(Quantity<Time> that) {
-    // TODO Auto-generated method stub
-    return null;
+    return add((TimeQuantity) that);
   }
 
   public Quantity<Time> divide(Number that) {
-    // TODO Auto-generated method stub
-    return null;
+    return divide(that.doubleValue());
   }
 
   public Quantity<Time> inverse() {
@@ -152,6 +150,11 @@ public class TimeQuantity extends TestQuantity<Time> {
   public Quantity<?> multiply(Quantity<?> that) {
     // TODO Auto-generated method stub
     return null;
+  }
+
+  @Override
+  public Quantity<Time> negate() {
+    return new TimeQuantity(-value, getUnit());
   }
 
   @SuppressWarnings({ "unchecked", "rawtypes" })

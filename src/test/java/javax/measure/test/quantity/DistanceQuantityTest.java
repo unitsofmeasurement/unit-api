@@ -33,6 +33,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import javax.measure.Quantity;
+import javax.measure.quantity.Area;
 import javax.measure.quantity.Volume;
 import javax.measure.test.unit.AreaUnit;
 import javax.measure.test.unit.DistanceUnit;
@@ -44,119 +46,112 @@ import org.junit.Test;
 /**
  * @author Werner Keil
  */
-public class AreaQuantityTest {
+public class DistanceQuantityTest {
 
-  AreaQuantity area;
-  AreaUnit m2;
+  DistanceQuantity distance;
+  DistanceUnit m;
 
   @Before
   public void setUp() {
-    m2 = AreaUnit.sqmetre;
-    area = new AreaQuantity(100, m2);
+    m = DistanceUnit.m;
+    distance = new DistanceQuantity(100, m);
   }
 
   @Test
   public void testAreaQuantity() {
-    assertNotNull(area);
+    assertNotNull(distance);
   }
 
   @Test
   public void testAdd() {
-    AreaQuantity area2 = new AreaQuantity(50, m2);
-    AreaQuantity result = area.add(area2);
+    DistanceQuantity dist2 = new DistanceQuantity(50, m);
+    DistanceQuantity result = distance.add(dist2);
     assertEquals(150d, result.scalar, 0);
   }
 
   @Test
   public void testSubtract() {
-    AreaQuantity area2 = new AreaQuantity(50, m2);
-    AreaQuantity result = area.subtract(area2);
+    DistanceQuantity dist2 = new DistanceQuantity(50, m);
+    DistanceQuantity result = distance.subtract(dist2);
     assertEquals(50d, result.scalar, 0);
   }
 
   @Test
   public void testEq() {
-    AreaQuantity area2 = new AreaQuantity(100, m2);
-    assertTrue(area2.eq(area));
+    DistanceQuantity dist2 = new DistanceQuantity(100, m);
+    assertTrue(dist2.eq(distance));
   }
 
   @Test
   public void testGt() {
-    AreaQuantity area2 = new AreaQuantity(120, m2);
-    assertTrue(area2.gt(area));
+    DistanceQuantity dist2 = new DistanceQuantity(120, m);
+    assertTrue(dist2.gt(distance));
   }
 
   @Test
   public void testLt() {
-    AreaQuantity area2 = new AreaQuantity(20, m2);
-    assertTrue(area2.lt(area));
+    DistanceQuantity dist2 = new DistanceQuantity(20, m);
+    assertTrue(dist2.lt(distance));
   }
 
   @Test
   public void testGe() {
-    AreaQuantity area2 = new AreaQuantity(120, m2);
-    assertTrue(area2.ge(area));
-    area2 = new AreaQuantity(100, m2);
-    assertTrue(area2.ge(area));
+    DistanceQuantity dist2 = new DistanceQuantity(120, m);
+    assertTrue(dist2.ge(distance));
+    dist2 = new DistanceQuantity(100, m);
+    assertTrue(dist2.ge(distance));
   }
 
   @Test
   public void testLe() {
-    AreaQuantity area2 = new AreaQuantity(20, m2);
-    assertTrue(area2.le(area));
-    area2 = new AreaQuantity(100, m2);
-    assertTrue(area2.le(area));
+    DistanceQuantity dist2 = new DistanceQuantity(20, m);
+    assertTrue(dist2.le(distance));
+    dist2 = new DistanceQuantity(100, m);
+    assertTrue(dist2.le(distance));
   }
 
   @Test
   public void testMultiplyDouble() {
-    AreaQuantity result = area.multiply(3d);
+    DistanceQuantity result = distance.multiply(3d);
     assertEquals(300d, result.scalar, 0d);
   }
 
   @Test
   public void testDivideDouble() {
-    AreaQuantity result = area.divide(10d);
-    assertEquals(10d, result.scalar, 0d);
-  }
-
-  @Test
-  public void testDivideDistanceQuantity() {
-    DistanceQuantity distance = new DistanceQuantity(10, DistanceUnit.m);
-    DistanceQuantity result = area.divide(distance);
+    DistanceQuantity result = distance.divide(10d);
     assertEquals(10d, result.scalar, 0d);
   }
 
   @Test
   public void testMultiplyDistanceQuantity() {
-    DistanceQuantity distance = new DistanceQuantity(15, DistanceUnit.m);
-    VolumeQuantity result = area.multiply(distance);
-    assertEquals(VolumeUnit.class, result.getUnit().getClass());
-    assertEquals(VolumeQuantity.class, result.getClass());
-    assertEquals(Volume.class, result.getType());
+    DistanceQuantity dist = new DistanceQuantity(15, DistanceUnit.m);
+    AreaQuantity result = distance.multiply(dist);
+    assertEquals(AreaUnit.class, result.getUnit().getClass());
+    assertEquals(AreaQuantity.class, result.getClass());
+    assertEquals(Area.class, result.getType());
     assertEquals(1500d, result.getValue());
   }
 
   @Test
   public void testConvert() {
-    AreaQuantity result = area.convert(AreaUnit.acre);
+    DistanceQuantity result = distance.convert(DistanceUnit.in);
     assertEquals(100d, result.scalar, 0d);
   }
 
   @Test
   public void testShowInUnits() {
-    String result = area.showInUnits(AreaUnit.hectare, 2);
-    assertEquals("0.01 hectare", result);
+    String result = distance.showInUnits(DistanceUnit.mile, 2);
+    assertEquals("0.062150403977625855 mile", result);
   }
 
   @Test
   public void testToSystemUnit() {
-    assertEquals(area.toSystemUnit(), area.to(area.getUnit().getSystemUnit()));
+    assertEquals(distance.toSystemUnit(), distance.to(distance.getUnit().getSystemUnit()));
   }
 
   @Test
   public void testNegate() {
-    assertEquals(area.negate().getValue(), -area.getValue().doubleValue());
+    assertEquals(distance.negate().getValue(), -distance.getValue().doubleValue());
   }
 
 }

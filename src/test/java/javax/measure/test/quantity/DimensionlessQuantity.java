@@ -44,7 +44,7 @@ public class DimensionlessQuantity extends TestQuantity<Dimensionless> implement
 
   public DimensionlessQuantity(double val, TestUnit un) {
     this();
-    units = val;
+    value = val;
     unit = un;
     scalar = val * unit.getMultFactor();
   }
@@ -82,11 +82,11 @@ public class DimensionlessQuantity extends TestQuantity<Dimensionless> implement
   }
 
   public DimensionlessQuantity multiply(double v) {
-    return new DimensionlessQuantity(units * v, (BaseUnit) unit);
+    return new DimensionlessQuantity(value * v, (BaseUnit) unit);
   }
 
   public DimensionlessQuantity divide(double v) {
-    return new DimensionlessQuantity(units / v, (BaseUnit) unit);
+    return new DimensionlessQuantity(value / v, (BaseUnit) unit);
   }
 
   // public Speed divide(TimeInterval t1) {
@@ -126,9 +126,13 @@ public class DimensionlessQuantity extends TestQuantity<Dimensionless> implement
     return null;
   }
 
+  @Override
+  public Quantity<Dimensionless> negate() {
+    return new DimensionlessQuantity(-value, getUnit());
+  }
+
   public Quantity<Dimensionless> divide(Number that) {
-    // TODO Auto-generated method stub
-    return null;
+    return divide(that.doubleValue());
   }
 
   public Quantity<Dimensionless> inverse() {
