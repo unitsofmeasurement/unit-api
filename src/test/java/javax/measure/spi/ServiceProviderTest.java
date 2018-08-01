@@ -96,6 +96,15 @@ public class ServiceProviderTest {
     assertNotNull(prefixes);
     assertEquals(8, prefixes.size());
   }
+  
+  @Test(expected = ClassCastException.class)
+  public void testWrongPrefixType() {
+	    final ServiceProvider testProv = new TestServiceProvider();
+	    final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
+	    assertNotNull(service);
+	    @SuppressWarnings("unused")
+		Collection<Prefix> prefixes = service.getPrefixes(String.class);
+  }
 
   private static final class TestServiceProvider extends ServiceProvider {
 
