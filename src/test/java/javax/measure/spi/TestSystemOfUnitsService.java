@@ -30,11 +30,12 @@
 package javax.measure.spi;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.EnumSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-
-import javax.measure.spi.SystemOfUnits;
-import javax.measure.spi.SystemOfUnitsService;
+import javax.measure.Prefix;
 
 /**
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
@@ -57,5 +58,11 @@ class TestSystemOfUnitsService implements SystemOfUnitsService {
   @Override
   public SystemOfUnits getSystemOfUnits() {
     return getSystemOfUnits("");
+  }
+
+  @Override
+  @SuppressWarnings("unchecked")
+  public Set<Prefix> getPrefixes(Class<? extends Prefix> prefixType) {
+    return (Set<Prefix>) Collections.unmodifiableSet(EnumSet.allOf(prefixType.asSubclass(Enum.class)));
   }
 }
