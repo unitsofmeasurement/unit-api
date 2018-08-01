@@ -30,8 +30,6 @@
 package javax.measure.spi;
 
 import java.util.Collection;
-import java.util.Collections;
-import java.util.EnumSet;
 import java.util.Set;
 import javax.measure.Prefix;
 
@@ -105,8 +103,5 @@ public interface SystemOfUnitsService {
 	 *             implementation.
 	 * @since 2.0
 	 */
-	@SuppressWarnings("unchecked")
-	default Set<Prefix> getPrefixes(@SuppressWarnings("rawtypes") Class prefixType) {
-		return Collections.<Prefix>unmodifiableSet(EnumSet.allOf(prefixType.asSubclass(Enum.class)));
-	}
+	Set<Prefix> getPrefixes(Class<? extends Prefix> prefixType);
 }
