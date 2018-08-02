@@ -39,6 +39,38 @@ package javax.measure;
  * thermometer = ... {@literal Vector3D<Speed>} aircraftSpeed = ... </code>
  * </p>
  *
+ * <h3>Arithmetic operations</h3>
+ * This interface defines some arithmetic operations between {@code Quantity}
+ * instances. All implementations shall produce <em>equivalent</em> results for
+ * the same operation applied on equivalent quantities. Two quantities are
+ * equivalent if, after conversion to the same unit of measurement, they have
+ * the same numerical value (ignoring rounding errors). For example 2000 metres
+ * is equivalent to 2 km, but 2°C is not equivalent to 2 K; it is equivalent to
+ * 275.15 K instead. Above requirement applied to addition means that 2°C + 2 K
+ * shall be equivalent to 275.15 K + 2 K.
+ *
+ * <p>All operations shall preserve the
+ * <a href="https://en.wikiversity.org/wiki/Basic_Laws_of_Algebra">basic laws
+ * of algebra</a>, in particular <b>commutativity</b> of addition and
+ * multiplication (<var>A</var> + <var>B</var> = <var>B</var> + <var>A</var>)
+ * and <b>associativity</b> of addition and multiplication (<var>A</var> +
+ * <var>B</var>) + <var>C</var> = <var>A</var> + (<var>B</var> + <var>C</var>).
+ * In order to preserve those algebra laws, this specification requires all
+ * arithmetic operations to execute <em>as is</em> all operands were converted
+ * to {@linkplain Unit#getSystemUnit() system unit} before the operation is
+ * carried out, and the result converted back to any compatible unit at
+ * implementation choice. For example 4 cm + 1 inch shall produce any result
+ * <em>equivalent</em> to 0.04 m + 0.0254 m.</p>
+ *
+ * <p>Implementations are allowed to avoid conversion to system unit if the
+ * result is guaranteed to be equivalent. This is often the case when the
+ * conversion between quantity unit and system unit is only a
+ * {@linkplain UnitConverter#isLinear() scale factor}. However this is not
+ * the case for conversions applying an offset or more complex formula.
+ * For example 2°C + 1°C = 274.15°C, not 3°C. This counter-intuitive result
+ * is essential for preserving algebra laws like associativity, and is also
+ * the expected result from a thermodynamic point of view.</p>
+ *
  * @apiNote This interface places no restrictions on the mutability of
  *          implementations, however immutability is strongly recommended. All
  *          implementations must be {@link Comparable}.
@@ -62,25 +94,37 @@ public interface Quantity<Q extends Quantity<Q>> {
 
 	/**
 	 * Returns the sum of this {@code Quantity} with the one specified.
+	 * The result shall be as if this quantity and the given addend were
+	 * converted to {@linkplain Unit#getSystemUnit() system unit} before
+	 * to be added, and the result converted back to the unit of this
+	 * quantity or any other compatible unit at implementation choice.
 	 *
-	 * @param augend
+	 * @param addend
 	 *            the {@code Quantity} to be added.
-	 * @return {@code this + augend}.
+	 * @return {@code this + addend}.
 	 */
-	Quantity<Q> add(Quantity<Q> augend);
+	Quantity<Q> add(Quantity<Q> addend);
 
 	/**
 	 * Returns the difference between this {@code Quantity} and the one specified.
+	 * The result shall be as if this quantity and the given subtrahend were
+	 * converted to {@linkplain Unit#getSystemUnit() system unit} before
+	 * to be subtracted, and the result converted back to the unit of this
+	 * quantity or any other compatible unit at implementation choice.
 	 *
 	 * @param subtrahend
 	 *            the {@code Quantity} to be subtracted.
-	 * @return <code>this - that</code>.
+	 * @return <code>this - subtrahend</code>.
 	 */
 	Quantity<Q> subtract(Quantity<Q> subtrahend);
 
 	/**
 	 * Returns the product of this {@code Quantity} divided by the {@code Quantity}
 	 * specified.
+	 * The result shall be as if this quantity and the given divisor were
+	 * converted to {@linkplain Unit#getSystemUnit() system unit} before
+	 * to be divided, and the result converted back to the unit of this
+	 * quantity or any other compatible unit at implementation choice.
 	 *
 	 * @throws ClassCastException
 	 *             if the type of an element in the specified operation is
@@ -89,43 +133,55 @@ public interface Quantity<Q extends Quantity<Q>> {
 	 *
 	 * @param divisor
 	 *            the {@code Quantity} divisor.
-	 * @return <code>this / that</code>.
+	 * @return <code>this / divisor</code>.
 	 */
 	Quantity<?> divide(Quantity<?> divisor);
 
 	/**
 	 * Returns the product of this {@code Quantity} divided by the {@code Number}
 	 * specified.
+	 * The result shall be as if this quantity was converted to
+	 * {@linkplain Unit#getSystemUnit() system unit} before to be divided,
+	 * and the result converted back to the unit of this quantity or any
+	 * other compatible unit at implementation choice.
 	 *
 	 * @param divisor
 	 *            the {@code Number} divisor.
-	 * @return <code>this / that</code>.
+	 * @return <code>this / divisor</code>.
 	 */
 	Quantity<Q> divide(Number divisor);
 
 	/**
 	 * Returns the product of this {@code Quantity} with the one specified.
+	 * The result shall be as if this quantity and the given multiplicand were
+	 * converted to {@linkplain Unit#getSystemUnit() system unit} before
+	 * to be multiplied, and the result converted back to the unit of this
+	 * quantity or any other compatible unit at implementation choice.
 	 *
 	 * @throws ClassCastException
 	 *             if the type of an element in the specified operation is
 	 *             incompatible with this quantity
 	 *             (<a href="#optional-restrictions">optional</a>)
 	 *
-	 * @param multiplier
-	 *            the {@code Quantity} multiplier.
-	 * @return <code>this * multiplier</code>.
+	 * @param multiplicand
+	 *            the {@code Quantity} multiplicand.
+	 * @return <code>this * multiplicand</code>.
 	 */
-	Quantity<?> multiply(Quantity<?> multiplier);
+	Quantity<?> multiply(Quantity<?> multiplicand);
 
 	/**
 	 * Returns the product of this {@code Quantity} with the {@code Number} value
 	 * specified.
+	 * The result shall be as if this quantity was converted to
+	 * {@linkplain Unit#getSystemUnit() system unit} before to be multiplied,
+	 * and the result converted back to the unit of this quantity or any
+	 * other compatible unit at implementation choice.
 	 *
-	 * @param multiplier
-	 *            the {@code Number} multiplier.
-	 * @return <code>this * multiplier</code>.
+	 * @param multiplicand
+	 *            the {@code Number} multiplicand.
+	 * @return <code>this * multiplicand</code>.
 	 */
-	Quantity<Q> multiply(Number multiplier);
+	Quantity<Q> multiply(Number multiplicand);
 
 	/**
 	 * Returns this {@code Quantity} converted into another (compatible)
@@ -148,7 +204,7 @@ public interface Quantity<Q extends Quantity<Q>> {
 	 *      Multiplicative inverse</a>
 	 */
 	Quantity<?> inverse();
-	
+
 	/**
      * Returns a {@code Quantity} whose value is {@code (-this.getValue())}.
      *
