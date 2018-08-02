@@ -108,6 +108,7 @@ public interface SystemOfUnitsService {
 			return Collections.<Prefix>unmodifiableSet(EnumSet.allOf(prefixType.asSubclass(Enum.class)));
 		} else {
 			throw new ClassCastException(String.format("%s does not implement Prefix", prefixType));
+			// TODO or should we throw a different exception here, MeasurementException or IllegalArgumentException?
 		}
 	}
 }
