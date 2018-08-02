@@ -40,8 +40,8 @@ import javax.measure.Prefix;
  * of units}.
  *
  * <p>
- * Common systems of units are "SI" (System International) or Metric system, "Imperial"
- * (British), or "US" (US Customary).
+ * Common systems of units are "SI" (System International) or Metric system,
+ * "Imperial" (British), or "US" (US Customary).
  * </p>
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
@@ -71,8 +71,7 @@ public interface SystemOfUnitsService {
 	 * Returns the system of units having the specified name or <code>null</code> if
 	 * none is found.
 	 *
-	 * @param name
-	 *            the system of unit name.
+	 * @param name the system of unit name.
 	 * @return the given system of units.
 	 */
 	SystemOfUnits getSystemOfUnits(String name);
@@ -96,17 +95,19 @@ public interface SystemOfUnitsService {
 	 * </code>
 	 * </pre>
 	 *
-	 * @param prefixType
-	 *            the {@link Prefix} type
+	 * @param prefixType the {@link Prefix} type
 	 * @return a set containing the constant values of this Prefix type, in the
 	 *         order they're declared
-	 * @throws ClassCastException
-	 *             if the class is not compatible with the desired Prefix
-	 *             implementation.
+	 * @throws ClassCastException if the class is not compatible with the desired
+	 *                            Prefix implementation or does not implement Prefix at all.
 	 * @since 2.0
 	 */
 	@SuppressWarnings("unchecked")
 	default Set<Prefix> getPrefixes(@SuppressWarnings("rawtypes") Class prefixType) {
-		return Collections.<Prefix>unmodifiableSet(EnumSet.allOf(prefixType.asSubclass(Enum.class)));
+		if (Prefix.class.isAssignableFrom(prefixType)) {
+			return Collections.<Prefix>unmodifiableSet(EnumSet.allOf(prefixType.asSubclass(Enum.class)));
+		} else {
+			throw new ClassCastException(String.format("%s does not implement Prefix", prefixType));
+		}
 	}
 }

@@ -96,14 +96,23 @@ public class ServiceProviderTest {
     assertNotNull(prefixes);
     assertEquals(8, prefixes.size());
   }
-  
+
   @Test(expected = ClassCastException.class)
   public void testWrongPrefixType() {
-	    final ServiceProvider testProv = new TestServiceProvider();
-	    final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
-	    assertNotNull(service);
-	    @SuppressWarnings("unused")
-		Collection<Prefix> prefixes = service.getPrefixes(String.class);
+    final ServiceProvider testProv = new TestServiceProvider();
+    final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
+    assertNotNull(service);
+    @SuppressWarnings("unused")
+    Collection<Prefix> prefixes = service.getPrefixes(String.class);
+  }
+
+  @Test(expected = ClassCastException.class)
+  public void testWrongEnumType() {
+    final ServiceProvider testProv = new TestServiceProvider();
+    final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
+    assertNotNull(service);
+    @SuppressWarnings("unused")
+    Collection<Prefix> prefixes = service.getPrefixes(DummyEnum.class);
   }
 
   private static final class TestServiceProvider extends ServiceProvider {
@@ -127,5 +136,9 @@ public class ServiceProviderTest {
     public FormatService getFormatService() {
       return null;
     }
+  }
+
+  private static enum DummyEnum {
+    A, B
   }
 }
