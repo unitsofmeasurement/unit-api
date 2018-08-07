@@ -35,7 +35,7 @@ package javax.measure;
  * </p>
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.3, April 20, 2018
+ * @version 1.4, August 8, 2018
  * @see <a href="https://en.wikipedia.org/wiki/Binary_prefix">Wikipedia: Binary Prefix</a>
  * @since 2.0
  */
@@ -176,6 +176,7 @@ public enum BinaryPrefix implements Prefix {
    *
    * @return this prefix symbol, not {@code null}.
    */
+  @Override
   public String getSymbol() {
     return symbol;
   }
@@ -183,6 +184,7 @@ public enum BinaryPrefix implements Prefix {
   /**
    * Base part of the associated factor in base^exponent representation.
    */
+  @Override
   public int getBase() {
     return base;
   }
@@ -190,7 +192,18 @@ public enum BinaryPrefix implements Prefix {
   /**
    * Exponent part of the associated factor in base^exponent representation.
    */
+  @Override
   public int getExponent() {
     return exponent;
+  }
+
+  /**
+   * Returns the name of this prefix.
+   *
+   * @return this prefix name, not {@code null}.
+   */
+  @Override
+  public String getName() {
+    return name();
   }
 }

@@ -35,7 +35,7 @@ package javax.measure;
  *
  * @see <a href="http://en.wikipedia.org/wiki/Unit_prefix">Wikipedia: Unit Prefix</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.9, 2018-06-17
+ * @version 1.0, 2018-08-08
  * @since 2.0
  */
 public interface Prefix {
@@ -61,4 +61,11 @@ public interface Prefix {
    */
   public int getExponent();
 
+  /**
+   * Returns the name of this prefix.
+   *
+   * @return this prefix name, not {@code null}.
+   *
+   */
+  String getName();
 }
