@@ -30,6 +30,7 @@
 package javax.measure.test.format;
 
 import java.io.IOException;
+import java.text.ParsePosition;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -117,6 +118,20 @@ abstract class TestUnitFormat implements UnitFormat {
    */
   public final Unit<?> parse(CharSequence csq) throws MeasurementParseException {
     return parse(csq, 0);
+  }
+
+  /**
+   * Parses the specified character sequence to produce a unit (convenience method). If the specified sequence is empty, the unitary unit
+   * (dimensionless) is returned.
+   *
+   * @param csq
+   *          the <code>CharSequence</code> to parse.
+   * @return the unit parsed from the specified character sub-sequence.
+   * @throws ParseException
+   *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
+   */
+  public final Unit<?> parse(CharSequence csq, ParsePosition pos) throws MeasurementParseException {
+    return parse(csq, pos.getIndex());
   }
 
   /**

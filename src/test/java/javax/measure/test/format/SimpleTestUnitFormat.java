@@ -41,7 +41,7 @@ import javax.measure.format.UnitFormat;
  * Provides a simple interface for formatting and parsing {@linkplain Unit units}.
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.5
+ * @version 0.6
  */
 public class SimpleTestUnitFormat extends TestUnitFormat {
   private final Map<String, String> symbolMap = new HashMap<>();

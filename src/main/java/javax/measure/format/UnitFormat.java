@@ -30,6 +30,7 @@
 package javax.measure.format;
 
 import java.io.IOException;
+import java.text.ParsePosition;
 
 import javax.measure.Unit;
 
@@ -45,7 +46,7 @@ import javax.measure.Unit;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  *
- * @version 1.2, June 25, 2018
+ * @version 1.3, August 8, 2018
  * @since 1.0
  *
  * @see Unit
@@ -111,6 +112,20 @@ public interface UnitFormat {
   default boolean isLocaleSensitive() {
       return false;
   }
+  
+  /**
+   * Parses a portion of the specified <code>CharSequence</code> from the specified position to produce a {@link Unit}. If parsing succeeds, then
+   * the index of the <code>cursor</code> argument is updated to the index after the last character used.
+   *
+   * @param csq
+   *          the <code>CharSequence</code> to parse.
+   * @param cursor
+   *          the cursor holding the current parsing index.
+   * @return the unit parsed from the specified character sub-sequence.
+   * @throws IllegalArgumentException
+   *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
+   */
+  Unit<?> parse(CharSequence csq, ParsePosition cursor) throws IllegalArgumentException, MeasurementParseException;
 
   /**
    * Parses the text into an instance of {@link Unit}.
@@ -126,6 +141,7 @@ public interface UnitFormat {
    *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
    * @throws UnsupportedOperationException
    *           if the {@link UnitFormat} is unable to parse.
+   * @since 2.0
    */
   Unit<?> parse(CharSequence csq) throws MeasurementParseException;
 }
