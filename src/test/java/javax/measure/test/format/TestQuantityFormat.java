@@ -33,7 +33,6 @@ import java.io.IOException;
 
 import javax.measure.Quantity;
 import javax.measure.format.MeasurementParseException;
-import javax.measure.format.ParserException;
 import javax.measure.format.QuantityFormat;
 import javax.measure.test.quantity.TestQuantity;
 
@@ -45,7 +44,7 @@ import javax.measure.test.quantity.TestQuantity;
  * </p>
  *
  * @author <a href="mailto:Quantitys@catmedia.us">Werner Keil</a>
- * @version 0.1
+ * @version 0.2
  *
  */
 abstract class TestQuantityFormat implements QuantityFormat {
