@@ -27,7 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package javax.measure.test.unit;
+package javax.measure.test;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
@@ -36,7 +36,6 @@ import javax.measure.quantity.Length;
 import javax.measure.quantity.Speed;
 import javax.measure.quantity.Time;
 import javax.measure.quantity.Volume;
-import javax.measure.test.TestUnit;
 import javax.measure.test.quantity.DistanceQuantity;
 import javax.measure.test.quantity.TestQuantities;
 import javax.measure.test.quantity.VolumeQuantity;
@@ -60,6 +59,7 @@ public class BinaryPrefixTest {
     final Quantity<Length> m1 = new DistanceQuantity(1, m);
     final Unit<Length> km = KIBI(m);
     assertEquals("Ki", KIBI.getSymbol());
+    assertEquals("KIBI", KIBI.getName());
     assertEquals(1d, m1.getValue());
     assertEquals("m * 1024.0", km.toString());
     if (km instanceof TestUnit) {
@@ -72,6 +72,7 @@ public class BinaryPrefixTest {
   @Test
   public void testMebi() {
     assertEquals("Mi", MEBI.getSymbol());
+    assertEquals("MEBI", MEBI.getName());
     Quantity<Time> t1 = TestQuantities.getQuantity(1.0, MEBI(s));
     assertNotNull(t1);
     assertEquals("1.0 s * 1048576.0", t1.toString());

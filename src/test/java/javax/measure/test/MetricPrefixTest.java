@@ -27,7 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package javax.measure.test.unit;
+package javax.measure.test;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
@@ -36,7 +36,6 @@ import javax.measure.quantity.Length;
 import javax.measure.quantity.Speed;
 import javax.measure.quantity.Time;
 import javax.measure.quantity.Volume;
-import javax.measure.test.TestUnit;
 import javax.measure.test.quantity.DistanceQuantity;
 import javax.measure.test.quantity.TestQuantities;
 import javax.measure.test.quantity.VolumeQuantity;
@@ -57,6 +56,7 @@ public class MetricPrefixTest {
   @Test
   public void testAtto() {
     assertEquals("a", ATTO.getSymbol());
+    assertEquals("ATTO", ATTO.getName());
     Quantity<Time> t1 = TestQuantities.getQuantity(1.0, ATTO(min));
     assertEquals("min * 6.0E-17", t1.getUnit().toString());
   }
@@ -64,6 +64,7 @@ public class MetricPrefixTest {
   @Test
   public void testCenti() {
     assertEquals("c", CENTI.getSymbol());
+    assertEquals("CENTI", CENTI.getName());
     Quantity<Length> l1 = TestQuantities.getQuantity(1.0, CENTI(m));
     assertEquals("m * 0.01", l1.getUnit().toString());
   }
