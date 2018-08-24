@@ -112,6 +112,10 @@ jobs:
       
       # share coverage
       - run: mvn test jacoco:report coveralls:report -DsourceEncoding=UTF-8
+      
+      # run code analysis using sonarqube
+      - run: mvn sonar:sonar -DsourceEncoding=UTF-8 -Dsonar.organization=$SONARCLOUD_ORG -Dsonar.projectKey=$SONARCLOUD_PROJECT_KEY -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONARCLOUD_LOGIN
+      
 workflows:
   version: 2
   clean_build_deploy:
