@@ -35,6 +35,13 @@
           <element xmi:type="uml:Operation" href="model.uml#_N79rg3Y6EeSqtc-Sb9aJnA"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_JAiUoYfpEeWSAJVqrs5hGQ"/>
         </children>
+        <children xmi:type="notation:Shape" xmi:id="_DawzAK1TEeiRkapsR2a9pg" type="Operation_InterfaceOperationLabel">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Dcc1EK1TEeiRkapsR2a9pg" source="PapyrusCSSForceValue">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Dcc1Ea1TEeiRkapsR2a9pg" key="mutable" value="true"/>
+          </eAnnotations>
+          <element xmi:type="uml:Operation" href="model.uml#_DaY_kK1TEeiRkapsR2a9pg"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_DawzAa1TEeiRkapsR2a9pg"/>
+        </children>
         <children xmi:type="notation:Shape" xmi:id="_JAi7sIfpEeWSAJVqrs5hGQ" type="Operation_InterfaceOperationLabel">
           <element xmi:type="uml:Operation" href="model.uml#_f-R_kIflEeWIX-YU2rOOwg"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_JAi7sYfpEeWSAJVqrs5hGQ"/>
@@ -56,7 +63,7 @@
       </children>
       <styles xmi:type="notation:CanonicalStyle" xmi:id="_JAQAwIfpEeWSAJVqrs5hGQ"/>
       <element xmi:type="uml:Interface" href="model.uml#_N79renY6EeSqtc-Sb9aJnA"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DgM4kYfpEeWSAJVqrs5hGQ" x="30" y="30" width="388" height="133"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DgM4kYfpEeWSAJVqrs5hGQ" x="30" y="30" width="391" height="151"/>
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_WshiIXY6EeSqtc-Sb9aJnA" name="diagram_compatibility_version" stringValue="1.4.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_WshiInY6EeSqtc-Sb9aJnA"/>

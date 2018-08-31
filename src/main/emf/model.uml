@@ -853,6 +853,11 @@
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_N79rhXY6EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_N8HccHY6EeSqtc-Sb9aJnA" name="csq" type="_N79rcXY6EeSqtc-Sb9aJnA"/>
             </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_DaY_kK1TEeiRkapsR2a9pg" name="parse">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_TD0LgK1TEeiRkapsR2a9pg" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_cdtTEK1TEeiRkapsR2a9pg" name="csq" type="_N79rcXY6EeSqtc-Sb9aJnA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_eaGuUK1TEeiRkapsR2a9pg" name="cursor" type="_P7W6EHLtEeilgvRHPaOOsg"/>
+            </ownedOperation>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_f-R_kIflEeWIX-YU2rOOwg" name="label">
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_wIRFcIfmEeWIX-YU2rOOwg" name="unit" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
               <ownedParameter xmi:type="uml:Parameter" xmi:id="_2KYY4IfmEeWIX-YU2rOOwg" name="label" type="_f7ir43Y5EeSqtc-Sb9aJnA"/>
