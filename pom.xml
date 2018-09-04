@@ -136,6 +136,17 @@
 			</roles>
 		</developer>
 		<developer>
+			<id>Daniel-Dos</id>
+			<name>Daniel Dias</name>
+			<email>daniel.dias.analistati@gmail.com</email>
+			<organization>Individual / SouJava</organization>
+			<timezone>-5</timezone>
+			<roles>
+				<role>Expert</role>
+				<role>Java Developer</role>
+			</roles>
+		</developer>
+		<developer>
 			<id>duckasteroid</id>
 			<name>Chris Senior</name>
 			<email>christopher.senior@gmail.com</email>
