@@ -42,7 +42,7 @@ import javax.measure.Quantity;
  * access a format concurrently, it must be synchronized externally.
  *
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 0.5, 25 June, 2018
+ * @version 0.6, 4 Sep, 2018
  * @since 2.0
  *
  * @see Quantity
@@ -54,13 +54,13 @@ public interface QuantityFormat {
    *
    * @param quantity
    *          the quantity to format.
-   * @param dest
+   * @param destination
    *          the appendable destination.
    * @return the specified {@code Appendable}.
    * @throws IOException
    *           if an I/O exception occurs.
    */
-  public Appendable format(Quantity<?> quantity, Appendable dest) throws IOException;
+  public Appendable format(Quantity<?> quantity, Appendable destination) throws IOException;
 
   /**
    * Parses a portion of the specified {@code CharSequence} from the specified position to produce a {@link Quantity}.
