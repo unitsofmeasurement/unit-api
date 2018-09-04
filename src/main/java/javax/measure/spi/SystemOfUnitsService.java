@@ -30,7 +30,6 @@
 package javax.measure.spi;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Set;
 import javax.measure.Prefix;
@@ -84,16 +83,22 @@ public interface SystemOfUnitsService {
 
 	/**
 	 * Returns a {@link Set} containing the values of a particular {@link Prefix}
-	 * type.<br>
-	 * This method may be used to iterate over the prefixes as follows:
+	 * type.
 	 *
-	 * <pre>
-	 * <code>
+	 * <p>
+	 * This method may be used to iterate over the prefixes as follows:
+	 * </p>
+	 * <pre>{@code
 	 *    for(Prefix p : service.getPrefixes(PrefixType.class))
 	 *        System.out.println(p);
-	 * </code>
-	 * </pre>
+	 * }</pre>
 	 *
+	 * The default implementation assumes that prefixes of the given type are implemented as an enumeration.
+	 * This is the case of the two default prefix implementations provided in JSR 385,
+	 * namely {@link javax.measure.MetricPrefix} and {@link javax.measure.BinaryPrefix}.
+	 * Implementors shall override this method if they provide prefixes implemented in a different way.
+	 *
+	 * @param <P> compile-time value of the {@code prefixType} argument
 	 * @param prefixType the {@link Prefix} type
 	 * @return a set containing the constant values of this Prefix type, in the
 	 *         order they're declared
@@ -101,13 +106,22 @@ public interface SystemOfUnitsService {
 	 *                            Prefix implementation or does not implement Prefix at all.
 	 * @since 2.0
 	 */
-	@SuppressWarnings("unchecked")
-	default Set<Prefix> getPrefixes(@SuppressWarnings("rawtypes") Class prefixType) {
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	default <P extends Prefix> Set<P> getPrefixes(Class<P> prefixType) {
+		// Following check is redundant with parameterized type but nevertheless applied as a safety.
 		if (Prefix.class.isAssignableFrom(prefixType)) {
-			return Collections.<Prefix>unmodifiableSet(EnumSet.allOf(prefixType.asSubclass(Enum.class)));
-		} else {
+			EnumSet<? extends Enum<?>> prefixes = EnumSet.allOf(prefixType.asSubclass(Enum.class));
+			/*
+			 * Following unchecked cast is safe for read operations because the given class implements
+			 * 'prefixType' in addition of being an enumeration.  It is also safe for write operations
+			 * because all enumerations are closed universes (so users can not add an instance unknown
+			 * to EnumSet) and we would have got an exception before this point if 'prefixType' was not
+			 * an enumeration in the sense of Class.isEnum().
+			 */
+			return (EnumSet) prefixes;
+                } else {
 			throw new ClassCastException(String.format("%s does not implement Prefix", prefixType));
 			// TODO or should we throw a different exception here, MeasurementException or IllegalArgumentException?
-		}
+                }
 	}
 }

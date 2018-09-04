@@ -50,26 +50,46 @@ package javax.measure;
  * @since 2.0
  */
 public enum MetricPrefix implements Prefix {
-  YOTTA("Y", 10, 24), //
-  ZETTA("Z", 10, 21), //
-  EXA("E", 10, 18), //
-  PETA("P", 10, 15), //
-  TERA("T", 10, 12), //
-  GIGA("G", 10, 9), //
-  MEGA("M", 10, 6), //
-  KILO("k", 10, 3), //
-  HECTO("h", 10, 2), //
-  DEKA("da", 10, 1), //
-  DECI("d", 10, -1), //
-  CENTI("c", 10, -2), //
-  MILLI("m", 10, -3), //
-  MICRO("µ", 10, -6), //
-  NANO("n", 10, -9), //
-  PICO("p", 10, -12), //
-  FEMTO("f", 10, -15), //
-  ATTO("a", 10, -18), //
-  ZEPTO("z", 10, -21), //
-  YOCTO("y", 10, -24);
+  /** Prefix for 10<sup>24</sup>. */
+  YOTTA("Y", 24),
+  /** Prefix for 10<sup>21</sup>. */
+  ZETTA("Z", 21),
+  /** Prefix for 10<sup>18</sup>. */
+  EXA("E", 18),
+  /** Prefix for 10<sup>15</sup>. */
+  PETA("P", 15),
+  /** Prefix for 10<sup>12</sup>. */
+  TERA("T", 12),
+  /** Prefix for 10<sup>9</sup>. */
+  GIGA("G", 9),
+  /** Prefix for 10<sup>6</sup>. */
+  MEGA("M", 6),
+  /** Prefix for 10<sup>3</sup>. */
+  KILO("k", 3),
+  /** Prefix for 10<sup>2</sup>. */
+  HECTO("h", 2),
+  /** Prefix for 10<sup>1</sup>. */
+  DEKA("da", 1),
+  /** Prefix for 10<sup>-1</sup>. */
+  DECI("d", -1),
+  /** Prefix for 10<sup>-2</sup>. */
+  CENTI("c", -2),
+  /** Prefix for 10<sup>-3</sup>. */
+  MILLI("m", -3),
+  /** Prefix for 10<sup>-6</sup>. */
+  MICRO("µ", -6),
+  /** Prefix for 10<sup>-9</sup>. */
+  NANO("n", -9),
+  /** Prefix for 10<sup>-12</sup>. */
+  PICO("p", -12),
+  /** Prefix for 10<sup>-15</sup>. */
+  FEMTO("f", -15),
+  /** Prefix for 10<sup>-18</sup>. */
+  ATTO("a", -18),
+  /** Prefix for 10<sup>-21</sup>. */
+  ZEPTO("z", -21),
+  /** Prefix for 10<sup>-24</sup>. */
+  YOCTO("y", -24);
 
   /**
    * The symbol of this prefix, as returned by {@link #getSymbol}.
@@ -80,28 +100,20 @@ public enum MetricPrefix implements Prefix {
   private final String symbol;
 
   /**
-   * Base part of the associated factor in base^exponent representation.
-   */
-  private int base;
-
-  /**
    * Exponent part of the associated factor in base^exponent representation.
    */
-  private int exponent;
+  private final int exponent;
 
   /**
    * Creates a new prefix.
    *
    * @param symbol
    *          the symbol of this prefix.
-   * @param base
-   *          part of the associated factor in base^exponent representation.
    * @param exponent
    *          part of the associated factor in base^exponent representation.
    */
-  private MetricPrefix(String symbol, int base, int exponent) {
+  private MetricPrefix(String symbol, int exponent) {
     this.symbol = symbol;
-    this.base = base;
     this.exponent = exponent;
   }
 
@@ -376,11 +388,11 @@ public enum MetricPrefix implements Prefix {
   }
 
   /**
-   * Base part of the associated factor in base^exponent representation.
+   * Base part of the associated factor in base^exponent representation. For metric prefix, this is always 10.
    */
   @Override
   public int getBase() {
-    return base;
+    return 10;
   }
 
   /**
