@@ -16,6 +16,8 @@ The interfaces provide a layer which separates client code, that would call the 
 
 ## Quality
 https://sonarcloud.io/api/project_badges/measure?project=javax.measure%3Aunit-api&metric=bugs
+[![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=javax.measure%3Aunit-api&metric=alert_status)](https://sonarcloud.io/dashboard?id=javax.measure%3Aunit-api)
+
 
 ## Planning
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/unitsofmeasurement/unit-api.svg)](http://isitmaintained.com/project/unitsofmeasurement/unit-api "Average time to resolve an issue")
