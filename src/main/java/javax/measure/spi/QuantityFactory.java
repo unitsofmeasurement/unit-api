@@ -61,7 +61,7 @@ public interface QuantityFactory<Q extends Quantity<Q>> {
   Quantity<Q> create(Number value, Unit<Q> unit);
 
   /**
-   * Returns the system unit for quantities produced by this factory or <code>null</code> if unknown.
+   * Returns the system unit for quantities produced by this factory or {@code null} if unknown.
    *
    * <p>
    * Because the system unit is unique by quantity type, it can be be used to identify the quantity given the unit. For example:

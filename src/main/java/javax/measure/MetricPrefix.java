@@ -30,22 +30,18 @@
 package javax.measure;
 
 /**
- * <p>
- * This class provides support for the 20 prefixes used in the metric system (decimal multiples and submultiples of units). For example:
- * 
+ * Provides support for the 20 prefixes used in the metric system (decimal multiples and submultiples of units). For example:
+ *
  * <pre>
- * <code>
+ * {@code
  *     import static tech.units.indriya.unit.Units.*;  // Static import.
  *     import static javax.measure.MetricPrefix.*; // Static import.
  *     import javax.measure.*;
  *     import javax.measure.quantity.*;
  *     ...
  *     Unit<Pressure> HECTOPASCAL = HECTO(PASCAL);
- *     Unit<Length> KILOMETRE = KILO(METRE);
- *     </code>
+ *     Unit<Length> KILOMETRE = KILO(METRE);}
  * </pre>
- * 
- * </p>
  *
  * @see <a href="http://en.wikipedia.org/wiki/Metric_prefix">Wikipedia: Metric Prefix</a>
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
@@ -113,7 +109,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>24</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e24)</code>.
@@ -126,7 +122,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>21</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e21)</code>.
@@ -139,7 +135,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>18</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e18)</code>.
@@ -152,7 +148,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>15</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e15)</code>.
@@ -165,7 +161,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>12</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e12)</code>.
@@ -178,7 +174,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>9</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e9)</code>.
@@ -191,7 +187,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>6</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e6)</code>.
@@ -204,7 +200,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>3</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e3)</code>.
@@ -217,7 +213,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>2</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e2)</code>.
@@ -230,7 +226,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>1</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e1)</code>.
@@ -243,7 +239,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>-1</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e-1)</code>.
@@ -256,7 +252,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>-2</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e-2)</code>.
@@ -269,7 +265,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>-3</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e-3)</code>.
@@ -282,7 +278,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>-6</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e-6)</code>.
@@ -295,7 +291,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>-9</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e-9)</code>.
@@ -308,7 +304,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>-12</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e-12)</code>.
@@ -321,7 +317,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>-15</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e-15)</code>.
@@ -334,7 +330,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>-18</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e-18)</code>.
@@ -347,7 +343,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>-21</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e-21)</code>.
@@ -360,7 +356,7 @@ public enum MetricPrefix implements Prefix {
    * Returns the specified unit multiplied by the factor <code>10<sup>-24</sup></code>
    *
    * @param <Q>
-   *          The type of the quantity measured by the unit.
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.times(1e-24)</code>.

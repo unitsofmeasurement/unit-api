@@ -119,7 +119,7 @@ public interface Quantity<Q extends Quantity<Q>> {
 	Quantity<Q> subtract(Quantity<Q> subtrahend);
 
 	/**
-	 * Returns the product of this {@code Quantity} divided by the {@code Quantity}
+	 * Returns the quotient of this {@code Quantity} divided by the {@code Quantity}
 	 * specified.
 	 * The result shall be as if this quantity and the given divisor were
 	 * converted to {@linkplain Unit#getSystemUnit() system unit} before
@@ -138,7 +138,7 @@ public interface Quantity<Q extends Quantity<Q>> {
 	Quantity<?> divide(Quantity<?> divisor);
 
 	/**
-	 * Returns the product of this {@code Quantity} divided by the {@code Number}
+	 * Returns the quotient of this {@code Quantity} divided by the {@code Number}
 	 * specified.
 	 * The result shall be as if this quantity was converted to
 	 * {@linkplain Unit#getSystemUnit() system unit} before to be divided,

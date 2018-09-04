@@ -228,7 +228,7 @@ public interface Unit<Q extends Quantity<Q>> {
    * @throws UnsupportedOperationException
    *           if this unit is not an unscaled standard unit.
    * @throws IllegalArgumentException
-   *           if the specified symbol is already associated to a different unit.
+   *           if the specified symbol is not valid or is already associated to a different unit.
    */
   Unit<Q> alternate(String symbol);
 
@@ -340,11 +340,12 @@ public interface Unit<Q extends Quantity<Q>> {
   Unit<Q> transform(UnitConverter operation);
 
   /**
-   * <p>
    * Returns a string representation of this unit. The string representation may be the unit {@linkplain #getSymbol() symbol}, or may be some
    * representation of {@linkplain #getBaseUnits() product units}, multiplication factor and offset if any.
+   *
+   * <p>
+   * The string may be localized at implementation choice by the means of a particular device and platform.
    * </p>
-   * The string may be localized at implementation choice by the means of a particular device and platform. <br>
    *
    * @return the string representation of this unit.
    *
@@ -356,7 +357,7 @@ public interface Unit<Q extends Quantity<Q>> {
 
   /**
    * Returns a new unit equal to this unit prefixed by the specified {@code prefix}.
-   * 
+   *
    * @param prefix
    * @return
    */

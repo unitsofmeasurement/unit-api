@@ -30,9 +30,7 @@
 package javax.measure;
 
 /**
- * <p>
- * This class provides support for common binary prefixes to be used by units.
- * </p>
+ * Provides support for common binary prefixes to be used by units.
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.4, August 8, 2018
@@ -85,7 +83,9 @@ public enum BinaryPrefix implements Prefix {
 
   /**
    * Returns the specified unit multiplied by the factor <code>1024</code> (binary prefix).
-   * 
+   *
+   * @param <Q>
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.multiply(1024)</code>.
@@ -96,7 +96,9 @@ public enum BinaryPrefix implements Prefix {
 
   /**
    * Returns the specified unit multiplied by the factor <code>1024<sup>2</sup></code> (binary prefix).
-   * 
+   *
+   * @param <Q>
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.multiply(1048576)</code>.
@@ -107,7 +109,9 @@ public enum BinaryPrefix implements Prefix {
 
   /**
    * Returns the specified unit multiplied by the factor <code>1024<sup>3</sup></code> (binary prefix).
-   * 
+   *
+   * @param <Q>
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.multiply(1073741824)</code>.
@@ -118,7 +122,9 @@ public enum BinaryPrefix implements Prefix {
 
   /**
    * Returns the specified unit multiplied by the factor <code>1024<sup>4</sup></code> (binary prefix).
-   * 
+   *
+   * @param <Q>
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.multiply(1099511627776L)</code>.
@@ -129,7 +135,9 @@ public enum BinaryPrefix implements Prefix {
 
   /**
    * Returns the specified unit multiplied by the factor <code>1024<sup>5</sup></code> (binary prefix).
-   * 
+   *
+   * @param <Q>
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.multiply(1125899906842624L)</code>.
@@ -140,7 +148,9 @@ public enum BinaryPrefix implements Prefix {
 
   /**
    * Returns the specified unit multiplied by the factor <code>1024<sup>6</sup></code> (binary prefix).
-   * 
+   *
+   * @param <Q>
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.multiply(1152921504606846976L)</code>.
@@ -151,7 +161,9 @@ public enum BinaryPrefix implements Prefix {
 
   /**
    * Returns the specified unit multiplied by the factor <code>1024<sup>7</sup></code> (binary prefix).
-   * 
+   *
+   * @param <Q>
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.multiply(1152921504606846976d)</code>.
@@ -162,7 +174,9 @@ public enum BinaryPrefix implements Prefix {
 
   /**
    * Returns the specified unit multiplied by the factor <code>1024<sup>8</sup></code> (binary prefix).
-   * 
+   *
+   * @param <Q>
+   *          type of the quantity measured by the unit.
    * @param unit
    *          any unit.
    * @return <code>unit.multiply(1208925819614629174706176d)</code>.

@@ -51,16 +51,16 @@ public interface FormatService extends UnitFormatService {
    * Returns the default quantity format.
    *
    * It is up to implementations what to consider a suitable default. For some (locale-sensitive) implementations it may be a quantity format based on
-   * <code>Locale.current()</code> while others may return <code>getQuantityFormat("Simple")</code> or <code>getQuantityFormat("ISO")</code>
+   * {@code Locale.current()} while others may return {@code getQuantityFormat("Simple")} or {@code getQuantityFormat("ISO")}.
    *
    * @return the default {@link QuantityFormat} implementation.
    */
   QuantityFormat getQuantityFormat();
 
   /**
-   * Returns the quantity format having the specified name or <code>null</code> if none.
+   * Returns the quantity format having the specified name or {@code null} if none.
    *
-   * For example <code>getQuantityFormat("Simple")</code> to return the simple UCUM specific {@link QuantityFormat} implementation.
+   * For example (@code getQuantityFormat("Simple")} to return the simple UCUM specific {@link QuantityFormat} implementation.
    *
    * @param name
    *          the name of the format.
@@ -70,7 +70,7 @@ public interface FormatService extends UnitFormatService {
 
   /**
    * Gets a list with available format names of a given type for this format service.
-   * 
+   *
    * @param type
    *          the {@link FormatType}
    * @return list of available formats, never null.

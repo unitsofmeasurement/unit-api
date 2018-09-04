@@ -30,7 +30,6 @@
 package javax.measure;
 
 /**
- * <p>
  * A unit prefix is a specifier or mnemonic that is prepended to units of measurement to indicate multiples or fractions of the units.
  *
  * @see <a href="http://en.wikipedia.org/wiki/Unit_prefix">Wikipedia: Unit Prefix</a>
@@ -49,14 +48,14 @@ public interface Prefix {
 
   /**
    * Base part of the associated factor in base^exponent representation.
-   * 
+   *
    * @return the base part of this prefix.
    */
   public int getBase();
 
   /**
    * Exponent part of the associated factor in base^exponent representation.
-   * 
+   *
    * @return the exponent part of this prefix.
    */
   public int getExponent();
@@ -65,7 +64,6 @@ public interface Prefix {
    * Returns the name of this prefix.
    *
    * @return this prefix name, not {@code null}.
-   *
    */
   String getName();
 }

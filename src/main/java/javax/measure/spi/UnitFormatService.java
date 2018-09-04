@@ -37,7 +37,7 @@ import javax.measure.format.UnitFormat;
  * This interface represent the service to obtain {@link UnitFormat} instances.<br>
  * <br>
  * <b>Note:</b> This parent interface remains separate for backward-compatibility, it will be merged into FormatService in a future version.
- * 
+ *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 1.1, March 29, 2017
@@ -49,16 +49,16 @@ public interface UnitFormatService {
    * Returns the default unit format.
    *
    * It is up to implementations what to consider a suitable default. For some (locale-sensitive) implementations it may be a unit format based on
-   * <code>Locale.current()</code> while others may return <code>getUnitFormat("Simple")</code> or <code>getUnitFormat("ISO")</code>
+   * {@code Locale.current()} while others may return {@code getUnitFormat("Simple")} or {@code getUnitFormat("ISO")}.
    *
    * @return the default {@link UnitFormat} implementation.
    */
   UnitFormat getUnitFormat();
 
   /**
-   * Returns the unit format having the specified name or <code>null</code> if none.
+   * Returns the unit format having the specified name or {@code null} if none.
    *
-   * For example <code>getUnitFormat("UCUM")</code> to return a UCUM specific {@link UnitFormat} implementation.
+   * For example {@code getUnitFormat("UCUM")} to return a UCUM specific {@link UnitFormat} implementation.
    *
    * @param name
    *          the name of the format.
