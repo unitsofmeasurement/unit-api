@@ -19,3 +19,5 @@ The interfaces provide a layer which separates client code, that would call the 
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/unitsofmeasurement/unit-api.svg)](http://isitmaintained.com/project/unitsofmeasurement/unit-api "Percentage of issues still open")
 
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/unitsofmeasurement/unit-api.png?columns=all)](https://waffle.io/unitsofmeasurement/unit-api?utm_source=badge)
+
+https://sonarcloud.io/api/project_badges/quality_gate?project=javax.measure%3Aunit-api
