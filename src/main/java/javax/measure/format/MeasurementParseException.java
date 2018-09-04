@@ -41,7 +41,7 @@ import javax.measure.MeasurementException;
 public class MeasurementParseException extends MeasurementException {
 
   /**
-   * 
+   * For cross-version compatibility.
    */
   private static final long serialVersionUID = 2727457045794254852L;
 

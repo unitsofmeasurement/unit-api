@@ -57,7 +57,7 @@ public interface SystemOfUnits {
   String getName();
 
   /**
-   * Returns the default unit for the specified quantity or <code>null</code> if none is defined for the given quantity in this unit system.
+   * Returns the default unit for the specified quantity or {@code null} if none is defined for the given quantity in this unit system.
    *
    * @param <Q>
    *          the compile-time quantity type.
@@ -68,10 +68,10 @@ public interface SystemOfUnits {
   <Q extends Quantity<Q>> Unit<Q> getUnit(Class<Q> quantityType);
 
   /**
-   * Returns a unit with the given {@linkplain String string} representation or <code>null</code> if none is found in this unit system.
+   * Returns a unit with the given {@linkplain String string} representation or {@code null} if none is found in this unit system.
    *
    * @param string
-   *          the string representation of a unit, not <code>null</code>.
+   *          the string representation of a unit, not {@code null}.
    * @return the unit with the given string representation.
    */
   Unit<?> getUnit(String string);

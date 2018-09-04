@@ -35,8 +35,9 @@ package javax.measure.format;
  * @author Werner Keil
  * @version 1.1, March 27, 2018
  * @since 1.0
- * @deprecated Use MeasurementParseException, this exception will be removed in a future version, it is here for backward compatibility only.
+ * @deprecated Use {@link MeasurementParseException}, this exception will be removed in a future version, it is here for backward compatibility only.
  */
+@Deprecated
 public class ParserException extends MeasurementParseException {
 
   private static final long serialVersionUID = -3179553925611520368L;

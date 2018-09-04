@@ -44,6 +44,7 @@ import javax.measure.format.UnitFormat;
  * Service Provider for Units of Measurement services.
  * <p>
  * All the methods in this class are safe to use by multiple concurrent threads.
+ * </p>
  *
  * @version 1.1, March 29, 2018
  * @author Werner Keil
@@ -89,8 +90,9 @@ public abstract class ServiceProvider {
    * Returns the service to obtain a {@link UnitFormat}, or {@code null} if none.
    *
    * @return the service to obtain a {@link UnitFormat}, or {@code null}.
-   * @deprecated Use #getFormatService(), this method will be removed in a future version, it is here for backward compatibility only.
+   * @deprecated Use {@link #getFormatService()}. This method will be removed in a future version, it is here for backward compatibility only.
    */
+  @Deprecated
   public abstract UnitFormatService getUnitFormatService();
 
   /**
@@ -102,13 +104,13 @@ public abstract class ServiceProvider {
   public abstract FormatService getFormatService();
 
   /**
-   * Return a factory for this {@link Quantity}.
+   * Returns a factory for the given {@link Quantity} type.
    *
    * @param <Q>
-   *          the type of the {@link Quantity} result
+   *          the type of the {@link Quantity} instances created by the factory
    * @param quantity
-   *          the quantity
-   * @return the {@link QuantityFactory}
+   *          the quantity type
+   * @return the {@link QuantityFactory} for the given type
    */
   public abstract <Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(Class<Q> quantity);
 

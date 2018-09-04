@@ -59,8 +59,7 @@ public interface SystemOfUnitsService {
 
 	/**
 	 * Returns the default {@link SystemOfUnits system of units}. Depending on the
-	 * implementation this may be the <a href=
-	 * "http://en.wikipedia.org/wiki/International_System_of_Units">International
+	 * implementation this may be the <a href="http://en.wikipedia.org/wiki/International_System_of_Units">International
 	 * System of Units</a> or another default system.
 	 *
 	 * @return the default system of units.
@@ -68,11 +67,11 @@ public interface SystemOfUnitsService {
 	SystemOfUnits getSystemOfUnits();
 
 	/**
-	 * Returns the system of units having the specified name or <code>null</code> if
+	 * Returns the system of units having the specified name or {@code null} if
 	 * none is found.
 	 *
 	 * @param name the system of unit name.
-	 * @return the given system of units.
+	 * @return the system of units for the given name.
 	 */
 	SystemOfUnits getSystemOfUnits(String name);
 
