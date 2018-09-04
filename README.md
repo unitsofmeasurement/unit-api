@@ -14,10 +14,11 @@ JSR 385 - Units of Measurement API 2.0
 The Unit of Measurement API provides a set of Java language programming interfaces for handling units and quantities.
 The interfaces provide a layer which separates client code, that would call the API, from library code, which implements the API.
 
+## Quality
+https://sonarcloud.io/api/project_badges/measure?project=javax.measure%3Aunit-api&metric=bugs
+
 ## Planning
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/unitsofmeasurement/unit-api.svg)](http://isitmaintained.com/project/unitsofmeasurement/unit-api "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/unitsofmeasurement/unit-api.svg)](http://isitmaintained.com/project/unitsofmeasurement/unit-api "Percentage of issues still open")
 
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/unitsofmeasurement/unit-api.png?columns=all)](https://waffle.io/unitsofmeasurement/unit-api?utm_source=badge)
-
-https://sonarcloud.io/api/project_badges/quality_gate?project=javax.measure%3Aunit-api
