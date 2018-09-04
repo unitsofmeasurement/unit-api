@@ -38,14 +38,22 @@ package javax.measure;
  * @since 2.0
  */
 public enum BinaryPrefix implements Prefix {
-  KIBI("Ki", 1024, 1), //
-  MEBI("Mi", 1024, 2), //
-  GIBI("Gi", 1024, 3), //
-  TEBI("Ti", 1024, 4), //
-  PEBI("Pi", 1024, 5), //
-  EXBI("Ei", 1024, 6), //
-  ZEBI("Zi", 1024, 7), //
-  YOBI("Yi", 1024, 8);
+  /** Prefix for 1024. */
+  KIBI("Ki", 1),
+  /** Prefix for 1024<sup>2</sup>. */
+  MEBI("Mi", 2),
+  /** Prefix for 1024<sup>3</sup>. */
+  GIBI("Gi", 3),
+  /** Prefix for 1024<sup>4</sup>. */
+  TEBI("Ti", 4),
+  /** Prefix for 1024<sup>5</sup>. */
+  PEBI("Pi", 5),
+  /** Prefix for 1024<sup>6</sup>. */
+  EXBI("Ei", 6),
+  /** Prefix for 1024<sup>7</sup>. */
+  ZEBI("Zi", 7),
+  /** Prefix for 1024<sup>8</sup>. */
+  YOBI("Yi", 8);
 
   /**
    * The symbol of this prefix, as returned by {@link #getSymbol}.
@@ -56,28 +64,20 @@ public enum BinaryPrefix implements Prefix {
   private final String symbol;
 
   /**
-   * Base part of the associated factor in base^exponent representation.
-   */
-  private int base;
-
-  /**
    * Exponent part of the associated factor in base^exponent representation.
    */
-  private int exponent;
+  private final int exponent;
 
   /**
    * Creates a new prefix.
    *
    * @param symbol
    *          the symbol of this prefix.
-   * @param base
-   *          part of the associated factor in base^exponent representation.
    * @param exponent
    *          part of the associated factor in base^exponent representation.
    */
-  private BinaryPrefix(String symbol, int base, int exponent) {
+  private BinaryPrefix(String symbol, int exponent) {
     this.symbol = symbol;
-    this.base = base;
     this.exponent = exponent;
   }
 
@@ -200,7 +200,7 @@ public enum BinaryPrefix implements Prefix {
    */
   @Override
   public int getBase() {
-    return base;
+    return 1024;
   }
 
   /**

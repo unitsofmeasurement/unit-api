@@ -82,7 +82,7 @@ public class ServiceProviderTest {
   public void testGetMetricPrefixes() {
     final ServiceProvider testProv = new TestServiceProvider();
     final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
-    Collection<Prefix> prefixes = service.getPrefixes(MetricPrefix.class);
+    Collection<MetricPrefix> prefixes = service.getPrefixes(MetricPrefix.class);
     assertNotNull(prefixes);
     assertEquals(20, prefixes.size());
   }
@@ -92,7 +92,7 @@ public class ServiceProviderTest {
     final ServiceProvider testProv = new TestServiceProvider();
     final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
     assertNotNull(service);
-    Collection<Prefix> prefixes = service.getPrefixes(BinaryPrefix.class);
+    Collection<BinaryPrefix> prefixes = service.getPrefixes(BinaryPrefix.class);
     assertNotNull(prefixes);
     assertEquals(8, prefixes.size());
   }
@@ -103,7 +103,7 @@ public class ServiceProviderTest {
     final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
     assertNotNull(service);
     @SuppressWarnings("unused")
-    Collection<Prefix> prefixes = service.getPrefixes(String.class);
+    Collection<Prefix> prefixes = service.getPrefixes((Class) String.class);
   }
 
   @Test(expected = ClassCastException.class)
@@ -112,7 +112,7 @@ public class ServiceProviderTest {
     final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
     assertNotNull(service);
     @SuppressWarnings("unused")
-    Collection<Prefix> prefixes = service.getPrefixes(DummyEnum.class);
+    Collection<Prefix> prefixes = service.getPrefixes((Class) DummyEnum.class);
   }
 
   private static final class TestServiceProvider extends ServiceProvider {

@@ -304,8 +304,7 @@ public interface Unit<Q extends Quantity<Q>> {
   Unit<?> divide(Unit<?> divisor);
 
   /**
-   * Returns an unit that is the n-th (integer) root of this unit.<br/>
-   * Equivalent to the mathematical expression {@code unit^(1/n)}.
+   * Returns an unit that is the n-th (integer) root of this unit. Equivalent to the mathematical expression {@code unit^(1/n)}.
    *
    * @param n
    *          an integer giving the root's order as in 'n-th root'
@@ -316,8 +315,7 @@ public interface Unit<Q extends Quantity<Q>> {
   Unit<?> root(int n);
 
   /**
-   * Returns an unit raised to the n-th (integer) power of this unit.<br/>
-   * Equivalent to the mathematical expression {@code unit^n}.
+   * Returns an unit raised to the n-th (integer) power of this unit. Equivalent to the mathematical expression {@code unit^n}.
    *
    * @param n
    *          the exponent.
@@ -327,11 +325,12 @@ public interface Unit<Q extends Quantity<Q>> {
 
   /**
    * Returns the unit derived from this unit using the specified converter. The converter does not need to be linear. For example:<br>
-   * <code>
+   *
+   * <pre>
    *     {@literal Unit<Dimensionless>} DECIBEL = Unit.ONE.transform(
    *         new LogConverter(10).inverse().concatenate(
    *             new RationalConverter(1, 10)));
-   * </code>
+   * </pre>
    *
    * @param operation
    *          the converter from the transformed unit to this unit.
@@ -359,7 +358,8 @@ public interface Unit<Q extends Quantity<Q>> {
    * Returns a new unit equal to this unit prefixed by the specified {@code prefix}.
    *
    * @param prefix
-   * @return
+   *          the prefix to apply on this unit.
+   * @return the unit with the given prefix applied.
    */
   Unit<Q> prefix(Prefix prefix);
 }
