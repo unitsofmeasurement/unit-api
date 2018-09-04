@@ -17,18 +17,4 @@
 			<password>${env.GH_DEPLOY_PASSWORD}</password>
 		</server>
 	</servers>
-
-	<profiles>
-		<profile>
-			<id>sonar</id>
-			<properties>
-				<sonar.key>${env.SONARCLOUD_PROJECT_KEY}</sonar.key>
-				<sonar.login>${env.SONARCLOUD_LOGIN}</sonar.login>
-			</properties>
-		</profile>
-	</profiles>
-
-	<activeProfiles>
-		<activeProfile>sonar</activeProfile>
-	</activeProfiles>
 </settings>
