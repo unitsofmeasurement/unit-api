@@ -114,7 +114,7 @@ jobs:
       - run: mvn test jacoco:report coveralls:report -DsourceEncoding=UTF-8
       
       # run code analysis using sonarqube
-      - run: mvn sonar:sonar -Dsonar.projectKey=${sonar.key} -Dsonar.organization=uom -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${sonar.login} -DsourceEncoding=UTF-8 -s settings.xml
+      - run: mvn sonar:sonar -Dsonar.projectKey=javax.measure:unit-api -Dsonar.organization=uom -Dsonar.host.url=https://sonarcloud.io   -Dsonar.login=3eab0bed1c715dfd3e821295eece1aaad9eb92ae
       
 workflows:
   version: 2
