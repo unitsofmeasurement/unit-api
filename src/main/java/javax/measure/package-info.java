@@ -32,13 +32,13 @@
  * Specifies Java packages for the programmatic, type safe handling
  * of quantities and their expression as values of units.
  *
- * <p>The core interfaces of this package are {@link javax.measure.Dimension}, {@link javax.measure.Quantity} and {@link javax.measure.Unit}.</p>
+ * <p>The core interfaces of this package are {@link javax.measure.Dimension}, {@link javax.measure.Prefix}, {@link javax.measure.Quantity} and {@link javax.measure.Unit}.</p>
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @author <a href="mailto:llima@v2com.mobi">Leonardo de Moura Rocha Lima</a>
- * @version 1.5, January 26, 2018
- *
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @author <a href="mailto:otaviopolianasantana@gmail.com">Otávio Gonçalves de Santana</a>
+ * @version 1.6, September 5, 2018
+ * @since 1.0
  */
 package javax.measure;
 
