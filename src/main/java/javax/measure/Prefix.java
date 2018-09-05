@@ -39,31 +39,31 @@ package javax.measure;
  */
 public interface Prefix {
 
-  /**
-   * Returns the symbol of this prefix.
-   *
-   * @return this prefix symbol, not {@code null}.
-   */
-  public String getSymbol();
+    /**
+     * Returns the symbol of this prefix.
+     *
+     * @return this prefix symbol, not {@code null}.
+     */
+    public String getSymbol();
 
-  /**
-   * Base part of the associated factor in base^exponent representation.
-   *
-   * @return the base part of this prefix.
-   */
-  public int getBase();
+    /**
+     * Base part of the associated factor in base^exponent representation.
+     *
+     * @return the base part of this prefix.
+     */
+    public int getBase();
 
-  /**
-   * Exponent part of the associated factor in base^exponent representation.
-   *
-   * @return the exponent part of this prefix.
-   */
-  public int getExponent();
+    /**
+     * Exponent part of the associated factor in base^exponent representation.
+     *
+     * @return the exponent part of this prefix.
+     */
+    public int getExponent();
 
-  /**
-   * Returns the name of this prefix.
-   *
-   * @return this prefix name, not {@code null}.
-   */
-  String getName();
+    /**
+     * Returns the name of this prefix.
+     *
+     * @return this prefix name, not {@code null}.
+     */
+    String getName();
 }

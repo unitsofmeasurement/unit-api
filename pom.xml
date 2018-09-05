@@ -595,9 +595,12 @@
                         <currentYear>${thisYear}</currentYear>
                     </properties>
                     <excludes>
+                        <exclude>.editorconfig</exclude>
+                        <exclude>.gitattributes</exclude>
                         <exclude>.circleci/**</exclude>
                         <exclude>**/pom.xml</exclude>
                         <exclude>**/README</exclude>
+                        <exclude>**/LICENSE</exclude>
                         <exclude>**/settings.xml</exclude>
                         <exclude>src/test/resources/**</exclude>
                         <exclude>src/main/resources/**</exclude>

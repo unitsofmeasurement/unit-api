@@ -45,42 +45,42 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Unit_commensurability#Commensurability">Wikipedia: Unit Commensurability</a>
  */
 public class IncommensurableException extends Exception {
-  /**
-   * For cross-version compatibility.
-   */
-  private static final long serialVersionUID = -3676414292638136515L;
+    /**
+     * For cross-version compatibility.
+     */
+    private static final long serialVersionUID = -3676414292638136515L;
 
-  /**
-   * Constructs a {@code IncommensurableException} with the given message.
-   *
-   * @param message
-   *          the detail message, or {@code null} if none.
-   */
-  public IncommensurableException(final String message) {
-    super(message);
-  }
+    /**
+     * Constructs a {@code IncommensurableException} with the given message.
+     *
+     * @param message
+     *            the detail message, or {@code null} if none.
+     */
+    public IncommensurableException(final String message) {
+        super(message);
+    }
 
-  /**
-   * Constructs a {@code IncommensurableException} with the given cause.
-   *
-   * @param cause
-   *          the cause of this exception, or {@code null} if none.
-   *
-   */
-  public IncommensurableException(final Throwable cause) {
-    super(cause);
-  }
+    /**
+     * Constructs a {@code IncommensurableException} with the given cause.
+     *
+     * @param cause
+     *            the cause of this exception, or {@code null} if none.
+     *
+     */
+    public IncommensurableException(final Throwable cause) {
+        super(cause);
+    }
 
-  /**
-   * Constructs a {@code IncommensurableException} with the given message and cause.
-   *
-   * @param message
-   *          the detail message, or {@code null} if none.
-   * @param cause
-   *          the cause of this exception, or {@code null} if none.
-   *
-   */
-  public IncommensurableException(final String message, final Throwable cause) {
-    super(message, cause);
-  }
+    /**
+     * Constructs a {@code IncommensurableException} with the given message and cause.
+     *
+     * @param message
+     *            the detail message, or {@code null} if none.
+     * @param cause
+     *            the cause of this exception, or {@code null} if none.
+     *
+     */
+    public IncommensurableException(final String message, final Throwable cause) {
+        super(message, cause);
+    }
 }

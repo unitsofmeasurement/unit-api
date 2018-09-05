@@ -39,7 +39,7 @@ import javax.measure.test.unit.DistanceUnit;
  */
 public class CalcTripLength {
 
-  public static void main(String[] argv) {
+    public static void main(String[] argv) {
 
     final DistanceUnit klik = new DistanceUnit("kilometre", DistanceUnit.km, 1.0);
 
@@ -59,5 +59,4 @@ public class CalcTripLength {
     System.out.println(b ? "true" : "false");
 
   }
-
 }
