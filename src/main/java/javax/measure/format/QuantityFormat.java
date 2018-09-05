@@ -49,54 +49,54 @@ import javax.measure.Quantity;
  */
 public interface QuantityFormat {
 
-  /**
-   * Formats the specified quantity into an {@code Appendable}.
-   *
-   * @param quantity
-   *          the quantity to format.
-   * @param destination
-   *          the appendable destination.
-   * @return the specified {@code Appendable}.
-   * @throws IOException
-   *           if an I/O exception occurs.
-   */
-  public Appendable format(Quantity<?> quantity, Appendable destination) throws IOException;
+    /**
+     * Formats the specified quantity into an {@code Appendable}.
+     *
+     * @param quantity
+     *          the quantity to format.
+     * @param destination
+     *          the appendable destination.
+     * @return the specified {@code Appendable}.
+     * @throws IOException
+     *           if an I/O exception occurs.
+     */
+    public Appendable format(Quantity<?> quantity, Appendable destination) throws IOException;
 
-  /**
-   * Parses a portion of the specified {@code CharSequence} from the specified position to produce a {@link Quantity}.
-   * If parsing succeeds, then the index of the {@code cursor} argument is updated to the index after the last character used.
-   *
-   * @param csq
-   *          the {@code CharSequence} to parse.
-   * @param cursor
-   *          the cursor holding the current parsing index.
-   * @return the quantity parsed from the specified character sub-sequence.
-   * @throws IllegalArgumentException
-   *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
-   */
-  public Quantity<?> parse(CharSequence csq, ParsePosition cursor) throws IllegalArgumentException, MeasurementParseException;
+    /**
+     * Parses a portion of the specified {@code CharSequence} from the specified position to produce a {@link Quantity}.
+     * If parsing succeeds, then the index of the {@code cursor} argument is updated to the index after the last character used.
+     *
+     * @param csq
+     *          the {@code CharSequence} to parse.
+     * @param cursor
+     *          the cursor holding the current parsing index.
+     * @return the quantity parsed from the specified character sub-sequence.
+     * @throws IllegalArgumentException
+     *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
+     */
+    public Quantity<?> parse(CharSequence csq, ParsePosition cursor) throws IllegalArgumentException, MeasurementParseException;
 
-  /**
-   * Parses a portion of the specified {@code CharSequence} from the specified position to produce a {@link Quantity}.
-   * If parsing succeeds, then the index of the {@code cursor} argument is updated to the index after the last character used.
-   *
-   * @param csq
-   *          the {@code CharSequence} to parse.
-   * @return the quantity parsed from the specified character sub-sequence.
-   * @throws IllegalArgumentException
-   *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
-   */
-  public Quantity<?> parse(CharSequence csq) throws MeasurementParseException;
+    /**
+     * Parses a portion of the specified {@code CharSequence} from the specified position to produce a {@link Quantity}.
+     * If parsing succeeds, then the index of the {@code cursor} argument is updated to the index after the last character used.
+     *
+     * @param csq
+     *          the {@code CharSequence} to parse.
+     * @return the quantity parsed from the specified character sub-sequence.
+     * @throws IllegalArgumentException
+     *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
+     */
+    public Quantity<?> parse(CharSequence csq) throws MeasurementParseException;
 
-  /**
-   * Returns {@code true} if this {@link QuantityFormat} depends on a {@code Locale} to perform its tasks.
-   * <p>
-   * In environments that do not support a {@code Locale}, e.g. Java ME, this usually returns {@code false}.
-   * </p>
-   *
-   * @return whether this format depends on the locale.
-   */
-  default boolean isLocaleSensitive() {
-      return false;
-  }
+    /**
+     * Returns {@code true} if this {@link QuantityFormat} depends on a {@code Locale} to perform its tasks.
+     * <p>
+     * In environments that do not support a {@code Locale}, e.g. Java ME, this usually returns {@code false}.
+     * </p>
+     *
+     * @return whether this format depends on the locale.
+     */
+    default boolean isLocaleSensitive() {
+        return false;
+    }
 }

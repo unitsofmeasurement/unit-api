@@ -8,30 +8,30 @@
   <packaging>bundle</packaging>
   <artifactId>unit-api-service</artifactId>
    <dependencies>
-  	<dependency>
-  		<groupId>javax.measure</groupId>
-  		<artifactId>unit-api-core</artifactId>
-  		<version>${jsr.version}</version>
-  	</dependency>
-  	<dependency>
+    <dependency>
+        <groupId>javax.measure</groupId>
+        <artifactId>unit-api-core</artifactId>
+        <version>${jsr.version}</version>
+    </dependency>
+    <dependency>
         <groupId>javax.measure</groupId>
         <artifactId>unit-api-util</artifactId>
         <version>${jsr.version}</version>
     </dependency>
-  	<dependency>
-  		<groupId>javax.measure</groupId>
-  		<artifactId>unit-api-format</artifactId>
-  		<version>${jsr.version}</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>junit</groupId>
-  		<artifactId>junit</artifactId>
-  		<scope>test</scope>
-  	</dependency>
+    <dependency>
+        <groupId>javax.measure</groupId>
+        <artifactId>unit-api-format</artifactId>
+        <version>${jsr.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <scope>test</scope>
+    </dependency>
    </dependencies>
    <build>
-  	<plugins>
-  	        <!-- ======================================================= -->
+    <plugins>
+            <!-- ======================================================= -->
             <!--     Packaging (OSGi bundle)                             -->
             <!-- ======================================================= -->
             <plugin>
@@ -44,7 +44,7 @@
                     </instructions>
                 </configuration>
             </plugin>
-  	</plugins>
+    </plugins>
   </build>
    <name>Unit-API Service</name>
    <description>[OPTIONAL] Service / SPI</description>

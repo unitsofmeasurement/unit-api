@@ -73,7 +73,7 @@ public class FormatServiceTest {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see UnitFormatService#getUnitFormat(String)
      */
     @Override
@@ -84,7 +84,7 @@ public class FormatServiceTest {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see UnitFormatService#getUnitFormat()
      */
     @Override

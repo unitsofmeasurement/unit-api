@@ -9,24 +9,24 @@
   <packaging>bundle</packaging>
   <name>Unit-API Quantities</name>
   <dependencies>
-  	<dependency>
-  		<groupId>javax.measure</groupId>
-  		<artifactId>unit-api-core</artifactId>
-  	</dependency>
-  	<dependency>
-  		<groupId>javax.measure</groupId>
-  		<artifactId>unit-api-format</artifactId>
-  		<scope>test</scope>
-  	</dependency>
-  	<dependency>
-  		<groupId>junit</groupId>
-  		<artifactId>junit</artifactId>
-  		<scope>test</scope>
-  	</dependency>
+    <dependency>
+        <groupId>javax.measure</groupId>
+        <artifactId>unit-api-core</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>javax.measure</groupId>
+        <artifactId>unit-api-format</artifactId>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <scope>test</scope>
+    </dependency>
   </dependencies>
    <build>
-  	<plugins>
-  	        <!-- ======================================================= -->
+    <plugins>
+            <!-- ======================================================= -->
             <!--     Packaging (OSGi bundle)                             -->
             <!-- ======================================================= -->
             <plugin>
@@ -39,7 +39,7 @@
                     </instructions>
                 </configuration>
             </plugin>
-  	</plugins>
+    </plugins>
   </build>
    <description>[OPTIONAL] Quantity Subsystem, defines default quantites in the SI System</description>
 </project>

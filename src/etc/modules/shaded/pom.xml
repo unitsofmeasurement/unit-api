@@ -1,53 +1,53 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>javax.measure</groupId>
-		<artifactId>unit-api-parent</artifactId>
-		<version>0.5</version>
-	</parent>
-	<artifactId>unit-api</artifactId>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>javax.measure</groupId>
+        <artifactId>unit-api-parent</artifactId>
+        <version>0.5</version>
+    </parent>
+    <artifactId>unit-api</artifactId>
 
-	<dependencies>
-		<dependency>
-			<groupId>javax.measure</groupId>
-			<artifactId>unit-api-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.measure</groupId>
-			<artifactId>unit-api-format</artifactId>
-		</dependency>
-		<dependency>
+    <dependencies>
+        <dependency>
+            <groupId>javax.measure</groupId>
+            <artifactId>unit-api-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.measure</groupId>
+            <artifactId>unit-api-format</artifactId>
+        </dependency>
+        <dependency>
             <groupId>javax.measure</groupId>
             <artifactId>unit-api-quantity</artifactId>
         </dependency>
-		<dependency>
-			<groupId>javax.measure</groupId>
-			<artifactId>unit-api-util</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.measure</groupId>
-			<artifactId>unit-api-service</artifactId>
-		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>javax.measure</groupId>
+            <artifactId>unit-api-util</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.measure</groupId>
+            <artifactId>unit-api-service</artifactId>
+        </dependency>
+    </dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-shade-plugin</artifactId>
-				<version>2.2</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>shade</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
-	<description>This is a single JAR distribution of the Units of Measurement API</description>
-	<name>Unit-API</name>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.2</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <description>This is a single JAR distribution of the Units of Measurement API</description>
+    <name>Unit-API</name>
 </project>
