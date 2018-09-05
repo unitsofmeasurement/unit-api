@@ -27,6 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
 /**
  * [OPTIONAL] Provides Formatting and Parsing functionality for units, quantities, dimensions or their textual representation.
  * @author  <a href="mailto:units@catmedia.us">Werner Keil</a>

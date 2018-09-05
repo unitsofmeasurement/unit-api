@@ -40,7 +40,6 @@ import javax.measure.Quantity;
  * @version 1.2
  * @since 1.0
  *
- *
  * @apiNote SI Base Unit
  */
 public interface LuminousIntensity extends Quantity<LuminousIntensity> {

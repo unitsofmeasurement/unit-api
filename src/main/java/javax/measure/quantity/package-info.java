@@ -32,6 +32,7 @@
 // Community Process. In order to remain compliant with the specification
 // DO NOT add / change / or delete method signatures!
 //
+
 /**
  * [OPTIONAL] Provides quantitative properties or attributes of thing such as
  * mass, time, distance, heat, and angular separation.
@@ -72,7 +73,6 @@
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 2.6
  * @since 1.0
- *
  */
 package javax.measure.quantity;
 

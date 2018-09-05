@@ -38,7 +38,7 @@ import java.util.Objects;
  * <p>
  * This class represents a converter multiplying numeric values by a constant scaling factor (<code>double</code> based).
  * </p>
- * 
+ *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.0, March 28, 2018
@@ -53,7 +53,7 @@ public final class MultiplyConverter extends TestConverter implements Comparable
 
   /**
    * Creates a multiply converter with the specified scale factor.
-   * 
+   *
    * @param factor
    *          the scaling factor.
    * @throws IllegalArgumentException
@@ -67,7 +67,7 @@ public final class MultiplyConverter extends TestConverter implements Comparable
 
   /**
    * Returns the scale factor of this converter.
-   * 
+   *
    * @return the scale factor.
    */
   public double getFactor() {

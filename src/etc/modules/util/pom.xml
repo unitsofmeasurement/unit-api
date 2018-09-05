@@ -1,48 +1,48 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>javax.measure</groupId>
-		<artifactId>unit-api-parent</artifactId>
-		<version>0.5</version>
-	</parent>
-	<artifactId>unit-api-util</artifactId>
-	<name>Unit-API Utilities</name>
-	<packaging>bundle</packaging>
-	<description>[OPTIONAL] Provides common utilities such as range, data aging and unit systems.</description>
-	<dependencies>
-		<dependency>
-			<groupId>javax.measure</groupId>
-			<artifactId>unit-api-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.measure</groupId>
-			<artifactId>unit-api-core</artifactId>
-			<version>${jsr.version}</version>
-			<type>test-jar</type>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-	<build>
-		<plugins>
-			<!-- ======================================================= -->
-			<!-- Packaging (OSGi bundle) -->
-			<!-- ======================================================= -->
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<configuration>
-					<instructions>
-						<Export-Package>javax.measure.util.*</Export-Package>
-						<Private-Package>!*</Private-Package>
-					</instructions>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>javax.measure</groupId>
+        <artifactId>unit-api-parent</artifactId>
+        <version>0.5</version>
+    </parent>
+    <artifactId>unit-api-util</artifactId>
+    <name>Unit-API Utilities</name>
+    <packaging>bundle</packaging>
+    <description>[OPTIONAL] Provides common utilities such as range, data aging and unit systems.</description>
+    <dependencies>
+        <dependency>
+            <groupId>javax.measure</groupId>
+            <artifactId>unit-api-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.measure</groupId>
+            <artifactId>unit-api-core</artifactId>
+            <version>${jsr.version}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <!-- ======================================================= -->
+            <!-- Packaging (OSGi bundle) -->
+            <!-- ======================================================= -->
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <configuration>
+                    <instructions>
+                        <Export-Package>javax.measure.util.*</Export-Package>
+                        <Private-Package>!*</Private-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

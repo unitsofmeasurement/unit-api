@@ -92,178 +92,178 @@ package javax.measure;
  */
 public interface Quantity<Q extends Quantity<Q>> {
 
-	/**
-	 * Returns the sum of this {@code Quantity} with the one specified.
-	 * The result shall be as if this quantity and the given addend were
-	 * converted to {@linkplain Unit#getSystemUnit() system unit} before
-	 * to be added, and the result converted back to the unit of this
-	 * quantity or any other compatible unit at implementation choice.
-	 *
-	 * @param addend
-	 *            the {@code Quantity} to be added.
-	 * @return {@code this + addend}.
-	 */
-	Quantity<Q> add(Quantity<Q> addend);
+    /**
+     * Returns the sum of this {@code Quantity} with the one specified.
+     * The result shall be as if this quantity and the given addend were
+     * converted to {@linkplain Unit#getSystemUnit() system unit} before
+     * to be added, and the result converted back to the unit of this
+     * quantity or any other compatible unit at implementation choice.
+     *
+     * @param addend
+     *            the {@code Quantity} to be added.
+     * @return {@code this + addend}.
+     */
+    Quantity<Q> add(Quantity<Q> addend);
 
-	/**
-	 * Returns the difference between this {@code Quantity} and the one specified.
-	 * The result shall be as if this quantity and the given subtrahend were
-	 * converted to {@linkplain Unit#getSystemUnit() system unit} before
-	 * to be subtracted, and the result converted back to the unit of this
-	 * quantity or any other compatible unit at implementation choice.
-	 *
-	 * @param subtrahend
-	 *            the {@code Quantity} to be subtracted.
-	 * @return <code>this - subtrahend</code>.
-	 */
-	Quantity<Q> subtract(Quantity<Q> subtrahend);
+    /**
+     * Returns the difference between this {@code Quantity} and the one specified.
+     * The result shall be as if this quantity and the given subtrahend were
+     * converted to {@linkplain Unit#getSystemUnit() system unit} before
+     * to be subtracted, and the result converted back to the unit of this
+     * quantity or any other compatible unit at implementation choice.
+     *
+     * @param subtrahend
+     *            the {@code Quantity} to be subtracted.
+     * @return <code>this - subtrahend</code>.
+     */
+    Quantity<Q> subtract(Quantity<Q> subtrahend);
 
-	/**
-	 * Returns the quotient of this {@code Quantity} divided by the {@code Quantity}
-	 * specified.
-	 * The result shall be as if this quantity and the given divisor were
-	 * converted to {@linkplain Unit#getSystemUnit() system unit} before
-	 * to be divided, and the result converted back to the unit of this
-	 * quantity or any other compatible unit at implementation choice.
-	 *
-	 * @throws ClassCastException
-	 *             if the type of an element in the specified operation is
-	 *             incompatible with this quantity
-	 *             (<a href="#optional-restrictions">optional</a>)
-	 *
-	 * @param divisor
-	 *            the {@code Quantity} divisor.
-	 * @return <code>this / divisor</code>.
-	 */
-	Quantity<?> divide(Quantity<?> divisor);
+    /**
+     * Returns the quotient of this {@code Quantity} divided by the {@code Quantity}
+     * specified.
+     * The result shall be as if this quantity and the given divisor were
+     * converted to {@linkplain Unit#getSystemUnit() system unit} before
+     * to be divided, and the result converted back to the unit of this
+     * quantity or any other compatible unit at implementation choice.
+     *
+     * @throws ClassCastException
+     *             if the type of an element in the specified operation is
+     *             incompatible with this quantity
+     *             (<a href="#optional-restrictions">optional</a>)
+     *
+     * @param divisor
+     *            the {@code Quantity} divisor.
+     * @return <code>this / divisor</code>.
+     */
+    Quantity<?> divide(Quantity<?> divisor);
 
-	/**
-	 * Returns the quotient of this {@code Quantity} divided by the {@code Number}
-	 * specified.
-	 * The result shall be as if this quantity was converted to
-	 * {@linkplain Unit#getSystemUnit() system unit} before to be divided,
-	 * and the result converted back to the unit of this quantity or any
-	 * other compatible unit at implementation choice.
-	 *
-	 * @param divisor
-	 *            the {@code Number} divisor.
-	 * @return <code>this / divisor</code>.
-	 */
-	Quantity<Q> divide(Number divisor);
+    /**
+     * Returns the quotient of this {@code Quantity} divided by the {@code Number}
+     * specified.
+     * The result shall be as if this quantity was converted to
+     * {@linkplain Unit#getSystemUnit() system unit} before to be divided,
+     * and the result converted back to the unit of this quantity or any
+     * other compatible unit at implementation choice.
+     *
+     * @param divisor
+     *            the {@code Number} divisor.
+     * @return <code>this / divisor</code>.
+     */
+    Quantity<Q> divide(Number divisor);
 
-	/**
-	 * Returns the product of this {@code Quantity} with the one specified.
-	 * The result shall be as if this quantity and the given multiplicand were
-	 * converted to {@linkplain Unit#getSystemUnit() system unit} before
-	 * to be multiplied, and the result converted back to the unit of this
-	 * quantity or any other compatible unit at implementation choice.
-	 *
-	 * @throws ClassCastException
-	 *             if the type of an element in the specified operation is
-	 *             incompatible with this quantity
-	 *             (<a href="#optional-restrictions">optional</a>)
-	 *
-	 * @param multiplicand
-	 *            the {@code Quantity} multiplicand.
-	 * @return <code>this * multiplicand</code>.
-	 */
-	Quantity<?> multiply(Quantity<?> multiplicand);
+    /**
+     * Returns the product of this {@code Quantity} with the one specified.
+     * The result shall be as if this quantity and the given multiplicand were
+     * converted to {@linkplain Unit#getSystemUnit() system unit} before
+     * to be multiplied, and the result converted back to the unit of this
+     * quantity or any other compatible unit at implementation choice.
+     *
+     * @throws ClassCastException
+     *             if the type of an element in the specified operation is
+     *             incompatible with this quantity
+     *             (<a href="#optional-restrictions">optional</a>)
+     *
+     * @param multiplicand
+     *            the {@code Quantity} multiplicand.
+     * @return <code>this * multiplicand</code>.
+     */
+    Quantity<?> multiply(Quantity<?> multiplicand);
 
-	/**
-	 * Returns the product of this {@code Quantity} with the {@code Number} value
-	 * specified.
-	 * The result shall be as if this quantity was converted to
-	 * {@linkplain Unit#getSystemUnit() system unit} before to be multiplied,
-	 * and the result converted back to the unit of this quantity or any
-	 * other compatible unit at implementation choice.
-	 *
-	 * @param multiplicand
-	 *            the {@code Number} multiplicand.
-	 * @return <code>this * multiplicand</code>.
-	 */
-	Quantity<Q> multiply(Number multiplicand);
+    /**
+     * Returns the product of this {@code Quantity} with the {@code Number} value
+     * specified.
+     * The result shall be as if this quantity was converted to
+     * {@linkplain Unit#getSystemUnit() system unit} before to be multiplied,
+     * and the result converted back to the unit of this quantity or any
+     * other compatible unit at implementation choice.
+     *
+     * @param multiplicand
+     *            the {@code Number} multiplicand.
+     * @return <code>this * multiplicand</code>.
+     */
+    Quantity<Q> multiply(Number multiplicand);
 
-	/**
-	 * Returns this {@code Quantity} converted into another (compatible)
-	 * {@code Unit}.
-	 *
-	 * @param unit
-	 *            the {@code Unit} to convert to.
-	 * @return the converted result.
-	 */
-	Quantity<Q> to(Unit<Q> unit);
+    /**
+     * Returns this {@code Quantity} converted into another (compatible)
+     * {@code Unit}.
+     *
+     * @param unit
+     *            the {@code Unit} to convert to.
+     * @return the converted result.
+     */
+    Quantity<Q> to(Unit<Q> unit);
 
-	/**
-	 * Returns a {@code Quantity} that is the multiplicative inverse of this
-	 * {@code Quantity}, having reciprocal value and reciprocal unit as given by
-	 * {@code this.getUnit().inverse()}.
-	 *
-	 * @return reciprocal {@code Quantity}
-	 * @see <a href=
-	 *      "https://en.wikipedia.org/wiki/Multiplicative_inverse">Wikipedia:
-	 *      Multiplicative inverse</a>
-	 */
-	Quantity<?> inverse();
+    /**
+     * Returns a {@code Quantity} that is the multiplicative inverse of this
+     * {@code Quantity}, having reciprocal value and reciprocal unit as given by
+     * {@code this.getUnit().inverse()}.
+     *
+     * @return reciprocal {@code Quantity}
+     * @see <a href=
+     *      "https://en.wikipedia.org/wiki/Multiplicative_inverse">Wikipedia:
+     *      Multiplicative inverse</a>
+     */
+    Quantity<?> inverse();
 
-	/**
+    /**
      * Returns a {@code Quantity} whose value is {@code (-this.getValue())}.
      *
      * @return {@code -this}.
      */
-	Quantity<Q> negate();
+    Quantity<Q> negate();
 
-	/**
-	 * Casts this quantity to a parameterized unit of specified nature or throw a
-	 * <code>ClassCastException</code> if the dimension of the specified quantity
-	 * and this measure unit's dimension do not match. For example:
-	 * <p>
-	 * <code>
-	 *     {@literal Quantity<Length>} length = Quantities.getQuantity("2 km").asType(Length.class);
-	 * </code> or <code>
-	 *     {@literal Quantity<Speed>} C = length.multiply(299792458).divide(second).asType(Speed.class);
-	 * </code>
-	 * </p>
-	 *
-	 * @param <T>
-	 *            The type of the quantity.
-	 * @param type
-	 *            the quantity class identifying the nature of the quantity.
-	 * @return this quantity parameterized with the specified type.
-	 * @throws ClassCastException
-	 *             if the dimension of this unit is different from the specified
-	 *             quantity dimension.
-	 * @throws UnsupportedOperationException
-	 *             if the specified quantity class does not have a SI unit for the
-	 *             quantity.
-	 * @see Unit#asType(Class)
-	 */
-	<T extends Quantity<T>> Quantity<T> asType(Class<T> type) throws ClassCastException;
+    /**
+     * Casts this quantity to a parameterized unit of specified nature or throw a
+     * <code>ClassCastException</code> if the dimension of the specified quantity
+     * and this measure unit's dimension do not match. For example:
+     * <p>
+     * <code>
+     *     {@literal Quantity<Length>} length = Quantities.getQuantity("2 km").asType(Length.class);
+     * </code> or <code>
+     *     {@literal Quantity<Speed>} C = length.multiply(299792458).divide(second).asType(Speed.class);
+     * </code>
+     * </p>
+     *
+     * @param <T>
+     *            The type of the quantity.
+     * @param type
+     *            the quantity class identifying the nature of the quantity.
+     * @return this quantity parameterized with the specified type.
+     * @throws ClassCastException
+     *             if the dimension of this unit is different from the specified
+     *             quantity dimension.
+     * @throws UnsupportedOperationException
+     *             if the specified quantity class does not have a SI unit for the
+     *             quantity.
+     * @see Unit#asType(Class)
+     */
+    <T extends Quantity<T>> Quantity<T> asType(Class<T> type) throws ClassCastException;
 
-	/**
-	 * Returns the value of this {@code Quantity}.
-	 *
-	 * @return a value.
-	 */
-	Number getValue();
+    /**
+     * Returns the value of this {@code Quantity}.
+     *
+     * @return a value.
+     */
+    Number getValue();
 
-	/**
-	 * Returns the unit of this {@code Quantity}.
-	 *
-	 * @return the unit (shall not be {@code null}).
-	 */
-	Unit<Q> getUnit();
+    /**
+     * Returns the unit of this {@code Quantity}.
+     *
+     * @return the unit (shall not be {@code null}).
+     */
+    Unit<Q> getUnit();
 
-	/**
-	 * Convenient method equivalent to {@link #to(javax.measure.Unit)
-	 * to(getUnit().toSystemUnit())}.
-	 *
-	 * @return this quantity or a new quantity equivalent to this quantity stated in
-	 *         SI units.
-	 * @throws ArithmeticException
-	 *             if the result is inexact and the quotient has a non-terminating
-	 *             decimal expansion.
-	 */
-	default Quantity<Q> toSystemUnit() {
-		return to(getUnit().getSystemUnit());
-	}
+    /**
+     * Convenient method equivalent to {@link #to(javax.measure.Unit)
+     * to(getUnit().toSystemUnit())}.
+     *
+     * @return this quantity or a new quantity equivalent to this quantity stated in
+     *         SI units.
+     * @throws ArithmeticException
+     *             if the result is inexact and the quotient has a non-terminating
+     *             decimal expansion.
+     */
+    default Quantity<Q> toSystemUnit() {
+        return to(getUnit().getSystemUnit());
+    }
 }
