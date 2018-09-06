@@ -46,75 +46,75 @@ import javax.measure.format.UnitFormat;
  */
 public class FormatServiceTest {
 
-  /**
-   * Tests {@link ServiceProvider#current()} and {@link ServiceProvider#setCurrent(ServiceProvider)}. The getter and setter are tested in a single
-   * method for avoiding issues with the order in which JUnit executes tests.
-   */
-  @Test
-  public void testGetDefault() {
-    FormatService service = new TestFormatService();
-    assertEquals(0, service.getAvailableFormatNames().size());
-  }
-
-  /**
-   * Tests {@link FormatService#FormatType}.
-   */
-  @Test
-  public void testTypes() {
-    assertEquals(2, FormatService.FormatType.values().length);
-  }
-
-  /**
-   * Test format service.
-   */
-  private static final class TestFormatService implements FormatService {
-    private final Map<String, UnitFormat> unitFormats = new HashMap<>();
-    private final Map<String, QuantityFormat> quantityFormats = new HashMap<>();
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see UnitFormatService#getUnitFormat(String)
+    /**
+     * Tests {@link ServiceProvider#current()} and {@link ServiceProvider#setCurrent(ServiceProvider)}. The getter and setter are tested in a single
+     * method for avoiding issues with the order in which JUnit executes tests.
      */
-    @Override
-    public UnitFormat getUnitFormat(String formatName) {
-      Objects.requireNonNull(formatName, "Format name required");
-      return unitFormats.get(formatName);
+    @Test
+    public void testGetDefault() {
+        FormatService service = new TestFormatService();
+        assertEquals(0, service.getAvailableFormatNames().size());
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see UnitFormatService#getUnitFormat()
+    /**
+     * Tests {@link FormatService#FormatType}.
      */
-    @Override
-    public UnitFormat getUnitFormat() {
-      return getUnitFormat("");
+    @Test
+    public void testTypes() {
+        assertEquals(2, FormatService.FormatType.values().length);
     }
 
-    public Set<String> getAvailableFormatNames() {
-      return getAvailableFormatNames(FormatType.UNIT_FORMAT);
-    }
+    /**
+     * Test format service.
+     */
+    private static final class TestFormatService implements FormatService {
+        private final Map<String, UnitFormat> unitFormats = new HashMap<>();
+        private final Map<String, QuantityFormat> quantityFormats = new HashMap<>();
 
-    @Override
-    public QuantityFormat getQuantityFormat() {
-      return getQuantityFormat("");
-    }
+        /*
+         * (non-Javadoc)
+         *
+         * @see UnitFormatService#getUnitFormat(String)
+         */
+        @Override
+        public UnitFormat getUnitFormat(String formatName) {
+            Objects.requireNonNull(formatName, "Format name required");
+            return unitFormats.get(formatName);
+        }
 
-    @Override
-    public QuantityFormat getQuantityFormat(String name) {
-      Objects.requireNonNull(name, "Format name required");
-      return quantityFormats.get(name);
-    }
+        /*
+         * (non-Javadoc)
+         *
+         * @see UnitFormatService#getUnitFormat()
+         */
+        @Override
+        public UnitFormat getUnitFormat() {
+            return getUnitFormat("");
+        }
 
-    @Override
-    public Set<String> getAvailableFormatNames(FormatType type) {
-      switch (type) {
-        case QUANTITY_FORMAT:
-          return quantityFormats.keySet();
-        default:
-          return unitFormats.keySet();
-      }
+        public Set<String> getAvailableFormatNames() {
+            return getAvailableFormatNames(FormatType.UNIT_FORMAT);
+        }
+
+        @Override
+        public QuantityFormat getQuantityFormat() {
+            return getQuantityFormat("");
+        }
+
+        @Override
+        public QuantityFormat getQuantityFormat(String name) {
+            Objects.requireNonNull(name, "Format name required");
+            return quantityFormats.get(name);
+        }
+
+        @Override
+        public Set<String> getAvailableFormatNames(FormatType type) {
+            switch (type) {
+                case QUANTITY_FORMAT:
+                    return quantityFormats.keySet();
+                default:
+                    return unitFormats.keySet();
+            }
+        }
     }
-  }
 }
