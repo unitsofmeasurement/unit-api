@@ -51,45 +51,45 @@ import javax.measure.Unit;
  */
 public interface SystemOfUnits {
 
-  /**
-   * @return a name
-   */
-  String getName();
+    /**
+     * @return a name
+     */
+    String getName();
 
-  /**
-   * Returns the default unit for the specified quantity or {@code null} if none is defined for the given quantity in this unit system.
-   *
-   * @param <Q>
-   *          the compile-time quantity type.
-   * @param quantityType
-   *          the quantity type.
-   * @return the unit for the specified quantity.
-   */
-  <Q extends Quantity<Q>> Unit<Q> getUnit(Class<Q> quantityType);
+    /**
+     * Returns the default unit for the specified quantity or {@code null} if none is defined for the given quantity in this unit system.
+     *
+     * @param <Q>
+     *          the compile-time quantity type.
+     * @param quantityType
+     *          the quantity type.
+     * @return the unit for the specified quantity.
+     */
+    <Q extends Quantity<Q>> Unit<Q> getUnit(Class<Q> quantityType);
 
-  /**
-   * Returns a unit with the given {@linkplain String string} representation or {@code null} if none is found in this unit system.
-   *
-   * @param string
-   *          the string representation of a unit, not {@code null}.
-   * @return the unit with the given string representation.
-   */
-  Unit<?> getUnit(String string);
+    /**
+     * Returns a unit with the given {@linkplain String string} representation or {@code null} if none is found in this unit system.
+     *
+     * @param string
+     *          the string representation of a unit, not {@code null}.
+     * @return the unit with the given string representation.
+     */
+    Unit<?> getUnit(String string);
 
-  /**
-   * Returns a read only view over the units explicitly defined by this system. This include the base and derived units which are assigned a special
-   * name and symbol. This set does not include new units created by arithmetic or other operations.
-   *
-   * @return the defined collection of units.
-   */
-  Set<? extends Unit<?>> getUnits();
+    /**
+     * Returns a read only view over the units explicitly defined by this system. This include the base and derived units which are assigned a special
+     * name and symbol. This set does not include new units created by arithmetic or other operations.
+     *
+     * @return the defined collection of units.
+     */
+    Set<? extends Unit<?>> getUnits();
 
-  /**
-   * Returns the units defined in this system having the specified dimension (convenience method).
-   *
-   * @param dimension
-   *          the dimension of the units to be returned.
-   * @return the collection of units of specified dimension.
-   */
-  Set<? extends Unit<?>> getUnits(Dimension dimension);
+    /**
+     * Returns the units defined in this system having the specified dimension (convenience method).
+     *
+     * @param dimension
+     *          the dimension of the units to be returned.
+     * @return the collection of units of specified dimension.
+     */
+    Set<? extends Unit<?>> getUnits(Dimension dimension);
 }
