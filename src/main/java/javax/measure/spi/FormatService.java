@@ -43,37 +43,37 @@ import javax.measure.format.UnitFormat;
  */
 public interface FormatService extends UnitFormatService {
 
-  public static enum FormatType {
-    UNIT_FORMAT, QUANTITY_FORMAT
-  }
+    public static enum FormatType {
+        UNIT_FORMAT, QUANTITY_FORMAT
+    }
 
-  /**
-   * Returns the default quantity format.
-   *
-   * It is up to implementations what to consider a suitable default. For some (locale-sensitive) implementations it may be a quantity format based on
-   * {@code Locale.current()} while others may return {@code getQuantityFormat("Simple")} or {@code getQuantityFormat("ISO")}.
-   *
-   * @return the default {@link QuantityFormat} implementation.
-   */
-  QuantityFormat getQuantityFormat();
+    /**
+     * Returns the default quantity format.
+     *
+     * It is up to implementations what to consider a suitable default. For some (locale-sensitive) implementations it may be a quantity format based on
+     * {@code Locale.current()} while others may return {@code getQuantityFormat("Simple")} or {@code getQuantityFormat("ISO")}.
+     *
+     * @return the default {@link QuantityFormat} implementation.
+     */
+    QuantityFormat getQuantityFormat();
 
-  /**
-   * Returns the quantity format having the specified name or {@code null} if none.
-   *
-   * For example (@code getQuantityFormat("Simple")} to return the simple UCUM specific {@link QuantityFormat} implementation.
-   *
-   * @param name
-   *          the name of the format.
-   * @return the corresponding quantity format.
-   */
-  QuantityFormat getQuantityFormat(String name);
+    /**
+     * Returns the quantity format having the specified name or {@code null} if none.
+     *
+     * For example (@code getQuantityFormat("Simple")} to return the simple UCUM specific {@link QuantityFormat} implementation.
+     *
+     * @param name
+     *          the name of the format.
+     * @return the corresponding quantity format.
+     */
+    QuantityFormat getQuantityFormat(String name);
 
-  /**
-   * Gets a list with available format names of a given type for this format service.
-   *
-   * @param type
-   *          the {@link FormatType}
-   * @return list of available formats, never null.
-   */
-  Set<String> getAvailableFormatNames(FormatType type);
+    /**
+     * Gets a list with available format names of a given type for this format service.
+     *
+     * @param type
+     *          the {@link FormatType}
+     * @return list of available formats, never null.
+     */
+    Set<String> getAvailableFormatNames(FormatType type);
 }

@@ -51,49 +51,49 @@ import java.util.Map;
  * @see <a href="http://en.wikipedia.org/wiki/Dimensional_analysis">Wikipedia: Dimensional Analysis</a>
  */
 public interface Dimension {
-  /**
-   * Returns the product of this dimension with the one specified.
-   *
-   * @param multiplicand
-   *          the dimension multiplicand.
-   * @return {@code this * multiplicand}
-   */
-  Dimension multiply(Dimension multiplicand);
+    /**
+     * Returns the product of this dimension with the one specified.
+     *
+     * @param multiplicand
+     *          the dimension multiplicand.
+     * @return {@code this * multiplicand}
+     */
+    Dimension multiply(Dimension multiplicand);
 
-  /**
-   * Returns the quotient of this dimension with the one specified.
-   *
-   * @param divisor
-   *          the dimension divisor.
-   * @return {@code this / divisor}
-   */
-  Dimension divide(Dimension divisor);
+    /**
+     * Returns the quotient of this dimension with the one specified.
+     *
+     * @param divisor
+     *          the dimension divisor.
+     * @return {@code this / divisor}
+     */
+    Dimension divide(Dimension divisor);
 
-  /**
-   * Returns this dimension raised to an exponent. <tt>(this<sup>n</sup>)</tt>
-   *
-   * @param n
-   *          power to raise this {@code Dimension} to.
-   * @return <tt>this<sup>n</sup></tt>
-   */
-  Dimension pow(int n);
+    /**
+     * Returns this dimension raised to an exponent. <tt>(this<sup>n</sup>)</tt>
+     *
+     * @param n
+     *          power to raise this {@code Dimension} to.
+     * @return <tt>this<sup>n</sup></tt>
+     */
+    Dimension pow(int n);
 
-  /**
-   * Returns the given root of this dimension.
-   *
-   * @param n
-   *          the root's order.
-   * @return the result of taking the given root of this dimension.
-   * @throws ArithmeticException
-   *           if {@code n == 0}.
-   */
-  Dimension root(int n);
+    /**
+     * Returns the given root of this dimension.
+     *
+     * @param n
+     *          the root's order.
+     * @return the result of taking the given root of this dimension.
+     * @throws ArithmeticException
+     *           if {@code n == 0}.
+     */
+    Dimension root(int n);
 
-  /**
-   * Returns the (fundamental) base dimensions and their exponent whose product is this dimension, or {@code null} if this dimension is a base
-   * dimension.
-   *
-   * @return the mapping between the fundamental dimensions and their exponent.
-   */
-  Map<? extends Dimension, Integer> getBaseDimensions();
+    /**
+     * Returns the (fundamental) base dimensions and their exponent whose product is this dimension, or {@code null} if this dimension is a base
+     * dimension.
+     *
+     * @return the mapping between the fundamental dimensions and their exponent.
+     */
+    Map<? extends Dimension, Integer> getBaseDimensions();
 }

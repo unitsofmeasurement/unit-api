@@ -119,8 +119,9 @@ public class MeasurementParseException extends MeasurementException {
      * @return the parsed string, or {@code null}, if {@code null} was passed as input.
      */
     public String getParsedString() {
-        if (data == null)
+        if (data == null) {
             return null;
+        }
         return data.toString();
     }
 }

@@ -45,31 +45,31 @@ import javax.measure.format.UnitFormat;
  */
 public interface UnitFormatService {
 
-  /**
-   * Returns the default unit format.
-   *
-   * It is up to implementations what to consider a suitable default. For some (locale-sensitive) implementations it may be a unit format based on
-   * {@code Locale.current()} while others may return {@code getUnitFormat("Simple")} or {@code getUnitFormat("ISO")}.
-   *
-   * @return the default {@link UnitFormat} implementation.
-   */
-  UnitFormat getUnitFormat();
+    /**
+     * Returns the default unit format.
+     *
+     * It is up to implementations what to consider a suitable default. For some (locale-sensitive) implementations it may be a unit format based on
+     * {@code Locale.current()} while others may return {@code getUnitFormat("Simple")} or {@code getUnitFormat("ISO")}.
+     *
+     * @return the default {@link UnitFormat} implementation.
+     */
+    UnitFormat getUnitFormat();
 
-  /**
-   * Returns the unit format having the specified name or {@code null} if none.
-   *
-   * For example {@code getUnitFormat("UCUM")} to return a UCUM specific {@link UnitFormat} implementation.
-   *
-   * @param name
-   *          the name of the format.
-   * @return the corresponding unit format.
-   */
-  UnitFormat getUnitFormat(String name);
+    /**
+     * Returns the unit format having the specified name or {@code null} if none.
+     *
+     * For example {@code getUnitFormat("UCUM")} to return a UCUM specific {@link UnitFormat} implementation.
+     *
+     * @param name
+     *          the name of the format.
+     * @return the corresponding unit format.
+     */
+    UnitFormat getUnitFormat(String name);
 
-  /**
-   * Gets a list with available format names for this format service.
-   *
-   * @return list of available formats, never null.
-   */
-  Set<String> getAvailableFormatNames();
+    /**
+     * Gets a list with available format names for this format service.
+     *
+     * @return list of available formats, never null.
+     */
+    Set<String> getAvailableFormatNames();
 }

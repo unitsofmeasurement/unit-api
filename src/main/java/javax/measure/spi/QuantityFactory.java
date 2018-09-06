@@ -49,33 +49,33 @@ import javax.measure.Unit;
  */
 public interface QuantityFactory<Q extends Quantity<Q>> {
 
-  /**
-   * Returns the quantity for the specified number stated in the specified unit.
-   *
-   * @param value
-   *          the numeric value stated in the specified unit
-   * @param unit
-   *          the unit
-   * @return the corresponding quantity
-   */
-  Quantity<Q> create(Number value, Unit<Q> unit);
+    /**
+     * Returns the quantity for the specified number stated in the specified unit.
+     *
+     * @param value
+     *          the numeric value stated in the specified unit
+     * @param unit
+     *          the unit
+     * @return the corresponding quantity
+     */
+    Quantity<Q> create(Number value, Unit<Q> unit);
 
-  /**
-   * Returns the system unit for quantities produced by this factory or {@code null} if unknown.
-   *
-   * <p>
-   * Because the system unit is unique by quantity type, it can be be used to identify the quantity given the unit. For example:
-   * </p>
-   *
-   * <pre>
-   *     static boolean isAngularSpeed({@literal Unit<?>} unit) {
-   *         return unit.getSystemUnit().equals(RADIAN.divide(SECOND));
-   *     }
-   *     assert isAngularSpeed(REVOLUTION.divide(MINUTE)); // Returns true.
-   * </pre>
-   *
-   * @return the system unit for this factory.
-   * @see Unit#getSystemUnit()
-   */
-  Unit<Q> getSystemUnit();
+    /**
+     * Returns the system unit for quantities produced by this factory or {@code null} if unknown.
+     *
+     * <p>
+     * Because the system unit is unique by quantity type, it can be be used to identify the quantity given the unit. For example:
+     * </p>
+     *
+     * <pre>
+     *     static boolean isAngularSpeed({@literal Unit<?>} unit) {
+     *         return unit.getSystemUnit().equals(RADIAN.divide(SECOND));
+     *     }
+     *     assert isAngularSpeed(REVOLUTION.divide(MINUTE)); // Returns true.
+     * </pre>
+     *
+     * @return the system unit for this factory.
+     * @see Unit#getSystemUnit()
+     */
+    Unit<Q> getSystemUnit();
 }

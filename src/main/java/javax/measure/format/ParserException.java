@@ -40,42 +40,42 @@ package javax.measure.format;
 @Deprecated
 public class ParserException extends MeasurementParseException {
 
-  private static final long serialVersionUID = -3179553925611520368L;
+    private static final long serialVersionUID = -3179553925611520368L;
 
-  /**
-   * Constructs a ParserException with the specified detail message, parsed text and index. A detail message is a String that describes this
-   * particular exception.
-   *
-   * @param message
-   *          the detail message
-   * @param parsedData
-   *          the parsed text, should not be null
-   * @param position
-   *          the position where the error was found while parsing.
-   */
-  public ParserException(String message, CharSequence parsedData, int position) {
-    super(message, parsedData, position);
-  }
+    /**
+     * Constructs a ParserException with the specified detail message, parsed text and index. A detail message is a String that describes this
+     * particular exception.
+     *
+     * @param message
+     *          the detail message
+     * @param parsedData
+     *          the parsed text, should not be null
+     * @param position
+     *          the position where the error was found while parsing.
+     */
+    public ParserException(String message, CharSequence parsedData, int position) {
+        super(message, parsedData, position);
+    }
 
-  /**
-   * Constructs a ParserException with the parsed text and offset. A detail message is a String that describes this particular exception.
-   *
-   * @param parsedData
-   *          the parsed text, should not be null
-   * @param position
-   *          the position where the error is found while parsing.
-   */
-  public ParserException(CharSequence parsedData, int position) {
-    super(parsedData, position);
-  }
+    /**
+     * Constructs a ParserException with the parsed text and offset. A detail message is a String that describes this particular exception.
+     *
+     * @param parsedData
+     *          the parsed text, should not be null
+     * @param position
+     *          the position where the error is found while parsing.
+     */
+    public ParserException(CharSequence parsedData, int position) {
+        super(parsedData, position);
+    }
 
-  /**
-   * Constructs a ParserException with the specified cause.
-   *
-   * @param cause
-   *          the root cause
-   */
-  public ParserException(Throwable cause) {
-    super(cause);
-  }
+    /**
+     * Constructs a ParserException with the specified cause.
+     *
+     * @param cause
+     *          the root cause
+     */
+    public ParserException(Throwable cause) {
+        super(cause);
+    }
 }
