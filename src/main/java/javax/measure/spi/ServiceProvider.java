@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.ServiceLoader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -107,9 +108,9 @@ public abstract class ServiceProvider {
      * Returns a factory for the given {@link Quantity} type.
      *
      * @param <Q>
-     *          the type of the {@link Quantity} instances created by the factory
+     *            the type of the {@link Quantity} instances created by the factory
      * @param quantity
-     *          the quantity type
+     *            the quantity type
      * @return the {@link QuantityFactory} for the given type
      */
     public abstract <Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(Class<Q> quantity);
@@ -134,7 +135,7 @@ public abstract class ServiceProvider {
                             return p2.getPriority() - p1.getPriority();
                         }
                     });
-                    providers = p;                              // Set only on success.
+                    providers = p; // Set only on success.
                 }
             }
         }
@@ -151,15 +152,39 @@ public abstract class ServiceProvider {
     }
 
     /**
+     * Returns the {@link ServiceProvider} with the specified name. 
+     * The name must match at least one entry provider in the list of available service providers. 
+     * Implementors are encouraged to use a unique enough name, e.g. the class name or other distinct attributes.
+     * Should multiple service providers nevertheless use the same name, the one with the highest {@link #getPriority() priority} wins.
+     * 
+     * @param name
+     *            the name of the service provider to return
+     * @return the {@link ServiceProvider} with the specified name
+     * @throws IllegalArgumentException
+     *             if available service providers do not contain a provider with the specified name
+     * @throws NullPointerException
+     *             if {@code name} is null
+     */
+    public static ServiceProvider of(String name) {
+        Objects.requireNonNull(name);
+        for (ServiceProvider provider : getProviders()) {
+            if (name.equals(String.valueOf(provider))) {
+                return provider;
+            }
+        }
+        throw new IllegalArgumentException("No measurement ServiceProvider " + name + " found .");
+    }
+
+    /**
      * Returns the current {@link ServiceProvider}. If necessary the {@link ServiceProvider} will be lazily loaded.
      * <p>
-     * If there are no providers available, an {@linkplain IllegalStateException} is thrown, otherwise the provider with the highest priority is used or
-     * the one explicitly designated via {@link #setCurrent(ServiceProvider)} .
+     * If there are no providers available, an {@linkplain IllegalStateException} is thrown, otherwise the provider with the highest priority is used
+     * or the one explicitly designated via {@link #setCurrent(ServiceProvider)} .
      * </p>
      *
      * @return the {@link ServiceProvider} used.
      * @throws IllegalStateException
-     *           if no {@link ServiceProvider} has been found.
+     *             if no {@link ServiceProvider} has been found.
      * @see #getPriority()
      * @see #setCurrent(ServiceProvider)
      */
@@ -175,7 +200,7 @@ public abstract class ServiceProvider {
      * Replaces the current {@link ServiceProvider}.
      *
      * @param provider
-     *          the new {@link ServiceProvider}
+     *            the new {@link ServiceProvider}
      * @return the replaced provider, or null.
      */
     public static ServiceProvider setCurrent(ServiceProvider provider) {
@@ -194,7 +219,8 @@ public abstract class ServiceProvider {
                 // Keep the log inside the synchronized block for making sure that the order
                 // or logging messages matches the order in which ServiceProviders were set.
                 Logger.getLogger("javax.measure.spi").log(Level.CONFIG,
-                        (old == null) ? "Measurement ServiceProvider set to {0}" : "Measurement ServiceProvider replaced by {0}", provider.getClass().getName());
+                        (old == null) ? "Measurement ServiceProvider set to {0}" : "Measurement ServiceProvider replaced by {0}",
+                        provider.getClass().getName());
             }
             return old;
         }

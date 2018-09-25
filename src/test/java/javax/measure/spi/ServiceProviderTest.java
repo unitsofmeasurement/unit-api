@@ -46,7 +46,7 @@ import javax.measure.Quantity;
 public class ServiceProviderTest {
 
   @Test(expected = NullPointerException.class)
-  public void testSetDefaultNull() {
+  public void testSetCurrentNull() {
     ServiceProvider.setCurrent(null);
   }
 
@@ -55,7 +55,7 @@ public class ServiceProviderTest {
    * method for avoiding issues with the order in which JUnit executes tests.
    */
   @Test
-  public void testGetAndSetDefault() {
+  public void testGetAndSetCurrent() {
     assertEquals(0, ServiceProvider.available().size());
     try {
       ServiceProvider.current();
@@ -68,6 +68,7 @@ public class ServiceProviderTest {
     assertSame("Setting the same ServiceProvider twice should be a no-op.", testProv, ServiceProvider.setCurrent(testProv));
     assertSame(testProv, ServiceProvider.current());
     assertArrayEquals(new ServiceProvider[] { testProv }, ServiceProvider.available().toArray());
+    assertNotNull(ServiceProvider.of("TestServiceProvider"));
   }
 
   /**
@@ -76,6 +77,24 @@ public class ServiceProviderTest {
   @Test
   public void testPriority() {
     assertEquals(0, ServiceProvider.current().getPriority());
+  }
+  
+  /**
+   * Tests {@link ServiceProvider#of()} by passing null.
+   */
+  @Test(expected = NullPointerException.class)
+  public void testOfNull() {
+    @SuppressWarnings("unused")
+    ServiceProvider dummy = ServiceProvider.of(null);
+  }
+  
+  /**
+   * Tests {@link ServiceProvider#of()} by passing a non-existing name.
+   */
+  @Test(expected = IllegalArgumentException.class)
+  public void testOfNonExistent() {
+    @SuppressWarnings("unused")
+    ServiceProvider dummy = ServiceProvider.of("ThisServiceProviderWillNeverExistHere");
   }
 
   @Test
@@ -102,7 +121,7 @@ public class ServiceProviderTest {
     final ServiceProvider testProv = new TestServiceProvider();
     final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
     assertNotNull(service);
-    @SuppressWarnings("unused")
+    @SuppressWarnings({ "unused", "rawtypes", "unchecked" })
     Collection<Prefix> prefixes = service.getPrefixes((Class) String.class);
   }
 
@@ -111,7 +130,7 @@ public class ServiceProviderTest {
     final ServiceProvider testProv = new TestServiceProvider();
     final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
     assertNotNull(service);
-    @SuppressWarnings("unused")
+    @SuppressWarnings({ "unused", "rawtypes", "unchecked" })
     Collection<Prefix> prefixes = service.getPrefixes((Class) DummyEnum.class);
   }
 
