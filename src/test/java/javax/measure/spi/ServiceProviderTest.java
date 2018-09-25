@@ -136,6 +136,11 @@ public class ServiceProviderTest {
     public FormatService getFormatService() {
       return null;
     }
+
+    @Override
+    public String toString() {
+        return "TestServiceProvider";
+    }
   }
 
   private static enum DummyEnum {
