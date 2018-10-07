@@ -36,8 +36,6 @@ import javax.measure.Dimension;
 import javax.measure.UnconvertibleException;
 import javax.measure.Unit;
 import javax.measure.UnitConverter;
-import javax.measure.format.ParserException;
-import javax.measure.test.unit.AreaUnit;
 import javax.measure.test.unit.BaseUnit;
 import javax.measure.test.unit.DistanceUnit;
 
@@ -87,6 +85,7 @@ public class UnitTest {
   @Test(expected = UnconvertibleException.class)
   public void testGetConverterTo() {
     sut = DistanceUnit.m;
+    @SuppressWarnings("unchecked")
     UnitConverter converter = sut.getConverterTo(BaseUnit.ONE);
     assertNotNull(converter);
   }
