@@ -44,7 +44,6 @@ import javax.measure.format.UnitFormat;
  * @since 1.0
  * @deprecated To be merged with {@link FormatService}, and removed in a future version, it is here for backward compatibility only.
  */
-@Deprecated(forRemoval=true)
 public interface UnitFormatService {
 
     /**

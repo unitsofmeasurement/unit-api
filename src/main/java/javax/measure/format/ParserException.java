@@ -37,7 +37,6 @@ package javax.measure.format;
  * @since 1.0
  * @deprecated Use {@link MeasurementParseException}, this exception will be removed in a future version, it is here for backward compatibility only.
  */
-@Deprecated(forRemoval=true)
 public class ParserException extends MeasurementParseException {
 
     private static final long serialVersionUID = -3179553925611520368L;
@@ -47,11 +46,11 @@ public class ParserException extends MeasurementParseException {
      * particular exception.
      *
      * @param message
-     *          the detail message
+     *            the detail message
      * @param parsedData
-     *          the parsed text, should not be null
+     *            the parsed text, should not be null
      * @param position
-     *          the position where the error was found while parsing.
+     *            the position where the error was found while parsing.
      */
     public ParserException(String message, CharSequence parsedData, int position) {
         super(message, parsedData, position);
@@ -61,9 +60,9 @@ public class ParserException extends MeasurementParseException {
      * Constructs a ParserException with the parsed text and offset. A detail message is a String that describes this particular exception.
      *
      * @param parsedData
-     *          the parsed text, should not be null
+     *            the parsed text, should not be null
      * @param position
-     *          the position where the error is found while parsing.
+     *            the position where the error is found while parsing.
      */
     public ParserException(CharSequence parsedData, int position) {
         super(parsedData, position);
@@ -73,7 +72,7 @@ public class ParserException extends MeasurementParseException {
      * Constructs a ParserException with the specified cause.
      *
      * @param cause
-     *          the root cause
+     *            the root cause
      */
     public ParserException(Throwable cause) {
         super(cause);
