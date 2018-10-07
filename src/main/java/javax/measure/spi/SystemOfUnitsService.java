@@ -86,10 +86,10 @@ public interface SystemOfUnitsService {
      * type.
      *
      * <p>
-     * This method may be used to iterate over the prefixes as follows:
+     * This method may be used to iterate over certain prefixes as follows:
      * </p>
      * <pre>{@code
-     *    for(Prefix p : service.getPrefixes(PrefixType.class))
+     *    for(MetricPrefix mp : service.getPrefixes(MetricPrefix.class))
      *        System.out.println(p);
      * }</pre>
      *
