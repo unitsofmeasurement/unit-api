@@ -47,7 +47,7 @@ import javax.measure.Prefix;
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin
  *         Desruisseaux</a>
- * @version 1.6, June 21, 2018
+ * @version 1.7, October 7, 2018
  * @since 1.0
  *
  * @see <a href=
