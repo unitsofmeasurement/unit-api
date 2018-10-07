@@ -40,9 +40,11 @@ import javax.measure.format.UnitFormat;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.1, March 29, 2017
+ * @version 1.2, October 7, 2018
  * @since 1.0
+ * @deprecated To be merged with {@link FormatService}, and removed in a future version, it is here for backward compatibility only.
  */
+@Deprecated(forRemoval=true)
 public interface UnitFormatService {
 
     /**
