@@ -93,7 +93,7 @@ public abstract class ServiceProvider {
      * @return the service to obtain a {@link UnitFormat}, or {@code null}.
      * @deprecated Use {@link #getFormatService()}. This method will be removed in a future version, it is here for backward compatibility only.
      */
-    @Deprecated
+    @Deprecated(forRemoval=true)
     public abstract UnitFormatService getUnitFormatService();
 
     /**
@@ -153,8 +153,8 @@ public abstract class ServiceProvider {
 
     /**
      * Returns the {@link ServiceProvider} with the specified name. 
-     * The name must match at least one entry provider in the list of available service providers. 
-     * Implementors are encouraged to use a unique enough name, e.g. the class name or other distinct attributes.
+     * The name must match at least one {@link #toString()} value of a provider in the list of available service providers.<br>
+     * Implementors are encouraged to override {@link #toString()} and use a unique enough name, e.g. the class name or other distinct attributes.
      * Should multiple service providers nevertheless use the same name, the one with the highest {@link #getPriority() priority} wins.
      * 
      * @param name
@@ -164,6 +164,7 @@ public abstract class ServiceProvider {
      *             if available service providers do not contain a provider with the specified name
      * @throws NullPointerException
      *             if {@code name} is null
+     * @see #toString()
      * @since 2.0
      */
     public static ServiceProvider of(String name) {
