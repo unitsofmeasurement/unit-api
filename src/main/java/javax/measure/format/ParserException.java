@@ -33,11 +33,11 @@ package javax.measure.format;
  * Signals that an error has been reached unexpectedly while parsing.
  *
  * @author Werner Keil
- * @version 1.1, March 27, 2018
+ * @version 1.2, October 7, 2018
  * @since 1.0
  * @deprecated Use {@link MeasurementParseException}, this exception will be removed in a future version, it is here for backward compatibility only.
  */
-@Deprecated
+@Deprecated(forRemoval=true)
 public class ParserException extends MeasurementParseException {
 
     private static final long serialVersionUID = -3179553925611520368L;
