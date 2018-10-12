@@ -354,20 +354,6 @@
                                         <ignore></ignore>
                                     </action>
                                 </pluginExecution>
-                                <pluginExecution>
-                                    <pluginExecutionFilter>
-                                        <groupId>org.moditect</groupId>
-                                        <artifactId>
-                                            moditect-maven-plugin
-                                        </artifactId>
-                                        <versionRange>
-                                            [1.0.0.Beta1,)
-                                        </versionRange>
-                                    </pluginExecutionFilter>
-                                    <action>
-                                        <ignore></ignore>
-                                    </action>
-                                </pluginExecution>
                             </pluginExecutions>
                         </lifecycleMappingMetadata>
                     </configuration>

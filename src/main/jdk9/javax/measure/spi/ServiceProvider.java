@@ -45,7 +45,7 @@ import javax.measure.format.UnitFormat;
  * All the methods in this class are safe to use by multiple concurrent threads.
  * </p>
  *
- * @version 1.2, September 25, 2018
+ * @version 1.4 October 12, 2018
  * @author Werner Keil
  * @author Martin Desruisseaux
  * @since 1.0
@@ -91,7 +91,7 @@ public abstract class ServiceProvider {
      * @return the service to obtain a {@link UnitFormat}, or {@code null}.
      * @deprecated Use {@link #getFormatService()}. This method will be removed in a future version, it is here for backward compatibility only.
      */
-    @Deprecated
+    @Deprecated(forRemoval=true)
     public abstract UnitFormatService getUnitFormatService();
 
     /**
