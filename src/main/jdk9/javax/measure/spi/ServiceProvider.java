@@ -35,8 +35,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.ServiceLoader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.measure.Quantity;
 import javax.measure.format.QuantityFormat;
 import javax.measure.format.UnitFormat;
@@ -47,7 +45,7 @@ import javax.measure.format.UnitFormat;
  * All the methods in this class are safe to use by multiple concurrent threads.
  * </p>
  *
- * @version 1.4, October 7, 2018
+ * @version 1.2, September 25, 2018
  * @author Werner Keil
  * @author Martin Desruisseaux
  * @since 1.0
@@ -147,7 +145,7 @@ public abstract class ServiceProvider {
      *
      * @return all available service providers.
      */
-    public static final List<ServiceProvider> available() {
+    public static List<ServiceProvider> available() {
         return Arrays.asList(getProviders());
     }
 
@@ -164,8 +162,6 @@ public abstract class ServiceProvider {
      *             if available service providers do not contain a provider with the specified name
      * @throws NullPointerException
      *             if {@code name} is null
-     * @see #toString()
-     * @since 2.0
      */
     public static ServiceProvider of(String name) {
         Objects.requireNonNull(name);
@@ -190,7 +186,7 @@ public abstract class ServiceProvider {
      * @see #getPriority()
      * @see #setCurrent(ServiceProvider)
      */
-    public static final ServiceProvider current() {
+    public static ServiceProvider current() {
         ServiceProvider[] p = getProviders();
         if (p.length != 0) {
             return p[0];
@@ -218,7 +214,7 @@ public abstract class ServiceProvider {
 
                 // Keep the log inside the synchronized block for making sure that the order
                 // or logging messages matches the order in which ServiceProviders were set.
-                Logger.getLogger("javax.measure.spi").log(Level.CONFIG,
+                System.getLogger("javax.measure.spi").log(System.Logger.Level.DEBUG,
                         (old == null) ? "Measurement ServiceProvider set to {0}" : "Measurement ServiceProvider replaced by {0}",
                         provider.getClass().getName());
             }

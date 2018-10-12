@@ -61,11 +61,11 @@
         <sourceEncoding>UTF-8</sourceEncoding> <!-- in Maven 3. -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${sourceEncoding}</project.reporting.outputEncoding>
-        <jdkVersion>1.8</jdkVersion>
+        <jdkVersion>8</jdkVersion>
+        <jdkOptionalVersion>9</jdkOptionalVersion>
         <project.build.javaVersion>${jdkVersion}</project.build.javaVersion>
         <maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
         <maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
-        <compile.exclude.files>module-info.java</compile.exclude.files>
         <additionalparam>-Xdoclint:none</additionalparam>
         <thisYear>2018</thisYear>
 
@@ -73,12 +73,11 @@
         <felix.version>3.4.0</felix.version>
         <github.maven.version>0.12</github.maven.version>
         <github.global.server>github</github.global.server>
-        <maven.resources.version>3.0.2</maven.resources.version>
-        <maven.compile.version>3.7.0</maven.compile.version>
-        <maven.site.version>3.7</maven.site.version>
-        <maven.jar.version>3.0.2</maven.jar.version>
-        <maven.javadoc.version>3.0.0-M1</maven.javadoc.version>
-        <!-- FIXME in javadoc 3.0.0 the Xdoclint:none needs to be applied differently -->
+        <maven.resources.version>3.1.0</maven.resources.version>
+        <maven.compile.version>3.8.0</maven.compile.version>
+        <maven.site.version>3.7.1</maven.site.version>
+        <maven.jar.version>3.1.0</maven.jar.version>
+        <maven.javadoc.version>3.0.1</maven.javadoc.version>
         <jacoco.plugin.version>0.8.1</jacoco.plugin.version>
     </properties>
 
@@ -282,10 +281,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven.compile.version}</version>
-                    <configuration>
-                        <source>9</source>
-                        <target>9</target>
-                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>1.8</version>
                 </plugin>
 
                 <!-- License -->
@@ -363,11 +363,6 @@
                                         <versionRange>
                                             [1.0.0.Beta1,)
                                         </versionRange>
-                                        <goals>
-                                            <goal>
-                                                generate-module-info
-                                            </goal>
-                                        </goals>
                                     </pluginExecutionFilter>
                                     <action>
                                         <ignore></ignore>
@@ -385,37 +380,32 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <release>${maven.compile.targetLevel}</release>
+                </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-antrun-plugin</artifactId>
+              <executions>
+                <execution>
+                  <phase>prepare-package</phase>
+                  <goals><goal>run</goal></goals>
+                  <configuration>
+                    <target>
+                      <mkdir dir       = "${project.build.directory}/classes/META-INF/versions/${jdkOptionalVersion}"/>
+                      <javac destdir   = "${project.build.directory}/classes/META-INF/versions/${jdkOptionalVersion}"
+                             srcdir    = "${project.basedir}/src/main/jdk${jdkOptionalVersion}"
+                             includeAntRuntime = "false">
 
-                <executions>
-                    <execution>
-                        <id>default-compile</id>
-                        <configuration>
-                            <!-- compile everything to ensure module-info contains right entries -->
-                            <!-- required when JAVA_HOME is JDK 8 or below -->
-                            <jdkToolchain>
-                                <version>9</version>
-                            </jdkToolchain>
-                            <release>9</release>
-                            <sources>
-                                <source>src/main/java-mr/9</source>
-                            </sources>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>base-compile</id>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                        <!-- recompile everything for target VM except the module-info.java -->
-                        <configuration>
-                            <source>${maven.compile.sourceLevel}</source>
-                            <target>${maven.compile.targetLevel}</target>
-                            <excludes>
-                                <exclude>java/measure/${compile.exclude.files}</exclude>
-                            </excludes>
-                        </configuration>
-                    </execution>
-                </executions>
+                          <!-- TODO: use release attribute instead after next plugin release.
+                               https://issues.apache.org/jira/browse/MANTRUN-214 -->
+                          <compilerarg line="--release=${jdkOptionalVersion} --patch-module java.measure=${project.build.directory}/classes"/>
+                      </javac>
+                    </target>
+                  </configuration>
+                </execution>
+              </executions>
             </plugin>
 
             <!-- Coverage -->
@@ -423,12 +413,6 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco.plugin.version}</version>
-                <configuration>
-                    <destfile>${basedir}/target/coverage-reports/jacoco-unit.exec</destfile>
-                    <datafile>${basedir}/target/coverage-reports/jacoco-unit.exec</datafile>
-                    <excludes>
-                    </excludes>
-                </configuration>
                 <executions>
                     <execution>
                         <id>pre-unit-test</id>
@@ -529,9 +513,6 @@
                             <head>Implementation Requirements:</head>
                         </tag>
                     </tags>
-                    <sourceFileExcludes>
-                        <exclude>**/module-info.java</exclude>
-                    </sourceFileExcludes>
                 </configuration>
             </plugin>
 
@@ -552,6 +533,7 @@
                             <Implementation-Vendor>Unit-API contributors</Implementation-Vendor>
                             <Implementation-URL>http://unitsofmeasurement.github.io</Implementation-URL>
                             <Automatic-Module-Name>java.measure</Automatic-Module-Name>
+                            <Multi-Release>true</Multi-Release>
                         </manifestEntries>
                     </archive>
                 </configuration>
@@ -698,7 +680,6 @@
                 <version>3.8</version>
                 <configuration>
                     <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
-                    <targetJdk>${project.build.javaVersion}</targetJdk>
                 </configuration>
             </plugin>
 
@@ -956,67 +937,6 @@
                         </executions>
                     </plugin>
                 </plugins>
-            </build>
-        </profile>
-
-        <profile>
-            <id>modGen</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.moditect</groupId>
-                        <artifactId>moditect-maven-plugin</artifactId>
-                        <version>1.0.0.Beta1</version>
-                        <executions>
-                            <execution>
-                                <id>generate-module-info</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>generate-module-info</goal>
-                                </goals>
-                                <configuration>
-                                    <modules>
-                                        <module>
-                                            <artifact>
-                                                <groupId>javax.measure</groupId>
-                                                <artifactId>unit-api</artifactId>
-                                                <version>2.0-SNAPSHOT</version>
-                                            </artifact>
-                                            <additionalDependencies>
-                                                <dependency>
-                                                    <groupId>junit</groupId>
-                                                    <artifactId>junit</artifactId>
-                                                    <version>4.12</version>
-                                                </dependency>
-                                            </additionalDependencies>
-                                            <moduleInfo>
-                                                <name>java.measure</name>
-                                                <exports>
-                                                    *;
-                                                </exports>
-                                                <requires>
-                                                    *;
-                                                </requires>
-                                                <uses>
-                                                    javax.measure.spi.FormatService;
-                                                    javax.measure.spi.QuantityFactory;
-                                                    javax.measure.spi.ServiceProvider;
-                                                    javax.measure.spi.SystemOfUnitsService;
-                                                    javax.measure.spi.UnitFormatService;
-                                                    javax.measure.format.QuantityFormat;
-                                                    javax.measure.format.UnitFormat;
-                                                </uses>
-                                                <addServiceUses>true</addServiceUses>
-                                            </moduleInfo>
-                                        </module>
-                                    </modules>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                </plugins>
-
             </build>
         </profile>
 
