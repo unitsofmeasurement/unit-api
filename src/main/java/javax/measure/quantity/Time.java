@@ -45,7 +45,7 @@ import javax.measure.Quantity;
  * @see Power
  * @see <a href="https://en.wikipedia.org/wiki/Unit_of_time">Wikipedia: Unit of time</a>
  *
- * @apiNote SI Base Unit
+ * apiNote SI Base Unit
  */
 public interface Time extends Quantity<Time> {
 }

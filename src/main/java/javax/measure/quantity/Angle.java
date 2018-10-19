@@ -44,7 +44,7 @@ import javax.measure.Quantity;
  * @see SolidAngle
  * @see Length
  *
- * @apiNote SI Derived Unit with special name and symbol
+ * apiNote SI Derived Unit with special name and symbol
  */
 public interface Angle extends Quantity<Angle> {
 }

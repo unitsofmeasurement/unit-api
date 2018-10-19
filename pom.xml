@@ -622,18 +622,19 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.9</version>
+                <version>3.0.0</version>
                 <reportSets>
                     <reportSet>
                         <reports>
                             <report>index</report>
                             <report>summary</report>
-                            <report>license</report>
+                            <report>licenses</report>
                             <report>scm</report>
-                            <report>cim</report>
-                            <report>project-team</report>
-                            <report>mailing-list</report>
-                            <report>issue-tracking</report>
+                            <report>ci-management</report>
+                            <report>team</report>
+                            <report>mailing-lists</report>
+                            <report>issue-management</report>
+							
                         </reports>
                     </reportSet>
                 </reportSets>

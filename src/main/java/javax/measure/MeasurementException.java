@@ -40,7 +40,7 @@ package javax.measure;
  * This exception is used to indicate problems with creating, retrieving and manipulating units of measurement objects.
  * </p>
  *
- * @implSpec This class is intended for use in a single thread. Exception thrown when errors occur during Units of Measurement operations.
+ * implSpec This class is intended for use in a single thread. Exception thrown when errors occur during Units of Measurement operations.
  *
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 1.0, Aug 8, 2016

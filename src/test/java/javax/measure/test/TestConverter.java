@@ -94,7 +94,7 @@ public abstract class TestConverter implements UnitConverter {
 
   /**
    * @throws IllegalArgumentException
-   *           if the value is </code>null</code>.
+   *           if the value is <code>null</code>.
    */
   public Number convert(Number value) {
     if (value != null) {
@@ -169,7 +169,7 @@ public abstract class TestConverter implements UnitConverter {
      * @param right
      *          the right converter.
      * @throws IllegalArgumentException
-     *           if either the left or right converter are </code>null</code>
+     *           if either the left or right converter are <code>null</code>
      */
     public Pair(UnitConverter left, UnitConverter right) {
       this.left = left;

@@ -57,7 +57,7 @@ public class FormatServiceTest {
     }
 
     /**
-     * Tests {@link FormatService#FormatType}.
+     * Tests FormatService#FormatType.
      */
     @Test
     public void testTypes() {

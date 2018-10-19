@@ -113,7 +113,7 @@ abstract class TestUnitFormat implements UnitFormat {
    * @param csq
    *          the <code>CharSequence</code> to parse.
    * @return the unit parsed from the specified character sub-sequence.
-   * @throws ParseException
+   * @throws MeasurementParseException
    *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
    */
   public final Unit<?> parse(CharSequence csq) throws MeasurementParseException {
@@ -127,7 +127,7 @@ abstract class TestUnitFormat implements UnitFormat {
    * @param csq
    *          the <code>CharSequence</code> to parse.
    * @return the unit parsed from the specified character sub-sequence.
-   * @throws ParseException
+   * @throws MeasurementParseException
    *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
    */
   public final Unit<?> parse(CharSequence csq, ParsePosition pos) throws MeasurementParseException {

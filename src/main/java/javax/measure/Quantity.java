@@ -71,7 +71,7 @@ package javax.measure;
  * is essential for preserving algebra laws like associativity, and is also
  * the expected result from a thermodynamic point of view.</p>
  *
- * @apiNote This interface places no restrictions on the mutability of
+ * apiNote This interface places no restrictions on the mutability of
  *          implementations, however immutability is strongly recommended. All
  *          implementations must be {@link Comparable}.
  *

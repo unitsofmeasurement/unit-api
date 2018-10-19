@@ -80,7 +80,7 @@ public class ServiceProviderTest {
   }
   
   /**
-   * Tests {@link ServiceProvider#of()} by passing null.
+   * Tests ServiceProvider#of() by passing null.
    */
   @Test(expected = NullPointerException.class)
   public void testOfNull() {
@@ -89,7 +89,7 @@ public class ServiceProviderTest {
   }
   
   /**
-   * Tests {@link ServiceProvider#of()} by passing a non-existing name.
+   * Tests ServiceProvider#of() by passing a non-existing name.
    */
   @Test(expected = IllegalArgumentException.class)
   public void testOfNonExistent() {

@@ -34,7 +34,7 @@ import static javax.measure.test.unit.DistanceUnit.cm;
 public class CircleInfo {
 
   /**
-   * @param args
+   * @param args arguments
    */
   public static void main(String[] args) {
     DistanceQuantity radius = new DistanceQuantity(30, cm);

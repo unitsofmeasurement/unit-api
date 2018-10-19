@@ -54,6 +54,7 @@ public class SimpleTestUnitFormat extends TestUnitFormat {
 
   /**
    * Returns the instance for formatting and parsing using case insensitive symbols
+    @return the default instance
    */
   public static UnitFormat geInstance() {
     return DEFAULT;
