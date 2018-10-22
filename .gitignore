@@ -13,3 +13,10 @@
 /.project
 /.settings
 /bin/
+
+# IntelliJ #
+.idea/
+*.iml
+
+# OS Files #
+.DS_Store
