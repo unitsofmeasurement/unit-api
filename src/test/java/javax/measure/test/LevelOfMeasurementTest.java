@@ -33,14 +33,12 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-import javax.measure.LevelOfMeasurement;
-
 import static javax.measure.LevelOfMeasurement.*;
 
 public class LevelOfMeasurementTest {
     @Test
     public void testValues() {
-        assertEquals(4, LevelOfMeasurement.values().length);
+        assertEquals(4, values().length);
     }
 
     @Test

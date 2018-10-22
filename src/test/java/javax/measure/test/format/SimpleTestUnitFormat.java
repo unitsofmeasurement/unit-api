@@ -34,14 +34,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.measure.Unit;
-import javax.measure.UnitConverter;
 import javax.measure.format.UnitFormat;
 
 /**
  * Provides a simple interface for formatting and parsing {@linkplain Unit units}.
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.6
+ * @version 0.7
  */
 public class SimpleTestUnitFormat extends TestUnitFormat {
   private final Map<String, String> symbolMap = new HashMap<>();
@@ -66,7 +65,7 @@ public class SimpleTestUnitFormat extends TestUnitFormat {
   /**
    * Base constructor.
    */
-  SimpleTestUnitFormat() {
+  private SimpleTestUnitFormat() {
   }
 
   // //////////////
@@ -92,35 +91,5 @@ public class SimpleTestUnitFormat extends TestUnitFormat {
 
   public boolean isLocaleSensitive() {
     return false;
-  }
-
-  void appendAnnotation(final Unit<?> unit, final CharSequence symbol, final CharSequence annotation, final Appendable appendable) throws IOException {
-    appendable.append('{');
-    appendable.append(annotation);
-    appendable.append('}');
-  }
-
-  /**
-   * Formats the given converter to the given StringBuffer. This is similar to what {@link ConverterFormat} does, but there's no need to worry about
-   * operator precedence here.
-   *
-   * @param converter
-   *          the converter to be formatted
-   * @param continued
-   *          <code>true</code> if the converter expression should begin with an operator, otherwise <code>false</code>. This will always be true
-   *          unless the unit being modified is equal to Unit.ONE.
-   * @param buffer
-   *          the <code>StringBuffer</code> to append to. Contains the already-formatted unit being modified by the given converter.
-   */
-  void formatConverter(final UnitConverter converter, final boolean continued, final StringBuffer buffer) {
-    boolean unitIsExpression = ((buffer.indexOf(".") >= 0) || (buffer //$NON-NLS-1$
-        .indexOf("/") >= 0)); //$NON-NLS-1$
-    String prefix = "";
-    if ((prefix != null) && (!unitIsExpression)) {
-      buffer.insert(0, symbolMap.get(prefix));
-    } else {
-      throw new IllegalArgumentException("Unable to format units (unsupported UnitConverter " //$NON-NLS-1$
-          + converter + ")"); //$NON-NLS-1$
-    }
   }
 }
