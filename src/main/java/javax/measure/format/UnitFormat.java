@@ -124,6 +124,7 @@ public interface UnitFormat {
      * @return the unit parsed from the specified character sub-sequence.
      * @throws IllegalArgumentException
      *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
+     * @since 2.0
      */
     Unit<?> parse(CharSequence csq, ParsePosition cursor) throws IllegalArgumentException, MeasurementParseException;
 
