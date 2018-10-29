@@ -14,6 +14,9 @@ JSR 385 - Units of Measurement API 2.0
 The Unit of Measurement API provides a set of Java language programming interfaces for handling units and quantities.
 The interfaces provide a layer which separates client code, that would call the API, from library code, which implements the API.
 
+## Contribute
+[Contribution Guide](https://github.com/unitsofmeasurement/unit-api/wiki/Contribution-Guide)
+
 ## Quality
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=javax.measure%3Aunit-api&metric=alert_status)](https://sonarcloud.io/dashboard?id=javax.measure%3Aunit-api)
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=javax.measure%3Aunit-api&metric=security_rating)](https://sonarcloud.io/dashboard?id=javax.measure%3Aunit-api)
