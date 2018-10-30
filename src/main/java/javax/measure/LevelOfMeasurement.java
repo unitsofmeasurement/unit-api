@@ -34,7 +34,7 @@ package javax.measure;
  *
  * @see <a href="https://en.wikipedia.org/wiki/Level_of_measurement#Stevens's_typology">Wikipedia: Level of measurement - Stevens's typology</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.9, 2018-10-18
+ * @version 1.0, 2018-10-30
  * @since 2.0
  */
 public enum LevelOfMeasurement {
@@ -46,4 +46,17 @@ public enum LevelOfMeasurement {
     INTERVAL,
     /** Magnitude, amount. The ratio type takes its name from the fact that measurement is the estimation of the ratio between a magnitude of a continuous quantity and a unit magnitude of the same kind (Michell, 1997, 1999).  */
     RATIO;
+    
+    /**
+     * Compares two {@link LevelOfMeasurement levelsOfMeasurement} by its ordinal() value.
+     *
+     * @param other
+     *          the other {@link LevelOfMeasurement} to be compared with.
+     * @return {@code true} if {@code this >= other}.
+     */
+    public boolean isGreaterThanOrEqualTo(LevelOfMeasurement other) {
+        int myLevel = ordinal();
+        int otherLevel = other.ordinal();
+        return (myLevel >= otherLevel);
+    }
 }
