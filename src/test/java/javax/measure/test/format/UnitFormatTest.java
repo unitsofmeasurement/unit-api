@@ -127,4 +127,10 @@ public class UnitFormatTest {
   public void testLocalSensitive() {
     assertFalse(format.isLocaleSensitive());
   }
+  
+  @Test
+  public void testMoreLocalSensitive() {
+    final UnitFormat simple = SimpleTestUnitFormat.getInstance();
+    assertFalse(simple.isLocaleSensitive());
+  }
 }
