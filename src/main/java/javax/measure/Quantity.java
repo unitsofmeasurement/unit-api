@@ -87,11 +87,11 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @see <a href="http://martinfowler.com/eaaDev/quantity.html">Martin Fowler -
  *      Quantity</a>
- * @version 1.4, October 20, 2018
+ * @version 1.5, October 30, 2018
  * @since 1.0
  */
 public interface Quantity<Q extends Quantity<Q>> {
-
+    
     /**
      * Returns the sum of this {@code Quantity} with the one specified.
      * The result shall be as if this quantity and the given addend were
@@ -252,6 +252,16 @@ public interface Quantity<Q extends Quantity<Q>> {
      * @return the unit (shall not be {@code null}).
      */
     Unit<Q> getUnit();
+    
+    /**
+     * Returns the measurement level of this {@code Quantity}.
+     *
+     * @return the {@link LevelOfMeasurement} (shall not be {@code null}).
+     * @since 2.0
+     */
+    default LevelOfMeasurement getLevel() {
+        return LevelOfMeasurement.RATIO;
+    };
 
     /**
      * Convenient method equivalent to {@link #to(javax.measure.Unit)

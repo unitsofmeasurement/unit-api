@@ -32,7 +32,7 @@ package javax.measure.test;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-
+import static org.junit.Assert.assertTrue;
 import static javax.measure.LevelOfMeasurement.*;
 
 public class LevelOfMeasurementTest {
@@ -64,4 +64,10 @@ public class LevelOfMeasurementTest {
         assertEquals(3, RATIO.ordinal());
         assertEquals("RATIO", RATIO.name());
     }
+    
+    @Test
+    public void testRatioGreaterThanOrEqInterval() {
+        assertTrue(RATIO.isGreaterThanOrEqualTo(INTERVAL));
+    }
+    
 }

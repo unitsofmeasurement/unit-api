@@ -33,6 +33,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import javax.measure.LevelOfMeasurement;
 import javax.measure.quantity.Volume;
 import javax.measure.test.unit.AreaUnit;
 import javax.measure.test.unit.DistanceUnit;
@@ -158,5 +159,9 @@ public class AreaQuantityTest {
   public void testNegate() {
     assertEquals(area.negate().getValue(), -area.getValue().doubleValue());
   }
-
+  
+  @Test
+  public void testLevel() {
+    assertEquals(LevelOfMeasurement.RATIO, area.getLevel());
+  }
 }

@@ -40,7 +40,7 @@ import javax.measure.test.unit.BaseUnit;
  * @author Werner Keil
  * @version 0.5
  */
-public class DimensionlessQuantity extends TestQuantity<Dimensionless> implements Dimensionless {
+class DimensionlessQuantity extends TestQuantity<Dimensionless> implements Dimensionless {
 
   public DimensionlessQuantity(double val, TestUnit un) {
     this();
