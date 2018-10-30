@@ -69,5 +69,4 @@ public class LevelOfMeasurementTest {
     public void testRatioGreaterThanOrEqInterval() {
         assertTrue(RATIO.isGreaterThanOrEqualTo(INTERVAL));
     }
-    
 }
