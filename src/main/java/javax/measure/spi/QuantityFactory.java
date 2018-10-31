@@ -51,7 +51,7 @@ import javax.measure.Unit;
 public interface QuantityFactory<Q extends Quantity<Q>> {
 
     /**
-     * Returns the quantity for the specified number stated in the specified unit.
+     * Returns the quantity for the specified number stated in the specified unit at the specified level of measurement.
      *
      * @param value
      *          the numeric value stated in the specified unit
