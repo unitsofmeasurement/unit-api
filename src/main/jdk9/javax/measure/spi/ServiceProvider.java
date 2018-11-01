@@ -146,7 +146,7 @@ public abstract class ServiceProvider {
      * @return all available service providers.
      */
     public static List<ServiceProvider> available() {
-        return Arrays.asList(getProviders());
+        return List.of(getProviders());
     }
 
     /**

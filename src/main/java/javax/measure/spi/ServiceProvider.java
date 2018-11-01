@@ -31,6 +31,7 @@ package javax.measure.spi;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
@@ -148,7 +149,7 @@ public abstract class ServiceProvider {
      * @return all available service providers.
      */
     public static final List<ServiceProvider> available() {
-        return Arrays.asList(getProviders());
+        return Collections.unmodifiableList(Arrays.asList(getProviders()));
     }
 
     /**
