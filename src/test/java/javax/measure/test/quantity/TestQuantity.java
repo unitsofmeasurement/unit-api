@@ -29,6 +29,7 @@
  */
 package javax.measure.test.quantity;
 
+import javax.measure.LevelOfMeasurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Dimensionless;
@@ -41,115 +42,132 @@ import javax.measure.test.unit.BaseUnit;
  */
 public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>, Comparable<Quantity<Q>> {
 
-  public static final Quantity<Dimensionless> ONE = new DimensionlessQuantity(1d, (BaseUnit) TestUnit.ONE);
+    public static final Quantity<Dimensionless> ONE = new DimensionlessQuantity(1d, (BaseUnit) TestUnit.ONE);
 
-  protected double scalar; // value in reference value
-  protected double value; // value in value (Unit unit)
-  protected TestUnit<Q> unit; // unit
-  private final Class<Q> type; // quantity type
+    protected double scalar; // value in reference value
+    protected double value; // value in value (Unit unit)
+    protected TestUnit<Q> unit; // unit
+    private final Class<Q> type; // quantity type
+    private final LevelOfMeasurement level;
 
-  protected TestQuantity(Class<Q> type) {
-    this.type = type;
-  }
-
-  public Class<Q> getType() {
-    return this.type;
-  }
-
-  public TestQuantity<Q> add(TestQuantity<Q> dn, TestQuantity<Q> d1, TestQuantity<Q> d2, TestUnit<Q> au) {
-    if (d1.unit == d2.unit) {
-      dn.unit = d1.unit;
-      dn.scalar = d1.scalar + d2.scalar;
-      dn.value = d1.value + d2.value;
-    } else {
-      dn.unit = au;
-      dn.scalar = d1.scalar + d2.scalar;
-      dn.value = dn.scalar;
+    protected TestQuantity(Class<Q> type, LevelOfMeasurement level) {
+        this.type = type;
+        this.level = level;
     }
-    return dn;
-  }
 
-  public TestQuantity<Q> subtract(TestQuantity<Q> dn, TestQuantity<Q> d1, TestQuantity<Q> d2, TestUnit<Q> au) {
-    if (d1.unit == d2.unit) {
-      dn.unit = d1.unit;
-      dn.scalar = d1.scalar - d2.scalar;
-      dn.value = d1.value - d2.value;
-    } else {
-      dn.unit = au;
-      dn.scalar = d1.scalar - d2.scalar;
-      dn.value = dn.scalar;
+    protected TestQuantity(Class<Q> type) {
+        this(type, LevelOfMeasurement.RATIO);
     }
-    return dn;
-  }
 
-  public boolean eq(TestQuantity<Q> d1) {
-    return (scalar == d1.scalar);
-  }
-
-  public boolean ne(TestQuantity<Q> d1) {
-    return (scalar != d1.scalar);
-  }
-
-  public boolean gt(TestQuantity<Q> d1) {
-    return (scalar > d1.scalar);
-  }
-
-  public boolean lt(TestQuantity<Q> d1) {
-    return (scalar < d1.scalar);
-  }
-
-  public boolean ge(TestQuantity<Q> d1) {
-    return (scalar >= d1.scalar);
-  }
-
-  public boolean le(TestQuantity<Q> d1) {
-    return (scalar <= d1.scalar);
-  }
-
-  @Override
-  public String toString() {
-    return (Double.valueOf(value)).toString() + ' ' + String.valueOf(unit);
-  }
-
-  /**
-   * Compares this quantity to the specified Measurement quantity. The default implementation compares the {@link Quantity#getValue()} of both this
-   * quantity and the specified Quantity stated in the same unit (this quantity's {@link #getUnit() unit}).
-   *
-   * @return a negative integer, zero, or a positive integer as this quantity is less than, equal to, or greater than the specified Quantity quantity.
-   * @return <code>Double.compare(this.doubleValue(getUnit()),
-   *         that.doubleValue(getUnit()))</code>
-   */
-  public int compareTo(Quantity<Q> that) {
-    Unit<Q> unit = getUnit();
-    return Double.compare(value, that.getValue().doubleValue());
-  }
-
-  String showInUnits(TestUnit<?> u, int precision) {
-    double result = scalar / u.getMultFactor();
-
-    String str = (Double.valueOf(result)).toString();
-    char cs[] = str.toCharArray();
-    int i = 0;
-    while (i < cs.length && (cs[i] >= '0' && cs[i] <= '9' || cs[i] == '.')) {
-      i++;
+    public Class<Q> getType() {
+        return this.type;
     }
-    Double bd = new Double(new String(cs, 0, i));
-    // BigDecimal bd2 = bd.setScale(precision, RoundingMode.HALF_UP);
-    // str = bd2.toString();
-    str = bd.toString();
 
-    String exp = "";
-    if (i < cs.length) {
-      exp = new String(cs, i, cs.length - i);
+    /**
+     * Returns the measurement level.
+     *
+     * @return the measurement level.
+     */
+    @Override
+    public LevelOfMeasurement getLevel() {
+        return level;
     }
-    return str + exp + ' ' + u.getName();
-  }
 
-  public Number getValue() {
-    return value;
-  }
+    public TestQuantity<Q> add(TestQuantity<Q> dn, TestQuantity<Q> d1, TestQuantity<Q> d2, TestUnit<Q> au) {
+        if (d1.unit == d2.unit) {
+            dn.unit = d1.unit;
+            dn.scalar = d1.scalar + d2.scalar;
+            dn.value = d1.value + d2.value;
+        } else {
+            dn.unit = au;
+            dn.scalar = d1.scalar + d2.scalar;
+            dn.value = dn.scalar;
+        }
+        return dn;
+    }
 
-  public Unit<Q> getUnit() {
-    return unit;
-  }
+    public TestQuantity<Q> subtract(TestQuantity<Q> dn, TestQuantity<Q> d1, TestQuantity<Q> d2, TestUnit<Q> au) {
+        if (d1.unit == d2.unit) {
+            dn.unit = d1.unit;
+            dn.scalar = d1.scalar - d2.scalar;
+            dn.value = d1.value - d2.value;
+        } else {
+            dn.unit = au;
+            dn.scalar = d1.scalar - d2.scalar;
+            dn.value = dn.scalar;
+        }
+        return dn;
+    }
+
+    public boolean eq(TestQuantity<Q> d1) {
+        return (scalar == d1.scalar);
+    }
+
+    public boolean ne(TestQuantity<Q> d1) {
+        return (scalar != d1.scalar);
+    }
+
+    public boolean gt(TestQuantity<Q> d1) {
+        return (scalar > d1.scalar);
+    }
+
+    public boolean lt(TestQuantity<Q> d1) {
+        return (scalar < d1.scalar);
+    }
+
+    public boolean ge(TestQuantity<Q> d1) {
+        return (scalar >= d1.scalar);
+    }
+
+    public boolean le(TestQuantity<Q> d1) {
+        return (scalar <= d1.scalar);
+    }
+
+    @Override
+    public String toString() {
+        return (Double.valueOf(value)).toString() + ' ' + String.valueOf(unit);
+    }
+
+    /**
+     * Compares this quantity to the specified Measurement quantity. The default implementation compares the {@link Quantity#getValue()} of both this
+     * quantity and the specified Quantity stated in the same unit (this quantity's {@link #getUnit() unit}).
+     *
+     * @return a negative integer, zero, or a positive integer as this quantity is less than, equal to, or greater than the specified Quantity
+     *         quantity.
+     * @return <code>Double.compare(this.doubleValue(getUnit()),
+     *         that.doubleValue(getUnit()))</code>
+     */
+    public int compareTo(Quantity<Q> that) {
+        Unit<Q> unit = getUnit();
+        return Double.compare(value, that.getValue().doubleValue());
+    }
+
+    String showInUnits(TestUnit<?> u, int precision) {
+        double result = scalar / u.getMultFactor();
+
+        String str = (Double.valueOf(result)).toString();
+        char cs[] = str.toCharArray();
+        int i = 0;
+        while (i < cs.length && (cs[i] >= '0' && cs[i] <= '9' || cs[i] == '.')) {
+            i++;
+        }
+        Double bd = new Double(new String(cs, 0, i));
+        // BigDecimal bd2 = bd.setScale(precision, RoundingMode.HALF_UP);
+        // str = bd2.toString();
+        str = bd.toString();
+
+        String exp = "";
+        if (i < cs.length) {
+            exp = new String(cs, i, cs.length - i);
+        }
+        return str + exp + ' ' + u.getName();
+    }
+
+    public Number getValue() {
+        return value;
+    }
+
+    public Unit<Q> getUnit() {
+        return unit;
+    }
 }
