@@ -35,11 +35,8 @@ import static org.junit.Assert.assertTrue;
 
 import javax.measure.Quantity;
 import javax.measure.quantity.Area;
-import javax.measure.quantity.Volume;
 import javax.measure.test.unit.AreaUnit;
 import javax.measure.test.unit.DistanceUnit;
-import javax.measure.test.unit.VolumeUnit;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -153,5 +150,9 @@ public class DistanceQuantityTest {
   public void testNegate() {
     assertEquals(distance.negate().getValue(), -distance.getValue().doubleValue());
   }
-
+  
+  @Test
+  public void testAbsolute() {
+    assertEquals(Quantity.Scale.ABSOLUTE, distance.getScale());
+  }
 }
