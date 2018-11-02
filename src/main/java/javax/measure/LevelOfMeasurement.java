@@ -34,7 +34,7 @@ package javax.measure;
  *
  * @see <a href="https://en.wikipedia.org/wiki/Level_of_measurement#Stevens's_typology">Wikipedia: Level of measurement - Stevens's typology</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.1, 2018-11-02
+ * @version 1.1.1, 2018-11-02
  * @since 2.0
  */
 public enum LevelOfMeasurement {
@@ -48,17 +48,17 @@ public enum LevelOfMeasurement {
     /** Magnitude, amount. The ratio type takes its name from the fact that measurement is the estimation of the ratio between a magnitude of a continuous quantity and a unit magnitude of the same kind (Michell, 1997, 1999).  */
     RATIO(true);
     
-    private final boolean numerical;
+    private final boolean numeric;
     
-    private LevelOfMeasurement(boolean numerical) {
-        this.numerical = numerical;
+    private LevelOfMeasurement(boolean numeric) {
+        this.numeric = numeric;
     }
       
     /**
      * @return the numerical
      */
-    public boolean isNumerical() {
-        return numerical;
+    public boolean isNumeric() {
+        return numeric;
     }
     
     /**

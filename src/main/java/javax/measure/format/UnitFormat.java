@@ -46,7 +46,7 @@ import javax.measure.Unit;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  *
- * @version 1.3, August 8, 2018
+ * @version 1.3.1, November 2, 2018
  * @since 1.0
  *
  * @see Unit
@@ -56,12 +56,12 @@ public interface UnitFormat {
      * Formats the specified {@link Unit}.
      *
      * @param unit
-     *          the {@link Unit} to format, not {@code null}
+     *            the {@link Unit} to format, not {@code null}
      * @param appendable
-     *          the appendable destination.
+     *            the appendable destination.
      * @return the appendable destination passed in with formatted text appended.
      * @throws IOException
-     *           if an error occurs while writing to the destination.
+     *             if an error occurs while writing to the destination.
      */
     Appendable format(Unit<?> unit, Appendable appendable) throws IOException;
 
@@ -69,7 +69,7 @@ public interface UnitFormat {
      * Formats the specified {@link Unit}.
      *
      * @param unit
-     *          the {@link Unit} to format, not {@code null}
+     *            the {@link Unit} to format, not {@code null}
      * @return the string representation using the settings of this {@link UnitFormat}.
      */
     String format(Unit<?> unit);
@@ -77,8 +77,8 @@ public interface UnitFormat {
     /**
      * Attaches a system-wide label to the specified unit.
      * <p>
-     * If the specified label is already associated to a unit the previous association can be discarded or ignored. Depending on the {@link UnitFormat}
-     * implementation, this call may be ignored if the particular unit already has a label.
+     * If the specified label is already associated to a unit the previous association can be discarded or ignored. Depending on the
+     * {@link UnitFormat} implementation, this call may be ignored if the particular unit already has a label.
      * </p>
      * If a {@link UnitFormat} implementation is explicitly <b>immutable</b>, similar to e.g. the result of <tt>Collections.unmodifiableList()</tt>,
      * then an {@linkplain UnsupportedOperationException} may be thrown upon this call.
@@ -90,14 +90,14 @@ public interface UnitFormat {
      * </p>
      *
      * @param unit
-     *          the unit being labeled.
+     *            the unit being labeled.
      * @param label
-     *          the new label for this unit.
+     *            the new label for this unit.
      * @throws IllegalArgumentException
-     *           if the label is not a valid identifier. This may include characters not supported by a particular {@link UnitFormat} implementation
-     *           (e.g. only <b>ASCII</b> characters for certain devices)
+     *             if the label is not a valid identifier. This may include characters not supported by a particular {@link UnitFormat} implementation
+     *             (e.g. only <b>ASCII</b> characters for certain devices)
      * @throws UnsupportedOperationException
-     *           if the <tt>label</tt> operation is not supported by this {@link UnitFormat}
+     *             if the <tt>label</tt> operation is not supported by this {@link UnitFormat}
      */
     void label(Unit<?> unit, String label);
 
@@ -118,29 +118,29 @@ public interface UnitFormat {
      * the index of the <code>cursor</code> argument is updated to the index after the last character used.
      *
      * @param csq
-     *          the <code>CharSequence</code> to parse.
+     *            the <code>CharSequence</code> to parse.
      * @param cursor
-     *          the cursor holding the current parsing index.
+     *            the cursor holding the current parsing index.
      * @return the unit parsed from the specified character sub-sequence.
      * @throws IllegalArgumentException
-     *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
+     *             if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
      */
     Unit<?> parse(CharSequence csq, ParsePosition cursor) throws IllegalArgumentException, MeasurementParseException;
 
     /**
      * Parses the text into an instance of {@link Unit}.
      * <p>
-     * The parse must complete normally and parse the entire text. If the parse completes without reading the entire length of the text, an exception is
-     * thrown. If any other problem occurs during parsing, an exception is thrown.
+     * The parse must complete normally and parse the entire text. If the parse completes without reading the entire length of the text, an exception
+     * is thrown. If any other problem occurs during parsing, an exception is thrown.
      * <p>
      *
      * @param csq
-     *          the {@code CharSequence} to parse.
+     *            the {@code CharSequence} to parse.
      * @return the unit parsed from the specified character sequence.
      * @throws MeasurementParseException
-     *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
+     *             if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
      * @throws UnsupportedOperationException
-     *           if the {@link UnitFormat} is unable to parse.
+     *             if the {@link UnitFormat} is unable to parse.
      * @since 2.0
      */
     Unit<?> parse(CharSequence csq) throws MeasurementParseException;

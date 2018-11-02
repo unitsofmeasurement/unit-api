@@ -155,4 +155,9 @@ public class DistanceQuantityTest {
   public void testAbsolute() {
     assertEquals(Quantity.Scale.ABSOLUTE, distance.getScale());
   }*/
+  
+  @Test
+  public void testLevelNumeric() {
+    assertTrue(distance.getLevel().isNumeric());
+  }
 }
