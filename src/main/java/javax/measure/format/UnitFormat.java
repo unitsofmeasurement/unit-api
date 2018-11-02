@@ -107,7 +107,7 @@ public interface UnitFormat {
      * In environments that do not support a <code>Locale</code>, e.g. Java ME, this usually returns <code>false</code>.
      * </p>
      *
-     * @return Whether this format depends on the locale.
+     * @return Whether this format depends on a locale.
      */
     default boolean isLocaleSensitive() {
         return false;
