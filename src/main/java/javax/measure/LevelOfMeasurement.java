@@ -38,14 +38,22 @@ package javax.measure;
  * @since 2.0
  */
 public enum LevelOfMeasurement {
+    
     /** Classification, membership */
-    NOMINAL,
+    NOMINAL(false),
     /** Comparison, level */
-    ORDINAL,
+    ORDINAL(false),
     /** Difference, affinity */
-    INTERVAL,
+    INTERVAL(true),
     /** Magnitude, amount. The ratio type takes its name from the fact that measurement is the estimation of the ratio between a magnitude of a continuous quantity and a unit magnitude of the same kind (Michell, 1997, 1999).  */
-    RATIO;
+    RATIO(true);
+    
+    private final boolean numerical;
+    
+    private LevelOfMeasurement(boolean numerical) {
+        this.numerical = numerical;
+    }
+      
     
     /**
      * Compares two {@link LevelOfMeasurement levelsOfMeasurement} by its ordinal() value.
