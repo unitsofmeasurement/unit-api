@@ -91,7 +91,7 @@ package javax.measure;
  * @since 1.0
  */
 public interface Quantity<Q extends Quantity<Q>> {
-    
+       
     /**
      * Returns the sum of this {@code Quantity} with the one specified.
      * The result shall be as if this quantity and the given addend were
@@ -259,9 +259,18 @@ public interface Quantity<Q extends Quantity<Q>> {
      * @return the {@link LevelOfMeasurement} (shall not be {@code null}).
      * @since 2.0
      */
-    default LevelOfMeasurement getLevel() {
-        return LevelOfMeasurement.RATIO;
-    };
+    LevelOfMeasurement getLevel();
+
+    /**
+     * Returns the scale of this {@code Quantity}.
+     *
+     * @return the {@link Scale} (shall not be {@code null}).
+     * @since 2.0
+     */
+    default boolean isAbsolute() {
+        return true;
+        //return Scale.ABSOLUTE;
+    }
 
     /**
      * Convenient method equivalent to {@link #to(javax.measure.Unit)
