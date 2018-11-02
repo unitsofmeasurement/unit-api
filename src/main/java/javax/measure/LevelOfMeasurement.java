@@ -34,7 +34,7 @@ package javax.measure;
  *
  * @see <a href="https://en.wikipedia.org/wiki/Level_of_measurement#Stevens's_typology">Wikipedia: Level of measurement - Stevens's typology</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.0, 2018-10-30
+ * @version 1.1, 2018-11-02
  * @since 2.0
  */
 public enum LevelOfMeasurement {
@@ -54,6 +54,12 @@ public enum LevelOfMeasurement {
         this.numerical = numerical;
     }
       
+    /**
+     * @return the numerical
+     */
+    public boolean isNumerical() {
+        return numerical;
+    }
     
     /**
      * Compares two {@link LevelOfMeasurement levelsOfMeasurement} by its ordinal() value.
