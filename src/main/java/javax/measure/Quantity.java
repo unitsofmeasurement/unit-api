@@ -262,14 +262,14 @@ public interface Quantity<Q extends Quantity<Q>> {
     LevelOfMeasurement getLevel();
 
     /**
-     * Returns the scale of this {@code Quantity}.
+     * Returns if this {@code Quantity} is absolute or relative.
      *
-     * @return the {@link Scale} (shall not be {@code null}).
+     * @return {@code true} if it's an absolute quantity, {@code false} if not.
      * @since 2.0
+     * @see <a href="https://en.wikipedia.org/wiki/Absolute_scale">Wikipedia: Absolute scale</a>
      */
     default boolean isAbsolute() {
         return true;
-        //return Scale.ABSOLUTE;
     }
 
     /**

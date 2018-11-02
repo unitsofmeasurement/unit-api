@@ -29,6 +29,7 @@
  */
 package javax.measure.test.quantity;
 
+import javax.measure.LevelOfMeasurement;
 import javax.measure.Quantity;
 import javax.measure.UnconvertibleException;
 import javax.measure.Unit;
@@ -42,12 +43,14 @@ import javax.measure.test.unit.TemperatureUnit;
  */
 public final class TemperatureQuantity extends TestQuantity<Temperature> implements Temperature {
 
-    public TemperatureQuantity() {
-        super(Temperature.class);
+    public TemperatureQuantity(LevelOfMeasurement l) {
+        super(Temperature.class, l);
     }
 
     public TemperatureQuantity(double val, TemperatureUnit un) {
-        this();
+        this((TemperatureUnit.KELVIN.equals(un) ? 
+                LevelOfMeasurement.RATIO : 
+                LevelOfMeasurement.INTERVAL));
         unit = un;
         value = val;
         if (un != null) {
@@ -80,22 +83,6 @@ public final class TemperatureQuantity extends TestQuantity<Temperature> impleme
 
     boolean ne(TemperatureQuantity d1) {
         return ne((TemperatureQuantity) d1);
-    }
-
-    boolean gt(TemperatureQuantity d1) {
-        return gt((TemperatureQuantity) d1);
-    }
-
-    public boolean lt(TemperatureQuantity d1) {
-        return lt((TemperatureQuantity) d1);
-    }
-
-    public boolean ge(TemperatureQuantity d1) {
-        return ge((TemperatureQuantity) d1);
-    }
-
-    public boolean le(TemperatureQuantity d1) {
-        return le((TemperatureQuantity) d1);
     }
 
     public TemperatureQuantity divide(double v) {

@@ -170,8 +170,9 @@ public class AreaQuantityTest {
     assertTrue(area.getLevel().isNumeric());
   }
   
-/*  @Test
+  @Test
   public void testAbsolute() {
-    assertEquals(Quantity.Scale.ABSOLUTE, area.getScale());
-  }*/
+    //assertEquals(Quantity.Scale.ABSOLUTE, area.getScale());
+    assertTrue(area.isAbsolute());
+  }
 }
