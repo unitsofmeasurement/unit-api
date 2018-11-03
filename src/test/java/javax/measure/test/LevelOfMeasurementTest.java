@@ -67,6 +67,11 @@ public class LevelOfMeasurementTest {
     
     @Test
     public void testRatioGreaterThanOrEqInterval() {
-        assertTrue(RATIO.isGreaterThanOrEqualTo(INTERVAL));
+        assertTrue(RATIO.compareTo(INTERVAL) >= 0);
+    }
+    
+    @Test
+    public void testNominalSmallerThanOrdinal() {
+        assertTrue(NOMINAL.compareTo(ORDINAL) < 0);
     }
 }
