@@ -46,7 +46,7 @@ import javax.measure.Unit;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  *
- * @version 1.3.1, November 2, 2018
+ * @version 1.3.2, November 3, 2018
  * @since 1.0
  *
  * @see Unit
@@ -124,6 +124,7 @@ public interface UnitFormat {
      * @return the unit parsed from the specified character sub-sequence.
      * @throws IllegalArgumentException
      *             if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
+     * @since 2.0
      */
     Unit<?> parse(CharSequence csq, ParsePosition cursor) throws IllegalArgumentException, MeasurementParseException;
 
