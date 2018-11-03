@@ -45,8 +45,8 @@ import org.junit.Test;
  */
 public class TemperatureQuantityTest {
 
-  TemperatureQuantity temp;
-  TemperatureUnit k;
+  private TemperatureQuantity temp;
+  private TemperatureUnit k;
 
   @Before
   public void setUp() {
