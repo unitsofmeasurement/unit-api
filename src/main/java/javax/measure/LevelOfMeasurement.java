@@ -57,7 +57,7 @@ public enum LevelOfMeasurement {
     /**
      * Indicates, if this is a quantitative {@link LevelOfMeasurement}.
      * @return {@code true} for a quantitative {@link LevelOfMeasurement} 
-     * @see <a href=" https://en.wikipedia.org/wiki/Quantitative">Wikipedia: Quantitative</a> 
+     * @see <a href="https://en.wikipedia.org/wiki/Quantitative">Wikipedia: Quantitative</a> 
      */
     public boolean isQuantitative() {
         return quantitative;
