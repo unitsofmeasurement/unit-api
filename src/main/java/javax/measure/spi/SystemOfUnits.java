@@ -73,6 +73,7 @@ public interface SystemOfUnits {
      * @param string
      *          the string representation of a unit, not {@code null}.
      * @return the unit with the given string representation.
+     * @since 2.0
      */
     Unit<?> getUnit(String string);
 
