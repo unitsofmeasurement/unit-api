@@ -34,7 +34,7 @@ package javax.measure;
  *
  * @see <a href="https://en.wikipedia.org/wiki/Level_of_measurement#Stevens's_typology">Wikipedia: Level of measurement - Stevens's typology</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2, 2018-11-03
+ * @version 1.3, 2018-11-04
  * @since 2.0
  */
 public enum LevelOfMeasurement {
@@ -55,24 +55,11 @@ public enum LevelOfMeasurement {
     }
       
     /**
-     * Indicates, if this is a quantitative {@link LevelOfMeasurement}.
+     * Indicates, if this is a quantitative {@link LevelOfMeasurement}, a value that can be compared, sorted or calculated with.
      * @return {@code true} for a quantitative {@link LevelOfMeasurement} 
      * @see <a href="https://en.wikipedia.org/wiki/Quantitative">Wikipedia: Quantitative</a> 
      */
     public boolean isQuantitative() {
         return quantitative;
-    }
-        
-    /**
-     * Compares two {@link LevelOfMeasurement levelsOfMeasurement} by its ordinal() value.
-     *
-     * @param other
-     *          the other {@link LevelOfMeasurement} to be compared with.
-     * @return {@code true} if {@code this >= other}.
-     */
-    public boolean isGreaterThanOrEqualTo(LevelOfMeasurement other) {
-        int myLevel = ordinal();
-        int otherLevel = other.ordinal();
-        return (myLevel >= otherLevel);
     }
 }
