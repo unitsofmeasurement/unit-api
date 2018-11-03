@@ -147,6 +147,12 @@ public class TemperatureQuantityTest {
   }
   
   @Test
+  public void testLevelFahrenheit() {
+    TemperatureQuantity temp2 = new TemperatureQuantity(60, TemperatureUnit.FAHRENHEIT);
+    assertEquals(LevelOfMeasurement.INTERVAL, temp2.getLevel());
+  }
+  
+  @Test
   public void testLevelNumeric() {
     assertTrue(temp.getLevel().isNumeric());
   }

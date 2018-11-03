@@ -39,7 +39,7 @@ import javax.measure.test.unit.TemperatureUnit;
 
 /**
  * @author Werner Keil
- * @version 1.0, $Date: 2018-11-02 $
+ * @version 1.1, $Date: 2018-11-03 $
  */
 public final class TemperatureQuantity extends TestQuantity<Temperature> implements Temperature {
 
@@ -48,7 +48,7 @@ public final class TemperatureQuantity extends TestQuantity<Temperature> impleme
     }
 
     public TemperatureQuantity(double val, TemperatureUnit un) {
-        this((TemperatureUnit.KELVIN.equals(un) ? 
+        this(((TemperatureUnit.KELVIN.equals(un) || TemperatureUnit.RANKINE.equals(un)) ? 
                 LevelOfMeasurement.RATIO : 
                 LevelOfMeasurement.INTERVAL));
         unit = un;
