@@ -153,8 +153,8 @@ public class TemperatureQuantityTest {
   }
   
   @Test
-  public void testLevelNumeric() {
-    assertTrue(temp.getLevel().isNumeric());
+  public void testLevelQuant() {
+    assertTrue(temp.getLevel().isQuantitative());
   }
   
   @Test

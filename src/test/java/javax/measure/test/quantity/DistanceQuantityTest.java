@@ -157,7 +157,7 @@ public class DistanceQuantityTest {
   }
   
   @Test
-  public void testLevelNumeric() {
-    assertTrue(distance.getLevel().isNumeric());
+  public void testLevelQuant() {
+    assertTrue(distance.getLevel().isQuantitative());
   }
 }
