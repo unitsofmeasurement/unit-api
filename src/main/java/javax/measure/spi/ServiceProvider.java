@@ -29,15 +29,23 @@
  */
 package javax.measure.spi;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.ServiceConfigurationError;
 import java.util.ServiceLoader;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 import javax.measure.Quantity;
 import javax.measure.format.QuantityFormat;
 import javax.measure.format.UnitFormat;
@@ -48,22 +56,33 @@ import javax.measure.format.UnitFormat;
  * All the methods in this class are safe to use by multiple concurrent threads.
  * </p>
  *
- * @version 1.4, October 7, 2018
+ * @version 1.5, November 3, 2018
  * @author Werner Keil
  * @author Martin Desruisseaux
  * @since 1.0
  */
 public abstract class ServiceProvider {
     /**
-     * Synchronization lock for searching or setting the service providers.
+     * Class name of JSR-330 annotation for naming a service provider.
+     * We use reflection for keeping JSR-330 an optional dependency.
      */
-    private static final Object LOCK = new Object();
+    private static final String NAMED_ANNOTATION = "javax.inject.Named";
 
     /**
-     * All service providers found, sorted in preference order. Array content shall never been changed after initialization; if we want to change the
-     * array content, a new array shall be created.
+     * Class name of JSR-250 annotation for assigning a priority level to a service provider.
+     * We use reflection for keeping JSR-250 an optional dependency.
      */
-    private static volatile ServiceProvider[] providers;
+    private static final String PRIORITY_ANNOTATION = "javax.annotation.Priority";
+
+    /**
+     * The current service provider, or {@code null} if not yet determined.
+     *
+     * <p>IMPLEMENTATION NOTE: We do not cache a list of all service providers because that list depends
+     * indirectly on the thread invoking the {@link #available()} method. More specifically, it depends
+     * on the context class loader. Furthermore caching the {@code ServiceProvider}s can be a source of
+     * memory leaks. See {@link ServiceLoader#load(Class)} API note for reference.</p>
+     */
+    private static final AtomicReference<ServiceProvider> current = new AtomicReference<>();
 
     /**
      * Creates a new service provider. Only to be used by subclasses.
@@ -72,8 +91,12 @@ public abstract class ServiceProvider {
     }
 
     /**
-     * This method allows to define a priority for a registered ServiceProvider instance. When multiple providers are registered in the system the
-     * provider with the highest priority value is taken.
+     * Allows to define a priority for a registered {@code ServiceProvider} instance.
+     * When multiple providers are registered in the system, the provider with the highest priority value is taken.
+     *
+     * <p>If the {@value #PRIORITY_ANNOTATION} annotation (from JSR-250) is present on the {@code ServiceProvider}
+     * implementation class, then that annotation is taken and this {@code getPriority()} method is ignored.
+     * Otherwise – if the {@code Priority} annotation is absent – this method is used as a fallback.</p>
      *
      * @return the provider's priority (default is 0).
      */
@@ -117,46 +140,169 @@ public abstract class ServiceProvider {
     public abstract <Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(Class<Q> quantity);
 
     /**
-     * Gets all {@link ServiceProvider}. This method loads the provider when first needed.
+     * A filter and a comparator for processing the stream of service providers.
+     * The two tasks (filtering and sorting) are implemented by the same class,
+     * but the filter task shall be used only if the name to search is non-null.
+     * The comparator is used in all cases, for sorting providers with higher priority first.
      */
-    private static ServiceProvider[] getProviders() {
-        ServiceProvider[] p = providers;
-        if (p == null) {
-            synchronized (LOCK) {
-                p = providers;
-                if (p == null) {
-                    final List<ServiceProvider> loaded = new ArrayList<ServiceProvider>();
-                    for (ServiceProvider provider : ServiceLoader.load(ServiceProvider.class)) {
-                        loaded.add(provider);
-                    }
-                    p = loaded.toArray(new ServiceProvider[loaded.size()]);
-                    Arrays.sort(p, new Comparator<ServiceProvider>() {
-                        @Override
-                        public int compare(ServiceProvider p1, ServiceProvider p2) {
-                            return p2.getPriority() - p1.getPriority();
-                        }
-                    });
-                    providers = p; // Set only on success.
+    private static final class Selector implements Predicate<ServiceProvider>, Comparator<ServiceProvider> {
+        /**
+         * The name of the provider to search, or {@code null} if no filtering by name is applied.
+         */
+        private final String toSearch;
+
+        /**
+         * Class of the {@value #NAMED_ANNOTATION} and {@value #PRIORITY_ANNOTATION} annotations to search,
+         * or {@code null} if those classes are not on the classpath.
+         */
+        private Class<? extends Annotation> nameAnnotation, priorityAnnotation;
+
+        /**
+         * The {@code value()} method in the {@code *Annotation} class,
+         * or {@code null} if those classes are not on the classpath.
+         */
+        private Method nameGetter, priorityGetter;
+
+        /**
+         * Creates a new filter and comparator for a stream of service providers.
+         *
+         * @param name  name of the desired service provider, or {@code null} if no filtering by name is applied.
+         */
+        Selector(String name) {
+            toSearch = name;
+            try {
+                if (name != null) try {
+                    nameAnnotation = Class.forName(NAMED_ANNOTATION).asSubclass(Annotation.class);
+                    nameGetter = nameAnnotation.getMethod("value", (Class[]) null);
+                } catch (ClassNotFoundException e) {
+                    // Ignore since JSR-330 is an optional dependency.
                 }
+                try {
+                    priorityAnnotation = Class.forName(PRIORITY_ANNOTATION).asSubclass(Annotation.class);
+                    priorityGetter = priorityAnnotation.getMethod("value", (Class[]) null);
+                } catch (ClassNotFoundException e) {
+                    // Ignore since JSR-250 is an optional dependency.
+                }
+            } catch (NoSuchMethodException e) {
+                // Should never happen since value() is a standard public method of those annotations.
+                throw new ServiceConfigurationError("Can not get annotation value", e);
             }
         }
-        return p;
+
+        /**
+         * Returns {@code true} if the given service provider has the name we are looking for.
+         * This method shall be invoked only if a non-null name has been specified to the constructor.
+         * This method looks for the {@value #NAMED_ANNOTATION} annotation, and if none are found fallbacks on
+         * {@link ServiceProvider#toString()}.
+         */
+        @Override
+        public boolean test(ServiceProvider provider) {
+            Object value = null;
+            if (nameGetter != null) {
+                Annotation a = provider.getClass().getAnnotation(nameAnnotation);
+                if (a != null) try {
+                    value = nameGetter.invoke(a, (Object[]) null);
+                } catch (IllegalAccessException | InvocationTargetException e) {
+                    // Should never happen since value() is a public method and should not throw exception.
+                    throw new ServiceConfigurationError("Can not get annotation value", e);
+                }
+            }
+            if (value == null) {
+                value = provider.toString();
+            }
+            return toSearch.equals(value);
+        }
+
+        /**
+         * Returns the priority of the given service provider.
+         * This method looks for the {@value #PRIORITY_ANNOTATION} annotation,
+         * and if none are found fallbacks on {@link ServiceProvider#getPriority()}.
+         */
+        private int priority(ServiceProvider provider) {
+            if (priorityGetter != null) {
+                Annotation a = provider.getClass().getAnnotation(priorityAnnotation);
+                if (a != null) try {
+                    return (Integer) priorityGetter.invoke(a, (Object[]) null);
+                } catch (IllegalAccessException | InvocationTargetException e) {
+                    // Should never happen since value() is a public method and should not throw exception.
+                    throw new ServiceConfigurationError("Can not get annotation value", e);
+                }
+            }
+            return provider.getPriority();
+        }
+
+        /**
+         * Compares the given service providers for order based on their priority.
+         * The priority of each provider is determined as documented by {@link ServiceProvider#getPriority()}.
+         */
+        @Override
+        public int compare(final ServiceProvider p1, final ServiceProvider p2) {
+            return Integer.compare(priority(p1), priority(p2));
+        }
+
+        /**
+         * Gets all {@link ServiceProvider}s sorted by priority and optionally filtered by the name in this selector.
+         * The list of service providers is <strong>not</strong> cached because it depends on the context class loader,
+         * which itself depends on which thread is invoking this method.
+         */
+        Stream<ServiceProvider> stream() {
+            Stream<ServiceProvider> stream = StreamSupport.stream(ServiceLoader.load(ServiceProvider.class).spliterator(), false);
+            if (toSearch != null) {
+                stream = stream.filter(this);
+            }
+            return stream.sorted(this);
+        }
     }
 
     /**
-     * Returns the list of available service providers.
+     * Returns the list of all service providers available for the current thread's context class loader.
+     * The {@linkplain #current() current} service provider is always the first item in the returned list.
+     * Other service providers after the first item may depend on the caller thread
+     * (see {@linkplain ServiceLoader#load(Class) service loader API note}).
      *
-     * @return all available service providers.
+     * @return all service providers available for the current thread's context class loader.
      */
     public static final List<ServiceProvider> available() {
-        return Collections.unmodifiableList(Arrays.asList(getProviders()));
+        ArrayList<ServiceProvider> providers = new Selector(null).stream().collect(Collectors.toCollection(ArrayList::new));
+        /*
+         * Get the current service provider. If no provider has been set yet, set it now for
+         * consistency with the contract saying that the first item is the current provider.
+         */
+        ServiceProvider first = current.get();
+        if (first == null && !providers.isEmpty()) {
+            first = setDefault(providers.get(0));
+        }
+        /*
+         * Make sure that 'first' is the first item in the 'providers' list. If that item appears
+         * somewhere else, we have to remove the second occurrence for avoiding duplicated elements.
+         * We compare the classes, not the instances, because new instances may be created each time
+         * this method is invoked and we have no guaranteed that implementors overrode 'equals'.
+         */
+setcur: if (first != null) {
+            final Class<?> cf = first.getClass();
+            final int size = providers.size();
+            for (int i=0; i<size; i++) {
+                if (cf.equals(providers.get(i).getClass())) {
+                    if (i == 0) break setcur;       // No change needed (note: labeled breaks on if statements are legal).
+                    providers.remove(i);
+                    break;
+                }
+            }
+            providers.add(0, first);
+        }
+        return providers;
     }
 
     /**
      * Returns the {@link ServiceProvider} with the specified name.
-     * The name must match at least one {@link #toString()} value of a provider in the list of available service providers.<br>
-     * Implementors are encouraged to override {@link #toString()} and use a unique enough name, e.g. the class name or other distinct attributes.
-     * Should multiple service providers nevertheless use the same name, the one with the highest {@link #getPriority() priority} wins.
+     * The given name must match the name of at least one service provider available in the current thread's
+     * context class loader. The service provider names are the values of {@value #NAMED_ANNOTATION} annotations
+     * when present, or the value of {@link #toString()} method for providers without {@code Named} annotation.
+     *
+     * <p>Implementors are encouraged to provide an {@code Named} annotation or to override {@link #toString()}
+     * and use a unique enough name, e.g. the class name or other distinct attributes.
+     * Should multiple service providers nevertheless use the same name, the one with the highest
+     * {@linkplain #getPriority() priority} wins.</p>
      *
      * @param name
      *            the name of the service provider to return
@@ -170,19 +316,25 @@ public abstract class ServiceProvider {
      */
     public static ServiceProvider of(String name) {
         Objects.requireNonNull(name);
-        for (ServiceProvider provider : getProviders()) {
-            if (name.equals(String.valueOf(provider))) {
-                return provider;
-            }
+        Selector select = new Selector(name);
+        ServiceProvider p = current.get();
+        if (p != null && select.test(p)) {
+            return p;
         }
-        throw new IllegalArgumentException("No measurement ServiceProvider " + name + " found .");
+        Optional<ServiceProvider> first = select.stream().findFirst();
+        if (first.isPresent()) {
+            return first.get();
+        } else {
+            throw new IllegalArgumentException("No measurement ServiceProvider " + name + " found .");
+        }
     }
 
     /**
      * Returns the current {@link ServiceProvider}. If necessary the {@link ServiceProvider} will be lazily loaded.
      * <p>
-     * If there are no providers available, an {@linkplain IllegalStateException} is thrown, otherwise the provider with the highest priority is used
-     * or the one explicitly designated via {@link #setCurrent(ServiceProvider)} .
+     * If there are no providers available, an {@linkplain IllegalStateException} is thrown.
+     * Otherwise the provider with the highest priority is used
+     * or the one explicitly designated via {@link #setCurrent(ServiceProvider)}.
      * </p>
      *
      * @return the {@link ServiceProvider} used.
@@ -192,11 +344,33 @@ public abstract class ServiceProvider {
      * @see #setCurrent(ServiceProvider)
      */
     public static final ServiceProvider current() {
-        ServiceProvider[] p = getProviders();
-        if (p.length != 0) {
-            return p[0];
+        ServiceProvider p = current.get();
+        if (p == null) {
+            Optional<ServiceProvider> first = new Selector(null).stream().findFirst();
+            if (first.isPresent()) {
+                p = first.get();
+            } else {
+                throw new IllegalStateException("No measurement ServiceProvider found.");
+            }
+            p = setDefault(p);
         }
-        throw new IllegalStateException("No measurement ServiceProvider found.");
+        return p;
+    }
+
+    /**
+     * Sets the given provider as the current one if and only if no other provider are currently set.
+     * If another provider is already set, that other provider is returned.
+     *
+     * @param  provider  the provider to set by default if no other provider is currently set.
+     * @return the current provider, which is the specified {@code provider} if no other provider
+     *         was set before this method call.
+     */
+    private static ServiceProvider setDefault(ServiceProvider provider) {
+        while (!current.compareAndSet(null, provider)) {
+            final ServiceProvider c = current.get();
+            if (c != null) return c;
+        }
+        return provider;
     }
 
     /**
@@ -208,22 +382,12 @@ public abstract class ServiceProvider {
      */
     public static final ServiceProvider setCurrent(ServiceProvider provider) {
         Objects.requireNonNull(provider);
-        synchronized (LOCK) {
-            ServiceProvider[] p = getProviders();
-            ServiceProvider old = (p.length != 0) ? p[0] : null;
-            if (provider != old) {
-                List<ServiceProvider> copy = new ArrayList<ServiceProvider>(Arrays.asList(p));
-                copy.remove(provider);
-                copy.add(0, provider);
-                providers = copy.toArray(new ServiceProvider[copy.size()]);
-
-                // Keep the log inside the synchronized block for making sure that the order
-                // or logging messages matches the order in which ServiceProviders were set.
-                Logger.getLogger("javax.measure.spi").log(Level.CONFIG,
-                        (old == null) ? "Measurement ServiceProvider set to {0}" : "Measurement ServiceProvider replaced by {0}",
-                        provider.getClass().getName());
-            }
-            return old;
+        ServiceProvider old = current.getAndSet(provider);
+        if (old != provider) {
+            Logger.getLogger("javax.measure.spi").log(Level.CONFIG,
+                    "Measurement ServiceProvider {1,choice,0#set to|1#replaced by} {0}.",
+                    new Object[] {provider.getClass().getName(), (old == null) ? 0 : 1});
         }
+        return old;
     }
 }
