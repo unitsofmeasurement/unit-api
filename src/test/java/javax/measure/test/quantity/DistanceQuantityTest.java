@@ -158,6 +158,6 @@ public class DistanceQuantityTest {
   
   @Test
   public void testLevelQuant() {
-    assertTrue(distance.getLevel().isQuantitative());
+    assertTrue(distance.getLevel().isComparable());
   }
 }

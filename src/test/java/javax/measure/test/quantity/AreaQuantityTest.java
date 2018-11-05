@@ -167,7 +167,7 @@ public class AreaQuantityTest {
   
   @Test
   public void testLevelQuant() {
-    assertTrue(area.getLevel().isQuantitative());
+    assertTrue(area.getLevel().isComparable());
   }
   
   @Test

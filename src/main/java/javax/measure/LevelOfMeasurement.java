@@ -34,7 +34,7 @@ package javax.measure;
  *
  * @see <a href="https://en.wikipedia.org/wiki/Level_of_measurement#Stevens's_typology">Wikipedia: Level of measurement - Stevens's typology</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.3.1, 2018-11-05
+ * @version 1.4, 2018-11-05
  * @since 2.0
  */
 public enum LevelOfMeasurement {
@@ -48,19 +48,19 @@ public enum LevelOfMeasurement {
     /** Magnitude, amount. The ratio type takes its name from the fact that measurement is the estimation of the ratio between a magnitude of a continuous quantity and a unit magnitude of the same kind (Michell, 1997, 1999).  */
     RATIO(true);
     
-    private final boolean quantitative;
+    private final boolean comparable;
     
-    private LevelOfMeasurement(boolean quant) {
-        this.quantitative = quant;
+    private LevelOfMeasurement(boolean comp) {
+        this.comparable = comp;
     }
       
     /**
-     * Indicates, if this is a quantitative {@link LevelOfMeasurement}, a value that can be semantically compared, sorted or calculated with.
-     * @return {@code true} for a quantitative {@link LevelOfMeasurement} 
+     * Indicates, if this is a comparable {@link LevelOfMeasurement}, a value that can be semantically compared, sorted or calculated with.
+     * @return {@code true} for a comparable {@link LevelOfMeasurement} 
      * @see <a href="https://en.wikipedia.org/wiki/Quantitative">Wikipedia: Quantitative</a>
      * @see {@link Comparable}
      */
-    public boolean isQuantitative() {
-        return quantitative;
+    public boolean isComparable() {
+        return comparable;
     }
 }

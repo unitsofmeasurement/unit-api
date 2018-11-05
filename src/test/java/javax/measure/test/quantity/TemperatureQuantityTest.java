@@ -154,7 +154,7 @@ public class TemperatureQuantityTest {
   
   @Test
   public void testLevelQuant() {
-    assertTrue(temp.getLevel().isQuantitative());
+    assertTrue(temp.getLevel().isComparable());
   }
   
   @Test
