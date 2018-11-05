@@ -521,8 +521,10 @@
                             <Automatic-Module-Name>java.measure</Automatic-Module-Name>
                             <Multi-Release>true</Multi-Release>
                         </manifestEntries>
+                        <addMavenDescriptor>false</addMavenDescriptor>
                     </archive>
                 </configuration>
+                
                 <executions>
                     <execution>
                         <goals>
