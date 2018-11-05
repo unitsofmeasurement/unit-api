@@ -55,7 +55,7 @@ public enum LevelOfMeasurement {
     }
       
     /**
-     * Indicates, if this is a comparable {@link LevelOfMeasurement}, a value that can be semantically compared, sorted or calculated with.
+     * Indicates, if this is a comparable {@link LevelOfMeasurement}, values at such level can be semantically compared, sorted or calculated with.
      * In most cases this can be related to quantitative {@link LevelOfMeasurement levels of measurement}, but as there is room for interpretation with some, e.g. {@code ORDINAL} this attribute only covers whether or not they can be "semantically" compared to other values. It says nothing about other forms of comparison, e.g. sorting them alphabetically. 
      * @return {@code true} for a comparable {@link LevelOfMeasurement} 
      * @see <a href="https://en.wikipedia.org/wiki/Quantitative">Wikipedia: Quantitative</a>
