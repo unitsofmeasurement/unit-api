@@ -36,15 +36,13 @@ import javax.measure.format.UnitFormat;
 /**
  * This interface represent the service to obtain {@link UnitFormat} instances.<br>
  * <br>
- * <b>Note:</b> This parent interface remains separate for backward-compatibility, it will be merged into FormatService in a future version.
+ * <b>Note:</b> This parent interface remains separate for backward-compatibility, it will be merged into {@link FormatService} in a future version.
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.2, October 7, 2018
+ * @version 1.2.1, November 9, 2018
  * @since 1.0
- * @deprecated To be merged with {@link FormatService}, and removed in a future version, it is here for backward compatibility only.
  */
-@Deprecated
 public interface UnitFormatService {
 
     /**

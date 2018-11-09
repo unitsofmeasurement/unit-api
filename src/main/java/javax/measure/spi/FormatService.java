@@ -41,6 +41,7 @@ import javax.measure.format.UnitFormat;
  * @version 1.0, March 29, 2018
  * @since 2.0
  */
+@SuppressWarnings("deprecation")
 public interface FormatService extends UnitFormatService {
 
     public static enum FormatType {
