@@ -25,7 +25,10 @@ The interfaces provide a layer which separates client code, that would call the 
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=javax.measure%3Aunit-api&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=javax.measure%3Aunit-api)
 
 ## Planning
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/unitsofmeasurement/unit-api.svg)](http://isitmaintained.com/project/unitsofmeasurement/unit-api "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/unitsofmeasurement/unit-api.svg)](http://isitmaintained.com/project/unitsofmeasurement/unit-api "Percentage of issues still open")
+[![GitHub issues](https://img.shields.io/github/issues-raw/unitsofmeasurement/unit-api.svg)](https://github.com/unitsofmeasurement/unit-api/issues) 
+[![GitHub issues](https://img.shields.io/github/issues-closed-raw/unitsofmeasurement/unit-api.svg)](https://github.com/unitsofmeasurement/unit-api/issues?q=is%3Aissue+is%3Aclosed)
+
+[![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/unitsofmeasurement/unit-api.svg)](https://github.com/unitsofmeasurement/unit-api/pulls)
+[![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/unitsofmeasurement/unit-api.svg)](https://github.com/unitsofmeasurement/unit-api/pulls)
 
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/unitsofmeasurement/unit-api.png?columns=all)](https://waffle.io/unitsofmeasurement/unit-api?utm_source=badge)
