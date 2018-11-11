@@ -267,6 +267,7 @@ public interface Quantity<Q extends Quantity<Q>> {
      * @return {@code true} if it's an absolute quantity, {@code false} if not.
      * @since 2.0
      * @see <a href="https://en.wikipedia.org/wiki/Absolute_scale">Wikipedia: Absolute scale</a>
+     @deprecated subject to change, see https://github.com/unitsofmeasurement/unit-api/issues/140
      */
     default boolean isAbsolute() {
         return true;
