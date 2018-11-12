@@ -362,4 +362,15 @@ public interface Unit<Q extends Quantity<Q>> {
      * @return the unit with the given prefix applied.
      */
     Unit<Q> prefix(Prefix prefix);
+    
+    /**
+     * Returns if this {@code Unit} is absolute or relative.
+     *
+     * @return {@code true} if it's an absolute unit, {@code false} if not.
+     * @since 2.0
+     * @see <a href="https://en.wikipedia.org/wiki/Absolute_scale">Wikipedia: Absolute scale</a>
+     */
+    default boolean isAbsolute() {
+        return true;
+    }
 }
