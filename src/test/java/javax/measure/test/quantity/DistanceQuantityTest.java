@@ -152,7 +152,7 @@ public class DistanceQuantityTest {
   
   @Test
   public void testAbsolute() {
-    assertTrue(distance.getUnit().isAbsolute());
+    assertTrue(distance.isAbsolute());
   }
   
   @Test

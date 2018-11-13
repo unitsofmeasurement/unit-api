@@ -159,6 +159,6 @@ public class TemperatureQuantityTest {
   
   @Test
   public void testAbsolute() {
-    assertTrue(temp.getUnit().isAbsolute());
+    assertTrue(temp.isAbsolute());
   }
 }

@@ -173,6 +173,6 @@ public class AreaQuantityTest {
   @Test
   public void testAbsolute() {
     //assertEquals(Quantity.Scale.ABSOLUTE, area.getScale());
-    assertTrue(area.getUnit().isAbsolute());
+    assertTrue(area.isAbsolute());
   }
 }
