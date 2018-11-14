@@ -36,6 +36,7 @@ package javax.measure;
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.4, 2018-11-05
  * @since 2.0
+ * @deprecated Subject to change or possible removal, see https://github.com/unitsofmeasurement/unit-api/issues/140
  */
 public enum LevelOfMeasurement {
     
