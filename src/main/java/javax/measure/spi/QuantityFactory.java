@@ -29,7 +29,6 @@
  */
 package javax.measure.spi;
 
-import javax.measure.LevelOfMeasurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 
@@ -41,7 +40,7 @@ import javax.measure.Unit;
  *
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @author <a href="mailto:otaviopolianasantana@gmail.com">Otavio Santana</a>
- * @version 1.2, October 30, 2018
+ * @version 1.3, November 14, 2018
  * @since 1.0
  *
  * @see <a href="https://en.wikipedia.org/wiki/Factory_method_pattern"> Wikipedia: Factory method pattern</a>
@@ -51,18 +50,18 @@ import javax.measure.Unit;
 public interface QuantityFactory<Q extends Quantity<Q>> {
 
     /**
-     * Returns the quantity for the specified number stated in the specified unit at the specified level of measurement.
+     * Returns the quantity for the specified number stated in the specified unit in the given characteristics.
      *
      * @param value
      *          the numeric value stated in the specified unit
      * @param unit
      *          the unit
-     * @param level
-     *          the level
+     * @param absolute
+     *          if this is an absolute quantity
      * @return the corresponding quantity
      * @since 2.0
      */
-    Quantity<Q> create(Number value, Unit<Q> unit, LevelOfMeasurement level);
+    Quantity<Q> create(Number value, Unit<Q> unit, boolean absolute);
     
     /**
      * Returns the quantity for the specified number stated in the specified unit.
