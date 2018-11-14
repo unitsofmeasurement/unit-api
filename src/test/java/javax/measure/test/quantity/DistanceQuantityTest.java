@@ -154,9 +154,4 @@ public class DistanceQuantityTest {
   public void testAbsolute() {
     assertTrue(distance.isAbsolute());
   }
-  
-  @Test
-  public void testLevelQuant() {
-    assertTrue(distance.getLevel().isComparable());
-  }
 }

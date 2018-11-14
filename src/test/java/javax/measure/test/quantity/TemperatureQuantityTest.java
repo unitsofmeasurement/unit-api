@@ -30,10 +30,10 @@
 package javax.measure.test.quantity;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import javax.measure.LevelOfMeasurement;
 import javax.measure.Quantity;
 import javax.measure.quantity.Temperature;
 import javax.measure.test.unit.TemperatureUnit;
@@ -137,24 +137,19 @@ public class TemperatureQuantityTest {
   
   @Test
   public void testLevel() {
-    assertEquals(LevelOfMeasurement.RATIO, temp.getLevel());
+    assertTrue(temp.isAbsolute());
   }
   
   @Test
   public void testLevelCelsius() {
     TemperatureQuantity temp2 = new TemperatureQuantity(20, TemperatureUnit.CELSIUS);
-    assertEquals(LevelOfMeasurement.INTERVAL, temp2.getLevel());
+    assertFalse(temp2.isAbsolute());
   }
   
   @Test
   public void testLevelFahrenheit() {
     TemperatureQuantity temp2 = new TemperatureQuantity(60, TemperatureUnit.FAHRENHEIT);
-    assertEquals(LevelOfMeasurement.INTERVAL, temp2.getLevel());
-  }
-  
-  @Test
-  public void testLevelQuant() {
-    assertTrue(temp.getLevel().isComparable());
+    assertFalse(temp2.isAbsolute());
   }
   
   @Test

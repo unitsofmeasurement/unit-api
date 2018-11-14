@@ -29,7 +29,6 @@
  */
 package javax.measure.test.quantity;
 
-import javax.measure.LevelOfMeasurement;
 import javax.measure.Quantity;
 import javax.measure.UnconvertibleException;
 import javax.measure.Unit;
@@ -39,18 +38,17 @@ import javax.measure.test.unit.TemperatureUnit;
 
 /**
  * @author Werner Keil
- * @version 1.1, $Date: 2018-11-03 $
+ * @version 1.2, $Date: 2018-11-14 $
  */
 public final class TemperatureQuantity extends TestQuantity<Temperature> implements Temperature {
 
-    public TemperatureQuantity(LevelOfMeasurement l) {
+    public TemperatureQuantity(boolean l) {
         super(Temperature.class, l);
     }
 
     public TemperatureQuantity(double val, TemperatureUnit un) {
         this(((TemperatureUnit.KELVIN.equals(un) || TemperatureUnit.RANKINE.equals(un)) ? 
-                LevelOfMeasurement.RATIO : 
-                LevelOfMeasurement.INTERVAL));
+                true : false));
         unit = un;
         value = val;
         if (un != null) {

@@ -29,7 +29,6 @@
  */
 package javax.measure.test.quantity;
 
-import javax.measure.LevelOfMeasurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Dimensionless;
@@ -48,15 +47,15 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
     protected double value; // value in value (Unit unit)
     protected TestUnit<Q> unit; // unit
     private final Class<Q> type; // quantity type
-    private final LevelOfMeasurement level;
+    private final boolean level;
 
-    protected TestQuantity(Class<Q> type, LevelOfMeasurement level) {
+    protected TestQuantity(Class<Q> type, boolean level) {
         this.type = type;
         this.level = level;
     }
 
     protected TestQuantity(Class<Q> type) {
-        this(type, LevelOfMeasurement.RATIO);
+        this(type, true);
     }
 
     public Class<Q> getType() {
@@ -69,7 +68,7 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
      * @return the measurement level.
      */
     @Override
-    public LevelOfMeasurement getLevel() {
+    public boolean isAbsolute() {
         return level;
     }
 
