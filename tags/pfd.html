@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-    Units of Measurement API
+    Units of Measurement
     </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,8 +52,8 @@
                     <li><a href="http://unitsofmeasurement.github.io/unit-api">API</a></li>
                     <li><a href="http://unitsofmeasurement.github.io/unit-api/site/apidocs/index.html">JavaDoc (API)</a></li>
                     <li class="divider"></li>
-                    <li><a href="">Reference Implementation</a></li>
-                    <li><a href="https://unitsofmeasurement.gitbooks.io/uom-guide/content/">Guide Book</a></li>
+                    <li><a href="https://github.com/unitsofmeasurement/unit-ri">Reference Implementation</a></li>
+                    <li><a href="https://unitsofmeasurement.gitbooks.io/unit-ri-userguide/content/">RI User Guide</a></li>
                     <li><a href="https://github.com/unitsofmeasurement/unit-tck">TCK (Technical Compatibility Kit)</a></li>
                     <li class="divider"></li>
                     <li class="nav-header">Extensions</li>
@@ -83,23 +83,45 @@
       </div><!-- /.container-fluid -->
     </nav><!-- /.navbar -->
 
-  
     <!-- Begin page content -->
     <div class="container">
 
-      <div class="row">
-        <div class="col-md-12">
-          <article>
-            <h2>API</h2>
-            <p><p>The Unit of Measurement API provides a set of Java language programming interfaces for handling units and quantities.<br/>The interfaces provide a layer which separates client code, that would call the API,<br/>from library code, which implements the API.</p>
-<p><img src="/img/duke_measure_250x250.png" alt="alt text" title="Measuring Duke" /></p>
-<p>The specification contains Interfaces and abstract classes with methods for unit operations:<br/>* Checking of unit compatibility<br/>* Expression of a quantity in various units<br/>* Arithmetic operations on units</p>
-<p>Developers frequently encounter the need to model units of measure, because objects in the real world are subject to these measures.<br/>When working with units, developers need to understand the mathematics of units, how to convert between systems,<br/>and how to format and parse string representations of units. Most of this work can be consolidated into one or two Java packages,<br/>which is a primary aim of this JSR. This package will help developers create safe, correct software to deal with common problem of modeling units.</p>
-<p>Units give us a way to measure the physical world. There are many different units, partly because the world has different types of properties,<br/>such as length and mass, which are not interchangeable in normal physics. This type of property is sometimes called a "quantity" or a "dimension".<br/>The word "dimension" fits because of the orthogonality of these properties. For example "mass" and "length" cannot be exchanged.<br/>Further, when we multiply physical measures the dimensions add up as exponents. For example, length times length becomes length².</p>
-<p>A large body of work exists that specifies the dimensions, meanings, and names of various physical quantities.<br/>In particular, the 11th General Conference on Weights and Measures in 1960 recommended a practical system of units of measurement,<br/>and gave it the name Systeme International d'Units (SI).<br/>SI defines units for the base dimensions of length, mass, time, electric current,<br/>thermodynamic temperature, amount of substance, and luminous intensity.<br/>SI also recognizes names and meaning of derived dimensions,<br/>such as area, volume, and force.<br/>For some (but not all) of these derived dimensions SI defines units,<br/>such as "liter" for a unit of volume and "newton" for a unit of force.<br/>SI does not have a special name for area,<br/>although other systems of measurement do (as in "acre").</p>
-<p>Despite the rising prominence of the metric system (the SI system), many developers have to work with non-SI units,<br/>such as feet, miles, acres, and gallons. A measurement can be expressed as a number of any unit,<br/>so long as the unit has the same dimension as the measured quantity. For example,<br/>any measure of volume can be expressed as a number of liters or gallons,<br/>because liters and gallons are units of volume, and all volumes have the dimension of length^3.<br/>Therefore, a measure expressed as a number of liters can be 'converted' to a number of gallons.<br/>Converting measures from one system of units to another is a common problem,<br/>but is subject to mathematics that can help to eliminate errors.</p>          </article>
-        </div> <!-- /.col-md-12 -->
-      </div> <!-- /.row -->
+	    <div class="row">
+          <div class="col-md-9">
+
+            <article>
+			  <h2>Tag #pfd</h2>
+			  <hr>
+              <h4 class="well well-sm tag-month">July 2016</h4>
+              <ul>
+                <li>
+                  <p>19 - <a href="2016/pfd.html">Proposed Final Draft</a></p>
+                </li>
+              </ul>
+		    </article>
+
+	      </div> <!-- /.col-md -->
+      <div id="sidebar" class="col-md-3">
+        <aside>
+          <section>
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <i class="fa fa-users fa-lg panel-title"> Social</i>
+              </div>
+              <div class="list-group sidebar-list">
+                  <a href="https://github.com/unitsofmeasurement" target="_blank" class="list-group-item sidebar-list-item">
+                    <i class="fa fa-github-square fa-2x social-icon"></i> github
+                  </a>
+                  <a href="https://twitter.com/UnitAPI" target="_blank" class="list-group-item sidebar-list-item">
+                    <i class="fa fa-twitter-square fa-2x social-icon"></i> twitter
+                  </a>
+              </div>
+            </div>
+          </section>
+        </aside>
+      </div>
+        </div> <!-- /.row -->
+
 
       </div><!-- /.container -->
 
@@ -108,7 +130,7 @@
         <hr>
         <div class="row">
           <div class="col-xs-10">
-            <p class="text-muted credit">&copy; Units of Measurement project 2018 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.3</a> | <i title="Linux" class="fa fa-linux"></i></p>
+            <p class="text-muted credit">&copy; Units of Measurement project 2017 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.5.0</a> | <i title="Linux" class="fa fa-linux"></i></p>
           </div>
           <div class="col-xs-2 gotop">
             <a href="#"><i class="fa fa-arrow-circle-up"> top</i></a>
@@ -141,3 +163,4 @@
 
   </body>
 </html>
+
