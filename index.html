@@ -97,7 +97,21 @@
 <p>Developers frequently encounter the need to model units of measure, because objects in the real world are subject to these measures.<br/>When working with units, developers need to understand the mathematics of units, how to convert between systems,<br/>and how to format and parse string representations of units. Most of this work can be consolidated into one or two Java packages,<br/>which is a primary aim of this JSR. This package will help developers create safe, correct software to deal with common problem of modeling units.</p>
 <p>Units give us a way to measure the physical world. There are many different units, partly because the world has different types of properties,<br/>such as length and mass, which are not interchangeable in normal physics. This type of property is sometimes called a "quantity" or a "dimension".<br/>The word "dimension" fits because of the orthogonality of these properties. For example "mass" and "length" cannot be exchanged.<br/>Further, when we multiply physical measures the dimensions add up as exponents. For example, length times length becomes length².</p>
 <p>A large body of work exists that specifies the dimensions, meanings, and names of various physical quantities.<br/>In particular, the 11th General Conference on Weights and Measures in 1960 recommended a practical system of units of measurement,<br/>and gave it the name Systeme International d'Units (SI).<br/>SI defines units for the base dimensions of length, mass, time, electric current,<br/>thermodynamic temperature, amount of substance, and luminous intensity.<br/>SI also recognizes names and meaning of derived dimensions,<br/>such as area, volume, and force.<br/>For some (but not all) of these derived dimensions SI defines units,<br/>such as "liter" for a unit of volume and "newton" for a unit of force.<br/>SI does not have a special name for area,<br/>although other systems of measurement do (as in "acre").</p>
-<p>Despite the rising prominence of the metric system (the SI system), many developers have to work with non-SI units,<br/>such as feet, miles, acres, and gallons. A measurement can be expressed as a number of any unit,<br/>so long as the unit has the same dimension as the measured quantity. For example,<br/>any measure of volume can be expressed as a number of liters or gallons,<br/>because liters and gallons are units of volume, and all volumes have the dimension of length^3.<br/>Therefore, a measure expressed as a number of liters can be 'converted' to a number of gallons.<br/>Converting measures from one system of units to another is a common problem,<br/>but is subject to mathematics that can help to eliminate errors.</p>          </article>
+<p>Despite the rising prominence of the metric system (the SI system), many developers have to work with non-SI units,<br/>such as feet, miles, acres, and gallons. A measurement can be expressed as a number of any unit,<br/>so long as the unit has the same dimension as the measured quantity. For example,<br/>any measure of volume can be expressed as a number of liters or gallons,<br/>because liters and gallons are units of volume, and all volumes have the dimension of length^3.<br/>Therefore, a measure expressed as a number of liters can be 'converted' to a number of gallons.<br/>Converting measures from one system of units to another is a common problem,<br/>but is subject to mathematics that can help to eliminate errors.</p>        
+
+	The JSR is lead by Jean-Marie Dautelle (<a href="https://github.com/dautelle" class="user-mention">@dautelle</a>), 
+	Werner Keil (<a href="https://github.com/keilw" class="user-mention">@keilw</a>) and Otavio Santana (<a href="https://github.com/otaviojava" class="user-mention">@otaviojava</a>).
+	<br/>You can access the API by adding the following Maven
+	dependencies:</p>
+
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;javax.measure&lt;/groupId&gt;
+  &lt;artifactId&gt;unit-api&lt;/artifactId&gt;
+  &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+  </article>
         </div> <!-- /.col-md-12 -->
       </div> <!-- /.row -->
 
