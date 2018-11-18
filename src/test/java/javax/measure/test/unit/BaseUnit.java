@@ -55,7 +55,8 @@ public class BaseUnit<Q extends Quantity<Q>> extends TestUnit<Q> {
      * Creates a base unit having the specified symbol.
      *
      * @param symbol
-     *            the symbol of this base unit. * @param name the name of this base unit.
+     *            the symbol of this base unit. 
+     * @param name the name of this base unit.
      * @throws IllegalArgumentException
      *             if the specified symbol is associated to a different unit.
      */
@@ -64,6 +65,15 @@ public class BaseUnit<Q extends Quantity<Q>> extends TestUnit<Q> {
         this.symbol = symbol;
     }
 
+    /**
+     * Creates a base unit with name and factor
+     *
+     * @param factor
+     *            the factor
+     * @param name the name of this base unit.
+     * @throws IllegalArgumentException
+     *             if the specified symbol is associated to a different unit.
+     */
     public BaseUnit(String name, double factor) {
         super(name, factor);
     }

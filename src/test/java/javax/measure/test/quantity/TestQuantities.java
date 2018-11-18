@@ -57,7 +57,8 @@ public final class TestQuantities {
   /**
    * Returns the scalar measurement. When the {@link Number} was {@link BigDecimal} or {@link BigInteger} will use DecimalQuantity, when the
    * {@link Number} was {@link Double} will DoubleQuantity otherwise NumberQuantity. in the specified unit.
-   *
+   * @param <Q>
+   *            The type of the quantity.
    * @param value
    *          the measurement value.
    * @param unit

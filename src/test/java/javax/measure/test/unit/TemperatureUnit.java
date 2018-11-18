@@ -38,7 +38,7 @@ import javax.measure.test.TestUnit;
 
 /**
  * @author Werner Keil
- * @version 0.1, $Date: 2018-11-02 $
+ * @version 0.5, $Date: 2018-11-18 $
  */
 public class TemperatureUnit extends TestUnit<Temperature> {
     private static final char DEG = '\u00B0';
@@ -84,10 +84,12 @@ public class TemperatureUnit extends TestUnit<Temperature> {
      *            Freezing point for this temperature scale.
      * @param newBoilingPoint
      *            Boiling point for this temperature scale.
-     * @param newUnits
+     * @param newSymbol
      *            Unit symbol for this temperature scale.
      * @param newNamedFor
      *            Name of person after which temperature scale was named.
+     *  @param newMult new multiplier
+     *  @param shift the shift factor
      */
     public TemperatureUnit(double newMult, double shift, final TemperatureUnit rel, double newFreezingPoint, double newBoilingPoint,
             final String newSymbol, final String newNamedFor) {
