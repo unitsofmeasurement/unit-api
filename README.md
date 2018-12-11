@@ -31,4 +31,8 @@ The interfaces provide a layer which separates client code, that would call the 
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/unitsofmeasurement/unit-api.svg)](https://github.com/unitsofmeasurement/unit-api/pulls)
 [![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/unitsofmeasurement/unit-api.svg)](https://github.com/unitsofmeasurement/unit-api/pulls)
 
+[![High](https://img.shields.io/github/issues/unitsofmeasurement/unit-api/Priority:%20High.svg?style=flat)](https://github.com/unitsofmeasurement/unit-api/labels/Priority%3A%20High)
+[![P1](https://img.shields.io/github/issues/unitsofmeasurement/unit-api/prio:1.svg?style=flat
+)](https://github.com/unitsofmeasurement/unit-api/labels/prio%3A1)
+
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/unitsofmeasurement/unit-api.png?columns=all)](https://waffle.io/unitsofmeasurement/unit-api?utm_source=badge)
