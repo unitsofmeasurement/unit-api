@@ -38,17 +38,17 @@ import javax.measure.test.unit.TemperatureUnit;
 
 /**
  * @author Werner Keil
- * @version 1.2, $Date: 2018-11-14 $
+ * @version 1.3, $Date: 2018-12-17 $
  */
 public final class TemperatureQuantity extends TestQuantity<Temperature> implements Temperature {
 
-    public TemperatureQuantity(boolean l) {
-        super(Temperature.class, l);
+    public TemperatureQuantity(Scale s) {
+        super(Temperature.class, s);
     }
 
     public TemperatureQuantity(double val, TemperatureUnit un) {
         this(((TemperatureUnit.KELVIN.equals(un) || TemperatureUnit.RANKINE.equals(un)) ? 
-                true : false));
+                Scale.ABSOLUTE : Scale.RELATIVE));
         unit = un;
         value = val;
         if (un != null) {

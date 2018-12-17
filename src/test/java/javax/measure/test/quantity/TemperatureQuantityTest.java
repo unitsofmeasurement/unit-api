@@ -136,24 +136,24 @@ public class TemperatureQuantityTest {
   }
   
   @Test
-  public void testLevel() {
-    assertTrue(temp.isAbsolute());
+  public void testScale() {
+      assertEquals(Quantity.Scale.ABSOLUTE, temp.getScale());
   }
   
   @Test
   public void testLevelCelsius() {
     TemperatureQuantity temp2 = new TemperatureQuantity(20, TemperatureUnit.CELSIUS);
-    assertFalse(temp2.isAbsolute());
+    assertEquals(Quantity.Scale.RELATIVE, temp2.getScale());
   }
   
   @Test
   public void testLevelFahrenheit() {
     TemperatureQuantity temp2 = new TemperatureQuantity(60, TemperatureUnit.FAHRENHEIT);
-    assertFalse(temp2.isAbsolute());
+    assertEquals(Quantity.Scale.RELATIVE, temp2.getScale());
   }
   
   @Test
   public void testAbsolute() {
-    assertTrue(temp.isAbsolute());
+      assertEquals(Quantity.Scale.ABSOLUTE, temp.getScale());
   }
 }

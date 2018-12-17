@@ -47,29 +47,19 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
     protected double value; // value in value (Unit unit)
     protected TestUnit<Q> unit; // unit
     private final Class<Q> type; // quantity type
-    private final boolean level;
-
-    protected TestQuantity(Class<Q> type, boolean level) {
+    private final Scale scale;
+    
+    protected TestQuantity(Class<Q> type, Scale scale) {
         this.type = type;
-        this.level = level;
+        this.scale = scale;
     }
 
     protected TestQuantity(Class<Q> type) {
-        this(type, true);
+        this(type, Scale.ABSOLUTE);
     }
 
     public Class<Q> getType() {
         return this.type;
-    }
-
-    /**
-     * Returns the measurement level.
-     *
-     * @return the measurement level.
-     */
-    @Override
-    public boolean isAbsolute() {
-        return level;
     }
 
     public TestQuantity<Q> add(TestQuantity<Q> dn, TestQuantity<Q> d1, TestQuantity<Q> d2, TestUnit<Q> au) {
@@ -168,5 +158,9 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
 
     public Unit<Q> getUnit() {
         return unit;
+    }
+    
+    public Scale getScale() {
+        return scale;
     }
 }

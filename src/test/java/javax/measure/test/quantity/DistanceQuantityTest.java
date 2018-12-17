@@ -33,6 +33,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import javax.measure.Quantity;
 import javax.measure.quantity.Area;
 import javax.measure.test.unit.AreaUnit;
 import javax.measure.test.unit.DistanceUnit;
@@ -44,114 +45,114 @@ import org.junit.Test;
  */
 public class DistanceQuantityTest {
 
-  DistanceQuantity distance;
-  DistanceUnit m;
+    DistanceQuantity distance;
+    DistanceUnit m;
 
-  @Before
-  public void setUp() {
-    m = DistanceUnit.m;
-    distance = new DistanceQuantity(100, m);
-  }
+    @Before
+    public void setUp() {
+        m = DistanceUnit.m;
+        distance = new DistanceQuantity(100, m);
+    }
 
-  @Test
-  public void testAreaQuantity() {
-    assertNotNull(distance);
-  }
+    @Test
+    public void testAreaQuantity() {
+        assertNotNull(distance);
+    }
 
-  @Test
-  public void testAdd() {
-    DistanceQuantity dist2 = new DistanceQuantity(50, m);
-    DistanceQuantity result = distance.add(dist2);
-    assertEquals(150d, result.scalar, 0);
-  }
+    @Test
+    public void testAdd() {
+        DistanceQuantity dist2 = new DistanceQuantity(50, m);
+        DistanceQuantity result = distance.add(dist2);
+        assertEquals(150d, result.scalar, 0);
+    }
 
-  @Test
-  public void testSubtract() {
-    DistanceQuantity dist2 = new DistanceQuantity(50, m);
-    DistanceQuantity result = distance.subtract(dist2);
-    assertEquals(50d, result.scalar, 0);
-  }
+    @Test
+    public void testSubtract() {
+        DistanceQuantity dist2 = new DistanceQuantity(50, m);
+        DistanceQuantity result = distance.subtract(dist2);
+        assertEquals(50d, result.scalar, 0);
+    }
 
-  @Test
-  public void testEq() {
-    DistanceQuantity dist2 = new DistanceQuantity(100, m);
-    assertTrue(dist2.eq(distance));
-  }
+    @Test
+    public void testEq() {
+        DistanceQuantity dist2 = new DistanceQuantity(100, m);
+        assertTrue(dist2.eq(distance));
+    }
 
-  @Test
-  public void testGt() {
-    DistanceQuantity dist2 = new DistanceQuantity(120, m);
-    assertTrue(dist2.gt(distance));
-  }
+    @Test
+    public void testGt() {
+        DistanceQuantity dist2 = new DistanceQuantity(120, m);
+        assertTrue(dist2.gt(distance));
+    }
 
-  @Test
-  public void testLt() {
-    DistanceQuantity dist2 = new DistanceQuantity(20, m);
-    assertTrue(dist2.lt(distance));
-  }
+    @Test
+    public void testLt() {
+        DistanceQuantity dist2 = new DistanceQuantity(20, m);
+        assertTrue(dist2.lt(distance));
+    }
 
-  @Test
-  public void testGe() {
-    DistanceQuantity dist2 = new DistanceQuantity(120, m);
-    assertTrue(dist2.ge(distance));
-    dist2 = new DistanceQuantity(100, m);
-    assertTrue(dist2.ge(distance));
-  }
+    @Test
+    public void testGe() {
+        DistanceQuantity dist2 = new DistanceQuantity(120, m);
+        assertTrue(dist2.ge(distance));
+        dist2 = new DistanceQuantity(100, m);
+        assertTrue(dist2.ge(distance));
+    }
 
-  @Test
-  public void testLe() {
-    DistanceQuantity dist2 = new DistanceQuantity(20, m);
-    assertTrue(dist2.le(distance));
-    dist2 = new DistanceQuantity(100, m);
-    assertTrue(dist2.le(distance));
-  }
+    @Test
+    public void testLe() {
+        DistanceQuantity dist2 = new DistanceQuantity(20, m);
+        assertTrue(dist2.le(distance));
+        dist2 = new DistanceQuantity(100, m);
+        assertTrue(dist2.le(distance));
+    }
 
-  @Test
-  public void testMultiplyDouble() {
-    DistanceQuantity result = distance.multiply(3d);
-    assertEquals(300d, result.scalar, 0d);
-  }
+    @Test
+    public void testMultiplyDouble() {
+        DistanceQuantity result = distance.multiply(3d);
+        assertEquals(300d, result.scalar, 0d);
+    }
 
-  @Test
-  public void testDivideDouble() {
-    DistanceQuantity result = distance.divide(10d);
-    assertEquals(10d, result.scalar, 0d);
-  }
+    @Test
+    public void testDivideDouble() {
+        DistanceQuantity result = distance.divide(10d);
+        assertEquals(10d, result.scalar, 0d);
+    }
 
-  @Test
-  public void testMultiplyDistanceQuantity() {
-    DistanceQuantity dist = new DistanceQuantity(15, DistanceUnit.m);
-    AreaQuantity result = distance.multiply(dist);
-    assertEquals(AreaUnit.class, result.getUnit().getClass());
-    assertEquals(AreaQuantity.class, result.getClass());
-    assertEquals(Area.class, result.getType());
-    assertEquals(1500d, result.getValue());
-  }
+    @Test
+    public void testMultiplyDistanceQuantity() {
+        DistanceQuantity dist = new DistanceQuantity(15, DistanceUnit.m);
+        AreaQuantity result = distance.multiply(dist);
+        assertEquals(AreaUnit.class, result.getUnit().getClass());
+        assertEquals(AreaQuantity.class, result.getClass());
+        assertEquals(Area.class, result.getType());
+        assertEquals(1500d, result.getValue());
+    }
 
-  @Test
-  public void testConvert() {
-    DistanceQuantity result = distance.convert(DistanceUnit.in);
-    assertEquals(100d, result.scalar, 0d);
-  }
+    @Test
+    public void testConvert() {
+        DistanceQuantity result = distance.convert(DistanceUnit.in);
+        assertEquals(100d, result.scalar, 0d);
+    }
 
-  @Test
-  public void testShowInUnits() {
-    String result = distance.showInUnits(DistanceUnit.mile, 2);
-    assertEquals("0.062150403977625855 mile", result);
-  }
+    @Test
+    public void testShowInUnits() {
+        String result = distance.showInUnits(DistanceUnit.mile, 2);
+        assertEquals("0.062150403977625855 mile", result);
+    }
 
-  @Test
-  public void testToSystemUnit() {
-    assertEquals(distance.toSystemUnit(), distance.to(distance.getUnit().getSystemUnit()));
-  }
+    @Test
+    public void testToSystemUnit() {
+        assertEquals(distance.toSystemUnit(), distance.to(distance.getUnit().getSystemUnit()));
+    }
 
-  @Test
-  public void testNegate() {
-    assertEquals(distance.negate().getValue(), -distance.getValue().doubleValue());
-  }
-  
-  @Test
-  public void testAbsolute() {
-    assertTrue(distance.isAbsolute());
-  }
+    @Test
+    public void testNegate() {
+        assertEquals(distance.negate().getValue(), -distance.getValue().doubleValue());
+    }
+
+    @Test
+    public void testAbsolute() {
+        assertEquals(Quantity.Scale.ABSOLUTE, distance.getScale());
+    }
 }

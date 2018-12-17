@@ -33,6 +33,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import javax.measure.Quantity;
 import javax.measure.quantity.Volume;
 import javax.measure.test.unit.AreaUnit;
 import javax.measure.test.unit.DistanceUnit;
@@ -160,13 +161,7 @@ public class AreaQuantityTest {
   }
   
   @Test
-  public void testLevel() {
-    assertTrue(area.isAbsolute());
-  }
-  
-  @Test
-  public void testAbsolute() {
-    //assertEquals(Quantity.Scale.ABSOLUTE, area.getScale());
-    assertTrue(area.isAbsolute());
+  public void testScale() {
+    assertEquals(Quantity.Scale.ABSOLUTE, area.getScale());
   }
 }

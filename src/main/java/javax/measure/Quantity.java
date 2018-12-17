@@ -87,7 +87,7 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @see <a href="http://martinfowler.com/eaaDev/quantity.html">Martin Fowler -
  *      Quantity</a>
- * @version 1.8, December 11, 2018
+ * @version 1.9, December 18, 2018
  * @since 1.0
  */
 public interface Quantity<Q extends Quantity<Q>> {
@@ -276,14 +276,14 @@ public interface Quantity<Q extends Quantity<Q>> {
     default Quantity<Q> toSystemUnit() {
         return to(getUnit().getSystemUnit());
     }
-    
+      
     /**
      * Returns if this {@code Quantity} is absolute or relative.
      *
      * @return {@code true} if it's an absolute quantity, {@code false} if not.
      * @since 2.0
+     
      * @see <a href="https://en.wikipedia.org/wiki/Absolute_scale">Wikipedia: Absolute scale</a>
-     * @deprecated Subject to change, see https://github.com/unitsofmeasurement/unit-api/issues/140
      */
-    boolean isAbsolute();
+    Scale getScale();
 }
