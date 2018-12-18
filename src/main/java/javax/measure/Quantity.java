@@ -87,7 +87,7 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @see <a href="http://martinfowler.com/eaaDev/quantity.html">Martin Fowler -
  *      Quantity</a>
- * @version 1.9, December 18, 2018
+ * @version 1.9.1, December 18, 2018
  * @since 1.0
  */
 public interface Quantity<Q extends Quantity<Q>> {
@@ -278,9 +278,9 @@ public interface Quantity<Q extends Quantity<Q>> {
     }
       
     /**
-     * Returns if this {@code Quantity} is absolute or relative.
+     * Returns the {@code Scale} of this {@code Quantity}, if it's absolute or relative.
      *
-     * @return {@code true} if it's an absolute quantity, {@code false} if not.
+     * @return the scale, if it's an absolute or relative quantity.
      * @since 2.0
      
      * @see <a href="https://en.wikipedia.org/wiki/Absolute_scale">Wikipedia: Absolute scale</a>
