@@ -37,7 +37,7 @@ import javax.measure.Unit;
 /**
  * Formats instances of {@link Unit} to a {@link String} or {@link Appendable} and parses a {@link CharSequence} to a {@link Unit}.
  *
- * <h1><a name="synchronization">Synchronization</a></h1>
+ * <h1><a id="synchronization">Synchronization</a></h1>
  * <p>
  * Instances of this class are not required to be thread-safe. It is recommended to use separate format instances for each thread. If multiple threads
  * access a format concurrently, it must be synchronized externally.
@@ -80,12 +80,12 @@ public interface UnitFormat {
      * If the specified label is already associated to a unit the previous association can be discarded or ignored. Depending on the
      * {@link UnitFormat} implementation, this call may be ignored if the particular unit already has a label.
      * </p>
-     * If a {@link UnitFormat} implementation is explicitly <b>immutable</b>, similar to e.g. the result of <tt>Collections.unmodifiableList()</tt>,
+     * If a {@link UnitFormat} implementation is explicitly <b>immutable</b>, similar to e.g. the result of <code>Collections.unmodifiableList()</code>,
      * then an {@linkplain UnsupportedOperationException} may be thrown upon this call.
      * <p>
-     * Since <tt>UnitFormat</tt> implementations often apply the Singleton pattern, <b>system-wide</b> means, the label applies to every instance of
-     * <tt>UnitFormatA</tt> implementing <tt>UnitFormat</tt> in this case, but not every instance of <tt>UnitFormatB</tt> or <tt>UnitFormatC</tt> both
-     * also implementing <tt>UnitFormat</tt>. If a <tt>UnitFormat</tt> #isLocaleSensitive() it is up to the implementation, whether the label is
+     * Since <code>UnitFormat</code> implementations often apply the Singleton pattern, <b>system-wide</b> means, the label applies to every instance of
+     * <code>UnitFormatA</code> implementing <code>UnitFormat</code> in this case, but not every instance of <code>UnitFormatB</code> or <code>UnitFormatC</code> both
+     * also implementing <code>UnitFormat</code>. If a <code>UnitFormat</code> #isLocaleSensitive() it is up to the implementation, whether the label is
      * ignored, applied in a local-neutral manner (in addition to its local-sensitive information) or locale-specific.
      * </p>
      *
@@ -97,7 +97,7 @@ public interface UnitFormat {
      *             if the label is not a valid identifier. This may include characters not supported by a particular {@link UnitFormat} implementation
      *             (e.g. only <b>ASCII</b> characters for certain devices)
      * @throws UnsupportedOperationException
-     *             if the <tt>label</tt> operation is not supported by this {@link UnitFormat}
+     *             if the <code>label</code> operation is not supported by this {@link UnitFormat}
      */
     void label(Unit<?> unit, String label);
 

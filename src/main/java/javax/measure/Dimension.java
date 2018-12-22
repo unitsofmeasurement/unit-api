@@ -70,11 +70,11 @@ public interface Dimension {
     Dimension divide(Dimension divisor);
 
     /**
-     * Returns this dimension raised to an exponent. <tt>(this<sup>n</sup>)</tt>
+     * Returns this dimension raised to an exponent. <code>(this<sup>n</sup>)</code>
      *
      * @param n
      *          power to raise this {@code Dimension} to.
-     * @return <tt>this<sup>n</sup></tt>
+     * @return <code>this<sup>n</sup></code>
      */
     Dimension pow(int n);
 
