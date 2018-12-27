@@ -60,7 +60,7 @@ public interface FormatService extends UnitFormatService {
     /**
      * Returns the quantity format having the specified name or {@code null} if none.
      *
-     * For example (@code getQuantityFormat("Simple")} to return the simple UCUM specific {@link QuantityFormat} implementation.
+     * For example (@code getQuantityFormat("Simple")} to return the simple {@link QuantityFormat} implementation.
      *
      * @param name
      *          the name of the format.

@@ -58,7 +58,7 @@ public interface UnitFormatService {
     /**
      * Returns the unit format having the specified name or {@code null} if none.
      *
-     * For example {@code getUnitFormat("UCUM")} to return a UCUM specific {@link UnitFormat} implementation.
+     * For example {@code getUnitFormat("Simple")} to return a simple {@link UnitFormat} implementation.
      *
      * @param name
      *          the name of the format.
