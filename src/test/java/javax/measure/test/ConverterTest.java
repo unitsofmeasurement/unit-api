@@ -29,17 +29,17 @@
  */
 package javax.measure.test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.measure.UnitConverter;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class ConverterTest {
   private UnitConverter sut;
 
-  @Before
+  @BeforeEach
   public void init() {
     sut = TestConverter.IDENTITY;
   }

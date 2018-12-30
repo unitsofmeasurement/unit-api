@@ -47,7 +47,7 @@ public class TemperatureUnit extends TestUnit<Temperature> {
 
     /** Rankine, used in scientific endeavors. */
     public static final TemperatureUnit RANKINE = new TemperatureUnit(5 / 9, 0d, KELVIN, 491.67d, 671.641d, DEG + "R",
-            "William John Macquorn Rankine");
+        "William John Macquorn Rankine");
 
     /** Celsius, used by most of the world's population. */
     public static final TemperatureUnit CELSIUS = new TemperatureUnit(0d, 273.15d, KELVIN, 0d, 100d, DEG + "C", "Anders Celsius");
@@ -92,7 +92,7 @@ public class TemperatureUnit extends TestUnit<Temperature> {
      *  @param shift the shift factor
      */
     public TemperatureUnit(double newMult, double shift, final TemperatureUnit rel, double newFreezingPoint, double newBoilingPoint,
-            final String newSymbol, final String newNamedFor) {
+                           final String newSymbol, final String newNamedFor) {
         this.multFactor = newMult;
         this.relativeTo = rel;
         this.freezingPoint = newFreezingPoint;
@@ -139,7 +139,7 @@ public class TemperatureUnit extends TestUnit<Temperature> {
         if ((metricUnit == null) || metricUnit.isCompatible(this))
             return (Unit<T>) this;
         throw new ClassCastException("The unit: " + this //$NON-NLS-1$
-                + " is not of parameterized type " + type); //$NON-NLS-1$
+            + " is not of parameterized type " + type); //$NON-NLS-1$
     }
 
     public Unit<Temperature> multiply(double factor) {

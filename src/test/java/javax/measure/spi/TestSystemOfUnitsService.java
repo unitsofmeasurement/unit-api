@@ -33,29 +33,26 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import javax.measure.spi.SystemOfUnits;
-import javax.measure.spi.SystemOfUnitsService;
-
 /**
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 0.8, April 20, 2018
  * @since 2.0
  */
 class TestSystemOfUnitsService implements SystemOfUnitsService {
-  protected final Map<String, SystemOfUnits> souMap = new ConcurrentHashMap<>();
+    protected final Map<String, SystemOfUnits> souMap = new ConcurrentHashMap<>();
 
-  @Override
-  public Collection<SystemOfUnits> getAvailableSystemsOfUnits() {
-    return souMap.values();
-  }
+    @Override
+    public Collection<SystemOfUnits> getAvailableSystemsOfUnits() {
+        return souMap.values();
+    }
 
-  @Override
-  public SystemOfUnits getSystemOfUnits(String name) {
-    return souMap.get(name);
-  }
+    @Override
+    public SystemOfUnits getSystemOfUnits(String name) {
+        return souMap.get(name);
+    }
 
-  @Override
-  public SystemOfUnits getSystemOfUnits() {
-    return getSystemOfUnits("");
-  }
+    @Override
+    public SystemOfUnits getSystemOfUnits() {
+        return getSystemOfUnits("");
+    }
 }

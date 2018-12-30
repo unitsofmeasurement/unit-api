@@ -32,30 +32,39 @@ package javax.measure.test.format;
 import javax.measure.format.MeasurementParseException;
 import javax.measure.format.ParserException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Measurement Format Tests
  */
 public class MeasurementParseTest {
 
-  @Test(expected = MeasurementParseException.class)
-  public void testExceptionWithMessage() {
-    throw new MeasurementParseException("Error");
-  }
+    @Test
+    public void testExceptionWithMessage() {
+        assertThrows(MeasurementParseException.class, () -> {
+            throw new MeasurementParseException("Error");
+        });
+    }
 
-  @Test(expected = ParserException.class)
-  public void testOldExceptionWithMessageDataAndPos() {
-    throw new ParserException("Error", " ", 0);
-  }
+    @Test
+    public void testOldExceptionWithMessageDataAndPos() {
+        assertThrows(ParserException.class, () -> {
+            throw new ParserException("Error", " ", 0);
+        });
+    }
 
-  @Test(expected = ParserException.class)
-  public void testOldExceptionWithMessageAndPos() {
-    throw new ParserException("Error", 0);
-  }
+    @Test
+    public void testOldExceptionWithMessageAndPos() {
+        assertThrows(ParserException.class, () -> {
+            throw new ParserException("Error", 0);
+        });
+    }
 
-  @Test(expected = ParserException.class)
-  public void testOldExceptionWithCause() {
-    throw new ParserException(new IllegalArgumentException("Error"));
-  }
+    @Test
+    public void testOldExceptionWithCause() {
+        assertThrows(ParserException.class, () -> {
+            throw new ParserException(new IllegalArgumentException("Error"));
+        });
+    }
 }

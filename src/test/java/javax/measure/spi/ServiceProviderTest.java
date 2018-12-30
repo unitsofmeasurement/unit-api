@@ -29,9 +29,9 @@
  */
 package javax.measure.spi;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Collection;
 
@@ -45,124 +45,135 @@ import javax.measure.Quantity;
  */
 public class ServiceProviderTest {
 
-  @Test(expected = NullPointerException.class)
-  public void testSetCurrentNull() {
-    ServiceProvider.setCurrent(null);
-  }
-
-  /**
-   * Tests {@link ServiceProvider#current()} and {@link ServiceProvider#setCurrent(ServiceProvider)}. The getter and setter are tested in a single
-   * method for avoiding issues with the order in which JUnit executes tests.
-   */
-  @Test
-  public void testGetAndSetCurrent() {
-    assertEquals(0, ServiceProvider.available().size());
-    try {
-      ServiceProvider.current();
-      fail("Expected no ServiceProvider before we set one.");
-    } catch (IllegalStateException e) {
-      // This is the expected exception.
-    }
-    ServiceProvider testProv = new TestServiceProvider();
-    assertNull("Expected no ServiceProvider before we set one.", ServiceProvider.setCurrent(testProv));
-    assertSame("Setting the same ServiceProvider twice should be a no-op.", testProv, ServiceProvider.setCurrent(testProv));
-    assertSame(testProv, ServiceProvider.current());
-    assertArrayEquals(new ServiceProvider[] { testProv }, ServiceProvider.available().toArray());
-    assertNotNull(ServiceProvider.of("TestServiceProvider"));
-  }
-
-  /**
-   * Tests {@link ServiceProvider#getPriority()}.
-   */
-  @Test
-  public void testPriority() {
-    assertEquals(0, ServiceProvider.current().getPriority());
-  }
-  
-  /**
-   * Tests ServiceProvider#of() by passing null.
-   */
-  @Test(expected = NullPointerException.class)
-  public void testOfNull() {
-    @SuppressWarnings("unused")
-    ServiceProvider dummy = ServiceProvider.of(null);
-  }
-  
-  /**
-   * Tests ServiceProvider#of() by passing a non-existing name.
-   */
-  @Test(expected = IllegalArgumentException.class)
-  public void testOfNonExistent() {
-    @SuppressWarnings("unused")
-    ServiceProvider dummy = ServiceProvider.of("ThisServiceProviderWillNeverExistHere");
-  }
-
-  @Test
-  public void testGetMetricPrefixes() {
-    final ServiceProvider testProv = new TestServiceProvider();
-    final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
-    Collection<MetricPrefix> prefixes = service.getPrefixes(MetricPrefix.class);
-    assertNotNull(prefixes);
-    assertEquals(20, prefixes.size());
-  }
-
-  @Test
-  public void testGetBinaryPrefixes() {
-    final ServiceProvider testProv = new TestServiceProvider();
-    final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
-    assertNotNull(service);
-    Collection<BinaryPrefix> prefixes = service.getPrefixes(BinaryPrefix.class);
-    assertNotNull(prefixes);
-    assertEquals(8, prefixes.size());
-  }
-
-  @Test(expected = ClassCastException.class)
-  public void testWrongPrefixType() {
-    final ServiceProvider testProv = new TestServiceProvider();
-    final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
-    assertNotNull(service);
-    @SuppressWarnings({ "unused", "rawtypes", "unchecked" })
-    Collection<Prefix> prefixes = service.getPrefixes((Class) String.class);
-  }
-
-  @Test(expected = ClassCastException.class)
-  public void testWrongEnumType() {
-    final ServiceProvider testProv = new TestServiceProvider();
-    final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
-    assertNotNull(service);
-    @SuppressWarnings({ "unused", "rawtypes", "unchecked" })
-    Collection<Prefix> prefixes = service.getPrefixes((Class) DummyEnum.class);
-  }
-
-  private static final class TestServiceProvider extends ServiceProvider {
-
-    @Override
-    public SystemOfUnitsService getSystemOfUnitsService() {
-      return new TestSystemOfUnitsService();
+    @Test
+    public void testSetCurrentNull() {
+        assertThrows(NullPointerException.class, () -> {
+            ServiceProvider.setCurrent(null);
+        });
     }
 
-    @Override
-    public UnitFormatService getUnitFormatService() {
-      return null;
+    /**
+     * Tests {@link ServiceProvider#current()} and {@link ServiceProvider#setCurrent(ServiceProvider)}. The getter and setter are tested in a single
+     * method for avoiding issues with the order in which JUnit executes tests.
+     */
+    @Test
+    public void testGetAndSetCurrent() {
+        assertEquals(0, ServiceProvider.available().size());
+        try {
+            ServiceProvider.current();
+            fail("Expected no ServiceProvider before we set one.");
+        } catch (IllegalStateException e) {
+            // This is the expected exception.
+        }
+        ServiceProvider testProv = new TestServiceProvider();
+        assertNull(ServiceProvider.setCurrent(testProv), "Expected no ServiceProvider before we set one.");
+        assertSame(testProv, ServiceProvider.setCurrent(testProv), "Setting the same ServiceProvider twice should be a no-op.");
+        assertSame(testProv, ServiceProvider.current());
+        assertArrayEquals(new ServiceProvider[] { testProv }, ServiceProvider.available().toArray());
+        assertNotNull(ServiceProvider.of("TestServiceProvider"));
     }
 
-    @Override
-    public <Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(Class<Q> quantity) {
-      return null;
+    /**
+     * Tests {@link ServiceProvider#getPriority()}.
+     */
+    @Test
+    public void testPriority() {
+        assertEquals(0, ServiceProvider.current().getPriority());
     }
 
-    @Override
-    public FormatService getFormatService() {
-      return null;
+    /**
+     * Tests ServiceProvider#of() by passing null.
+     */
+    @Test
+    public void testOfNull() {
+        assertThrows(NullPointerException.class, () -> {
+            @SuppressWarnings("unused")
+            ServiceProvider dummy = ServiceProvider.of(null);
+        });
     }
 
-    @Override
-    public String toString() {
-        return "TestServiceProvider";
+    /**
+     * Tests ServiceProvider#of() by passing a non-existing name.
+     */
+    @Test
+    public void testOfNonExistent() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            @SuppressWarnings("unused")
+            ServiceProvider dummy = ServiceProvider.of("ThisServiceProviderWillNeverExistHere");
+        });
     }
-  }
 
-  private static enum DummyEnum {
-    A, B
-  }
+    @Test
+    public void testGetMetricPrefixes() {
+        final ServiceProvider testProv = new TestServiceProvider();
+        final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
+        Collection<MetricPrefix> prefixes = service.getPrefixes(MetricPrefix.class);
+        assertNotNull(prefixes);
+        assertEquals(20, prefixes.size());
+    }
+
+    @Test
+    public void testGetBinaryPrefixes() {
+        final ServiceProvider testProv = new TestServiceProvider();
+        final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
+        assertNotNull(service);
+        Collection<BinaryPrefix> prefixes = service.getPrefixes(BinaryPrefix.class);
+        assertNotNull(prefixes);
+        assertEquals(8, prefixes.size());
+    }
+
+    @Test
+    public void testWrongPrefixType() {
+        final ServiceProvider testProv = new TestServiceProvider();
+        final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
+        assertNotNull(service);
+        assertThrows(ClassCastException.class, () -> {
+            @SuppressWarnings({ "unused", "rawtypes", "unchecked" })
+            Collection<Prefix> prefixes = service.getPrefixes((Class) String.class);
+        });
+
+    }
+
+    @Test
+    public void testWrongEnumType() {
+        final ServiceProvider testProv = new TestServiceProvider();
+        final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
+        assertNotNull(service);
+        assertThrows(ClassCastException.class, () -> {
+            @SuppressWarnings({ "unused", "rawtypes", "unchecked" })
+            Collection<Prefix> prefixes = service.getPrefixes((Class) DummyEnum.class);
+        });
+    }
+
+    private static final class TestServiceProvider extends ServiceProvider {
+
+        @Override
+        public SystemOfUnitsService getSystemOfUnitsService() {
+            return new TestSystemOfUnitsService();
+        }
+
+        @Override
+        public UnitFormatService getUnitFormatService() {
+            return null;
+        }
+
+        @Override
+        public <Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(Class<Q> quantity) {
+            return null;
+        }
+
+        @Override
+        public FormatService getFormatService() {
+            return null;
+        }
+
+        @Override
+        public String toString() {
+            return "TestServiceProvider";
+        }
+    }
+
+    private static enum DummyEnum {
+        A, B
+    }
 }

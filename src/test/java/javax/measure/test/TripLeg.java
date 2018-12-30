@@ -35,19 +35,19 @@ import javax.measure.test.quantity.DistanceQuantity;
  * @author paul.morrison
  */
 public class TripLeg {
-  @SuppressWarnings("unused")
-  private String fromAirport;
-  @SuppressWarnings("unused")
-  private String toAirport;
-  private DistanceQuantity distance;
+    @SuppressWarnings("unused")
+    private String fromAirport;
+    @SuppressWarnings("unused")
+    private String toAirport;
+    private DistanceQuantity distance;
 
-  public TripLeg(String fA, String tA, DistanceQuantity dist) {
-    fromAirport = fA;
-    toAirport = tA;
-    distance = dist;
-  }
+    public TripLeg(String fA, String tA, DistanceQuantity dist) {
+        fromAirport = fA;
+        toAirport = tA;
+        distance = dist;
+    }
 
-  public DistanceQuantity getDist() {
-    return distance;
-  }
+    public DistanceQuantity getDist() {
+        return distance;
+    }
 }
