@@ -29,16 +29,17 @@
  */
 package javax.measure.test.quantity;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.measure.Quantity;
 import javax.measure.quantity.Area;
 import javax.measure.test.unit.AreaUnit;
 import javax.measure.test.unit.DistanceUnit;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Werner Keil
@@ -48,7 +49,7 @@ public class DistanceQuantityTest {
     DistanceQuantity distance;
     DistanceUnit m;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         m = DistanceUnit.m;
         distance = new DistanceQuantity(100, m);
@@ -63,14 +64,14 @@ public class DistanceQuantityTest {
     public void testAdd() {
         DistanceQuantity dist2 = new DistanceQuantity(50, m);
         DistanceQuantity result = distance.add(dist2);
-        assertEquals(150d, result.scalar, 0);
+        assertEquals(150d, result.scalar);
     }
 
     @Test
     public void testSubtract() {
         DistanceQuantity dist2 = new DistanceQuantity(50, m);
         DistanceQuantity result = distance.subtract(dist2);
-        assertEquals(50d, result.scalar, 0);
+        assertEquals(50d, result.scalar);
     }
 
     @Test
@@ -110,13 +111,13 @@ public class DistanceQuantityTest {
     @Test
     public void testMultiplyDouble() {
         DistanceQuantity result = distance.multiply(3d);
-        assertEquals(300d, result.scalar, 0d);
+        assertEquals(300d, result.scalar);
     }
 
     @Test
     public void testDivideDouble() {
         DistanceQuantity result = distance.divide(10d);
-        assertEquals(10d, result.scalar, 0d);
+        assertEquals(10d, result.scalar);
     }
 
     @Test
@@ -132,7 +133,7 @@ public class DistanceQuantityTest {
     @Test
     public void testConvert() {
         DistanceQuantity result = distance.convert(DistanceUnit.in);
-        assertEquals(100d, result.scalar, 0d);
+        assertEquals(100d, result.scalar);
     }
 
     @Test

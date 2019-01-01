@@ -47,8 +47,8 @@ public final class TemperatureQuantity extends TestQuantity<Temperature> impleme
     }
 
     public TemperatureQuantity(double val, TemperatureUnit un) {
-        this(((TemperatureUnit.KELVIN.equals(un) || TemperatureUnit.RANKINE.equals(un)) ? 
-                Scale.ABSOLUTE : Scale.RELATIVE));
+        this(((TemperatureUnit.KELVIN.equals(un) || TemperatureUnit.RANKINE.equals(un)) ?
+            Scale.ABSOLUTE : Scale.RELATIVE));
         unit = un;
         value = val;
         if (un != null) {
@@ -129,7 +129,7 @@ public final class TemperatureQuantity extends TestQuantity<Temperature> impleme
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * Measurement#doubleValue(javax.measure.Unit)
      */
@@ -141,8 +141,8 @@ public final class TemperatureQuantity extends TestQuantity<Temperature> impleme
         } catch (UnconvertibleException e) {
             throw e;
         } // catch (IncommensurableException e) {
-          // throw new IllegalArgumentException(e.getMessage());
-          // }
+        // throw new IllegalArgumentException(e.getMessage());
+        // }
     }
 
     public Quantity<Temperature> to(Unit<Temperature> unit) {

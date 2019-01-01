@@ -38,18 +38,18 @@ import javax.measure.quantity.Time;
  */
 public class TimeUnit extends BaseUnit<Time> {
 
-  public static final TimeUnit s = new TimeUnit("s", 1.0); // reference Unit
-  public static final TimeUnit REF_UNIT = s; // reference Unit
-  public static final TimeUnit h = new TimeUnit("h", 60 * 60);
-  public static final TimeUnit min = new TimeUnit("min", 60);
+    public static final TimeUnit s = new TimeUnit("s", 1.0); // reference Unit
+    public static final TimeUnit REF_UNIT = s; // reference Unit
+    public static final TimeUnit h = new TimeUnit("h", 60 * 60);
+    public static final TimeUnit min = new TimeUnit("min", 60);
 
-  public TimeUnit(String name2, double convF) {
-    super(name2, "");
-    multFactor = convF;
-  }
+    public TimeUnit(String name2, double convF) {
+        super(name2, "");
+        multFactor = convF;
+    }
 
-  @Override
-  public Unit<Time> getSystemUnit() {
-    return REF_UNIT;
-  }
+    @Override
+    public Unit<Time> getSystemUnit() {
+        return REF_UNIT;
+    }
 }

@@ -43,53 +43,53 @@ import javax.measure.format.UnitFormat;
  * @version 0.7
  */
 public class SimpleTestUnitFormat extends TestUnitFormat {
-  private final Map<String, String> symbolMap = new HashMap<>();
+    private final Map<String, String> symbolMap = new HashMap<>();
 
-  private static final TestUnitFormat DEFAULT = new SimpleTestUnitFormat();
+    private static final TestUnitFormat DEFAULT = new SimpleTestUnitFormat();
 
-  // /////////////////
-  // Class methods //
-  // /////////////////
+    // /////////////////
+    // Class methods //
+    // /////////////////
 
-  /**
-   * Returns the instance for formatting and parsing using case insensitive symbols
-    @return the default instance
-   */
-  public static UnitFormat geInstance() {
-    return DEFAULT;
-  }
-
-  // ////////////////
-  // Constructors //
-  // ////////////////
-  /**
-   * Base constructor.
-   */
-  private SimpleTestUnitFormat() {
-  }
-
-  // //////////////
-  // Formatting //
-  // //////////////
-  public Appendable format(final Unit<?> unit, final Appendable appendable) throws IOException {
-    CharSequence symbol;
-    @SuppressWarnings("unlikely-arg-type")
-    String mapSymbol = symbolMap.get(unit);
-    if (mapSymbol != null) {
-      symbol = mapSymbol;
-    } else {
-      throw new IllegalArgumentException("Symbol mapping for unit of type " + //$NON-NLS-1$
-          unit.getClass().getName() + " has not been set " + //$NON-NLS-1$
-          "(see UnitFormat.SymbolMap)"); //$NON-NLS-1$
+    /**
+     * Returns the instance for formatting and parsing using case insensitive symbols
+     @return the default instance
+     */
+    public static UnitFormat geInstance() {
+        return DEFAULT;
     }
-    appendable.append(symbol);
-    return appendable;
-  }
 
-  public void label(Unit<?> unit, String label) {
-  }
+    // ////////////////
+    // Constructors //
+    // ////////////////
+    /**
+     * Base constructor.
+     */
+    private SimpleTestUnitFormat() {
+    }
 
-  public boolean isLocaleSensitive() {
-    return false;
-  }
+    // //////////////
+    // Formatting //
+    // //////////////
+    public Appendable format(final Unit<?> unit, final Appendable appendable) throws IOException {
+        CharSequence symbol;
+        @SuppressWarnings("unlikely-arg-type")
+        String mapSymbol = symbolMap.get(unit);
+        if (mapSymbol != null) {
+            symbol = mapSymbol;
+        } else {
+            throw new IllegalArgumentException("Symbol mapping for unit of type " + //$NON-NLS-1$
+                unit.getClass().getName() + " has not been set " + //$NON-NLS-1$
+                "(see UnitFormat.SymbolMap)"); //$NON-NLS-1$
+        }
+        appendable.append(symbol);
+        return appendable;
+    }
+
+    public void label(Unit<?> unit, String label) {
+    }
+
+    public boolean isLocaleSensitive() {
+        return false;
+    }
 }

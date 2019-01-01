@@ -58,105 +58,105 @@ import javax.measure.test.unit.DistanceUnit;
  *
  */
 abstract class TestUnitFormat implements UnitFormat {
-  /**
-   * Holds the unique symbols collection.
-   */
-  private static final Map<String, Unit<?>> SYMBOL_TO_UNIT = new HashMap<>();
+    /**
+     * Holds the unique symbols collection.
+     */
+    private static final Map<String, Unit<?>> SYMBOL_TO_UNIT = new HashMap<>();
 
-  /**
-   * Returns the unit format for the default locale.
-   *
-   * @return the locale format.
-   */
-  public static UnitFormat getInstance() {
-    return SimpleTestUnitFormat.geInstance();
-  }
-
-  /**
-   * Base constructor.
-   */
-  protected TestUnitFormat() {
-    SYMBOL_TO_UNIT.put("m", DistanceUnit.m);
-  }
-
-  /**
-   * Formats the specified unit.
-   *
-   * @param unit
-   *          the unit to format.
-   * @param appendable
-   *          the appendable destination.
-   * @return The appendable destination passed in as {@code appendable}, with formatted text appended.
-   * @throws IOException
-   *           if an error occurs.
-   */
-  public abstract Appendable format(Unit<?> unit, Appendable appendable) throws IOException;
-
-  protected Unit<?> parse(CharSequence csq, int index) throws MeasurementParseException {
-    // Parsing reads the whole character sequence from the parse position.
-    int start = index; // cursor != null ? cursor.getIndex() : 0;
-    int end = csq.length();
-    if (end <= start) {
-      return TestUnit.ONE;
+    /**
+     * Returns the unit format for the default locale.
+     *
+     * @return the locale format.
+     */
+    public static UnitFormat getInstance() {
+        return SimpleTestUnitFormat.geInstance();
     }
-    final Unit<?> result = SYMBOL_TO_UNIT.get(csq);
-    if (result != null) {
-      return result;
+
+    /**
+     * Base constructor.
+     */
+    protected TestUnitFormat() {
+        SYMBOL_TO_UNIT.put("m", DistanceUnit.m);
     }
-    throw new MeasurementParseException("Error", csq, index);
-  }
 
-  /**
-   * Parses the specified character sequence to produce a unit (convenience method). If the specified sequence is empty, the unitary unit
-   * (dimensionless) is returned.
-   *
-   * @param csq
-   *          the <code>CharSequence</code> to parse.
-   * @return the unit parsed from the specified character sub-sequence.
-   * @throws MeasurementParseException
-   *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
-   */
-  public final Unit<?> parse(CharSequence csq) throws MeasurementParseException {
-    return parse(csq, 0);
-  }
+    /**
+     * Formats the specified unit.
+     *
+     * @param unit
+     *          the unit to format.
+     * @param appendable
+     *          the appendable destination.
+     * @return The appendable destination passed in as {@code appendable}, with formatted text appended.
+     * @throws IOException
+     *           if an error occurs.
+     */
+    public abstract Appendable format(Unit<?> unit, Appendable appendable) throws IOException;
 
-  /**
-   * Parses the specified character sequence to produce a unit (convenience method). If the specified sequence is empty, the unitary unit
-   * (dimensionless) is returned.
-   *
-   * @param csq
-   *          the <code>CharSequence</code> to parse.
-   * @return the unit parsed from the specified character sub-sequence.
-   * @throws MeasurementParseException
-   *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
-   */
-  public final Unit<?> parse(CharSequence csq, ParsePosition pos) throws MeasurementParseException {
-    return parse(csq, pos.getIndex());
-  }
-
-  /**
-   * Formats an object to produce a string. This is equivalent to <blockquote> {@link #format(Unit, Appendable) format}<code>(unit,
-   *         new StringBuilder()).toString();</code> </blockquote>
-   *
-   * @param unit
-   *          The unit to format
-   * @return Formatted string.
-   * @exception IllegalArgumentException
-   *              if the Format cannot format the given object
-   */
-  public final String format(Unit<?> unit) {
-    if (unit instanceof TestUnit) {
-      try {
-        return format((TestUnit<?>) unit, new StringBuilder()).toString();
-      } catch (IOException ex) {
-        throw new MeasurementException(ex); // Should never happen.
-      }
-    } else {
-      try {
-        return (this.format(unit, new StringBuilder())).toString();
-      } catch (IOException ex) {
-        throw new MeasurementException(ex); // Should never happen.
-      }
+    protected Unit<?> parse(CharSequence csq, int index) throws MeasurementParseException {
+        // Parsing reads the whole character sequence from the parse position.
+        int start = index; // cursor != null ? cursor.getIndex() : 0;
+        int end = csq.length();
+        if (end <= start) {
+            return TestUnit.ONE;
+        }
+        final Unit<?> result = SYMBOL_TO_UNIT.get(csq);
+        if (result != null) {
+            return result;
+        }
+        throw new MeasurementParseException("Error", csq, index);
     }
-  }
+
+    /**
+     * Parses the specified character sequence to produce a unit (convenience method). If the specified sequence is empty, the unitary unit
+     * (dimensionless) is returned.
+     *
+     * @param csq
+     *          the <code>CharSequence</code> to parse.
+     * @return the unit parsed from the specified character sub-sequence.
+     * @throws MeasurementParseException
+     *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
+     */
+    public final Unit<?> parse(CharSequence csq) throws MeasurementParseException {
+        return parse(csq, 0);
+    }
+
+    /**
+     * Parses the specified character sequence to produce a unit (convenience method). If the specified sequence is empty, the unitary unit
+     * (dimensionless) is returned.
+     *
+     * @param csq
+     *          the <code>CharSequence</code> to parse.
+     * @return the unit parsed from the specified character sub-sequence.
+     * @throws MeasurementParseException
+     *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
+     */
+    public final Unit<?> parse(CharSequence csq, ParsePosition pos) throws MeasurementParseException {
+        return parse(csq, pos.getIndex());
+    }
+
+    /**
+     * Formats an object to produce a string. This is equivalent to <blockquote> {@link #format(Unit, Appendable) format}<code>(unit,
+     *         new StringBuilder()).toString();</code> </blockquote>
+     *
+     * @param unit
+     *          The unit to format
+     * @return Formatted string.
+     * @exception IllegalArgumentException
+     *              if the Format cannot format the given object
+     */
+    public final String format(Unit<?> unit) {
+        if (unit instanceof TestUnit) {
+            try {
+                return format((TestUnit<?>) unit, new StringBuilder()).toString();
+            } catch (IOException ex) {
+                throw new MeasurementException(ex); // Should never happen.
+            }
+        } else {
+            try {
+                return (this.format(unit, new StringBuilder())).toString();
+            } catch (IOException ex) {
+                throw new MeasurementException(ex); // Should never happen.
+            }
+        }
+    }
 }

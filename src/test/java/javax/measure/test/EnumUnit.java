@@ -45,107 +45,107 @@ import javax.measure.test.unit.MultiplyConverter;
  */
 @SuppressWarnings("rawtypes")
 enum EnumUnit implements Unit {
-  TEST("t", 1);
+    TEST("t", 1);
 
-  private final String symbol;
-  @SuppressWarnings("unused")
-  private final double factor;
+    private final String symbol;
+    @SuppressWarnings("unused")
+    private final double factor;
 
-  private EnumUnit(String symbol, double factor) {
-    this.symbol = symbol;
-    this.factor = factor;
-  }
-
-  public String getSymbol() {
-    return symbol;
-  }
-
-  public Dimension getDimension() {
-    return TestDimension.getInstance();
-  }
-
-  public Unit getSystemUnit() {
-    return this;
-  }
-
-  public Map getBaseUnits() {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  public boolean isCompatible(Unit that) {
-    return (this.equals(that));
-  }
-
-  public Unit asType(Class type) throws ClassCastException {
-    // TODO Auto-generated method stub
-    return this;
-  }
-
-  public UnitConverter getConverterTo(Unit that) throws UnconvertibleException {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  public UnitConverter getConverterToAny(Unit that) throws IncommensurableException, UnconvertibleException {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  public Unit alternate(String symbol) {
-    return this;
-  }
-
-  public Unit transform(UnitConverter operation) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
-  public Unit shift(double offset) {
-    return this;
-  }
-
-  public Unit multiply(double factor) {
-    return this;
-  }
-
-  public Unit multiply(Unit that) {
-    if (!(that instanceof EnumUnit)) {
-      throw new UnconvertibleException("Incompatible unit");
+    private EnumUnit(String symbol, double factor) {
+        this.symbol = symbol;
+        this.factor = factor;
     }
-    return this;
-  }
 
-  public Unit inverse() {
-    return this;
-  }
-
-  public Unit divide(double divisor) {
-    return this;
-  }
-
-  public Unit divide(Unit that) {
-    if (!(that instanceof EnumUnit)) {
-      throw new UnconvertibleException("Incompatible unit");
+    public String getSymbol() {
+        return symbol;
     }
-    return this;
-  }
 
-  public Unit root(int n) {
-    return this;
-  }
+    public Dimension getDimension() {
+        return TestDimension.getInstance();
+    }
 
-  public Unit pow(int n) {
-    return this;
-  }
+    public Unit getSystemUnit() {
+        return this;
+    }
 
-  public String getName() {
-    return name();
-  }
+    public Map getBaseUnits() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-  @Override
-  public Unit prefix(Prefix prefix) {
-    final MultiplyConverter converter = new MultiplyConverter(Math.pow(prefix.getBase(), prefix.getExponent()));
-    return this.transform(converter);
-  }
+    public boolean isCompatible(Unit that) {
+        return (this.equals(that));
+    }
+
+    public Unit asType(Class type) throws ClassCastException {
+        // TODO Auto-generated method stub
+        return this;
+    }
+
+    public UnitConverter getConverterTo(Unit that) throws UnconvertibleException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public UnitConverter getConverterToAny(Unit that) throws IncommensurableException, UnconvertibleException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public Unit alternate(String symbol) {
+        return this;
+    }
+
+    public Unit transform(UnitConverter operation) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public Unit shift(double offset) {
+        return this;
+    }
+
+    public Unit multiply(double factor) {
+        return this;
+    }
+
+    public Unit multiply(Unit that) {
+        if (!(that instanceof EnumUnit)) {
+            throw new UnconvertibleException("Incompatible unit");
+        }
+        return this;
+    }
+
+    public Unit inverse() {
+        return this;
+    }
+
+    public Unit divide(double divisor) {
+        return this;
+    }
+
+    public Unit divide(Unit that) {
+        if (!(that instanceof EnumUnit)) {
+            throw new UnconvertibleException("Incompatible unit");
+        }
+        return this;
+    }
+
+    public Unit root(int n) {
+        return this;
+    }
+
+    public Unit pow(int n) {
+        return this;
+    }
+
+    public String getName() {
+        return name();
+    }
+
+    @Override
+    public Unit prefix(Prefix prefix) {
+        final MultiplyConverter converter = new MultiplyConverter(Math.pow(prefix.getBase(), prefix.getExponent()));
+        return this.transform(converter);
+    }
 }

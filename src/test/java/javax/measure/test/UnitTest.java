@@ -29,7 +29,7 @@
  */
 package javax.measure.test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static javax.measure.test.EnumUnit.TEST;
 
 import javax.measure.Dimension;
@@ -39,54 +39,56 @@ import javax.measure.UnitConverter;
 import javax.measure.test.unit.BaseUnit;
 import javax.measure.test.unit.DistanceUnit;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Werner
  *
  */
 public class UnitTest {
-  @SuppressWarnings("rawtypes")
-  private Unit sut;
+    @SuppressWarnings("rawtypes")
+    private Unit sut;
 
-  @Before
-  public void init() {
-    sut = TEST;
-  }
+    @BeforeEach
+    public void init() {
+        sut = TEST;
+    }
 
-  /**
-   * Test method for {@link javax.measure.test.EnumUnit#getSymbol()}.
-   */
-  @Test
-  public void testGetSymbol() {
-    assertNotNull(sut.getSymbol());
-    assertEquals("t", sut.getSymbol());
-  }
+    /**
+     * Test method for {@link javax.measure.test.EnumUnit#getSymbol()}.
+     */
+    @Test
+    public void testGetSymbol() {
+        assertNotNull(sut.getSymbol());
+        assertEquals("t", sut.getSymbol());
+    }
 
-  /**
-   * Test method for {@link javax.measure.test.EnumUnit#getDimension()}.
-   */
-  @Test
-  public void testGetDimension() {
-    final Dimension dim = TestDimension.getInstance();
-    assertEquals(dim, sut.getDimension());
-  }
+    /**
+     * Test method for {@link javax.measure.test.EnumUnit#getDimension()}.
+     */
+    @Test
+    public void testGetDimension() {
+        final Dimension dim = TestDimension.getInstance();
+        assertEquals(dim, sut.getDimension());
+    }
 
-  /**
-   * Test method for {@link javax.measure.test.EnumUnit#isCompatible(javax.measure.Unit)}.
-   */
-  @SuppressWarnings("unchecked")
-  @Test
-  public void testIsCompatible() {
-    assertTrue(sut.isCompatible(TEST));
-  }
-
-  @Test(expected = UnconvertibleException.class)
-  public void testGetConverterTo() {
-    sut = DistanceUnit.m;
+    /**
+     * Test method for {@link javax.measure.test.EnumUnit#isCompatible(javax.measure.Unit)}.
+     */
     @SuppressWarnings("unchecked")
-    UnitConverter converter = sut.getConverterTo(BaseUnit.ONE);
-    assertNotNull(converter);
-  }
+    @Test
+    public void testIsCompatible() {
+        assertTrue(sut.isCompatible(TEST));
+    }
+
+    @Test
+    public void testGetConverterTo() {
+        assertThrows(UnconvertibleException.class, () -> {
+            sut = DistanceUnit.m;
+            @SuppressWarnings("unchecked")
+            UnitConverter converter = sut.getConverterTo(BaseUnit.ONE);
+            assertNotNull(converter);
+        });
+    }
 }

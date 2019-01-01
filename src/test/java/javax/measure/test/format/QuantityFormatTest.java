@@ -29,70 +29,76 @@
  */
 package javax.measure.test.format;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.measure.Quantity;
 import javax.measure.format.MeasurementParseException;
-import javax.measure.format.ParserException;
 import javax.measure.format.QuantityFormat;
 import javax.measure.quantity.Length;
 import javax.measure.test.quantity.DistanceQuantity;
 import javax.measure.test.unit.DistanceUnit;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  *
  */
 public class QuantityFormatTest {
-  @SuppressWarnings("unused")
-  private Quantity<Length> sut;
-  private QuantityFormat format;
+    @SuppressWarnings("unused")
+    private Quantity<Length> sut;
+    private QuantityFormat format;
 
-  @Before
-  public void init() {
-    sut = new DistanceQuantity(10, DistanceUnit.m);
-    format = DefaultTestQuantityFormat.getInstance();
-  }
+    @BeforeEach
+    public void init() {
+        sut = new DistanceQuantity(10, DistanceUnit.m);
+        format = DefaultTestQuantityFormat.getInstance();
+    }
 
-  @Test
-  public void testParseSimple() {
-    Quantity<?> q = format.parse("1 m");
-    assertNotNull(q);
-    assertEquals("m", q.getUnit().getSymbol());
-    assertEquals(1d, q.getValue());
-  }
+    @Test
+    public void testParseSimple() {
+        Quantity<?> q = format.parse("1 m");
+        assertNotNull(q);
+        assertEquals("m", q.getUnit().getSymbol());
+        assertEquals(1d, q.getValue());
+    }
 
-  @Test(expected = MeasurementParseException.class)
-  public void testParseIrregularString() {
-    Quantity<?> u = format.parse("bl//^--1a");
-    System.out.println(u);
-  }
+    @Test
+    public void testParseIrregularString() {
+        assertThrows(MeasurementParseException.class, () -> {
+            Quantity<?> u = format.parse("bl//^--1a");
+            System.out.println(u);
+        });
+    }
 
-  @Test(expected = MeasurementParseException.class)
-  public void testParserException() {
-    throw new MeasurementParseException(new IllegalArgumentException());
-  }
+    @Test
+    public void testParserException() {
+        assertThrows(MeasurementParseException.class, () -> {
+            throw new MeasurementParseException(new IllegalArgumentException());
+        });
+    }
 
-  @Test(expected = MeasurementParseException.class)
-  public void testParserExceptionWithPosition() {
-    MeasurementParseException pe = new MeasurementParseException("test", 1);
-    assertEquals(1, pe.getPosition());
-    assertEquals("test", pe.getParsedString());
-    throw pe;
-  }
+    @Test
+    public void testParserExceptionWithPosition() {
+        MeasurementParseException pe = assertThrows(MeasurementParseException.class, () -> {
+            throw new MeasurementParseException("test", 1);
 
-  @Test(expected = MeasurementParseException.class)
-  public void testParserExceptionWithNullString() {
-    MeasurementParseException pe = new MeasurementParseException(null, 0);
-    assertEquals(0, pe.getPosition());
-    assertNull(pe.getParsedString());
-    throw pe;
-  }
+        });
+        assertEquals(1, pe.getPosition());
+        assertEquals("test", pe.getParsedString());
+    }
 
-  @Test
-  public void testLocalSensitive() {
-    assertFalse(format.isLocaleSensitive());
-  }
+    @Test
+    public void testParserExceptionWithNullString() {
+        MeasurementParseException pe = assertThrows(MeasurementParseException.class, () -> {
+            throw new MeasurementParseException(null, 0);
+        });
+        assertEquals(0, pe.getPosition());
+        assertNull(pe.getParsedString());
+    }
+
+    @Test
+    public void testLocalSensitive() {
+        assertFalse(format.isLocaleSensitive());
+    }
 }

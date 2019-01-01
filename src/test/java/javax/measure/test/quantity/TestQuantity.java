@@ -48,7 +48,7 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
     protected TestUnit<Q> unit; // unit
     private final Class<Q> type; // quantity type
     private final Scale scale;
-    
+
     protected TestQuantity(Class<Q> type, Scale scale) {
         this.type = type;
         this.scale = scale;
@@ -159,7 +159,7 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
     public Unit<Q> getUnit() {
         return unit;
     }
-    
+
     public Scale getScale() {
         return scale;
     }

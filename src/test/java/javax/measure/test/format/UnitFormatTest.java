@@ -29,7 +29,7 @@
  */
 package javax.measure.test.format;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 
@@ -44,93 +44,104 @@ import javax.measure.test.unit.DistanceUnit;
 import javax.measure.test.unit.SpeedUnit;
 import javax.measure.test.unit.TimeUnit;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  *
  */
 public class UnitFormatTest {
-  private Quantity<Length> sut;
-  private UnitFormat format;
+    private Quantity<Length> sut;
+    private UnitFormat format;
 
-  @Before
-  public void init() {
-    sut = new DistanceQuantity(10, DistanceUnit.m);
-    format = SimpleTestUnitFormat.getInstance();
-  }
-
-  @Test
-  public void testFormatKph() {
-    Unit<Speed> kph = SpeedUnit.kmh;
-    assertEquals("km/h", kph.toString());
-  }
-
-  @Test(expected = MeasurementParseException.class)
-  public void testParseSimple() {
-    Unit<?> u = format.parse("s");
-    assertNotNull(u);
-    assertEquals("s", u.getSymbol());
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void testFormatFromQuantity() {
-    final Appendable a = new StringBuilder();
-    try {
-      format.format(DistanceUnit.m, a);
-    } catch (IOException e) {
-      fail(e.getMessage());
+    @BeforeEach
+    public void init() {
+        sut = new DistanceQuantity(10, DistanceUnit.m);
+        format = SimpleTestUnitFormat.getInstance();
     }
-    assertEquals(DistanceUnit.m, sut.getUnit());
-    assertEquals("m", a.toString());
 
-    final Appendable a2 = new StringBuilder();
-    @SuppressWarnings("unchecked")
-    Unit<Speed> v = (Unit<Speed>) sut.getUnit().divide(TimeUnit.s);
-    try {
-      format.format(v, a2);
-    } catch (IOException e) {
-      fail(e.getMessage());
+    @Test
+    public void testFormatKph() {
+        Unit<Speed> kph = SpeedUnit.kmh;
+        assertEquals("km/h", kph.toString());
     }
-    assertEquals("m/s", a2.toString());
-  }
 
-  @Test(expected = MeasurementParseException.class)
-  public void testParseIrregularString() {
-    @SuppressWarnings("unused")
-    Unit<?> u = format.parse("bl//^--1a");
-  }
+    @Test
+    public void testParseSimple() {
+        assertThrows(MeasurementParseException.class, () -> {
+            Unit<?> u = format.parse("s");
+            assertNotNull(u);
+            assertEquals("s", u.getSymbol());
+        });
+    }
 
-  @Test(expected = MeasurementParseException.class)
-  public void testParserException() {
-    throw new MeasurementParseException(new IllegalArgumentException());
-  }
+    @Test
+    public void testFormatFromQuantity() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            final Appendable a = new StringBuilder();
+            try {
+                format.format(DistanceUnit.m, a);
+            } catch (IOException e) {
+                fail(e.getMessage());
+            }
+            assertEquals(DistanceUnit.m, sut.getUnit());
+            assertEquals("m", a.toString());
 
-  @Test(expected = MeasurementParseException.class)
-  public void testParserExceptionWithPosition() {
-    final MeasurementParseException pe = new MeasurementParseException("test", 1);
-    assertEquals(1, pe.getPosition());
-    assertEquals("test", pe.getParsedString());
-    throw pe;
-  }
+            final Appendable a2 = new StringBuilder();
+            @SuppressWarnings("unchecked")
+            Unit<Speed> v = (Unit<Speed>) sut.getUnit().divide(TimeUnit.s);
+            try {
+                format.format(v, a2);
+            } catch (IOException e) {
+                fail(e.getMessage());
+            }
+            assertEquals("m/s", a2.toString());
+        });
 
-  @Test(expected = MeasurementParseException.class)
-  public void testParserExceptionWithNullString() {
-    final MeasurementParseException pe = new MeasurementParseException(null, 0);
-    assertEquals(0, pe.getPosition());
-    assertNull(pe.getParsedString());
-    throw pe;
-  }
+    }
 
-  @Test
-  public void testLocalSensitive() {
-    assertFalse(format.isLocaleSensitive());
-  }
-  
-  @Test
-  public void testMoreLocalSensitive() {
-    final UnitFormat simple = SimpleTestUnitFormat.getInstance();
-    assertFalse(simple.isLocaleSensitive());
-  }
+    @Test
+    public void testParseIrregularString() {
+        assertThrows(MeasurementParseException.class, () -> {
+            @SuppressWarnings("unused")
+            Unit<?> u = format.parse("bl//^--1a");
+        });
+    }
+
+    @Test
+    public void testParserException() {
+        assertThrows(MeasurementParseException.class, () -> {
+            throw new MeasurementParseException(new IllegalArgumentException());
+        });
+    }
+
+    @Test
+    public void testParserExceptionWithPosition() {
+        MeasurementParseException pe = assertThrows(MeasurementParseException.class, () -> {
+            throw new MeasurementParseException("test", 1);
+        });
+        assertEquals(1, pe.getPosition());
+        assertEquals("test", pe.getParsedString());
+    }
+
+    @Test
+    public void testParserExceptionWithNullString() {
+        final MeasurementParseException pe = assertThrows(MeasurementParseException.class, () -> {
+            throw new MeasurementParseException(null, 0);
+        });
+        assertEquals(0, pe.getPosition());
+        assertNull(pe.getParsedString());
+    }
+
+    @Test
+    public void testLocalSensitive() {
+        assertFalse(format.isLocaleSensitive());
+    }
+
+    @Test
+    public void testMoreLocalSensitive() {
+        final UnitFormat simple = SimpleTestUnitFormat.getInstance();
+        assertFalse(simple.isLocaleSensitive());
+    }
 }

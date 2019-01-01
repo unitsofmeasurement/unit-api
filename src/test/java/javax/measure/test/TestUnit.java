@@ -46,171 +46,171 @@ import javax.measure.test.unit.MultiplyConverter;
  * @author Werner Keil
  */
 public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
-  public static final Unit<Dimensionless> ONE = new BaseUnit<Dimensionless>("one");
+    public static final Unit<Dimensionless> ONE = new BaseUnit<Dimensionless>("one");
 
-  protected String symbol; // e.g. "A"
-  protected final String name; // e.g. "Angstrom"
-  protected double multFactor; // e.g. 1E-10
-  // private double addFactor = 0.0; // used for temperatures
-  private final Dimension dimension = TestDimension.getInstance();
+    protected String symbol; // e.g. "A"
+    protected final String name; // e.g. "Angstrom"
+    protected double multFactor; // e.g. 1E-10
+    // private double addFactor = 0.0; // used for temperatures
+    private final Dimension dimension = TestDimension.getInstance();
 
-  protected TestUnit() {
-    name = "";
-  }
-
-  protected TestUnit(String name, double factor) {
-    this.name = name;
-    this.multFactor = factor;
-  }
-
-  protected TestUnit(String name) {
-    this(name, 0);
-  }
-
-  public Unit<Q> shift(double offset) {
-    return this;
-  }
-
-  @SuppressWarnings({ "unchecked", "rawtypes" })
-  public Unit<Q> alternate(String symbol) {
-    return new BaseUnit(symbol);
-  }
-
-  public <T extends Quantity<T>> Unit<T> asType(Class<T> type) throws ClassCastException {
-    // Unit<T> metricUnit =
-    // QuantityFactory.getInstance(type).getMetricUnit();
-    // if ((metricUnit == null) || metricUnit.isCompatible(this))
-    // return (Unit<T>) this;
-    // throw new ClassCastException("The unit: " + this //$NON-NLS-1$
-    // + " is not of parameterized type " + type); //$NON-NLS-1$
-    return null;
-  }
-
-  public Unit<Q> divide(double divisor) {
-    return null;
-  }
-
-  public Unit<?> divide(Unit<?> that) {
-    return null;
-  }
-
-  public UnitConverter getConverterTo(Unit<Q> that) throws UnconvertibleException {
-    if ((this == that) || this.equals(that))
-      return TestConverter.IDENTITY; // Shortcut.
-    Unit<Q> thisSystemUnit = this.getSystemUnit();
-    Unit<Q> thatSystemUnit = that.getSystemUnit();
-    if (!thisSystemUnit.equals(thatSystemUnit))
-      try {
-        return getConverterToAny(that);
-      } catch (IncommensurableException e) {
-        throw new UnconvertibleException(e);
-      }
-    UnitConverter thisToSI = this.getSystemConverter();
-    UnitConverter thatToSI = that.getConverterTo(thatSystemUnit);
-    return thatToSI.inverse().concatenate(thisToSI);
-  }
-
-  public UnitConverter getConverterToAny(Unit<?> that) throws IncommensurableException, UnconvertibleException {
-    if (!isCompatible(that))
-      throw new IncommensurableException(this + " is not compatible with " + that);
-    TestUnit thatAbstr = (TestUnit) that; // Since both units are
-    // compatible they must
-    // be both test
-    // units.
-    Unit thisSystemUnit = this.getSystemUnit();
-    UnitConverter thisToDimension = this.getSystemConverter();
-    Unit thatSystemUnit = thatAbstr.getSystemUnit();
-    UnitConverter thatToDimension = thatAbstr.getSystemConverter();
-    return thatToDimension.inverse().concatenate(thisToDimension);
-  }
-
-  public Dimension getDimension() {
-    return dimension;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public Map<Unit<?>, Integer> getBaseUnits() {
-    return null;
-  }
-
-  public String getSymbol() {
-    return symbol;
-  }
-
-  public Unit<?> inverse() {
-    return null;
-  }
-
-  public boolean isCompatible(Unit<?> that) {
-    return false;
-  }
-
-  public Unit<Q> multiply(double factor) {
-    return new BaseUnit(symbol, multFactor * factor);
-  }
-
-  public Unit<?> multiply(Unit<?> that) {
-    return null;
-  }
-
-  public Unit<?> pow(int n) {
-    return null;
-  }
-
-  public Unit<?> root(int n) {
-    return null;
-  }
-
-  public abstract Unit<Q> getSystemUnit();
-
-  /**
-   * Returns the converter from this unit to its unscaled {@link #getSystemUnit System Unit} unit.
-   *
-   * @return <code>getConverterTo(this.toSystemUnit())</code>
-   * @see #getSystemUnit
-   */
-  public UnitConverter getSystemConverter() throws UnsupportedOperationException {
-    return TestConverter.IDENTITY;
-  }
-
-  public Unit<Q> transform(UnitConverter operation) {
-    if (operation instanceof MultiplyConverter) {
-      MultiplyConverter mult = (MultiplyConverter) operation;
-      return this.multiply(mult.getFactor());
-    } else {
-      return this;
+    protected TestUnit() {
+        name = "";
     }
-  }
 
-  @Override
-  public Unit<Q> prefix(Prefix prefix) {
-    final MultiplyConverter converter = new MultiplyConverter(Math.pow(prefix.getBase(), prefix.getExponent()));
-    return this.transform(converter);
-  }
+    protected TestUnit(String name, double factor) {
+        this.name = name;
+        this.multFactor = factor;
+    }
 
-  public double getMultFactor() {
-    return multFactor;
-  }
+    protected TestUnit(String name) {
+        this(name, 0);
+    }
 
-  @Override
-  public String toString() {
-    final StringBuilder sb = new StringBuilder();
-    if (name != null) {
-      sb.append(name);
+    public Unit<Q> shift(double offset) {
+        return this;
     }
-    if (symbol != null) {
-      if (sb.length() > 0)
-        sb.append(' ');
-      sb.append(symbol);
+
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public Unit<Q> alternate(String symbol) {
+        return new BaseUnit(symbol);
     }
-    if (multFactor != 0 && multFactor != 1) {
-      if (sb.length() > 0)
-        sb.append(" * ");
-      sb.append(String.valueOf(getMultFactor()));
+
+    public <T extends Quantity<T>> Unit<T> asType(Class<T> type) throws ClassCastException {
+        // Unit<T> metricUnit =
+        // QuantityFactory.getInstance(type).getMetricUnit();
+        // if ((metricUnit == null) || metricUnit.isCompatible(this))
+        // return (Unit<T>) this;
+        // throw new ClassCastException("The unit: " + this //$NON-NLS-1$
+        // + " is not of parameterized type " + type); //$NON-NLS-1$
+        return null;
     }
-    return sb.toString();
-  }
+
+    public Unit<Q> divide(double divisor) {
+        return null;
+    }
+
+    public Unit<?> divide(Unit<?> that) {
+        return null;
+    }
+
+    public UnitConverter getConverterTo(Unit<Q> that) throws UnconvertibleException {
+        if ((this == that) || this.equals(that))
+            return TestConverter.IDENTITY; // Shortcut.
+        Unit<Q> thisSystemUnit = this.getSystemUnit();
+        Unit<Q> thatSystemUnit = that.getSystemUnit();
+        if (!thisSystemUnit.equals(thatSystemUnit))
+            try {
+                return getConverterToAny(that);
+            } catch (IncommensurableException e) {
+                throw new UnconvertibleException(e);
+            }
+        UnitConverter thisToSI = this.getSystemConverter();
+        UnitConverter thatToSI = that.getConverterTo(thatSystemUnit);
+        return thatToSI.inverse().concatenate(thisToSI);
+    }
+
+    public UnitConverter getConverterToAny(Unit<?> that) throws IncommensurableException, UnconvertibleException {
+        if (!isCompatible(that))
+            throw new IncommensurableException(this + " is not compatible with " + that);
+        TestUnit thatAbstr = (TestUnit) that; // Since both units are
+        // compatible they must
+        // be both test
+        // units.
+        Unit thisSystemUnit = this.getSystemUnit();
+        UnitConverter thisToDimension = this.getSystemConverter();
+        Unit thatSystemUnit = thatAbstr.getSystemUnit();
+        UnitConverter thatToDimension = thatAbstr.getSystemConverter();
+        return thatToDimension.inverse().concatenate(thisToDimension);
+    }
+
+    public Dimension getDimension() {
+        return dimension;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Map<Unit<?>, Integer> getBaseUnits() {
+        return null;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public Unit<?> inverse() {
+        return null;
+    }
+
+    public boolean isCompatible(Unit<?> that) {
+        return false;
+    }
+
+    public Unit<Q> multiply(double factor) {
+        return new BaseUnit(symbol, multFactor * factor);
+    }
+
+    public Unit<?> multiply(Unit<?> that) {
+        return null;
+    }
+
+    public Unit<?> pow(int n) {
+        return null;
+    }
+
+    public Unit<?> root(int n) {
+        return null;
+    }
+
+    public abstract Unit<Q> getSystemUnit();
+
+    /**
+     * Returns the converter from this unit to its unscaled {@link #getSystemUnit System Unit} unit.
+     *
+     * @return <code>getConverterTo(this.toSystemUnit())</code>
+     * @see #getSystemUnit
+     */
+    public UnitConverter getSystemConverter() throws UnsupportedOperationException {
+        return TestConverter.IDENTITY;
+    }
+
+    public Unit<Q> transform(UnitConverter operation) {
+        if (operation instanceof MultiplyConverter) {
+            MultiplyConverter mult = (MultiplyConverter) operation;
+            return this.multiply(mult.getFactor());
+        } else {
+            return this;
+        }
+    }
+
+    @Override
+    public Unit<Q> prefix(Prefix prefix) {
+        final MultiplyConverter converter = new MultiplyConverter(Math.pow(prefix.getBase(), prefix.getExponent()));
+        return this.transform(converter);
+    }
+
+    public double getMultFactor() {
+        return multFactor;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        if (name != null) {
+            sb.append(name);
+        }
+        if (symbol != null) {
+            if (sb.length() > 0)
+                sb.append(' ');
+            sb.append(symbol);
+        }
+        if (multFactor != 0 && multFactor != 1) {
+            if (sb.length() > 0)
+                sb.append(" * ");
+            sb.append(String.valueOf(getMultFactor()));
+        }
+        return sb.toString();
+    }
 }

@@ -36,7 +36,6 @@ import java.text.ParsePosition;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.format.MeasurementParseException;
-import javax.measure.format.ParserException;
 import javax.measure.format.QuantityFormat;
 import javax.measure.test.TestUnit;
 import javax.measure.test.quantity.TestQuantities;
@@ -47,61 +46,61 @@ import javax.measure.test.quantity.TestQuantities;
 @SuppressWarnings("rawtypes")
 class DefaultTestQuantityFormat extends TestQuantityFormat {
 
-  /**
-   * Returns the Quantity format for the default locale.
-   *
-   * @return the locale format.
-   */
-  public static QuantityFormat getInstance() {
-    return new DefaultTestQuantityFormat();
-  }
+    /**
+     * Returns the Quantity format for the default locale.
+     *
+     * @return the locale format.
+     */
+    public static QuantityFormat getInstance() {
+        return new DefaultTestQuantityFormat();
+    }
 
-  @Override
-  public Appendable format(Quantity measure, Appendable dest) throws IOException {
-    Unit unit = measure.getUnit();
+    @Override
+    public Appendable format(Quantity measure, Appendable dest) throws IOException {
+        Unit unit = measure.getUnit();
 
-    dest.append(measure.getValue().toString());
-    if (measure.getUnit().equals(TestUnit.ONE))
-      return dest;
-    dest.append(' ');
-    return SimpleTestUnitFormat.getInstance().format(unit, dest);
-  }
+        dest.append(measure.getValue().toString());
+        if (measure.getUnit().equals(TestUnit.ONE))
+            return dest;
+        dest.append(' ');
+        return SimpleTestUnitFormat.getInstance().format(unit, dest);
+    }
 
-  @SuppressWarnings("unchecked")
-  @Override
-  public Quantity<?> parse(CharSequence csq, ParsePosition cursor) throws MeasurementParseException {
-    int startDecimal = cursor.getIndex();
-    while ((startDecimal < csq.length()) && Character.isWhitespace(csq.charAt(startDecimal))) {
-      startDecimal++;
+    @SuppressWarnings("unchecked")
+    @Override
+    public Quantity<?> parse(CharSequence csq, ParsePosition cursor) throws MeasurementParseException {
+        int startDecimal = cursor.getIndex();
+        while ((startDecimal < csq.length()) && Character.isWhitespace(csq.charAt(startDecimal))) {
+            startDecimal++;
+        }
+        int endDecimal = startDecimal + 1;
+        while ((endDecimal < csq.length()) && !Character.isWhitespace(csq.charAt(endDecimal))) {
+            endDecimal++;
+        }
+        BigDecimal decimal = new BigDecimal(csq.subSequence(startDecimal, endDecimal).toString());
+        cursor.setIndex(endDecimal + 1);
+        Unit unit = SimpleTestUnitFormat.getInstance().parse(csq);
+        return TestQuantities.getQuantity(decimal, unit);
     }
-    int endDecimal = startDecimal + 1;
-    while ((endDecimal < csq.length()) && !Character.isWhitespace(csq.charAt(endDecimal))) {
-      endDecimal++;
-    }
-    BigDecimal decimal = new BigDecimal(csq.subSequence(startDecimal, endDecimal).toString());
-    cursor.setIndex(endDecimal + 1);
-    Unit unit = SimpleTestUnitFormat.getInstance().parse(csq);
-    return TestQuantities.getQuantity(decimal, unit);
-  }
 
-  @SuppressWarnings("unchecked")
-  @Override
-  public Quantity<?> parse(CharSequence csq, int index) throws MeasurementParseException {
-    int startDecimal = index; // cursor.getIndex();
-    while ((startDecimal < csq.length()) && Character.isWhitespace(csq.charAt(startDecimal))) {
-      startDecimal++;
+    @SuppressWarnings("unchecked")
+    @Override
+    public Quantity<?> parse(CharSequence csq, int index) throws MeasurementParseException {
+        int startDecimal = index; // cursor.getIndex();
+        while ((startDecimal < csq.length()) && Character.isWhitespace(csq.charAt(startDecimal))) {
+            startDecimal++;
+        }
+        int endDecimal = startDecimal + 1;
+        while ((endDecimal < csq.length()) && !Character.isWhitespace(csq.charAt(endDecimal))) {
+            endDecimal++;
+        }
+        try {
+            final Double decimal = new Double(csq.subSequence(startDecimal, endDecimal).toString());
+            final String uStr = csq.subSequence(endDecimal + 1, csq.length()).toString();
+            Unit unit = SimpleTestUnitFormat.getInstance().parse(uStr);
+            return TestQuantities.getQuantity(decimal, unit);
+        } catch (NumberFormatException nfe) {
+            throw new MeasurementParseException(nfe);
+        }
     }
-    int endDecimal = startDecimal + 1;
-    while ((endDecimal < csq.length()) && !Character.isWhitespace(csq.charAt(endDecimal))) {
-      endDecimal++;
-    }
-    try {
-      final Double decimal = new Double(csq.subSequence(startDecimal, endDecimal).toString());
-      final String uStr = csq.subSequence(endDecimal + 1, csq.length()).toString();
-      Unit unit = SimpleTestUnitFormat.getInstance().parse(uStr);
-      return TestQuantities.getQuantity(decimal, unit);
-    } catch (NumberFormatException nfe) {
-      throw new MeasurementParseException(nfe);
-    }
-  }
 }

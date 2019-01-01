@@ -29,13 +29,13 @@
  */
 package javax.measure.test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.measure.IncommensurableException;
 import javax.measure.MeasurementException;
 import javax.measure.UnconvertibleException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
@@ -43,87 +43,97 @@ import org.junit.Test;
  */
 public class ExceptionsTest {
 
-  @SuppressWarnings("serial")
-  static class TestException extends MeasurementException {
-    TestException() {
-      super();
+    @SuppressWarnings("serial")
+    static class TestException extends MeasurementException {
+        TestException() {
+            super();
+        }
     }
-  }
 
-  @Test(expected = MeasurementException.class)
-  public void testMeasurementException() {
-    MeasurementException e = new MeasurementException("error");
-    assertEquals("error", e.getMessage());
-    assertNull(e.getCause());
-    throw e;
-  }
+    @Test
+    public void testMeasurementException() {
+        MeasurementException e = assertThrows(MeasurementException.class, () -> {
+            throw new MeasurementException("error");
+        });
 
-  @Test(expected = MeasurementException.class)
-  public void testMeasurementExceptionWithCause() {
-    throw new MeasurementException(new IllegalArgumentException());
-  }
+        assertEquals("error", e.getMessage());
+        assertNull(e.getCause());
+    }
 
-  @Test(expected = MeasurementException.class)
-  public void testMeasurementExceptionWithMessageAndCause() {
-    Exception cause = new IllegalStateException();
-    MeasurementException e = new MeasurementException("state error", cause);
-    assertEquals("state error", e.getMessage());
-    assertEquals(cause, e.getCause());
-    throw e;
-  }
+    @Test
+    public void testMeasurementExceptionWithCause() {
+        assertThrows(MeasurementException.class, () -> {
+            throw new MeasurementException(new IllegalArgumentException());
+        });
+    }
 
-  @Test(expected = MeasurementException.class)
-  public void testDefaultConstructor() {
-    MeasurementException e = new TestException();
-    assertNull(e.getMessage());
-    assertNull(e.getCause());
-    throw e;
-  }
+    @Test
+    public void testMeasurementExceptionWithMessageAndCause() {
+        Exception cause = new IllegalStateException();
+        MeasurementException e = assertThrows(MeasurementException.class, () -> {
+            throw new MeasurementException("state error", cause);
+        });
+        assertEquals("state error", e.getMessage());
+        assertEquals(cause, e.getCause());
+    }
 
-  @Test
-  public void testIncommensurableException() {
-    IncommensurableException ie = new IncommensurableException("error");
-    assertEquals("error", ie.getMessage());
-    assertNull(ie.getCause());
-  }
+    @Test
+    public void testDefaultConstructor() {
+        MeasurementException e = assertThrows(MeasurementException.class, () -> {
+            throw new TestException();
+        });
+        assertNull(e.getMessage());
+        assertNull(e.getCause());
+    }
 
-  @Test
-  public void testIncommensurableExceptionWithCause() {
-    Exception cause = new IllegalArgumentException();
-    IncommensurableException ie = new IncommensurableException(cause);
-    assertEquals(cause, ie.getCause());
-  }
+    @Test
+    public void testIncommensurableException() {
+        IncommensurableException ie = new IncommensurableException("error");
+        assertEquals("error", ie.getMessage());
+        assertNull(ie.getCause());
+    }
 
-  @Test
-  public void testIncommensurableExceptionWithMessageAndCause() {
-    Exception cause = new IllegalArgumentException();
-    IncommensurableException ie = new IncommensurableException("yet another error", cause);
-    assertEquals("yet another error", ie.getMessage());
-    assertEquals(cause, ie.getCause());
-  }
+    @Test
+    public void testIncommensurableExceptionWithCause() {
+        Exception cause = new IllegalArgumentException();
+        IncommensurableException ie = new IncommensurableException(cause);
+        assertEquals(cause, ie.getCause());
+    }
 
-  @Test(expected = UnconvertibleException.class)
-  public void testUnconvertibleException() {
-    UnconvertibleException e = new UnconvertibleException("error");
-    assertEquals("error", e.getMessage());
-    assertNull(e.getCause());
-    throw e;
-  }
+    @Test
+    public void testIncommensurableExceptionWithMessageAndCause() {
+        Exception cause = new IllegalArgumentException();
+        IncommensurableException ie = new IncommensurableException("yet another error", cause);
+        assertEquals("yet another error", ie.getMessage());
+        assertEquals(cause, ie.getCause());
+    }
 
-  @Test(expected = UnconvertibleException.class)
-  public void testUnconvertibleExceptionWithCause() {
-    Exception cause = new IllegalArgumentException();
-    UnconvertibleException e = new UnconvertibleException(cause);
-    assertEquals(cause, e.getCause());
-    throw e;
-  }
+    @Test
+    public void testUnconvertibleException() {
+        UnconvertibleException e = assertThrows(UnconvertibleException.class, () -> {
+            throw new UnconvertibleException("error");
+        });
+        assertEquals("error", e.getMessage());
+        assertNull(e.getCause());
+    }
 
-  @Test(expected = UnconvertibleException.class)
-  public void testUnconvertibleExceptionWithMessageAndCause() {
-    Exception cause = new IllegalStateException();
-    UnconvertibleException e = new UnconvertibleException("state error", cause);
-    assertEquals("state error", e.getMessage());
-    assertEquals(cause, e.getCause());
-    throw e;
-  }
+    @Test
+    public void testUnconvertibleExceptionWithCause() {
+        assertThrows(UnconvertibleException.class, () -> {
+            Exception cause = new IllegalArgumentException();
+            UnconvertibleException e = new UnconvertibleException(cause);
+            assertEquals(cause, e.getCause());
+            throw e;
+        });
+    }
+
+    @Test
+    public void testUnconvertibleExceptionWithMessageAndCause() {
+        Exception cause = new IllegalStateException();
+        UnconvertibleException e = assertThrows(UnconvertibleException.class, () -> {
+            throw new UnconvertibleException("state error", cause);
+        });
+        assertEquals("state error", e.getMessage());
+        assertEquals(cause, e.getCause());
+    }
 }

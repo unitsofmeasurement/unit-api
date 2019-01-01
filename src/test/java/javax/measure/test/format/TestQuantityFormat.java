@@ -49,75 +49,75 @@ import javax.measure.test.quantity.TestQuantity;
  */
 abstract class TestQuantityFormat implements QuantityFormat {
 
-  /** The serialVersionUID */
-  // private static final long serialVersionUID = 7765623276257908888L;
+    /** The serialVersionUID */
+    // private static final long serialVersionUID = 7765623276257908888L;
 
-  /**
-   * Base constructor.
-   */
-  protected TestQuantityFormat() {
-  }
-
-  /**
-   * Formats the specified Quantity.
-   *
-   * @param Quantity
-   *          the Quantity to format.
-   * @param appendable
-   *          the appendable destination.
-   * @return The appendable destination passed in as {@code appendable}, with formatted text appended.
-   * @throws IOException
-   *           if an error occurs.
-   */
-  public abstract Appendable format(Quantity<?> Quantity, Appendable appendable) throws IOException;
-
-  protected Quantity<?> parse(CharSequence csq, int index) throws MeasurementParseException {
-    // Parsing reads the whole character sequence from the parse position.
-    int start = index; // cursor != null ? cursor.getIndex() : 0;
-    int end = csq.length();
-    if (end <= start) {
-      return TestQuantity.ONE;
+    /**
+     * Base constructor.
+     */
+    protected TestQuantityFormat() {
     }
-    throw new MeasurementParseException("Error", csq, index);
-  }
 
-  /**
-   * Parses the specified character sequence to produce a Quantity (convenience method). If the specified sequence is empty, the Quantityary Quantity
-   * (dimensionless) is returned.
-   *
-   * @param csq
-   *          the <code>CharSequence</code> to parse.
-   * @return the Quantity parsed from the specified character sub-sequence.
-   * @throws ParseException
-   *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
-   */
-  public final Quantity<?> parse(CharSequence csq) throws MeasurementParseException {
-    return parse(csq, 0);
-  }
+    /**
+     * Formats the specified Quantity.
+     *
+     * @param Quantity
+     *          the Quantity to format.
+     * @param appendable
+     *          the appendable destination.
+     * @return The appendable destination passed in as {@code appendable}, with formatted text appended.
+     * @throws IOException
+     *           if an error occurs.
+     */
+    public abstract Appendable format(Quantity<?> Quantity, Appendable appendable) throws IOException;
 
-  /**
-   * Formats an object to produce a string. This is equivalent to <blockquote> {@link #format(Quantity, Appendable) format}<code>(Quantity,
-   *         new StringBuilder()).toString();</code> </blockquote>
-   *
-   * @param Quantity
-   *          The Quantity to format
-   * @return Formatted string.
-   * @exception IllegalArgumentException
-   *              if the Format cannot format the given object
-   */
-  public final String format(Quantity<?> Quantity) {
-    if (Quantity instanceof TestQuantity) {
-      try {
-        return format((TestQuantity<?>) Quantity, new StringBuilder()).toString();
-      } catch (IOException ex) {
-        throw new MeasurementParseException(ex); // Should never happen.
-      }
-    } else {
-      try {
-        return (this.format(Quantity, new StringBuilder())).toString();
-      } catch (IOException ex) {
-        throw new MeasurementParseException(ex); // Should never happen.
-      }
+    protected Quantity<?> parse(CharSequence csq, int index) throws MeasurementParseException {
+        // Parsing reads the whole character sequence from the parse position.
+        int start = index; // cursor != null ? cursor.getIndex() : 0;
+        int end = csq.length();
+        if (end <= start) {
+            return TestQuantity.ONE;
+        }
+        throw new MeasurementParseException("Error", csq, index);
     }
-  }
+
+    /**
+     * Parses the specified character sequence to produce a Quantity (convenience method). If the specified sequence is empty, the Quantityary Quantity
+     * (dimensionless) is returned.
+     *
+     * @param csq
+     *          the <code>CharSequence</code> to parse.
+     * @return the Quantity parsed from the specified character sub-sequence.
+     * @throws ParseException
+     *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
+     */
+    public final Quantity<?> parse(CharSequence csq) throws MeasurementParseException {
+        return parse(csq, 0);
+    }
+
+    /**
+     * Formats an object to produce a string. This is equivalent to <blockquote> {@link #format(Quantity, Appendable) format}<code>(Quantity,
+     *         new StringBuilder()).toString();</code> </blockquote>
+     *
+     * @param Quantity
+     *          The Quantity to format
+     * @return Formatted string.
+     * @exception IllegalArgumentException
+     *              if the Format cannot format the given object
+     */
+    public final String format(Quantity<?> Quantity) {
+        if (Quantity instanceof TestQuantity) {
+            try {
+                return format((TestQuantity<?>) Quantity, new StringBuilder()).toString();
+            } catch (IOException ex) {
+                throw new MeasurementParseException(ex); // Should never happen.
+            }
+        } else {
+            try {
+                return (this.format(Quantity, new StringBuilder())).toString();
+            } catch (IOException ex) {
+                throw new MeasurementParseException(ex); // Should never happen.
+            }
+        }
+    }
 }
