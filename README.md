@@ -1,6 +1,7 @@
 unit-api
 ========
 [![Maven metadata URI](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/javax/measure/unit-api/maven-metadata.xml.svg)](https://search.maven.org/search?q=a:unit-api)
+[![Javadocs](https://www.javadoc.io/badge/javax.measure/unit-api.svg)](https://www.javadoc.io/doc/javax.measure/unit-api)
 [![CircleCI](https://circleci.com/gh/unitsofmeasurement/unit-api/tree/master.svg?style=svg)](https://circleci.com/gh/unitsofmeasurement/unit-api/tree/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/84af6bb532464d4ba65e17625ecdd0d6)](https://www.codacy.com/app/unitsofmeasurement/unit-api?utm_source=github.com&utm_medium=referral&utm_content=unitsofmeasurement/unit-api&utm_campaign=badger)
 [![Coverage Status](https://coveralls.io/repos/github/unitsofmeasurement/unit-api/badge.svg)](https://coveralls.io/github/unitsofmeasurement/unit-api)
