@@ -139,7 +139,6 @@ public interface Quantity<Q extends Quantity<Q>> {
      * @throws ClassCastException
      *             if the type of an element in the specified operation is
      *             incompatible with this quantity
-     *             (<a href="#optional-restrictions">optional</a>)
      *
      * @param divisor
      *            the {@code Quantity} divisor.
@@ -171,7 +170,6 @@ public interface Quantity<Q extends Quantity<Q>> {
      * @throws ClassCastException
      *             if the type of an element in the specified operation is
      *             incompatible with this quantity
-     *             (<a href="#optional-restrictions">optional</a>)
      *
      * @param multiplicand
      *            the {@code Quantity} multiplicand.
