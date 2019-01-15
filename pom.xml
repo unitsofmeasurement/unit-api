@@ -137,6 +137,17 @@
             </roles>
         </developer>
         <developer>
+            <id>thodorisbais</id>
+            <name>Thodoris Bais</name>
+            <email>thodoris.bais@gmail.com</email>
+            <organization>Individual / Utrecht JUG</organization>
+            <timezone>+1</timezone>
+            <roles>
+                <role>Expert</role>
+                <role>Java Developer</role>
+            </roles>
+        </developer>
+        <developer>
             <id>Daniel-Dos</id>
             <name>Daniel Dias</name>
             <email>daniel.dias.analistati@gmail.com</email>
