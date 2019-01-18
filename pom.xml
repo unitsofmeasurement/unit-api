@@ -434,12 +434,12 @@
                                         <limit implementation="org.jacoco.report.check.Limit">
                                             <counter>INSTRUCTION</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.0</minimum> <!-- FIXME just a temporary workaround -->
+                                            <minimum>0.5</minimum>
                                         </limit>
                                         <limit>
                                             <counter>COMPLEXITY</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.0</minimum> <!-- FIXME just a temporary workaround -->
+                                            <minimum>0.5</minimum>
                                         </limit>
                                     </limits>
                                 </rule>
