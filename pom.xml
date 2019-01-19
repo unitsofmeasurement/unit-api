@@ -434,12 +434,12 @@
                                         <limit implementation="org.jacoco.report.check.Limit">
                                             <counter>INSTRUCTION</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.0</minimum> <!-- FIXME just a temporary workaround -->
+                                            <minimum>0.5</minimum>
                                         </limit>
                                         <limit>
                                             <counter>COMPLEXITY</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.0</minimum> <!-- FIXME just a temporary workaround -->
+                                            <minimum>0.5</minimum>
                                         </limit>
                                     </limits>
                                 </rule>
@@ -785,6 +785,22 @@
                             </execution>
                         </executions>
                     </plugin>
+
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.19</version>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.junit.platform</groupId>
+                                <artifactId>junit-platform-surefire-provider</artifactId>
+                                <version>1.1.0</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+
+
                 </plugins>
             </build>
         </profile>
