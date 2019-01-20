@@ -54,7 +54,7 @@ import javax.measure.format.UnitFormat;
  * All the methods in this class are safe to use by multiple concurrent threads.
  * </p>
  *
- * @version 1.5, November 3, 2018
+ * @version 1.6, January 20, 2019
  * @author Werner Keil
  * @author Martin Desruisseaux
  * @since 1.0
@@ -243,7 +243,7 @@ public abstract class ServiceProvider {
          * The list of service providers is <strong>not</strong> cached because it depends on the context class loader,
          * which itself depends on which thread is invoking this method.
          */
-        Stream<ServiceProvider> stream() {
+        private Stream<ServiceProvider> stream() {
             Stream<ServiceProvider> stream = StreamSupport.stream(ServiceLoader.load(ServiceProvider.class).spliterator(), false);
             if (toSearch != null) {
                 stream = stream.filter(this);
