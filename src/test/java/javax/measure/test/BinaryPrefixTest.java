@@ -57,9 +57,9 @@ public class BinaryPrefixTest {
     @Test
     public void testKibi() {
         final Quantity<Length> m1 = new DistanceQuantity(1, m);
-        final Unit<Length> km = KIBI(m);
+        final Unit<Length> km = kibi(m);
         assertEquals("Ki", KIBI.getSymbol());
-        assertEquals("KIBI", KIBI.getName());
+        assertEquals("kibi", KIBI.getName());
         assertEquals(1d, m1.getValue());
         assertEquals("m * 1024.0", km.toString());
         if (km instanceof TestUnit) {
@@ -72,8 +72,8 @@ public class BinaryPrefixTest {
     @Test
     public void testMebi() {
         assertEquals("Mi", MEBI.getSymbol());
-        assertEquals("MEBI", MEBI.getName());
-        Quantity<Time> t1 = TestQuantities.getQuantity(1.0, MEBI(s));
+        assertEquals("mebi", MEBI.getName());
+        Quantity<Time> t1 = TestQuantities.getQuantity(1.0, mebi(s));
         assertNotNull(t1);
         assertEquals("1.0 s * 1048576.0", t1.toString());
     }
@@ -84,14 +84,14 @@ public class BinaryPrefixTest {
         assertEquals(1d, v1.getValue());
         assertEquals("litre * 0.001", v1.getUnit().toString());
 
-        Quantity<Volume> v2 = v1.to(EXBI(litre));
+        Quantity<Volume> v2 = v1.to(exbi(litre));
         assertNull(v2); // TODO temporary workaround
     }
 
     @Test
     public void testGibi() {
         assertEquals("Gi", GIBI.getSymbol());
-        Quantity<Speed> s1 = TestQuantities.getQuantity(1.0, GIBI(mph));
+        Quantity<Speed> s1 = TestQuantities.getQuantity(1.0, gibi(mph));
         assertNotNull(s1);
         assertEquals("1.0 2.779789807058944E15", s1.toString());
     }
@@ -99,7 +99,7 @@ public class BinaryPrefixTest {
     @Test
     public void testTebi() {
         assertEquals("Ti", TEBI.getSymbol());
-        Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, TEBI(litre));
+        Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, tebi(litre));
         assertNotNull(v1);
         assertEquals("1.0 1.099511627776E9", v1.toString());
     }
@@ -107,7 +107,7 @@ public class BinaryPrefixTest {
     @Test
     public void testPebi() {
         assertEquals("Pi", PEBI.getSymbol());
-        Quantity<Area> a1 = TestQuantities.getQuantity(1.0, PEBI(acre));
+        Quantity<Area> a1 = TestQuantities.getQuantity(1.0, pebi(acre));
         assertNotNull(a1);
         assertEquals("1.0 4.5565169229920993E18", a1.toString());
     }
@@ -115,7 +115,7 @@ public class BinaryPrefixTest {
     @Test
     public void testYobi() {
         assertEquals("Yi", YOBI.getSymbol());
-        Quantity<Area> a1 = TestQuantities.getQuantity(1.0, YOBI(acre));
+        Quantity<Area> a1 = TestQuantities.getQuantity(1.0, yobi(acre));
         assertNotNull(a1);
         assertEquals("1.0 4.892522791980404E27", a1.toString());
     }
@@ -123,7 +123,7 @@ public class BinaryPrefixTest {
     @Test
     public void testZebi() {
         assertEquals("Zi", ZEBI.getSymbol());
-        Quantity<Area> a1 = TestQuantities.getQuantity(1.0, ZEBI(acre));
+        Quantity<Area> a1 = TestQuantities.getQuantity(1.0, zebi(acre));
         assertNotNull(a1);
         assertEquals("1.0 4.7778542890433635E24", a1.toString());
     }

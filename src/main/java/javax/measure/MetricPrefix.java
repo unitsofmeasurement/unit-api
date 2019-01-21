@@ -39,8 +39,8 @@ package javax.measure;
  *     import javax.measure.*;
  *     import javax.measure.quantity.*;
  *     ...
- *     Unit<Pressure> HECTOPASCAL = HECTO(PASCAL);
- *     Unit<Length> KILOMETRE = KILO(METRE);}
+ *     Unit<Pressure> HECTOPASCAL = hecto(PASCAL);
+ *     Unit<Length> KILOMETRE = kilo(METRE);}
  * </pre>
  *
  * @see <a href="http://en.wikipedia.org/wiki/Metric_prefix">Wikipedia: Metric Prefix</a>
@@ -126,7 +126,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e24)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> YOTTA(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> yotta(Unit<Q> unit) {
         return unit.prefix(YOTTA);
     }
 
@@ -139,7 +139,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e21)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> ZETTA(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> zetta(Unit<Q> unit) {
         return unit.prefix(ZETTA);
     }
 
@@ -152,7 +152,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e18)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> EXA(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> exa(Unit<Q> unit) {
         return unit.prefix(EXA);
     }
 
@@ -165,7 +165,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e15)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> PETA(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> peta(Unit<Q> unit) {
         return unit.prefix(PETA);
     }
 
@@ -178,7 +178,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e12)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> TERA(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> tera(Unit<Q> unit) {
         return unit.prefix(TERA);
     }
 
@@ -191,7 +191,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e9)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> GIGA(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> giga(Unit<Q> unit) {
         return unit.prefix(GIGA);
     }
 
@@ -204,7 +204,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e6)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> MEGA(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> mega(Unit<Q> unit) {
         return unit.prefix(MEGA);
     }
 
@@ -217,7 +217,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e3)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> KILO(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> kilo(Unit<Q> unit) {
         return unit.prefix(KILO);
     }
 
@@ -230,7 +230,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e2)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> HECTO(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> hecto(Unit<Q> unit) {
         return unit.prefix(HECTO);
     }
 
@@ -243,7 +243,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e1)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> DEKA(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> deka(Unit<Q> unit) {
         return unit.prefix(DEKA);
     }
 
@@ -256,7 +256,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e-1)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> DECI(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> deci(Unit<Q> unit) {
         return unit.prefix(DECI);
     }
 
@@ -269,7 +269,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e-2)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> CENTI(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> centi(Unit<Q> unit) {
         return unit.prefix(CENTI);
     }
 
@@ -282,7 +282,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e-3)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> MILLI(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> milli(Unit<Q> unit) {
         return unit.prefix(MILLI);
     }
 
@@ -295,7 +295,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e-6)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> MICRO(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> micro(Unit<Q> unit) {
         return unit.prefix(MICRO);
     }
 
@@ -308,7 +308,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e-9)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> NANO(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> nano(Unit<Q> unit) {
         return unit.prefix(NANO);
     }
 
@@ -321,7 +321,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e-12)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> PICO(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> pico(Unit<Q> unit) {
         return unit.prefix(PICO);
     }
 
@@ -334,7 +334,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e-15)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> FEMTO(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> femto(Unit<Q> unit) {
         return unit.prefix(FEMTO);
     }
 
@@ -347,7 +347,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e-18)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> ATTO(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> atto(Unit<Q> unit) {
         return unit.prefix(ATTO);
     }
 
@@ -360,7 +360,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e-21)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> ZEPTO(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> zepto(Unit<Q> unit) {
         return unit.prefix(ZEPTO);
     }
 
@@ -373,7 +373,7 @@ public enum MetricPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.times(1e-24)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> YOCTO(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> yocto(Unit<Q> unit) {
         return unit.prefix(YOCTO);
     }
 

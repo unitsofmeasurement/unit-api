@@ -90,7 +90,7 @@ public enum BinaryPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.multiply(1024)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> KIBI(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> kibi(Unit<Q> unit) {
         return unit.prefix(KIBI);
     }
 
@@ -103,7 +103,7 @@ public enum BinaryPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.multiply(1048576)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> MEBI(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> mebi(Unit<Q> unit) {
         return unit.prefix(MEBI);
     }
 
@@ -116,7 +116,7 @@ public enum BinaryPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.multiply(1073741824)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> GIBI(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> gibi(Unit<Q> unit) {
         return unit.prefix(GIBI);
     }
 
@@ -129,7 +129,7 @@ public enum BinaryPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.multiply(1099511627776L)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> TEBI(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> tebi(Unit<Q> unit) {
         return unit.prefix(TEBI);
     }
 
@@ -142,7 +142,7 @@ public enum BinaryPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.multiply(1125899906842624L)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> PEBI(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> pebi(Unit<Q> unit) {
         return unit.prefix(PEBI);
     }
 
@@ -155,7 +155,7 @@ public enum BinaryPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.multiply(1152921504606846976L)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> EXBI(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> exbi(Unit<Q> unit) {
         return unit.prefix(EXBI);
     }
 
@@ -168,7 +168,7 @@ public enum BinaryPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.multiply(1152921504606846976d)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> ZEBI(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> zebi(Unit<Q> unit) {
         return unit.prefix(ZEBI);
     }
 
@@ -181,7 +181,7 @@ public enum BinaryPrefix implements Prefix {
      *          any unit.
      * @return <code>unit.multiply(1208925819614629174706176d)</code>.
      */
-    public static <Q extends Quantity<Q>> Unit<Q> YOBI(Unit<Q> unit) {
+    public static <Q extends Quantity<Q>> Unit<Q> yobi(Unit<Q> unit) {
         return unit.prefix(YOBI);
     }
 

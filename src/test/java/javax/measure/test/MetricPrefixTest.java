@@ -56,16 +56,16 @@ public class MetricPrefixTest {
     @Test
     public void testAtto() {
         assertEquals("a", ATTO.getSymbol());
-        assertEquals("ATTO", ATTO.getName());
-        Quantity<Time> t1 = TestQuantities.getQuantity(1.0, ATTO(min));
+        assertEquals("atto", ATTO.getName());
+        Quantity<Time> t1 = TestQuantities.getQuantity(1.0, atto(min));
         assertEquals("min * 6.0E-17", t1.getUnit().toString());
     }
 
     @Test
     public void testCenti() {
         assertEquals("c", CENTI.getSymbol());
-        assertEquals("CENTI", CENTI.getName());
-        Quantity<Length> l1 = TestQuantities.getQuantity(1.0, CENTI(m));
+        assertEquals("centi", CENTI.getName());
+        Quantity<Length> l1 = TestQuantities.getQuantity(1.0, centi(m));
         assertEquals("m * 0.01", l1.getUnit().toString());
     }
 
@@ -75,49 +75,49 @@ public class MetricPrefixTest {
         assertEquals(1d, m1.getValue());
         assertEquals("litre * 0.001", m1.getUnit().toString());
 
-        Quantity<Volume> m2 = m1.to(DECI(litre));
+        Quantity<Volume> m2 = m1.to(deci(litre));
         assertNull(m2); // TODO temporary workaround
     }
 
     @Test
     public void testDeka() {
         assertEquals("da", DEKA.getSymbol());
-        Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, DEKA(litre));
+        Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, deka(litre));
         assertEquals("0.01", v1.getUnit().toString());
     }
 
     @Test
     public void testExa() {
         assertEquals("E", EXA.getSymbol());
-        Quantity<Length> l1 = TestQuantities.getQuantity(1.0, EXA(m));
+        Quantity<Length> l1 = TestQuantities.getQuantity(1.0, exa(m));
         assertEquals("m * 1.0E18", l1.getUnit().toString());
     }
 
     @Test
     public void testFemto() {
         assertEquals("f", FEMTO.getSymbol());
-        Quantity<Time> t1 = TestQuantities.getQuantity(1.0, FEMTO(s));
+        Quantity<Time> t1 = TestQuantities.getQuantity(1.0, femto(s));
         assertEquals("s * 1.0E-15", t1.getUnit().toString());
     }
 
     @Test
     public void testGiga() {
         assertEquals("G", GIGA.getSymbol());
-        Quantity<Area> a1 = TestQuantities.getQuantity(1.0, GIGA(acre));
+        Quantity<Area> a1 = TestQuantities.getQuantity(1.0, giga(acre));
         assertEquals("4.047E12", a1.getUnit().toString());
     }
 
     @Test
     public void testHecto() {
         assertEquals("h", HECTO.getSymbol());
-        Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, HECTO(litre));
+        Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, hecto(litre));
         assertEquals("0.1", v1.getUnit().toString());
     }
 
     @Test
     public void testKilo() {
         final Quantity<Length> m1 = new DistanceQuantity(1, m);
-        final Unit<Length> km = KILO(m);
+        final Unit<Length> km = kilo(m);
         assertEquals("k", KILO.getSymbol());
         assertEquals(1d, m1.getValue());
         assertEquals("m * 1000.0", km.toString());
@@ -131,13 +131,13 @@ public class MetricPrefixTest {
     @Test
     public void testMega() {
         assertEquals("M", MEGA.getSymbol());
-        Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, MEGA(litre));
+        Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, mega(litre));
         assertEquals("1000.0", v1.getUnit().toString());
     }
 
     @Test
     public void testMilli() {
-        Quantity<Volume> m1 = TestQuantities.getQuantity(10, MILLI(litre));
+        Quantity<Volume> m1 = TestQuantities.getQuantity(10, milli(litre));
         assertEquals(10d, m1.getValue());
         assertEquals("1.0E-6", m1.getUnit().toString());
     }
@@ -150,7 +150,7 @@ public class MetricPrefixTest {
         assertEquals(1d, m1.getValue());
         assertEquals("m", m1.getUnit().getSymbol());
 
-        Quantity<Length> m2 = m1.to(MICRO(m));
+        Quantity<Length> m2 = m1.to(micro(m));
         assertNull(m2); // TODO temporary workaround
     }
 
@@ -160,14 +160,14 @@ public class MetricPrefixTest {
         assertEquals(1d, m1.getValue());
         assertEquals("m", m1.getUnit().getSymbol());
 
-        Quantity<Length> m2 = m1.to(NANO(m));
+        Quantity<Length> m2 = m1.to(nano(m));
         assertNull(m2); // TODO temporary workaround
     }
 
     @Test
     public void testPeta() {
         assertEquals("P", PETA.getSymbol());
-        Quantity<Speed> s1 = TestQuantities.getQuantity(10, PETA(kmh));
+        Quantity<Speed> s1 = TestQuantities.getQuantity(10, peta(kmh));
         assertEquals(10d, s1.getValue());
         assertEquals("1.0E15", s1.getUnit().toString());
     }
@@ -175,7 +175,7 @@ public class MetricPrefixTest {
     @Test
     public void testPico() {
         assertEquals("p", PICO.getSymbol());
-        Quantity<Volume> v1 = TestQuantities.getQuantity(10, PICO(litre));
+        Quantity<Volume> v1 = TestQuantities.getQuantity(10, pico(litre));
         assertEquals(10d, v1.getValue());
         assertEquals("1.0E-15", v1.getUnit().toString());
     }
@@ -183,7 +183,7 @@ public class MetricPrefixTest {
     @Test
     public void testTera() {
         assertEquals("T", TERA.getSymbol());
-        Quantity<Length> l1 = TestQuantities.getQuantity(10, TERA(m));
+        Quantity<Length> l1 = TestQuantities.getQuantity(10, tera(m));
         assertEquals(10d, l1.getValue());
         assertEquals("m * 1.0E12", l1.getUnit().toString());
     }
@@ -191,7 +191,7 @@ public class MetricPrefixTest {
     @Test
     public void testYocto() {
         assertEquals("y", YOCTO.getSymbol());
-        Quantity<Volume> v1 = TestQuantities.getQuantity(10, YOCTO(litre));
+        Quantity<Volume> v1 = TestQuantities.getQuantity(10, yocto(litre));
         assertEquals(10d, v1.getValue());
         assertEquals("9.999999999999999E-28", v1.getUnit().toString());
     }
@@ -199,7 +199,7 @@ public class MetricPrefixTest {
     @Test
     public void testYotta() {
         assertEquals("Y", YOTTA.getSymbol());
-        Quantity<Area> a1 = TestQuantities.getQuantity(10, YOTTA(sqmetre));
+        Quantity<Area> a1 = TestQuantities.getQuantity(10, yotta(sqmetre));
         assertEquals(10d, a1.getValue());
         assertEquals("1.0E24", a1.getUnit().toString());
     }
@@ -207,7 +207,7 @@ public class MetricPrefixTest {
     @Test
     public void testZepto() {
         assertEquals("z", ZEPTO.getSymbol());
-        Quantity<Time> t1 = TestQuantities.getQuantity(10, ZEPTO(s));
+        Quantity<Time> t1 = TestQuantities.getQuantity(10, zepto(s));
         assertEquals(10d, t1.getValue());
         assertEquals("s * 1.0E-21", t1.getUnit().toString());
     }
@@ -215,7 +215,7 @@ public class MetricPrefixTest {
     @Test
     public void testZetta() {
         assertEquals("Z", ZETTA.getSymbol());
-        Quantity<Length> l1 = TestQuantities.getQuantity(10, ZETTA(m));
+        Quantity<Length> l1 = TestQuantities.getQuantity(10, zetta(m));
         assertEquals(10d, l1.getValue());
         assertEquals("m * 1.0E21", l1.getUnit().toString());
     }
