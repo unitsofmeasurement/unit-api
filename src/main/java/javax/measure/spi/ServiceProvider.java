@@ -383,7 +383,7 @@ setcur: if (first != null) {
     public static final ServiceProvider setCurrent(ServiceProvider provider) {
         Objects.requireNonNull(provider);
         ServiceProvider old = current.getAndSet(provider);
-        if (old != provider) {
+        if (old != null && !old.equals(provider)) {
             Logger.getLogger("javax.measure.spi").log(Level.CONFIG,
                     "Measurement ServiceProvider {1,choice,0#set to|1#replaced by} {0}.",
                     new Object[] {provider.getClass().getName(), (old == null) ? 0 : 1});
