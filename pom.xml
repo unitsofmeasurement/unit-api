@@ -78,9 +78,10 @@
         <maven.site.version>3.7.1</maven.site.version>
         <maven.jar.version>3.1.0</maven.jar.version>
         <maven.javadoc.version>3.0.1</maven.javadoc.version>
+        <maven.surefire.version>2.22.1</maven.surefire.version>
+        <maven.surefire-report.version>2.22.1</maven.surefire-report.version>
         <jacoco.plugin.version>0.8.2</jacoco.plugin.version>
-		<junit.jupiter.version>5.1.0</junit.jupiter.version>
-		<junit.platform.version>1.1.0</junit.platform.version>
+        <junit.jupiter.version>5.3.2</junit.jupiter.version>
     </properties>
 
     <!-- Developers and Contributors -->
@@ -689,7 +690,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
-               <version>2.16</version>
+               <version>${maven.surefire-report.version}</version>
             </plugin>
 
             <!-- Static analysis for occurrences of bug patterns -->
@@ -735,23 +736,8 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <version>${junit.jupiter.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-launcher</artifactId>
-            <version>${junit.platform.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-runner</artifactId>
-            <version>${junit.platform.version}</version>
-        </dependency>
-
     </dependencies>
 
     <profiles>
@@ -789,14 +775,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.19</version>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.junit.platform</groupId>
-                                <artifactId>junit-platform-surefire-provider</artifactId>
-                                <version>${junit.platform.version}</version>
-                            </dependency>
-                        </dependencies>
+                        <version>${maven.surefire.version}</version>
                     </plugin>
 
 
