@@ -412,6 +412,11 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco.plugin.version}</version>
+                <configuration>
+                  <excludes>
+                    <exclude>META-INF/**</exclude>
+                  </excludes>
+                </configuration>
                 <executions>
                     <execution>
                         <id>pre-unit-test</id>
