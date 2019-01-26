@@ -34,6 +34,16 @@ import javax.measure.Quantity;
 /**
  * Period of existence or persistence. The metric system unit for this quantity is "s" (second).
  *
+ * The second, symbol s, is the SI unit of time. It is defined by taking the fixed
+ * numerical value of the caesium frequency ∆νCs, the unperturbed ground-state
+ * hyperfine transition frequency of the caesium 133 atom, to be 9 192 631 770 when
+ * expressed in the unit Hz, which is equal to s⁻¹.
+ *
+ * This definition implies the exact relation ∆νCs = 9 192 631 770 Hz. Inverting this relation
+ * gives an expression for the unit second in terms of the defining constant ∆νCs:
+ *
+ * 1 Hz = ∆νCs / 9 192 631 770  or  1 s = 9 192 631 770 / ∆νCs
+ *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.6
  * @since 1.0
