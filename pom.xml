@@ -414,7 +414,7 @@
                 <version>${jacoco.plugin.version}</version>
                 <configuration>
                   <excludes>
-                    <exclude>META-INF/**</exclude>
+                    <exclude>META-INF/versions/**</exclude>
                   </excludes>
                 </configuration>
                 <executions>
