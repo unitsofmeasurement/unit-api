@@ -408,6 +408,13 @@
               </executions>
             </plugin>
 
+            <!-- Need to specificy at least 2.22.0 for JUnit 5 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.version}</version>
+            </plugin>
+
             <!-- Coverage -->
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -771,14 +778,6 @@
                             </execution>
                         </executions>
                     </plugin>
-
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${maven.surefire.version}</version>
-                    </plugin>
-
-
                 </plugins>
             </build>
         </profile>
