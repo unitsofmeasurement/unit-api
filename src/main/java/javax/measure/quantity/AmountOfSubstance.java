@@ -34,6 +34,20 @@ import javax.measure.Quantity;
 /**
  * Number of elementary entities (molecules, for example) of a substance. The metric system unit for this quantity is "mol" (mole).
  *
+ * The mole, symbol mol, is the SI unit of amount of substance. One mole contains
+ * exactly 6.022 140 76 × 1023 elementary entities. This number is the fixed numerical
+ * value of the Avogadro constant, NA, when expressed in the unit mol⁻¹ and is called
+ * the Avogadro number.
+ *
+ * The amount of substance, symbol n, of a system is a measure of the number of
+ * specified elementary entities. An elementary entity may be an atom, a molecule, an
+ * ion, an electron, any other particle or specified group of particles.
+ * This definition implies the exact relation NA = 6.022 140 76 × 1023 mol⁻¹.
+ *
+ * Inverting this relation gives an exact expression for the mole in terms of the defining constant NA:
+ *
+ * 1 mol = 6.02214076 × 1023 / NA
+ *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.3
