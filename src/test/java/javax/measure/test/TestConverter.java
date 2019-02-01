@@ -64,7 +64,7 @@ public abstract class TestConverter implements UnitConverter {
      * @return the concatenation of this converter with that converter.
      */
     public TestConverter concatenate(TestConverter that) {
-        return (that == IDENTITY) ? this : new Pair(this, that);
+        return (IDENTITY.equals(that)) ? this : new Pair(this, that);
     }
 
     public boolean isIdentity() {
@@ -82,7 +82,7 @@ public abstract class TestConverter implements UnitConverter {
 
     @Override
     public UnitConverter concatenate(UnitConverter converter) {
-        return (converter == IDENTITY) ? this : new Pair(this, converter);
+        return (IDENTITY.equals(converter)) ? this : new Pair(this, converter);
     }
 
     @Override
