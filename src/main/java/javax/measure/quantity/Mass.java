@@ -35,6 +35,17 @@ import javax.measure.Quantity;
  * Measure of the quantity of matter that a body or an object contains. The mass of the body is not dependent on gravity and therefore is different
  * from but proportional to its weight. The metric system unit for this quantity is "kg" (kilogram).
  *
+ * The kilogram, symbol kg, is the SI unit of mass. It is defined by taking the fixed
+ * numerical value of the Planck constant h to be 6.626 070 15 × 10⁻³⁴ when expressed
+ * in the unit J s, which is equal to kg m² s−1, where the metre and the second are
+ * defined in terms of c and ∆νCs.
+ *
+ * This definition implies the exact relation h = 6.626 070 15 × 10−34 kg m² s⁻¹. Inverting this
+ * relation gives an exact expression for the kilogram in terms of the three defining constants
+ * h, ∆νCs and c:
+ *
+ * 1 kg = (h / 6.626 070 15 × 10⁻³⁴) m⁻² s
+ *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.2
