@@ -34,6 +34,17 @@ import javax.measure.Quantity;
 /**
  * Amount of electric charge flowing past a specified circuit point per unit time. The metric system unit for this quantity is "A" (Ampere).
  *
+ * The ampere, symbol A, is the SI unit of electric current. It is defined by taking the
+ * fixed numerical value of the elementary charge e to be 1.602 176 634 × 10⁻¹⁹ when
+ * expressed in the unit C, which is equal to A s, where the second is defined in terms
+ * of ∆νCs.
+ *
+ * This definition implies the exact relation e = 1.602 176 634 × 10⁻¹⁹ A s. Inverting this
+ * relation gives an exact expression for the unit ampere in terms of the defining constants e
+ * and ∆νCs:
+ *
+ * 1 A = (e / 1.602 176 634 × 10⁻¹⁹) s⁻¹
+ *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @version 1.1
  * @since 1.0
