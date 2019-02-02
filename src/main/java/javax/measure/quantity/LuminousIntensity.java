@@ -32,8 +32,20 @@ package javax.measure.quantity;
 import javax.measure.Quantity;
 
 /**
- * Luminous flux density per solid angle as measured in a given direction relative to the emitting source. The metric system unit for this quantity is
- * "cd" (candela).
+ * Luminous flux density per solid angle as measured in a given direction relative to the emitting source.
+ * The metric system unit for this quantity is "cd" (candela).
+ *
+ * The candela, symbol cd, is the SI unit of luminous intensity in a given direction. It is
+ * defined by taking the fixed numerical value of the luminous efficacy of
+ * monochromatic radiation of frequency 540 × 10¹² Hz, Kcd, to be 683 when expressed
+ * in the unit lm W−1, which is equal to cd sr W⁻¹, or cd sr kg⁻¹ m⁻² s³, where the kilogram,
+ * metre and second are defined in terms of h, c and ∆νCs.
+ *
+ * This definition implies the exact relation Kcd = 683 cd sr kg⁻¹ m⁻² s³ for monochromatic
+ * radiation of frequency ν = 540 × 10¹² Hz. Inverting this relation gives an exact expression
+ * for the candela in terms of the defining constants Kcd, h and ∆νCs:
+ *
+ * 1 cd = (Kcd / 683) kg m² s⁻³ sr⁻¹
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
