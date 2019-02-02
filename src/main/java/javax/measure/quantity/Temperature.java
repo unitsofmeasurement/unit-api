@@ -34,6 +34,17 @@ import javax.measure.Quantity;
 /**
  * Degree of hotness or coldness of a body or an environment. The metric system unit for this quantity is "K" (Kelvin).
  *
+ * The kelvin, symbol K, is the SI unit of thermodynamic temperature. It is defined by
+ * taking the fixed numerical value of the Boltzmann constant k to be 1.380 649 × 10−²³
+ * when expressed in the unit J K⁻¹, which is equal to kg m² s⁻² K⁻¹, where the
+ * kilogram, metre and second are defined in terms of h, c and ∆νCs.
+ *
+ * This definition implies the exact relation k = 1.380 649 × 10⁻²³ kg m² s⁻² K⁻¹. Inverting this
+ * relation gives an exact expression for the kelvin in terms of the defining constants k, h and
+ * ∆νCs:
+ *
+ * 1 K = (1.380 649 / k) × 10⁻²³ kg m² s⁻²
+ *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @version 1.1
  * @since 1.0
