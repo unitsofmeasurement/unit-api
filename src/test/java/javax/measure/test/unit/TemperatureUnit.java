@@ -40,6 +40,7 @@ import javax.measure.test.TestUnit;
  * @author Werner Keil
  * @version 0.5, $Date: 2018-11-18 $
  */
+@SuppressWarnings("PMD.UnusedPrivateField")
 public class TemperatureUnit extends TestUnit<Temperature> {
     private static final char DEG = '\u00B0';
     /** Kelvin, commonly used in scientific endeavors. */
@@ -85,6 +86,7 @@ public class TemperatureUnit extends TestUnit<Temperature> {
      *  @param newMult new multiplier
      *  @param shift the shift factor
      */
+    @SuppressWarnings("PMD.UnusedFormalParameter")
     public TemperatureUnit(double newMult, double shift, final TemperatureUnit rel, double newFreezingPoint, double newBoilingPoint,
                            final String newSymbol, final String newNamedFor) {
         this.multFactor = newMult;
