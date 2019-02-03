@@ -40,6 +40,7 @@ import javax.measure.test.TestUnit;
  * @author Werner Keil
  * @version 0.5, $Date: 2018-11-18 $
  */
+@SuppressWarnings("PMD.UnusedPrivateField")
 public class TemperatureUnit extends TestUnit<Temperature> {
     private static final char DEG = '\u00B0';
     /** Kelvin, commonly used in scientific endeavors. */
