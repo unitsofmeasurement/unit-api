@@ -86,6 +86,7 @@ public class TemperatureUnit extends TestUnit<Temperature> {
      *  @param newMult new multiplier
      *  @param shift the shift factor
      */
+    @SuppressWarnings("PMD.UnusedFormalParameter")
     public TemperatureUnit(double newMult, double shift, final TemperatureUnit rel, double newFreezingPoint, double newBoilingPoint,
                            final String newSymbol, final String newNamedFor) {
         this.multFactor = newMult;
