@@ -71,12 +71,6 @@ public class TemperatureUnit extends TestUnit<Temperature> {
 
     private final TemperatureUnit relativeTo;
 
-    // private static final Double FIVE = new Double("5");
-    // private static final Double NINE = new Double("9");
-    // private static final Double THIRTY_TWO = new Double("32");
-    // private static final Double KELVIN_CELSIUS_DELTA = new Double("273");
-    private static final double RANKINE_FAHRENHEIT_DELTA = 459.67d;
-
     /**
      * Constructor for TemperatureUnit that accepts key characteristics of each temperature scale.
      *
