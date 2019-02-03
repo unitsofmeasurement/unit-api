@@ -117,9 +117,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
         // compatible they must
         // be both test
         // units.
-        Unit thisSystemUnit = this.getSystemUnit();
         UnitConverter thisToDimension = this.getSystemConverter();
-        Unit thatSystemUnit = thatAbstr.getSystemUnit();
         UnitConverter thatToDimension = thatAbstr.getSystemConverter();
         return thatToDimension.inverse().concatenate(thisToDimension);
     }

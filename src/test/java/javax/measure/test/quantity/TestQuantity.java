@@ -127,7 +127,6 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
      *         that.doubleValue(getUnit()))</code>
      */
     public int compareTo(Quantity<Q> that) {
-        Unit<Q> unit = getUnit();
         return Double.compare(value, that.getValue().doubleValue());
     }
 
