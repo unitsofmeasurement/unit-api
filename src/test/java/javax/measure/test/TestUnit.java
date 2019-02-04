@@ -40,6 +40,7 @@ import javax.measure.UnconvertibleException;
 import javax.measure.UnitConverter;
 import javax.measure.quantity.Dimensionless;
 import javax.measure.test.unit.BaseUnit;
+import javax.measure.test.unit.CompoundUnit;
 import javax.measure.test.unit.MultiplyConverter;
 
 /**
@@ -210,5 +211,10 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
             sb.append(String.valueOf(getMultFactor()));
         }
         return sb.toString();
+    }
+    
+    @Override
+    public Unit<Q> compound(Unit<Q> that) {
+        return new CompoundUnit(this, that);
     }
 }

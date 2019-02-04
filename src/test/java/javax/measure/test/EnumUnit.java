@@ -148,4 +148,10 @@ enum EnumUnit implements Unit {
         final MultiplyConverter converter = new MultiplyConverter(Math.pow(prefix.getBase(), prefix.getExponent()));
         return this.transform(converter);
     }
+
+    @Override
+    public Unit compound(Unit that) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

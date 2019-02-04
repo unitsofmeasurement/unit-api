@@ -67,7 +67,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.1, June 25, 2018
+ * @version 1.2, February 4, 2019
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
@@ -362,4 +362,18 @@ public interface Unit<Q extends Quantity<Q>> {
      * @return the unit with the given prefix applied.
      */
     Unit<Q> prefix(Prefix prefix);
+    
+    /**
+     * Returns the combination of this unit with the specified sub-unit. Compound
+     * units are typically used for formatting purpose. Examples of compound
+     * units:<code> 
+     *     Unit<Length> FOOT_INCH = FOOT.compound(INCH);
+     *     Unit<Time> HOUR_MINUTE_SECOND = HOUR.compound(MINUTE).compound(SECOND);
+     * </code>
+     * 
+     * @param that
+     *            the less significant unit to combine with this unit.
+     * @return the corresponding compound unit.
+     */
+    Unit<Q> compound(Unit<Q> that);
 }
