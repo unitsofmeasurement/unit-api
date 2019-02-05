@@ -32,9 +32,19 @@ package javax.measure.quantity;
 import javax.measure.Quantity;
 
 /**
- * Extent of something along its greatest dimension or the extent of space between two objects or places. The metric system unit for this quantity is
- * "m" (metre).
+ * Extent of something along its greatest dimension or the extent of space between two objects or places.
+ * The metric system unit for this quantity is "m" (metre).
  *
+ * The metre, symbol m, is the SI unit of length. It is defined by taking the fixed
+ * numerical value of the speed of light in vacuum c to be 299 792 458 when expressed
+ * in the unit m s⁻¹, where the second is defined in terms of the caesium frequency
+ * ∆νCs.
+ *
+ * This definition implies the exact relation c = 299 792 458 m s⁻¹. Inverting this relation
+ * gives an exact expression for the metre in terms of the defining constants c and ∆νCs:
+ *
+ * 1 m = (c / 299 792 458)s = 9 192 631 770 c / 299 792 458 ∆νCs ≈ 30.663 319 c / ∆νCs
+ * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.3
