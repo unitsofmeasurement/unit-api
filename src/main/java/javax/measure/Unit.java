@@ -67,7 +67,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.2, February 4, 2019
+ * @version 1.2.1, February 5, 2019
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
@@ -372,7 +372,7 @@ public interface Unit<Q extends Quantity<Q>> {
      * </code>
      * 
      * @param that
-     *            the less significant unit to combine with this unit.
+     *            the other unit to combine with this unit.
      * @return the corresponding compound unit.
      */
     Unit<Q> compound(Unit<Q> that);
