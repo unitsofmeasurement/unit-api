@@ -360,6 +360,7 @@ public interface Unit<Q extends Quantity<Q>> {
      * @param prefix
      *          the prefix to apply on this unit.
      * @return the unit with the given prefix applied.
+     * @since 2.0
      */
     Unit<Q> prefix(Prefix prefix);
     
@@ -374,6 +375,7 @@ public interface Unit<Q extends Quantity<Q>> {
      * @param that
      *            the other unit to combine with this unit.
      * @return the corresponding compound unit.
+     * @since 2.0
      */
     Unit<Q> compound(Unit<Q> that);
 }
