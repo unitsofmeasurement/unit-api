@@ -130,7 +130,7 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
         return Double.compare(value, that.getValue().doubleValue());
     }
 
-    String showInUnits(TestUnit<?> u, int precision) {
+    protected String showInUnits(TestUnit<?> u, int precision) {
         double result = scalar / u.getMultFactor();
 
         String str = (Double.valueOf(result)).toString();
