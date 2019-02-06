@@ -45,15 +45,12 @@ import javax.measure.test.unit.MultiplyConverter;
  */
 @SuppressWarnings("rawtypes")
 enum EnumUnit implements Unit {
-    TEST("t", 1);
+    TEST("t");
 
     private final String symbol;
-    @SuppressWarnings("unused")
-    private final double factor;
 
-    private EnumUnit(String symbol, double factor) {
+    private EnumUnit(String symbol) {
         this.symbol = symbol;
-        this.factor = factor;
     }
 
     public String getSymbol() {
