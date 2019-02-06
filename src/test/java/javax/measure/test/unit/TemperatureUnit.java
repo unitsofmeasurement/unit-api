@@ -38,7 +38,7 @@ import javax.measure.test.TestUnit;
 
 /**
  * @author Werner Keil
- * @version 0.6, $Date: 2019-02-06 $
+ * @version 0.7, $Date: 2019-02-06 $
  */
 public class TemperatureUnit extends TestUnit<Temperature> {
     private static final char DEG = '\u00B0';
@@ -60,16 +60,8 @@ public class TemperatureUnit extends TestUnit<Temperature> {
 
     private final double multFactor;
 
-    /** Freezing point of water for each temperature scale. */
-    private final double freezingPoint;
-
-    /** Boiling point of water for each temperature scale. */
-    private final double boilingPoint;
-
     /** Name of person that this temperature scale is named for. */
     private final String namedFor;
-
-    private final TemperatureUnit relativeTo;
 
     /**
      * Constructor for TemperatureUnit that accepts key characteristics of each temperature scale.
@@ -85,13 +77,9 @@ public class TemperatureUnit extends TestUnit<Temperature> {
      *  @param newMult new multiplier
      *  @param shift the shift factor
      */
-    @SuppressWarnings("PMD.UnusedFormalParameter")
     public TemperatureUnit(double newMult, double shift, final TemperatureUnit rel, double newFreezingPoint, double newBoilingPoint,
                            final String newSymbol, final String newNamedFor) {
         this.multFactor = newMult;
-        this.relativeTo = rel;
-        this.freezingPoint = newFreezingPoint;
-        this.boilingPoint = newBoilingPoint;
         this.description = newSymbol;
         this.namedFor = newNamedFor;
     }
