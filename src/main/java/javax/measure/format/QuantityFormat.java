@@ -63,6 +63,15 @@ public interface QuantityFormat {
     public Appendable format(Quantity<?> quantity, Appendable destination) throws IOException;
 
     /**
+     * Formats the specified {@link Quantity}.
+     *
+     * @param quantity
+     *            the {@link Quantity} to format, not {@code null}
+     * @return the string representation using the settings of this {@link QuantityFormat}.
+     */
+    String format(Quantity<?> quantity);
+
+    /**
      * Parses a portion of the specified {@code CharSequence} from the specified position to produce a {@link Quantity}.
      * If parsing succeeds, then the index of the {@code cursor} argument is updated to the index after the last character used.
      *
