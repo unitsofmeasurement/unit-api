@@ -42,7 +42,9 @@ import javax.measure.Quantity;
  * access a format concurrently, it must be synchronized externally.
  *
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 0.6, 4 Sep, 2018
+ * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>
+ *
+ * @version 0.9, 22 Feb, 2019
  * @since 2.0
  *
  * @see Quantity
