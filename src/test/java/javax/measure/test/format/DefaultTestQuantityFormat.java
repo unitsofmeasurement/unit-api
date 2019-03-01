@@ -68,8 +68,8 @@ class DefaultTestQuantityFormat extends TestQuantityFormat {
 
     @SuppressWarnings("unchecked")
     @Override
-    public Quantity<?> parse(CharSequence csq, ParsePosition cursor) throws MeasurementParseException {
-        int startDecimal = cursor.getIndex();
+    public Quantity<?> parse(CharSequence csq, ParsePosition pos) throws MeasurementParseException {
+        int startDecimal = pos.getIndex();
         while ((startDecimal < csq.length()) && Character.isWhitespace(csq.charAt(startDecimal))) {
             startDecimal++;
         }
@@ -78,7 +78,7 @@ class DefaultTestQuantityFormat extends TestQuantityFormat {
             endDecimal++;
         }
         BigDecimal decimal = new BigDecimal(csq.subSequence(startDecimal, endDecimal).toString());
-        cursor.setIndex(endDecimal + 1);
+        pos.setIndex(endDecimal + 1);
         Unit unit = SimpleTestUnitFormat.getInstance().parse(csq);
         return TestQuantities.getQuantity(decimal, unit);
     }
@@ -86,7 +86,7 @@ class DefaultTestQuantityFormat extends TestQuantityFormat {
     @SuppressWarnings("unchecked")
     @Override
     public Quantity<?> parse(CharSequence csq, int index) throws MeasurementParseException {
-        int startDecimal = index; // cursor.getIndex();
+        int startDecimal = index;
         while ((startDecimal < csq.length()) && Character.isWhitespace(csq.charAt(startDecimal))) {
             startDecimal++;
         }
