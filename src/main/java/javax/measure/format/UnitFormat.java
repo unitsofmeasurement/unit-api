@@ -114,19 +114,19 @@ public interface UnitFormat {
     }
 
     /**
-     * Parses a portion of the specified <code>CharSequence</code> from the specified position to produce a {@link Unit}. If parsing succeeds, then
-     * the index of the <code>cursor</code> argument is updated to the index after the last character used.
+     * Parses a portion of the specified <code>CharSequence</code> from the specified position to produce a {@link Unit}.
+     * If parsing succeeds, then the index of the <code>pos</code> argument is updated to the index after the last character used.
      *
      * @param csq
      *            the <code>CharSequence</code> to parse.
-     * @param cursor
-     *            the cursor holding the current parsing index.
+     * @param pos
+     *            a ParsePosition object holding the current parsing index and error parsing index information as described above.
      * @return the unit parsed from the specified character sub-sequence.
      * @throws IllegalArgumentException
      *             if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
      * @since 2.0
      */
-    Unit<?> parse(CharSequence csq, ParsePosition cursor) throws IllegalArgumentException, MeasurementParseException;
+    Unit<?> parse(CharSequence csq, ParsePosition pos) throws IllegalArgumentException, MeasurementParseException;
 
     /**
      * Parses the text into an instance of {@link Unit}.
