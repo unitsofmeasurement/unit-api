@@ -94,7 +94,7 @@ abstract class TestUnitFormat implements UnitFormat {
 
     protected Unit<?> parse(CharSequence csq, int index) throws MeasurementParseException {
         // Parsing reads the whole character sequence from the parse position.
-        int start = index; // cursor != null ? cursor.getIndex() : 0;
+        int start = index;
         int end = csq.length();
         if (end <= start) {
             return TestUnit.ONE;
@@ -126,6 +126,8 @@ abstract class TestUnitFormat implements UnitFormat {
      *
      * @param csq
      *          the <code>CharSequence</code> to parse.
+     * @param pos
+     *          a ParsePosition object holding the current parsing index and error parsing index information as described above.
      * @return the unit parsed from the specified character sub-sequence.
      * @throws MeasurementParseException
      *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).

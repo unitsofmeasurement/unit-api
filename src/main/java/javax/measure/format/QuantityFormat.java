@@ -75,21 +75,20 @@ public interface QuantityFormat {
 
     /**
      * Parses a portion of the specified {@code CharSequence} from the specified position to produce a {@link Quantity}.
-     * If parsing succeeds, then the index of the {@code cursor} argument is updated to the index after the last character used.
+     * If parsing succeeds, then the index of the {@code pos} argument is updated to the index after the last character used.
      *
      * @param csq
      *          the {@code CharSequence} to parse.
-     * @param cursor
-     *          the cursor holding the current parsing index.
+     * @param pos
+     *          a ParsePosition object holding the current parsing index and error parsing index information as described above.
      * @return the quantity parsed from the specified character sub-sequence.
      * @throws IllegalArgumentException
      *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
      */
-    public Quantity<?> parse(CharSequence csq, ParsePosition cursor) throws IllegalArgumentException, MeasurementParseException;
+    public Quantity<?> parse(CharSequence csq, ParsePosition pos) throws IllegalArgumentException, MeasurementParseException;
 
     /**
      * Parses a portion of the specified {@code CharSequence} from the specified position to produce a {@link Quantity}.
-     * If parsing succeeds, then the index of the {@code cursor} argument is updated to the index after the last character used.
      *
      * @param csq
      *          the {@code CharSequence} to parse.
