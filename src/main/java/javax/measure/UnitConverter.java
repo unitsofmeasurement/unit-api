@@ -56,12 +56,17 @@ public interface UnitConverter {
     boolean isIdentity();
 
     /**
-     * Indicates if this converter is linear. A converter is linear if:
+     * A linear transformation between two vector spaces V and W is a map T : V -> W such that the following hold:
      *
      * <ul>
      * <li>{@code convert(u + v) == convert(u) + convert(v)}</li>
      * <li>{@code convert(r * u) == r * convert(u)}</li>
      * </ul>
+     *
+     * A linear transformation may or may not be injective or surjective.
+     * When V and W have the same dimension, it is possible for T to be invertible, meaning there exists a T⁻¹ such that
+     * TT⁻¹ = I. It is always the case that  T(0)=0.
+     * Also, a linear transformation always maps lines to lines (or to zero).
      *
      * <p>
      * For linear converters the following property always hold:
