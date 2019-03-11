@@ -40,7 +40,7 @@ import javax.measure.format.UnitFormat;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.2.1, November 9, 2018
+ * @version 1.2.2, March 11, 2019
  * @since 1.0
  */
 public interface UnitFormatService {
@@ -70,6 +70,7 @@ public interface UnitFormatService {
      * Gets a list with available format names for this format service.
      *
      * @return list of available formats, never null.
+     * @deprecated use in FormatService instead.
      */
     Set<String> getAvailableFormatNames();
 }
