@@ -40,7 +40,10 @@ import java.util.List;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.1, March 25, 2018
+ * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin
+ *         Desruisseaux</a>
+ * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>
+ * @version 1.2, March 11, 2019
  * @since 1.0
  *
  * @see Unit
