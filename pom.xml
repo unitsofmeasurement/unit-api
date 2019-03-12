@@ -863,7 +863,6 @@
 										<exclude>javax/measure/format/**</exclude>
 										<exclude>javax/measure/quantity/**</exclude>
 										<exclude>javax/measure/spi/**</exclude>
-										
 									</excludes>
 								</configuration>
 							</execution>
