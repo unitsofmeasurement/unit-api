@@ -38,5 +38,3 @@ The interfaces provide a layer which separates client code, that would call the 
 )](https://github.com/unitsofmeasurement/unit-api/labels/prio%3A2)
 [![P3](https://img.shields.io/github/issues/unitsofmeasurement/unit-api/prio:3.svg?style=flat
 )](https://github.com/unitsofmeasurement/unit-api/labels/prio%3A3)
-
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/unitsofmeasurement/unit-api.png?columns=all)](https://waffle.io/unitsofmeasurement/unit-api?utm_source=badge)
