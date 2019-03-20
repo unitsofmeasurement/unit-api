@@ -147,7 +147,7 @@ enum EnumUnit implements Unit {
     }
 
     @Override
-    public Unit compound(Unit that) {
+    public Unit mix(Unit that) {
         // TODO Auto-generated method stub
         return null;
     }

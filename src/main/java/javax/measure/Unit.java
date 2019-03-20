@@ -66,8 +66,8 @@ import java.util.Map;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
- * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.2.1, February 5, 2019
+ * @author <a href="mailto:werner@units.tech">Werner Keil</a>
+ * @version 1.3, March 20, 2019
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
@@ -365,17 +365,17 @@ public interface Unit<Q extends Quantity<Q>> {
     Unit<Q> prefix(Prefix prefix);
     
     /**
-     * Returns the combination of this unit with the specified sub-unit. Compound
-     * units are typically used for formatting purpose. Examples of compound
+     * Returns the combination of this unit with the specified unit. Mixed
+     * units are typically used for formatting purpose. Examples of mixed
      * units:<code> 
-     *     Unit<Length> FOOT_INCH = FOOT.compound(INCH);
-     *     Unit<Time> HOUR_MINUTE_SECOND = HOUR.compound(MINUTE).compound(SECOND);
+     *     Unit<Length> FOOT_INCH = FOOT.mix(INCH);
+     *     Unit<Time> HOUR_MINUTE_SECOND = HOUR.mix(MINUTE).mix(SECOND);
      * </code>
      * 
      * @param that
-     *            the other unit to combine with this unit.
-     * @return the corresponding compound unit.
+     *            the other unit to mix with this unit.
+     * @return the corresponding mixed unit.
      * @since 2.0
      */
-    Unit<Q> compound(Unit<Q> that);
+    Unit<Q> mix(Unit<Q> that);
 }
