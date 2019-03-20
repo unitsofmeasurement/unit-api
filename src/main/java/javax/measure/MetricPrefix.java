@@ -45,8 +45,8 @@ package javax.measure;
  *
  * @see <a href="http://en.wikipedia.org/wiki/Metric_prefix">Wikipedia: Metric Prefix</a>
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.9, 2018-08-08
+ * @author <a href="mailto:werner@units.tech">Werner Keil</a>
+ * @version 1.10, March 20, 2019
  * @since 2.0
  */
 public enum MetricPrefix implements Prefix {

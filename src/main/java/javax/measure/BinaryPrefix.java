@@ -32,8 +32,8 @@ package javax.measure;
 /**
  * Provides support for common binary prefixes to be used by units.
  *
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.4, August 8, 2018
+ * @author <a href="mailto:werner@units.tech">Werner Keil</a>
+ * @version 1.5, March 20, 2019
  * @see <a href="https://en.wikipedia.org/wiki/Binary_prefix">Wikipedia: Binary Prefix</a>
  * @since 2.0
  */
