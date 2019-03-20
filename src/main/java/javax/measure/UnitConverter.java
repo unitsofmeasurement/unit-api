@@ -55,7 +55,7 @@ public interface UnitConverter {
     /**
      * Indicates if this converter is an identity converter. The identity converter returns its input argument ({@code convert(x) == x}).
      * <p>
-     * Note: Identity converters are also always 'linear'. {@link UnitConverter#isLinear()}
+     * Note: Identity converters are also always 'linear', see {@link UnitConverter#isLinear()}.
      * </p>
      *
      * @return {@code true} if this converter is an identity converter.
