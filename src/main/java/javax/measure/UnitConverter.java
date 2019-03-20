@@ -43,7 +43,8 @@ import java.util.List;
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin
  *         Desruisseaux</a>
  * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>
- * @version 1.2, March 11, 2019
+ * @author <a href="mailto:ahuber@apache.org">Andi Huber</a>
+ * @version 1.3, March 11, 2019
  * @since 1.0
  *
  * @see Unit
@@ -53,35 +54,50 @@ public interface UnitConverter {
 
     /**
      * Indicates if this converter is an identity converter. The identity converter returns its input argument ({@code convert(x) == x}).
+     * <p>
+     * Note: Identity converters are also always 'linear', see {@link UnitConverter#isLinear()}.
+     * </p>
      *
      * @return {@code true} if this converter is an identity converter.
      */
     boolean isIdentity();
 
     /**
-     * A linear transformation between two vector spaces V and W is a map T : V -> W such that the following hold:
+     * Indicates whether this converter represents a (one-dimensional) linear transformation, that is
+     * a <a href="https://en.wikipedia.org/wiki/Linear_map">linear map (wikipedia)</a> from a one-dimensional 
+     * vector space (a scalar) to a one-dimensional vector space. Typically from 'R' to 'R', with 'R' the 
+     * real numbers.  
+     * 
+     * <p>
+     * Given such a 'linear' converter 'A', let 'u', 'v' and 'r' be arbitrary numbers, then the following 
+     * must hold by definition: 
      *
      * <ul>
-     * <li>{@code convert(u + v) == convert(u) + convert(v)}</li>
-     * <li>{@code convert(r * u) == r * convert(u)}</li>
+     * <li>{@code A(u + v) == A(u) + A(v)}</li>
+     * <li>{@code A(r * u) == r * A(u)}</li>
      * </ul>
-     *
-     * A linear transformation may or may not be injective or surjective.
-     * When V and W have the same dimension, it is possible for T to be invertible, meaning there exists a T⁻¹ such that
-     * TT⁻¹ = I. It is always the case that  T(0)=0.
-     * Also, a linear transformation always maps lines to lines (or to zero).
-     *
-     * <p>
-     * For linear converters the following property always hold:
      * </p>
      *
-     * <code>
-     *   y1 = c1.convert(x1);
-     *   y2 = c2.convert(x2);
-     *   assert y1*y2 == c1.concatenate(c2).convert(x1*x2);
-     * </code>
+     * <p>
+     * Given a second 'linear' converter 'B', commutativity of composition follows by above definition:
      *
-     * @return {@code true} if this converter is linear; {@code false} otherwise.
+     * <ul>
+     * <li>{@code (A o B) (u) == (B o A) (u)}</li>
+     * </ul>
+     * 
+     * In other words, two 'linear' converters do have the property that {@code A(B(u)) == B(A(u))}, meaning 
+     * for 'A' and 'B' the order of their composition does not matter. Expressed as Java code:
+     * </p>
+     * <p>
+     *{@code A.concatenate(B).convert(u) == B.concatenate(A).convert(u)}
+     * </p>
+     * <p>
+     * Note: For composing UnitConverters see also {@link UnitConverter#concatenate(UnitConverter)}.
+     * </p>
+     *
+     * @return {@code true} if this converter represents a linear transformation; 
+     * {@code false} otherwise.
+     * 
      */
     boolean isLinear();
 
