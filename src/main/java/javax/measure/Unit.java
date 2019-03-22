@@ -67,7 +67,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 1.4.1, March 22, 2019
+ * @version 1.5, March 23, 2019
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
@@ -225,9 +225,9 @@ public interface Unit<Q extends Quantity<Q>> {
      * @param symbol
      *          the new symbol for the alternate unit.
      * @return the alternate unit.
-     * @throws UnsupportedOperationException
-     *           if this unit is not an unscaled standard unit.
      * @throws IllegalArgumentException
+     *           if this unit is not an unscaled standard unit.
+     * @throws MeasurementException
      *           if the specified symbol is not valid or is already associated to a different unit.
      */
     Unit<Q> alternate(String symbol);
