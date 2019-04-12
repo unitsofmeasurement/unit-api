@@ -67,7 +67,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 1.5, March 23, 2019
+ * @version 1.6, April 12, 2019
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
@@ -363,19 +363,4 @@ public interface Unit<Q extends Quantity<Q>> {
      * @since 2.0
      */
     Unit<Q> prefix(Prefix prefix);
-    
-    /**
-     * Returns the combination of this unit with the specified unit. Mixed
-     * units can be used for formatting purposes, with an adequate list or array of {@link Number numbers} in {@link  Quantity} expressions or as a target unit specification for unit conversions.<br><br>Examples of mixed
-     * units:<br><code> 
-     *     Unit<Length> FOOT_INCH = FOOT.mix(INCH);<br>
-     *     Unit<Time> HOUR_MINUTE_SECOND = HOUR.mix(MINUTE).mix(SECOND);
-     * </code>
-     * 
-     * @param that
-     *            the other unit to mix with this unit.
-     * @return the corresponding mixed unit.
-     * @since 2.0
-     */
-    Unit<Q> mix(Unit<Q> that);
 }
