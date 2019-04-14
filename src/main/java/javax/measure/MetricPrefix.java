@@ -46,7 +46,7 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Metric_prefix">Wikipedia: Metric Prefix</a>
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 1.10, March 20, 2019
+ * @version 1.11, April 15, 2019
  * @since 2.0
  */
 public enum MetricPrefix implements Prefix {
@@ -77,7 +77,7 @@ public enum MetricPrefix implements Prefix {
     /** Prefix for 10<sup>-3</sup>. */
     MILLI("m", -3),
     /** Prefix for 10<sup>-6</sup>. */
-    MICRO("µ", -6),
+    MICRO("\u00b5", -6),
     /** Prefix for 10<sup>-9</sup>. */
     NANO("n", -9),
     /** Prefix for 10<sup>-12</sup>. */
