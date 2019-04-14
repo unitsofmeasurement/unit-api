@@ -87,7 +87,7 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @see <a href="http://martinfowler.com/eaaDev/quantity.html">Martin Fowler -
  *      Quantity</a>
- * @version 1.9.1, December 18, 2018
+ * @version 1.10, April 14, 2019
  * @since 1.0
  */
 public interface Quantity<Q extends Quantity<Q>> {
@@ -196,8 +196,10 @@ public interface Quantity<Q extends Quantity<Q>> {
      * {@code Unit}.
      *
      * @param unit
-     *            the {@code Unit} to convert to.
-     * @return the converted result.
+     *            the {@code Unit unit} in which the returned quantity is stated.
+     * @return this quantity or a new quantity equivalent to this quantity stated in the specified unit.
+     * @throws ArithmeticException
+     *             if the result is inexact and the quotient has a non-terminating decimal expansion.
      */
     Quantity<Q> to(Unit<Q> unit);
 
