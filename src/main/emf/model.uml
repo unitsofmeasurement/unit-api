@@ -38,6 +38,10 @@
  * @version 0.23, Date: 2014-11-26
  </body>
           </ownedComment>
+          <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_8vfr4F_uEem_1YACnEtC1w" name="Scale">
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_BwncYF_vEem_1YACnEtC1w" name="ABSOLUTE"/>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_DqiycF_vEem_1YACnEtC1w" name="RELATIVE"/>
+          </nestedClassifier>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_CgTrRXWcEeSrSaxu8IGQmg" name="add">
             <ownedComment xmi:type="uml:Comment" xmi:id="_CgTrRnWcEeSrSaxu8IGQmg">
               <body>
@@ -200,6 +204,9 @@
 	 </body>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_Cgf4kHWcEeSrSaxu8IGQmg" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_YDCVkF_vEem_1YACnEtC1w" name="getScale">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_zfN94F_vEem_1YACnEtC1w" type="_8vfr4F_uEem_1YACnEtC1w" direction="return"/>
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Interface" xmi:id="_f7Zh8HY5EeSqtc-Sb9aJnA" name="Unit">
