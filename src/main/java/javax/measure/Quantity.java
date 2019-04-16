@@ -87,13 +87,13 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @see <a href="http://martinfowler.com/eaaDev/quantity.html">Martin Fowler -
  *      Quantity</a>
- * @version 1.10, April 14, 2019
+ * @version 1.11, April 16, 2019
  * @since 1.0
  */
 public interface Quantity<Q extends Quantity<Q>> {
     
    /**
-    * The scale of a {@code Quantity}, either {@code absolute} or {@code relative}.
+    * The scale of a {@link Quantity}, either {@code ABSOLUTE} or {@code RELATIVE}.
     *
     * @since 2.0
     * @see <a href="https://en.wikipedia.org/wiki/Absolute_scale">Wikipedia: Absolute scale</a>
