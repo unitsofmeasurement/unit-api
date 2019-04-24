@@ -216,7 +216,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
 	@Override
 	public Unit<Q> shift(Number offset) {
 		Objects.requireNonNull(offset);
-		return multiply(offset.doubleValue());
+		return shift(offset.doubleValue());
 	}
 
 	@Override
