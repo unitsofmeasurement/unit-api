@@ -67,7 +67,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 1.6, April 12, 2019
+ * @version 2.0, April 24, 2019
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
@@ -246,12 +246,45 @@ public interface Unit<Q extends Quantity<Q>> {
      * @param offset
      *          the offset added (expressed in this unit).
      * @return this unit offset by the specified value.
+     * @since 2.0
+     */
+    Unit<Q> shift(Number offset);
+    
+    /**
+     * Returns the result of setting the origin of the scale of measurement to the given value. The returned unit is convertible with all units that are
+     * convertible with this unit. For example the following code:
+     *
+     * <code>
+     *    CELSIUS = KELVIN.shift(273.15);
+     * </code>
+     *
+     * creates a new unit where 0°C (the origin of the new unit) is equals to 273.15 K. Converting from the old unit to the new one is equivalent to
+     * <em>subtracting</em> the offset to the value in the old unit.
+     *
+     * @param offset
+     *          the offset added (expressed in this unit).
+     * @return this unit offset by the specified value.
      */
     Unit<Q> shift(double offset);
 
     /**
      * Returns the result of multiplying this unit by the specified factor. If the factor is an integer value, the multiplication is exact
      * (recommended). For example:
+     *
+     * <code>
+     *    FOOT = METRE.multiply(3048).divide(10000); // Exact definition.
+     *    ELECTRON_MASS = KILOGRAM.multiply(9.10938188e-31); // Approximation.
+     * </code>
+     *
+     * @param multiplier
+     *          the multiplier
+     * @return this unit scaled by the specified multiplier.
+     * @since 2.0
+     */
+    Unit<Q> multiply(Number multiplier);
+    
+    /**
+     * Returns the result of multiplying this unit by the specified factor. For example:
      *
      * <code>
      *    FOOT = METRE.multiply(3048).divide(10000); // Exact definition.
@@ -282,10 +315,24 @@ public interface Unit<Q extends Quantity<Q>> {
     Unit<?> inverse();
 
     /**
-     * Returns the result of dividing this unit by an approximate divisor. If the factor is an integer value, the division is exact. For example:
+     * Returns the result of dividing this unit by a divisor. If the factor is an integer value, the division is exact. For example:
      *
      * <code>
      *    GRAM = KILOGRAM.divide(1000); // Exact definition.
+     * </code>
+     *
+     * @param divisor
+     *          the divisor value.
+     * @return this unit divided by the specified divisor.
+     * @since 2.0
+     */
+    Unit<Q> divide(Number divisor);
+    
+    /**
+     * Returns the result of dividing this unit by an approximate divisor. For example:
+     *
+     * <code>
+     *    GRAM = KILOGRAM.divide(1000d);
      * </code>
      *
      * @param divisor

@@ -47,6 +47,8 @@ import org.junit.jupiter.api.Test;
  *
  */
 public class UnitTest {
+	private static final Number NULL_NUMBER = null;
+	
     @SuppressWarnings("rawtypes")
     private Unit sut;
 
@@ -89,6 +91,33 @@ public class UnitTest {
             @SuppressWarnings("unchecked")
             UnitConverter converter = sut.getConverterTo(BaseUnit.ONE);
             assertNotNull(converter);
+        });
+    }
+    
+    @Test
+    public void testDivideNull() {
+        assertThrows(NullPointerException.class, () -> {
+            sut = DistanceUnit.m;          
+            @SuppressWarnings({ "rawtypes", "unused" })
+			Unit result = sut.divide(NULL_NUMBER);
+        });
+    }
+    
+    @Test
+    public void testMultiplyNull() {
+        assertThrows(NullPointerException.class, () -> {
+            sut = DistanceUnit.m;          
+            @SuppressWarnings({ "unused", "rawtypes" })
+			Unit result = sut.multiply(NULL_NUMBER);
+        });
+    }
+    
+    @Test
+    public void testShiftNull() {
+        assertThrows(NullPointerException.class, () -> {
+            sut = DistanceUnit.m;          
+            @SuppressWarnings({ "unused", "rawtypes" })
+			Unit result = sut.shift(NULL_NUMBER);
         });
     }
 }

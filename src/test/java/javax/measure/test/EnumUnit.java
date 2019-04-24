@@ -30,6 +30,7 @@
 package javax.measure.test;
 
 import java.util.Map;
+import java.util.Objects;
 
 import javax.measure.Dimension;
 import javax.measure.IncommensurableException;
@@ -145,4 +146,22 @@ enum EnumUnit implements Unit {
         final MultiplyConverter converter = new MultiplyConverter(Math.pow(prefix.getBase(), prefix.getExponent()));
         return this.transform(converter);
     }
+
+	@Override
+	public Unit shift(Number offset) {
+		Objects.requireNonNull(offset);
+		return multiply(offset.doubleValue());
+	}
+
+	@Override
+	public Unit multiply(Number multiplier) {
+		Objects.requireNonNull(multiplier);
+		return multiply(multiplier.doubleValue());
+	}
+
+	@Override
+	public Unit divide(Number divisor) {
+		Objects.requireNonNull(divisor);
+		return divide(divisor.doubleValue());
+	}
 }

@@ -30,6 +30,7 @@
 package javax.measure.test;
 
 import java.util.Map;
+import java.util.Objects;
 
 import javax.measure.Dimension;
 import javax.measure.Quantity;
@@ -113,7 +114,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
     public UnitConverter getConverterToAny(Unit<?> that) throws IncommensurableException, UnconvertibleException {
         if (!isCompatible(that))
             throw new IncommensurableException(this + " is not compatible with " + that);
-        TestUnit thatAbstr = (TestUnit) that; // Since both units are
+        TestUnit<?> thatAbstr = (TestUnit<?>) that; // Since both units are
         // compatible they must
         // be both test
         // units.
@@ -147,7 +148,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
     }
 
     public Unit<Q> multiply(double factor) {
-        return new BaseUnit(symbol, multFactor * factor);
+        return new BaseUnit<Q>(symbol, multFactor * factor);
     }
 
     public Unit<?> multiply(Unit<?> that) {
@@ -211,4 +212,22 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
         }
         return sb.toString();
     }
+    
+	@Override
+	public Unit<Q> shift(Number offset) {
+		Objects.requireNonNull(offset);
+		return multiply(offset.doubleValue());
+	}
+
+	@Override
+	public Unit<Q> multiply(Number multiplier) {
+		Objects.requireNonNull(multiplier);
+		return multiply(multiplier.doubleValue());
+	}
+
+	@Override
+	public Unit<Q> divide(Number divisor) {
+		Objects.requireNonNull(divisor);
+		return divide(divisor.doubleValue());
+	}
 }
