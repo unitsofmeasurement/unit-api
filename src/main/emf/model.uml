@@ -303,6 +303,16 @@
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7ir8HY5EeSqtc-Sb9aJnA" type="_f682CnY5EeSqtc-Sb9aJnA" direction="return"/>
           </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m1XY5EeSqtc-Sb9aJnA" name="inverse">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f71m1nY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the inverse of this unit.
+     *
+     * @return {@code 1 / this}
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m13Y5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f7ir8XY5EeSqtc-Sb9aJnA" name="isCompatible">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f7ir8nY5EeSqtc-Sb9aJnA">
               <body xsi:nil="true"/>
@@ -365,19 +375,45 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc7HY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc7XY5EeSqtc-Sb9aJnA" name="symbol" type="_f7ir43Y5EeSqtc-Sb9aJnA"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7sc73Y5EeSqtc-Sb9aJnA" name="shift">
-            <ownedComment xmi:type="uml:Comment" xmi:id="_f7sc8HY5EeSqtc-Sb9aJnA">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m2HY5EeSqtc-Sb9aJnA" name="divide_double">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f71m2XY5EeSqtc-Sb9aJnA">
               <body xsi:nil="true"/>
             </ownedComment>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc8XY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc8nY5EeSqtc-Sb9aJnA" name="offset" type="_f7sc7nY5EeSqtc-Sb9aJnA"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m2nY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m23Y5EeSqtc-Sb9aJnA" name="divisor" type="_f7sc7nY5EeSqtc-Sb9aJnA"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7sc83Y5EeSqtc-Sb9aJnA" name="multiply">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_BCQ2oHQ9EemkGNry2_5b9w" name="divide_num">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_BCQ2oXQ9EemkGNry2_5b9w">
+              <body xsi:nil="true"/>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_BCQ2onQ9EemkGNry2_5b9w" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_BCQ2o3Q9EemkGNry2_5b9w" name="divisor" type="_CgZx5nWcEeSrSaxu8IGQmg"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m3HY5EeSqtc-Sb9aJnA" name="divide">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f71m3XY5EeSqtc-Sb9aJnA">
+              <body>
+     * Returns the quotient of this unit with the one specified.
+     *
+     * @param  that the unit divisor.
+     * @return {@code this / that}
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m3nY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m33Y5EeSqtc-Sb9aJnA" name="divisor" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7sc83Y5EeSqtc-Sb9aJnA" name="multiply_double">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f7sc9HY5EeSqtc-Sb9aJnA">
               <body xsi:nil="true"/>
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc9XY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m0HY5EeSqtc-Sb9aJnA" name="multiplier" type="_f7sc7nY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_5kUJQHQ6EemkGNry2_5b9w" name="multiply_num">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_5kUJQXQ6EemkGNry2_5b9w">
+              <body xsi:nil="true"/>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_5kUJQnQ6EemkGNry2_5b9w" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_5kUJQ3Q6EemkGNry2_5b9w" name="multiplier" type="_CgZx5nWcEeSrSaxu8IGQmg"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m0XY5EeSqtc-Sb9aJnA" name="multiply">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f71m0nY5EeSqtc-Sb9aJnA">
@@ -391,34 +427,17 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m03Y5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m1HY5EeSqtc-Sb9aJnA" name="multiplier" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m1XY5EeSqtc-Sb9aJnA" name="inverse">
-            <ownedComment xmi:type="uml:Comment" xmi:id="_f71m1nY5EeSqtc-Sb9aJnA">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m5HY5EeSqtc-Sb9aJnA" name="pow">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f71m5XY5EeSqtc-Sb9aJnA">
               <body>
-     * Returns the inverse of this unit.
+     * Returns a unit equals to this unit raised to an exponent.
      *
-     * @return {@code 1 / this}
+     * @param  n the exponent.
+     * @return the result of raising this unit to the exponent.
      </body>
             </ownedComment>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m13Y5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m2HY5EeSqtc-Sb9aJnA" name="divide">
-            <ownedComment xmi:type="uml:Comment" xmi:id="_f71m2XY5EeSqtc-Sb9aJnA">
-              <body xsi:nil="true"/>
-            </ownedComment>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m2nY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m23Y5EeSqtc-Sb9aJnA" name="divisor" type="_f7sc7nY5EeSqtc-Sb9aJnA"/>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m3HY5EeSqtc-Sb9aJnA" name="divide">
-            <ownedComment xmi:type="uml:Comment" xmi:id="_f71m3XY5EeSqtc-Sb9aJnA">
-              <body>
-     * Returns the quotient of this unit with the one specified.
-     *
-     * @param  that the unit divisor.
-     * @return {@code this / that}
-     </body>
-            </ownedComment>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m3nY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m33Y5EeSqtc-Sb9aJnA" name="divisor" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7_X0HY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7_X0XY5EeSqtc-Sb9aJnA" name="n" type="_f6zFDHY5EeSqtc-Sb9aJnA"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m4HY5EeSqtc-Sb9aJnA" name="root">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f71m4XY5EeSqtc-Sb9aJnA">
@@ -434,8 +453,22 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m4nY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f71m43Y5EeSqtc-Sb9aJnA" name="n" type="_f6zFDHY5EeSqtc-Sb9aJnA"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_f71m5HY5EeSqtc-Sb9aJnA" name="pow">
-            <ownedComment xmi:type="uml:Comment" xmi:id="_f71m5XY5EeSqtc-Sb9aJnA">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7sc73Y5EeSqtc-Sb9aJnA" name="shift">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7sc8HY5EeSqtc-Sb9aJnA">
+              <body xsi:nil="true"/>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc8XY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7sc8nY5EeSqtc-Sb9aJnA" name="offset" type="_f7sc7nY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_GCKxEHQ7EemkGNry2_5b9w" name="shift_num">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_GCKxEXQ7EemkGNry2_5b9w">
+              <body xsi:nil="true"/>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_GCKxEnQ7EemkGNry2_5b9w" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_GCKxE3Q7EemkGNry2_5b9w" name="offset" type="_CgZx5nWcEeSrSaxu8IGQmg"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_YROScHLlEeilgvRHPaOOsg" name="prefix">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_YROScXLlEeilgvRHPaOOsg">
               <body>
      * Returns a unit equals to this unit raised to an exponent.
      *
@@ -443,23 +476,8 @@
      * @return the result of raising this unit to the exponent.
      </body>
             </ownedComment>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7_X0HY5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7_X0XY5EeSqtc-Sb9aJnA" name="n" type="_f6zFDHY5EeSqtc-Sb9aJnA"/>
-          </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7_X0nY5EeSqtc-Sb9aJnA" name="toString">
-            <ownedComment xmi:type="uml:Comment" xmi:id="_f7_X03Y5EeSqtc-Sb9aJnA">
-              <body>
-     * Returns a string representation of this unit. The string representation may
-     * be the unit {@linkplain #getSymbol() symbol}, or may be some representation
-     * of {@linkplain #getBaseUnits() base units}, multiplication factor and
-     * offset if any. The string may be localized at implementation choice.
-     *
-     * @return the (eventually localized) string representation of this unit.
-     *
-     * @see #getSymbol()
-     </body>
-            </ownedComment>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7_X1HY5EeSqtc-Sb9aJnA" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_YROScnLlEeilgvRHPaOOsg" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_YROSc3LlEeilgvRHPaOOsg" name="prefix" type="_il06sHC0EeiPSP_DaMvzsA"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_f7_X1XY5EeSqtc-Sb9aJnA" name="transform">
             <ownedComment xmi:type="uml:Comment" xmi:id="_f7_X1nY5EeSqtc-Sb9aJnA">
@@ -479,17 +497,20 @@
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7_X13Y5EeSqtc-Sb9aJnA" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7_X2HY5EeSqtc-Sb9aJnA" name="converter" type="_f8JI0HY5EeSqtc-Sb9aJnA"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_YROScHLlEeilgvRHPaOOsg" name="prefix">
-            <ownedComment xmi:type="uml:Comment" xmi:id="_YROScXLlEeilgvRHPaOOsg">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_f7_X0nY5EeSqtc-Sb9aJnA" name="toString">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_f7_X03Y5EeSqtc-Sb9aJnA">
               <body>
-     * Returns a unit equals to this unit raised to an exponent.
+     * Returns a string representation of this unit. The string representation may
+     * be the unit {@linkplain #getSymbol() symbol}, or may be some representation
+     * of {@linkplain #getBaseUnits() base units}, multiplication factor and
+     * offset if any. The string may be localized at implementation choice.
      *
-     * @param  n the exponent.
-     * @return the result of raising this unit to the exponent.
+     * @return the (eventually localized) string representation of this unit.
+     *
+     * @see #getSymbol()
      </body>
             </ownedComment>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_YROScnLlEeilgvRHPaOOsg" type="_f7Zh8HY5EeSqtc-Sb9aJnA" direction="return"/>
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_YROSc3LlEeilgvRHPaOOsg" name="prefix" type="_il06sHC0EeiPSP_DaMvzsA"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7_X1HY5EeSqtc-Sb9aJnA" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Interface" xmi:id="_f6zFAHY5EeSqtc-Sb9aJnA" name="Dimension">
