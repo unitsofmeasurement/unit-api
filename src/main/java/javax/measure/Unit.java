@@ -67,7 +67,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 2.0, April 24, 2019
+ * @version 2.1, May 12, 2019
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
@@ -136,7 +136,7 @@ public interface Unit<Q extends Quantity<Q>> {
 
     /**
      * Indicates if this unit is compatible with the unit specified. Units don't need to be equals to be compatible. For example (assuming {@code ONE}
-     * is a dimensionless unit):
+     * is a dimensionless unit):<br>
      *
      * <code>
      *     RADIAN.equals(ONE) == false<br>
@@ -153,7 +153,7 @@ public interface Unit<Q extends Quantity<Q>> {
 
     /**
      * Casts this unit to a parameterized unit of specified nature or throw a {@code ClassCastException} if the dimension of the specified quantity and
-     * this unit's dimension do not match. For example:
+     * this unit's dimension do not match. For example:<br>
      *
      * <code>
      *      {@literal Unit<Speed>} C = METRE.multiply(299792458).divide(SECOND).asType(Speed.class);
@@ -234,7 +234,7 @@ public interface Unit<Q extends Quantity<Q>> {
 
     /**
      * Returns the result of setting the origin of the scale of measurement to the given value. The returned unit is convertible with all units that are
-     * convertible with this unit. For example the following code:
+     * convertible with this unit. For example the following code:<br>
      *
      * <code>
      *    CELSIUS = KELVIN.shift(273.15);
@@ -252,7 +252,7 @@ public interface Unit<Q extends Quantity<Q>> {
     
     /**
      * Returns the result of setting the origin of the scale of measurement to the given value. The returned unit is convertible with all units that are
-     * convertible with this unit. For example the following code:
+     * convertible with this unit. For example the following code:<br>
      *
      * <code>
      *    CELSIUS = KELVIN.shift(273.15);
@@ -269,10 +269,10 @@ public interface Unit<Q extends Quantity<Q>> {
 
     /**
      * Returns the result of multiplying this unit by the specified factor. If the factor is an integer value, the multiplication is exact
-     * (recommended). For example:
+     * (recommended). For example:<br>
      *
      * <code>
-     *    FOOT = METRE.multiply(3048).divide(10000); // Exact definition.
+     *    FOOT = METRE.multiply(3048).divide(10000); // Exact definition.<br>
      *    ELECTRON_MASS = KILOGRAM.multiply(9.10938188e-31); // Approximation.
      * </code>
      *
@@ -284,10 +284,10 @@ public interface Unit<Q extends Quantity<Q>> {
     Unit<Q> multiply(Number multiplier);
     
     /**
-     * Returns the result of multiplying this unit by the specified factor. For example:
+     * Returns the result of multiplying this unit by the specified factor. For example:<br>
      *
      * <code>
-     *    FOOT = METRE.multiply(3048).divide(10000); // Exact definition.
+     *    FOOT = METRE.multiply(3048).divide(10000); // Exact definition.<br>
      *    ELECTRON_MASS = KILOGRAM.multiply(9.10938188e-31); // Approximation.
      * </code>
      *
@@ -315,7 +315,7 @@ public interface Unit<Q extends Quantity<Q>> {
     Unit<?> inverse();
 
     /**
-     * Returns the result of dividing this unit by a divisor. If the factor is an integer value, the division is exact. For example:
+     * Returns the result of dividing this unit by a divisor. If the factor is an integer value, the division is exact. For example:<br>
      *
      * <code>
      *    GRAM = KILOGRAM.divide(1000); // Exact definition.
@@ -329,7 +329,7 @@ public interface Unit<Q extends Quantity<Q>> {
     Unit<Q> divide(Number divisor);
     
     /**
-     * Returns the result of dividing this unit by an approximate divisor. For example:
+     * Returns the result of dividing this unit by an approximate divisor. For example:<br>
      *
      * <code>
      *    GRAM = KILOGRAM.divide(1000d);

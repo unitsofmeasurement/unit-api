@@ -44,7 +44,7 @@ import java.util.List;
  *         Desruisseaux</a>
  * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>
  * @author <a href="mailto:ahuber@apache.org">Andi Huber</a>
- * @version 1.3, March 11, 2019
+ * @version 1.4, May 12, 2019
  * @since 1.0
  *
  * @see Unit
@@ -68,7 +68,6 @@ public interface UnitConverter {
      * vector space (a scalar) to a one-dimensional vector space. Typically from 'R' to 'R', with 'R' the 
      * real numbers.  
      * 
-     * <p>
      * Given such a 'linear' converter 'A', let 'u', 'v' and 'r' be arbitrary numbers, then the following 
      * must hold by definition: 
      *
@@ -76,9 +75,7 @@ public interface UnitConverter {
      * <li>{@code A(u + v) == A(u) + A(v)}</li>
      * <li>{@code A(r * u) == r * A(u)}</li>
      * </ul>
-     * </p>
      *
-     * <p>
      * Given a second 'linear' converter 'B', commutativity of composition follows by above definition:
      *
      * <ul>
@@ -86,14 +83,13 @@ public interface UnitConverter {
      * </ul>
      * 
      * In other words, two 'linear' converters do have the property that {@code A(B(u)) == B(A(u))}, meaning 
-     * for 'A' and 'B' the order of their composition does not matter. Expressed as Java code:
-     * </p>
-     * <p>
-     *{@code A.concatenate(B).convert(u) == B.concatenate(A).convert(u)}
-     * </p>
-     * <p>
+     * for 'A' and 'B' the order of their composition does not matter. Expressed as Java code:<br>
+     * <br>
+     *
+     *{@code A.concatenate(B).convert(u) == B.concatenate(A).convert(u)}<br>
+     * <br>
+     * 
      * Note: For composing UnitConverters see also {@link UnitConverter#concatenate(UnitConverter)}.
-     * </p>
      *
      * @return {@code true} if this converter represents a linear transformation; 
      * {@code false} otherwise.
