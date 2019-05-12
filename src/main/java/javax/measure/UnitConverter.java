@@ -67,7 +67,8 @@ public interface UnitConverter {
      * a <a href="https://en.wikipedia.org/wiki/Linear_map">linear map (wikipedia)</a> from a one-dimensional 
      * vector space (a scalar) to a one-dimensional vector space. Typically from 'R' to 'R', with 'R' the 
      * real numbers.  
-     * 
+     *
+     * <p>
      * Given such a 'linear' converter 'A', let 'u', 'v' and 'r' be arbitrary numbers, then the following 
      * must hold by definition: 
      *
@@ -76,6 +77,7 @@ public interface UnitConverter {
      * <li>{@code A(r * u) == r * A(u)}</li>
      * </ul>
      *
+     * <p>
      * Given a second 'linear' converter 'B', commutativity of composition follows by above definition:
      *
      * <ul>
@@ -83,11 +85,11 @@ public interface UnitConverter {
      * </ul>
      * 
      * In other words, two 'linear' converters do have the property that {@code A(B(u)) == B(A(u))}, meaning 
-     * for 'A' and 'B' the order of their composition does not matter. Expressed as Java code:<br>
-     * <br>
+     * for 'A' and 'B' the order of their composition does not matter. Expressed as Java code:
      *
-     *{@code A.concatenate(B).convert(u) == B.concatenate(A).convert(u)}<br>
-     * <br>
+     * <p>
+     *{@code A.concatenate(B).convert(u) == B.concatenate(A).convert(u)}
+     * </p>
      * 
      * Note: For composing UnitConverters see also {@link UnitConverter#concatenate(UnitConverter)}.
      *
