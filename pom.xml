@@ -683,7 +683,6 @@
 							<report>team</report>
 							<report>mailing-lists</report>
 							<report>issue-management</report>
-
 						</reports>
 					</reportSet>
 				</reportSets>
@@ -784,55 +783,36 @@
 			</activation>
 			<build>
 				<plugins>
-					<!-- plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>build-helper-maven-plugin</artifactId>
-						<version>1.7</version>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>add-source</id>
-								<phase>generate-sources</phase>
+								<phase>prepare-package</phase>
 								<goals>
-									<goal>add-source</goal>
+									<goal>run</goal>
 								</goals>
 								<configuration>
-									<sources>
-										<source>src/etc/modules/core/jdk9</source>
-									</sources>
+									<target>
+										<mkdir
+											dir="${project.build.directory}/classes/META-INF/versions/${jdkOptionalVersion}" />
+										<javac
+											destdir="${project.build.directory}/classes/META-INF/versions/${jdkOptionalVersion}"
+											srcdir="${project.basedir}/src/etc/modules/core/jdk${jdkOptionalVersion}"
+											includeAntRuntime="false">
+		
+											<!-- TODO: use release attribute instead after next plugin release. 
+												https://issues.apache.org/jira/browse/MANTRUN-214 -->
+											<compilerarg
+												line="--release=${jdkOptionalVersion} --patch-module java.measure.base=${project.build.directory}/classes" />
+										</javac>
+									</target>
 								</configuration>
 							</execution>
 						</executions>
-					</plugin -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-antrun-plugin</artifactId>
-					<executions>
-						<execution>
-							<phase>prepare-package</phase>
-							<goals>
-								<goal>run</goal>
-							</goals>
-							<configuration>
-								<target>
-									<mkdir
-										dir="${project.build.directory}/classes/META-INF/versions/${jdkOptionalVersion}" />
-									<javac
-										destdir="${project.build.directory}/classes/META-INF/versions/${jdkOptionalVersion}"
-										srcdir="${project.basedir}/src/etc/modules/core/jdk${jdkOptionalVersion}"
-										includeAntRuntime="false">
-	
-										<!-- TODO: use release attribute instead after next plugin release. 
-											https://issues.apache.org/jira/browse/MANTRUN-214 -->
-										<compilerarg
-											line="--release=${jdkOptionalVersion} --patch-module java.measure.base=${project.build.directory}/classes" />
-									</javac>
-								</target>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-						
-				<plugin>
+					</plugin>
+							
+					<plugin>
 						<artifactId>maven-jar-plugin</artifactId>
 						<configuration>
 							<archive>
