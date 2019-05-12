@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MetricPrefix.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure</a> &gt; <span class="el_source">MetricPrefix.java</span></div><h1>MetricPrefix.java</h1><pre class="source lang-java linenums">/*
  * Units of Measurement API
- * Copyright (c) 2014-2018, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ * Copyright (c) 2014-2019, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
  * All rights reserved.
  *
@@ -30,367 +30,387 @@
 package javax.measure;
 
 /**
- * &lt;p&gt;
- * This class provides support for the 20 prefixes used in the metric system (decimal multiples and submultiples of units). For example:
- * 
+ * Provides support for the 20 prefixes used in the metric system (decimal multiples and submultiples of units). For example:
+ *
  * &lt;pre&gt;
- * &lt;code&gt;
+ * {@code
  *     import static tech.units.indriya.unit.Units.*;  // Static import.
  *     import static javax.measure.MetricPrefix.*; // Static import.
  *     import javax.measure.*;
  *     import javax.measure.quantity.*;
  *     ...
  *     Unit&lt;Pressure&gt; HECTOPASCAL = HECTO(PASCAL);
- *     Unit&lt;Length&gt; KILOMETRE = KILO(METRE);
- *     &lt;/code&gt;
+ *     Unit&lt;Length&gt; KILOMETRE = KILO(METRE);}
  * &lt;/pre&gt;
- * 
- * &lt;/p&gt;
  *
  * @see &lt;a href=&quot;http://en.wikipedia.org/wiki/Metric_prefix&quot;&gt;Wikipedia: Metric Prefix&lt;/a&gt;
  * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;&gt;Jean-Marie Dautelle&lt;/a&gt;
- * @author &lt;a href=&quot;mailto:units@catmedia.us&quot;&gt;Werner Keil&lt;/a&gt;
- * @version 1.8, 2018-04-20
+ * @author &lt;a href=&quot;mailto:werner@units.tech&quot;&gt;Werner Keil&lt;/a&gt;
+ * @version 1.11, April 15, 2019
  * @since 2.0
  */
-<span class="fc" id="L56">public enum MetricPrefix implements Prefix {</span>
-<span class="fc" id="L57">  YOTTA(&quot;Y&quot;, 10, 24), //</span>
-<span class="fc" id="L58">  ZETTA(&quot;Z&quot;, 10, 21), //</span>
-<span class="fc" id="L59">  EXA(&quot;E&quot;, 10, 18), //</span>
-<span class="fc" id="L60">  PETA(&quot;P&quot;, 10, 15), //</span>
-<span class="fc" id="L61">  TERA(&quot;T&quot;, 10, 12), //</span>
-<span class="fc" id="L62">  GIGA(&quot;G&quot;, 10, 9), //</span>
-<span class="fc" id="L63">  MEGA(&quot;M&quot;, 10, 6), //</span>
-<span class="fc" id="L64">  KILO(&quot;k&quot;, 10, 3), //</span>
-<span class="fc" id="L65">  HECTO(&quot;h&quot;, 10, 2), //</span>
-<span class="fc" id="L66">  DEKA(&quot;da&quot;, 10, 1), //</span>
-<span class="fc" id="L67">  DECI(&quot;d&quot;, 10, -1), //</span>
-<span class="fc" id="L68">  CENTI(&quot;c&quot;, 10, -2), //</span>
-<span class="fc" id="L69">  MILLI(&quot;m&quot;, 10, -3), //</span>
-<span class="fc" id="L70">  MICRO(&quot;µ&quot;, 10, -6), //</span>
-<span class="fc" id="L71">  NANO(&quot;n&quot;, 10, -9), //</span>
-<span class="fc" id="L72">  PICO(&quot;p&quot;, 10, -12), //</span>
-<span class="fc" id="L73">  FEMTO(&quot;f&quot;, 10, -15), //</span>
-<span class="fc" id="L74">  ATTO(&quot;a&quot;, 10, -18), //</span>
-<span class="fc" id="L75">  ZEPTO(&quot;z&quot;, 10, -21), //</span>
-<span class="fc" id="L76">  YOCTO(&quot;y&quot;, 10, -24);</span>
+<span class="fc" id="L52">public enum MetricPrefix implements Prefix {</span>
+    /** Prefix for 10&lt;sup&gt;24&lt;/sup&gt;. */
+<span class="fc" id="L54">    YOTTA(&quot;Y&quot;, 24),</span>
+    /** Prefix for 10&lt;sup&gt;21&lt;/sup&gt;. */
+<span class="fc" id="L56">    ZETTA(&quot;Z&quot;, 21),</span>
+    /** Prefix for 10&lt;sup&gt;18&lt;/sup&gt;. */
+<span class="fc" id="L58">    EXA(&quot;E&quot;, 18),</span>
+    /** Prefix for 10&lt;sup&gt;15&lt;/sup&gt;. */
+<span class="fc" id="L60">    PETA(&quot;P&quot;, 15),</span>
+    /** Prefix for 10&lt;sup&gt;12&lt;/sup&gt;. */
+<span class="fc" id="L62">    TERA(&quot;T&quot;, 12),</span>
+    /** Prefix for 10&lt;sup&gt;9&lt;/sup&gt;. */
+<span class="fc" id="L64">    GIGA(&quot;G&quot;, 9),</span>
+    /** Prefix for 10&lt;sup&gt;6&lt;/sup&gt;. */
+<span class="fc" id="L66">    MEGA(&quot;M&quot;, 6),</span>
+    /** Prefix for 10&lt;sup&gt;3&lt;/sup&gt;. */
+<span class="fc" id="L68">    KILO(&quot;k&quot;, 3),</span>
+    /** Prefix for 10&lt;sup&gt;2&lt;/sup&gt;. */
+<span class="fc" id="L70">    HECTO(&quot;h&quot;, 2),</span>
+    /** Prefix for 10&lt;sup&gt;1&lt;/sup&gt;. */
+<span class="fc" id="L72">    DEKA(&quot;da&quot;, 1),</span>
+    /** Prefix for 10&lt;sup&gt;-1&lt;/sup&gt;. */
+<span class="fc" id="L74">    DECI(&quot;d&quot;, -1),</span>
+    /** Prefix for 10&lt;sup&gt;-2&lt;/sup&gt;. */
+<span class="fc" id="L76">    CENTI(&quot;c&quot;, -2),</span>
+    /** Prefix for 10&lt;sup&gt;-3&lt;/sup&gt;. */
+<span class="fc" id="L78">    MILLI(&quot;m&quot;, -3),</span>
+    /** Prefix for 10&lt;sup&gt;-6&lt;/sup&gt;. */
+<span class="fc" id="L80">    MICRO(&quot;\u00b5&quot;, -6),</span>
+    /** Prefix for 10&lt;sup&gt;-9&lt;/sup&gt;. */
+<span class="fc" id="L82">    NANO(&quot;n&quot;, -9),</span>
+    /** Prefix for 10&lt;sup&gt;-12&lt;/sup&gt;. */
+<span class="fc" id="L84">    PICO(&quot;p&quot;, -12),</span>
+    /** Prefix for 10&lt;sup&gt;-15&lt;/sup&gt;. */
+<span class="fc" id="L86">    FEMTO(&quot;f&quot;, -15),</span>
+    /** Prefix for 10&lt;sup&gt;-18&lt;/sup&gt;. */
+<span class="fc" id="L88">    ATTO(&quot;a&quot;, -18),</span>
+    /** Prefix for 10&lt;sup&gt;-21&lt;/sup&gt;. */
+<span class="fc" id="L90">    ZEPTO(&quot;z&quot;, -21),</span>
+    /** Prefix for 10&lt;sup&gt;-24&lt;/sup&gt;. */
+<span class="fc" id="L92">    YOCTO(&quot;y&quot;, -24);</span>
 
-  /**
-   * The symbol of this prefix, as returned by {@link #getSymbol}.
-   *
-   * @serial
-   * @see #getSymbol()
-   */
-  private final String symbol;
+    /**
+     * The symbol of this prefix, as returned by {@link #getSymbol}.
+     *
+     * @serial
+     * @see #getSymbol()
+     */
+    private final String symbol;
 
-  /**
-   * Base part of the associated factor in base^exponent representation.
-   */
-  private int base;
+    /**
+     * Exponent part of the associated factor in base^exponent representation.
+     */
+    private final int exponent;
 
-  /**
-   * Exponent part of the associated factor in base^exponent representation.
-   */
-  private int exponent;
+    /**
+     * Creates a new prefix.
+     *
+     * @param symbol
+     *          the symbol of this prefix.
+     * @param exponent
+     *          part of the associated factor in base^exponent representation.
+     */
+<span class="fc" id="L115">    private MetricPrefix(String symbol, int exponent) {</span>
+<span class="fc" id="L116">        this.symbol = symbol;</span>
+<span class="fc" id="L117">        this.exponent = exponent;</span>
+<span class="fc" id="L118">    }</span>
 
-  /**
-   * Creates a new prefix.
-   *
-   * @param symbol
-   *          the symbol of this prefix.
-   * @param base
-   *          part of the associated factor in base^exponent representation.
-   * @param exponent
-   *          part of the associated factor in base^exponent representation.
-   */
-<span class="fc" id="L106">  private MetricPrefix(String symbol, int base, int exponent) {</span>
-<span class="fc" id="L107">    this.symbol = symbol;</span>
-<span class="fc" id="L108">    this.base = base;</span>
-<span class="fc" id="L109">    this.exponent = exponent;</span>
-<span class="fc" id="L110">  }</span>
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;24&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e24)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; YOTTA(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L130">        return unit.prefix(YOTTA);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;24&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e24)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; YOTTA(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L122">    return unit.prefix(YOTTA);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;21&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e21)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; ZETTA(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L143">        return unit.prefix(ZETTA);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;21&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e21)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; ZETTA(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L135">    return unit.prefix(ZETTA);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;18&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e18)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; EXA(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L156">        return unit.prefix(EXA);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;18&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e18)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; EXA(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L148">    return unit.prefix(EXA);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;15&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e15)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; PETA(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L169">        return unit.prefix(PETA);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;15&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e15)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; PETA(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L161">    return unit.prefix(PETA);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;12&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e12)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; TERA(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L182">        return unit.prefix(TERA);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;12&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e12)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; TERA(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L174">    return unit.prefix(TERA);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;9&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e9)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; GIGA(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L195">        return unit.prefix(GIGA);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;9&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e9)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; GIGA(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L187">    return unit.prefix(GIGA);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;6&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e6)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; MEGA(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L208">        return unit.prefix(MEGA);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;6&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e6)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; MEGA(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L200">    return unit.prefix(MEGA);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;3&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e3)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; KILO(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L221">        return unit.prefix(KILO);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;3&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e3)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; KILO(Unit&lt;Q&gt; unit) {
-<span class="fc" id="L213">    return unit.prefix(KILO);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;2&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e2)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; HECTO(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L234">        return unit.prefix(HECTO);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;2&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e2)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; HECTO(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L226">    return unit.prefix(HECTO);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;1&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e1)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; DEKA(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L247">        return unit.prefix(DEKA);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;1&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e1)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; DEKA(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L239">    return unit.prefix(DEKA);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-1&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e-1)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; DECI(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L260">        return unit.prefix(DECI);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-1&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e-1)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; DECI(Unit&lt;Q&gt; unit) {
-<span class="fc" id="L252">    return unit.prefix(DECI);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-2&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e-2)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; CENTI(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L273">        return unit.prefix(CENTI);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-2&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e-2)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; CENTI(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L265">    return unit.prefix(CENTI);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-3&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e-3)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; MILLI(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L286">        return unit.prefix(MILLI);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-3&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e-3)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; MILLI(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L278">    return unit.prefix(MILLI);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-6&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e-6)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; MICRO(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L299">        return unit.prefix(MICRO);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-6&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e-6)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; MICRO(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L291">    return unit.prefix(MICRO);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-9&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e-9)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; NANO(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L312">        return unit.prefix(NANO);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-9&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e-9)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; NANO(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L304">    return unit.prefix(NANO);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-12&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e-12)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; PICO(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L325">        return unit.prefix(PICO);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-12&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e-12)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; PICO(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L317">    return unit.prefix(PICO);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-15&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e-15)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; FEMTO(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L338">        return unit.prefix(FEMTO);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-15&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e-15)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; FEMTO(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L330">    return unit.prefix(FEMTO);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-18&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e-18)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; ATTO(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L351">        return unit.prefix(ATTO);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-18&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e-18)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; ATTO(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L343">    return unit.prefix(ATTO);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-21&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e-21)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; ZEPTO(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L364">        return unit.prefix(ZEPTO);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-21&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e-21)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; ZEPTO(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L356">    return unit.prefix(ZEPTO);</span>
-  }
+    /**
+     * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-24&lt;/sup&gt;&lt;/code&gt;
+     *
+     * @param &lt;Q&gt;
+     *          type of the quantity measured by the unit.
+     * @param unit
+     *          any unit.
+     * @return &lt;code&gt;unit.times(1e-24)&lt;/code&gt;.
+     */
+    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; YOCTO(Unit&lt;Q&gt; unit) {
+<span class="fc" id="L377">        return unit.prefix(YOCTO);</span>
+    }
 
-  /**
-   * Returns the specified unit multiplied by the factor &lt;code&gt;10&lt;sup&gt;-24&lt;/sup&gt;&lt;/code&gt;
-   *
-   * @param &lt;Q&gt;
-   *          The type of the quantity measured by the unit.
-   * @param unit
-   *          any unit.
-   * @return &lt;code&gt;unit.times(1e-24)&lt;/code&gt;.
-   */
-  public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; YOCTO(Unit&lt;Q&gt; unit) {
-<span class="nc" id="L369">    return unit.prefix(YOCTO);</span>
-  }
+    /**
+     * Returns the symbol of this prefix.
+     *
+     * @return this prefix symbol, not {@code null}.
+     */
+    @Override
+    public String getSymbol() {
+<span class="fc" id="L387">        return symbol;</span>
+    }
 
-  /**
-   * Returns the symbol of this prefix.
-   *
-   * @return this prefix symbol, not {@code null}.
-   */
-  public String getSymbol() {
-<span class="fc" id="L378">    return symbol;</span>
-  }
+    /**
+     * Base part of the associated factor in base^exponent representation. For metric prefix, this is always 10.
+     */
+    @Override
+    public int getBase() {
+<span class="fc" id="L395">        return 10;</span>
+    }
 
-  /**
-   * Base part of the associated factor in base^exponent representation.
-   */
-  public int getBase() {
-<span class="fc" id="L385">    return base;</span>
-  }
+    /**
+     * Exponent part of the associated factor in base^exponent representation.
+     */
+    @Override
+    public int getExponent() {
+<span class="fc" id="L403">        return exponent;</span>
+    }
 
-  /**
-   * Exponent part of the associated factor in base^exponent representation.
-   */
-  public int getExponent() {
-<span class="fc" id="L392">    return exponent;</span>
-  }
-
+    /**
+     * Returns the name of this prefix.
+     *
+     * @return this prefix name, not {@code null}.
+     */
+    @Override
+    public String getName() {
+<span class="fc" id="L413">        return name();</span>
+    }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

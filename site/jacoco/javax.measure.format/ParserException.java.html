@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParserException.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure.format</a> &gt; <span class="el_source">ParserException.java</span></div><h1>ParserException.java</h1><pre class="source lang-java linenums">/*
  * Units of Measurement API
- * Copyright (c) 2014-2018, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ * Copyright (c) 2014-2019, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
  * All rights reserved.
  *
@@ -33,49 +33,50 @@ package javax.measure.format;
  * Signals that an error has been reached unexpectedly while parsing.
  *
  * @author Werner Keil
- * @version 1.1, March 27, 2018
+ * @version 1.2, October 7, 2018
  * @since 1.0
- * @deprecated Use MeasurementParseException, this exception will be removed in a future version, it is here for backward compatibility only.
+ * @deprecated Use {@link MeasurementParseException}, this exception will be removed in a future version, it is here for backward compatibility only.
  */
+@Deprecated
 public class ParserException extends MeasurementParseException {
 
-  private static final long serialVersionUID = -3179553925611520368L;
+    private static final long serialVersionUID = -3179553925611520368L;
 
-  /**
-   * Constructs a ParserException with the specified detail message, parsed text and index. A detail message is a String that describes this
-   * particular exception.
-   *
-   * @param message
-   *          the detail message
-   * @param parsedData
-   *          the parsed text, should not be null
-   * @param position
-   *          the position where the error was found while parsing.
-   */
-  public ParserException(String message, CharSequence parsedData, int position) {
-<span class="fc" id="L56">    super(message, parsedData, position);</span>
-<span class="fc" id="L57">  }</span>
+    /**
+     * Constructs a ParserException with the specified detail message, parsed text and index. A detail message is a String that describes this
+     * particular exception.
+     *
+     * @param message
+     *            the detail message
+     * @param parsedData
+     *            the parsed text, should not be null
+     * @param position
+     *            the position where the error was found while parsing.
+     */
+    public ParserException(String message, CharSequence parsedData, int position) {
+<span class="fc" id="L57">        super(message, parsedData, position);</span>
+<span class="fc" id="L58">    }</span>
 
-  /**
-   * Constructs a ParserException with the parsed text and offset. A detail message is a String that describes this particular exception.
-   *
-   * @param parsedData
-   *          the parsed text, should not be null
-   * @param position
-   *          the position where the error is found while parsing.
-   */
-  public ParserException(CharSequence parsedData, int position) {
-<span class="fc" id="L68">    super(parsedData, position);</span>
-<span class="fc" id="L69">  }</span>
+    /**
+     * Constructs a ParserException with the parsed text and offset. A detail message is a String that describes this particular exception.
+     *
+     * @param parsedData
+     *            the parsed text, should not be null
+     * @param position
+     *            the position where the error is found while parsing.
+     */
+    public ParserException(CharSequence parsedData, int position) {
+<span class="fc" id="L69">        super(parsedData, position);</span>
+<span class="fc" id="L70">    }</span>
 
-  /**
-   * Constructs a ParserException with the specified cause.
-   *
-   * @param cause
-   *          the root cause
-   */
-  public ParserException(Throwable cause) {
-<span class="fc" id="L78">    super(cause);</span>
-<span class="fc" id="L79">  }</span>
+    /**
+     * Constructs a ParserException with the specified cause.
+     *
+     * @param cause
+     *            the root cause
+     */
+    public ParserException(Throwable cause) {
+<span class="fc" id="L79">        super(cause);</span>
+<span class="fc" id="L80">    }</span>
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
