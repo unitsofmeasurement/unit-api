@@ -869,6 +869,9 @@
 								</goals>
 								<configuration>
 									<classifier>format</classifier>
+									<includes>
+										<include>javax/measure/format/**</include>
+									</includes>
 								</configuration>
 							</execution>
 						</executions>
