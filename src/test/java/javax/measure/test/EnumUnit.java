@@ -38,7 +38,7 @@ import javax.measure.Prefix;
 import javax.measure.UnconvertibleException;
 import javax.measure.Unit;
 import javax.measure.UnitConverter;
-import javax.measure.test.unit.MultiplyConverter;
+import javax.measure.test.function.MultiplyConverter;
 
 /**
  * @author Werner Keil

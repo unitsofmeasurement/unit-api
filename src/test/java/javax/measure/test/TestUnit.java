@@ -40,8 +40,8 @@ import javax.measure.Prefix;
 import javax.measure.UnconvertibleException;
 import javax.measure.UnitConverter;
 import javax.measure.quantity.Dimensionless;
+import javax.measure.test.function.MultiplyConverter;
 import javax.measure.test.unit.BaseUnit;
-import javax.measure.test.unit.MultiplyConverter;
 
 /**
  * @author Werner Keil
