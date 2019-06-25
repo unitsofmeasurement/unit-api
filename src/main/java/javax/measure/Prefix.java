@@ -73,6 +73,7 @@ public interface Prefix {
 
 	/**
 	 * Exponent part of the associated factor in base^exponent representation.
+	 * For different factors, e.g. rational numbers like {@code 1/4} the exponent is always {@code 1}.
 	 *
 	 * @return the exponent part of this prefix.
 	 */
