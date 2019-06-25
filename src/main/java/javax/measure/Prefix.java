@@ -63,7 +63,7 @@ public interface Prefix {
 	int getBase();
 
 	/**
-	 * Gets the prefix value.
+	 * Returns the value of this prefix. If the {@code exponent} is different than {@code 1}, this value is the base part of the associated factor in base^exponent representation.
 	 * 
 	 * @return The prefix value.
 	 */
