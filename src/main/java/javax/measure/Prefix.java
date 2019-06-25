@@ -30,40 +30,51 @@
 package javax.measure;
 
 /**
- * A unit prefix is a specifier or mnemonic that is prepended to units of measurement to indicate multiples or fractions of the units.
+ * A unit prefix is a specifier or mnemonic that is prepended to units of
+ * measurement to indicate multiples or fractions of the units.
  *
- * @see <a href="http://en.wikipedia.org/wiki/Unit_prefix">Wikipedia: Unit Prefix</a>
+ * @see <a href="http://en.wikipedia.org/wiki/Unit_prefix">Wikipedia: Unit
+ *      Prefix</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.0, 2018-08-08
+ * @version 1.1, 2019-06-25
  * @since 2.0
  */
 public interface Prefix {
+	/**
+	 * Returns the name of this prefix.
+	 *
+	 * @return this prefix name, not {@code null}.
+	 */
+	String getName();
 
-    /**
-     * Returns the symbol of this prefix.
-     *
-     * @return this prefix symbol, not {@code null}.
-     */
-    public String getSymbol();
+	/**
+	 * Returns the symbol of this prefix.
+	 *
+	 * @return this prefix symbol, not {@code null}.
+	 */
+	public String getSymbol();
 
-    /**
-     * Base part of the associated factor in base^exponent representation.
-     *
-     * @return the base part of this prefix.
-     */
-    public int getBase();
+	/**
+	 * Base part of the associated factor in base^exponent representation.
+	 *
+	 * @return the base part of this prefix.
+	 * @deprecated Will be replaced by getValue()
+	 */
+	int getBase();
 
-    /**
-     * Exponent part of the associated factor in base^exponent representation.
-     *
-     * @return the exponent part of this prefix.
-     */
-    public int getExponent();
+	/**
+	 * Gets the prefix value.
+	 * 
+	 * @return The prefix value.
+	 */
+	default Number getValue() {
+		return Integer.valueOf(getBase());
+	}
 
-    /**
-     * Returns the name of this prefix.
-     *
-     * @return this prefix name, not {@code null}.
-     */
-    String getName();
+	/**
+	 * Exponent part of the associated factor in base^exponent representation.
+	 *
+	 * @return the exponent part of this prefix.
+	 */
+	int getExponent();
 }
