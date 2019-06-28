@@ -46,7 +46,7 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Metric_prefix">Wikipedia: Metric Prefix</a>
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 1.11, April 15, 2019
+ * @version 2.0, June 28, 2019
  * @since 2.0
  */
 public enum MetricPrefix implements Prefix {
@@ -388,15 +388,15 @@ public enum MetricPrefix implements Prefix {
     }
 
     /**
-     * Base part of the associated factor in base^exponent representation. For metric prefix, this is always 10.
+     * Base part of the associated factor in {@code base^exponent} representation. For metric prefix, this is always 10.
      */
     @Override
-    public int getBase() {
+    public Number getValue() {
         return 10;
     }
 
     /**
-     * Exponent part of the associated factor in base^exponent representation.
+     * Exponent part of the associated factor in {@code base^exponent} representation.
      */
     @Override
     public int getExponent() {

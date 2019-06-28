@@ -30,52 +30,41 @@
 package javax.measure;
 
 /**
- * A unit prefix is a specifier or mnemonic that is prepended to units of
- * measurement to indicate multiples or fractions of the units.
+ * A unit prefix is a specifier or mnemonic that is prepended to units of measurement to indicate multiples or fractions of the units.
  *
- * @see <a href="http://en.wikipedia.org/wiki/Unit_prefix">Wikipedia: Unit
- *      Prefix</a>
+ * @see <a href="http://en.wikipedia.org/wiki/Unit_prefix">Wikipedia: Unit Prefix</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.1, 2019-06-25
+ * @version 1.2, June 28, 2019
  * @since 2.0
  */
 public interface Prefix {
-	/**
-	 * Returns the name of this prefix.
-	 *
-	 * @return this prefix name, not {@code null}.
-	 */
-	String getName();
+    /**
+     * Returns the name of this prefix.
+     *
+     * @return this prefix name, not {@code null}.
+     */
+    String getName();
 
-	/**
-	 * Returns the symbol of this prefix.
-	 *
-	 * @return this prefix symbol, not {@code null}.
-	 */
-	public String getSymbol();
+    /**
+     * Returns the symbol of this prefix.
+     *
+     * @return this prefix symbol, not {@code null}.
+     */
+    public String getSymbol();
 
-	/**
-	 * Base part of the associated factor in base^exponent representation.
-	 *
-	 * @return the base part of this prefix.
-	 * @deprecated Will be replaced by getValue()
-	 */
-	int getBase();
+    /**
+     * Returns the value of this prefix. If the {@code exponent} is different from {@code 1}, this value is the {@code base} part of the associated
+     * factor in {@code base^exponent} representation.
+     * 
+     * @return The prefix value.
+     */
+    Number getValue();
 
-	/**
-	 * Returns the value of this prefix. If the {@code exponent} is different than {@code 1}, this value is the base part of the associated factor in base^exponent representation.
-	 * 
-	 * @return The prefix value.
-	 */
-	default Number getValue() {
-		return Integer.valueOf(getBase());
-	}
-
-	/**
-	 * Exponent part of the associated factor in base^exponent representation.
-	 * For different factors, e.g. rational numbers like {@code 1/4} the exponent is always {@code 1}.
-	 *
-	 * @return the exponent part of this prefix.
-	 */
-	int getExponent();
+    /**
+     * Exponent part of the associated factor in {@codebase^exponent} representation. For different factors, e.g. rational numbers like {@code 1/4}
+     * the exponent is always {@code 1}.
+     *
+     * @return the exponent part of this prefix.
+     */
+    int getExponent();
 }

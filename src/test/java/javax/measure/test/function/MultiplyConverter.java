@@ -41,7 +41,7 @@ import java.util.Objects;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.0, March 28, 2018
+ * @version 1.1, June 28, 2019
  * @since 2.0
  */
 public final class MultiplyConverter extends TestConverter implements Comparable<UnitConverter> {
@@ -63,6 +63,18 @@ public final class MultiplyConverter extends TestConverter implements Comparable
         if (factor == 1.0)
             throw new IllegalArgumentException("Would result in identity converter");
         this.factor = factor;
+    }
+    
+    /**
+     * Creates a multiply converter with the specified scale factor.
+     *
+     * @param factor
+     *          the scaling factor.
+     * @throws IllegalArgumentException
+     *           if coefficient is <code>1.0</code> (would result in identity converter)
+     */
+    public MultiplyConverter(Number factor) {
+    	this(factor.doubleValue());
     }
 
     /**

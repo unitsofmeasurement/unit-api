@@ -33,7 +33,7 @@ package javax.measure;
  * Provides support for common binary prefixes to be used by units.
  *
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 1.5, March 20, 2019
+ * @version 2.0, June 28, 2019
  * @see <a href="https://en.wikipedia.org/wiki/Binary_prefix">Wikipedia: Binary Prefix</a>
  * @since 2.0
  */
@@ -196,15 +196,15 @@ public enum BinaryPrefix implements Prefix {
     }
 
     /**
-     * Base part of the associated factor in base^exponent representation.
+     * Base part of the associated factor in {@code base^exponent} representation. For binary prefix, this is always 1024.
      */
     @Override
-    public int getBase() {
+    public Number getValue() {
         return 1024;
     }
 
     /**
-     * Exponent part of the associated factor in base^exponent representation.
+     * Exponent part of the associated factor in {@code base^exponent} representation.
      */
     @Override
     public int getExponent() {
