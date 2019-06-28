@@ -199,7 +199,7 @@ public enum BinaryPrefix implements Prefix {
      * Base part of the associated factor in {@code base^exponent} representation. For binary prefix, this is always 1024.
      */
     @Override
-    public Number getValue() {
+    public Integer getValue() {
         return 1024;
     }
 

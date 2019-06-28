@@ -391,7 +391,7 @@ public enum MetricPrefix implements Prefix {
      * Base part of the associated factor in {@code base^exponent} representation. For metric prefix, this is always 10.
      */
     @Override
-    public Number getValue() {
+    public Integer getValue() {
         return 10;
     }
 
