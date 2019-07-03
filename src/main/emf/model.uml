@@ -593,7 +593,7 @@
           </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Interface" xmi:id="_il06sHC0EeiPSP_DaMvzsA" name="Prefix">
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_Ru1Y8HLkEeilgvRHPaOOsg" name="getSymbol">
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_Ru1Y8HLkEeilgvRHPaOOsg" name="getName">
             <ownedComment xmi:type="uml:Comment" xmi:id="_Ru1Y8XLkEeilgvRHPaOOsg">
               <body>
      * Returns the symbol (if any) of this unit.
@@ -608,8 +608,23 @@
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ru1Y8nLkEeilgvRHPaOOsg" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
           </ownedOperation>
-          <ownedOperation xmi:type="uml:Operation" xmi:id="_qCJL0HLkEeilgvRHPaOOsg" name="getBase">
-            <ownedParameter xmi:type="uml:Parameter" xmi:id="_ue7gMHLkEeilgvRHPaOOsg" name="int" type="_f6zFDHY5EeSqtc-Sb9aJnA" direction="return"/>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_H_1-4J3hEem65Yu6xvelSQ" name="getSymbol">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_H_1-4Z3hEem65Yu6xvelSQ">
+              <body>
+     * Returns the symbol (if any) of this unit.
+     * This method returns {@code null} if this unit has no specific symbol associated with.
+     *
+     * @return this unit symbol, or {@code null} if this unit has not
+     *         specific symbol associated with (e.g. product of units).
+     *
+     * @see #toString()
+     * @see UnitFormat
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_H_1-4p3hEem65Yu6xvelSQ" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_qCJL0HLkEeilgvRHPaOOsg" name="getValue">
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_ue7gMHLkEeilgvRHPaOOsg" name="int" type="_CgZx5nWcEeSrSaxu8IGQmg" direction="return"/>
           </ownedOperation>
           <ownedOperation xmi:type="uml:Operation" xmi:id="_AP61kHLlEeilgvRHPaOOsg" name="getExponent">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_AP7coHLlEeilgvRHPaOOsg" name="int" type="_f6zFDHY5EeSqtc-Sb9aJnA" direction="return"/>
