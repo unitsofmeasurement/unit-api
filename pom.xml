@@ -81,7 +81,7 @@
 		<maven.surefire.version>2.22.1</maven.surefire.version>
 		<maven.surefire-report.version>2.22.1</maven.surefire-report.version>
 		<jacoco.plugin.version>0.8.3</jacoco.plugin.version>
-		<junit.jupiter.version>5.3.2</junit.jupiter.version>
+		<junit.jupiter.version>5.5.0</junit.jupiter.version>
 		
 		<!--Exclude the files Here-->
     	<sonar.exclusions>src/main/java/javax/measure/BinaryPrefix.java,src/main/java/javax/measure/MetricPrefix.java</sonar.exclusions>
