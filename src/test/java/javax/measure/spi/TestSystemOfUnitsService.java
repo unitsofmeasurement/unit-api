@@ -34,8 +34,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.8, April 20, 2018
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @version 1.0, July 7, 2019
  * @since 2.0
  */
 class TestSystemOfUnitsService implements SystemOfUnitsService {

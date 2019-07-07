@@ -45,15 +45,17 @@ import javax.measure.Quantity;
  * h, ∆νCs and c:
  *
  * 1 kg = (h / 6.626 070 15 × 10⁻³⁴) m⁻² s
+ * <br><br>
+ * <b>apiNote:</b> SI Base Unit
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>
+ * @version 2.0
  * @since 1.0
  *
+ * @see <a href="https://en.wikipedia.org/wiki/Mass">Wikipedia: Mass</a>
  * @see RadiationDoseAbsorbed
- *
- * apiNote SI Base Unit
  */
 public interface Mass extends Quantity<Mass> {
 }

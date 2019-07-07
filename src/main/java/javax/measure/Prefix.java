@@ -33,8 +33,8 @@ package javax.measure;
  * A unit prefix is a specifier or mnemonic that is prepended to units of measurement to indicate multiples or fractions of the units.
  *
  * @see <a href="http://en.wikipedia.org/wiki/Unit_prefix">Wikipedia: Unit Prefix</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2, June 28, 2019
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @version 1.3, July 7, 2019
  * @since 2.0
  */
 public interface Prefix {
@@ -61,7 +61,7 @@ public interface Prefix {
     Number getValue();
 
     /**
-     * Exponent part of the associated factor in {@codebase^exponent} representation. For different factors, e.g. rational numbers like {@code 1/4}
+     * Exponent part of the associated factor in {@code base^exponent} representation. For different factors, e.g. rational numbers like {@code 1/4}
      * the exponent is always {@code 1}.
      *
      * @return the exponent part of this prefix.

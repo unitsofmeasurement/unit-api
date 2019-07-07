@@ -69,7 +69,7 @@ public class TemperatureUnit extends TestUnit<Temperature> {
 	/**
 	 * Constructor for TemperatureUnit that accepts key characteristics of each
 	 * temperature scale.
-	 *
+	 * @param rel The temperature unit this is relative to.
 	 * @param newFreezingPoint Freezing point for this temperature scale.
 	 * @param newBoilingPoint  Boiling point for this temperature scale.
 	 * @param newSymbol        Unit symbol for this temperature scale.

@@ -44,7 +44,7 @@ import javax.measure.test.TestUnit;
  *            The type of the quantity measured by this unit.
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 1.1
  * @since 1.0
  *

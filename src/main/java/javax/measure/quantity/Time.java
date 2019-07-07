@@ -43,9 +43,12 @@ import javax.measure.Quantity;
  * gives an expression for the unit second in terms of the defining constant ∆νCs:
  *
  * 1 Hz = ∆νCs / 9 192 631 770  or  1 s = 9 192 631 770 / ∆νCs
- *
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.6
+ * <br><br>
+ * <b>apiNote:</b> SI Base Unit
+ * 
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>
+ * @version 2.0
  * @since 1.0
  *
  * @see Frequency
@@ -54,8 +57,6 @@ import javax.measure.Quantity;
  * @see ElectricCurrent
  * @see Power
  * @see <a href="https://en.wikipedia.org/wiki/Unit_of_time">Wikipedia: Unit of time</a>
- *
- * apiNote SI Base Unit
  */
 public interface Time extends Quantity<Time> {
 }

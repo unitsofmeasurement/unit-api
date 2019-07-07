@@ -70,9 +70,11 @@
  * <p>This package holds only the quantities required by the metric system.</p>
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 2.6
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @version 2.8
  * @since 1.0
+ * @see <a href="https://en.wikipedia.org/wiki/International_System_of_Units">Wikipedia: International System of Units</a>
+ * @see <a href="https://en.wikipedia.org/wiki/2019_redefinition_of_the_SI_base_units">Wikipedia: 2019 redefinition of the SI base units</a>
  */
 package javax.measure.quantity;
 

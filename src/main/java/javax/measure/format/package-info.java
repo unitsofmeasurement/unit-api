@@ -29,8 +29,8 @@
  */
 /**
  * [OPTIONAL] Provides Formatting and Parsing functionality for units, quantities, dimensions or their textual representation.
- * @author  <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.0, August 11, 2016
+ * @author  <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @version 2.0, July 7, 2019
  * @since 1.0
  */
 package javax.measure.format;

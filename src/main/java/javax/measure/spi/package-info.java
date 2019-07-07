@@ -31,10 +31,9 @@
  * [OPTIONAL] The Units of Measurement SPI. Provides services for units, quantities, unit systems and formatters/parsers.
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author  <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
- * @version 1.0, August 11, 2016
+ * @version 2.0, July 7, 2019
  * @since 1.0
  */
 package javax.measure.spi;
-

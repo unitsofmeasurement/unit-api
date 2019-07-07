@@ -38,7 +38,7 @@ import javax.measure.UnconvertibleException;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 1.1
  */
 public class ExceptionsTest {

@@ -123,8 +123,6 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
      *
      * @return a negative integer, zero, or a positive integer as this quantity is less than, equal to, or greater than the specified Quantity
      *         quantity.
-     * @return <code>Double.compare(this.doubleValue(getUnit()),
-     *         that.doubleValue(getUnit()))</code>
      */
     public int compareTo(Quantity<Q> that) {
         return Double.compare(value, that.getValue().doubleValue());

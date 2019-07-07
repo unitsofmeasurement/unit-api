@@ -74,17 +74,17 @@
 		<github.maven.version>0.12</github.maven.version>
 		<github.global.server>github</github.global.server>
 		<maven.resources.version>3.1.0</maven.resources.version>
-		<maven.compile.version>3.8.0</maven.compile.version>
+		<maven.compile.version>3.8.1</maven.compile.version>
 		<maven.site.version>3.7.1</maven.site.version>
 		<maven.jar.version>3.1.0</maven.jar.version>
-		<maven.javadoc.version>3.0.1</maven.javadoc.version>
+		<maven.javadoc.version>3.1.0</maven.javadoc.version>
 		<maven.surefire.version>2.22.1</maven.surefire.version>
 		<maven.surefire-report.version>2.22.1</maven.surefire-report.version>
 		<jacoco.plugin.version>0.8.3</jacoco.plugin.version>
 		<junit.jupiter.version>5.5.0</junit.jupiter.version>
-		
-		<!--Exclude the files Here-->
-    	<sonar.exclusions>src/main/java/javax/measure/BinaryPrefix.java,src/main/java/javax/measure/MetricPrefix.java</sonar.exclusions>
+
+		<!--Exclude the files Here -->
+		<sonar.exclusions>src/main/java/javax/measure/BinaryPrefix.java,src/main/java/javax/measure/MetricPrefix.java</sonar.exclusions>
 	</properties>
 
 	<!-- Developers and Contributors -->
@@ -185,6 +185,14 @@
 	</developers>
 	<contributors>
 		<contributor>
+			<name>Andi Huber</name>
+			<organization>Individual</organization>
+			<timezone>+1</timezone>
+			<roles>
+				<role>Contributor</role>
+			</roles>
+		</contributor>
+		<contributor>
 			<name>Filip Van Laenen</name>
 			<email>fvl@computas.com</email>
 			<organization>Computas</organization>
@@ -202,12 +210,44 @@
 			</roles>
 		</contributor>
 		<contributor>
+			<name>Matthijs Thoolen</name>
+			<organization>Utrecht Java User Group</organization>
+			<timezone>+1</timezone>
+			<roles>
+				<role>Contributor</role>
+			</roles>
+		</contributor>
+		<contributor>
+			<name>Matthijs Thoolen</name>
+			<organization>Utrecht Java User Group</organization>
+			<timezone>+1</timezone>
+			<roles>
+				<role>Contributor</role>
+			</roles>
+		</contributor>
+		<contributor>
+			<name>Anakar Parida</name>
+			<organization>Individual</organization>
+			<timezone>+5.5</timezone>
+			<roles>
+				<role>Contributor</role>
+			</roles>
+		</contributor>
+		<contributor>
+			<name>Rustam Mehmandarov</name>
+			<organization>Individual</organization>
+			<timezone>+3</timezone>
+			<roles>
+				<role>Contributor</role>
+			</roles>
+		</contributor>
+		<contributor>
 			<name>Nathan Scott</name>
 			<email>nathans@redhat.com</email>
 			<organization>Red Hat</organization>
 			<timezone>+10</timezone>
 			<roles>
-				<role>Contributor</role>
+				<role>Contributor Emeritus</role>
 			</roles>
 		</contributor>
 		<contributor>
@@ -216,7 +256,7 @@
 			<email>christopher.senior@gmail.com</email>
 			<organization>Snap-on Inc.</organization>
 			<roles>
-				<role>Java Developer</role>
+				<role>Expert Emeritus</role>
 			</roles>
 		</contributor>
 		<contributor>
@@ -227,7 +267,7 @@
 			<organizationUrl>http://www.v2com.mobi/</organizationUrl>
 			<timezone>-5</timezone>
 			<roles>
-				<role>Architect</role>
+				<role>Expert Emeritus</role>
 				<role>Java Developer</role>
 			</roles>
 		</contributor>
@@ -730,9 +770,9 @@
 
 			<!-- Static analysis for occurrences of bug patterns -->
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>findbugs-maven-plugin</artifactId>
-				<version>3.0.5</version>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-maven-plugin</artifactId>
+				<version>3.1.12</version>
 			</plugin>
 			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-checkstyle-plugin</artifactId> 
 				<version>3.0.0</version> <configuration> <configLocation>src/main/config/checkstyle.xml</configLocation> 
@@ -803,7 +843,7 @@
 											destdir="${project.build.directory}/classes/META-INF/versions/${jdkOptionalVersion}"
 											srcdir="${project.basedir}/src/etc/modules/core/jdk${jdkOptionalVersion}"
 											includeAntRuntime="false">
-		
+
 											<!-- TODO: use release attribute instead after next plugin release. 
 												https://issues.apache.org/jira/browse/MANTRUN-214 -->
 											<compilerarg
@@ -814,7 +854,7 @@
 							</execution>
 						</executions>
 					</plugin>
-							
+
 					<plugin>
 						<artifactId>maven-jar-plugin</artifactId>
 						<configuration>

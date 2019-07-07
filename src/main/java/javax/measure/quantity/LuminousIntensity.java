@@ -46,13 +46,16 @@ import javax.measure.Quantity;
  * for the candela in terms of the defining constants Kcd, h and ∆νCs:
  *
  * 1 cd = (Kcd / 683) kg m² s⁻³ sr⁻¹
- *
+ * <br><br>
+ * <b>apiNote:</b> SI Base Unit
+ * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.2
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>
+ * @version 2.0
  * @since 1.0
- *
- * apiNote SI Base Unit
+ * 
+ * @see <a href="https://en.wikipedia.org/wiki/Luminous_intensity">Wikipedia: Luminous intensity</a>
  */
 public interface LuminousIntensity extends Quantity<LuminousIntensity> {
 }

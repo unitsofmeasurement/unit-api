@@ -39,7 +39,7 @@ import javax.measure.UnitConverter;
  * Test class for our {@link UnitConverter} implementations.
  * </p>
  *
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 0.8.1, $Date: 2016-02-11 $
  */
 public abstract class TestConverter implements UnitConverter {

@@ -44,19 +44,21 @@ import javax.measure.Quantity;
  * gives an exact expression for the metre in terms of the defining constants c and ∆νCs:
  *
  * 1 m = (c / 299 792 458)s = 9 192 631 770 c / 299 792 458 ∆νCs ≈ 30.663 319 c / ∆νCs
+ * <br><br>
+ * <b>apiNote:</b> SI Base Unit
  * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.3
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>
+ * @version 2.0
  * @since 1.0
- *
+ * 
+ * @see <a href="https://en.wikipedia.org/wiki/Length">Wikipedia: Length</a>
  * @see Area
  * @see Volume
  * @see Angle
  * @see SolidAngle
  * @see Speed
- *
- * apiNote SI Base Unit
  */
 public interface Length extends Quantity<Length> {
 }

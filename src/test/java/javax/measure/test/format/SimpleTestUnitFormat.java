@@ -39,7 +39,7 @@ import javax.measure.format.UnitFormat;
 /**
  * Provides a simple interface for formatting and parsing {@linkplain Unit units}.
  *
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @version 0.7
  */
 public class SimpleTestUnitFormat extends TestUnitFormat {

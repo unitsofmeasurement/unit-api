@@ -47,15 +47,16 @@ import javax.measure.Quantity;
  * Inverting this relation gives an exact expression for the mole in terms of the defining constant NA:
  *
  * 1 mol = 6.02214076 × 10²³ / Nₐ
- *
+ * <br><br>
+ * <b>apiNote:</b> SI Base Unit
+ * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.3
+ * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
+ * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>
+ * @version 2.0
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/Amount_of_substance">Wikipedia: Amount of Substance</a>
- *
- * apiNote SI Base Unit
  */
 public interface AmountOfSubstance extends Quantity<AmountOfSubstance> {
 }
