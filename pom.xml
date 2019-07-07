@@ -182,6 +182,16 @@
 				<role>Java Developer</role>
 			</roles>
 		</developer>
+		<developer>
+			<id>mohalmo</id>
+			<name>Mohammed Al-Moayed</name>
+			<organization>Individual</organization>
+			<timezone>+2</timezone>
+			<roles>
+				<role>Expert</role>
+				<role>Java Developer</role>
+			</roles>
+		</developer>
 	</developers>
 	<contributors>
 		<contributor>
