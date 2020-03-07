@@ -80,9 +80,13 @@
 		<maven.jar.version>3.2.0</maven.jar.version>
 		<maven.javadoc.version>3.1.1</maven.javadoc.version>
 		<maven.pmd.version>3.13.0</maven.pmd.version>
+		<maven.antrun.version>1.8</maven.antrun.version>
 		<maven.surefire.version>2.22.2</maven.surefire.version>
 		<maven.surefire-report.version>2.22.2</maven.surefire-report.version>
 		<maven.projectinfo-report.version>3.0.0</maven.projectinfo-report.version>
+		<formatter.maven.version>2.11.0</formatter.maven.version>
+		<license.maven.version>3.0</license.maven.version>
+		<coveralls.maven.version>4.3.0</coveralls.maven.version>
 		<jacoco.plugin.version>0.8.5</jacoco.plugin.version>
 		
 		<!-- Test settings -->
@@ -365,14 +369,14 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
-					<version>1.8</version>
+					<version>${maven.antrun.version}</version>
 				</plugin>
 
 				<!-- License -->
 				<plugin>
 					<groupId>com.mycila</groupId>
 					<artifactId>license-maven-plugin</artifactId>
-					<version>3.0</version>
+					<version>${license.maven.version}</version>
 					<executions>
 						<execution>
 							<goals>
@@ -386,7 +390,7 @@
 				<plugin>
 				  <groupId>net.revelc.code.formatter</groupId>
 				  <artifactId>formatter-maven-plugin</artifactId>
-				  <version>2.11.0</version>
+				  <version>${formatter.maven.version}</version>
 				</plugin>
 
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
@@ -536,7 +540,7 @@
 			<plugin>
 				<groupId>org.eluder.coveralls</groupId>
 				<artifactId>coveralls-maven-plugin</artifactId>
-				<version>4.3.0</version>
+				<version>${coveralls.maven.version}</version>
 				<dependencies>
 					<dependency>
 						<groupId>javax.xml.bind</groupId>
