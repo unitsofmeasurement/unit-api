@@ -67,7 +67,7 @@
 		<maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
 		<additionalparam>-Xdoclint:none</additionalparam>
-		<thisYear>2019</thisYear>
+		<thisYear>2020</thisYear>
 
 		<!-- Plugins -->
 		<felix.version>3.4.0</felix.version>
@@ -75,11 +75,11 @@
 		<github.global.server>github</github.global.server>
 		<maven.resources.version>3.1.0</maven.resources.version>
 		<maven.compile.version>3.8.1</maven.compile.version>
-		<maven.site.version>3.7.1</maven.site.version>
-		<maven.jar.version>3.1.0</maven.jar.version>
-		<maven.javadoc.version>3.1.0</maven.javadoc.version>
-		<maven.surefire.version>2.22.1</maven.surefire.version>
-		<maven.surefire-report.version>2.22.1</maven.surefire-report.version>
+		<maven.site.version>3.8.2</maven.site.version>
+		<maven.jar.version>3.2.0</maven.jar.version>
+		<maven.javadoc.version>3.1.1</maven.javadoc.version>
+		<maven.surefire.version>2.22.2</maven.surefire.version>
+		<maven.surefire-report.version>2.22.2</maven.surefire-report.version>
 		<jacoco.plugin.version>0.8.5</jacoco.plugin.version>
 		<junit.jupiter.version>5.6.0</junit.jupiter.version>
 
@@ -548,7 +548,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>3.0.1</version>
+				<version>3.2.0</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -776,9 +776,6 @@
 				<artifactId>spotbugs-maven-plugin</artifactId>
 				<version>3.1.12</version>
 			</plugin>
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-checkstyle-plugin</artifactId> 
-				<version>3.0.0</version> <configuration> <configLocation>src/main/config/checkstyle.xml</configLocation> 
-				</configuration> </plugin> -->
 		</plugins>
 	</reporting>
 
