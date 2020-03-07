@@ -67,7 +67,7 @@
 		<maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
 		<additionalparam>-Xdoclint:none</additionalparam>
-		<thisYear>2019</thisYear>
+		<thisYear>2020</thisYear>
 
 		<!-- Plugins -->
 		<felix.version>3.4.0</felix.version>
@@ -80,8 +80,8 @@
 		<maven.javadoc.version>3.1.0</maven.javadoc.version>
 		<maven.surefire.version>2.22.1</maven.surefire.version>
 		<maven.surefire-report.version>2.22.1</maven.surefire-report.version>
-		<jacoco.plugin.version>0.8.3</jacoco.plugin.version>
-		<junit.jupiter.version>5.5.0</junit.jupiter.version>
+		<jacoco.plugin.version>0.8.5</jacoco.plugin.version>
+		<junit.jupiter.version>5.6.0</junit.jupiter.version>
 
 		<!--Exclude the files Here -->
 		<sonar.exclusions>src/main/java/javax/measure/BinaryPrefix.java,src/main/java/javax/measure/MetricPrefix.java</sonar.exclusions>
@@ -290,7 +290,7 @@
 			<organization>JUG Chennai</organization>
 			<timezone>+5.5</timezone>
 			<roles>
-				<role>Java Developer</role>
+				<role>Expert Emeritus</role>
 			</roles>
 		</contributor>
 		<contributor>
@@ -301,7 +301,7 @@
 			<organizationUrl>http://www.iem.com</organizationUrl>
 			<timezone>-5</timezone>
 			<roles>
-				<role>Java Developer</role>
+				<role>Expert Emeritus</role>
 			</roles>
 		</contributor>
 		<contributor>
@@ -311,7 +311,7 @@
 			<organization>Individual / Morocco JUG</organization>
 			<timezone>+2</timezone>
 			<roles>
-				<role>Java Developer</role>
+				<role>Expert Emeritus</role>
 			</roles>
 		</contributor>
 		<contributor>
