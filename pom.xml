@@ -74,15 +74,20 @@
 		<github.maven.version>0.12</github.maven.version>
 		<github.global.server>github</github.global.server>
 		<maven.resources.version>3.1.0</maven.resources.version>
+		<maven.source.version>3.2.0</maven.source.version>
 		<maven.compile.version>3.8.1</maven.compile.version>
 		<maven.site.version>3.8.2</maven.site.version>
 		<maven.jar.version>3.2.0</maven.jar.version>
 		<maven.javadoc.version>3.1.1</maven.javadoc.version>
+		<maven.pmd.version>3.13.0</maven.pmd.version>
 		<maven.surefire.version>2.22.2</maven.surefire.version>
 		<maven.surefire-report.version>2.22.2</maven.surefire-report.version>
+		<maven.projectinfo-report.version>3.0.0</maven.projectinfo-report.version>
 		<jacoco.plugin.version>0.8.5</jacoco.plugin.version>
+		
+		<!-- Test settings -->
 		<junit.jupiter.version>5.6.0</junit.jupiter.version>
-
+		
 		<!--Exclude the files Here -->
 		<sonar.exclusions>src/main/java/javax/measure/BinaryPrefix.java,src/main/java/javax/measure/MetricPrefix.java</sonar.exclusions>
 	</properties>
@@ -379,9 +384,9 @@
 
 				<!-- Format -->
 				<plugin>
-					<groupId>net.revelc.code</groupId>
-					<artifactId>formatter-maven-plugin</artifactId>
-					<version>0.5.2</version>
+				  <groupId>net.revelc.code.formatter</groupId>
+				  <artifactId>formatter-maven-plugin</artifactId>
+				  <version>2.11.0</version>
 				</plugin>
 
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
@@ -548,7 +553,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>3.2.0</version>
+				<version>${maven.source.version}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -716,7 +721,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>${maven.projectinfo-report.version}</version>
 				<reportSets>
 					<reportSet>
 						<reports>
@@ -757,7 +762,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
-				<version>3.8</version>
+				<version>${maven.pmd.version}</version>
 				<configuration>
 					<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
 				</configuration>
