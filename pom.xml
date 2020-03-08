@@ -70,7 +70,7 @@
 		<thisYear>2020</thisYear>
 
 		<!-- Plugins -->
-		<felix.version>3.4.0</felix.version>
+		<felix.version>4.2.1</felix.version>
 		<github.maven.version>0.12</github.maven.version>
 		<github.global.server>github</github.global.server>
 		<maven.resources.version>3.1.0</maven.resources.version>
