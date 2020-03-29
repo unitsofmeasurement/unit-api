@@ -4,13 +4,13 @@
                     -----------------------------------------------------
                     Jean-Marie Dautelle, Werner Keil, Otavio Santana
                     -----------------------------------------------------
-                    2019-01-28
+                    2019-08-29
                     -----------------------------------------------------
 
 
 The Units of Measurement API for Java
 
-[./images/duke.png] Logo
+[./images/duke.png]
 
   Units of Measurement Standard - This JSR specifies Java packages for modeling and working with measurement values,
   quantities and their corresponding units.
