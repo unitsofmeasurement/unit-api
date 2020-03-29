@@ -13,6 +13,7 @@
 /.project
 /.settings
 /bin/
+/site/
 
 # IntelliJ #
 .idea/
