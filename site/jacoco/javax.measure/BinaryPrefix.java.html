@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BinaryPrefix.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure</a> &gt; <span class="el_source">BinaryPrefix.java</span></div><h1>BinaryPrefix.java</h1><pre class="source lang-java linenums">/*
  * Units of Measurement API
- * Copyright (c) 2014-2019, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ * Copyright (c) 2014-2020, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
  * All rights reserved.
  *
@@ -33,26 +33,26 @@ package javax.measure;
  * Provides support for common binary prefixes to be used by units.
  *
  * @author &lt;a href=&quot;mailto:werner@units.tech&quot;&gt;Werner Keil&lt;/a&gt;
- * @version 1.5, March 20, 2019
+ * @version 2.0, June 28, 2019
  * @see &lt;a href=&quot;https://en.wikipedia.org/wiki/Binary_prefix&quot;&gt;Wikipedia: Binary Prefix&lt;/a&gt;
  * @since 2.0
  */
 <span class="fc" id="L40">public enum BinaryPrefix implements Prefix {</span>
-    /** Prefix for 1024. */
+<span class="fc" id="L41">    /** Prefix for 1024. */</span>
 <span class="fc" id="L42">    KIBI(&quot;Ki&quot;, 1),</span>
-    /** Prefix for 1024&lt;sup&gt;2&lt;/sup&gt;. */
+<span class="fc" id="L43">    /** Prefix for 1024&lt;sup&gt;2&lt;/sup&gt;. */</span>
 <span class="fc" id="L44">    MEBI(&quot;Mi&quot;, 2),</span>
-    /** Prefix for 1024&lt;sup&gt;3&lt;/sup&gt;. */
+<span class="fc" id="L45">    /** Prefix for 1024&lt;sup&gt;3&lt;/sup&gt;. */</span>
 <span class="fc" id="L46">    GIBI(&quot;Gi&quot;, 3),</span>
-    /** Prefix for 1024&lt;sup&gt;4&lt;/sup&gt;. */
+<span class="fc" id="L47">    /** Prefix for 1024&lt;sup&gt;4&lt;/sup&gt;. */</span>
 <span class="fc" id="L48">    TEBI(&quot;Ti&quot;, 4),</span>
-    /** Prefix for 1024&lt;sup&gt;5&lt;/sup&gt;. */
+<span class="fc" id="L49">    /** Prefix for 1024&lt;sup&gt;5&lt;/sup&gt;. */</span>
 <span class="fc" id="L50">    PEBI(&quot;Pi&quot;, 5),</span>
-    /** Prefix for 1024&lt;sup&gt;6&lt;/sup&gt;. */
+<span class="fc" id="L51">    /** Prefix for 1024&lt;sup&gt;6&lt;/sup&gt;. */</span>
 <span class="fc" id="L52">    EXBI(&quot;Ei&quot;, 6),</span>
-    /** Prefix for 1024&lt;sup&gt;7&lt;/sup&gt;. */
+<span class="fc" id="L53">    /** Prefix for 1024&lt;sup&gt;7&lt;/sup&gt;. */</span>
 <span class="fc" id="L54">    ZEBI(&quot;Zi&quot;, 7),</span>
-    /** Prefix for 1024&lt;sup&gt;8&lt;/sup&gt;. */
+<span class="fc" id="L55">    /** Prefix for 1024&lt;sup&gt;8&lt;/sup&gt;. */</span>
 <span class="fc" id="L56">    YOBI(&quot;Yi&quot;, 8);</span>
 
     /**
@@ -196,15 +196,15 @@ package javax.measure;
     }
 
     /**
-     * Base part of the associated factor in base^exponent representation.
+     * Base part of the associated factor in {@code base^exponent} representation. For binary prefix, this is always 1024.
      */
     @Override
-    public int getBase() {
+    public Integer getValue() {
 <span class="fc" id="L203">        return 1024;</span>
     }
 
     /**
-     * Exponent part of the associated factor in base^exponent representation.
+     * Exponent part of the associated factor in {@code base^exponent} representation.
      */
     @Override
     public int getExponent() {
@@ -221,4 +221,4 @@ package javax.measure;
 <span class="fc" id="L221">        return name();</span>
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

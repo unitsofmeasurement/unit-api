@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServiceProvider.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure.spi</a> &gt; <span class="el_source">ServiceProvider.java</span></div><h1>ServiceProvider.java</h1><pre class="source lang-java linenums">/*
  * Units of Measurement API
- * Copyright (c) 2014-2019, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ * Copyright (c) 2014-2020, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
  * All rights reserved.
  *
@@ -174,19 +174,19 @@ public abstract class ServiceProvider {
 <span class="fc bfc" id="L174" title="All 2 branches covered.">                if (name != null) try {</span>
 <span class="nc" id="L175">                    nameAnnotation = Class.forName(NAMED_ANNOTATION).asSubclass(Annotation.class);</span>
 <span class="nc" id="L176">                    nameGetter = nameAnnotation.getMethod(&quot;value&quot;, (Class[]) null);</span>
-<span class="fc" id="L177">                } catch (ClassNotFoundException e) {</span>
+<span class="pc" id="L177">                } catch (ClassNotFoundException e) {</span>
                     // Ignore since JSR-330 is an optional dependency.
-<span class="nc" id="L179">                }</span>
+                }
                 try {
 <span class="nc" id="L181">                    priorityAnnotation = Class.forName(PRIORITY_ANNOTATION).asSubclass(Annotation.class);</span>
 <span class="nc" id="L182">                    priorityGetter = priorityAnnotation.getMethod(&quot;value&quot;, (Class[]) null);</span>
-<span class="fc" id="L183">                } catch (ClassNotFoundException e) {</span>
+<span class="pc" id="L183">                } catch (ClassNotFoundException e) {</span>
                     // Ignore since JSR-250 is an optional dependency.
-<span class="nc" id="L185">                }</span>
-<span class="nc" id="L186">            } catch (NoSuchMethodException e) {</span>
+                }
+<span class="pc" id="L186">            } catch (NoSuchMethodException e) {</span>
                 // Should never happen since value() is a standard public method of those annotations.
 <span class="nc" id="L188">                throw new ServiceConfigurationError(&quot;Can not get annotation value&quot;, e);</span>
-<span class="fc" id="L189">            }</span>
+            }
 <span class="fc" id="L190">        }</span>
 
         /**
@@ -205,7 +205,7 @@ public abstract class ServiceProvider {
 <span class="nc" id="L205">                } catch (IllegalAccessException | InvocationTargetException e) {</span>
                     // Should never happen since value() is a public method and should not throw exception.
 <span class="nc" id="L207">                    throw new ServiceConfigurationError(&quot;Can not get annotation value&quot;, e);</span>
-<span class="nc" id="L208">                }</span>
+                }
             }
 <span class="pc bpc" id="L210" title="1 of 2 branches missed.">            if (value == null) {</span>
 <span class="fc" id="L211">                value = provider.toString();</span>
@@ -349,7 +349,7 @@ public abstract class ServiceProvider {
 <span class="fc" id="L349">            Optional&lt;ServiceProvider&gt; first = new Selector(null).stream().findFirst();</span>
 <span class="pc bpc" id="L350" title="1 of 2 branches missed.">            if (first.isPresent()) {</span>
 <span class="nc" id="L351">                p = first.get();</span>
-            } else {
+<span class="nc" id="L352">            } else {</span>
 <span class="fc" id="L353">                throw new IllegalStateException(&quot;No measurement ServiceProvider found.&quot;);</span>
             }
 <span class="nc" id="L355">            p = setDefault(p);</span>
@@ -369,7 +369,7 @@ public abstract class ServiceProvider {
 <span class="nc bnc" id="L369" title="All 2 branches missed.">        while (!current.compareAndSet(null, provider)) {</span>
 <span class="nc" id="L370">            final ServiceProvider c = current.get();</span>
 <span class="nc bnc" id="L371" title="All 2 branches missed.">            if (c != null) return c;</span>
-<span class="nc" id="L372">        }</span>
+        }
 <span class="nc" id="L373">        return provider;</span>
     }
 
@@ -385,10 +385,10 @@ public abstract class ServiceProvider {
 <span class="fc" id="L385">        ServiceProvider old = current.getAndSet(provider);</span>
 <span class="fc bfc" id="L386" title="All 2 branches covered.">        if (old != provider) {</span>
 <span class="fc" id="L387">            Logger.getLogger(&quot;javax.measure.spi&quot;).log(Level.CONFIG,</span>
-                    &quot;Measurement ServiceProvider {1,choice,0#set to|1#replaced by} {0}.&quot;,
+<span class="fc" id="L388">                    &quot;Measurement ServiceProvider {1,choice,0#set to|1#replaced by} {0}.&quot;,</span>
 <span class="pc bpc" id="L389" title="1 of 2 branches missed.">                    new Object[] {provider.getClass().getName(), (old == null) ? 0 : 1});</span>
         }
 <span class="fc" id="L391">        return old;</span>
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
