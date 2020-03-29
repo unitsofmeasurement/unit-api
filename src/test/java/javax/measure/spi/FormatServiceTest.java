@@ -32,6 +32,7 @@ package javax.measure.spi;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static javax.measure.spi.FormatService.FormatType.UNIT_FORMAT;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,9 +52,9 @@ public class FormatServiceTest {
      * method for avoiding issues with the order in which JUnit executes tests.
      */
     @Test
-    public void testGetDefault() {
+    public void testGetUnitFormats() {
         FormatService service = new TestFormatService();
-        assertEquals(0, service.getAvailableFormatNames().size());
+        assertEquals(0, service.getAvailableFormatNames(UNIT_FORMAT).size());
     }
 
     /**

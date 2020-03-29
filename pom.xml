@@ -63,6 +63,7 @@
 		<project.reporting.outputEncoding>${sourceEncoding}</project.reporting.outputEncoding>
 		<jdkVersion>8</jdkVersion>
 		<jdkOptionalVersion>9</jdkOptionalVersion>
+		<jdkOptionalVersion2>11</jdkOptionalVersion2>
 		<project.build.javaVersion>${jdkVersion}</project.build.javaVersion>
 		<maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
@@ -459,6 +460,7 @@
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
 					<execution>
+						<id>first-multi</id>
 						<phase>prepare-package</phase>
 						<goals>
 							<goal>run</goal>
@@ -476,6 +478,29 @@
 										https://issues.apache.org/jira/browse/MANTRUN-214 -->
 									<compilerarg
 										line="--release=${jdkOptionalVersion} --patch-module java.measure=${project.build.directory}/classes" />
+								</javac>
+							</target>
+						</configuration>
+					</execution>
+					<execution>
+						<id>second-multi</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<mkdir
+									dir="${project.build.directory}/classes/META-INF/versions/${jdkOptionalVersion2}" />
+								<javac
+									destdir="${project.build.directory}/classes/META-INF/versions/${jdkOptionalVersion2}"
+									srcdir="${project.basedir}/src/main/jdk${jdkOptionalVersion2}"
+									includeAntRuntime="false">
+
+									<!-- TODO: use release attribute instead after next plugin release. 
+										https://issues.apache.org/jira/browse/MANTRUN-214 -->
+									<compilerarg
+										line="--release=${jdkOptionalVersion2} --patch-module java.measure=${project.build.directory}/classes" />
 								</javac>
 							</target>
 						</configuration>
