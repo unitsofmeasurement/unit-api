@@ -79,7 +79,7 @@
 		<maven.compile.version>3.8.1</maven.compile.version>
 		<maven.site.version>3.8.2</maven.site.version>
 		<maven.jar.version>3.2.0</maven.jar.version>
-		<maven.javadoc.version>3.1.1</maven.javadoc.version>
+		<maven.javadoc.version>3.2.0</maven.javadoc.version>
 		<maven.pmd.version>3.13.0</maven.pmd.version>
 		<maven.antrun.version>1.8</maven.antrun.version>
 		<maven.surefire.version>2.22.2</maven.surefire.version>
