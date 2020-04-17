@@ -75,9 +75,9 @@
 		<github.global.server>github</github.global.server>
 		<maven.resources.version>3.1.0</maven.resources.version>
 		<maven.compile.version>3.8.1</maven.compile.version>
-		<maven.site.version>3.8.2</maven.site.version>
+		<maven.site.version>3.9.0</maven.site.version>
 		<maven.jar.version>3.2.0</maven.jar.version>
-		<maven.javadoc.version>3.1.1</maven.javadoc.version>
+		<maven.javadoc.version>3.2.0</maven.javadoc.version>
 		<maven.surefire.version>2.22.2</maven.surefire.version>
 		<maven.surefire-report.version>2.22.2</maven.surefire-report.version>
 		<jacoco.plugin.version>0.8.5</jacoco.plugin.version>
@@ -384,7 +384,7 @@
 					<version>0.5.2</version>
 				</plugin>
 
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
+				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -463,7 +463,7 @@
 									srcdir="${project.basedir}/src/main/jdk${jdkOptionalVersion}"
 									includeAntRuntime="false">
 
-									<!-- TODO: use release attribute instead after next plugin release. 
+									<!-- TODO: use release attribute instead after next plugin release.
 										https://issues.apache.org/jira/browse/MANTRUN-214 -->
 									<compilerarg
 										line="--release=${jdkOptionalVersion} --patch-module java.measure=${project.build.directory}/classes" />
@@ -818,7 +818,7 @@
 		<!-- Individual JARs -->
 		<profile>
 			<id>base-jar</id>
-			<!-- This profile builds only the base (root level) elements into a separate 
+			<!-- This profile builds only the base (root level) elements into a separate
 				-base.jar file -->
 			<activation>
 				<activeByDefault>false</activeByDefault>
@@ -843,7 +843,7 @@
 											srcdir="${project.basedir}/src/etc/modules/core/jdk${jdkOptionalVersion}"
 											includeAntRuntime="false">
 
-											<!-- TODO: use release attribute instead after next plugin release. 
+											<!-- TODO: use release attribute instead after next plugin release.
 												https://issues.apache.org/jira/browse/MANTRUN-214 -->
 											<compilerarg
 												line="--release=${jdkOptionalVersion} --patch-module java.measure.base=${project.build.directory}/classes" />
@@ -896,7 +896,7 @@
 
 		<profile>
 			<id>format-jar</id>
-			<!-- This profile builds (optional) format elements into separate JAR 
+			<!-- This profile builds (optional) format elements into separate JAR
 				files -->
 			<build>
 				<plugins>
@@ -979,7 +979,7 @@
 		<!-- Profile JARs -->
 		<profile>
 			<id>format-profile</id>
-			<!-- This profile builds the Format Profile (base+format) into a separate 
+			<!-- This profile builds the Format Profile (base+format) into a separate
 				jar file -->
 			<activation>
 				<activeByDefault>false</activeByDefault>
@@ -1011,7 +1011,7 @@
 
 		<profile>
 			<id>spi-profile</id>
-			<!-- This profile builds the SPI Profile (base+format+spi) into a separate 
+			<!-- This profile builds the SPI Profile (base+format+spi) into a separate
 				jar file -->
 			<activation>
 				<activeByDefault>false</activeByDefault>
