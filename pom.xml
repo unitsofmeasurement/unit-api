@@ -659,6 +659,7 @@
 					<excludes>
 						<exclude>.editorconfig</exclude>
 						<exclude>.gitattributes</exclude>
+                        <exclude>.github</exclude>
 						<exclude>.circleci/**</exclude>
 						<exclude>**/LICENSE</exclude>
 						<exclude>**/README</exclude>
