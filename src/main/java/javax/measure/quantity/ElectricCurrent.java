@@ -44,9 +44,9 @@ import javax.measure.Quantity;
  * and ∆νCs:
  *
  * 1 A = (e / 1.602 176 634 × 10⁻¹⁹) s⁻¹
- * <br><br>
- * <b>apiNote:</b> SI Base Unit
- * 
+ * <br>
+ * @apiNote SI Base Unit
+ *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>

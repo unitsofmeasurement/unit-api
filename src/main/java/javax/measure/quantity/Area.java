@@ -34,11 +34,11 @@ import javax.measure.Quantity;
 /**
  * Extent of a planar region or of the surface of a solid measured in square units. The metric system unit for this quantity is "m²" (square metre).
   * <br><br>
- * <b>apiNote:</b> SI Derived Unit
- * 
+ * @apiNote SI Derived Unit
+ *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.3
+ * @version 1.4
  * @since 1.0
  *
  * @see Length

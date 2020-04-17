@@ -44,11 +44,11 @@ import javax.measure.Quantity;
  *
  * 1 Hz = ∆νCs / 9 192 631 770  or  1 s = 9 192 631 770 / ∆νCs
  * <br><br>
- * <b>apiNote:</b> SI Base Unit
- * 
+ * @apiNote SI Base Unit
+ *
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>
- * @version 2.0
+ * @version 2.1
  * @since 1.0
  *
  * @see Frequency
