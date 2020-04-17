@@ -89,10 +89,10 @@
 		<license.maven.version>3.0</license.maven.version>
 		<coveralls.maven.version>4.3.0</coveralls.maven.version>
 		<jacoco.plugin.version>0.8.5</jacoco.plugin.version>
-		
+
 		<!-- Test settings -->
 		<junit.jupiter.version>5.6.1</junit.jupiter.version>
-		
+
 		<!--Exclude the files Here -->
 		<sonar.exclusions>src/main/java/javax/measure/BinaryPrefix.java,src/main/java/javax/measure/MetricPrefix.java</sonar.exclusions>
 	</properties>
@@ -394,7 +394,7 @@
 				  <version>${formatter.maven.version}</version>
 				</plugin>
 
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
+				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -474,7 +474,7 @@
 									srcdir="${project.basedir}/src/main/jdk${jdkOptionalVersion}"
 									includeAntRuntime="false">
 
-									<!-- TODO: use release attribute instead after next plugin release. 
+									<!-- TODO: use release attribute instead after next plugin release.
 										https://issues.apache.org/jira/browse/MANTRUN-214 -->
 									<compilerarg
 										line="--release=${jdkOptionalVersion} --patch-module java.measure=${project.build.directory}/classes" />
@@ -497,7 +497,7 @@
 									srcdir="${project.basedir}/src/main/jdk${jdkOptionalVersion2}"
 									includeAntRuntime="false">
 
-									<!-- TODO: use release attribute instead after next plugin release. 
+									<!-- TODO: use release attribute instead after next plugin release.
 										https://issues.apache.org/jira/browse/MANTRUN-214 -->
 									<compilerarg
 										line="--release=${jdkOptionalVersion2} --patch-module java.measure=${project.build.directory}/classes" />
@@ -597,7 +597,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>${maven.javadoc.version}</version>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -606,26 +605,10 @@
 						</goals>
 					</execution>
 				</executions>
-				<configuration>
-					<detectLinks>true</detectLinks>
-					<keywords>true</keywords>
-					<linksource>true</linksource>
-					<failOnError>false</failOnError>
-					<source>${maven.compile.sourceLevel}</source>
-					<verbose>true</verbose>
-					<tags>
-						<tag>
-							<name>apiNote</name>
-							<placement>a</placement>
-							<head>API Note:</head>
-						</tag>
-						<tag>
-							<name>implSpec</name>
-							<placement>a</placement>
-							<head>Implementation Requirements:</head>
-						</tag>
-					</tags>
-				</configuration>
+                <configuration>
+                    <doclint>none</doclint>
+                </configuration>
+
 			</plugin>
 
 			<!-- JAR packaging -->
@@ -853,7 +836,7 @@
 		<!-- Individual JARs -->
 		<profile>
 			<id>base-jar</id>
-			<!-- This profile builds only the base (root level) elements into a separate 
+			<!-- This profile builds only the base (root level) elements into a separate
 				-base.jar file -->
 			<activation>
 				<activeByDefault>false</activeByDefault>
@@ -878,7 +861,7 @@
 											srcdir="${project.basedir}/src/etc/modules/core/jdk${jdkOptionalVersion}"
 											includeAntRuntime="false">
 
-											<!-- TODO: use release attribute instead after next plugin release. 
+											<!-- TODO: use release attribute instead after next plugin release.
 												https://issues.apache.org/jira/browse/MANTRUN-214 -->
 											<compilerarg
 												line="--release=${jdkOptionalVersion} --patch-module java.measure.base=${project.build.directory}/classes" />
@@ -931,7 +914,7 @@
 
 		<profile>
 			<id>format-jar</id>
-			<!-- This profile builds (optional) format elements into separate JAR 
+			<!-- This profile builds (optional) format elements into separate JAR
 				files -->
 			<build>
 				<plugins>
@@ -1014,7 +997,7 @@
 		<!-- Profile JARs -->
 		<profile>
 			<id>format-profile</id>
-			<!-- This profile builds the Format Profile (base+format) into a separate 
+			<!-- This profile builds the Format Profile (base+format) into a separate
 				jar file -->
 			<activation>
 				<activeByDefault>false</activeByDefault>
@@ -1046,7 +1029,7 @@
 
 		<profile>
 			<id>spi-profile</id>
-			<!-- This profile builds the SPI Profile (base+format+spi) into a separate 
+			<!-- This profile builds the SPI Profile (base+format+spi) into a separate
 				jar file -->
 			<activation>
 				<activeByDefault>false</activeByDefault>
