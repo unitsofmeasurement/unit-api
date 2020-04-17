@@ -48,12 +48,12 @@ import javax.measure.Quantity;
  *
  * 1 mol = 6.02214076 × 10²³ / Nₐ
  * <br><br>
- * @apiNote SI Base Unit
- *
+ * <b>apiNote:</b> SI Base Unit
+ * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>
- * @version 2.1
+ * @version 2.0
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/Amount_of_substance">Wikipedia: Amount of Substance</a>

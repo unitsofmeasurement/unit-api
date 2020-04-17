@@ -33,4 +33,3 @@
  *
  */
 package javax.measure.test.format;
-
