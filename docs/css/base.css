@@ -1,0 +1,115 @@
+/* Sticky footer styles
+ * ------------------------------*/
+@import url('//fonts.googleapis.com/css?family=Noto+Sans');
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  margin: 0 0 75px; /* bottom = footer height */
+  margin-top: 60px;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 75px;
+  width: 100%;
+}
+/*-------------------------------*/
+
+
+/* Site custom styles
+ * ------------------------------*/
+.gotop {
+  display: block;
+  text-align: right;
+}
+
+.sidebar-list {
+  font-size: 14px;
+}
+
+.sidebar-list-item {
+  padding-left: 40px;
+}
+
+.static-box > .panel-body {
+  padding: 10px;
+  text-align: center;
+}
+
+#repoview {
+  font-size: 12px;
+  padding: 5px;
+}
+
+.social-icon {
+  vertical-align: middle;
+}
+
+.share {
+  margin: 20px 0px 10px;
+}
+
+.read-more {
+  float: right;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.tagsbar {
+  text-transform: lowercase !important;
+  font-size: 11px;
+}
+
+/* You can override pre > code styles */
+.snippet {
+}
+
+/* You can override archive well styles */
+.archive-month {
+}
+
+/* You can override tag well styles */
+.tag-month {
+}
+
+/*-------------------------------*/
+
+
+/* Social share with counters
+ * ------------------------------*/
+
+/* This gets Google to fall into place */
+.social {
+  font-size: 1px;
+}
+
+/* This gets Facebook to fall into place */
+.social iframe {
+  vertical-align: middle;
+}
+
+/* Set an optional width for your button wrappers */
+.social span {
+  display: inline-block;
+}
+
+/* Adjust the widths individually if you like */
+.social .facebook iframe {
+  border: none;
+  overflow: hidden;
+  height: 21px;
+  width: 120px;
+}
+
+.social .google {
+  width: 80px;
+}
+/*-------------------------------*/
+

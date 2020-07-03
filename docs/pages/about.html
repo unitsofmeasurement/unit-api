@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    Units of Measurement
+        - About
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="keilw">
+    <meta name="description" content="Static blog generated with JBake">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/base.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav icon -->
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body>      
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Units of Measurement</a>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/pages/about.html">About</a></li>
+            <!--li><a href="/pages/contact.html">Contact</a></li-->
+            <li><a href="/pages/calendar.html">Calendar</a></li>
+            <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-header">JSR 385</li>
+                    <li><a href="https://docs.google.com/document/d/12KhosAFriGCczBs6gwtJJDfg_QlANT92_lhxUWO2gCY">Specification</a></li>
+                    <li><a href="http://unitsofmeasurement.github.io/unit-api">API</a></li>
+                    <li><a href="http://unitsofmeasurement.github.io/unit-api/site/apidocs/index.html">JavaDoc (API)</a></li>
+                    <li class="divider"></li>
+                    <li><a href="https://github.com/unitsofmeasurement/unit-ri">Reference Implementation</a></li>
+                    <li><a href="https://unitsofmeasurement.gitbooks.io/unit-ri-userguide/content/">RI User Guide</a></li>
+                    <li><a href="https://github.com/unitsofmeasurement/unit-tck">TCK (Technical Compatibility Kit)</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">Extensions</li>
+                    <li><a href="https://github.com/unitsofmeasurement/unit-lib">Units Libraries</a></li>
+                    <li><a href="http://uom.si">SI Units</a></li>
+                 <!---    li class="nav-header">Sandbox</li>
+                    <li><a href="sandbox.html">Sandbox</a></li -->
+                    <li class="divider"></li>
+                    <li class="nav-header">Additional Information</li>
+                    <li><a href="http://jcp.org/en/jsr/detail?id=385">JSR 385 Detail Page</a></li>  
+                    <li><a href="http://unitsofmeasurement.github.io/unit-api/site">Maven Site</a></li>
+                    <li><a href="https://bintray.com/unitsofmeasurement">Units of Measurement on Bintray</a></li>
+                    <li><a href="http://jcp.org/en/jsr/detail?id=363">JSR 363 Detail Page</a></li>  
+                    <li><a href="https://github.com/unitsofmeasurement/uom-legacy">Unit API 0.6</a></li></li>
+                  </ul>
+                </li>
+          </ul>
+        
+        <!-- Right navigation -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/archive.html"><i class="fa fa-list"></i> Archive</a></li>
+          <li><a href="/feed.xml" title="Rss"><i class="fa fa-rss"></i> Feed</a></li>
+        </ul>
+        <!-- Right navigation end -->
+
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav><!-- /.navbar -->
+
+    <!-- Begin page content -->
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-12">
+          <article>
+            <h2>About</h2>
+            <p><p>The Unit of Measurement API provides a set of Java language programming interfaces for handling units and quantities.<br/>The interfaces provide a layer which separates client code, that would call the API,<br/>from library code, which implements the API.</p>
+<p><img src="/img/duke_measure_250x250.png" alt="alt text" title="Measuring Duke" /></p>
+<p>The specification contains Interfaces and abstract classes with methods for unit operations:<br/>* Checking of unit compatibility<br/>* Expression of a quantity in various units<br/>* Arithmetic operations on units</p>
+<p>Developers frequently encounter the need to model units of measure, because objects in the real world are subject to these measures.<br/>When working with units, developers need to understand the mathematics of units, how to convert between systems,<br/>and how to format and parse string representations of units. Most of this work can be consolidated into one or two Java packages,<br/>which is a primary aim of this JSR. This package will help developers create safe, correct software to deal with common problem of modeling units.</p>
+<p>Units give us a way to measure the physical world. There are many different units, partly because the world has different types of properties,<br/>such as length and mass, which are not interchangeable in normal physics. This type of property is sometimes called a "quantity" or a "dimension".<br/>The word "dimension" fits because of the orthogonality of these properties. For example "mass" and "length" cannot be exchanged.<br/>Further, when we multiply physical measures the dimensions add up as exponents. For example, length times length becomes length².</p>
+<p>A large body of work exists that specifies the dimensions, meanings, and names of various physical quantities.<br/>In particular, the 11th General Conference on Weights and Measures in 1960 recommended a practical system of units of measurement,<br/>and gave it the name Systeme International d'Units (SI).<br/>SI defines units for the base dimensions of length, mass, time, electric current,<br/>thermodynamic temperature, amount of substance, and luminous intensity.<br/>SI also recognizes names and meaning of derived dimensions,<br/>such as area, volume, and force.<br/>For some (but not all) of these derived dimensions SI defines units,<br/>such as "liter" for a unit of volume and "newton" for a unit of force.<br/>SI does not have a special name for area,<br/>although other systems of measurement do (as in "acre").</p>
+<p>Despite the rising prominence of the metric system (the SI system), many developers have to work with non-SI units,<br/>such as feet, miles, acres, and gallons. A measurement can be expressed as a number of any unit,<br/>so long as the unit has the same dimension as the measured quantity. For example,<br/>any measure of volume can be expressed as a number of liters or gallons,<br/>because liters and gallons are units of volume, and all volumes have the dimension of length^3.<br/>Therefore, a measure expressed as a number of liters can be 'converted' to a number of gallons.<br/>Converting measures from one system of units to another is a common problem,<br/>but is subject to mathematics that can help to eliminate errors.</p>
+<p><em>What's with Duke and that haircut?</em></p>
+<p><img src="/img/duke_measure1_640.jpg" alt="alt text" title="Measure for Measure Duke" /></p>
+<p>The image refers to the Shakespeare play "Measure for Measure",<br/>occasionally used by presentations on JSR 363.<br/>In the story a Duke disguised as a friar spies on his subjects, so Duke sounded like a good match (not for the spying we hope;-)</p></p>
+          </article>
+        </div> <!-- /.col-md-12 -->
+      </div> <!-- /.row -->
+
+      </div><!-- /.container -->
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-xs-10">
+            <p class="text-muted credit">&copy; Units of Measurement project 2017 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.1.1</a> | Baked with <a href="http://jbake.org">JBake v2.5.0</a> | <i title="Linux" class="fa fa-linux"></i></p>
+          </div>
+          <div class="col-xs-2 gotop">
+            <a href="#"><i class="fa fa-arrow-circle-up"> top</i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gist-embed/1.6/gist-embed.min.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript">
+      <!-- load prettify only when needed -->
+      $(document).ready(function(){
+        var prettify = false;
+        var classToAdd = 'prettyprint snippet';
+        $("pre > code").each(function() {
+          $("pre > code").parent().addClass(classToAdd);
+          prettify = true;
+        });
+        if(prettify) {
+          prettyPrint();
+        }
+      });
+    </script>
+
+
+  </body>
+</html>

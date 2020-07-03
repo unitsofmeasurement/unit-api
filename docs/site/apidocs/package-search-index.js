@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"javax.measure"},{"l":"javax.measure.format"},{"l":"javax.measure.quantity"},{"l":"javax.measure.spi"}]

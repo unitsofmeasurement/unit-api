@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Quantity.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure</a> &gt; <span class="el_source">Quantity.java</span></div><h1>Quantity.java</h1><pre class="source lang-java linenums">/*
+ * Units of Measurement API
+ * Copyright (c) 2014-2020, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ *
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+ *    and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of JSR-385 nor the names of its contributors may be used to endorse or promote products
+ *    derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+package javax.measure;
+
+/**
+ * Represents a quantitative property of a phenomenon, body, or substance, that
+ * can be quantified by measurement. {@link javax.measure.quantity.Mass Mass},
+ * time, distance, heat, and angular separation are among the familiar examples
+ * of quantitative properties.
+ * &lt;p&gt;
+ * &lt;code&gt; {@literal Unit&lt;Mass&gt;} pound = ... {@literal Quantity&lt;Length&gt;} size = ... {@literal Sensor&lt;Temperature&gt;}&lt;br&gt;
+ * thermometer = ... {@literal Vector3D&lt;Speed&gt;} aircraftSpeed = ... &lt;/code&gt;
+ * &lt;/p&gt;
+ *
+ * &lt;h3&gt;Arithmetic operations&lt;/h3&gt;
+ * This interface defines some arithmetic operations between {@code Quantity}
+ * instances. All implementations shall produce &lt;em&gt;equivalent&lt;/em&gt; results for
+ * the same operation applied on equivalent quantities. Two quantities are
+ * equivalent if, after conversion to the same unit of measurement, they have
+ * the same numerical value (ignoring rounding errors). For example 2000 metres
+ * is equivalent to 2 km, but 2°C is not equivalent to 2 K; it is equivalent to
+ * 275.15 K instead. Above requirement applied to addition means that 2°C + 2 K
+ * shall be equivalent to 275.15 K + 2 K.
+ *
+ * &lt;p&gt;All operations shall preserve the
+ * &lt;a href=&quot;https://en.wikiversity.org/wiki/Basic_Laws_of_Algebra&quot;&gt;basic laws
+ * of algebra&lt;/a&gt;, in particular &lt;b&gt;commutativity&lt;/b&gt; of addition and
+ * multiplication (&lt;var&gt;A&lt;/var&gt; + &lt;var&gt;B&lt;/var&gt; = &lt;var&gt;B&lt;/var&gt; + &lt;var&gt;A&lt;/var&gt;)
+ * and &lt;b&gt;associativity&lt;/b&gt; of addition and multiplication (&lt;var&gt;A&lt;/var&gt; +
+ * &lt;var&gt;B&lt;/var&gt;) + &lt;var&gt;C&lt;/var&gt; = &lt;var&gt;A&lt;/var&gt; + (&lt;var&gt;B&lt;/var&gt; + &lt;var&gt;C&lt;/var&gt;).
+ * In order to preserve those algebra laws, this specification requires all
+ * arithmetic operations to execute &lt;em&gt;as is&lt;/em&gt; all operands were converted
+ * to {@linkplain Unit#getSystemUnit() system unit} before the operation is
+ * carried out, and the result converted back to any compatible unit at
+ * implementation choice. For example 4 cm + 1 inch shall produce any result
+ * &lt;em&gt;equivalent&lt;/em&gt; to 0.04 m + 0.0254 m.&lt;/p&gt;
+ *
+ * &lt;p&gt;Implementations are allowed to avoid conversion to system unit if the
+ * result is guaranteed to be equivalent. This is often the case when the
+ * conversion between quantity unit and system unit is only a
+ * {@linkplain UnitConverter#isLinear() scale factor}. However this is not
+ * the case for conversions applying an offset or more complex formula.
+ * For example 2°C + 1°C = 274.15°C, not 3°C. This counter-intuitive result
+ * is essential for preserving algebra laws like associativity, and is also
+ * the expected result from a thermodynamic point of view.&lt;/p&gt;
+ *
+ * apiNote This interface places no restrictions on the mutability of
+ *          implementations, however immutability is strongly recommended. All
+ *          implementations must be {@link Comparable}.
+ *
+ * @param &lt;Q&gt;
+ *            The type of the quantity.
+ *
+ * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;&gt;Jean-Marie Dautelle&lt;/a&gt;
+ * @author &lt;a href=&quot;mailto:martin.desruisseaux@geomatys.com&quot;&gt;Martin
+ *         Desruisseaux&lt;/a&gt;
+ * @author &lt;a href=&quot;mailto:werner@uom.technology&quot;&gt;Werner Keil&lt;/a&gt;
+ * @author &lt;a href=&quot;mailto:otaviopolianasantana@gmail.com&quot;&gt;Otavio Santana&lt;/a&gt;
+ * @see Unit
+ * @see &lt;a href=&quot;http://en.wikipedia.org/wiki/Quantity&quot;&gt;Wikipedia: Quantity&lt;/a&gt;
+ * @see &lt;a href=&quot;http://martinfowler.com/eaaDev/quantity.html&quot;&gt;Martin Fowler -
+ *      Quantity&lt;/a&gt;
+ * @version 1.11, April 16, 2019
+ * @since 1.0
+ */
+public interface Quantity&lt;Q extends Quantity&lt;Q&gt;&gt; {
+    
+   /**
+    * The scale of a {@link Quantity}, either {@code ABSOLUTE} or {@code RELATIVE}.
+    *
+    * @since 2.0
+    * @see &lt;a href=&quot;https://en.wikipedia.org/wiki/Absolute_scale&quot;&gt;Wikipedia: Absolute scale&lt;/a&gt;
+    */
+<span class="fc" id="L101">    public static enum Scale {</span>
+<span class="fc" id="L102">        ABSOLUTE, RELATIVE</span>
+    }
+       
+    /**
+     * Returns the sum of this {@code Quantity} with the one specified.
+     * The result shall be as if this quantity and the given addend were
+     * converted to {@linkplain Unit#getSystemUnit() system unit} before
+     * to be added, and the result converted back to the unit of this
+     * quantity or any other compatible unit at implementation choice.
+     *
+     * @param addend
+     *            the {@code Quantity} to be added.
+     * @return {@code this + addend}.
+     */
+    Quantity&lt;Q&gt; add(Quantity&lt;Q&gt; addend);
+
+    /**
+     * Returns the difference between this {@code Quantity} and the one specified.
+     * The result shall be as if this quantity and the given subtrahend were
+     * converted to {@linkplain Unit#getSystemUnit() system unit} before
+     * to be subtracted, and the result converted back to the unit of this
+     * quantity or any other compatible unit at implementation choice.
+     *
+     * @param subtrahend
+     *            the {@code Quantity} to be subtracted.
+     * @return &lt;code&gt;this - subtrahend&lt;/code&gt;.
+     */
+    Quantity&lt;Q&gt; subtract(Quantity&lt;Q&gt; subtrahend);
+
+    /**
+     * Returns the quotient of this {@code Quantity} divided by the {@code Quantity}
+     * specified.
+     * The result shall be as if this quantity and the given divisor were
+     * converted to {@linkplain Unit#getSystemUnit() system unit} before
+     * to be divided, and the result converted back to the unit of this
+     * quantity or any other compatible unit at implementation choice.
+     *
+     * @throws ClassCastException
+     *             if the type of an element in the specified operation is
+     *             incompatible with this quantity
+     *
+     * @param divisor
+     *            the {@code Quantity} divisor.
+     * @return &lt;code&gt;this / divisor&lt;/code&gt;.
+     */
+    Quantity&lt;?&gt; divide(Quantity&lt;?&gt; divisor);
+
+    /**
+     * Returns the quotient of this {@code Quantity} divided by the {@code Number}
+     * specified.
+     * The result shall be as if this quantity was converted to
+     * {@linkplain Unit#getSystemUnit() system unit} before to be divided,
+     * and the result converted back to the unit of this quantity or any
+     * other compatible unit at implementation choice.
+     *
+     * @param divisor
+     *            the {@code Number} divisor.
+     * @return &lt;code&gt;this / divisor&lt;/code&gt;.
+     */
+    Quantity&lt;Q&gt; divide(Number divisor);
+
+    /**
+     * Returns the product of this {@code Quantity} with the one specified.
+     * The result shall be as if this quantity and the given multiplicand were
+     * converted to {@linkplain Unit#getSystemUnit() system unit} before
+     * to be multiplied, and the result converted back to the unit of this
+     * quantity or any other compatible unit at implementation choice.
+     *
+     * @throws ClassCastException
+     *             if the type of an element in the specified operation is
+     *             incompatible with this quantity
+     *
+     * @param multiplicand
+     *            the {@code Quantity} multiplicand.
+     * @return &lt;code&gt;this * multiplicand&lt;/code&gt;.
+     */
+    Quantity&lt;?&gt; multiply(Quantity&lt;?&gt; multiplicand);
+
+    /**
+     * Returns the product of this {@code Quantity} with the {@code Number} value
+     * specified.
+     * The result shall be as if this quantity was converted to
+     * {@linkplain Unit#getSystemUnit() system unit} before to be multiplied,
+     * and the result converted back to the unit of this quantity or any
+     * other compatible unit at implementation choice.
+     *
+     * @param multiplicand
+     *            the {@code Number} multiplicand.
+     * @return &lt;code&gt;this * multiplicand&lt;/code&gt;.
+     */
+    Quantity&lt;Q&gt; multiply(Number multiplicand);
+
+    /**
+     * Returns this {@code Quantity} converted into another (compatible)
+     * {@code Unit}.
+     *
+     * @param unit
+     *            the {@code Unit unit} in which the returned quantity is stated.
+     * @return this quantity or a new quantity equivalent to this quantity stated in the specified unit.
+     * @throws ArithmeticException
+     *             if the result is inexact and the quotient has a non-terminating decimal expansion.
+     */
+    Quantity&lt;Q&gt; to(Unit&lt;Q&gt; unit);
+
+    /**
+     * Returns a {@code Quantity} that is the multiplicative inverse of this
+     * {@code Quantity}, having reciprocal value and reciprocal unit as given by
+     * {@code this.getUnit().inverse()}.
+     *
+     * @return reciprocal {@code Quantity}
+     * @see &lt;a href=
+     *      &quot;https://en.wikipedia.org/wiki/Multiplicative_inverse&quot;&gt;Wikipedia:
+     *      Multiplicative inverse&lt;/a&gt;
+     */
+    Quantity&lt;?&gt; inverse();
+
+    /**
+     * Returns a {@code Quantity} whose value is {@code (-this.getValue())}.
+     *
+     * @return {@code -this}.
+     */
+    Quantity&lt;Q&gt; negate();
+
+    /**
+     * Casts this quantity to a parameterized unit of specified nature or throw a
+     * &lt;code&gt;ClassCastException&lt;/code&gt; if the dimension of the specified quantity
+     * and this measure unit's dimension do not match. For example:
+     * &lt;p&gt;
+     * &lt;code&gt;
+     *     {@literal Quantity&lt;Length&gt;} length = Quantities.getQuantity(&quot;2 km&quot;).asType(Length.class);
+     * &lt;/code&gt; or &lt;code&gt;
+     *     {@literal Quantity&lt;Speed&gt;} C = length.multiply(299792458).divide(second).asType(Speed.class);
+     * &lt;/code&gt;
+     * &lt;/p&gt;
+     *
+     * @param &lt;T&gt;
+     *            The type of the quantity.
+     * @param type
+     *            the quantity class identifying the nature of the quantity.
+     * @return this quantity parameterized with the specified type.
+     * @throws ClassCastException
+     *             if the dimension of this unit is different from the specified
+     *             quantity dimension.
+     * @throws UnsupportedOperationException
+     *             if the specified quantity class does not have a SI unit for the
+     *             quantity.
+     * @see Unit#asType(Class)
+     */
+    &lt;T extends Quantity&lt;T&gt;&gt; Quantity&lt;T&gt; asType(Class&lt;T&gt; type) throws ClassCastException;
+
+    /**
+     * Returns the value of this {@code Quantity}.
+     *
+     * @return a value.
+     */
+    Number getValue();
+
+    /**
+     * Returns the unit of this {@code Quantity}.
+     *
+     * @return the unit (shall not be {@code null}).
+     */
+    Unit&lt;Q&gt; getUnit();
+    
+    /**
+     * Convenient method equivalent to {@link #to(javax.measure.Unit)
+     * to(getUnit().toSystemUnit())}.
+     *
+     * @return this quantity or a new quantity equivalent to this quantity stated in
+     *         SI units.
+     * @throws ArithmeticException
+     *             if the result is inexact and the quotient has a non-terminating
+     *             decimal expansion.
+     */
+    default Quantity&lt;Q&gt; toSystemUnit() {
+<span class="fc" id="L277">        return to(getUnit().getSystemUnit());</span>
+    }
+      
+    /**
+     * Returns the {@code Scale} of this {@code Quantity}, if it's absolute or relative.
+     *
+     * @return the scale, if it's an absolute or relative quantity.
+     * @since 2.0
+     
+     * @see &lt;a href=&quot;https://en.wikipedia.org/wiki/Absolute_scale&quot;&gt;Wikipedia: Absolute scale&lt;/a&gt;
+     */
+    Scale getScale();
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
