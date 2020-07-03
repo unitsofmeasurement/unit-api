@@ -33,12 +33,14 @@ import javax.measure.Quantity;
 
 /**
  * Figure formed by two lines diverging from a common point. The metric system unit for this quantity is "rad" (radian).
- * <br><br>
- * <b>apiNote:</b> SI Derived Unit with special name and symbol
+ * <br>
+ * <dl>
+ * <dt><span class="strong">API Note:</span></dt><dd>SI Derived Unit with special name and symbol</dd>
+ * </dl>
  * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.3
+ * @version 2.0
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/Angle">Wikipedia: Angle</a>

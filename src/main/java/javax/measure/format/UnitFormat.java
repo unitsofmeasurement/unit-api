@@ -37,7 +37,9 @@ import javax.measure.Unit;
 /**
  * Formats instances of {@link Unit} to a {@link String} or {@link Appendable} and parses a {@link CharSequence} to a {@link Unit}.
  *
- * <h1><a id="synchronization">Synchronization</a></h1>
+ * <dl>
+ * <dt><span class="strong"><a id="synchronization">Synchronization</a></span></dt>
+ * </dl> 
  * <p>
  * Instances of this class are not required to be thread-safe. It is recommended to use separate format instances for each thread. If multiple threads
  * access a format concurrently, it must be synchronized externally.
@@ -46,7 +48,7 @@ import javax.measure.Unit;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  *
- * @version 1.3.2, November 3, 2018
+ * @version 2.0, July 3, 2020
  * @since 1.0
  *
  * @see Unit

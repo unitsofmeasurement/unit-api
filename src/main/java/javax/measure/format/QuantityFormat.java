@@ -37,14 +37,16 @@ import javax.measure.Quantity;
 /**
  * Formats instances of {@link Quantity}.
  *
- * <h3><a id="synchronization">Synchronization</a></h3>
+ * <dl>
+ * <dt><span class="strong"><a id="synchronization">Synchronization</a></span></dt>
+ * </dl> 
  * Instances of this class are not required to be thread-safe. It is recommended to use separate format instances for each thread. If multiple threads
  * access a format concurrently, it must be synchronized externally.
  *
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>
  *
- * @version 0.9, 22 Feb, 2019
+ * @version 1.0, 3 July, 2020
  * @since 2.0
  *
  * @see Quantity

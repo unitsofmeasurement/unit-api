@@ -44,13 +44,15 @@ import javax.measure.Quantity;
  * ∆νCs:
  *
  * 1 K = (1.380 649 / k) × 10⁻²³ kg m² s⁻²
- * <br><br>
- * <b>apiNote:</b> SI Base Unit
+ * <br>
+ * <dl>
+ * <dt><span class="strong">API Note:</span></dt><dd>SI Base Unit</dd>
+ * </dl>
  * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>
- * @version 2.0
+ * @version 2.1
  * @since 1.0
  *
  * @see <a href="https://en.wikipedia.org/wiki/Temperature">Wikipedia: Temperature</a>

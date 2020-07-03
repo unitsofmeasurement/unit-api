@@ -40,10 +40,13 @@ package javax.measure;
  * This exception is used to indicate problems with creating, retrieving and manipulating units of measurement objects.
  * </p>
  *
- * implSpec This class is intended for use in a single thread. Exception thrown when errors occur during Units of Measurement operations.
+ * <dl>
+ * <dt><span class="strong">Implementation Requirements:</span></dt>
+ * <dd>This class is intended for use in a single thread. Exception thrown when errors occur during Units of Measurement operations.</dd>
+ * </dl>
  *
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.0, Aug 8, 2016
+ * @version 2.0, Jul 4, 2020
  * @since 1.0
  */
 public class MeasurementException extends RuntimeException {

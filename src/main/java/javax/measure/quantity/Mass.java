@@ -45,8 +45,10 @@ import javax.measure.Quantity;
  * h, ∆νCs and c:
  *
  * 1 kg = (h / 6.626 070 15 × 10⁻³⁴) m⁻² s
- * <br><br>
- * <b>apiNote:</b> SI Base Unit
+ * <br>
+ * <dl>
+ * <dt><span class="strong">API Note:</span></dt><dd>SI Base Unit</dd>
+ * </dl>
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>

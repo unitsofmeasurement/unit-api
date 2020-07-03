@@ -44,13 +44,15 @@ import javax.measure.Quantity;
  * and ∆νCs:
  *
  * 1 A = (e / 1.602 176 634 × 10⁻¹⁹) s⁻¹
- * <br><br>
- * <b>apiNote:</b> SI Base Unit
+ * <br>
+ * <dl>
+ * <dt><span class="strong">API Note:</span></dt><dd>SI Base Unit</dd>
+ * </dl>
  * 
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>
- * @version 2.0
+ * @version 2.1
  * @since 1.0
  * @see <a href="https://en.wikipedia.org/wiki/Electric_current">Wikipedia: Electric Current</a>
  * @see ElectricCharge

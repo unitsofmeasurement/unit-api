@@ -39,7 +39,9 @@ package javax.measure;
  * thermometer = ... {@literal Vector3D<Speed>} aircraftSpeed = ... </code>
  * </p>
  *
- * <h3>Arithmetic operations</h3>
+ * <dl>
+ * <dt><span class="strong">Arithmetic operations</span></dt>
+ * </dl> 
  * This interface defines some arithmetic operations between {@code Quantity}
  * instances. All implementations shall produce <em>equivalent</em> results for
  * the same operation applied on equivalent quantities. Two quantities are
@@ -71,9 +73,11 @@ package javax.measure;
  * is essential for preserving algebra laws like associativity, and is also
  * the expected result from a thermodynamic point of view.</p>
  *
- * apiNote This interface places no restrictions on the mutability of
+ * <dl>
+ * <dt><span class="strong">API Note:</span></dt><dd>This interface places no restrictions on the mutability of
  *          implementations, however immutability is strongly recommended. All
- *          implementations must be {@link Comparable}.
+ *          implementations must be {@link Comparable}.</dd>
+ * </dl>
  *
  * @param <Q>
  *            The type of the quantity.
@@ -87,7 +91,7 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @see <a href="http://martinfowler.com/eaaDev/quantity.html">Martin Fowler -
  *      Quantity</a>
- * @version 1.11, April 16, 2019
+ * @version 2.0, July 3, 2020
  * @since 1.0
  */
 public interface Quantity<Q extends Quantity<Q>> {
