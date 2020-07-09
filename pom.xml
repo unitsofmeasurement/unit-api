@@ -462,9 +462,6 @@
 									destdir="${project.build.directory}/classes/META-INF/versions/${jdkOptionalVersion}"
 									srcdir="${project.basedir}/src/main/jdk${jdkOptionalVersion}"
 									includeAntRuntime="false">
-
-									<!-- TODO: use release attribute instead after next plugin release. 
-										https://issues.apache.org/jira/browse/MANTRUN-214 -->
 									<compilerarg
 										line="--release=${jdkOptionalVersion} --patch-module java.measure=${project.build.directory}/classes" />
 								</javac>
@@ -856,9 +853,6 @@
 											destdir="${project.build.directory}/classes/META-INF/versions/${jdkOptionalVersion}"
 											srcdir="${project.basedir}/src/etc/modules/core/jdk${jdkOptionalVersion}"
 											includeAntRuntime="false">
-
-											<!-- TODO: use release attribute instead after next plugin release. 
-												https://issues.apache.org/jira/browse/MANTRUN-214 -->
 											<compilerarg
 												line="--release=${jdkOptionalVersion} --patch-module java.measure.base=${project.build.directory}/classes" />
 										</javac>
