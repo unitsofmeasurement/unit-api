@@ -249,6 +249,11 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
 //	    formatter.setMinimumFractionDigits((x.scale() > 0) ? x.precision() : x.scale());
 //	    return formatter.format(x);
 //	    
-	    return x.toPlainString();
+		final String result = x.toPlainString();
+		if (result.contains(".")) {
+			return result.length() < 24 ? result : result.substring(0, 23);
+		} else {
+			return result;
+		}
 	}
 }

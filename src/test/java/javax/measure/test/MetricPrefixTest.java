@@ -193,7 +193,7 @@ public class MetricPrefixTest {
         assertEquals("y", YOCTO.getSymbol());
         Quantity<Volume> v1 = TestQuantities.getQuantity(10, YOCTO(litre));
         assertEquals(10d, v1.getValue());
-        assertEquals("0.0000000000000000000000000009999999999999999", v1.getUnit().toString());        
+        assertEquals("0.000000000000000000000", v1.getUnit().toString());        
     }
 
     @Test
@@ -209,7 +209,7 @@ public class MetricPrefixTest {
         assertEquals("z", ZEPTO.getSymbol());
         Quantity<Time> t1 = TestQuantities.getQuantity(10, ZEPTO(s));
         assertEquals(10d, t1.getValue());
-        assertEquals("s * 0.0000000000000000000010", t1.getUnit().toString());
+        assertEquals("s * 0.000000000000000000001", t1.getUnit().toString());
     }
 
     @Test
