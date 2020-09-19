@@ -29,6 +29,8 @@
  */
 package javax.measure.test.unit;
 
+import java.math.BigDecimal;
+
 import javax.measure.Unit;
 import javax.measure.quantity.Time;
 
@@ -45,7 +47,7 @@ public class TimeUnit extends BaseUnit<Time> {
 
     public TimeUnit(String name2, double convF) {
         super(name2, "");
-        multFactor = convF;
+        multFactor = BigDecimal.valueOf(convF);
     }
 
     @Override

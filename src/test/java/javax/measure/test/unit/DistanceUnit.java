@@ -29,6 +29,8 @@
  */
 package javax.measure.test.unit;
 
+import java.math.BigDecimal;
+
 import javax.measure.Unit;
 import javax.measure.quantity.Length;
 
@@ -50,12 +52,12 @@ public class DistanceUnit extends BaseUnit<Length> {
 
     public DistanceUnit(String name2, double convF) {
         super(name2, name2);
-        multFactor = convF;
+        multFactor = BigDecimal.valueOf(convF);
     }
 
     public DistanceUnit(String name2, DistanceUnit unit, double convF) {
         super("", name2);
-        multFactor = unit.multFactor * convF;
+        multFactor = unit.multFactor.multiply(BigDecimal.valueOf(convF));
     }
 
     @Override

@@ -29,6 +29,8 @@
  */
 package javax.measure.test.unit;
 
+import java.math.BigDecimal;
+
 import javax.measure.Unit;
 import javax.measure.quantity.Area;
 import javax.measure.test.TestUnit;
@@ -47,7 +49,7 @@ public class AreaUnit extends TestUnit<Area> {
 
     public AreaUnit(String name2, double convF) {
         super(name2);
-        multFactor = convF;
+        multFactor = BigDecimal.valueOf(convF);
     }
 
     @Override

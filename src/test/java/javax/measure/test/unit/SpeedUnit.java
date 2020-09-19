@@ -29,6 +29,8 @@
  */
 package javax.measure.test.unit;
 
+import java.math.BigDecimal;
+
 import javax.measure.Unit;
 import javax.measure.quantity.Speed;
 import javax.measure.test.TestUnit;
@@ -45,7 +47,7 @@ public class SpeedUnit extends TestUnit<Speed> {
 
     public SpeedUnit(String name2, double convF) {
         super(name2);
-        multFactor = convF;
+        multFactor = BigDecimal.valueOf(convF);
     }
 
     @Override

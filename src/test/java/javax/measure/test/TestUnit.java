@@ -29,6 +29,7 @@
  */
 package javax.measure.test;
 
+import java.math.BigDecimal;
 import java.util.Map;
 import java.util.Objects;
 
@@ -51,7 +52,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
 
     protected String symbol; // e.g. "A"
     protected final String name; // e.g. "Angstrom"
-    protected double multFactor; // e.g. 1E-10
+    protected BigDecimal multFactor; // e.g. 1E-10
     // private double addFactor = 0.0; // used for temperatures
     private final Dimension dimension = TestDimension.getInstance();
 
@@ -61,7 +62,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
 
     protected TestUnit(String name, double factor) {
         this.name = name;
-        this.multFactor = factor;
+        this.multFactor = BigDecimal.valueOf(factor);
     }
 
     protected TestUnit(String name) {
@@ -148,7 +149,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
     }
 
     public Unit<Q> multiply(double factor) {
-        return new BaseUnit<Q>(symbol, multFactor * factor);
+        return new BaseUnit<Q>(symbol, multFactor.doubleValue() * factor);
     }
 
     public Unit<?> multiply(Unit<?> that) {
@@ -192,7 +193,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
     }
 
     public double getMultFactor() {
-        return multFactor;
+        return multFactor.doubleValue();
     }
 
     @Override
@@ -206,10 +207,12 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
                 sb.append(' ');
             sb.append(symbol);
         }
-        if (multFactor != 0 && multFactor != 1) {
+        if (multFactor != null && 
+        		!BigDecimal.ONE.equals(multFactor) && multFactor.doubleValue()!=1d && 
+        		!BigDecimal.ONE.equals(multFactor) && multFactor.doubleValue()!=0d) {
             if (sb.length() > 0)
                 sb.append(" * ");
-            sb.append(String.valueOf(getMultFactor()));
+            sb.append(String.valueOf(multFactor));
         }
         return sb.toString();
     }

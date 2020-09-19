@@ -29,6 +29,8 @@
  */
 package javax.measure.test.unit;
 
+import java.math.BigDecimal;
+
 import javax.measure.Unit;
 import javax.measure.quantity.Volume;
 import javax.measure.test.TestUnit;
@@ -47,7 +49,7 @@ public class VolumeUnit extends TestUnit<Volume> {
 
     public VolumeUnit(String name2, double convF) {
         super(name2);
-        multFactor = convF;
+        multFactor = BigDecimal.valueOf(convF);
     }
 
     @Override

@@ -90,7 +90,7 @@ public class MetricPrefixTest {
     public void testExa() {
         assertEquals("E", EXA.getSymbol());
         Quantity<Length> l1 = TestQuantities.getQuantity(1.0, EXA(m));
-        assertEquals("m * 1.0E18", l1.getUnit().toString());
+        assertEquals("m * 1.0E+18", l1.getUnit().toString());
     }
 
     @Test
@@ -104,7 +104,7 @@ public class MetricPrefixTest {
     public void testGiga() {
         assertEquals("G", GIGA.getSymbol());
         Quantity<Area> a1 = TestQuantities.getQuantity(1.0, GIGA(acre));
-        assertEquals("4.047E12", a1.getUnit().toString());
+        assertEquals("4.047E+12", a1.getUnit().toString());
     }
 
     @Test
@@ -139,7 +139,7 @@ public class MetricPrefixTest {
     public void testMilli() {
         Quantity<Volume> m1 = TestQuantities.getQuantity(10, MILLI(litre));
         assertEquals(10d, m1.getValue());
-        assertEquals("1.0E-6", m1.getUnit().toString());
+        assertEquals("0.0000010", m1.getUnit().toString());
     }
 
     @Test
@@ -169,7 +169,7 @@ public class MetricPrefixTest {
         assertEquals("P", PETA.getSymbol());
         Quantity<Speed> s1 = TestQuantities.getQuantity(10, PETA(kmh));
         assertEquals(10d, s1.getValue());
-        assertEquals("1.0E15", s1.getUnit().toString());
+        assertEquals("1.0E+15", s1.getUnit().toString());
     }
 
     @Test
@@ -185,7 +185,7 @@ public class MetricPrefixTest {
         assertEquals("T", TERA.getSymbol());
         Quantity<Length> l1 = TestQuantities.getQuantity(10, TERA(m));
         assertEquals(10d, l1.getValue());
-        assertEquals("m * 1.0E12", l1.getUnit().toString());
+        assertEquals("m * 1.0E+12", l1.getUnit().toString());
     }
 
     @Test
@@ -201,7 +201,7 @@ public class MetricPrefixTest {
         assertEquals("Y", YOTTA.getSymbol());
         Quantity<Area> a1 = TestQuantities.getQuantity(10, YOTTA(sqmetre));
         assertEquals(10d, a1.getValue());
-        assertEquals("1.0E24", a1.getUnit().toString());
+        assertEquals("1.0E+24", a1.getUnit().toString());
     }
 
     @Test
@@ -217,7 +217,7 @@ public class MetricPrefixTest {
         assertEquals("Z", ZETTA.getSymbol());
         Quantity<Length> l1 = TestQuantities.getQuantity(10, ZETTA(m));
         assertEquals(10d, l1.getValue());
-        assertEquals("m * 1.0E21", l1.getUnit().toString());
+        assertEquals("m * 1.0E+21", l1.getUnit().toString());
     }
 
     private static String toUnicode(char ch) {
