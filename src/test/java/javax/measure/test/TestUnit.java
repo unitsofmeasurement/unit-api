@@ -30,6 +30,11 @@
 package javax.measure.test;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -212,7 +217,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
         		!BigDecimal.ONE.equals(multFactor) && multFactor.doubleValue()!=0d) {
             if (sb.length() > 0)
                 sb.append(" * ");
-            sb.append(String.valueOf(multFactor));
+            sb.append(formatFactor(multFactor));
         }
         return sb.toString();
     }
@@ -233,5 +238,17 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
 	public Unit<Q> divide(Number divisor) {
 		Objects.requireNonNull(divisor);
 		return divide(divisor.doubleValue());
+	}
+	
+	private String formatFactor(final BigDecimal x) {
+//		if (BigDecimal. )
+//		final DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(Locale.ROOT);
+//		final NumberFormat formatter = new DecimalFormat("0.0E0", symbols);
+//	    
+//	    formatter.setRoundingMode(RoundingMode.HALF_UP);
+//	    formatter.setMinimumFractionDigits((x.scale() > 0) ? x.precision() : x.scale());
+//	    return formatter.format(x);
+//	    
+	    return x.toPlainString();
 	}
 }
