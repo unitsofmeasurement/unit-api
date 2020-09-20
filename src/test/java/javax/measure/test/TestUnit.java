@@ -30,7 +30,6 @@
 package javax.measure.test;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.Map;
 import java.util.Objects;
@@ -242,11 +241,9 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
 		if (s > 40) {
 			BigDecimal y = x.setScale(27, RoundingMode.HALF_UP);
 			final String result = y.toPlainString();
-			System.out.println("A: " + result);
 			return result;			
 		} else {
 			final String result = x.toPlainString();
-			System.out.println("B: " + result);
 			if (result.contains(".")) {			
 				return result.length() < 24 ? result : result.substring(0, 23);
 			} else {
