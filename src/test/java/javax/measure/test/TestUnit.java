@@ -242,7 +242,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
 		if (s > 27) {
 			BigDecimal y = x.setScale(27, RoundingMode.HALF_UP);
 			final String result = y.toPlainString();
-			return result;
+			return result.length() < 24 ? result : result.substring(0, 23);
 		} else {
 			final String result = x.toPlainString();		
 			if (result.contains(".")) {			
