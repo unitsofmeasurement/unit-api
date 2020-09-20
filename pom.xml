@@ -16,7 +16,7 @@
 	<inceptionYear>2014</inceptionYear>
 	<licenses>
 		<license>
-			<name>BSD</name>
+			<name>BSD 3-Clause</name>
 			<url>LICENSE</url>
 			<distribution>manual</distribution>
 		</license>
