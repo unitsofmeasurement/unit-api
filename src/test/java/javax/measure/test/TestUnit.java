@@ -30,11 +30,8 @@
 package javax.measure.test;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.NumberFormat;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -217,7 +214,7 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
         		!BigDecimal.ONE.equals(multFactor) && multFactor.doubleValue()!=0d) {
             if (sb.length() > 0)
                 sb.append(" * ");
-            sb.append(formatFactor(multFactor));
+            sb.append(printFactor(multFactor));
         }
         return sb.toString();
     }
@@ -240,20 +237,19 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
 		return divide(divisor.doubleValue());
 	}
 	
-	private String formatFactor(final BigDecimal x) {
-//		if (BigDecimal. )
-//		final DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(Locale.ROOT);
-//		final NumberFormat formatter = new DecimalFormat("0.0E0", symbols);
-//	    
-//	    formatter.setRoundingMode(RoundingMode.HALF_UP);
-//	    formatter.setMinimumFractionDigits((x.scale() > 0) ? x.precision() : x.scale());
-//	    return formatter.format(x);
-//	    
-		final String result = x.toPlainString();
-		if (result.contains(".")) {
-			return result.length() < 24 ? result : result.substring(0, 23);
-		} else {
+	private String printFactor(final BigDecimal x) {    
+		final int s = x.scale();		
+		if (s > 28) {
+			BigDecimal y = x.setScale(27, RoundingMode.HALF_UP);
+			final String result = y.toPlainString();
 			return result;
+		} else {
+			final String result = x.toPlainString();		
+			if (result.contains(".")) {			
+				return result.length() < 24 ? result : result.substring(0, 23);
+			} else {
+				return result;
+			}
 		}
 	}
 }
