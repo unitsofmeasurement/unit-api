@@ -239,11 +239,10 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
 	
 	private String printFactor(final BigDecimal x) {    
 		final int s = x.scale();		
-		if (s > 27) {
+		if (s > 30) {
 			BigDecimal y = x.setScale(27, RoundingMode.HALF_UP);
 			final String result = y.toPlainString();
-			//return result.length() < 26 ? result : result.substring(0, 25);
-			return result;
+			return result;			
 		} else {
 			final String result = x.toPlainString();		
 			if (result.contains(".")) {			
