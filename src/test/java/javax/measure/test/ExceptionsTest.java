@@ -32,6 +32,7 @@ package javax.measure.test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import javax.measure.IncommensurableException;
+import javax.measure.MeasurementError;
 import javax.measure.MeasurementException;
 import javax.measure.UnconvertibleException;
 
@@ -39,7 +40,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.1
+ * @version 1.2
  */
 public class ExceptionsTest {
 
@@ -54,6 +55,16 @@ public class ExceptionsTest {
     public void testMeasurementException() {
         MeasurementException e = assertThrows(MeasurementException.class, () -> {
             throw new MeasurementException("error");
+        });
+
+        assertEquals("error", e.getMessage());
+        assertNull(e.getCause());
+    }
+    
+    @Test
+    public void testMeasurementError() {
+        MeasurementError e = assertThrows(MeasurementError.class, () -> {
+            throw new MeasurementError("error");
         });
 
         assertEquals("error", e.getMessage());
