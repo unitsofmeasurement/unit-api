@@ -40,7 +40,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.2
+ * @version 2.0
  */
 public class ExceptionsTest {
 
@@ -50,21 +50,20 @@ public class ExceptionsTest {
             super();
         }
     }
-
+    
     @Test
     public void testMeasurementException() {
         MeasurementException e = assertThrows(MeasurementException.class, () -> {
-            throw new MeasurementException("error");
+            throw new TestException();
         });
-
-        assertEquals("error", e.getMessage());
+        assertNull(e.getMessage());
         assertNull(e.getCause());
     }
-    
+
     @Test
-    public void testMeasurementError() {
-        MeasurementError e = assertThrows(MeasurementError.class, () -> {
-            throw new MeasurementError("error");
+    public void testMeasurementExceptionWithMessage() {
+        MeasurementException e = assertThrows(MeasurementException.class, () -> {
+            throw new MeasurementException("error");
         });
 
         assertEquals("error", e.getMessage());
@@ -86,15 +85,49 @@ public class ExceptionsTest {
         });
         assertEquals("state error", e.getMessage());
         assertEquals(cause, e.getCause());
-    }
+    }    
 
     @Test
-    public void testDefaultConstructor() {
-        MeasurementException e = assertThrows(MeasurementException.class, () -> {
-            throw new TestException();
+    public void testMeasurementError() {
+        MeasurementError e = assertThrows(MeasurementError.class, () -> {
+            throw new MeasurementError();
         });
+
         assertNull(e.getMessage());
         assertNull(e.getCause());
+    }
+    
+    @Test
+    public void testMeasurementErrorWithMessage() {
+        MeasurementError e = assertThrows(MeasurementError.class, () -> {
+            throw new MeasurementError("error");
+        });
+
+        assertEquals("error", e.getMessage());
+        assertNull(e.getCause());
+    }
+    
+    @Test
+    public void testMeasurementErrorWithCause() {
+        MeasurementError e = assertThrows(MeasurementError.class, () -> {
+            throw new MeasurementError(new TestException());
+        });
+
+        assertNotNull(e.getMessage());
+        assertEquals("javax.measure.test.ExceptionsTest$TestException", e.getMessage()); 
+        // Throwable stores the toString() of a cause
+        assertNotNull(e.getCause());
+    }
+    
+    @Test
+    public void testMeasurementErrorWithMessageAndCause() {
+        MeasurementError e = assertThrows(MeasurementError.class, () -> {
+            throw new MeasurementError("error", new TestException());
+        });
+
+        assertNotNull(e.getMessage());
+        assertEquals("error", e.getMessage()); 
+        assertNotNull(e.getCause());
     }
 
     @Test
