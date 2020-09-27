@@ -91,7 +91,7 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @see <a href="http://martinfowler.com/eaaDev/quantity.html">Martin Fowler -
  *      Quantity</a>
- * @version 2.1, Sepbember 27, 2020
+ * @version 2.2, September 27, 2020
  * @since 1.0
  */
 public interface Quantity<Q extends Quantity<Q>> {
@@ -290,4 +290,19 @@ public interface Quantity<Q extends Quantity<Q>> {
      * @see <a href="https://en.wikipedia.org/wiki/Absolute_scale">Wikipedia: Absolute scale</a>
      */
     Scale getScale();
+    
+    /**
+     * Compares two instances of {@code Quantity <Q>}, doing the conversion of unit if necessary.
+     *
+     * @param that
+     *          the {@code quantity<Q>} to be compared with this instance.
+     * @return {@code true} if {@code that < this}.
+     * @throws NullPointerException
+     *           if the quantity is null
+     *           
+     * @see <a href= "https://dictionary.cambridge.org/dictionary/english/equivalent">Cambridge Dictionary: equivalent</a>
+     * @see <a href= "https://www.lexico.com/en/definition/equivalent">LEXICO: equivalent</a>
+     * @since 2.1       
+     */
+    boolean isEquivalentTo(Quantity<Q> that);
 }

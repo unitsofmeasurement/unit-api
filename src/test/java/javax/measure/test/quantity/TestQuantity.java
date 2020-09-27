@@ -41,7 +41,8 @@ import javax.measure.test.unit.BaseUnit;
  */
 public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>, Comparable<Quantity<Q>> {
 
-    public static final Quantity<Dimensionless> ONE = new DimensionlessQuantity(1d, (BaseUnit) TestUnit.ONE);
+    @SuppressWarnings("rawtypes")
+	public static final Quantity<Dimensionless> ONE = new DimensionlessQuantity(1d, (BaseUnit) TestUnit.ONE);
 
     protected double scalar; // value in reference value
     protected double value; // value in value (Unit unit)
@@ -159,5 +160,10 @@ public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>
 
     public Scale getScale() {
         return scale;
+    }
+    
+    @Override
+    public boolean isEquivalentTo(Quantity<Q> that) {
+        return this.compareTo(that) == 0;
     }
 }
