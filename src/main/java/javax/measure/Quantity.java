@@ -91,7 +91,7 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @see <a href="http://martinfowler.com/eaaDev/quantity.html">Martin Fowler -
  *      Quantity</a>
- * @version 2.0, July 3, 2020
+ * @version 2.1, Sepbember 27, 2020
  * @since 1.0
  */
 public interface Quantity<Q extends Quantity<Q>> {
