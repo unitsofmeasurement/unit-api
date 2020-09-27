@@ -74,6 +74,10 @@ enum EnumUnit implements Unit {
     public boolean isCompatible(Unit that) {
         return (this.equals(that));
     }
+    
+    public boolean isEquivalentTo(Unit that) {
+        return (this.equals(that));
+    }
 
     public Unit asType(Class type) throws ClassCastException {
         // TODO Auto-generated method stub

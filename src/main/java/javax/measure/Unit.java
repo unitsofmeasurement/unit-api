@@ -67,7 +67,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 2.1, May 12, 2019
+ * @version 2.2, September 27, 2019
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
@@ -150,6 +150,19 @@ public interface Unit<Q extends Quantity<Q>> {
      * @see #getDimension()
      */
     boolean isCompatible(Unit<?> that);
+    
+	/**
+	 * Compares two instances of {@code Unit<Q>}, doing the conversion of unit if necessary.
+	 *
+	 * @param that the {@code Unit<Q>} to be compared with this instance.
+	 * @return {@code true} if {@code that < this}.
+	 * @throws NullPointerException if the unit is null
+	 * 
+	 * @see <a href= "https://dictionary.cambridge.org/dictionary/english/equivalent">Cambridge Dictionary: equivalent</a>
+	 * @see <a href= "https://www.lexico.com/en/definition/equivalent">LEXICO: equivalent</a>
+	 * @since 2.1
+	 */
+	boolean isEquivalentTo(Unit<Q> that);
 
     /**
      * Casts this unit to a parameterized unit of specified nature or throw a {@code ClassCastException} if the dimension of the specified quantity and

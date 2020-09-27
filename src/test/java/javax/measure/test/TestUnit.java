@@ -148,6 +148,11 @@ public abstract class TestUnit<Q extends Quantity<Q>> implements Unit<Q> {
     public boolean isCompatible(Unit<?> that) {
         return false;
     }
+    
+	@Override
+	public boolean isEquivalentTo(Unit<Q> that) {
+		return this.getConverterTo(that).isIdentity();
+	}
 
     public Unit<Q> multiply(double factor) {
         return new BaseUnit<Q>(symbol, multFactor.doubleValue() * factor);
