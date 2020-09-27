@@ -37,6 +37,7 @@ import javax.measure.test.unit.BaseUnit;
 
 /**
  * @author Werner Keil
+ * @version 2.0
  * @since 1.0
  */
 public abstract class TestQuantity<Q extends Quantity<Q>> implements Quantity<Q>, Comparable<Quantity<Q>> {
