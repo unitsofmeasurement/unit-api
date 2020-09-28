@@ -67,7 +67,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 2.2, September 27, 2019
+ * @version 2.3, September 28, 2019
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
@@ -155,7 +155,7 @@ public interface Unit<Q extends Quantity<Q>> {
 	 * Compares two instances of {@code Unit<Q>}, doing the conversion of unit if necessary.
 	 *
 	 * @param that the {@code Unit<Q>} to be compared with this instance.
-	 * @return {@code true} if {@code that < this}.
+	 * @return {@code true} if {@code that \u2261 this}.
 	 * @throws NullPointerException if the unit is null
 	 * 
 	 * @see <a href= "https://dictionary.cambridge.org/dictionary/english/equivalent">Cambridge Dictionary: equivalent</a>

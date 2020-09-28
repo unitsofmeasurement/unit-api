@@ -30,7 +30,7 @@
 package javax.measure;
 
 /**
- * This error is used to indicate problems with creating, retrieving and manipulating units of measurement objects. </p>
+ * This error is used to indicate problems with creating, retrieving and manipulating units of measurement objects.
  *
  * <dl>
  * <dt><span class="strong">Implementation Requirements:</span></dt>
@@ -38,7 +38,7 @@ package javax.measure;
  * </dl>
  * 
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 2.0, Sep 24, 2020
+ * @version 2.1, Sep 28, 2020
  * @since 2.1
  */
 public class MeasurementError extends Error {

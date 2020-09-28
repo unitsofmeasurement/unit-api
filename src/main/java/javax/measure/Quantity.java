@@ -91,7 +91,7 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @see <a href="http://martinfowler.com/eaaDev/quantity.html">Martin Fowler -
  *      Quantity</a>
- * @version 2.2, September 27, 2020
+ * @version 2.3, September 28, 2020
  * @since 1.0
  */
 public interface Quantity<Q extends Quantity<Q>> {
@@ -296,7 +296,7 @@ public interface Quantity<Q extends Quantity<Q>> {
      *
      * @param that
      *          the {@code quantity<Q>} to be compared with this instance.
-     * @return {@code true} if {@code that < this}.
+     * @return {@code true} if {@code that \u2261 this}.
      * @throws NullPointerException
      *           if the quantity is null
      *           
