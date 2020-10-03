@@ -367,7 +367,7 @@
 				<plugin>
 					<groupId>com.mycila</groupId>
 					<artifactId>license-maven-plugin</artifactId>
-					<version>3.0</version>
+					<version>4.0.rc2</version>
 					<executions>
 						<execution>
 							<goals>
@@ -659,39 +659,43 @@
 				<groupId>com.mycila</groupId>
 				<artifactId>license-maven-plugin</artifactId>
 				<configuration>
-					<header>src/main/config/header.txt</header>
-					<properties>
-						<owner>${project.organization.name}</owner>
-						<currentYear>${thisYear}</currentYear>
-					</properties>
-					<excludes>
-						<exclude>.editorconfig</exclude>
-						<exclude>.gitattributes</exclude>
-						<exclude>.github/**</exclude>
-						<exclude>.circleci/**</exclude>
-						<exclude>**/LICENSE</exclude>
-						<exclude>**/README</exclude>
-						<exclude>**/pom.xml</exclude>
-						<exclude>**/settings.xml</exclude>
-						<exclude>docs/**</exclude>
-						<exclude>src/test/resources/**</exclude>
-						<exclude>src/main/resources/**</exclude>
-						<exclude>src/main/config/**</exclude>
-						<exclude>src/main/emf/**</exclude>
-						<exclude>src/site/**</exclude>
-						<exclude>src/etc/**</exclude>
-						<exclude>*.css</exclude>
-						<exclude>*.jpg</exclude>
-						<exclude>*.png</exclude>
-						<exclude>*.yml</exclude>
-					</excludes>
-					<headerDefinitions>
-						<headerDefinition>src/main/config/headers.xml</headerDefinition>
-					</headerDefinitions>
-					<mapping>
-						<java>JAVA_STYLE</java>
-					</mapping>
-				</configuration>
+					<licenseSets>
+	                    <licenseSet>
+						<header>src/main/config/header.txt</header>
+						<properties>
+							<owner>${project.organization.name}</owner>
+							<currentYear>${thisYear}</currentYear>
+						</properties>
+						<excludes>
+							<exclude>.editorconfig</exclude>
+							<exclude>.gitattributes</exclude>
+							<exclude>.github/**</exclude>
+							<exclude>.circleci/**</exclude>
+							<exclude>**/LICENSE</exclude>
+							<exclude>**/README</exclude>
+							<exclude>**/pom.xml</exclude>
+							<exclude>**/settings.xml</exclude>
+							<exclude>docs/**</exclude>
+							<exclude>src/test/resources/**</exclude>
+							<exclude>src/main/resources/**</exclude>
+							<exclude>src/main/config/**</exclude>
+							<exclude>src/main/emf/**</exclude>
+							<exclude>src/site/**</exclude>
+							<exclude>src/etc/**</exclude>
+							<exclude>*.css</exclude>
+							<exclude>*.jpg</exclude>
+							<exclude>*.png</exclude>
+							<exclude>*.yml</exclude>
+						</excludes>
+						<headerDefinitions>
+							<headerDefinition>src/main/config/headers.xml</headerDefinition>
+						</headerDefinitions>			
+					</licenseSet>
+	            </licenseSets>
+                <mapping>
+                    <java>JAVA_STYLE</java>
+                </mapping>  
+            </configuration>
 			</plugin>
 
 			<!-- ======================================================= -->
