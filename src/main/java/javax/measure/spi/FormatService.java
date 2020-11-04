@@ -38,10 +38,10 @@ import javax.measure.format.UnitFormat;
  * This interface represent the service to obtain instances of {@link UnitFormat} and {@link QuantityFormat}.
  *
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.0.1, November 9, 2018
+ * @version 2.0, November 4, 2020
  * @since 2.0
  */
-public interface FormatService extends UnitFormatService {
+public interface FormatService {
 
     public static enum FormatType {
         UNIT_FORMAT, QUANTITY_FORMAT
@@ -68,6 +68,27 @@ public interface FormatService extends UnitFormatService {
      */
     QuantityFormat getQuantityFormat(String name);
 
+    /**
+     * Returns the default unit format.
+     *
+     * It is up to implementations what to consider a suitable default. For some (locale-sensitive) implementations it may be a unit format based on
+     * {@code Locale.current()} while others may return {@code getUnitFormat("Simple")} or {@code getUnitFormat("ISO")}.
+     *
+     * @return the default {@link UnitFormat} implementation.
+     */
+    UnitFormat getUnitFormat();
+
+    /**
+     * Returns the unit format having the specified name or {@code null} if none.
+     *
+     * For example {@code getUnitFormat("Simple")} to return a simple {@link UnitFormat} implementation.
+     *
+     * @param name
+     *          the name of the format.
+     * @return the corresponding unit format.
+     */
+    UnitFormat getUnitFormat(String name);
+    
     /**
      * Gets a list with available format names of a given type for this format service.
      *

@@ -39,5 +39,4 @@ module java.measure {
     uses javax.measure.spi.QuantityFactory;
     uses javax.measure.spi.ServiceProvider;
     uses javax.measure.spi.SystemOfUnitsService;
-    uses javax.measure.spi.UnitFormatService;
 }
