@@ -153,11 +153,6 @@ public class ServiceProviderTest {
         }
 
         @Override
-        public UnitFormatService getUnitFormatService() {
-            return null;
-        }
-
-        @Override
         public <Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(Class<Q> quantity) {
             return null;
         }

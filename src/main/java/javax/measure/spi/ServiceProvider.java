@@ -124,15 +124,6 @@ public abstract class ServiceProvider {
     public abstract SystemOfUnitsService getSystemOfUnitsService();
 
     /**
-     * Returns the service to obtain a {@link UnitFormat}, or {@code null} if none.
-     *
-     * @return the service to obtain a {@link UnitFormat}, or {@code null}.
-     * @deprecated Use {@link #getFormatService()}. This method will be removed in a future version, it is here for backward compatibility only.
-     */
-    @Deprecated
-    public abstract UnitFormatService getUnitFormatService();
-
-    /**
      * Returns the service to obtain {@link UnitFormat} and {@link QuantityFormat} or {@code null} if none.
      *
      * @return the service to obtain a {@link UnitFormat} and {@link QuantityFormat}, or {@code null}.
