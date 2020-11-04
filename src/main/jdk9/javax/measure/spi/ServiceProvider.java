@@ -54,7 +54,7 @@ import javax.measure.format.UnitFormat;
  * All the methods in this class are safe to use by multiple concurrent threads.
  * </p>
  *
- * @version 1.6, January 20, 2019
+ * @version 1.7, November 4, 2020
  * @author Werner Keil
  * @author Martin Desruisseaux
  * @since 1.0
@@ -75,7 +75,7 @@ public abstract class ServiceProvider {
     /**
      * The current service provider, or {@code null} if not yet determined.
      *
-     * <p>IMPLEMENTATION NOTE: We do not cache a list of all service providers because that list depends
+     * <p>Implementation Note: We do not cache a list of all service providers because that list depends
      * indirectly on the thread invoking the {@link #available()} method. More specifically, it depends
      * on the context class loader. Furthermore caching the {@code ServiceProvider}s can be a source of
      * memory leaks. See {@link ServiceLoader#load(Class)} API note for reference.</p>
