@@ -56,7 +56,7 @@ import javax.measure.format.UnitFormat;
  * All the methods in this class are safe to use by multiple concurrent threads.
  * </p>
  *
- * @version 1.7, November 4, 2020
+ * @version 2.0, November 4, 2020
  * @author Werner Keil
  * @author Martin Desruisseaux
  * @since 1.0
@@ -74,6 +74,18 @@ public abstract class ServiceProvider {
      */
     private static final String PRIORITY_ANNOTATION = "javax.annotation.Priority";
 
+    /**
+     * Class name of Jakarta Dependency Injection annotation for naming a service provider.
+     * We use reflection for keeping Jakata Injection an optional dependency.
+     */
+    private static final String JAKARTA_NAMED_ANNOTATION = "jakarta.inject.Named";
+
+    /**
+     * Class name of Jakarta Common Annotation for assigning a priority level to a service provider.
+     * We use reflection for keeping Jakarta Annotations an optional dependency.
+     */
+    private static final String JAKARTA_PRIORITY_ANNOTATION = "jakarta.annotation.Priority";
+    
     /**
      * The current service provider, or {@code null} if not yet determined.
      *
@@ -155,7 +167,13 @@ public abstract class ServiceProvider {
          * Class of the {@value #NAMED_ANNOTATION} and {@value #PRIORITY_ANNOTATION} annotations to search,
          * or {@code null} if those classes are not on the classpath.
          */
-        private Class<? extends Annotation> nameAnnotation, priorityAnnotation;
+        private Class<? extends Annotation> namedAnnotation, priorityAnnotation;
+        
+        /**
+         * Class of the {@value #JAKARTA_NAMED_ANNOTATION} and {@value #JAKARTA_PRIORITY_ANNOTATION} annotations to search,
+         * or {@code null} if those classes are not on the classpath.
+         */
+        private Class<? extends Annotation> jakartaNamedAnnotation, jakartaPriorityAnnotation;
 
         /**
          * The {@code value()} method in the {@code *Annotation} class,
@@ -172,20 +190,33 @@ public abstract class ServiceProvider {
             toSearch = name;
             try {
                 if (name != null) try {
-                    nameAnnotation = Class.forName(NAMED_ANNOTATION).asSubclass(Annotation.class);
-                    nameGetter = nameAnnotation.getMethod("value", (Class[]) null);
+                    namedAnnotation = Class.forName(NAMED_ANNOTATION).asSubclass(Annotation.class);
+                    nameGetter = namedAnnotation.getMethod("value", (Class[]) null);
                 } catch (ClassNotFoundException e) {
                     // Ignore since JSR-330 is an optional dependency.
                 }
+                if (nameGetter == null) try { // if nameGetter has not been set already try Jakarta Injection 
+                	jakartaNamedAnnotation = Class.forName(JAKARTA_NAMED_ANNOTATION).asSubclass(Annotation.class);
+                    nameGetter = jakartaNamedAnnotation.getMethod("value", (Class[]) null);
+                } catch (ClassNotFoundException e) {
+                    // Ignore since Jakarta Injection is an optional dependency.
+                }
+                
                 try {
                     priorityAnnotation = Class.forName(PRIORITY_ANNOTATION).asSubclass(Annotation.class);
                     priorityGetter = priorityAnnotation.getMethod("value", (Class[]) null);
                 } catch (ClassNotFoundException e) {
                     // Ignore since JSR-250 is an optional dependency.
                 }
+                if (priorityGetter == null) try { // if priorityGetter has not been set already try Jakarta Annotations
+                	jakartaPriorityAnnotation = Class.forName(JAKARTA_PRIORITY_ANNOTATION).asSubclass(Annotation.class);
+                    priorityGetter = jakartaPriorityAnnotation.getMethod("value", (Class[]) null);
+                } catch (ClassNotFoundException e) {
+                    // Ignore since Jakarta Annotations is an optional dependency.
+                }                
             } catch (NoSuchMethodException e) {
                 // Should never happen since value() is a standard public method of those annotations.
-                throw new ServiceConfigurationError("Can not get annotation value", e);
+                throw new ServiceConfigurationError("Cannot get annotation value", e);
             }
         }
 
@@ -199,12 +230,12 @@ public abstract class ServiceProvider {
         public boolean test(ServiceProvider provider) {
             Object value = null;
             if (nameGetter != null) {
-                Annotation a = provider.getClass().getAnnotation(nameAnnotation);
+                Annotation a = provider.getClass().getAnnotation(namedAnnotation);
                 if (a != null) try {
                     value = nameGetter.invoke(a, (Object[]) null);
                 } catch (IllegalAccessException | InvocationTargetException e) {
                     // Should never happen since value() is a public method and should not throw exception.
-                    throw new ServiceConfigurationError("Can not get annotation value", e);
+                    throw new ServiceConfigurationError("Cannot get annotation value", e);
                 }
             }
             if (value == null) {
@@ -225,7 +256,7 @@ public abstract class ServiceProvider {
                     return (Integer) priorityGetter.invoke(a, (Object[]) null);
                 } catch (IllegalAccessException | InvocationTargetException e) {
                     // Should never happen since value() is a public method and should not throw exception.
-                    throw new ServiceConfigurationError("Can not get annotation value", e);
+                    throw new ServiceConfigurationError("Cannot get annotation value", e);
                 }
             }
             return provider.getPriority();
