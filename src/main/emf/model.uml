@@ -208,6 +208,35 @@
           <ownedOperation xmi:type="uml:Operation" xmi:id="_YDCVkF_vEem_1YACnEtC1w" name="getScale">
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_zfN94F_vEem_1YACnEtC1w" type="_8vfr4F_uEem_1YACnEtC1w" direction="return"/>
           </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_V38FACReEeu_9PA9SBtI_Q" name="isEquivalentTo">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_V38FASReEeu_9PA9SBtI_Q">
+              <body>
+	 * Returns the product of this {@code Quantity} with the one specified.
+	 *
+	 * @throws ClassCastException if the type of an element
+     *         in the specified operation is incompatible with this
+     *         quantity
+     *         (&lt;a href=&quot;#optional-restrictions&quot;>optional&lt;/a>)
+	 *
+	 * @param that
+	 *            the {@code Quantity} multiplier.
+	 * @return &lt;code>this * that&lt;/code>.
+	 </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_V38FAiReEeu_9PA9SBtI_Q" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_V38FAyReEeu_9PA9SBtI_Q" name="multiplier" type="_CgTrQ3WcEeSrSaxu8IGQmg"/>
+          </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_TlvjcCRfEeu_9PA9SBtI_Q" name="toSystemUnit">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_TlvjcSRfEeu_9PA9SBtI_Q">
+              <body>
+     * Returns this {@code Quantity} converted into another (compatible) {@code Unit}.
+     *
+     * @param unit
+     * @return the converted result.
+     </body>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_TlvjciRfEeu_9PA9SBtI_Q" type="_CgTrQ3WcEeSrSaxu8IGQmg" direction="return"/>
+          </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Interface" xmi:id="_f7Zh8HY5EeSqtc-Sb9aJnA" name="Unit">
           <ownedComment xmi:type="uml:Comment" xmi:id="_f7ir4HY5EeSqtc-Sb9aJnA">
