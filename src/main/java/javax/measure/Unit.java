@@ -67,7 +67,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 2.3, September 28, 2019
+ * @version 2.4, November 11, 2020
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
@@ -135,12 +135,13 @@ public interface Unit<Q extends Quantity<Q>> {
     Map<? extends Unit<?>, Integer> getBaseUnits();
 
     /**
-     * Indicates if this unit is compatible with the unit specified. Units don't need to be equals to be compatible. For example (assuming {@code ONE}
+     * Indicates if this unit is compatible with the unit specified. Units don't need to be equal to be compatible. For example (assuming {@code ONE}
      * is a dimensionless unit):<br>
      *
      * <code>
      *     RADIAN.equals(ONE) == false<br>
      *     RADIAN.isCompatible(ONE) == true<br>
+     *     RADIAN.isEquivalentTo(ONE) <b>doesn't compile</b><br>
      * </code>
      *
      * @param that
@@ -153,6 +154,8 @@ public interface Unit<Q extends Quantity<Q>> {
     
 	/**
 	 * Compares two instances of {@code Unit<Q>}, doing the conversion of unit if necessary.
+	 * Unlike {@link #isCompatible(Unit)} an equivalence check requires both units to be strictly type-compatible, 
+	 * because it makes no sense to compare e.g. {@code gram} and {@code mm} for equivalence. While the compatibility check also works across different quantity types.     
 	 *
 	 * @param that the {@code Unit<Q>} to be compared with this instance.
 	 * @return {@code true} if {@code that \u2261 this}.

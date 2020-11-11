@@ -83,6 +83,15 @@ public class UnitTest {
     public void testIsCompatible() {
         assertTrue(sut.isCompatible(TEST));
     }
+    
+    /**
+     * Test method for {@link javax.measure.test.EnumUnit#isEquivalentTo(javax.measure.Unit)}.
+     */
+    @SuppressWarnings("unchecked")
+	@Test
+    public void testIsEquivalentTo() {
+        assertTrue(sut.isEquivalentTo(TEST));
+    }
 
     @Test
     public void testGetConverterTo() {

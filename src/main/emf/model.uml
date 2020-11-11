@@ -512,6 +512,13 @@
             </ownedComment>
             <ownedParameter xmi:type="uml:Parameter" xmi:id="_f7_X1HY5EeSqtc-Sb9aJnA" type="_f7ir43Y5EeSqtc-Sb9aJnA" direction="return"/>
           </ownedOperation>
+          <ownedOperation xmi:type="uml:Operation" xmi:id="_cXMTUCRREeu_9PA9SBtI_Q" name="isEquivalentTo">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_cXMTUSRREeu_9PA9SBtI_Q">
+              <body xsi:nil="true"/>
+            </ownedComment>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_cXMTUiRREeu_9PA9SBtI_Q" type="_f7ir83Y5EeSqtc-Sb9aJnA" direction="return"/>
+            <ownedParameter xmi:type="uml:Parameter" xmi:id="_cXMTUyRREeu_9PA9SBtI_Q" name="that" type="_f7Zh8HY5EeSqtc-Sb9aJnA"/>
+          </ownedOperation>
         </packagedElement>
         <packagedElement xmi:type="uml:Interface" xmi:id="_f6zFAHY5EeSqtc-Sb9aJnA" name="Dimension">
           <ownedComment xmi:type="uml:Comment" xmi:id="_f6zFAXY5EeSqtc-Sb9aJnA">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:css="http://www.eclipse.org/papyrus/infra/gmfdiag/css" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/gmfdiag/style" xmlns:style_1="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:css="http://www.eclipse.org/papyrus/infra/gmfdiag/css" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/gmfdiag/style" xmlns:style_1="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <css:ModelStyleSheets xmi:id="_VJEAwHY5EeSqtc-Sb9aJnA"/>
   <notation:Diagram xmi:id="_WshiIHY6EeSqtc-Sb9aJnA" type="PapyrusUMLClassDiagram" name="UnitFormat" measurementUnit="Pixel">
     <children xmi:type="notation:Shape" xmi:id="_DgM4kIfpEeWSAJVqrs5hGQ" type="Interface_Shape">
@@ -682,6 +682,10 @@
         <children xmi:type="notation:Shape" xmi:id="_PbmTsHQ9EemkGNry2_5b9w" type="Operation_InterfaceOperationLabel">
           <element xmi:type="uml:Operation" href="model.uml#_f7ir8XY5EeSqtc-Sb9aJnA"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_PbmTsXQ9EemkGNry2_5b9w"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_kqzIQCRREeu_9PA9SBtI_Q" type="Operation_InterfaceOperationLabel">
+          <element xmi:type="uml:Operation" href="model.uml#_cXMTUCRREeu_9PA9SBtI_Q"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_kqzIQSRREeu_9PA9SBtI_Q"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_PbmTsnQ9EemkGNry2_5b9w" type="Operation_InterfaceOperationLabel">
           <element xmi:type="uml:Operation" href="model.uml#_f7ir9nY5EeSqtc-Sb9aJnA"/>
