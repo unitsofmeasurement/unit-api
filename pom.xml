@@ -83,7 +83,7 @@
 		<jacoco.plugin.version>0.8.6</jacoco.plugin.version>
 		<junit.jupiter.version>5.7.0</junit.jupiter.version>
 
-		<!--Exclude the files Here -->
+		<!--Exclude the files here -->
 		<sonar.exclusions>src/main/java/javax/measure/BinaryPrefix.java,src/main/java/javax/measure/MetricPrefix.java</sonar.exclusions>
 	</properties>
 
@@ -615,9 +615,7 @@
 						<manifestEntries>
 							<Specification-Title>${project.name}</Specification-Title>
 							<Specification-Version>${project.version}</Specification-Version>
-							<Specification-Vendor>${project.organization.name}</Specification-Vendor>
-							<Implementation-Vendor>Unit-API contributors</Implementation-Vendor>
-							<Implementation-URL>http://unitsofmeasurement.github.io</Implementation-URL>
+							<Specification-Vendor>${project.organization.name}</Specification-Vendor>							
 							<Automatic-Module-Name>java.measure</Automatic-Module-Name>
 							<Multi-Release>true</Multi-Release>
 						</manifestEntries>
@@ -809,7 +807,7 @@
 		<site>
 			<id>JSR-385</id>
 			<name>JSR-385 Maven reports</name>
-			<url>file:///var/www/www.unitsofmeasurement.github.io/jsr-385</url>
+			<url>file:///var/www/www.unitsofmeasurement.github.io/unit-api</url>
 			<!-- No longer active, just a placeholder! -->
 		</site>
 	</distributionManagement>
@@ -833,8 +831,7 @@
 		<!-- Individual JARs -->
 		<profile>
 			<id>base-jar</id>
-			<!-- This profile builds only the base (root level) elements into a separate 
-				-base.jar file -->
+			<!-- This profile builds only the base (root level) elements into a separate JAR file -->
 			<activation>
 				<activeByDefault>false</activeByDefault>
 			</activation>
@@ -855,7 +852,7 @@
 											dir="${project.build.directory}/classes/META-INF/versions/${jdkOptionalVersion}" />
 										<javac
 											destdir="${project.build.directory}/classes/META-INF/versions/${jdkOptionalVersion}"
-											srcdir="${project.basedir}/src/etc/modules/core/jdk${jdkOptionalVersion}"
+											srcdir="${project.basedir}/src/etc/modules/base/jdk${jdkOptionalVersion}"
 											includeAntRuntime="false">
 											<compilerarg
 												line="--release=${jdkOptionalVersion} --patch-module java.measure.base=${project.build.directory}/classes" />
@@ -877,8 +874,6 @@
 									<Specification-Title>${project.name}</Specification-Title>
 									<Specification-Version>${project.version}</Specification-Version>
 									<Specification-Vendor>${project.organization.name}</Specification-Vendor>
-									<Implementation-Vendor>Unit-API contributors</Implementation-Vendor>
-									<Implementation-URL>http://unitsofmeasurement.github.io</Implementation-URL>
 									<Automatic-Module-Name>java.measure.base</Automatic-Module-Name>
 									<Multi-Release>true</Multi-Release>
 								</manifestEntries>
@@ -908,13 +903,56 @@
 
 		<profile>
 			<id>format-jar</id>
-			<!-- This profile builds (optional) format elements into separate JAR 
-				files -->
+			<!-- This profile builds (optional) format elements into separate JAR files -->
 			<build>
 				<plugins>
+				    <!-- 
+				    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <mkdir
+                                            dir="${project.build.directory}/classes/META-INF/versions/${jdkOptionalVersion}" />
+                                        <javac
+                                            destdir="${project.build.directory}/classes/META-INF/versions/${jdkOptionalVersion}"
+                                            srcdir="${project.basedir}/src/etc/modules/format/jdk${jdkOptionalVersion}"
+                                            includeAntRuntime="false">
+                                            <compilerarg
+                                                line="-release=${jdkOptionalVersion} -patch-module java.measure.format=${project.build.directory}/classes" />
+                                                FIXME double hyphen for -patch-module and -release
+                                        </javac>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    -->
+                    
 					<plugin>
 						<artifactId>maven-jar-plugin</artifactId>
 						<version>${maven.jar.version}</version>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                </manifest>
+                                <manifestEntries>
+                                    <Specification-Title>${project.name}</Specification-Title>
+                                    <Specification-Version>${project.version}</Specification-Version>
+                                    <Specification-Vendor>${project.organization.name}</Specification-Vendor>
+                                    <Automatic-Module-Name>java.measure.format</Automatic-Module-Name>
+                                    <Multi-Release>false</Multi-Release>
+                                </manifestEntries>
+                                <addMavenDescriptor>false</addMavenDescriptor>
+                            </archive>
+                        </configuration>
 						<executions>
 							<execution>
 								<id>format-jar</id>
@@ -942,6 +980,21 @@
 					<plugin>
 						<artifactId>maven-jar-plugin</artifactId>
 						<version>${maven.jar.version}</version>
+						<configuration>
+                            <archive>
+                                <manifest>
+                                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                </manifest>
+                                <manifestEntries>
+                                    <Specification-Title>${project.name}</Specification-Title>
+                                    <Specification-Version>${project.version}</Specification-Version>
+                                    <Specification-Vendor>${project.organization.name}</Specification-Vendor>
+                                    <Automatic-Module-Name>java.measure.quantity</Automatic-Module-Name>
+                                    <Multi-Release>false</Multi-Release>
+                                </manifestEntries>
+                                <addMavenDescriptor>false</addMavenDescriptor>
+                            </archive>
+                        </configuration>
 						<executions>
 							<execution>
 								<id>quanity-jar</id>
@@ -969,6 +1022,21 @@
 					<plugin>
 						<artifactId>maven-jar-plugin</artifactId>
 						<version>${maven.jar.version}</version>
+						<configuration>
+                            <archive>
+                                <manifest>
+                                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                </manifest>
+                                <manifestEntries>
+                                    <Specification-Title>${project.name}</Specification-Title>
+                                    <Specification-Version>${project.version}</Specification-Version>
+                                    <Specification-Vendor>${project.organization.name}</Specification-Vendor>
+                                    <Automatic-Module-Name>java.measure.spi</Automatic-Module-Name>
+                                    <Multi-Release>false</Multi-Release>
+                                </manifestEntries>
+                                <addMavenDescriptor>false</addMavenDescriptor>
+                            </archive>
+                        </configuration>
 						<executions>
 							<execution>
 								<id>spi-jar</id>
@@ -988,70 +1056,7 @@
 			</build>
 		</profile>
 
-		<!-- Profile JARs -->
-		<profile>
-			<id>format-profile</id>
-			<!-- This profile builds the Format Profile (base+format) into a separate 
-				jar file -->
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-jar-plugin</artifactId>
-						<version>${maven.jar.version}</version>
-						<executions>
-							<execution>
-								<id>format-profile-jar</id>
-								<goals>
-									<goal>jar</goal>
-								</goals>
-								<configuration>
-									<classifier>format-profile</classifier>
-									<excludes>
-										<exclude>javax/measure/quantity/**</exclude>
-										<exclude>javax/measure/spi/**</exclude>
-									</excludes>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
-		<profile>
-			<id>spi-profile</id>
-			<!-- This profile builds the SPI Profile (base+format+spi) into a separate 
-				jar file -->
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-jar-plugin</artifactId>
-						<version>${maven.jar.version}</version>
-						<executions>
-							<execution>
-								<id>base-jar</id>
-								<goals>
-									<goal>jar</goal>
-								</goals>
-								<configuration>
-									<classifier>spi-profile</classifier>
-									<excludes>
-										<exclude>javax/measure/quantity/**</exclude>
-									</excludes>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
+		<!-- Documentation -->
 		<profile>
 			<id>documentation</id>
 			<build>
@@ -1072,44 +1077,6 @@
 									<backend>html</backend>
 									<embedAssets>true</embedAssets>
 									<imagesDir>src/main/asciidoc/images</imagesDir>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
-		<profile>
-			<id>brokenGitHubSite</id>
-			<build>
-				<plugins>
-					<!-- ======================================================= -->
-					<!-- GitHub Plugin -->
-					<!-- ======================================================= -->
-					<!-- This plugin seems permanently broken, will remove it to profile -->
-					<!-- TODO remove this profile soon -->
-					<plugin>
-						<groupId>com.github.github</groupId>
-						<artifactId>site-maven-plugin</artifactId>
-						<version>${github.maven.version}</version>
-						<configuration>
-							<!-- must match the server's id -->
-							<server>github</server>
-							<message>Building site for ${project.version}</message>
-						</configuration>
-						<executions>
-							<execution>
-								<goals>
-									<goal>site</goal>
-								</goals>
-								<phase>site-deploy</phase>
-								<configuration>
-									<path>site</path>
-									<merge>true</merge>
-									<!-- <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> -->
-									<repositoryName>unit-api</repositoryName>
-									<repositoryOwner>unitsofmeasurement</repositoryOwner>
 								</configuration>
 							</execution>
 						</executions>
