@@ -54,7 +54,7 @@ import javax.measure.format.UnitFormat;
  * All the methods in this class are safe to use by multiple concurrent threads.
  * </p>
  *
- * @version 2.0, November 4, 2020
+ * @version 2.1, November 16, 2020
  * @author Werner Keil
  * @author Martin Desruisseaux
  * @since 1.0
@@ -104,9 +104,9 @@ public abstract class ServiceProvider {
      * Allows to define a priority for a registered {@code ServiceProvider} instance.
      * When multiple providers are registered in the system, the provider with the highest priority value is taken.
      *
-     * <p>If the {@value #PRIORITY_ANNOTATION} annotation (from JSR-250) is present on the {@code ServiceProvider}
-     * implementation class, then that annotation is taken and this {@code getPriority()} method is ignored.
-     * Otherwise – if the {@code Priority} annotation is absent – this method is used as a fallback.</p>
+     * <p>If the {@value #PRIORITY_ANNOTATION} annotation (from JSR-250) or {@value #JAKARTA_PRIORITY_ANNOTATION} annotation (from Jakarta Annotations) is present on the {@code ServiceProvider}
+     * implementation class, then that annotation (first if both were present) is taken and this {@code getPriority()} method is ignored.
+     * Otherwise – if a {@code Priority} annotation is absent – this method is used as a fallback.</p>
      *
      * @return the provider's priority (default is 0).
      */
@@ -212,14 +212,19 @@ public abstract class ServiceProvider {
         /**
          * Returns {@code true} if the given service provider has the name we are looking for.
          * This method shall be invoked only if a non-null name has been specified to the constructor.
-         * This method looks for the {@value #NAMED_ANNOTATION} annotation, and if none are found fallbacks on
+         * This method looks for the {@value #NAMED_ANNOTATION} annotation or {@value #JAKARTA_NAMED_ANNOTATION} annotation, and if none are found fallbacks on
          * {@link ServiceProvider#toString()}.
          */
         @Override
         public boolean test(ServiceProvider provider) {
             Object value = null;
             if (nameGetter != null) {
-                Annotation a = provider.getClass().getAnnotation(namedAnnotation);
+                Annotation a = null;
+                if (namedAnnotation != null) { 
+                	a = provider.getClass().getAnnotation(namedAnnotation);
+                } else if (jakartaNamedAnnotation != null) {
+                	a = provider.getClass().getAnnotation(jakartaNamedAnnotation);
+                }
                 if (a != null) try {
                     value = nameGetter.invoke(a, (Object[]) null);
                 } catch (IllegalAccessException | InvocationTargetException e) {
@@ -235,12 +240,17 @@ public abstract class ServiceProvider {
 
         /**
          * Returns the priority of the given service provider.
-         * This method looks for the {@value #PRIORITY_ANNOTATION} annotation,
-         * and if none are found fallbacks on {@link ServiceProvider#getPriority()}.
+         * This method looks for the {@value #PRIORITY_ANNOTATION} annotation or {@value #JAKARTA_PRIORITY_ANNOTATION},
+         * and if none are found falls back on {@link ServiceProvider#getPriority()}.
          */
         private int priority(ServiceProvider provider) {
             if (priorityGetter != null) {
-                Annotation a = provider.getClass().getAnnotation(priorityAnnotation);
+                Annotation a = null;
+                if (priorityAnnotation != null) {
+                	a = provider.getClass().getAnnotation(priorityAnnotation);
+                } else if (jakartaPriorityAnnotation != null) {
+                	a = provider.getClass().getAnnotation(jakartaPriorityAnnotation);
+                }
                 if (a != null) try {
                     return (Integer) priorityGetter.invoke(a, (Object[]) null);
                 } catch (IllegalAccessException | InvocationTargetException e) {
@@ -257,7 +267,7 @@ public abstract class ServiceProvider {
          */
         @Override
         public int compare(final ServiceProvider p1, final ServiceProvider p2) {
-            return Integer.compare(priority(p1), priority(p2));
+            return Integer.compare(priority(p2), priority(p1)); // reverse order, higher number first.
         }
 
         /**
@@ -345,7 +355,7 @@ setcur: if (first != null) {
         if (first.isPresent()) {
             return first.get();
         } else {
-            throw new IllegalArgumentException("No measurement ServiceProvider " + name + " found .");
+            throw new IllegalArgumentException("No Measurement ServiceProvider " + name + " found .");
         }
     }
 
@@ -370,7 +380,7 @@ setcur: if (first != null) {
             if (first.isPresent()) {
                 p = first.get();
             } else {
-                throw new IllegalStateException("No measurement ServiceProvider found.");
+                throw new IllegalStateException("No Measurement ServiceProvider found.");
             }
             p = setDefault(p);
         }

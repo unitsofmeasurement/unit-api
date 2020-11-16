@@ -204,7 +204,7 @@ public abstract class ServiceProvider {
                     priorityGetter = jakartaPriorityAnnotation.getMethod("value", (Class[]) null);
                 } catch (ClassNotFoundException e) {
                     // Ignore since Jakarta Annotations is an optional dependency.
-                }                
+                }
             } catch (NoSuchMethodException e) {
                 // Should never happen since value() is a standard public method of those annotations.
                 throw new ServiceConfigurationError("Cannot get annotation value", e);
@@ -214,7 +214,7 @@ public abstract class ServiceProvider {
         /**
          * Returns {@code true} if the given service provider has the name we are looking for.
          * This method shall be invoked only if a non-null name has been specified to the constructor.
-         * This method looks for the {@value #NAMED_ANNOTATION} annotation, and if none are found fallbacks on
+         * This method looks for the {@value #NAMED_ANNOTATION} annotation or {@value #JAKARTA_NAMED_ANNOTATION} annotation, and if none are found fallbacks on
          * {@link ServiceProvider#toString()}.
          */
         @Override
@@ -248,7 +248,7 @@ public abstract class ServiceProvider {
         private int priority(ServiceProvider provider) {
             if (priorityGetter != null) {
                 Annotation a = null;
-                if (priorityAnnotation != null) { 
+                if (priorityAnnotation != null) {
                 	a = provider.getClass().getAnnotation(priorityAnnotation);
                 } else if (jakartaPriorityAnnotation != null) {
                 	a = provider.getClass().getAnnotation(jakartaPriorityAnnotation);
@@ -269,9 +269,7 @@ public abstract class ServiceProvider {
          */
         @Override
         public int compare(final ServiceProvider p1, final ServiceProvider p2) {
-        	final int i1 = priority(p1);
-        	final int i2 = priority(p2);
-            return Integer.compare(i2, i1); // reverse order, higher number first.
+            return Integer.compare(priority(p2), priority(p1)); // reverse order, higher number first.
         }
 
         /**
@@ -359,7 +357,7 @@ setcur: if (first != null) {
         if (first.isPresent()) {
             return first.get();
         } else {
-            throw new IllegalArgumentException("No measurement ServiceProvider " + name + " found .");
+            throw new IllegalArgumentException("No Measurement ServiceProvider " + name + " found .");
         }
     }
 
@@ -384,7 +382,7 @@ setcur: if (first != null) {
             if (first.isPresent()) {
                 p = first.get();
             } else {
-                throw new IllegalStateException("No measurement ServiceProvider found.");
+                throw new IllegalStateException("No Measurement ServiceProvider found.");
             }
             p = setDefault(p);
         }
