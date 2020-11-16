@@ -90,6 +90,18 @@ public interface FormatService {
     UnitFormat getUnitFormat(String name);
     
     /**
+     * Returns the unit format having the specified name or {@code null} if none.
+     *
+     * For example {@code getUnitFormat("Simple")} to return a simple {@link UnitFormat} implementation.<br>
+     * The variant is an arbitrary value to allow a variation of a <code>UnitFormat</code>, for example <code>case sensitive</code> vs. <code>case insensitive</code> <a href="https://ucum.org/ucum.html">UCUM</a> format. 
+     * @param name
+     *          the name of the format.
+     * @param variant Any arbitrary value used to indicate a variation of a <code>UnitFormat</code>.
+     * @return the corresponding unit format.
+     */
+    UnitFormat getUnitFormat(String name, String variant);
+    
+    /**
      * Gets a list with available format names of a given type for this format service.
      *
      * @param type

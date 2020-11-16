@@ -82,6 +82,17 @@ public class FormatServiceTest {
             Objects.requireNonNull(formatName, "Format name required");
             return unitFormats.get(formatName);
         }
+        
+        /*
+         * (non-Javadoc)
+         *
+         * @see UnitFormatService#getUnitFormat(String)
+         */
+        @Override
+        public UnitFormat getUnitFormat(String formatName, String variant) {
+            Objects.requireNonNull(formatName, "Format name required");
+            return unitFormats.get(formatName);
+        }
 
         /*
          * (non-Javadoc)
