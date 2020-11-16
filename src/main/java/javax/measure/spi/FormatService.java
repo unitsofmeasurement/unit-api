@@ -38,7 +38,7 @@ import javax.measure.format.UnitFormat;
  * This interface represent the service to obtain instances of {@link UnitFormat} and {@link QuantityFormat}.
  *
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 2.0, November 4, 2020
+ * @version 2.1, November 16, 2020
  * @since 2.0
  */
 public interface FormatService {
@@ -93,10 +93,11 @@ public interface FormatService {
      * Returns the unit format having the specified name or {@code null} if none.
      *
      * For example {@code getUnitFormat("Simple")} to return a simple {@link UnitFormat} implementation.<br>
-     * The variant is an arbitrary value to allow a variation of a <code>UnitFormat</code>, for example <code>case sensitive</code> vs. <code>case insensitive</code> <a href="https://ucum.org/ucum.html">UCUM</a> format. 
+     * The variant is an arbitrary value to allow a variation of a <code>UnitFormat</code>, for example <code>case sensitive</code> vs. <code>case insensitive</code> <a href="https://ucum.org/ucum.html">UCUM</a> format.
+     * <p>If no variant is applicable, the <code>UnitFormat</code> matching the name only is returned.</p> 
      * @param name
      *          the name of the format.
-     * @param variant Any arbitrary value used to indicate a variation of a <code>UnitFormat</code>.
+     * @param variant any arbitrary value used to indicate a variation of a <code>UnitFormat</code>.
      * @return the corresponding unit format.
      */
     UnitFormat getUnitFormat(String name, String variant);

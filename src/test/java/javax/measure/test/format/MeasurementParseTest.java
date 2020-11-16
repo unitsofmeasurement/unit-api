@@ -30,7 +30,6 @@
 package javax.measure.test.format;
 
 import javax.measure.format.MeasurementParseException;
-import javax.measure.format.ParserException;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -49,22 +48,22 @@ public class MeasurementParseTest {
 
     @Test
     public void testOldExceptionWithMessageDataAndPos() {
-        assertThrows(ParserException.class, () -> {
-            throw new ParserException("Error", " ", 0);
+        assertThrows(MeasurementParseException.class, () -> {
+            throw new MeasurementParseException("Error", " ", 0);
         });
     }
 
     @Test
     public void testOldExceptionWithMessageAndPos() {
-        assertThrows(ParserException.class, () -> {
-            throw new ParserException("Error", 0);
+        assertThrows(MeasurementParseException.class, () -> {
+            throw new MeasurementParseException("Error", 0);
         });
     }
 
     @Test
     public void testOldExceptionWithCause() {
-        assertThrows(ParserException.class, () -> {
-            throw new ParserException(new IllegalArgumentException("Error"));
+        assertThrows(MeasurementParseException.class, () -> {
+            throw new MeasurementParseException(new IllegalArgumentException("Error"));
         });
     }
 }
