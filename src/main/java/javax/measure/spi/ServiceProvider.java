@@ -56,7 +56,7 @@ import javax.measure.format.UnitFormat;
  * All the methods in this class are safe to use by multiple concurrent threads.
  * </p>
  *
- * @version 2.0, November 4, 2020
+ * @version 2.1, November 16, 2020
  * @author Werner Keil
  * @author Martin Desruisseaux
  * @since 1.0
@@ -221,7 +221,12 @@ public abstract class ServiceProvider {
         public boolean test(ServiceProvider provider) {
             Object value = null;
             if (nameGetter != null) {
-                Annotation a = provider.getClass().getAnnotation(namedAnnotation);
+                Annotation a = null;
+                if (namedAnnotation != null) { 
+                	a = provider.getClass().getAnnotation(namedAnnotation);
+                } else if (jakartaNamedAnnotation != null) {
+                	a = provider.getClass().getAnnotation(jakartaNamedAnnotation);
+                }
                 if (a != null) try {
                     value = nameGetter.invoke(a, (Object[]) null);
                 } catch (IllegalAccessException | InvocationTargetException e) {
@@ -242,7 +247,12 @@ public abstract class ServiceProvider {
          */
         private int priority(ServiceProvider provider) {
             if (priorityGetter != null) {
-                Annotation a = provider.getClass().getAnnotation(priorityAnnotation);
+                Annotation a = null;
+                if (priorityAnnotation != null) { 
+                	a = provider.getClass().getAnnotation(priorityAnnotation);
+                } else if (jakartaPriorityAnnotation != null) {
+                	a = provider.getClass().getAnnotation(jakartaPriorityAnnotation);
+                }
                 if (a != null) try {
                     return (Integer) priorityGetter.invoke(a, (Object[]) null);
                 } catch (IllegalAccessException | InvocationTargetException e) {
