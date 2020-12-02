@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FormatService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure.spi</a> &gt; <span class="el_source">FormatService.java</span></div><h1>FormatService.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FormatService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure.spi</a> &gt; <span class="el_source">FormatService.java</span></div><h1>FormatService.java</h1><pre class="source lang-java linenums">/*
  * Units of Measurement API
  * Copyright (c) 2014-2020, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
@@ -38,10 +38,10 @@ import javax.measure.format.UnitFormat;
  * This interface represent the service to obtain instances of {@link UnitFormat} and {@link QuantityFormat}.
  *
  * @author &lt;a href=&quot;mailto:werner@uom.technology&quot;&gt;Werner Keil&lt;/a&gt;
- * @version 1.0.1, November 9, 2018
+ * @version 2.1, November 16, 2020
  * @since 2.0
  */
-public interface FormatService extends UnitFormatService {
+public interface FormatService {
 
 <span class="fc" id="L46">    public static enum FormatType {</span>
 <span class="fc" id="L47">        UNIT_FORMAT, QUANTITY_FORMAT</span>
@@ -69,6 +69,40 @@ public interface FormatService extends UnitFormatService {
     QuantityFormat getQuantityFormat(String name);
 
     /**
+     * Returns the default unit format.
+     *
+     * It is up to implementations what to consider a suitable default. For some (locale-sensitive) implementations it may be a unit format based on
+     * {@code Locale.current()} while others may return {@code getUnitFormat(&quot;Simple&quot;)} or {@code getUnitFormat(&quot;ISO&quot;)}.
+     *
+     * @return the default {@link UnitFormat} implementation.
+     */
+    UnitFormat getUnitFormat();
+
+    /**
+     * Returns the unit format having the specified name or {@code null} if none.
+     *
+     * For example {@code getUnitFormat(&quot;Simple&quot;)} to return a simple {@link UnitFormat} implementation.
+     *
+     * @param name
+     *          the name of the format.
+     * @return the corresponding unit format.
+     */
+    UnitFormat getUnitFormat(String name);
+    
+    /**
+     * Returns the unit format having the specified name or {@code null} if none.
+     *
+     * For example {@code getUnitFormat(&quot;Simple&quot;)} to return a simple {@link UnitFormat} implementation.&lt;br&gt;
+     * The variant is an arbitrary value to allow a variation of a &lt;code&gt;UnitFormat&lt;/code&gt;, for example &lt;code&gt;case sensitive&lt;/code&gt; vs. &lt;code&gt;case insensitive&lt;/code&gt; &lt;a href=&quot;https://ucum.org/ucum.html&quot;&gt;UCUM&lt;/a&gt; format.
+     * &lt;p&gt;If no variant is applicable, the &lt;code&gt;UnitFormat&lt;/code&gt; matching the name only is returned.&lt;/p&gt; 
+     * @param name
+     *          the name of the format.
+     * @param variant any arbitrary value used to indicate a variation of a &lt;code&gt;UnitFormat&lt;/code&gt;.
+     * @return the corresponding unit format.
+     */
+    UnitFormat getUnitFormat(String name, String variant);
+    
+    /**
      * Gets a list with available format names of a given type for this format service.
      *
      * @param type
@@ -77,4 +111,4 @@ public interface FormatService extends UnitFormatService {
      */
     Set&lt;String&gt; getAvailableFormatNames(FormatType type);
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

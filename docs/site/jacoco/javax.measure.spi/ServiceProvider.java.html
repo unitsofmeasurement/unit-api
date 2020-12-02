@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServiceProvider.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure.spi</a> &gt; <span class="el_source">ServiceProvider.java</span></div><h1>ServiceProvider.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServiceProvider.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure.spi</a> &gt; <span class="el_source">ServiceProvider.java</span></div><h1>ServiceProvider.java</h1><pre class="source lang-java linenums">/*
  * Units of Measurement API
  * Copyright (c) 2014-2020, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
@@ -56,7 +56,7 @@ import javax.measure.format.UnitFormat;
  * All the methods in this class are safe to use by multiple concurrent threads.
  * &lt;/p&gt;
  *
- * @version 1.6, January 20, 2019
+ * @version 2.2, November 16, 2020
  * @author Werner Keil
  * @author Martin Desruisseaux
  * @since 1.0
@@ -75,33 +75,45 @@ public abstract class ServiceProvider {
     private static final String PRIORITY_ANNOTATION = &quot;javax.annotation.Priority&quot;;
 
     /**
+     * Class name of Jakarta Dependency Injection annotation for naming a service provider.
+     * We use reflection for keeping Jakata Injection an optional dependency.
+     */
+    private static final String JAKARTA_NAMED_ANNOTATION = &quot;jakarta.inject.Named&quot;;
+
+    /**
+     * Class name of Jakarta Common Annotation for assigning a priority level to a service provider.
+     * We use reflection for keeping Jakarta Annotations an optional dependency.
+     */
+    private static final String JAKARTA_PRIORITY_ANNOTATION = &quot;jakarta.annotation.Priority&quot;;
+    
+    /**
      * The current service provider, or {@code null} if not yet determined.
      *
-     * &lt;p&gt;IMPLEMENTATION NOTE: We do not cache a list of all service providers because that list depends
+     * &lt;p&gt;Implementation Note: We do not cache a list of all service providers because that list depends
      * indirectly on the thread invoking the {@link #available()} method. More specifically, it depends
      * on the context class loader. Furthermore caching the {@code ServiceProvider}s can be a source of
      * memory leaks. See {@link ServiceLoader#load(Class)} API note for reference.&lt;/p&gt;
      */
-<span class="fc" id="L85">    private static final AtomicReference&lt;ServiceProvider&gt; current = new AtomicReference&lt;&gt;();</span>
+<span class="fc" id="L97">    private static final AtomicReference&lt;ServiceProvider&gt; current = new AtomicReference&lt;&gt;();</span>
 
     /**
      * Creates a new service provider. Only to be used by subclasses.
      */
-<span class="fc" id="L90">    protected ServiceProvider() {</span>
-<span class="fc" id="L91">    }</span>
+<span class="fc" id="L102">    protected ServiceProvider() {</span>
+<span class="fc" id="L103">    }</span>
 
     /**
      * Allows to define a priority for a registered {@code ServiceProvider} instance.
      * When multiple providers are registered in the system, the provider with the highest priority value is taken.
      *
-     * &lt;p&gt;If the {@value #PRIORITY_ANNOTATION} annotation (from JSR-250) is present on the {@code ServiceProvider}
-     * implementation class, then that annotation is taken and this {@code getPriority()} method is ignored.
-     * Otherwise – if the {@code Priority} annotation is absent – this method is used as a fallback.&lt;/p&gt;
+     * &lt;p&gt;If the {@value #PRIORITY_ANNOTATION} annotation (from JSR-250) or {@value #JAKARTA_PRIORITY_ANNOTATION} annotation (from Jakarta Annotations) is present on the {@code ServiceProvider}
+     * implementation class, then that annotation (first if both were present) is taken and this {@code getPriority()} method is ignored.
+     * Otherwise – if a {@code Priority} annotation is absent – this method is used as a fallback.&lt;/p&gt;
      *
      * @return the provider's priority (default is 0).
      */
     public int getPriority() {
-<span class="fc" id="L104">        return 0;</span>
+<span class="fc" id="L116">        return 0;</span>
     }
 
     /**
@@ -110,15 +122,6 @@ public abstract class ServiceProvider {
      * @return the service to obtain a {@link SystemOfUnits}, or {@code null}.
      */
     public abstract SystemOfUnitsService getSystemOfUnitsService();
-
-    /**
-     * Returns the service to obtain a {@link UnitFormat}, or {@code null} if none.
-     *
-     * @return the service to obtain a {@link UnitFormat}, or {@code null}.
-     * @deprecated Use {@link #getFormatService()}. This method will be removed in a future version, it is here for backward compatibility only.
-     */
-    @Deprecated
-    public abstract UnitFormatService getUnitFormatService();
 
     /**
      * Returns the service to obtain {@link UnitFormat} and {@link QuantityFormat} or {@code null} if none.
@@ -155,7 +158,13 @@ public abstract class ServiceProvider {
          * Class of the {@value #NAMED_ANNOTATION} and {@value #PRIORITY_ANNOTATION} annotations to search,
          * or {@code null} if those classes are not on the classpath.
          */
-        private Class&lt;? extends Annotation&gt; nameAnnotation, priorityAnnotation;
+        private Class&lt;? extends Annotation&gt; namedAnnotation, priorityAnnotation;
+        
+        /**
+         * Class of the {@value #JAKARTA_NAMED_ANNOTATION} and {@value #JAKARTA_PRIORITY_ANNOTATION} annotations to search,
+         * or {@code null} if those classes are not on the classpath.
+         */
+        private Class&lt;? extends Annotation&gt; jakartaNamedAnnotation, jakartaPriorityAnnotation;
 
         /**
          * The {@code value()} method in the {@code *Annotation} class,
@@ -168,67 +177,90 @@ public abstract class ServiceProvider {
          *
          * @param name  name of the desired service provider, or {@code null} if no filtering by name is applied.
          */
-<span class="fc" id="L171">        Selector(String name) {</span>
-<span class="fc" id="L172">            toSearch = name;</span>
+<span class="fc" id="L180">        Selector(String name) {</span>
+<span class="fc" id="L181">            toSearch = name;</span>
             try {
-<span class="fc bfc" id="L174" title="All 2 branches covered.">                if (name != null) try {</span>
-<span class="nc" id="L175">                    nameAnnotation = Class.forName(NAMED_ANNOTATION).asSubclass(Annotation.class);</span>
-<span class="nc" id="L176">                    nameGetter = nameAnnotation.getMethod(&quot;value&quot;, (Class[]) null);</span>
-<span class="pc" id="L177">                } catch (ClassNotFoundException e) {</span>
+<span class="fc bfc" id="L183" title="All 2 branches covered.">                if (name != null) try {</span>
+<span class="nc" id="L184">                    namedAnnotation = Class.forName(NAMED_ANNOTATION).asSubclass(Annotation.class);</span>
+<span class="nc" id="L185">                    nameGetter = namedAnnotation.getMethod(&quot;value&quot;, (Class[]) null);</span>
+<span class="pc" id="L186">                } catch (ClassNotFoundException e) {</span>
                     // Ignore since JSR-330 is an optional dependency.
                 }
+<span class="pc bpc" id="L189" title="1 of 2 branches missed.">                if (nameGetter == null) try { // if nameGetter has not been set already try Jakarta Injection </span>
+<span class="nc" id="L190">                	jakartaNamedAnnotation = Class.forName(JAKARTA_NAMED_ANNOTATION).asSubclass(Annotation.class);</span>
+<span class="nc" id="L191">                    nameGetter = jakartaNamedAnnotation.getMethod(&quot;value&quot;, (Class[]) null);</span>
+<span class="pc" id="L192">                } catch (ClassNotFoundException e) {</span>
+                    // Ignore since Jakarta Injection is an optional dependency.
+                }
+                
                 try {
-<span class="nc" id="L181">                    priorityAnnotation = Class.forName(PRIORITY_ANNOTATION).asSubclass(Annotation.class);</span>
-<span class="nc" id="L182">                    priorityGetter = priorityAnnotation.getMethod(&quot;value&quot;, (Class[]) null);</span>
-<span class="pc" id="L183">                } catch (ClassNotFoundException e) {</span>
+<span class="nc" id="L197">                    priorityAnnotation = Class.forName(PRIORITY_ANNOTATION).asSubclass(Annotation.class);</span>
+<span class="nc" id="L198">                    priorityGetter = priorityAnnotation.getMethod(&quot;value&quot;, (Class[]) null);</span>
+<span class="pc" id="L199">                } catch (ClassNotFoundException e) {</span>
                     // Ignore since JSR-250 is an optional dependency.
                 }
-<span class="pc" id="L186">            } catch (NoSuchMethodException e) {</span>
+<span class="pc bpc" id="L202" title="1 of 2 branches missed.">                if (priorityGetter == null) try { // if priorityGetter has not been set already try Jakarta Annotations</span>
+<span class="nc" id="L203">                	jakartaPriorityAnnotation = Class.forName(JAKARTA_PRIORITY_ANNOTATION).asSubclass(Annotation.class);</span>
+<span class="nc" id="L204">                    priorityGetter = jakartaPriorityAnnotation.getMethod(&quot;value&quot;, (Class[]) null);</span>
+<span class="pc" id="L205">                } catch (ClassNotFoundException e) {</span>
+                    // Ignore since Jakarta Annotations is an optional dependency.
+                }
+<span class="pc" id="L208">            } catch (NoSuchMethodException e) {</span>
                 // Should never happen since value() is a standard public method of those annotations.
-<span class="nc" id="L188">                throw new ServiceConfigurationError(&quot;Can not get annotation value&quot;, e);</span>
+<span class="nc" id="L210">                throw new ServiceConfigurationError(&quot;Cannot get annotation value&quot;, e);</span>
             }
-<span class="fc" id="L190">        }</span>
+<span class="fc" id="L212">        }</span>
 
         /**
          * Returns {@code true} if the given service provider has the name we are looking for.
          * This method shall be invoked only if a non-null name has been specified to the constructor.
-         * This method looks for the {@value #NAMED_ANNOTATION} annotation, and if none are found fallbacks on
+         * This method looks for the {@value #NAMED_ANNOTATION} annotation or {@value #JAKARTA_NAMED_ANNOTATION} annotation, and if none are found fallbacks on
          * {@link ServiceProvider#toString()}.
          */
         @Override
         public boolean test(ServiceProvider provider) {
-<span class="fc" id="L200">            Object value = null;</span>
-<span class="pc bpc" id="L201" title="1 of 2 branches missed.">            if (nameGetter != null) {</span>
-<span class="nc" id="L202">                Annotation a = provider.getClass().getAnnotation(nameAnnotation);</span>
-<span class="nc bnc" id="L203" title="All 2 branches missed.">                if (a != null) try {</span>
-<span class="nc" id="L204">                    value = nameGetter.invoke(a, (Object[]) null);</span>
-<span class="nc" id="L205">                } catch (IllegalAccessException | InvocationTargetException e) {</span>
+<span class="fc" id="L222">            Object value = null;</span>
+<span class="pc bpc" id="L223" title="1 of 2 branches missed.">            if (nameGetter != null) {</span>
+<span class="nc" id="L224">                Annotation a = null;</span>
+<span class="nc bnc" id="L225" title="All 2 branches missed.">                if (namedAnnotation != null) { </span>
+<span class="nc" id="L226">                	a = provider.getClass().getAnnotation(namedAnnotation);</span>
+<span class="nc bnc" id="L227" title="All 2 branches missed.">                } else if (jakartaNamedAnnotation != null) {</span>
+<span class="nc" id="L228">                	a = provider.getClass().getAnnotation(jakartaNamedAnnotation);</span>
+                }
+<span class="nc bnc" id="L230" title="All 2 branches missed.">                if (a != null) try {</span>
+<span class="nc" id="L231">                    value = nameGetter.invoke(a, (Object[]) null);</span>
+<span class="nc" id="L232">                } catch (IllegalAccessException | InvocationTargetException e) {</span>
                     // Should never happen since value() is a public method and should not throw exception.
-<span class="nc" id="L207">                    throw new ServiceConfigurationError(&quot;Can not get annotation value&quot;, e);</span>
+<span class="nc" id="L234">                    throw new ServiceConfigurationError(&quot;Cannot get annotation value&quot;, e);</span>
                 }
             }
-<span class="pc bpc" id="L210" title="1 of 2 branches missed.">            if (value == null) {</span>
-<span class="fc" id="L211">                value = provider.toString();</span>
+<span class="pc bpc" id="L237" title="1 of 2 branches missed.">            if (value == null) {</span>
+<span class="fc" id="L238">                value = provider.toString();</span>
             }
-<span class="fc" id="L213">            return toSearch.equals(value);</span>
+<span class="fc" id="L240">            return toSearch.equals(value);</span>
         }
 
         /**
          * Returns the priority of the given service provider.
-         * This method looks for the {@value #PRIORITY_ANNOTATION} annotation,
-         * and if none are found fallbacks on {@link ServiceProvider#getPriority()}.
+         * This method looks for the {@value #PRIORITY_ANNOTATION} annotation or {@value #JAKARTA_PRIORITY_ANNOTATION},
+         * and if none are found falls back on {@link ServiceProvider#getPriority()}.
          */
         private int priority(ServiceProvider provider) {
-<span class="nc bnc" id="L222" title="All 2 branches missed.">            if (priorityGetter != null) {</span>
-<span class="nc" id="L223">                Annotation a = provider.getClass().getAnnotation(priorityAnnotation);</span>
-<span class="nc bnc" id="L224" title="All 2 branches missed.">                if (a != null) try {</span>
-<span class="nc" id="L225">                    return (Integer) priorityGetter.invoke(a, (Object[]) null);</span>
-<span class="nc" id="L226">                } catch (IllegalAccessException | InvocationTargetException e) {</span>
+<span class="nc bnc" id="L249" title="All 2 branches missed.">            if (priorityGetter != null) {</span>
+<span class="nc" id="L250">                Annotation a = null;</span>
+<span class="nc bnc" id="L251" title="All 2 branches missed.">                if (priorityAnnotation != null) {</span>
+<span class="nc" id="L252">                	a = provider.getClass().getAnnotation(priorityAnnotation);</span>
+<span class="nc bnc" id="L253" title="All 2 branches missed.">                } else if (jakartaPriorityAnnotation != null) {</span>
+<span class="nc" id="L254">                	a = provider.getClass().getAnnotation(jakartaPriorityAnnotation);</span>
+                }
+<span class="nc bnc" id="L256" title="All 2 branches missed.">                if (a != null) try {</span>
+<span class="nc" id="L257">                    return (Integer) priorityGetter.invoke(a, (Object[]) null);</span>
+<span class="nc" id="L258">                } catch (IllegalAccessException | InvocationTargetException e) {</span>
                     // Should never happen since value() is a public method and should not throw exception.
-<span class="nc" id="L228">                    throw new ServiceConfigurationError(&quot;Can not get annotation value&quot;, e);</span>
+<span class="nc" id="L260">                    throw new ServiceConfigurationError(&quot;Cannot get annotation value&quot;, e);</span>
                 }
             }
-<span class="nc" id="L231">            return provider.getPriority();</span>
+<span class="nc" id="L263">            return provider.getPriority();</span>
         }
 
         /**
@@ -237,7 +269,7 @@ public abstract class ServiceProvider {
          */
         @Override
         public int compare(final ServiceProvider p1, final ServiceProvider p2) {
-<span class="nc" id="L240">            return Integer.compare(priority(p1), priority(p2));</span>
+<span class="nc" id="L272">            return Integer.compare(priority(p2), priority(p1)); // reverse order, higher number first.</span>
         }
 
         /**
@@ -246,11 +278,11 @@ public abstract class ServiceProvider {
          * which itself depends on which thread is invoking this method.
          */
         private Stream&lt;ServiceProvider&gt; stream() {
-<span class="fc" id="L249">            Stream&lt;ServiceProvider&gt; stream = StreamSupport.stream(ServiceLoader.load(ServiceProvider.class).spliterator(), false);</span>
-<span class="fc bfc" id="L250" title="All 2 branches covered.">            if (toSearch != null) {</span>
-<span class="fc" id="L251">                stream = stream.filter(this);</span>
+<span class="fc" id="L281">            Stream&lt;ServiceProvider&gt; stream = StreamSupport.stream(ServiceLoader.load(ServiceProvider.class).spliterator(), false);</span>
+<span class="fc bfc" id="L282" title="All 2 branches covered.">            if (toSearch != null) {</span>
+<span class="fc" id="L283">                stream = stream.filter(this);</span>
             }
-<span class="fc" id="L253">            return stream.sorted(this);</span>
+<span class="fc" id="L285">            return stream.sorted(this);</span>
         }
     }
 
@@ -263,14 +295,14 @@ public abstract class ServiceProvider {
      * @return all service providers available for the current thread's context class loader.
      */
     public static final List&lt;ServiceProvider&gt; available() {
-<span class="fc" id="L266">        ArrayList&lt;ServiceProvider&gt; providers = new Selector(null).stream().collect(Collectors.toCollection(ArrayList::new));</span>
+<span class="fc" id="L298">        ArrayList&lt;ServiceProvider&gt; providers = new Selector(null).stream().collect(Collectors.toCollection(ArrayList::new));</span>
         /*
          * Get the current service provider. If no provider has been set yet, set it now for
          * consistency with the contract saying that the first item is the current provider.
          */
-<span class="fc" id="L271">        ServiceProvider first = current.get();</span>
-<span class="pc bpc" id="L272" title="1 of 4 branches missed.">        if (first == null &amp;&amp; !providers.isEmpty()) {</span>
-<span class="nc" id="L273">            first = setDefault(providers.get(0));</span>
+<span class="fc" id="L303">        ServiceProvider first = current.get();</span>
+<span class="pc bpc" id="L304" title="1 of 4 branches missed.">        if (first == null &amp;&amp; !providers.isEmpty()) {</span>
+<span class="nc" id="L305">            first = setDefault(providers.get(0));</span>
         }
         /*
          * Make sure that 'first' is the first item in the 'providers' list. If that item appears
@@ -278,19 +310,19 @@ public abstract class ServiceProvider {
          * We compare the classes, not the instances, because new instances may be created each time
          * this method is invoked and we have no guaranteed that implementors overrode 'equals'.
          */
-<span class="fc bfc" id="L281" title="All 2 branches covered.">setcur: if (first != null) {</span>
-<span class="fc" id="L282">            final Class&lt;?&gt; cf = first.getClass();</span>
-<span class="fc" id="L283">            final int size = providers.size();</span>
-<span class="pc bpc" id="L284" title="1 of 2 branches missed.">            for (int i=0; i&lt;size; i++) {</span>
-<span class="nc bnc" id="L285" title="All 2 branches missed.">                if (cf.equals(providers.get(i).getClass())) {</span>
-<span class="nc bnc" id="L286" title="All 2 branches missed.">                    if (i == 0) break setcur;       // No change needed (note: labeled breaks on if statements are legal).</span>
-<span class="nc" id="L287">                    providers.remove(i);</span>
-<span class="nc" id="L288">                    break;</span>
+<span class="fc bfc" id="L313" title="All 2 branches covered.">setcur: if (first != null) {</span>
+<span class="fc" id="L314">            final Class&lt;?&gt; cf = first.getClass();</span>
+<span class="fc" id="L315">            final int size = providers.size();</span>
+<span class="pc bpc" id="L316" title="1 of 2 branches missed.">            for (int i=0; i&lt;size; i++) {</span>
+<span class="nc bnc" id="L317" title="All 2 branches missed.">                if (cf.equals(providers.get(i).getClass())) {</span>
+<span class="nc bnc" id="L318" title="All 2 branches missed.">                    if (i == 0) break setcur;       // No change needed (note: labeled breaks on if statements are legal).</span>
+<span class="nc" id="L319">                    providers.remove(i);</span>
+<span class="nc" id="L320">                    break;</span>
                 }
             }
-<span class="fc" id="L291">            providers.add(0, first);</span>
+<span class="fc" id="L323">            providers.add(0, first);</span>
         }
-<span class="fc" id="L293">        return providers;</span>
+<span class="fc" id="L325">        return providers;</span>
     }
 
     /**
@@ -315,17 +347,17 @@ public abstract class ServiceProvider {
      * @since 2.0
      */
     public static ServiceProvider of(String name) {
-<span class="fc" id="L318">        Objects.requireNonNull(name);</span>
-<span class="fc" id="L319">        Selector select = new Selector(name);</span>
-<span class="fc" id="L320">        ServiceProvider p = current.get();</span>
-<span class="pc bpc" id="L321" title="1 of 4 branches missed.">        if (p != null &amp;&amp; select.test(p)) {</span>
-<span class="fc" id="L322">            return p;</span>
+<span class="fc" id="L350">        Objects.requireNonNull(name);</span>
+<span class="fc" id="L351">        Selector select = new Selector(name);</span>
+<span class="fc" id="L352">        ServiceProvider p = current.get();</span>
+<span class="pc bpc" id="L353" title="1 of 4 branches missed.">        if (p != null &amp;&amp; select.test(p)) {</span>
+<span class="fc" id="L354">            return p;</span>
         }
-<span class="fc" id="L324">        Optional&lt;ServiceProvider&gt; first = select.stream().findFirst();</span>
-<span class="pc bpc" id="L325" title="1 of 2 branches missed.">        if (first.isPresent()) {</span>
-<span class="nc" id="L326">            return first.get();</span>
+<span class="fc" id="L356">        Optional&lt;ServiceProvider&gt; first = select.stream().findFirst();</span>
+<span class="pc bpc" id="L357" title="1 of 2 branches missed.">        if (first.isPresent()) {</span>
+<span class="nc" id="L358">            return first.get();</span>
         } else {
-<span class="fc" id="L328">            throw new IllegalArgumentException(&quot;No measurement ServiceProvider &quot; + name + &quot; found .&quot;);</span>
+<span class="fc" id="L360">            throw new IllegalArgumentException(&quot;No Measurement ServiceProvider &quot; + name + &quot; found .&quot;);</span>
         }
     }
 
@@ -344,17 +376,17 @@ public abstract class ServiceProvider {
      * @see #setCurrent(ServiceProvider)
      */
     public static final ServiceProvider current() {
-<span class="fc" id="L347">        ServiceProvider p = current.get();</span>
-<span class="fc bfc" id="L348" title="All 2 branches covered.">        if (p == null) {</span>
-<span class="fc" id="L349">            Optional&lt;ServiceProvider&gt; first = new Selector(null).stream().findFirst();</span>
-<span class="pc bpc" id="L350" title="1 of 2 branches missed.">            if (first.isPresent()) {</span>
-<span class="nc" id="L351">                p = first.get();</span>
-<span class="nc" id="L352">            } else {</span>
-<span class="fc" id="L353">                throw new IllegalStateException(&quot;No measurement ServiceProvider found.&quot;);</span>
+<span class="fc" id="L379">        ServiceProvider p = current.get();</span>
+<span class="fc bfc" id="L380" title="All 2 branches covered.">        if (p == null) {</span>
+<span class="fc" id="L381">            Optional&lt;ServiceProvider&gt; first = new Selector(null).stream().findFirst();</span>
+<span class="pc bpc" id="L382" title="1 of 2 branches missed.">            if (first.isPresent()) {</span>
+<span class="nc" id="L383">                p = first.get();</span>
+<span class="nc" id="L384">            } else {</span>
+<span class="fc" id="L385">                throw new IllegalStateException(&quot;No Measurement ServiceProvider found.&quot;);</span>
             }
-<span class="nc" id="L355">            p = setDefault(p);</span>
+<span class="nc" id="L387">            p = setDefault(p);</span>
         }
-<span class="fc" id="L357">        return p;</span>
+<span class="fc" id="L389">        return p;</span>
     }
 
     /**
@@ -366,11 +398,11 @@ public abstract class ServiceProvider {
      *         was set before this method call.
      */
     private static ServiceProvider setDefault(ServiceProvider provider) {
-<span class="nc bnc" id="L369" title="All 2 branches missed.">        while (!current.compareAndSet(null, provider)) {</span>
-<span class="nc" id="L370">            final ServiceProvider c = current.get();</span>
-<span class="nc bnc" id="L371" title="All 2 branches missed.">            if (c != null) return c;</span>
+<span class="nc bnc" id="L401" title="All 2 branches missed.">        while (!current.compareAndSet(null, provider)) {</span>
+<span class="nc" id="L402">            final ServiceProvider c = current.get();</span>
+<span class="nc bnc" id="L403" title="All 2 branches missed.">            if (c != null) return c;</span>
         }
-<span class="nc" id="L373">        return provider;</span>
+<span class="nc" id="L405">        return provider;</span>
     }
 
     /**
@@ -381,14 +413,14 @@ public abstract class ServiceProvider {
      * @return the replaced provider, or null.
      */
     public static final ServiceProvider setCurrent(ServiceProvider provider) {
-<span class="fc" id="L384">        Objects.requireNonNull(provider);</span>
-<span class="fc" id="L385">        ServiceProvider old = current.getAndSet(provider);</span>
-<span class="fc bfc" id="L386" title="All 2 branches covered.">        if (old != provider) {</span>
-<span class="fc" id="L387">            Logger.getLogger(&quot;javax.measure.spi&quot;).log(Level.CONFIG,</span>
-<span class="fc" id="L388">                    &quot;Measurement ServiceProvider {1,choice,0#set to|1#replaced by} {0}.&quot;,</span>
-<span class="pc bpc" id="L389" title="1 of 2 branches missed.">                    new Object[] {provider.getClass().getName(), (old == null) ? 0 : 1});</span>
+<span class="fc" id="L416">        Objects.requireNonNull(provider);</span>
+<span class="fc" id="L417">        ServiceProvider old = current.getAndSet(provider);</span>
+<span class="fc bfc" id="L418" title="All 2 branches covered.">        if (old != provider) {</span>
+<span class="fc" id="L419">            Logger.getLogger(&quot;javax.measure.spi&quot;).log(Level.CONFIG,</span>
+<span class="fc" id="L420">                    &quot;Measurement ServiceProvider {1,choice,0#set to|1#replaced by} {0}.&quot;,</span>
+<span class="pc bpc" id="L421" title="1 of 2 branches missed.">                    new Object[] {provider.getClass().getName(), (old == null) ? 0 : 1});</span>
         }
-<span class="fc" id="L391">        return old;</span>
+<span class="fc" id="L423">        return old;</span>
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

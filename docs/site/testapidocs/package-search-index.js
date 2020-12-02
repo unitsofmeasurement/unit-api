@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"javax.measure.spi"},{"l":"javax.measure.test"},{"l":"javax.measure.test.format"},{"l":"javax.measure.test.function"},{"l":"javax.measure.test.quantity"},{"l":"javax.measure.test.unit"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"javax.measure.spi"},{"l":"javax.measure.test"},{"l":"javax.measure.test.format"},{"l":"javax.measure.test.function"},{"l":"javax.measure.test.quantity"},{"l":"javax.measure.test.unit"}]

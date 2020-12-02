@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Quantity.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure</a> &gt; <span class="el_source">Quantity.java</span></div><h1>Quantity.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Quantity.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure</a> &gt; <span class="el_source">Quantity.java</span></div><h1>Quantity.java</h1><pre class="source lang-java linenums">/*
  * Units of Measurement API
  * Copyright (c) 2014-2020, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
@@ -39,7 +39,9 @@ package javax.measure;
  * thermometer = ... {@literal Vector3D&lt;Speed&gt;} aircraftSpeed = ... &lt;/code&gt;
  * &lt;/p&gt;
  *
- * &lt;h3&gt;Arithmetic operations&lt;/h3&gt;
+ * &lt;dl&gt;
+ * &lt;dt&gt;&lt;span class=&quot;strong&quot;&gt;Arithmetic operations&lt;/span&gt;&lt;/dt&gt;
+ * &lt;/dl&gt; 
  * This interface defines some arithmetic operations between {@code Quantity}
  * instances. All implementations shall produce &lt;em&gt;equivalent&lt;/em&gt; results for
  * the same operation applied on equivalent quantities. Two quantities are
@@ -71,9 +73,11 @@ package javax.measure;
  * is essential for preserving algebra laws like associativity, and is also
  * the expected result from a thermodynamic point of view.&lt;/p&gt;
  *
- * apiNote This interface places no restrictions on the mutability of
+ * &lt;dl&gt;
+ * &lt;dt&gt;&lt;span class=&quot;strong&quot;&gt;API Note:&lt;/span&gt;&lt;/dt&gt;&lt;dd&gt;This interface places no restrictions on the mutability of
  *          implementations, however immutability is strongly recommended. All
- *          implementations must be {@link Comparable}.
+ *          implementations must be {@link Comparable}.&lt;/dd&gt;
+ * &lt;/dl&gt;
  *
  * @param &lt;Q&gt;
  *            The type of the quantity.
@@ -87,7 +91,7 @@ package javax.measure;
  * @see &lt;a href=&quot;http://en.wikipedia.org/wiki/Quantity&quot;&gt;Wikipedia: Quantity&lt;/a&gt;
  * @see &lt;a href=&quot;http://martinfowler.com/eaaDev/quantity.html&quot;&gt;Martin Fowler -
  *      Quantity&lt;/a&gt;
- * @version 1.11, April 16, 2019
+ * @version 2.3, September 28, 2020
  * @since 1.0
  */
 public interface Quantity&lt;Q extends Quantity&lt;Q&gt;&gt; {
@@ -98,8 +102,8 @@ public interface Quantity&lt;Q extends Quantity&lt;Q&gt;&gt; {
     * @since 2.0
     * @see &lt;a href=&quot;https://en.wikipedia.org/wiki/Absolute_scale&quot;&gt;Wikipedia: Absolute scale&lt;/a&gt;
     */
-<span class="fc" id="L101">    public static enum Scale {</span>
-<span class="fc" id="L102">        ABSOLUTE, RELATIVE</span>
+<span class="fc" id="L105">    public static enum Scale {</span>
+<span class="fc" id="L106">        ABSOLUTE, RELATIVE</span>
     }
        
     /**
@@ -274,7 +278,7 @@ public interface Quantity&lt;Q extends Quantity&lt;Q&gt;&gt; {
      *             decimal expansion.
      */
     default Quantity&lt;Q&gt; toSystemUnit() {
-<span class="fc" id="L277">        return to(getUnit().getSystemUnit());</span>
+<span class="fc" id="L281">        return to(getUnit().getSystemUnit());</span>
     }
       
     /**
@@ -286,5 +290,20 @@ public interface Quantity&lt;Q extends Quantity&lt;Q&gt;&gt; {
      * @see &lt;a href=&quot;https://en.wikipedia.org/wiki/Absolute_scale&quot;&gt;Wikipedia: Absolute scale&lt;/a&gt;
      */
     Scale getScale();
+    
+    /**
+     * Compares two instances of {@code Quantity &lt;Q&gt;}, doing the conversion of unit if necessary.
+     *
+     * @param that
+     *          the {@code quantity&lt;Q&gt;} to be compared with this instance.
+     * @return {@code true} if {@code that \u2261 this}.
+     * @throws NullPointerException
+     *           if the quantity is null
+     *           
+     * @see &lt;a href= &quot;https://dictionary.cambridge.org/dictionary/english/equivalent&quot;&gt;Cambridge Dictionary: equivalent&lt;/a&gt;
+     * @see &lt;a href= &quot;https://www.lexico.com/en/definition/equivalent&quot;&gt;LEXICO: equivalent&lt;/a&gt;
+     * @since 2.1       
+     */
+    boolean isEquivalentTo(Quantity&lt;Q&gt; that);
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
