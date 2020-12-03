@@ -183,32 +183,32 @@ public abstract class ServiceProvider {
 <span class="fc bfc" id="L183" title="All 2 branches covered.">                if (name != null) try {</span>
 <span class="nc" id="L184">                    namedAnnotation = Class.forName(NAMED_ANNOTATION).asSubclass(Annotation.class);</span>
 <span class="nc" id="L185">                    nameGetter = namedAnnotation.getMethod(&quot;value&quot;, (Class[]) null);</span>
-<span class="pc" id="L186">                } catch (ClassNotFoundException e) {</span>
+<span class="fc" id="L186">                } catch (ClassNotFoundException e) {</span>
                     // Ignore since JSR-330 is an optional dependency.
-                }
+<span class="nc" id="L188">                }</span>
 <span class="pc bpc" id="L189" title="1 of 2 branches missed.">                if (nameGetter == null) try { // if nameGetter has not been set already try Jakarta Injection </span>
 <span class="nc" id="L190">                	jakartaNamedAnnotation = Class.forName(JAKARTA_NAMED_ANNOTATION).asSubclass(Annotation.class);</span>
 <span class="nc" id="L191">                    nameGetter = jakartaNamedAnnotation.getMethod(&quot;value&quot;, (Class[]) null);</span>
-<span class="pc" id="L192">                } catch (ClassNotFoundException e) {</span>
+<span class="fc" id="L192">                } catch (ClassNotFoundException e) {</span>
                     // Ignore since Jakarta Injection is an optional dependency.
-                }
+<span class="nc" id="L194">                }</span>
                 
                 try {
 <span class="nc" id="L197">                    priorityAnnotation = Class.forName(PRIORITY_ANNOTATION).asSubclass(Annotation.class);</span>
 <span class="nc" id="L198">                    priorityGetter = priorityAnnotation.getMethod(&quot;value&quot;, (Class[]) null);</span>
-<span class="pc" id="L199">                } catch (ClassNotFoundException e) {</span>
+<span class="fc" id="L199">                } catch (ClassNotFoundException e) {</span>
                     // Ignore since JSR-250 is an optional dependency.
-                }
+<span class="nc" id="L201">                }</span>
 <span class="pc bpc" id="L202" title="1 of 2 branches missed.">                if (priorityGetter == null) try { // if priorityGetter has not been set already try Jakarta Annotations</span>
 <span class="nc" id="L203">                	jakartaPriorityAnnotation = Class.forName(JAKARTA_PRIORITY_ANNOTATION).asSubclass(Annotation.class);</span>
 <span class="nc" id="L204">                    priorityGetter = jakartaPriorityAnnotation.getMethod(&quot;value&quot;, (Class[]) null);</span>
-<span class="pc" id="L205">                } catch (ClassNotFoundException e) {</span>
+<span class="fc" id="L205">                } catch (ClassNotFoundException e) {</span>
                     // Ignore since Jakarta Annotations is an optional dependency.
-                }
-<span class="pc" id="L208">            } catch (NoSuchMethodException e) {</span>
+<span class="nc" id="L207">                }</span>
+<span class="nc" id="L208">            } catch (NoSuchMethodException e) {</span>
                 // Should never happen since value() is a standard public method of those annotations.
 <span class="nc" id="L210">                throw new ServiceConfigurationError(&quot;Cannot get annotation value&quot;, e);</span>
-            }
+<span class="fc" id="L211">            }</span>
 <span class="fc" id="L212">        }</span>
 
         /**
@@ -232,7 +232,7 @@ public abstract class ServiceProvider {
 <span class="nc" id="L232">                } catch (IllegalAccessException | InvocationTargetException e) {</span>
                     // Should never happen since value() is a public method and should not throw exception.
 <span class="nc" id="L234">                    throw new ServiceConfigurationError(&quot;Cannot get annotation value&quot;, e);</span>
-                }
+<span class="nc" id="L235">                }</span>
             }
 <span class="pc bpc" id="L237" title="1 of 2 branches missed.">            if (value == null) {</span>
 <span class="fc" id="L238">                value = provider.toString();</span>
@@ -381,7 +381,7 @@ public abstract class ServiceProvider {
 <span class="fc" id="L381">            Optional&lt;ServiceProvider&gt; first = new Selector(null).stream().findFirst();</span>
 <span class="pc bpc" id="L382" title="1 of 2 branches missed.">            if (first.isPresent()) {</span>
 <span class="nc" id="L383">                p = first.get();</span>
-<span class="nc" id="L384">            } else {</span>
+            } else {
 <span class="fc" id="L385">                throw new IllegalStateException(&quot;No Measurement ServiceProvider found.&quot;);</span>
             }
 <span class="nc" id="L387">            p = setDefault(p);</span>
@@ -401,7 +401,7 @@ public abstract class ServiceProvider {
 <span class="nc bnc" id="L401" title="All 2 branches missed.">        while (!current.compareAndSet(null, provider)) {</span>
 <span class="nc" id="L402">            final ServiceProvider c = current.get();</span>
 <span class="nc bnc" id="L403" title="All 2 branches missed.">            if (c != null) return c;</span>
-        }
+<span class="nc" id="L404">        }</span>
 <span class="nc" id="L405">        return provider;</span>
     }
 
@@ -417,7 +417,7 @@ public abstract class ServiceProvider {
 <span class="fc" id="L417">        ServiceProvider old = current.getAndSet(provider);</span>
 <span class="fc bfc" id="L418" title="All 2 branches covered.">        if (old != provider) {</span>
 <span class="fc" id="L419">            Logger.getLogger(&quot;javax.measure.spi&quot;).log(Level.CONFIG,</span>
-<span class="fc" id="L420">                    &quot;Measurement ServiceProvider {1,choice,0#set to|1#replaced by} {0}.&quot;,</span>
+                    &quot;Measurement ServiceProvider {1,choice,0#set to|1#replaced by} {0}.&quot;,
 <span class="pc bpc" id="L421" title="1 of 2 branches missed.">                    new Object[] {provider.getClass().getName(), (old == null) ? 0 : 1});</span>
         }
 <span class="fc" id="L423">        return old;</span>

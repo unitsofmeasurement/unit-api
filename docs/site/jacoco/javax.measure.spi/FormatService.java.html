@@ -38,7 +38,7 @@ import javax.measure.format.UnitFormat;
  * This interface represent the service to obtain instances of {@link UnitFormat} and {@link QuantityFormat}.
  *
  * @author &lt;a href=&quot;mailto:werner@uom.technology&quot;&gt;Werner Keil&lt;/a&gt;
- * @version 2.1, November 16, 2020
+ * @version 2.1.1, December 3, 2020
  * @since 2.0
  */
 public interface FormatService {
@@ -93,7 +93,9 @@ public interface FormatService {
      * Returns the unit format having the specified name or {@code null} if none.
      *
      * For example {@code getUnitFormat(&quot;Simple&quot;)} to return a simple {@link UnitFormat} implementation.&lt;br&gt;
-     * The variant is an arbitrary value to allow a variation of a &lt;code&gt;UnitFormat&lt;/code&gt;, for example &lt;code&gt;case sensitive&lt;/code&gt; vs. &lt;code&gt;case insensitive&lt;/code&gt; &lt;a href=&quot;https://ucum.org/ucum.html&quot;&gt;UCUM&lt;/a&gt; format.
+     * The variant is an arbitrary value to allow a variation of a {@link UnitFormat}, 
+     * for example &lt;code&gt;UTF&lt;/code&gt; vs. &lt;code&gt;ASCII&lt;/code&gt; encoding of the simple &lt;code&gt;UnitFormat&lt;/code&gt; 
+     * or &lt;code&gt;case sensitive&lt;/code&gt; vs. &lt;code&gt;case insensitive&lt;/code&gt; &lt;a href=&quot;https://ucum.org/ucum.html&quot;&gt;UCUM&lt;/a&gt; format.
      * &lt;p&gt;If no variant is applicable, the &lt;code&gt;UnitFormat&lt;/code&gt; matching the name only is returned.&lt;/p&gt; 
      * @param name
      *          the name of the format.
