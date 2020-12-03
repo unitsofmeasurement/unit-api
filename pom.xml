@@ -78,6 +78,7 @@
 		<maven.site.version>3.9.1</maven.site.version>
 		<maven.jar.version>3.2.0</maven.jar.version>
 		<maven.javadoc.version>3.2.0</maven.javadoc.version>
+		<maven.source.version>3.2.0</maven.source.version>
 		<maven.surefire.version>2.22.2</maven.surefire.version>
 		<maven.surefire-report.version>2.22.2</maven.surefire-report.version>
 		<jacoco.plugin.version>0.8.6</jacoco.plugin.version>
@@ -545,7 +546,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>3.2.0</version>
+				<version>${maven.source.version}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -1127,6 +1128,14 @@
 				<sonar.projectKey>${env.SONARCLOUD_PROJECT_KEY}</sonar.projectKey>
 				<sonar.login>${env.SONARCLOUD_LOGIN}</sonar.login>
 				<sonar.organization>${env.SONARCLOUD_ORG}</sonar.organization>
+				<sourceEncoding>UTF-8</sourceEncoding> <!-- in Maven 3. -->
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <project.reporting.outputEncoding>${sourceEncoding}</project.reporting.outputEncoding>
+                <jdkVersion>8</jdkVersion>
+                <jdkOptionalVersion>9</jdkOptionalVersion>
+                <project.build.javaVersion>${jdkVersion}</project.build.javaVersion>
+                <maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
+                <maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>				
 			</properties>
 		</profile>
 	</profiles>
