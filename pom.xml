@@ -67,7 +67,7 @@
 		<maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
 		<additionalparam>-Xdoclint:none</additionalparam>
-		<thisYear>2020</thisYear>
+		<thisYear>2021</thisYear>
 
 		<!-- Plugins -->
 		<felix.version>4.2.1</felix.version>
