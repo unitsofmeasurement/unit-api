@@ -22,9 +22,9 @@
 		</license>
 	</licenses>
 	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>9</version>
+		<groupId>tech.uom</groupId>
+		<artifactId>uom-parent</artifactId>
+		<version>2.1</version>
 	</parent>
 
 	<!-- Issue managements and mailing lists. -->
@@ -70,19 +70,9 @@
 		<thisYear>2021</thisYear>
 
 		<!-- Plugins -->
-		<felix.version>4.2.1</felix.version>
 		<github.maven.version>0.12</github.maven.version>
-		<github.global.server>github</github.global.server>
-		<maven.resources.version>3.1.0</maven.resources.version>
-		<maven.compile.version>3.8.1</maven.compile.version>
-		<maven.site.version>3.9.1</maven.site.version>
-		<maven.jar.version>3.2.0</maven.jar.version>
-		<maven.javadoc.version>3.2.0</maven.javadoc.version>
-		<maven.source.version>3.2.0</maven.source.version>
-		<maven.surefire.version>2.22.2</maven.surefire.version>
+		<github.global.server>github</github.global.server>	
 		<maven.surefire-report.version>2.22.2</maven.surefire-report.version>
-		<jacoco.plugin.version>0.8.6</jacoco.plugin.version>
-		<junit.jupiter.version>5.7.0</junit.jupiter.version>
 
 		<!--Exclude the files here -->
 		<sonar.exclusions>src/main/java/javax/measure/BinaryPrefix.java,src/main/java/javax/measure/MetricPrefix.java</sonar.exclusions>
@@ -356,7 +346,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>${maven.compile.version}</version>
+					<version>${maven.compiler.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -637,7 +627,7 @@
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
-				<version>${felix.version}</version>
+				<version>${felix.plugin.version}</version>
 				<extensions>true</extensions>
 			</plugin>
 
