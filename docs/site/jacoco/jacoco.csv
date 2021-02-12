@@ -1,16 +1,1 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-Units of Measurement API,javax.measure,MetricPrefix,0,347,0,0,0,49,0,26,0,26
-Units of Measurement API,javax.measure,BinaryPrefix,0,155,0,0,0,25,0,14,0,14
-Units of Measurement API,javax.measure,Quantity.Scale,0,24,0,0,0,2,0,1,0,1
-Units of Measurement API,javax.measure,MeasurementError,0,16,0,0,0,8,0,4,0,4
-Units of Measurement API,javax.measure,IncommensurableException,0,13,0,0,0,6,0,3,0,3
-Units of Measurement API,javax.measure,MeasurementException,0,16,0,0,0,8,0,4,0,4
-Units of Measurement API,javax.measure,Quantity,0,6,0,0,0,1,0,1,0,1
-Units of Measurement API,javax.measure,UnconvertibleException,0,13,0,0,0,6,0,3,0,3
-Units of Measurement API,javax.measure.spi,ServiceProvider,53,146,14,16,13,33,11,12,1,7
-Units of Measurement API,javax.measure.spi,SystemOfUnitsService,0,23,0,2,0,4,0,2,0,1
-Units of Measurement API,javax.measure.spi,FormatService.FormatType,0,24,0,0,0,2,0,1,0,1
-Units of Measurement API,javax.measure.spi,ServiceProvider.Selector,158,51,18,8,36,20,13,5,2,3
-Units of Measurement API,javax.measure.format,QuantityFormat,0,2,0,0,0,1,0,1,0,1
-Units of Measurement API,javax.measure.format,UnitFormat,2,0,0,0,1,0,1,0,1,0
-Units of Measurement API,javax.measure.format,MeasurementParseException,0,36,0,2,0,14,0,7,0,6
