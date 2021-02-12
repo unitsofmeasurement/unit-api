@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>javax.measure</groupId>
 	<artifactId>unit-api</artifactId>
-	<version>2.1.2-SNAPSHOT</version>
+	<version>2.1.2</version>
 	<name>Units of Measurement API</name>
 	<packaging>bundle</packaging>
 	<url>http://unitsofmeasurement.github.io/unit-api/</url>
