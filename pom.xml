@@ -73,7 +73,7 @@
 		<github.maven.version>0.12</github.maven.version>
 		<github.global.server>github</github.global.server>	
 		<maven.surefire-report.version>2.22.2</maven.surefire-report.version>
-
+        <junit.jupiter.version>5.7.1</junit.jupiter.version>
 		<!--Exclude the files here -->
 		<sonar.exclusions>src/main/java/javax/measure/BinaryPrefix.java,src/main/java/javax/measure/MetricPrefix.java</sonar.exclusions>
 	</properties>
@@ -466,14 +466,12 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${maven.surefire.version}</version>
 			</plugin>
 
 			<!-- Coverage -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>${jacoco.plugin.version}</version>
+				<artifactId>jacoco-maven-plugin</artifactId>				
 				<configuration>
 					<excludes>
 						<exclude>META-INF/versions/**</exclude>
@@ -536,7 +534,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>${maven.source.version}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -551,7 +548,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>${maven.javadoc.version}</version>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -561,6 +557,12 @@
 					</execution>
 				</executions>
 				<configuration>
+				    <!-- Workaround for https://github.com/unitsofmeasurement/unit-api/issues/220 -->
+                    <source>8</source>
+                </configuration>                
+				<!-- 
+				<configuration>
+				    <sourcepath>src/main/java;src/main/jdk9</sourcepath>
 					<detectLinks>true</detectLinks>
 					<keywords>true</keywords>
 					<linksource>true</linksource>
@@ -591,13 +593,13 @@
                         <tag><name>see</name></tag>
                     </tags>
 				</configuration>
+				 -->
 			</plugin>
 
 			<!-- JAR packaging -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven.jar.version}</version>
 				<configuration>
 					<archive>
 						<manifest>
@@ -627,7 +629,6 @@
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
-				<version>${felix.plugin.version}</version>
 				<extensions>true</extensions>
 			</plugin>
 
@@ -635,7 +636,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>${maven.resources.version}</version>
 				<configuration>
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
@@ -709,7 +709,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
-				<version>${maven.site.version}</version>
 			</plugin>
 		</plugins>
 	</build>
