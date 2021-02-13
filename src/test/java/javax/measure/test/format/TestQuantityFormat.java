@@ -44,7 +44,7 @@ import javax.measure.test.quantity.TestQuantity;
  * </p>
  *
  * @author <a href="mailto:Quantitys@catmedia.us">Werner Keil</a>
- * @version 0.2
+ * @version 1.0
  *
  */
 abstract class TestQuantityFormat implements QuantityFormat {

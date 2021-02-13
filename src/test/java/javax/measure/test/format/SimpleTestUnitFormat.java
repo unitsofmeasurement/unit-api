@@ -40,7 +40,7 @@ import javax.measure.format.UnitFormat;
  * Provides a simple interface for formatting and parsing {@linkplain Unit units}.
  *
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 0.7
+ * @version 1.0, February 13, 2021
  */
 public class SimpleTestUnitFormat extends TestUnitFormat {
     private final Map<String, String> symbolMap = new HashMap<>();
@@ -87,9 +87,5 @@ public class SimpleTestUnitFormat extends TestUnitFormat {
     }
 
     public void label(Unit<?> unit, String label) {
-    }
-
-    public boolean isLocaleSensitive() {
-        return false;
     }
 }
