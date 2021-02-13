@@ -52,7 +52,7 @@ public class QuantityFormatTest {
     @BeforeEach
     public void init() {
         sut = new DistanceQuantity(10, DistanceUnit.m);
-        format = DefaultTestQuantityFormat.getInstance();
+        format = SimpleTestQuantityFormat.getInstance();
     }
 
     @Test

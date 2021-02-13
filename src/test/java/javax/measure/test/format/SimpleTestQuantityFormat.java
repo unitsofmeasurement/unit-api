@@ -41,10 +41,11 @@ import javax.measure.test.TestUnit;
 import javax.measure.test.quantity.TestQuantities;
 
 /**
- * Holds standard implementation
+ * Holds a simple standard implementation
+ * @version 1.0
  */
 @SuppressWarnings("rawtypes")
-class DefaultTestQuantityFormat extends TestQuantityFormat {
+class SimpleTestQuantityFormat extends TestQuantityFormat {
 
     /**
      * Returns the Quantity format for the default locale.
@@ -52,7 +53,7 @@ class DefaultTestQuantityFormat extends TestQuantityFormat {
      * @return the locale format.
      */
     public static QuantityFormat getInstance() {
-        return new DefaultTestQuantityFormat();
+        return new SimpleTestQuantityFormat();
     }
 
     @Override
