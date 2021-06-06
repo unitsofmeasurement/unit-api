@@ -35,16 +35,17 @@ import javax.measure.format.QuantityFormat;
 import javax.measure.format.UnitFormat;
 
 /**
- * This interface represent the service to obtain instances of {@link UnitFormat} and {@link QuantityFormat}.
+ * This interface represents the service to obtain instances of {@link UnitFormat} and {@link QuantityFormat}.
  *
  * @author &lt;a href=&quot;mailto:werner@uom.technology&quot;&gt;Werner Keil&lt;/a&gt;
- * @version 2.1.1, December 3, 2020
+ * @version 2.2, June 6, 2021
  * @since 2.0
  */
 public interface FormatService {
 
-<span class="fc" id="L46">    public static enum FormatType {</span>
-<span class="fc" id="L47">        UNIT_FORMAT, QUANTITY_FORMAT</span>
+	/** The type of format, either a {@link UnitFormat} or {@link QuantityFormat} */
+<span class="fc" id="L47">    public static enum FormatType {</span>
+<span class="fc" id="L48">        UNIT_FORMAT, QUANTITY_FORMAT</span>
     }
 
     /**
@@ -113,4 +114,4 @@ public interface FormatService {
      */
     Set&lt;String&gt; getAvailableFormatNames(FormatType type);
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

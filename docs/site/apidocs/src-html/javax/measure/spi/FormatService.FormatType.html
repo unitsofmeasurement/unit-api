@@ -47,84 +47,85 @@
 <span class="sourceLineNo">035</span><a id="line.35">import javax.measure.format.UnitFormat;</a>
 <span class="sourceLineNo">036</span><a id="line.36"></a>
 <span class="sourceLineNo">037</span><a id="line.37">/**</a>
-<span class="sourceLineNo">038</span><a id="line.38"> * This interface represent the service to obtain instances of {@link UnitFormat} and {@link QuantityFormat}.</a>
+<span class="sourceLineNo">038</span><a id="line.38"> * This interface represents the service to obtain instances of {@link UnitFormat} and {@link QuantityFormat}.</a>
 <span class="sourceLineNo">039</span><a id="line.39"> *</a>
 <span class="sourceLineNo">040</span><a id="line.40"> * @author &lt;a href="mailto:werner@uom.technology"&gt;Werner Keil&lt;/a&gt;</a>
-<span class="sourceLineNo">041</span><a id="line.41"> * @version 2.1.1, December 3, 2020</a>
+<span class="sourceLineNo">041</span><a id="line.41"> * @version 2.2, June 6, 2021</a>
 <span class="sourceLineNo">042</span><a id="line.42"> * @since 2.0</a>
 <span class="sourceLineNo">043</span><a id="line.43"> */</a>
 <span class="sourceLineNo">044</span><a id="line.44">public interface FormatService {</a>
 <span class="sourceLineNo">045</span><a id="line.45"></a>
-<span class="sourceLineNo">046</span><a id="line.46">    public static enum FormatType {</a>
-<span class="sourceLineNo">047</span><a id="line.47">        UNIT_FORMAT, QUANTITY_FORMAT</a>
-<span class="sourceLineNo">048</span><a id="line.48">    }</a>
-<span class="sourceLineNo">049</span><a id="line.49"></a>
-<span class="sourceLineNo">050</span><a id="line.50">    /**</a>
-<span class="sourceLineNo">051</span><a id="line.51">     * Returns the default quantity format.</a>
-<span class="sourceLineNo">052</span><a id="line.52">     *</a>
-<span class="sourceLineNo">053</span><a id="line.53">     * It is up to implementations what to consider a suitable default. For some (locale-sensitive) implementations it may be a quantity format based on</a>
-<span class="sourceLineNo">054</span><a id="line.54">     * {@code Locale.current()} while others may return {@code getQuantityFormat("Simple")} or {@code getQuantityFormat("ISO")}.</a>
-<span class="sourceLineNo">055</span><a id="line.55">     *</a>
-<span class="sourceLineNo">056</span><a id="line.56">     * @return the default {@link QuantityFormat} implementation.</a>
-<span class="sourceLineNo">057</span><a id="line.57">     */</a>
-<span class="sourceLineNo">058</span><a id="line.58">    QuantityFormat getQuantityFormat();</a>
-<span class="sourceLineNo">059</span><a id="line.59"></a>
-<span class="sourceLineNo">060</span><a id="line.60">    /**</a>
-<span class="sourceLineNo">061</span><a id="line.61">     * Returns the quantity format having the specified name or {@code null} if none.</a>
-<span class="sourceLineNo">062</span><a id="line.62">     *</a>
-<span class="sourceLineNo">063</span><a id="line.63">     * For example (@code getQuantityFormat("Simple")} to return the simple {@link QuantityFormat} implementation.</a>
-<span class="sourceLineNo">064</span><a id="line.64">     *</a>
-<span class="sourceLineNo">065</span><a id="line.65">     * @param name</a>
-<span class="sourceLineNo">066</span><a id="line.66">     *          the name of the format.</a>
-<span class="sourceLineNo">067</span><a id="line.67">     * @return the corresponding quantity format.</a>
-<span class="sourceLineNo">068</span><a id="line.68">     */</a>
-<span class="sourceLineNo">069</span><a id="line.69">    QuantityFormat getQuantityFormat(String name);</a>
-<span class="sourceLineNo">070</span><a id="line.70"></a>
-<span class="sourceLineNo">071</span><a id="line.71">    /**</a>
-<span class="sourceLineNo">072</span><a id="line.72">     * Returns the default unit format.</a>
-<span class="sourceLineNo">073</span><a id="line.73">     *</a>
-<span class="sourceLineNo">074</span><a id="line.74">     * It is up to implementations what to consider a suitable default. For some (locale-sensitive) implementations it may be a unit format based on</a>
-<span class="sourceLineNo">075</span><a id="line.75">     * {@code Locale.current()} while others may return {@code getUnitFormat("Simple")} or {@code getUnitFormat("ISO")}.</a>
-<span class="sourceLineNo">076</span><a id="line.76">     *</a>
-<span class="sourceLineNo">077</span><a id="line.77">     * @return the default {@link UnitFormat} implementation.</a>
-<span class="sourceLineNo">078</span><a id="line.78">     */</a>
-<span class="sourceLineNo">079</span><a id="line.79">    UnitFormat getUnitFormat();</a>
-<span class="sourceLineNo">080</span><a id="line.80"></a>
-<span class="sourceLineNo">081</span><a id="line.81">    /**</a>
-<span class="sourceLineNo">082</span><a id="line.82">     * Returns the unit format having the specified name or {@code null} if none.</a>
-<span class="sourceLineNo">083</span><a id="line.83">     *</a>
-<span class="sourceLineNo">084</span><a id="line.84">     * For example {@code getUnitFormat("Simple")} to return a simple {@link UnitFormat} implementation.</a>
-<span class="sourceLineNo">085</span><a id="line.85">     *</a>
-<span class="sourceLineNo">086</span><a id="line.86">     * @param name</a>
-<span class="sourceLineNo">087</span><a id="line.87">     *          the name of the format.</a>
-<span class="sourceLineNo">088</span><a id="line.88">     * @return the corresponding unit format.</a>
-<span class="sourceLineNo">089</span><a id="line.89">     */</a>
-<span class="sourceLineNo">090</span><a id="line.90">    UnitFormat getUnitFormat(String name);</a>
-<span class="sourceLineNo">091</span><a id="line.91">    </a>
-<span class="sourceLineNo">092</span><a id="line.92">    /**</a>
-<span class="sourceLineNo">093</span><a id="line.93">     * Returns the unit format having the specified name or {@code null} if none.</a>
-<span class="sourceLineNo">094</span><a id="line.94">     *</a>
-<span class="sourceLineNo">095</span><a id="line.95">     * For example {@code getUnitFormat("Simple")} to return a simple {@link UnitFormat} implementation.&lt;br&gt;</a>
-<span class="sourceLineNo">096</span><a id="line.96">     * The variant is an arbitrary value to allow a variation of a {@link UnitFormat}, </a>
-<span class="sourceLineNo">097</span><a id="line.97">     * for example &lt;code&gt;UTF&lt;/code&gt; vs. &lt;code&gt;ASCII&lt;/code&gt; encoding of the simple &lt;code&gt;UnitFormat&lt;/code&gt; </a>
-<span class="sourceLineNo">098</span><a id="line.98">     * or &lt;code&gt;case sensitive&lt;/code&gt; vs. &lt;code&gt;case insensitive&lt;/code&gt; &lt;a href="https://ucum.org/ucum.html"&gt;UCUM&lt;/a&gt; format.</a>
-<span class="sourceLineNo">099</span><a id="line.99">     * &lt;p&gt;If no variant is applicable, the &lt;code&gt;UnitFormat&lt;/code&gt; matching the name only is returned.&lt;/p&gt; </a>
-<span class="sourceLineNo">100</span><a id="line.100">     * @param name</a>
-<span class="sourceLineNo">101</span><a id="line.101">     *          the name of the format.</a>
-<span class="sourceLineNo">102</span><a id="line.102">     * @param variant any arbitrary value used to indicate a variation of a &lt;code&gt;UnitFormat&lt;/code&gt;.</a>
-<span class="sourceLineNo">103</span><a id="line.103">     * @return the corresponding unit format.</a>
-<span class="sourceLineNo">104</span><a id="line.104">     */</a>
-<span class="sourceLineNo">105</span><a id="line.105">    UnitFormat getUnitFormat(String name, String variant);</a>
-<span class="sourceLineNo">106</span><a id="line.106">    </a>
-<span class="sourceLineNo">107</span><a id="line.107">    /**</a>
-<span class="sourceLineNo">108</span><a id="line.108">     * Gets a list with available format names of a given type for this format service.</a>
-<span class="sourceLineNo">109</span><a id="line.109">     *</a>
-<span class="sourceLineNo">110</span><a id="line.110">     * @param type</a>
-<span class="sourceLineNo">111</span><a id="line.111">     *          the {@link FormatType}</a>
-<span class="sourceLineNo">112</span><a id="line.112">     * @return list of available formats, never null.</a>
-<span class="sourceLineNo">113</span><a id="line.113">     */</a>
-<span class="sourceLineNo">114</span><a id="line.114">    Set&lt;String&gt; getAvailableFormatNames(FormatType type);</a>
-<span class="sourceLineNo">115</span><a id="line.115">}</a>
+<span class="sourceLineNo">046</span><a id="line.46">        /** The type of format, either a {@link UnitFormat} or {@link QuantityFormat} */</a>
+<span class="sourceLineNo">047</span><a id="line.47">    public static enum FormatType {</a>
+<span class="sourceLineNo">048</span><a id="line.48">        UNIT_FORMAT, QUANTITY_FORMAT</a>
+<span class="sourceLineNo">049</span><a id="line.49">    }</a>
+<span class="sourceLineNo">050</span><a id="line.50"></a>
+<span class="sourceLineNo">051</span><a id="line.51">    /**</a>
+<span class="sourceLineNo">052</span><a id="line.52">     * Returns the default quantity format.</a>
+<span class="sourceLineNo">053</span><a id="line.53">     *</a>
+<span class="sourceLineNo">054</span><a id="line.54">     * It is up to implementations what to consider a suitable default. For some (locale-sensitive) implementations it may be a quantity format based on</a>
+<span class="sourceLineNo">055</span><a id="line.55">     * {@code Locale.current()} while others may return {@code getQuantityFormat("Simple")} or {@code getQuantityFormat("ISO")}.</a>
+<span class="sourceLineNo">056</span><a id="line.56">     *</a>
+<span class="sourceLineNo">057</span><a id="line.57">     * @return the default {@link QuantityFormat} implementation.</a>
+<span class="sourceLineNo">058</span><a id="line.58">     */</a>
+<span class="sourceLineNo">059</span><a id="line.59">    QuantityFormat getQuantityFormat();</a>
+<span class="sourceLineNo">060</span><a id="line.60"></a>
+<span class="sourceLineNo">061</span><a id="line.61">    /**</a>
+<span class="sourceLineNo">062</span><a id="line.62">     * Returns the quantity format having the specified name or {@code null} if none.</a>
+<span class="sourceLineNo">063</span><a id="line.63">     *</a>
+<span class="sourceLineNo">064</span><a id="line.64">     * For example (@code getQuantityFormat("Simple")} to return the simple {@link QuantityFormat} implementation.</a>
+<span class="sourceLineNo">065</span><a id="line.65">     *</a>
+<span class="sourceLineNo">066</span><a id="line.66">     * @param name</a>
+<span class="sourceLineNo">067</span><a id="line.67">     *          the name of the format.</a>
+<span class="sourceLineNo">068</span><a id="line.68">     * @return the corresponding quantity format.</a>
+<span class="sourceLineNo">069</span><a id="line.69">     */</a>
+<span class="sourceLineNo">070</span><a id="line.70">    QuantityFormat getQuantityFormat(String name);</a>
+<span class="sourceLineNo">071</span><a id="line.71"></a>
+<span class="sourceLineNo">072</span><a id="line.72">    /**</a>
+<span class="sourceLineNo">073</span><a id="line.73">     * Returns the default unit format.</a>
+<span class="sourceLineNo">074</span><a id="line.74">     *</a>
+<span class="sourceLineNo">075</span><a id="line.75">     * It is up to implementations what to consider a suitable default. For some (locale-sensitive) implementations it may be a unit format based on</a>
+<span class="sourceLineNo">076</span><a id="line.76">     * {@code Locale.current()} while others may return {@code getUnitFormat("Simple")} or {@code getUnitFormat("ISO")}.</a>
+<span class="sourceLineNo">077</span><a id="line.77">     *</a>
+<span class="sourceLineNo">078</span><a id="line.78">     * @return the default {@link UnitFormat} implementation.</a>
+<span class="sourceLineNo">079</span><a id="line.79">     */</a>
+<span class="sourceLineNo">080</span><a id="line.80">    UnitFormat getUnitFormat();</a>
+<span class="sourceLineNo">081</span><a id="line.81"></a>
+<span class="sourceLineNo">082</span><a id="line.82">    /**</a>
+<span class="sourceLineNo">083</span><a id="line.83">     * Returns the unit format having the specified name or {@code null} if none.</a>
+<span class="sourceLineNo">084</span><a id="line.84">     *</a>
+<span class="sourceLineNo">085</span><a id="line.85">     * For example {@code getUnitFormat("Simple")} to return a simple {@link UnitFormat} implementation.</a>
+<span class="sourceLineNo">086</span><a id="line.86">     *</a>
+<span class="sourceLineNo">087</span><a id="line.87">     * @param name</a>
+<span class="sourceLineNo">088</span><a id="line.88">     *          the name of the format.</a>
+<span class="sourceLineNo">089</span><a id="line.89">     * @return the corresponding unit format.</a>
+<span class="sourceLineNo">090</span><a id="line.90">     */</a>
+<span class="sourceLineNo">091</span><a id="line.91">    UnitFormat getUnitFormat(String name);</a>
+<span class="sourceLineNo">092</span><a id="line.92">    </a>
+<span class="sourceLineNo">093</span><a id="line.93">    /**</a>
+<span class="sourceLineNo">094</span><a id="line.94">     * Returns the unit format having the specified name or {@code null} if none.</a>
+<span class="sourceLineNo">095</span><a id="line.95">     *</a>
+<span class="sourceLineNo">096</span><a id="line.96">     * For example {@code getUnitFormat("Simple")} to return a simple {@link UnitFormat} implementation.&lt;br&gt;</a>
+<span class="sourceLineNo">097</span><a id="line.97">     * The variant is an arbitrary value to allow a variation of a {@link UnitFormat}, </a>
+<span class="sourceLineNo">098</span><a id="line.98">     * for example &lt;code&gt;UTF&lt;/code&gt; vs. &lt;code&gt;ASCII&lt;/code&gt; encoding of the simple &lt;code&gt;UnitFormat&lt;/code&gt; </a>
+<span class="sourceLineNo">099</span><a id="line.99">     * or &lt;code&gt;case sensitive&lt;/code&gt; vs. &lt;code&gt;case insensitive&lt;/code&gt; &lt;a href="https://ucum.org/ucum.html"&gt;UCUM&lt;/a&gt; format.</a>
+<span class="sourceLineNo">100</span><a id="line.100">     * &lt;p&gt;If no variant is applicable, the &lt;code&gt;UnitFormat&lt;/code&gt; matching the name only is returned.&lt;/p&gt; </a>
+<span class="sourceLineNo">101</span><a id="line.101">     * @param name</a>
+<span class="sourceLineNo">102</span><a id="line.102">     *          the name of the format.</a>
+<span class="sourceLineNo">103</span><a id="line.103">     * @param variant any arbitrary value used to indicate a variation of a &lt;code&gt;UnitFormat&lt;/code&gt;.</a>
+<span class="sourceLineNo">104</span><a id="line.104">     * @return the corresponding unit format.</a>
+<span class="sourceLineNo">105</span><a id="line.105">     */</a>
+<span class="sourceLineNo">106</span><a id="line.106">    UnitFormat getUnitFormat(String name, String variant);</a>
+<span class="sourceLineNo">107</span><a id="line.107">    </a>
+<span class="sourceLineNo">108</span><a id="line.108">    /**</a>
+<span class="sourceLineNo">109</span><a id="line.109">     * Gets a list with available format names of a given type for this format service.</a>
+<span class="sourceLineNo">110</span><a id="line.110">     *</a>
+<span class="sourceLineNo">111</span><a id="line.111">     * @param type</a>
+<span class="sourceLineNo">112</span><a id="line.112">     *          the {@link FormatType}</a>
+<span class="sourceLineNo">113</span><a id="line.113">     * @return list of available formats, never null.</a>
+<span class="sourceLineNo">114</span><a id="line.114">     */</a>
+<span class="sourceLineNo">115</span><a id="line.115">    Set&lt;String&gt; getAvailableFormatNames(FormatType type);</a>
+<span class="sourceLineNo">116</span><a id="line.116">}</a>
 
 
 
