@@ -630,6 +630,11 @@
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
 				<extensions>true</extensions>
+				<configuration>
+                    <instructions>
+                        <Import-Package>!jakarta.annotation,!jakarta.inject,!javax.annotation,!javax.inject,*</Import-Package>
+                    </instructions>
+                </configuration>
 			</plugin>
 
 			<!-- Resources -->
