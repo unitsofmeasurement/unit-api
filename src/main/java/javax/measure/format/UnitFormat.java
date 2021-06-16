@@ -48,7 +48,7 @@ import javax.measure.Unit;
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  *
- * @version 2.0, July 3, 2020
+ * @version 2.1, June 16, 2021
  * @since 1.0
  *
  * @see Unit
@@ -77,9 +77,9 @@ public interface UnitFormat {
     String format(Unit<?> unit);
 
     /**
-     * Attaches a system-wide label to the specified unit.
+     * Attaches a system-wide label to the specified {@link Unit}.
      * <p>
-     * If the specified label is already associated to a unit the previous association can be discarded or ignored. Depending on the
+     * This method overrides the previous unit's label (e.g. label from unit database or unit system) as units may only have one label. Depending on the
      * {@link UnitFormat} implementation, this call may be ignored if the particular unit already has a label.
      * </p>
      * If a {@link UnitFormat} implementation is explicitly <b>immutable</b>, similar to e.g. the result of <code>Collections.unmodifiableList()</code>,
