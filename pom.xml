@@ -74,6 +74,7 @@
 		<github.global.server>github</github.global.server>	
 		<maven.surefire-report.version>2.22.2</maven.surefire-report.version>
         <junit.jupiter.version>5.7.2</junit.jupiter.version>
+        <spotbugs.maven.version>4.0.4</spotbugs.maven.version>
 		<!--Exclude the files here -->
 		<sonar.exclusions>src/main/java/javax/measure/BinaryPrefix.java,src/main/java/javax/measure/MetricPrefix.java</sonar.exclusions>
 	</properties>
@@ -782,7 +783,7 @@
 			<plugin>
 				<groupId>com.github.spotbugs</groupId>
 				<artifactId>spotbugs-maven-plugin</artifactId>
-				<version>4.0.4</version>
+				<version>${spotbugs.maven.version}</version>
 			</plugin>
 		</plugins>
 	</reporting>
