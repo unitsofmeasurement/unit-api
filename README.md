@@ -3,7 +3,7 @@ unit-api
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/javax.measure/unit-api/badge.svg)](https://maven-badges.herokuapp.com/maven-central/javax.measure/unit-api)
 [![javadoc](https://javadoc.io/badge2/javax.measure/unit-api/2.1.2/javadoc.svg)](https://javadoc.io/doc/javax.measure/unit-api/2.1.2)
 [![CircleCI](https://circleci.com/gh/unitsofmeasurement/unit-api/tree/master.svg?style=svg)](https://circleci.com/gh/unitsofmeasurement/unit-api/tree/master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/84af6bb532464d4ba65e17625ecdd0d6)](https://www.codacy.com/app/unitsofmeasurement/unit-api?utm_source=github.com&utm_medium=referral&utm_content=unitsofmeasurement/unit-api&utm_campaign=badger)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/598a357e2a584ce5bb36eebf23f28e23)](https://www.codacy.com/gh/unitsofmeasurement/unit-api/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=unitsofmeasurement/unit-api&amp;utm_campaign=Badge_Grade)
 [![Coverage Status](https://coveralls.io/repos/github/unitsofmeasurement/unit-api/badge.svg)](https://coveralls.io/github/unitsofmeasurement/unit-api)
 ![stability-frozen](https://img.shields.io/badge/stability-frozen-brightgreen.svg)
 [![License](http://img.shields.io/badge/license-BSD3-blue.svg?style=flat-square)](http://opensource.org/licenses/BSD-3-Clause)
