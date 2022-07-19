@@ -39,7 +39,7 @@ import javax.measure.Unit;
  *
  * <dl>
  * <dt><span class="strong"><a id="synchronization">Synchronization</a></span></dt>
- * </dl> 
+ * </dl>
  * <p>
  * Instances of this class are not required to be thread-safe. It is recommended to use separate format instances for each thread. If multiple threads
  * access a format concurrently, it must be synchronized externally.
@@ -124,11 +124,11 @@ public interface UnitFormat {
      * @param pos
      *            a ParsePosition object holding the current parsing index and error parsing index information as described above.
      * @return the unit parsed from the specified character sub-sequence.
-     * @throws IllegalArgumentException
+     * @throws MeasurementParseException
      *             if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
      * @since 2.0
      */
-    Unit<?> parse(CharSequence csq, ParsePosition pos) throws IllegalArgumentException, MeasurementParseException;
+    Unit<?> parse(CharSequence csq, ParsePosition pos) throws MeasurementParseException;
 
     /**
      * Parses the text into an instance of {@link Unit}.

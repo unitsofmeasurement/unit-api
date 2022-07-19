@@ -39,7 +39,7 @@ import javax.measure.Quantity;
  *
  * <dl>
  * <dt><span class="strong"><a id="synchronization">Synchronization</a></span></dt>
- * </dl> 
+ * </dl>
  * Instances of this class are not required to be thread-safe. It is recommended to use separate format instances for each thread. If multiple threads
  * access a format concurrently, it must be synchronized externally.
  *
@@ -84,18 +84,22 @@ public interface QuantityFormat {
      * @param pos
      *          a ParsePosition object holding the current parsing index and error parsing index information as described above.
      * @return the quantity parsed from the specified character sub-sequence.
-     * @throws IllegalArgumentException
+     * @throws MeasurementParseException
      *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
      */
-    public Quantity<?> parse(CharSequence csq, ParsePosition pos) throws IllegalArgumentException, MeasurementParseException;
+    public Quantity<?> parse(CharSequence csq, ParsePosition pos) throws MeasurementParseException;
 
     /**
-     * Parses a portion of the specified {@code CharSequence} from the specified position to produce a {@link Quantity}.
+     * Parses the specified {@code CharSequence} to produce a {@link Quantity}.
+     * <p>
+     * The parse must complete normally and parse the entire text. If the parse completes without reading the entire length of the text, an exception
+     * is thrown. If any other problem occurs during parsing, an exception is thrown.
+     * <p>
      *
      * @param csq
      *          the {@code CharSequence} to parse.
      * @return the quantity parsed from the specified character sub-sequence.
-     * @throws IllegalArgumentException
+     * @throws MeasurementParseException
      *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
      */
     public Quantity<?> parse(CharSequence csq) throws MeasurementParseException;
