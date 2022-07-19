@@ -151,21 +151,26 @@ public interface Unit<Q extends Quantity<Q>> {
      * @see #getDimension()
      */
     boolean isCompatible(Unit<?> that);
-    
-	/**
-	 * Compares two instances of {@code Unit<Q>}, doing the conversion of unit if necessary.
-	 * Unlike {@link #isCompatible(Unit)} an equivalence check requires both units to be strictly type-compatible, 
-	 * because it makes no sense to compare e.g. {@code gram} and {@code mm} for equivalence. While the compatibility check also works across different quantity types.     
-	 *
-	 * @param that the {@code Unit<Q>} to be compared with this instance.
-	 * @return {@code true} if {@code that \u2261 this}.
-	 * @throws NullPointerException if the unit is null
-	 * 
-	 * @see <a href= "https://dictionary.cambridge.org/dictionary/english/equivalent">Cambridge Dictionary: equivalent</a>
-	 * @see <a href= "https://www.lexico.com/en/definition/equivalent">LEXICO: equivalent</a>
-	 * @since 2.1
-	 */
-	boolean isEquivalentTo(Unit<Q> that);
+
+    /**
+     * Indicates if this unit represents the same quantity than the given unit, ignoring name and symbols.
+     * Two units are equivalent if the {@linkplain #getConverterTo(Unit) conversion} between them is identity.
+     *
+     * <p>
+     * Unlike {@link #isCompatible(Unit)} an equivalence check requires both units to be strictly type-compatible,
+     * because it makes no sense to compare e.g. {@code gram} and {@code mm} for equivalence.
+     * By contrast, the compatibility check can works across different quantity types.
+     * </p>
+     *
+     * @param that the {@code Unit<Q>} to be compared with this instance.
+     * @return {@code true} if {@code that \u2261 this}.
+     * @throws NullPointerException if the unit is null
+     *
+     * @see <a href= "https://dictionary.cambridge.org/dictionary/english/equivalent">Cambridge Dictionary: equivalent</a>
+     * @see <a href= "https://www.lexico.com/en/definition/equivalent">LEXICO: equivalent</a>
+     * @since 2.1
+     */
+    boolean isEquivalentTo(Unit<Q> that);
 
     /**
      * Casts this unit to a parameterized unit of specified nature or throw a {@code ClassCastException} if the dimension of the specified quantity and
@@ -265,7 +270,7 @@ public interface Unit<Q extends Quantity<Q>> {
      * @since 2.0
      */
     Unit<Q> shift(Number offset);
-    
+
     /**
      * Returns the result of setting the origin of the scale of measurement to the given value. The returned unit is convertible with all units that are
      * convertible with this unit. For example the following code:<br>
@@ -298,7 +303,7 @@ public interface Unit<Q extends Quantity<Q>> {
      * @since 2.0
      */
     Unit<Q> multiply(Number multiplier);
-    
+
     /**
      * Returns the result of multiplying this unit by the specified factor. For example:<br>
      *
@@ -343,7 +348,7 @@ public interface Unit<Q extends Quantity<Q>> {
      * @since 2.0
      */
     Unit<Q> divide(Number divisor);
-    
+
     /**
      * Returns the result of dividing this unit by an approximate divisor. For example:<br>
      *
