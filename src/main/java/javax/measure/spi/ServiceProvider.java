@@ -156,16 +156,28 @@ public abstract class ServiceProvider {
         private final String toSearch;
 
         /**
-         * The {@code value()} method in the {@value #NAMED_ANNOTATION} and {@value #PRIORITY_ANNOTATION} annotations,
-         * or {@code null} if those classes are not on the classpath.
+         * The {@code value()} method in the {@value #NAMED_ANNOTATION} annotation,
+         * or {@code null} if that class is not on the classpath.
          */
-        private final Method nameGetter, priorityGetter;
+        private final Method nameGetter;
 
         /**
-         * The {@code value()} method in the {@value #LEGACY_NAMED_ANNOTATION} and {@value #LEGACY_PRIORITY_ANNOTATION} annotations,
-         * or {@code null} if those classes are not on the classpath.
+         * The {@code value()} method in the {@value #PRIORITY_ANNOTATION} annotation,
+         * or {@code null} if that class is not on the classpath.
          */
-        private final Method legacyNameGetter, legacyPriorityGetter;
+        private final Method priorityGetter;
+
+        /**
+         * The {@code value()} method in the {@value #LEGACY_NAMED_ANNOTATION} annotation,
+         * or {@code null} if that class is not on the classpath.
+         */
+        private final Method legacyNameGetter;
+
+        /**
+         * The {@code value()} method in the {@value #LEGACY_PRIORITY_ANNOTATION} annotation,
+         * or {@code null} if that class is not on the classpath.
+         */
+        private final Method legacyPriorityGetter;
 
         /**
          * Creates a new filter and comparator for a stream of service providers.
