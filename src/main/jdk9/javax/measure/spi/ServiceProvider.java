@@ -43,7 +43,6 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 import javax.measure.Quantity;
 import javax.measure.format.QuantityFormat;
 import javax.measure.format.UnitFormat;
@@ -147,7 +146,9 @@ public abstract class ServiceProvider {
      * but the filter task shall be used only if the name to search is non-null.
      * The comparator is used in all cases, for sorting providers with higher priority first.
      */
-    private static final class Selector implements Predicate<ServiceProvider>, Comparator<ServiceProvider> {
+    private static final class Selector implements Predicate<ServiceLoader.Provider<ServiceProvider>>,
+            Comparator<ServiceLoader.Provider<ServiceProvider>>
+    {
         /**
          * The name of the provider to search, or {@code null} if no filtering by name is applied.
          */
@@ -237,7 +238,6 @@ public abstract class ServiceProvider {
          * This method looks for the {@value #NAMED_ANNOTATION} and {@value #LEGACY_NAMED_ANNOTATION}
          * annotations in that order, and if none are found fallbacks on {@link ServiceProvider#toString()}.
          */
-        @Override
         public boolean test(final ServiceProvider provider) {
             Object value = getValue(provider.getClass(), nameGetter, legacyNameGetter);
             if (value == null) {
@@ -247,16 +247,29 @@ public abstract class ServiceProvider {
         }
 
         /**
+         * Same test than {@link #test(ServiceProvider)} but applied on a service provider with deferred instantiation.
+         */
+        @Override
+        public boolean test(final ServiceLoader.Provider<ServiceProvider> provider) {
+            Object value = getValue(provider.type(), nameGetter, legacyNameGetter);
+            if (value == null) {
+                value = provider.get().toString();
+            }
+            return toSearch.equals(value);
+        }
+
+
+        /**
          * Returns the priority of the given service provider.
          * This method looks for the {@value #PRIORITY_ANNOTATION} and {@value #LEGACY_PRIORITY_ANNOTATION}
          * annotations in that order, and if none are found falls back on {@link ServiceProvider#getPriority()}.
          */
-        private int priority(final ServiceProvider provider) {
-            Object value = getValue(provider.getClass(), priorityGetter, legacyPriorityGetter);
+        private int priority(final ServiceLoader.Provider<ServiceProvider> provider) {
+            Object value = getValue(provider.type(), priorityGetter, legacyPriorityGetter);
             if (value != null) {
                 return (Integer) value;
             }
-            return provider.getPriority();
+            return provider.get().getPriority();
         }
 
         /**
@@ -264,7 +277,7 @@ public abstract class ServiceProvider {
          * The priority of each provider is determined as documented by {@link ServiceProvider#getPriority()}.
          */
         @Override
-        public int compare(final ServiceProvider p1, final ServiceProvider p2) {
+        public int compare(final ServiceLoader.Provider<ServiceProvider> p1, final ServiceLoader.Provider<ServiceProvider> p2) {
             return Integer.compare(priority(p2), priority(p1)); // reverse order, higher number first.
         }
 
@@ -274,11 +287,11 @@ public abstract class ServiceProvider {
          * which itself depends on which thread is invoking this method.
          */
         private Stream<ServiceProvider> stream() {
-            Stream<ServiceProvider> stream = StreamSupport.stream(ServiceLoader.load(ServiceProvider.class).spliterator(), false);
+            Stream<ServiceLoader.Provider<ServiceProvider>> stream = ServiceLoader.load(ServiceProvider.class).stream();
             if (toSearch != null) {
                 stream = stream.filter(this);
             }
-            return stream.sorted(this);
+            return stream.sorted(this).map(ServiceLoader.Provider::get);
         }
     }
 
