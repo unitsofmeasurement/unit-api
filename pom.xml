@@ -70,10 +70,11 @@
 
 		<!-- Plugins -->
 		<github.maven.version>0.12</github.maven.version>
-		<github.global.server>github</github.global.server>	
+		<github.global.server>github</github.global.server>
 		<license-maven.version>4.1</license-maven.version>
 		<maven.surefire-report.version>2.22.2</maven.surefire-report.version>
         <junit.jupiter.version>5.7.2</junit.jupiter.version>
+        <jakarta.inject.version>2.0.1</jakarta.inject.version>
         <spotbugs-maven.version>4.0.4</spotbugs-maven.version>
 		<!--Exclude the files here -->
 		<sonar.exclusions>src/main/java/javax/measure/BinaryPrefix.java,src/main/java/javax/measure/MetricPrefix.java</sonar.exclusions>
@@ -376,7 +377,7 @@
 					<version>0.5.2</version>
 				</plugin>
 
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
+				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -475,7 +476,7 @@
 			<!-- Coverage -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>				
+				<artifactId>jacoco-maven-plugin</artifactId>
 				<configuration>
 					<excludes>
 						<exclude>META-INF/versions/**</exclude>
@@ -563,14 +564,14 @@
 				<configuration>
 				    <!-- Workaround for https://github.com/unitsofmeasurement/unit-api/issues/220 -->
                     <source>8</source>
-                </configuration>                
-				<!-- 
+                </configuration>
+				<!--
 				<configuration>
 				    <sourcepath>src/main/java;src/main/jdk9</sourcepath>
 					<detectLinks>true</detectLinks>
 					<keywords>true</keywords>
 					<linksource>true</linksource>
-					<failOnError>false</failOnError>					
+					<failOnError>false</failOnError>
 					<verbose>true</verbose>
                     <tags>
                         <tag>
@@ -612,7 +613,7 @@
 						<manifestEntries>
 							<Specification-Title>${project.name}</Specification-Title>
 							<Specification-Version>${project.version}</Specification-Version>
-							<Specification-Vendor>${project.organization.name}</Specification-Vendor>							
+							<Specification-Vendor>${project.organization.name}</Specification-Vendor>
 							<Automatic-Module-Name>java.measure</Automatic-Module-Name>
 							<Multi-Release>true</Multi-Release>
 						</manifestEntries>
@@ -687,12 +688,12 @@
 						</excludes>
 						<headerDefinitions>
 							<headerDefinition>src/main/config/headers.xml</headerDefinition>
-						</headerDefinitions>			
+						</headerDefinitions>
 					</licenseSet>
 	            </licenseSets>
                 <mapping>
                     <java>JAVA_STYLE</java>
-                </mapping>  
+                </mapping>
             </configuration>
 			</plugin>
 
@@ -792,11 +793,11 @@
 	</reporting>
 
 	<!-- Deployment to public servers -->
-	<distributionManagement>	
+	<distributionManagement>
         <repository>
             <id>ossrh</id>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>  
+        </repository>
 		<snapshotRepository>
             <id>ossrh</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
@@ -820,6 +821,12 @@
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.inject</groupId>
+			<artifactId>jakarta.inject-api</artifactId>
+			<version>${jakarta.inject.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -903,7 +910,7 @@
 			<!-- This profile builds (optional) format elements into separate JAR files -->
 			<build>
 				<plugins>
-				    <!-- 
+				    <!--
 				    <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-antrun-plugin</artifactId>
@@ -931,7 +938,7 @@
                         </executions>
                     </plugin>
                     -->
-                    
+
 					<plugin>
 						<artifactId>maven-jar-plugin</artifactId>
 						<version>${maven.jar.version}</version>
@@ -1131,7 +1138,7 @@
                 <jdkOptionalVersion>9</jdkOptionalVersion>
                 <project.build.javaVersion>${jdkVersion}</project.build.javaVersion>
                 <maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
-                <maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>				
+                <maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
 			</properties>
 		</profile>
 	</profiles>
