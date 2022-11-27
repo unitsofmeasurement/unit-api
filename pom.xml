@@ -825,6 +825,19 @@
 		</dependency>
 	</dependencies>
 
+	<!-- Additional repositories -->
+	<!-- Helps to resolve Parent POM and Snapshot artifacts -->
+    <repositories>
+        <repository>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>ossrh-snapshot</id>
+            <name>OSSRH Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </repository>       
+    </repositories>
+
 	<profiles>
 		<!-- Individual JARs -->
 		<profile>
