@@ -1,6 +1,6 @@
 /*
  * Units of Measurement API
- * Copyright (c) 2014-2021, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ * Copyright (c) 2014-2022, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
  * All rights reserved.
  *
@@ -33,20 +33,19 @@ package javax.measure;
  * Provides support for the 20 prefixes used in the metric system (decimal multiples and submultiples of units). For example:
  *
  * <pre>
- * {@code
- *     import static tech.units.indriya.unit.Units.*;  // Static import.
- *     import static javax.measure.MetricPrefix.*; // Static import.
- *     import javax.measure.*;
- *     import javax.measure.quantity.*;
- *     ...
- *     Unit<Pressure> HECTOPASCAL = HECTO(PASCAL);
- *     Unit<Length> KILOMETRE = KILO(METRE);}
+ * {@code import static tech.units.indriya.unit.Units.*;  // Static import (from the RI).
+ * import static javax.measure.MetricPrefix.*; // Static import.
+ * import javax.measure.*;
+ * import javax.measure.quantity.*;
+ * ...
+ * Unit<Pressure> HECTOPASCAL = HECTO(PASCAL);
+ * Unit<Length> KILOMETRE = KILO(METRE);}
  * </pre>
  *
  * @see <a href="http://en.wikipedia.org/wiki/Metric_prefix">Wikipedia: Metric Prefix</a>
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 2.0, June 28, 2019
+ * @version 2.1, November 27, 2022
  * @since 2.0
  */
 public enum MetricPrefix implements Prefix {
