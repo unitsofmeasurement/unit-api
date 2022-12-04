@@ -761,7 +761,7 @@
 					<quiet>true</quiet>
 					<keywords>true</keywords>
 					<links>
-						<link>http://docs.oracle.com/javase/9/docs/api/</link>
+						<link>http://docs.oracle.com/javase/11/docs/api/</link>
 					</links>
 				</configuration>
 			</plugin>
