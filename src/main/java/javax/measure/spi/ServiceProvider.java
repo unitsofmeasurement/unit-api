@@ -66,26 +66,26 @@ public abstract class ServiceProvider {
      * Class name of JSR-330 annotation for naming a service provider.
      * We use reflection for keeping JSR-330 an optional dependency.
      */
-    private static final String NAMED_ANNOTATION = "javax.inject.Named";
+    private static final String LEGACY_NAMED_ANNOTATION = "javax.inject.Named";
 
     /**
      * Class name of JSR-250 annotation for assigning a priority level to a service provider.
      * We use reflection for keeping JSR-250 an optional dependency.
      */
-    private static final String PRIORITY_ANNOTATION = "javax.annotation.Priority";
+    private static final String LEGACY_PRIORITY_ANNOTATION = "javax.annotation.Priority";
 
     /**
      * Class name of Jakarta Dependency Injection annotation for naming a service provider.
      * We use reflection for keeping Jakata Injection an optional dependency.
      */
-    private static final String JAKARTA_NAMED_ANNOTATION = "jakarta.inject.Named";
+    private static final String NAMED_ANNOTATION = "jakarta.inject.Named";
 
     /**
      * Class name of Jakarta Common Annotation for assigning a priority level to a service provider.
      * We use reflection for keeping Jakarta Annotations an optional dependency.
      */
-    private static final String JAKARTA_PRIORITY_ANNOTATION = "jakarta.annotation.Priority";
-    
+    private static final String PRIORITY_ANNOTATION = "jakarta.annotation.Priority";
+
     /**
      * The current service provider, or {@code null} if not yet determined.
      *
@@ -106,7 +106,8 @@ public abstract class ServiceProvider {
      * Allows to define a priority for a registered {@code ServiceProvider} instance.
      * When multiple providers are registered in the system, the provider with the highest priority value is taken.
      *
-     * <p>If the {@value #PRIORITY_ANNOTATION} annotation (from JSR-250) or {@value #JAKARTA_PRIORITY_ANNOTATION} annotation (from Jakarta Annotations) is present on the {@code ServiceProvider}
+     * <p>If the {@value #PRIORITY_ANNOTATION} annotation (from Jakarta Annotations)
+     * or {@value #LEGACY_PRIORITY_ANNOTATION} annotation (from JSR-250) is present on the {@code ServiceProvider}
      * implementation class, then that annotation (first if both were present) is taken and this {@code getPriority()} method is ignored.
      * Otherwise – if a {@code Priority} annotation is absent – this method is used as a fallback.</p>
      *
@@ -155,22 +156,28 @@ public abstract class ServiceProvider {
         private final String toSearch;
 
         /**
-         * Class of the {@value #NAMED_ANNOTATION} and {@value #PRIORITY_ANNOTATION} annotations to search,
-         * or {@code null} if those classes are not on the classpath.
+         * The {@code value()} method in the {@value #NAMED_ANNOTATION} annotation,
+         * or {@code null} if that class is not on the classpath.
          */
-        private Class<? extends Annotation> namedAnnotation, priorityAnnotation;
-        
-        /**
-         * Class of the {@value #JAKARTA_NAMED_ANNOTATION} and {@value #JAKARTA_PRIORITY_ANNOTATION} annotations to search,
-         * or {@code null} if those classes are not on the classpath.
-         */
-        private Class<? extends Annotation> jakartaNamedAnnotation, jakartaPriorityAnnotation;
+        private final Method nameGetter;
 
         /**
-         * The {@code value()} method in the {@code *Annotation} class,
-         * or {@code null} if those classes are not on the classpath.
+         * The {@code value()} method in the {@value #PRIORITY_ANNOTATION} annotation,
+         * or {@code null} if that class is not on the classpath.
          */
-        private Method nameGetter, priorityGetter;
+        private final Method priorityGetter;
+
+        /**
+         * The {@code value()} method in the {@value #LEGACY_NAMED_ANNOTATION} annotation,
+         * or {@code null} if that class is not on the classpath.
+         */
+        private final Method legacyNameGetter;
+
+        /**
+         * The {@code value()} method in the {@value #LEGACY_PRIORITY_ANNOTATION} annotation,
+         * or {@code null} if that class is not on the classpath.
+         */
+        private final Method legacyPriorityGetter;
 
         /**
          * Creates a new filter and comparator for a stream of service providers.
@@ -180,31 +187,15 @@ public abstract class ServiceProvider {
         Selector(String name) {
             toSearch = name;
             try {
-                if (name != null) try {
-                    namedAnnotation = Class.forName(NAMED_ANNOTATION).asSubclass(Annotation.class);
-                    nameGetter = namedAnnotation.getMethod("value", (Class[]) null);
-                } catch (ClassNotFoundException e) {
-                    // Ignore since JSR-330 is an optional dependency.
+                if (name != null) {
+                    nameGetter       = getValueMethod(NAMED_ANNOTATION);
+                    legacyNameGetter = getValueMethod(LEGACY_NAMED_ANNOTATION);
+                } else {
+                    nameGetter       = null;
+                    legacyNameGetter = null;
                 }
-                if (nameGetter == null) try { // if nameGetter has not been set already try Jakarta Injection 
-                	jakartaNamedAnnotation = Class.forName(JAKARTA_NAMED_ANNOTATION).asSubclass(Annotation.class);
-                    nameGetter = jakartaNamedAnnotation.getMethod("value", (Class[]) null);
-                } catch (ClassNotFoundException e) {
-                    // Ignore since Jakarta Injection is an optional dependency.
-                }
-                
-                try {
-                    priorityAnnotation = Class.forName(PRIORITY_ANNOTATION).asSubclass(Annotation.class);
-                    priorityGetter = priorityAnnotation.getMethod("value", (Class[]) null);
-                } catch (ClassNotFoundException e) {
-                    // Ignore since JSR-250 is an optional dependency.
-                }
-                if (priorityGetter == null) try { // if priorityGetter has not been set already try Jakarta Annotations
-                	jakartaPriorityAnnotation = Class.forName(JAKARTA_PRIORITY_ANNOTATION).asSubclass(Annotation.class);
-                    priorityGetter = jakartaPriorityAnnotation.getMethod("value", (Class[]) null);
-                } catch (ClassNotFoundException e) {
-                    // Ignore since Jakarta Annotations is an optional dependency.
-                }
+                priorityGetter       = getValueMethod(PRIORITY_ANNOTATION);
+                legacyPriorityGetter = getValueMethod(LEGACY_PRIORITY_ANNOTATION);
             } catch (NoSuchMethodException e) {
                 // Should never happen since value() is a standard public method of those annotations.
                 throw new ServiceConfigurationError("Cannot get annotation value", e);
@@ -212,28 +203,57 @@ public abstract class ServiceProvider {
         }
 
         /**
-         * Returns {@code true} if the given service provider has the name we are looking for.
-         * This method shall be invoked only if a non-null name has been specified to the constructor.
-         * This method looks for the {@value #NAMED_ANNOTATION} annotation or {@value #JAKARTA_NAMED_ANNOTATION} annotation, and if none are found fallbacks on
-         * {@link ServiceProvider#toString()}.
+         * Returns the {@code value()} method in the given annotation class.
+         *
+         * @param  classname  name of the class from which to get the {@code value()} method.
+         * @return the {@code value()} method, or {@code null} if the annotation class was not found.
          */
-        @Override
-        public boolean test(ServiceProvider provider) {
-            Object value = null;
-            if (nameGetter != null) {
-                Annotation a = null;
-                if (namedAnnotation != null) { 
-                	a = provider.getClass().getAnnotation(namedAnnotation);
-                } else if (jakartaNamedAnnotation != null) {
-                	a = provider.getClass().getAnnotation(jakartaNamedAnnotation);
-                }
+        private static Method getValueMethod(final String classname) throws NoSuchMethodException {
+            try {
+                return Class.forName(classname).getMethod("value", (Class[]) null);
+            } catch (ClassNotFoundException e) {
+                // Ignore because JSR-330, JSR-250 and Jakarta are optional dependencies.
+                return null;
+            }
+        }
+
+        /**
+         * Invokes the {@code value()} method on the annotation of the given class.
+         * The annotation on which to invoke the method is given by {@link Method#getDeclaringClass()}.
+         *
+         * @param  provider   class of the provider on which to invoke annotation {@code value()}.
+         * @param  getter     the preferred  {@code value()} method to invoke, or {@code null}.
+         * @param  fallback   an alternative {@code value()} method to invoke, or {@code null}.
+         * @return the value, or {@code null} if none.
+         */
+        private static Object getValue(final Class<?> provider, Method getter, Method fallback) {
+            if (getter == null) {
+                getter = fallback;
+                fallback = null;
+            }
+            while (getter != null) {
+                final Annotation a = provider.getAnnotation(getter.getDeclaringClass().asSubclass(Annotation.class));
                 if (a != null) try {
-                    value = nameGetter.invoke(a, (Object[]) null);
+                    return getter.invoke(a, (Object[]) null);
                 } catch (IllegalAccessException | InvocationTargetException e) {
                     // Should never happen since value() is a public method and should not throw exception.
                     throw new ServiceConfigurationError("Cannot get annotation value", e);
                 }
+                getter = fallback;
+                fallback = null;
             }
+            return null;
+        }
+
+        /**
+         * Returns {@code true} if the given service provider has the name we are looking for.
+         * This method shall be invoked only if a non-null name has been specified to the constructor.
+         * This method looks for the {@value #NAMED_ANNOTATION} and {@value #LEGACY_NAMED_ANNOTATION}
+         * annotations in that order, and if none are found fallbacks on {@link ServiceProvider#toString()}.
+         */
+        @Override
+        public boolean test(final ServiceProvider provider) {
+            Object value = getValue(provider.getClass(), nameGetter, legacyNameGetter);
             if (value == null) {
                 value = provider.toString();
             }
@@ -242,23 +262,13 @@ public abstract class ServiceProvider {
 
         /**
          * Returns the priority of the given service provider.
-         * This method looks for the {@value #PRIORITY_ANNOTATION} annotation or {@value #JAKARTA_PRIORITY_ANNOTATION},
-         * and if none are found falls back on {@link ServiceProvider#getPriority()}.
+         * This method looks for the {@value #PRIORITY_ANNOTATION} and {@value #LEGACY_PRIORITY_ANNOTATION}
+         * annotations in that order, and if none are found falls back on {@link ServiceProvider#getPriority()}.
          */
-        private int priority(ServiceProvider provider) {
-            if (priorityGetter != null) {
-                Annotation a = null;
-                if (priorityAnnotation != null) {
-                	a = provider.getClass().getAnnotation(priorityAnnotation);
-                } else if (jakartaPriorityAnnotation != null) {
-                	a = provider.getClass().getAnnotation(jakartaPriorityAnnotation);
-                }
-                if (a != null) try {
-                    return (Integer) priorityGetter.invoke(a, (Object[]) null);
-                } catch (IllegalAccessException | InvocationTargetException e) {
-                    // Should never happen since value() is a public method and should not throw exception.
-                    throw new ServiceConfigurationError("Cannot get annotation value", e);
-                }
+        private int priority(final ServiceProvider provider) {
+            Object value = getValue(provider.getClass(), priorityGetter, legacyPriorityGetter);
+            if (value != null) {
+                return (Integer) value;
             }
             return provider.getPriority();
         }
@@ -328,8 +338,10 @@ setcur: if (first != null) {
     /**
      * Returns the {@link ServiceProvider} with the specified name.
      * The given name must match the name of at least one service provider available in the current thread's
-     * context class loader. The service provider names are the values of {@value #NAMED_ANNOTATION} annotations
-     * when present, or the value of {@link #toString()} method for providers without {@code Named} annotation.
+     * context class loader.
+     * The service provider names are the values of {@value #NAMED_ANNOTATION} (from Jakarta Annotations) or
+     * {@value #LEGACY_NAMED_ANNOTATION} (from JSR-330) annotations when present (first if both were present),
+     * or the value of {@link #toString()} method for providers without {@code Named} annotation.
      *
      * <p>Implementors are encouraged to provide an {@code Named} annotation or to override {@link #toString()}
      * and use a unique enough name, e.g. the class name or other distinct attributes.

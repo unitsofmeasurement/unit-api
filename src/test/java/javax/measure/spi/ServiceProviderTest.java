@@ -29,6 +29,7 @@
  */
 package javax.measure.spi;
 
+import jakarta.inject.Named;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -70,7 +71,7 @@ public class ServiceProviderTest {
         assertSame(testProv, ServiceProvider.setCurrent(testProv), "Setting the same ServiceProvider twice should be a no-op.");
         assertSame(testProv, ServiceProvider.current());
         assertArrayEquals(new ServiceProvider[] { testProv }, ServiceProvider.available().toArray());
-        assertNotNull(ServiceProvider.of("TestServiceProvider"));
+        assertNotNull(ServiceProvider.of("Dummy ServiceProvider"));
     }
 
     /**
@@ -145,6 +146,7 @@ public class ServiceProviderTest {
         });
     }
 
+    @Named("Dummy ServiceProvider")     // Intentionally use a name different than "TestServiceProvider".
     private static final class TestServiceProvider extends ServiceProvider {
 
         @Override
