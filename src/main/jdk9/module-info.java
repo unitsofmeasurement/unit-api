@@ -28,8 +28,6 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 module java.measure {
-	requires java.logging;
-
     exports javax.measure;
     exports javax.measure.format;
     exports javax.measure.quantity;
