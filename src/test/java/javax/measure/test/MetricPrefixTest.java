@@ -1,6 +1,6 @@
 /*
  * Units of Measurement API
- * Copyright (c) 2014-2022, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ * Copyright (c) 2014-2023, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
  * All rights reserved.
  *
@@ -33,6 +33,7 @@ import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Area;
 import javax.measure.quantity.Length;
+import javax.measure.quantity.Mass;
 import javax.measure.quantity.Speed;
 import javax.measure.quantity.Time;
 import javax.measure.quantity.Volume;
@@ -48,6 +49,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static javax.measure.MetricPrefix.*;
 import static javax.measure.test.unit.AreaUnit.*;
 import static javax.measure.test.unit.DistanceUnit.*;
+import static javax.measure.test.unit.MassUnit.*;
 import static javax.measure.test.unit.SpeedUnit.*;
 import static javax.measure.test.unit.TimeUnit.*;
 import static javax.measure.test.unit.VolumeUnit.*;
@@ -80,8 +82,8 @@ public class MetricPrefixTest {
     }
 
     @Test
-    public void testDeka() {
-        assertEquals("da", DEKA.getSymbol());
+    public void testDeca() {
+        assertEquals("da", DECA.getSymbol());
         Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, DEKA(litre));
         assertEquals("0.01", v1.getUnit().toString());
     }
@@ -220,6 +222,38 @@ public class MetricPrefixTest {
         assertEquals("m * 1000000000000000000000", l1.getUnit().toString());
     }
 
+    @Test
+    public void testRonna() {
+        assertEquals("R", RONNA.getSymbol());
+        Quantity<Length> l1 = TestQuantities.getQuantity(10, RONNA(m));
+        assertEquals(10d, l1.getValue());
+        assertEquals("m * 1000000000000000000000000000", l1.getUnit().toString());
+    }
+
+    @Test
+    public void testRonto() {
+        assertEquals("r", RONTO.getSymbol());
+        Quantity<Length> l1 = TestQuantities.getQuantity(1, RONTO(m));
+        assertEquals(1d, l1.getValue());
+        assertEquals("m * 0.000000000000000000000", l1.getUnit().toString());
+    }
+    
+    @Test
+    public void testQuetta() {
+        assertEquals("Q", QUETTA.getSymbol());
+        Quantity<Mass> m1 = TestQuantities.getQuantity(2, QUETTA(g));
+        assertEquals(2d, m1.getValue());
+        assertEquals("g * 1000000000000000000000000000", m1.getUnit().toString());
+    }
+
+    @Test
+    public void testQuecto() {
+        assertEquals("q", QUECTO.getSymbol());
+        Quantity<Length> l1 = TestQuantities.getQuantity(1, QUECTO(m));
+        assertEquals(1d, l1.getValue());
+        assertEquals("m * 0.000000000000000000000", l1.getUnit().toString());
+    }
+    
     private static String toUnicode(char ch) {
         return String.format("\\u%04x", (int) ch);
     }

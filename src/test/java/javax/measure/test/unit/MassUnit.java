@@ -27,53 +27,28 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package javax.measure;
+package javax.measure.test.unit;
+
+import java.math.BigDecimal;
+
+import javax.measure.Unit;
+import javax.measure.quantity.Mass;
 
 /**
- * Signals that a problem of some sort has occurred due to the impossibility of constructing a converter between two units. For example, the
- * multiplication of offset units are usually units not convertible to their {@linkplain Unit#getSystemUnit() system unit}.
- *
- * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.0, Aug 8, 2016
- *
+ * @author Werner Keil
  */
-public class UnconvertibleException extends MeasurementException {
-    /**
-     * For cross-version compatibility.
-     */
-    private static final long serialVersionUID = -4623551240019830166L;
+public class MassUnit extends BaseUnit<Mass> {
+    public static final MassUnit kg = new MassUnit("kg", 1.0); // reference Unit
+    public static final MassUnit REF_UNIT = kg; // reference Unit
+    public static final MassUnit g = new MassUnit("g", .001);
 
-    /**
-     * Constructs a {@code UnconvertibleException} with the given message.
-     *
-     * @param message
-     *            the detail message, or {@code null} if none.
-     */
-    public UnconvertibleException(final String message) {
-        super(message);
+    public MassUnit(String name2, double convF) {
+        super(name2, "");
+        multFactor = BigDecimal.valueOf(convF);
     }
 
-    /**
-     * Constructs a {@code UnconvertibleException} with the given cause.
-     *
-     * @param cause
-     *            the cause of this exception, or {@code null} if none.
-     */
-    public UnconvertibleException(final Throwable cause) {
-        super(cause);
-    }
-
-    /**
-     * Constructs a {@code UnconvertibleException} with the given message and cause.
-     *
-     * @param message
-     *            the detail message, or {@code null} if none.
-     * @param cause
-     *            the cause of this exception, or {@code null} if none.
-     *
-     */
-    public UnconvertibleException(final String message, final Throwable cause) {
-        super(message, cause);
+    @Override
+    public Unit<Mass> getSystemUnit() {
+        return REF_UNIT;
     }
 }

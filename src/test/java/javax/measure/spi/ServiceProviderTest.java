@@ -1,6 +1,6 @@
 /*
  * Units of Measurement API
- * Copyright (c) 2014-2022, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ * Copyright (c) 2014-2023, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
  * All rights reserved.
  *
@@ -110,7 +110,7 @@ public class ServiceProviderTest {
         final SystemOfUnitsService service = testProv.getSystemOfUnitsService();
         Collection<MetricPrefix> prefixes = service.getPrefixes(MetricPrefix.class);
         assertNotNull(prefixes);
-        assertEquals(20, prefixes.size());
+        assertEquals(24, prefixes.size());
     }
 
     @Test

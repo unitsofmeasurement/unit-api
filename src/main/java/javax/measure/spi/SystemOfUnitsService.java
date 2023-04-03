@@ -1,6 +1,6 @@
 /*
  * Units of Measurement API
- * Copyright (c) 2014-2022, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ * Copyright (c) 2014-2023, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
  * All rights reserved.
  *
@@ -47,18 +47,18 @@ import javax.measure.Prefix;
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin
  *         Desruisseaux</a>
- * @version 1.7, October 7, 2018
+ * @version 1.8, April 3, 2023
  * @since 1.0
  *
  * @see <a href=
- *      "http://en.wikipedia.org/wiki/International_System_of_Units">Wikipedia:
+ *      "https://en.wikipedia.org/wiki/International_System_of_Units">Wikipedia:
  *      International System of Units</a>
  */
 public interface SystemOfUnitsService {
 
     /**
      * Returns the default {@link SystemOfUnits system of units}. Depending on the
-     * implementation this may be the <a href="http://en.wikipedia.org/wiki/International_System_of_Units">International
+     * implementation this may be the <a href="https://en.wikipedia.org/wiki/International_System_of_Units">International
      * System of Units</a> or another default system.
      *
      * @return the default system of units.

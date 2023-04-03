@@ -1,6 +1,6 @@
 /*
  * Units of Measurement API
- * Copyright (c) 2014-2022, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ * Copyright (c) 2014-2023, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
  * All rights reserved.
  *
@@ -31,9 +31,17 @@ package javax.measure;
 
 /**
  * Provides support for common binary prefixes to be used by units.
+ * 
+ * <p>
+ * <b>Do not use ordinal() to obtain the numeric representation of BinaryPrefix. Use getValue() and getExponent() instead.</b>
+ * </p>
+ * 
+ * <dl>
+ * <dt><span class="strong">Implementation Requirements</span></dt><dd>This is an immutable and thread-safe enum.</dd>
+ * </dl> 
  *
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 2.0, June 28, 2019
+ * @version 2.1, April 3, 2023
  * @see <a href="https://en.wikipedia.org/wiki/Binary_prefix">Wikipedia: Binary Prefix</a>
  * @since 2.0
  */
