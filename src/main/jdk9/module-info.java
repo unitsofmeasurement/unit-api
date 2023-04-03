@@ -28,17 +28,10 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 module java.measure {
-	requires java.logging;
-	
     exports javax.measure;
     exports javax.measure.format;
     exports javax.measure.quantity;
     exports javax.measure.spi;
 
-    uses javax.measure.format.QuantityFormat;
-    uses javax.measure.format.UnitFormat;
-    uses javax.measure.spi.FormatService;
-    uses javax.measure.spi.QuantityFactory;
     uses javax.measure.spi.ServiceProvider;
-    uses javax.measure.spi.SystemOfUnitsService;
 }
