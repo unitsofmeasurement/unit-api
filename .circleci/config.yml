@@ -19,7 +19,9 @@ jobs:
       - checkout
 
       # run clean!
-      - run: mvn clean
+      - run:
+          name: Cleaning workspace
+          command: mvn clean
     # The resource_class feature allows configuring CPU and RAM resources for each job. Different resource classes are available for different executors. https://circleci.com/docs/2.0/configuration-reference/#resourceclass
     resource_class: large
   deployment:
