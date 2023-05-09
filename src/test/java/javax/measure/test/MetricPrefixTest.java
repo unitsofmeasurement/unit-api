@@ -54,6 +54,13 @@ import static javax.measure.test.unit.SpeedUnit.*;
 import static javax.measure.test.unit.TimeUnit.*;
 import static javax.measure.test.unit.VolumeUnit.*;
 
+/**
+ * JUnit tests for the 24 prefixes used in the metric system (decimal multiples and submultiples of units).
+ * 
+ * @author <a href="mailto:werner@units.tech">Werner Keil</a>
+ * @version 2.2, May 9, 2023
+ * @since 2.0
+ */
 public class MetricPrefixTest {
     @Test
     public void testAtto() {
@@ -83,6 +90,13 @@ public class MetricPrefixTest {
 
     @Test
     public void testDeca() {
+        assertEquals("da", DECA.getSymbol());
+        Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, DECA(litre));
+        assertEquals("0.01", v1.getUnit().toString());
+    }
+    
+    @Test
+    public void testDeka() {
         assertEquals("da", DECA.getSymbol());
         Quantity<Volume> v1 = TestQuantities.getQuantity(1.0, DEKA(litre));
         assertEquals("0.01", v1.getUnit().toString());
@@ -153,7 +167,7 @@ public class MetricPrefixTest {
         assertEquals("m", m1.getUnit().getSymbol());
 
         Quantity<Length> m2 = m1.to(MICRO(m));
-        assertNull(m2); // TODO temporary workaround
+        assertNull(m2); // the unit model in the test implementation is only partial, hence null here
     }
 
     @Test
@@ -163,7 +177,7 @@ public class MetricPrefixTest {
         assertEquals("m", m1.getUnit().getSymbol());
 
         Quantity<Length> m2 = m1.to(NANO(m));
-        assertNull(m2); // TODO temporary workaround
+        assertNull(m2); // the unit model in the test implementation is only partial, hence null here
     }
 
     @Test
