@@ -306,14 +306,7 @@ public abstract class ServiceProvider {
      */
     public static final List<ServiceProvider> available() {
         ArrayList<ServiceProvider> providers = new Selector(null).stream().collect(Collectors.toCollection(ArrayList::new));
-        /*
-         * Get the current service provider. If no provider has been set yet, set it now for
-         * consistency with the contract saying that the first item is the current provider.
-         */
-        ServiceProvider first = current.get();
-        if (first == null && !providers.isEmpty()) {
-            first = setDefault(providers.get(0));
-        }
+        final ServiceProvider first = current.get();
         /*
          * Make sure that 'first' is the first item in the 'providers' list. If that item appears
          * somewhere else, we have to remove the second occurrence for avoiding duplicated elements.
@@ -396,25 +389,8 @@ setcur: if (first != null) {
             } else {
                 throw new IllegalStateException("No Measurement ServiceProvider found.");
             }
-            p = setDefault(p);
         }
         return p;
-    }
-
-    /**
-     * Sets the given provider as the current one if and only if no other provider are currently set.
-     * If another provider is already set, that other provider is returned.
-     *
-     * @param  provider  the provider to set by default if no other provider is currently set.
-     * @return the current provider, which is the specified {@code provider} if no other provider
-     *         was set before this method call.
-     */
-    private static ServiceProvider setDefault(ServiceProvider provider) {
-        while (!current.compareAndSet(null, provider)) {
-            final ServiceProvider c = current.get();
-            if (c != null) return c;
-        }
-        return provider;
     }
 
     /**
