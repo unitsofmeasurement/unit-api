@@ -56,7 +56,7 @@ import javax.measure.format.UnitFormat;
  * All the methods in this class are safe to use by multiple concurrent threads.
  * </p>
  *
- * @version 2.2, November 16, 2020
+ * @version 2.3, May 19, 2023
  * @author Werner Keil
  * @author Martin Desruisseaux
  * @since 1.0
