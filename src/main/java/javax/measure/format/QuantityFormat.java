@@ -46,7 +46,7 @@ import javax.measure.Quantity;
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>
  *
- * @version 1.0, 3 July, 2020
+ * @version 1.1, 20 May, 2023
  * @since 2.0
  *
  * @see Quantity
@@ -94,7 +94,7 @@ public interface QuantityFormat {
      * <p>
      * The parse must complete normally and parse the entire text. If the parse completes without reading the entire length of the text, an exception
      * is thrown. If any other problem occurs during parsing, an exception is thrown.
-     * <p>
+     * </p>
      *
      * @param csq
      *          the {@code CharSequence} to parse.

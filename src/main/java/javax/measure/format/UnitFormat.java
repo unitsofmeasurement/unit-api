@@ -43,12 +43,12 @@ import javax.measure.Unit;
  * <p>
  * Instances of this class are not required to be thread-safe. It is recommended to use separate format instances for each thread. If multiple threads
  * access a format concurrently, it must be synchronized externally.
- * <p>
+ * </p>
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
  *
- * @version 2.1, June 16, 2021
+ * @version 2.2, May 20, 2023
  * @since 1.0
  *
  * @see Unit
@@ -135,7 +135,7 @@ public interface UnitFormat {
      * <p>
      * The parse must complete normally and parse the entire text. If the parse completes without reading the entire length of the text, an exception
      * is thrown. If any other problem occurs during parsing, an exception is thrown.
-     * <p>
+     * </p>
      *
      * @param csq
      *            the {@code CharSequence} to parse.

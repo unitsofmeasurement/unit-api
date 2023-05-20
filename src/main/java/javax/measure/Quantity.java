@@ -91,7 +91,7 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @see <a href="http://martinfowler.com/eaaDev/quantity.html">Martin Fowler -
  *      Quantity</a>
- * @version 2.4, December 13, 2022
+ * @version 2.5, May 20, 2023
  * @since 1.0
  */
 public interface Quantity<Q extends Quantity<Q>> {
@@ -103,7 +103,15 @@ public interface Quantity<Q extends Quantity<Q>> {
     * @see <a href="https://en.wikipedia.org/wiki/Absolute_scale">Wikipedia: Absolute scale</a>
     */
     public static enum Scale {
-        ABSOLUTE, RELATIVE
+    	/** 
+    	 * Absolute scale
+    	 * @see <a href="https://en.wikipedia.org/wiki/Absolute_scale">Wikipedia: Absolute scale</a> 
+    	 */
+        ABSOLUTE, 
+        /** 
+         * Relative scale 
+    	 */
+        RELATIVE
     }
        
     /**

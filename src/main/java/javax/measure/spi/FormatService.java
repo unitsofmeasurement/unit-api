@@ -38,14 +38,17 @@ import javax.measure.format.UnitFormat;
  * This interface represents the service to obtain instances of {@link UnitFormat} and {@link QuantityFormat}.
  *
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 2.2, June 6, 2021
+ * @version 2.3, May 20, 2023
  * @since 2.0
  */
 public interface FormatService {
 
 	/** The type of format, either a {@link UnitFormat} or {@link QuantityFormat} */
     public static enum FormatType {
-        UNIT_FORMAT, QUANTITY_FORMAT
+        /** Format of type {@link UnitFormat} */
+    	UNIT_FORMAT, 
+    	/** Format of type {@link QuantityFormat} */
+    	QUANTITY_FORMAT
     }
 
     /**
