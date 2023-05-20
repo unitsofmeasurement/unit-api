@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Quantity.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure</a> &gt; <span class="el_source">Quantity.java</span></div><h1>Quantity.java</h1><pre class="source lang-java linenums">/*
  * Units of Measurement API
- * Copyright (c) 2014-2021, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ * Copyright (c) 2014-2023, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
  * All rights reserved.
  *
@@ -91,7 +91,7 @@ package javax.measure;
  * @see &lt;a href=&quot;http://en.wikipedia.org/wiki/Quantity&quot;&gt;Wikipedia: Quantity&lt;/a&gt;
  * @see &lt;a href=&quot;http://martinfowler.com/eaaDev/quantity.html&quot;&gt;Martin Fowler -
  *      Quantity&lt;/a&gt;
- * @version 2.3, September 28, 2020
+ * @version 2.5, May 20, 2023
  * @since 1.0
  */
 public interface Quantity&lt;Q extends Quantity&lt;Q&gt;&gt; {
@@ -103,7 +103,15 @@ public interface Quantity&lt;Q extends Quantity&lt;Q&gt;&gt; {
     * @see &lt;a href=&quot;https://en.wikipedia.org/wiki/Absolute_scale&quot;&gt;Wikipedia: Absolute scale&lt;/a&gt;
     */
 <span class="fc" id="L105">    public static enum Scale {</span>
-<span class="fc" id="L106">        ABSOLUTE, RELATIVE</span>
+    	/** 
+    	 * Absolute scale
+    	 * @see &lt;a href=&quot;https://en.wikipedia.org/wiki/Absolute_scale&quot;&gt;Wikipedia: Absolute scale&lt;/a&gt; 
+    	 */
+<span class="fc" id="L110">        ABSOLUTE, </span>
+        /** 
+         * Relative scale 
+    	 */
+<span class="fc" id="L114">        RELATIVE</span>
     }
        
     /**
@@ -278,7 +286,7 @@ public interface Quantity&lt;Q extends Quantity&lt;Q&gt;&gt; {
      *             decimal expansion.
      */
     default Quantity&lt;Q&gt; toSystemUnit() {
-<span class="fc" id="L281">        return to(getUnit().getSystemUnit());</span>
+<span class="fc" id="L289">        return to(getUnit().getSystemUnit());</span>
     }
       
     /**
@@ -292,7 +300,7 @@ public interface Quantity&lt;Q extends Quantity&lt;Q&gt;&gt; {
     Scale getScale();
     
     /**
-     * Compares two instances of {@code Quantity &lt;Q&gt;}, doing the conversion of unit if necessary.
+     * Compares two instances of {@code Quantity &lt;Q&gt;}, performing the conversion of units if necessary.
      *
      * @param that
      *          the {@code quantity&lt;Q&gt;} to be compared with this instance.
@@ -306,4 +314,4 @@ public interface Quantity&lt;Q extends Quantity&lt;Q&gt;&gt; {
      */
     boolean isEquivalentTo(Quantity&lt;Q&gt; that);
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

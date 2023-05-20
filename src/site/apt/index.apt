@@ -4,7 +4,7 @@
                     -----------------------------------------------------
                     Jean-Marie Dautelle, Werner Keil, Otavio Santana
                     -----------------------------------------------------
-                    2020-12-02
+                    2023-05-20
                     -----------------------------------------------------
 
 
@@ -15,10 +15,10 @@ The Units of Measurement API for Java
   Units of Measurement Standard - This JSR specifies Java packages for modeling and working with measurement values,
   quantities and their corresponding units.
 
-  Copyright 2014-2020 Jean-Marie Dautelle, Werner Keil, Otavio Santana
+  Copyright 2014-2023 Jean-Marie Dautelle, Werner Keil, Otavio Santana
   All rights reserved. 
 
-  See {{{./license.html}license}} for details.
+  See {{{./licenses.html}licenses}} for details.
 
 * The project
 
@@ -33,6 +33,6 @@ The Units of Measurement API for Java
 
     * {{{./apidocs/index.html}Browse javadoc}}
 
-    * {{{https://bintray.com/unitsofmeasurement/downloads}Presentation material}} (e.g. slides, draft specification)
+    * {{{httpS://unitsofmeasurement.github.io/pages/references.html}References}} (e.g. slides, draft specification)
 
     * {{{https://circleci.com/gh/unitsofmeasurement/unit-api/}Snapshot builds}}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>QuantityFormat.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure.format</a> &gt; <span class="el_source">QuantityFormat.java</span></div><h1>QuantityFormat.java</h1><pre class="source lang-java linenums">/*
  * Units of Measurement API
- * Copyright (c) 2014-2021, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ * Copyright (c) 2014-2023, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
  * All rights reserved.
  *
@@ -39,14 +39,14 @@ import javax.measure.Quantity;
  *
  * &lt;dl&gt;
  * &lt;dt&gt;&lt;span class=&quot;strong&quot;&gt;&lt;a id=&quot;synchronization&quot;&gt;Synchronization&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
- * &lt;/dl&gt; 
+ * &lt;/dl&gt;
  * Instances of this class are not required to be thread-safe. It is recommended to use separate format instances for each thread. If multiple threads
  * access a format concurrently, it must be synchronized externally.
  *
  * @author &lt;a href=&quot;mailto:werner@uom.technology&quot;&gt;Werner Keil&lt;/a&gt;
  * @author &lt;a href=&quot;mailto:thodoris.bais@gmail.com&quot;&gt;Thodoris Bais&lt;/a&gt;
  *
- * @version 1.0, 3 July, 2020
+ * @version 1.1, 20 May, 2023
  * @since 2.0
  *
  * @see Quantity
@@ -84,18 +84,22 @@ public interface QuantityFormat {
      * @param pos
      *          a ParsePosition object holding the current parsing index and error parsing index information as described above.
      * @return the quantity parsed from the specified character sub-sequence.
-     * @throws IllegalArgumentException
+     * @throws MeasurementParseException
      *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
      */
-    public Quantity&lt;?&gt; parse(CharSequence csq, ParsePosition pos) throws IllegalArgumentException, MeasurementParseException;
+    public Quantity&lt;?&gt; parse(CharSequence csq, ParsePosition pos) throws MeasurementParseException;
 
     /**
-     * Parses a portion of the specified {@code CharSequence} from the specified position to produce a {@link Quantity}.
+     * Parses the specified {@code CharSequence} to produce a {@link Quantity}.
+     * &lt;p&gt;
+     * The parse must complete normally and parse the entire text. If the parse completes without reading the entire length of the text, an exception
+     * is thrown. If any other problem occurs during parsing, an exception is thrown.
+     * &lt;/p&gt;
      *
      * @param csq
      *          the {@code CharSequence} to parse.
      * @return the quantity parsed from the specified character sub-sequence.
-     * @throws IllegalArgumentException
+     * @throws MeasurementParseException
      *           if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
      */
     public Quantity&lt;?&gt; parse(CharSequence csq) throws MeasurementParseException;
@@ -109,7 +113,7 @@ public interface QuantityFormat {
      * @return whether this format depends on the locale.
      */
     default boolean isLocaleSensitive() {
-<span class="fc" id="L112">        return false;</span>
+<span class="fc" id="L116">        return false;</span>
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

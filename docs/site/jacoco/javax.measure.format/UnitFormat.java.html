@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UnitFormat.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure.format</a> &gt; <span class="el_source">UnitFormat.java</span></div><h1>UnitFormat.java</h1><pre class="source lang-java linenums">/*
  * Units of Measurement API
- * Copyright (c) 2014-2021, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ * Copyright (c) 2014-2023, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
  * All rights reserved.
  *
@@ -39,16 +39,16 @@ import javax.measure.Unit;
  *
  * &lt;dl&gt;
  * &lt;dt&gt;&lt;span class=&quot;strong&quot;&gt;&lt;a id=&quot;synchronization&quot;&gt;Synchronization&lt;/a&gt;&lt;/span&gt;&lt;/dt&gt;
- * &lt;/dl&gt; 
+ * &lt;/dl&gt;
  * &lt;p&gt;
  * Instances of this class are not required to be thread-safe. It is recommended to use separate format instances for each thread. If multiple threads
  * access a format concurrently, it must be synchronized externally.
- * &lt;p&gt;
+ * &lt;/p&gt;
  *
  * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;&gt;Jean-Marie Dautelle&lt;/a&gt;
  * @author &lt;a href=&quot;mailto:werner@uom.technology&quot;&gt;Werner Keil&lt;/a&gt;
  *
- * @version 2.0, July 3, 2020
+ * @version 2.2, May 20, 2023
  * @since 1.0
  *
  * @see Unit
@@ -77,9 +77,9 @@ public interface UnitFormat {
     String format(Unit&lt;?&gt; unit);
 
     /**
-     * Attaches a system-wide label to the specified unit.
+     * Attaches a system-wide label to the specified {@link Unit}.
      * &lt;p&gt;
-     * If the specified label is already associated to a unit the previous association can be discarded or ignored. Depending on the
+     * This method overrides the previous unit's label (e.g. label from unit database or unit system) as units may only have one label. Depending on the
      * {@link UnitFormat} implementation, this call may be ignored if the particular unit already has a label.
      * &lt;/p&gt;
      * If a {@link UnitFormat} implementation is explicitly &lt;b&gt;immutable&lt;/b&gt;, similar to e.g. the result of &lt;code&gt;Collections.unmodifiableList()&lt;/code&gt;,
@@ -124,18 +124,18 @@ public interface UnitFormat {
      * @param pos
      *            a ParsePosition object holding the current parsing index and error parsing index information as described above.
      * @return the unit parsed from the specified character sub-sequence.
-     * @throws IllegalArgumentException
+     * @throws MeasurementParseException
      *             if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
      * @since 2.0
      */
-    Unit&lt;?&gt; parse(CharSequence csq, ParsePosition pos) throws IllegalArgumentException, MeasurementParseException;
+    Unit&lt;?&gt; parse(CharSequence csq, ParsePosition pos) throws MeasurementParseException;
 
     /**
      * Parses the text into an instance of {@link Unit}.
      * &lt;p&gt;
      * The parse must complete normally and parse the entire text. If the parse completes without reading the entire length of the text, an exception
      * is thrown. If any other problem occurs during parsing, an exception is thrown.
-     * &lt;p&gt;
+     * &lt;/p&gt;
      *
      * @param csq
      *            the {@code CharSequence} to parse.
@@ -148,4 +148,4 @@ public interface UnitFormat {
      */
     Unit&lt;?&gt; parse(CharSequence csq) throws MeasurementParseException;
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

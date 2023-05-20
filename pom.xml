@@ -25,9 +25,8 @@
     <parent>
         <groupId>tech.uom</groupId>
         <artifactId>uom-parent</artifactId>
-        <version>2.2-SNAPSHOT</version>
+        <version>2.2</version>
     </parent>
-    <version>2.2-SNAPSHOT</version>
 
     <!-- Issue managements and mailing lists. -->
     <issueManagement>
@@ -75,9 +74,7 @@
         <!-- Plugins -->
         <github.maven.version>0.12</github.maven.version>
         <github.global.server>github</github.global.server>
-        <license-maven.version>4.2</license-maven.version>
-        <maven.surefire-report.version>2.22.2</maven.surefire-report.version>
-        <junit.jupiter.version>5.9.2</junit.jupiter.version>
+        <maven.surefire-report.version>3.1.0</maven.surefire-report.version>
         <jakarta.inject.version>2.0.1</jakarta.inject.version>
         <spotbugs-maven.version>4.7.3.4</spotbugs-maven.version>
         <!--Exclude the files here -->
@@ -118,7 +115,7 @@
             <name>Otávio Gonçalves de Santana</name>
             <email>otaviopolianasantana@gmail.com</email>
             <organization>Individual / SouJava</organization>
-            <timezone>-5</timezone>
+            <timezone>0</timezone>
             <roles>
                 <role>Expert</role>
                 <role>Java Developer</role>
@@ -359,20 +356,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-antrun-plugin</artifactId>
                     <version>1.8</version>
-                </plugin>
-
-                <!-- License -->
-                <plugin>
-                    <groupId>com.mycila</groupId>
-                    <artifactId>license-maven-plugin</artifactId>
-                    <version>${license-maven.version}</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                        </execution>
-                    </executions>
                 </plugin>
 
                 <!-- Format -->
@@ -797,7 +780,6 @@
         <dependency>
             <groupId>jakarta.inject</groupId>
             <artifactId>jakarta.inject-api</artifactId>
-            <version>${jakarta.inject.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BinaryPrefix.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Units of Measurement API</a> &gt; <a href="index.source.html" class="el_package">javax.measure</a> &gt; <span class="el_source">BinaryPrefix.java</span></div><h1>BinaryPrefix.java</h1><pre class="source lang-java linenums">/*
  * Units of Measurement API
- * Copyright (c) 2014-2021, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ * Copyright (c) 2014-2023, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
  * All rights reserved.
  *
@@ -30,30 +30,53 @@
 package javax.measure;
 
 /**
- * Provides support for common binary prefixes to be used by units.
+ * Provides support for common binary prefixes to be used by units. For example:
+ * &lt;pre&gt;
+ * {@code import static systems.uom.unicode.CLDR.*;  // Static import (from Unicode System).
+ * import static javax.measure.BinaryPrefix.*; // Static import.
+ * import javax.measure.*;
+ * import systems.uom.quantity.Information; // (from Systems Quantities)
+ * ...
+ * Unit&lt;Information&gt; MEBIT  = MEBI(BIT);
+ * Unit&lt;Information&gt; GIBYTE = GIBI(BYTE);} 
+ * &lt;/pre&gt;
+ * You could also apply &lt;code&gt;Unit.prefix&lt;/code&gt;:
+ * &lt;pre&gt;
+ * {@code ...
+ * Unit&lt;Information&gt; MEBIT  = BIT.prefix(MEBI);
+ * Unit&lt;Information&gt; GIBYTE = BYTE.prefix(GIBI);}
+ * &lt;/pre&gt;
+ * 
+ * &lt;p&gt;
+ * &lt;b&gt;Do not use ordinal() to obtain the numeric representation of BinaryPrefix. Use getValue() and getExponent() instead.&lt;/b&gt;
+ * &lt;/p&gt;
+ * 
+ * &lt;dl&gt;
+ * &lt;dt&gt;&lt;span class=&quot;strong&quot;&gt;Implementation Requirements&lt;/span&gt;&lt;/dt&gt;&lt;dd&gt;This is an immutable and thread-safe enum.&lt;/dd&gt;
+ * &lt;/dl&gt; 
  *
  * @author &lt;a href=&quot;mailto:werner@units.tech&quot;&gt;Werner Keil&lt;/a&gt;
- * @version 2.0, June 28, 2019
+ * @version 2.2, May 20, 2023
  * @see &lt;a href=&quot;https://en.wikipedia.org/wiki/Binary_prefix&quot;&gt;Wikipedia: Binary Prefix&lt;/a&gt;
  * @since 2.0
  */
-<span class="fc" id="L40">public enum BinaryPrefix implements Prefix {</span>
+<span class="fc" id="L63">public enum BinaryPrefix implements Prefix {</span>
     /** Prefix for 1024. */
-<span class="fc" id="L42">    KIBI(&quot;Ki&quot;, 1),</span>
+<span class="fc" id="L65">    KIBI(&quot;Ki&quot;, 1),</span>
     /** Prefix for 1024&lt;sup&gt;2&lt;/sup&gt;. */
-<span class="fc" id="L44">    MEBI(&quot;Mi&quot;, 2),</span>
+<span class="fc" id="L67">    MEBI(&quot;Mi&quot;, 2),</span>
     /** Prefix for 1024&lt;sup&gt;3&lt;/sup&gt;. */
-<span class="fc" id="L46">    GIBI(&quot;Gi&quot;, 3),</span>
+<span class="fc" id="L69">    GIBI(&quot;Gi&quot;, 3),</span>
     /** Prefix for 1024&lt;sup&gt;4&lt;/sup&gt;. */
-<span class="fc" id="L48">    TEBI(&quot;Ti&quot;, 4),</span>
+<span class="fc" id="L71">    TEBI(&quot;Ti&quot;, 4),</span>
     /** Prefix for 1024&lt;sup&gt;5&lt;/sup&gt;. */
-<span class="fc" id="L50">    PEBI(&quot;Pi&quot;, 5),</span>
+<span class="fc" id="L73">    PEBI(&quot;Pi&quot;, 5),</span>
     /** Prefix for 1024&lt;sup&gt;6&lt;/sup&gt;. */
-<span class="fc" id="L52">    EXBI(&quot;Ei&quot;, 6),</span>
+<span class="fc" id="L75">    EXBI(&quot;Ei&quot;, 6),</span>
     /** Prefix for 1024&lt;sup&gt;7&lt;/sup&gt;. */
-<span class="fc" id="L54">    ZEBI(&quot;Zi&quot;, 7),</span>
+<span class="fc" id="L77">    ZEBI(&quot;Zi&quot;, 7),</span>
     /** Prefix for 1024&lt;sup&gt;8&lt;/sup&gt;. */
-<span class="fc" id="L56">    YOBI(&quot;Yi&quot;, 8);</span>
+<span class="fc" id="L79">    YOBI(&quot;Yi&quot;, 8);</span>
 
     /**
      * The symbol of this prefix, as returned by {@link #getSymbol}.
@@ -76,10 +99,10 @@ package javax.measure;
      * @param exponent
      *          part of the associated factor in base^exponent representation.
      */
-<span class="fc" id="L79">    private BinaryPrefix(String symbol, int exponent) {</span>
-<span class="fc" id="L80">        this.symbol = symbol;</span>
-<span class="fc" id="L81">        this.exponent = exponent;</span>
-<span class="fc" id="L82">    }</span>
+<span class="fc" id="L102">    private BinaryPrefix(String symbol, int exponent) {</span>
+<span class="fc" id="L103">        this.symbol = symbol;</span>
+<span class="fc" id="L104">        this.exponent = exponent;</span>
+<span class="fc" id="L105">    }</span>
 
     /**
      * Returns the specified unit multiplied by the factor &lt;code&gt;1024&lt;/code&gt; (binary prefix).
@@ -91,7 +114,7 @@ package javax.measure;
      * @return &lt;code&gt;unit.multiply(1024)&lt;/code&gt;.
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; KIBI(Unit&lt;Q&gt; unit) {
-<span class="fc" id="L94">        return unit.prefix(KIBI);</span>
+<span class="fc" id="L117">        return unit.prefix(KIBI);</span>
     }
 
     /**
@@ -104,7 +127,7 @@ package javax.measure;
      * @return &lt;code&gt;unit.multiply(1048576)&lt;/code&gt;.
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; MEBI(Unit&lt;Q&gt; unit) {
-<span class="fc" id="L107">        return unit.prefix(MEBI);</span>
+<span class="fc" id="L130">        return unit.prefix(MEBI);</span>
     }
 
     /**
@@ -117,7 +140,7 @@ package javax.measure;
      * @return &lt;code&gt;unit.multiply(1073741824)&lt;/code&gt;.
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; GIBI(Unit&lt;Q&gt; unit) {
-<span class="fc" id="L120">        return unit.prefix(GIBI);</span>
+<span class="fc" id="L143">        return unit.prefix(GIBI);</span>
     }
 
     /**
@@ -130,7 +153,7 @@ package javax.measure;
      * @return &lt;code&gt;unit.multiply(1099511627776L)&lt;/code&gt;.
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; TEBI(Unit&lt;Q&gt; unit) {
-<span class="fc" id="L133">        return unit.prefix(TEBI);</span>
+<span class="fc" id="L156">        return unit.prefix(TEBI);</span>
     }
 
     /**
@@ -143,7 +166,7 @@ package javax.measure;
      * @return &lt;code&gt;unit.multiply(1125899906842624L)&lt;/code&gt;.
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; PEBI(Unit&lt;Q&gt; unit) {
-<span class="fc" id="L146">        return unit.prefix(PEBI);</span>
+<span class="fc" id="L169">        return unit.prefix(PEBI);</span>
     }
 
     /**
@@ -156,7 +179,7 @@ package javax.measure;
      * @return &lt;code&gt;unit.multiply(1152921504606846976L)&lt;/code&gt;.
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; EXBI(Unit&lt;Q&gt; unit) {
-<span class="fc" id="L159">        return unit.prefix(EXBI);</span>
+<span class="fc" id="L182">        return unit.prefix(EXBI);</span>
     }
 
     /**
@@ -169,7 +192,7 @@ package javax.measure;
      * @return &lt;code&gt;unit.multiply(1152921504606846976d)&lt;/code&gt;.
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; ZEBI(Unit&lt;Q&gt; unit) {
-<span class="fc" id="L172">        return unit.prefix(ZEBI);</span>
+<span class="fc" id="L195">        return unit.prefix(ZEBI);</span>
     }
 
     /**
@@ -182,7 +205,7 @@ package javax.measure;
      * @return &lt;code&gt;unit.multiply(1208925819614629174706176d)&lt;/code&gt;.
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; YOBI(Unit&lt;Q&gt; unit) {
-<span class="fc" id="L185">        return unit.prefix(YOBI);</span>
+<span class="fc" id="L208">        return unit.prefix(YOBI);</span>
     }
 
     /**
@@ -192,7 +215,7 @@ package javax.measure;
      */
     @Override
     public String getSymbol() {
-<span class="fc" id="L195">        return symbol;</span>
+<span class="fc" id="L218">        return symbol;</span>
     }
 
     /**
@@ -200,7 +223,7 @@ package javax.measure;
      */
     @Override
     public Integer getValue() {
-<span class="fc" id="L203">        return 1024;</span>
+<span class="fc" id="L226">        return 1024;</span>
     }
 
     /**
@@ -208,7 +231,7 @@ package javax.measure;
      */
     @Override
     public int getExponent() {
-<span class="fc" id="L211">        return exponent;</span>
+<span class="fc" id="L234">        return exponent;</span>
     }
 
     /**
@@ -218,7 +241,7 @@ package javax.measure;
      */
     @Override
     public String getName() {
-<span class="fc" id="L221">        return name();</span>
+<span class="fc" id="L244">        return name();</span>
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
