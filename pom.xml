@@ -6,7 +6,7 @@
     <artifactId>unit-api</artifactId>
     <name>Units of Measurement API</name>
     <packaging>bundle</packaging>
-    <url>http://unitsofmeasurement.github.io/unit-api/</url>
+    <url>https://unitsofmeasurement.github.io/unit-api/</url>
     <description>Units of Measurement Standard - This JSR specifies Java
         packages for modeling and working with measurement values, quantities
         and their corresponding units.</description>

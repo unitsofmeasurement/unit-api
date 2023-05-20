@@ -41,7 +41,7 @@ package javax.measure;
  * Unit<Pressure> HECTOPASCAL = HECTO(PASCAL);
  * Unit<Length> KILOMETRE = KILO(METRE);} 
  * </pre>
- * You could also apply:
+ * You could also apply <code>Unit.prefix</code>:
  * <pre>
  * {@code ...
  * Unit<Pressure> HECTOPASCAL = PASCAL.prefix(HECTO);
@@ -59,7 +59,7 @@ package javax.measure;
  * @see <a href="https://en.wikipedia.org/wiki/Metric_prefix">Wikipedia: Metric Prefix</a>
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 2.2, April 3, 2023
+ * @version 2.3, May 20, 2023
  * @since 2.0
  */
 public enum MetricPrefix implements Prefix {

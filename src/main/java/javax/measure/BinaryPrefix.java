@@ -30,7 +30,22 @@
 package javax.measure;
 
 /**
- * Provides support for common binary prefixes to be used by units.
+ * Provides support for common binary prefixes to be used by units. For example:
+ * <pre>
+ * {@code import static systems.uom.unicode.CLDR.*;  // Static import (from Unicode System).
+ * import static javax.measure.BinaryPrefix.*; // Static import.
+ * import javax.measure.*;
+ * import systems.uom.quantity.Information; // (from Systems Quantities)
+ * ...
+ * Unit<Information> MEBIT  = MEBI(BIT);
+ * Unit<Information> GIBYTE = GIBI(BYTE);} 
+ * </pre>
+ * You could also apply <code>Unit.prefix</code>:
+ * <pre>
+ * {@code ...
+ * Unit<Information> MEBIT  = BIT.prefix(MEBI);
+ * Unit<Information> GIBYTE = BYTE.prefix(GIBI);}
+ * </pre>
  * 
  * <p>
  * <b>Do not use ordinal() to obtain the numeric representation of BinaryPrefix. Use getValue() and getExponent() instead.</b>
@@ -41,7 +56,7 @@ package javax.measure;
  * </dl> 
  *
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 2.1, April 3, 2023
+ * @version 2.2, May 20, 2023
  * @see <a href="https://en.wikipedia.org/wiki/Binary_prefix">Wikipedia: Binary Prefix</a>
  * @since 2.0
  */
