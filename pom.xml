@@ -5,6 +5,7 @@
     <groupId>javax.measure</groupId>
     <artifactId>unit-api</artifactId>
     <name>Units of Measurement API</name>
+    <version>2.2.1-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <url>https://unitsofmeasurement.github.io/unit-api/</url>
     <description>Units of Measurement Standard - This JSR specifies Java
@@ -1082,5 +1083,4 @@
             </properties>
         </profile>
     </profiles>
-    <version>2.2.1-SNAPSHOT</version>
 </project>
