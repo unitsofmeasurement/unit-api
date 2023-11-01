@@ -56,7 +56,7 @@ package javax.measure;
  * </dl> 
  *
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 2.2, May 20, 2023
+ * @version 2.3, October 31, 2023
  * @see <a href="https://en.wikipedia.org/wiki/Binary_prefix">Wikipedia: Binary Prefix</a>
  * @since 2.0
  */
@@ -111,7 +111,7 @@ public enum BinaryPrefix implements Prefix {
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return <code>unit.multiply(1024)</code>.
+     * @return <code>unit.prefix(1024)</code>.
      */
     public static <Q extends Quantity<Q>> Unit<Q> KIBI(Unit<Q> unit) {
         return unit.prefix(KIBI);
@@ -124,7 +124,7 @@ public enum BinaryPrefix implements Prefix {
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return <code>unit.multiply(1048576)</code>.
+     * @return <code>unit.prefix(1024<sup>2</sup>)</code>.
      */
     public static <Q extends Quantity<Q>> Unit<Q> MEBI(Unit<Q> unit) {
         return unit.prefix(MEBI);
@@ -137,7 +137,7 @@ public enum BinaryPrefix implements Prefix {
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return <code>unit.multiply(1073741824)</code>.
+     * @return <code>unit.prefix(1024<sup>3</sup>)</code>.
      */
     public static <Q extends Quantity<Q>> Unit<Q> GIBI(Unit<Q> unit) {
         return unit.prefix(GIBI);
@@ -150,7 +150,7 @@ public enum BinaryPrefix implements Prefix {
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return <code>unit.multiply(1099511627776L)</code>.
+     * @return <code>unit.prefix(1024<sup>4</sup>)</code>.
      */
     public static <Q extends Quantity<Q>> Unit<Q> TEBI(Unit<Q> unit) {
         return unit.prefix(TEBI);
@@ -163,7 +163,7 @@ public enum BinaryPrefix implements Prefix {
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return <code>unit.multiply(1125899906842624L)</code>.
+     * @return <code>unit.prefix(1024<sup>5</sup>)</code>.
      */
     public static <Q extends Quantity<Q>> Unit<Q> PEBI(Unit<Q> unit) {
         return unit.prefix(PEBI);
@@ -176,7 +176,7 @@ public enum BinaryPrefix implements Prefix {
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return <code>unit.multiply(1152921504606846976L)</code>.
+     * @return <code>unit.prefix(1024<sup>6</sup>)</code>.
      */
     public static <Q extends Quantity<Q>> Unit<Q> EXBI(Unit<Q> unit) {
         return unit.prefix(EXBI);
@@ -189,7 +189,7 @@ public enum BinaryPrefix implements Prefix {
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return <code>unit.multiply(1152921504606846976d)</code>.
+     * @return <code>unit.prefix(1024<sup>7</sup>)</code>.
      */
     public static <Q extends Quantity<Q>> Unit<Q> ZEBI(Unit<Q> unit) {
         return unit.prefix(ZEBI);
@@ -202,7 +202,7 @@ public enum BinaryPrefix implements Prefix {
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return <code>unit.multiply(1208925819614629174706176d)</code>.
+     * @return <code>unit.prefix(1024<sup>8</sup>)</code>.
      */
     public static <Q extends Quantity<Q>> Unit<Q> YOBI(Unit<Q> unit) {
         return unit.prefix(YOBI);

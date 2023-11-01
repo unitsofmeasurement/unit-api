@@ -59,7 +59,7 @@ package javax.measure;
  * @see &lt;a href=&quot;https://en.wikipedia.org/wiki/Metric_prefix&quot;&gt;Wikipedia: Metric Prefix&lt;/a&gt;
  * @author &lt;a href=&quot;mailto:jean-marie@dautelle.com&quot;&gt;Jean-Marie Dautelle&lt;/a&gt;
  * @author &lt;a href=&quot;mailto:werner@units.tech&quot;&gt;Werner Keil&lt;/a&gt;
- * @version 2.3, May 20, 2023
+ * @version 2.4, October 31, 2023
  * @since 2.0
  */
 <span class="fc" id="L65">public enum MetricPrefix implements Prefix {</span>
@@ -157,7 +157,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e30)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e30)&lt;/code&gt;.
      * @see #QUETTA
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; QUETTA(Unit&lt;Q&gt; unit) {
@@ -171,7 +171,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e27)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e27)&lt;/code&gt;.
      * @see #RONNA
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; RONNA(Unit&lt;Q&gt; unit) {
@@ -185,7 +185,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e24)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e24)&lt;/code&gt;.
      * @see #YOTTA
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; YOTTA(Unit&lt;Q&gt; unit) {
@@ -199,7 +199,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e21)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e21)&lt;/code&gt;.
      * @see #ZETTA
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; ZETTA(Unit&lt;Q&gt; unit) {
@@ -213,7 +213,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e18)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e18)&lt;/code&gt;.
      * @see #EXA
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; EXA(Unit&lt;Q&gt; unit) {
@@ -227,7 +227,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e15)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e15)&lt;/code&gt;.
      * @see #PETA
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; PETA(Unit&lt;Q&gt; unit) {
@@ -241,7 +241,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e12)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e12)&lt;/code&gt;.
      * @see #TERA
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; TERA(Unit&lt;Q&gt; unit) {
@@ -255,7 +255,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e9)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e9)&lt;/code&gt;.
      * @see #GIGA
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; GIGA(Unit&lt;Q&gt; unit) {
@@ -269,7 +269,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e6)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e6)&lt;/code&gt;.
      * @see #MEGA
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; MEGA(Unit&lt;Q&gt; unit) {
@@ -283,7 +283,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e3)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e3)&lt;/code&gt;.
      * @see #KILO
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; KILO(Unit&lt;Q&gt; unit) {
@@ -297,7 +297,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e2)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e2)&lt;/code&gt;.
      * @see #HECTO
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; HECTO(Unit&lt;Q&gt; unit) {
@@ -311,7 +311,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e1)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e1)&lt;/code&gt;.
      * @see #DECA
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; DECA(Unit&lt;Q&gt; unit) {
@@ -325,7 +325,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e1)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e1)&lt;/code&gt;.
      * @see #DECA
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; DEKA(Unit&lt;Q&gt; unit) {
@@ -339,7 +339,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e-1)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e-1)&lt;/code&gt;.
      * @see #DECI 
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; DECI(Unit&lt;Q&gt; unit) {
@@ -353,7 +353,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e-2)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e-2)&lt;/code&gt;.
      * @see #CENTI
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; CENTI(Unit&lt;Q&gt; unit) {
@@ -367,7 +367,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e-3)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e-3)&lt;/code&gt;.
      * @see #MILLI
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; MILLI(Unit&lt;Q&gt; unit) {
@@ -381,7 +381,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e-6)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e-6)&lt;/code&gt;.
      * @see #MICRO 
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; MICRO(Unit&lt;Q&gt; unit) {
@@ -395,7 +395,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e-9)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e-9)&lt;/code&gt;.
      * @see #NANO 
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; NANO(Unit&lt;Q&gt; unit) {
@@ -409,7 +409,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e-12)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e-12)&lt;/code&gt;.
      * @see #PICO
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; PICO(Unit&lt;Q&gt; unit) {
@@ -423,7 +423,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e-15)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e-15)&lt;/code&gt;.
      * @see #FEMTO
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; FEMTO(Unit&lt;Q&gt; unit) {
@@ -437,7 +437,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e-18)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e-18)&lt;/code&gt;.
      * @see #ATTO 
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; ATTO(Unit&lt;Q&gt; unit) {
@@ -451,7 +451,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e-21)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e-21)&lt;/code&gt;.
      * #see ZEPTO
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; ZEPTO(Unit&lt;Q&gt; unit) {
@@ -465,7 +465,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e-24)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e-24)&lt;/code&gt;.
      * @see #YOCTO
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; YOCTO(Unit&lt;Q&gt; unit) {
@@ -479,7 +479,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e-27)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e-27)&lt;/code&gt;.
      * @see #RONTO
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; RONTO(Unit&lt;Q&gt; unit) {
@@ -493,7 +493,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.times(1e-30)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1e-30)&lt;/code&gt;.
      * @see #QUECTO
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; QUECTO(Unit&lt;Q&gt; unit) {
@@ -536,4 +536,4 @@ package javax.measure;
 <span class="fc" id="L536">        return name();</span>
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<licensePluginReport goal="CHECK" timestamp="1684614072365">
-    <module artifactId="unit-api" groupId="javax.measure" version="2.2"/>
+<licensePluginReport goal="CHECK" timestamp="1698868832051">
+    <module artifactId="unit-api" groupId="javax.measure" version="2.2.1-SNAPSHOT"/>
     <files>
         <file path="src\main\java\javax\measure\BinaryPrefix.java" result="PRESENT"/>
         <file path="src\main\java\javax\measure\Dimension.java" result="PRESENT"/>

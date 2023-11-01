@@ -69,7 +69,7 @@
 <span class="source-line-no">056</span><span id="line-56"> * &lt;/dl&gt; </span>
 <span class="source-line-no">057</span><span id="line-57"> *</span>
 <span class="source-line-no">058</span><span id="line-58"> * @author &lt;a href="mailto:werner@units.tech"&gt;Werner Keil&lt;/a&gt;</span>
-<span class="source-line-no">059</span><span id="line-59"> * @version 2.2, May 20, 2023</span>
+<span class="source-line-no">059</span><span id="line-59"> * @version 2.3, October 31, 2023</span>
 <span class="source-line-no">060</span><span id="line-60"> * @see &lt;a href="https://en.wikipedia.org/wiki/Binary_prefix"&gt;Wikipedia: Binary Prefix&lt;/a&gt;</span>
 <span class="source-line-no">061</span><span id="line-61"> * @since 2.0</span>
 <span class="source-line-no">062</span><span id="line-62"> */</span>
@@ -124,7 +124,7 @@
 <span class="source-line-no">111</span><span id="line-111">     *          type of the quantity measured by the unit.</span>
 <span class="source-line-no">112</span><span id="line-112">     * @param unit</span>
 <span class="source-line-no">113</span><span id="line-113">     *          any unit.</span>
-<span class="source-line-no">114</span><span id="line-114">     * @return &lt;code&gt;unit.multiply(1024)&lt;/code&gt;.</span>
+<span class="source-line-no">114</span><span id="line-114">     * @return &lt;code&gt;unit.prefix(1024)&lt;/code&gt;.</span>
 <span class="source-line-no">115</span><span id="line-115">     */</span>
 <span class="source-line-no">116</span><span id="line-116">    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; KIBI(Unit&lt;Q&gt; unit) {</span>
 <span class="source-line-no">117</span><span id="line-117">        return unit.prefix(KIBI);</span>
@@ -137,7 +137,7 @@
 <span class="source-line-no">124</span><span id="line-124">     *          type of the quantity measured by the unit.</span>
 <span class="source-line-no">125</span><span id="line-125">     * @param unit</span>
 <span class="source-line-no">126</span><span id="line-126">     *          any unit.</span>
-<span class="source-line-no">127</span><span id="line-127">     * @return &lt;code&gt;unit.multiply(1048576)&lt;/code&gt;.</span>
+<span class="source-line-no">127</span><span id="line-127">     * @return &lt;code&gt;unit.prefix(1024&lt;sup&gt;2&lt;/sup&gt;)&lt;/code&gt;.</span>
 <span class="source-line-no">128</span><span id="line-128">     */</span>
 <span class="source-line-no">129</span><span id="line-129">    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; MEBI(Unit&lt;Q&gt; unit) {</span>
 <span class="source-line-no">130</span><span id="line-130">        return unit.prefix(MEBI);</span>
@@ -150,7 +150,7 @@
 <span class="source-line-no">137</span><span id="line-137">     *          type of the quantity measured by the unit.</span>
 <span class="source-line-no">138</span><span id="line-138">     * @param unit</span>
 <span class="source-line-no">139</span><span id="line-139">     *          any unit.</span>
-<span class="source-line-no">140</span><span id="line-140">     * @return &lt;code&gt;unit.multiply(1073741824)&lt;/code&gt;.</span>
+<span class="source-line-no">140</span><span id="line-140">     * @return &lt;code&gt;unit.prefix(1024&lt;sup&gt;3&lt;/sup&gt;)&lt;/code&gt;.</span>
 <span class="source-line-no">141</span><span id="line-141">     */</span>
 <span class="source-line-no">142</span><span id="line-142">    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; GIBI(Unit&lt;Q&gt; unit) {</span>
 <span class="source-line-no">143</span><span id="line-143">        return unit.prefix(GIBI);</span>
@@ -163,7 +163,7 @@
 <span class="source-line-no">150</span><span id="line-150">     *          type of the quantity measured by the unit.</span>
 <span class="source-line-no">151</span><span id="line-151">     * @param unit</span>
 <span class="source-line-no">152</span><span id="line-152">     *          any unit.</span>
-<span class="source-line-no">153</span><span id="line-153">     * @return &lt;code&gt;unit.multiply(1099511627776L)&lt;/code&gt;.</span>
+<span class="source-line-no">153</span><span id="line-153">     * @return &lt;code&gt;unit.prefix(1024&lt;sup&gt;4&lt;/sup&gt;)&lt;/code&gt;.</span>
 <span class="source-line-no">154</span><span id="line-154">     */</span>
 <span class="source-line-no">155</span><span id="line-155">    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; TEBI(Unit&lt;Q&gt; unit) {</span>
 <span class="source-line-no">156</span><span id="line-156">        return unit.prefix(TEBI);</span>
@@ -176,7 +176,7 @@
 <span class="source-line-no">163</span><span id="line-163">     *          type of the quantity measured by the unit.</span>
 <span class="source-line-no">164</span><span id="line-164">     * @param unit</span>
 <span class="source-line-no">165</span><span id="line-165">     *          any unit.</span>
-<span class="source-line-no">166</span><span id="line-166">     * @return &lt;code&gt;unit.multiply(1125899906842624L)&lt;/code&gt;.</span>
+<span class="source-line-no">166</span><span id="line-166">     * @return &lt;code&gt;unit.prefix(1024&lt;sup&gt;5&lt;/sup&gt;)&lt;/code&gt;.</span>
 <span class="source-line-no">167</span><span id="line-167">     */</span>
 <span class="source-line-no">168</span><span id="line-168">    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; PEBI(Unit&lt;Q&gt; unit) {</span>
 <span class="source-line-no">169</span><span id="line-169">        return unit.prefix(PEBI);</span>
@@ -189,7 +189,7 @@
 <span class="source-line-no">176</span><span id="line-176">     *          type of the quantity measured by the unit.</span>
 <span class="source-line-no">177</span><span id="line-177">     * @param unit</span>
 <span class="source-line-no">178</span><span id="line-178">     *          any unit.</span>
-<span class="source-line-no">179</span><span id="line-179">     * @return &lt;code&gt;unit.multiply(1152921504606846976L)&lt;/code&gt;.</span>
+<span class="source-line-no">179</span><span id="line-179">     * @return &lt;code&gt;unit.prefix(1024&lt;sup&gt;6&lt;/sup&gt;)&lt;/code&gt;.</span>
 <span class="source-line-no">180</span><span id="line-180">     */</span>
 <span class="source-line-no">181</span><span id="line-181">    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; EXBI(Unit&lt;Q&gt; unit) {</span>
 <span class="source-line-no">182</span><span id="line-182">        return unit.prefix(EXBI);</span>
@@ -202,7 +202,7 @@
 <span class="source-line-no">189</span><span id="line-189">     *          type of the quantity measured by the unit.</span>
 <span class="source-line-no">190</span><span id="line-190">     * @param unit</span>
 <span class="source-line-no">191</span><span id="line-191">     *          any unit.</span>
-<span class="source-line-no">192</span><span id="line-192">     * @return &lt;code&gt;unit.multiply(1152921504606846976d)&lt;/code&gt;.</span>
+<span class="source-line-no">192</span><span id="line-192">     * @return &lt;code&gt;unit.prefix(1024&lt;sup&gt;7&lt;/sup&gt;)&lt;/code&gt;.</span>
 <span class="source-line-no">193</span><span id="line-193">     */</span>
 <span class="source-line-no">194</span><span id="line-194">    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; ZEBI(Unit&lt;Q&gt; unit) {</span>
 <span class="source-line-no">195</span><span id="line-195">        return unit.prefix(ZEBI);</span>
@@ -215,7 +215,7 @@
 <span class="source-line-no">202</span><span id="line-202">     *          type of the quantity measured by the unit.</span>
 <span class="source-line-no">203</span><span id="line-203">     * @param unit</span>
 <span class="source-line-no">204</span><span id="line-204">     *          any unit.</span>
-<span class="source-line-no">205</span><span id="line-205">     * @return &lt;code&gt;unit.multiply(1208925819614629174706176d)&lt;/code&gt;.</span>
+<span class="source-line-no">205</span><span id="line-205">     * @return &lt;code&gt;unit.prefix(1024&lt;sup&gt;8&lt;/sup&gt;)&lt;/code&gt;.</span>
 <span class="source-line-no">206</span><span id="line-206">     */</span>
 <span class="source-line-no">207</span><span id="line-207">    public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; YOBI(Unit&lt;Q&gt; unit) {</span>
 <span class="source-line-no">208</span><span id="line-208">        return unit.prefix(YOBI);</span>

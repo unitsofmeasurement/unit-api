@@ -56,7 +56,7 @@ package javax.measure;
  * &lt;/dl&gt; 
  *
  * @author &lt;a href=&quot;mailto:werner@units.tech&quot;&gt;Werner Keil&lt;/a&gt;
- * @version 2.2, May 20, 2023
+ * @version 2.3, October 31, 2023
  * @see &lt;a href=&quot;https://en.wikipedia.org/wiki/Binary_prefix&quot;&gt;Wikipedia: Binary Prefix&lt;/a&gt;
  * @since 2.0
  */
@@ -111,7 +111,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.multiply(1024)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1024)&lt;/code&gt;.
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; KIBI(Unit&lt;Q&gt; unit) {
 <span class="fc" id="L117">        return unit.prefix(KIBI);</span>
@@ -124,7 +124,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.multiply(1048576)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1024&lt;sup&gt;2&lt;/sup&gt;)&lt;/code&gt;.
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; MEBI(Unit&lt;Q&gt; unit) {
 <span class="fc" id="L130">        return unit.prefix(MEBI);</span>
@@ -137,7 +137,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.multiply(1073741824)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1024&lt;sup&gt;3&lt;/sup&gt;)&lt;/code&gt;.
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; GIBI(Unit&lt;Q&gt; unit) {
 <span class="fc" id="L143">        return unit.prefix(GIBI);</span>
@@ -150,7 +150,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.multiply(1099511627776L)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1024&lt;sup&gt;4&lt;/sup&gt;)&lt;/code&gt;.
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; TEBI(Unit&lt;Q&gt; unit) {
 <span class="fc" id="L156">        return unit.prefix(TEBI);</span>
@@ -163,7 +163,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.multiply(1125899906842624L)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1024&lt;sup&gt;5&lt;/sup&gt;)&lt;/code&gt;.
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; PEBI(Unit&lt;Q&gt; unit) {
 <span class="fc" id="L169">        return unit.prefix(PEBI);</span>
@@ -176,7 +176,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.multiply(1152921504606846976L)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1024&lt;sup&gt;6&lt;/sup&gt;)&lt;/code&gt;.
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; EXBI(Unit&lt;Q&gt; unit) {
 <span class="fc" id="L182">        return unit.prefix(EXBI);</span>
@@ -189,7 +189,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.multiply(1152921504606846976d)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1024&lt;sup&gt;7&lt;/sup&gt;)&lt;/code&gt;.
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; ZEBI(Unit&lt;Q&gt; unit) {
 <span class="fc" id="L195">        return unit.prefix(ZEBI);</span>
@@ -202,7 +202,7 @@ package javax.measure;
      *          type of the quantity measured by the unit.
      * @param unit
      *          any unit.
-     * @return &lt;code&gt;unit.multiply(1208925819614629174706176d)&lt;/code&gt;.
+     * @return &lt;code&gt;unit.prefix(1024&lt;sup&gt;8&lt;/sup&gt;)&lt;/code&gt;.
      */
     public static &lt;Q extends Quantity&lt;Q&gt;&gt; Unit&lt;Q&gt; YOBI(Unit&lt;Q&gt; unit) {
 <span class="fc" id="L208">        return unit.prefix(YOBI);</span>
@@ -244,4 +244,4 @@ package javax.measure;
 <span class="fc" id="L244">        return name();</span>
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
