@@ -74,7 +74,6 @@
         <!-- Plugins -->
         <github.maven.version>0.12</github.maven.version>
         <github.global.server>github</github.global.server>
-        <spotbugs-maven.version>4.7.3.6</spotbugs-maven.version>
         <!--Exclude the files here -->
         <sonar.exclusions>
             src/main/java/javax/measure/BinaryPrefix.java,src/main/java/javax/measure/MetricPrefix.java</sonar.exclusions>
@@ -739,7 +738,6 @@
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>${spotbugs-maven.version}</version>
             </plugin>
         </plugins>
     </reporting>
