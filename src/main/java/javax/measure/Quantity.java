@@ -69,7 +69,7 @@ package javax.measure;
  * conversion between quantity unit and system unit is only a
  * {@linkplain UnitConverter#isLinear() scale factor}. However this is not
  * the case for conversions applying an offset or more complex formula.
- * For example 2°C + 1°C = 274.15°C, not 3°C. This counter-intuitive result
+ * For example 2°C - 1 K = 274.15°C, not 1°C. This counter-intuitive result
  * is essential for preserving algebra laws like associativity, and is also
  * the expected result from a thermodynamic point of view.</p>
  *
