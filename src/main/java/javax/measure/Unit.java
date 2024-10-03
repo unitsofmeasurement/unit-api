@@ -67,7 +67,7 @@ import java.util.Map;
  * @author <a href="mailto:steve@unidata.ucar.edu">Steve Emmerson</a>
  * @author <a href="mailto:martin.desruisseaux@geomatys.com">Martin Desruisseaux</a>
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 2.4, November 11, 2020
+ * @version 2.5, October 3, 2024
  * @since 1.0
  *
  * @see <a href="http://en.wikipedia.org/wiki/Units_of_measurement">Wikipedia: Units of measurement</a>
@@ -216,7 +216,7 @@ public interface Unit<Q extends Quantity<Q>> {
      *          the unit to which to convert the numeric values.
      * @return the converter from this unit to {@code that} unit.
      * @throws IncommensurableException
-     *           if this unit is not {@linkplain #isCompatible(Unit) compatible} with <code>that</code> unit.
+     *           if this unit is not {@linkplain #isCompatible(Unit) compatible} with {@code that}.
      * @throws UnconvertibleException
      *           if a converter cannot be constructed.
      *
