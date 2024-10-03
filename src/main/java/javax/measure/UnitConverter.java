@@ -1,6 +1,6 @@
 /*
  * Units of Measurement API
- * Copyright (c) 2014-2023, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ * Copyright (c) 2014-2024, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
  * All rights reserved.
  *
@@ -44,7 +44,7 @@ import java.util.List;
  *         Desruisseaux</a>
  * @author <a href="mailto:thodoris.bais@gmail.com">Thodoris Bais</a>
  * @author <a href="mailto:ahuber@apache.org">Andi Huber</a>
- * @version 1.4, May 12, 2019
+ * @version 1.5, October 3, 2024
  * @since 1.0
  *
  * @see Unit
@@ -95,7 +95,9 @@ public interface UnitConverter {
      *
      * @return {@code true} if this converter represents a linear transformation; 
      * {@code false} otherwise.
-     * 
+     *  
+     * @see <a href="https://en.wikipedia.org/wiki/Linear_map"> Wikipedia: Linear map</a>
+     * @see <a href="https://en.wikipedia.org/wiki/Conversion_of_units#Limitations"> Wikipedia: Conversion of units - Limitations</a>
      */
     boolean isLinear();
 

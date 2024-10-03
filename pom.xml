@@ -69,7 +69,7 @@
         <maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
         <maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
         <additionalparam>-Xdoclint:none</additionalparam>
-        <thisYear>2023</thisYear>
+        <thisYear>2024</thisYear>
 
         <!-- Plugins -->
         <github.maven.version>0.12</github.maven.version>

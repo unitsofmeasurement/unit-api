@@ -1,6 +1,6 @@
 /*
  * Units of Measurement API
- * Copyright (c) 2014-2023, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
+ * Copyright (c) 2014-2024, Jean-Marie Dautelle, Werner Keil, Otavio Santana.
  *
  * All rights reserved.
  *
@@ -69,7 +69,7 @@ package javax.measure;
  * conversion between quantity unit and system unit is only a
  * {@linkplain UnitConverter#isLinear() scale factor}. However this is not
  * the case for conversions applying an offset or more complex formula.
- * For example 2°C + 1°C = 274.15°C, not 3°C. This counter-intuitive result
+ * For example 2°C + 1°C = 276.15°C, not 3°C. This counter-intuitive result
  * is essential for preserving algebra laws like associativity, and is also
  * the expected result from a thermodynamic point of view.</p>
  *
@@ -91,7 +91,7 @@ package javax.measure;
  * @see <a href="http://en.wikipedia.org/wiki/Quantity">Wikipedia: Quantity</a>
  * @see <a href="http://martinfowler.com/eaaDev/quantity.html">Martin Fowler -
  *      Quantity</a>
- * @version 2.5, May 20, 2023
+ * @version 2.6, October 3, 2024
  * @since 1.0
  */
 public interface Quantity<Q extends Quantity<Q>> {
