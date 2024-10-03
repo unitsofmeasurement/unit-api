@@ -196,7 +196,7 @@ public interface Unit<Q extends Quantity<Q>> {
      *
      * @param that
      *          the unit of same type to which to convert the numeric values.
-     * @return the converter from this unit to {@code that} unit.
+     * @return the converter from this unit to <code>that</code> unit.
      * @throws UnconvertibleException
      *           if a converter cannot be constructed.
      *
@@ -216,7 +216,7 @@ public interface Unit<Q extends Quantity<Q>> {
      *          the unit to which to convert the numeric values.
      * @return the converter from this unit to {@code that} unit.
      * @throws IncommensurableException
-     *           if this unit is not {@linkplain #isCompatible(Unit) compatible} with {@code that} unit.
+     *           if this unit is not {@linkplain #isCompatible(Unit) compatible} with <code>that</code> unit.
      * @throws UnconvertibleException
      *           if a converter cannot be constructed.
      *
