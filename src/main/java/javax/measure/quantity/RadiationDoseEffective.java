@@ -36,8 +36,9 @@ import javax.measure.Quantity;
  * (Sievert).
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @version 1.0
+ * @version 1.1
  * @since 1.0
+ * @see <a href="https://en.wikipedia.org/wiki/Effective_dose_(radiation)">Wikipedia: Effective dose (radiation)</a> 
  */
 public interface RadiationDoseEffective extends Quantity<RadiationDoseEffective> {
 }
