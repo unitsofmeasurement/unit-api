@@ -176,7 +176,7 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Returns the quotient of this unit with the one specified.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;? extends <a href="Unit.html" title="interface in javax.measure">Unit</a>&lt;?&gt;,<wbr><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;? extends <a href="Unit.html" title="interface in javax.measure">Unit</a>&lt;?&gt;,<wbr><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getBaseUnits()" class="member-name-link">getBaseUnits</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Returns the base units and their exponent whose product is this unit, or <code>null</code> if this unit is a base unit (not a product of existing
@@ -243,9 +243,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns the product of this unit with the one specified.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="Unit.html" title="interface in javax.measure">Unit</a>&lt;?&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#pow(int)" class="member-name-link">pow</a><wbr>(int&nbsp;n)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#pow(double)" class="member-name-link">pow</a><wbr>(double&nbsp;n)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Returns an unit raised to the n-th (integer) power of this unit.</div>
+<div class="block">Returns an unit raised to the n-th power of this unit.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="Unit.html" title="interface in javax.measure">Unit</a>&lt;<a href="Unit.html" title="type parameter in Unit">Q</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#prefix(javax.measure.Prefix)" class="member-name-link">prefix</a><wbr>(<a href="Prefix.html" title="interface in javax.measure">Prefix</a>&nbsp;prefix)</code></div>
@@ -253,9 +253,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns a new unit equal to this unit prefixed by the specified <code>prefix</code>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="Unit.html" title="interface in javax.measure">Unit</a>&lt;?&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#root(int)" class="member-name-link">root</a><wbr>(int&nbsp;n)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#root(double)" class="member-name-link">root</a><wbr>(double&nbsp;n)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Returns an unit that is the n-th (integer) root of this unit.</div>
+<div class="block">Returns an unit that is the n-th root of this unit.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="Unit.html" title="interface in javax.measure">Unit</a>&lt;<a href="Unit.html" title="type parameter in Unit">Q</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#shift(double)" class="member-name-link">shift</a><wbr>(double&nbsp;offset)</code></div>
@@ -370,7 +370,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getBaseUnits()">
 <h3>getBaseUnits</h3>
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;? extends <a href="Unit.html" title="interface in javax.measure">Unit</a>&lt;?&gt;,<wbr><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../src-html/javax/measure/Unit.html#line-135">getBaseUnits</a></span>()</div>
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;? extends <a href="Unit.html" title="interface in javax.measure">Unit</a>&lt;?&gt;,<wbr><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../src-html/javax/measure/Unit.html#line-135">getBaseUnits</a></span>()</div>
 <div class="block">Returns the base units and their exponent whose product is this unit, or <code>null</code> if this unit is a base unit (not a product of existing
  units).</div>
 <dl class="notes">
@@ -702,25 +702,25 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="root(int)">
+<section class="detail" id="root(double)">
 <h3>root</h3>
-<div class="member-signature"><span class="return-type"><a href="Unit.html" title="interface in javax.measure">Unit</a>&lt;?&gt;</span>&nbsp;<span class="element-name"><a href="../../src-html/javax/measure/Unit.html#line-383">root</a></span><wbr><span class="parameters">(int&nbsp;n)</span></div>
-<div class="block">Returns an unit that is the n-th (integer) root of this unit. Equivalent to the mathematical expression <code>unit^(1/n)</code>.</div>
+<div class="member-signature"><span class="return-type"><a href="Unit.html" title="interface in javax.measure">Unit</a>&lt;?&gt;</span>&nbsp;<span class="element-name"><a href="../../src-html/javax/measure/Unit.html#line-383">root</a></span><wbr><span class="parameters">(double&nbsp;n)</span></div>
+<div class="block">Returns an unit that is the n-th root of this unit. Equivalent to the mathematical expression <code>unit^(1/n)</code>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>n</code> - an integer giving the root's order as in 'n-th root'</dd>
+<dd><code>n</code> - a double giving the root's order as in 'n-th root'</dd>
 <dt>Returns:</dt>
 <dd>the n-th root of this unit.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ArithmeticException.html" title="class or interface in java.lang" class="external-link">ArithmeticException</a></code> - if <code>n == 0</code> or if this operation would result in an unit with a fractional exponent.</dd>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ArithmeticException.html" title="class or interface in java.lang" class="external-link">ArithmeticException</a></code> - if <code>n == 0</code>.</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="pow(int)">
+<section class="detail" id="pow(double)">
 <h3>pow</h3>
-<div class="member-signature"><span class="return-type"><a href="Unit.html" title="interface in javax.measure">Unit</a>&lt;?&gt;</span>&nbsp;<span class="element-name"><a href="../../src-html/javax/measure/Unit.html#line-392">pow</a></span><wbr><span class="parameters">(int&nbsp;n)</span></div>
-<div class="block">Returns an unit raised to the n-th (integer) power of this unit. Equivalent to the mathematical expression <code>unit^n</code>.</div>
+<div class="member-signature"><span class="return-type"><a href="Unit.html" title="interface in javax.measure">Unit</a>&lt;?&gt;</span>&nbsp;<span class="element-name"><a href="../../src-html/javax/measure/Unit.html#line-392">pow</a></span><wbr><span class="parameters">(double&nbsp;n)</span></div>
+<div class="block">Returns an unit raised to the n-th power of this unit. Equivalent to the mathematical expression <code>unit^n</code>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>n</code> - the exponent.</dd>

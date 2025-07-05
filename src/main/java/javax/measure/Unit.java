@@ -132,7 +132,7 @@ public interface Unit<Q extends Quantity<Q>> {
      *
      * @return the base units and their exponent making up this unit.
      */
-    Map<? extends Unit<?>, Integer> getBaseUnits();
+    Map<? extends Unit<?>, Double> getBaseUnits();
 
     /**
      * Indicates if this unit is compatible with the unit specified. Units don't need to be equal to be compatible. For example (assuming {@code ONE}
@@ -372,24 +372,24 @@ public interface Unit<Q extends Quantity<Q>> {
     Unit<?> divide(Unit<?> divisor);
 
     /**
-     * Returns an unit that is the n-th (integer) root of this unit. Equivalent to the mathematical expression {@code unit^(1/n)}.
+     * Returns an unit that is the n-th root of this unit. Equivalent to the mathematical expression {@code unit^(1/n)}.
      *
      * @param n
-     *          an integer giving the root's order as in 'n-th root'
+     *          a double giving the root's order as in 'n-th root'
      * @return the n-th root of this unit.
      * @throws ArithmeticException
-     *           if {@code n == 0} or if this operation would result in an unit with a fractional exponent.
+     *           if {@code n == 0}.
      */
-    Unit<?> root(int n);
+    Unit<?> root(double n);
 
     /**
-     * Returns an unit raised to the n-th (integer) power of this unit. Equivalent to the mathematical expression {@code unit^n}.
+     * Returns an unit raised to the n-th power of this unit. Equivalent to the mathematical expression {@code unit^n}.
      *
      * @param n
      *          the exponent.
      * @return the result of raising this unit to the exponent.
      */
-    Unit<?> pow(int n);
+    Unit<?> pow(double n);
 
     /**
      * Returns the unit derived from this unit using the specified converter. The converter does not need to be linear. For example:<br>
