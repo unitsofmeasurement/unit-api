@@ -806,7 +806,7 @@
             </snapshots>
             <id>central-snapshot</id>
             <name>Central Snapshots</name>
-            <url>${sonatype.central.snapshotsUrl}</url>
+            <url>https://central.sonatype.com/repository/maven-snapshots/</url>
         </repository>       
     </repositories>
 
