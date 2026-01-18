@@ -363,8 +363,15 @@
                     <groupId>net.revelc.code</groupId>
                     <artifactId>formatter-maven-plugin</artifactId>
                     <version>0.5.2</version>
-                </plugin>              
-            </plugins>
+                </plugin>
+                
+                 <plugin>
+        			<groupId>org.sonarsource.scanner.maven</groupId>
+        			<artifactId>sonar-maven-plugin</artifactId>
+        			<version>5.5.0.6356</version>
+      			</plugin>
+      			<!-- Source: https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
+            </plugins>            
         </pluginManagement>
 
         <plugins>
