@@ -64,7 +64,7 @@ jobs:
       # run code analysis using sonarqube
       - run: 
           name: Running code analysis
-          command: mvn -Psonar sonar:sonar -DsourceEncoding=UTF-8
+          command: mvn -Psonar org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 
 workflows:
   version: 2
