@@ -54,7 +54,7 @@ jobs:
       MAVEN_OPTS: -Xmx3200m
 
     steps:
-      - checkout
+      - checkout:
           method: full
 
       # run tests!      
