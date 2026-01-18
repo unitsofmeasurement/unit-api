@@ -55,7 +55,7 @@ jobs:
 
     steps:
       - checkout
-          method: blobless
+          method: full
 
       # run tests!      
       - run: 
