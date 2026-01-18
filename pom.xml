@@ -1044,8 +1044,8 @@
                 <sourceEncoding>UTF-8</sourceEncoding> <!-- in Maven 3. -->
                 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
                 <project.reporting.outputEncoding>${sourceEncoding}</project.reporting.outputEncoding>
-                <jdkVersion>17</jdkVersion>
-                <jdkOptionalVersion>21</jdkOptionalVersion>
+                <jdkVersion>8</jdkVersion>
+                <jdkOptionalVersion>9</jdkOptionalVersion>
                 <project.build.javaVersion>${jdkVersion}</project.build.javaVersion>
                 <maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
                 <maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
