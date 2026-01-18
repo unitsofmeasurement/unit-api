@@ -1227,7 +1227,7 @@
             <ownedOperation xmi:type="uml:Operation" xmi:id="_VjF_fnY7EeSqtc-Sb9aJnA" name="getUnitFormat">
               <ownedComment xmi:type="uml:Comment" xmi:id="_VjF_f3Y7EeSqtc-Sb9aJnA">
                 <body>
-     * Returns the default &lt;a href=&quot;http://www.unitsofmeasure.org/&quot;>UCUM&lt;/a>
+     * Returns the default &lt;a href=&quot;http://www.ucum.org/&quot;>UCUM&lt;/a>
      * unit format.
      *
      * @return &lt;code>getUnitFormat(&quot;UCUM&quot;)&lt;/code>
@@ -2169,7 +2169,7 @@
             <ownedOperation xmi:type="uml:Operation" xmi:id="_fLXNAXonEeS9Gr9yPtn_zA" name="toString" visibility="public">
               <ownedComment xmi:type="uml:Comment" xmi:id="_fLXNAnonEeS9Gr9yPtn_zA">
                 <body>
-	 * Returns the standard &lt;a href=&quot;http://unitsofmeasure.org/&quot;>UCUM&lt;/a>
+	 * Returns the standard &lt;a href=&quot;http://ucum.org/&quot;>UCUM&lt;/a>
 	 * representation of this physics unit. The string produced for a given unit
 	 * is always the same; it is not affected by the locale. It can be used as a
 	 * canonical string representation for exchanging units, or as a key for a
