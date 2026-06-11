@@ -76,7 +76,7 @@ public interface Dimension {
      *          power to raise this {@code Dimension} to.
      * @return <code>this<sup>n</sup></code>
      */
-    Dimension pow(int n);
+    Dimension pow(double n);
 
     /**
      * Returns the given root of this dimension.
@@ -87,7 +87,7 @@ public interface Dimension {
      * @throws ArithmeticException
      *           if {@code n == 0}.
      */
-    Dimension root(int n);
+    Dimension root(double n);
 
     /**
      * Returns the (fundamental) base dimensions and their exponent whose product is this dimension, or {@code null} if this dimension is a base
@@ -95,5 +95,5 @@ public interface Dimension {
      *
      * @return the mapping between the fundamental dimensions and their exponent.
      */
-    Map<? extends Dimension, Integer> getBaseDimensions();
+    Map<? extends Dimension, Double> getBaseDimensions();
 }
