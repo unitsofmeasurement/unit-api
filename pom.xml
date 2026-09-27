@@ -26,7 +26,7 @@
     <parent>
         <groupId>tech.uom</groupId>
         <artifactId>uom-parent</artifactId>
-        <version>2.2.5-SNAPSHOT</version>
+        <version>2.2.5</version>
     </parent>
 
     <!-- Issue managements and mailing lists. -->
