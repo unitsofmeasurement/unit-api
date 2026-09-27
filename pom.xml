@@ -1039,7 +1039,7 @@
             <properties>
                 <sonar.host.url>https://sonarcloud.io</sonar.host.url>
                 <sonar.projectKey>${env.SONARCLOUD_PROJECT_KEY}</sonar.projectKey>
-                <sonar.login>${env.SONARCLOUD_LOGIN}</sonar.login>
+                <sonar.token>${env.SONARCLOUD_LOGIN}</sonar.token>
                 <sonar.organization>${env.SONARCLOUD_ORG}</sonar.organization>
                 <sourceEncoding>UTF-8</sourceEncoding> <!-- in Maven 3. -->
                 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
